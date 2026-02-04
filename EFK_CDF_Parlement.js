@@ -593,10 +593,23 @@ if (shouldDoDailyUpdate() && items.length > 0) {
   console.log(`[DEBUG] Mise à jour quotidienne: ${newIds.length} nouveaux`);
 }
 
-// Affichage ligne "Derniers objets déposés"
-const labelLine = w.addText(cfg.labelLast);
+// Affichage ligne "Derniers objets déposés" avec compteur nouveaux
+const labelStack = w.addStack();
+labelStack.layoutHorizontally();
+labelStack.centerAlignContent();
+
+const labelLine = labelStack.addText(cfg.labelLast);
 labelLine.font = Font.mediumSystemFont(11);
 labelLine.textColor = TEXT_SECONDARY;
+
+if (newIds.length > 0) {
+  labelStack.addSpacer(6);
+  const newLabel = LANG === "fr" ? `(nouveaux : ${newIds.length})` : `(neu: ${newIds.length})`;
+  const newText = labelStack.addText(newLabel);
+  newText.font = Font.mediumSystemFont(11);
+  newText.textColor = new Color("#FF0000"); // Rouge
+}
+
 w.addSpacer(6);
 
 // Affichage des 3 dernières interventions
