@@ -1,0 +1,571 @@
+---
+title: "Geschäfte Verhandlungsmandat EU"
+author: "Fabian Davolio"
+date: '2024-02-08'
+output: html_document
+---
+
+
+
+
+* 14 Frage der Fragestunde
+* 12 + 13 Einfache Anfrage oder dringliche einfache Anfrage
+* 18 + 19 Anfrage oder dringliche Anfrage
+* 9 + 10 Interpellation und dringliche Interpellation
+* 8 Interpellation
+* 6 Postulat
+* 5 Motion
+* 4 Parlamentarische Initiative
+
+```{r include=FALSE}
+# Force HTTP/1.1 to avoid curl HTTP/2 framing errors
+library(httr)
+httr::set_config(httr::config(http_version = 1.1))
+
+packages <- c(
+  "dplyr", "swissparl", "crosstable", "stringr", "openxlsx",
+  "flextable", "tidyr", "hrbrthemes", "ggplot2", "ggrepel", "cowplot", "xfun"
+)
+
+missing <- packages[!vapply(packages, requireNamespace, logical(1), quietly = TRUE)]
+
+if (length(missing) > 0) {
+  stop(
+    "Missing packages: ", paste(missing, collapse = ", "),
+    "\nInstall them with install.packages().",
+    call. = FALSE
+  )
+}
+
+invisible(lapply(packages, library, character.only = TRUE))
+
+
+
+# Settings
+Legislatur <- 52
+Testsession <-5211
+
+
+
+
+# Geschäftstypen (BusinessType IDs)
+Geschäftstyp <- c(14, 13, 12, 18, 19, 9, 10, 8, 6, 5, 4)
+
+# Load sessions of the legislature
+Sessionen <- get_data(
+  table = "Session",
+  Language = "DE",
+  LegislativePeriodNumber = Legislatur
+) |>
+  select(
+    ID,
+    SessionName,
+    StartDate,
+    EndDate
+  )
+
+SessionID <- Sessionen$ID
+
+
+
+
+#Funktionen für später
+
+## Behandlung von NAs
+na0 <- function(x) if_else(is.na(x), "", x)
+
+
+## Suchmuster
+pattern_efk <- regex(
+  "\\b(Eidg(en(ö|oe)ssische)?|Eidg\\.)\\s*Finanzkontrolle\\b|\\(\\s*EFK\\s*\\)",
+  ignore_case = TRUE
+)
+
+```
+
+
+Dieser Abschnitt muss nicht zwingend durchgeführt werden, es handelt sich nur um 
+einen Test
+
+```{r eval = FALSE}
+#Test für eine Session
+
+Geschäfte <- get_data(
+  table = "Business",
+  SubmissionSession = 5203,
+  Language = "DE"
+) |>
+  filter(BusinessType %in% Geschäftstyp) |>
+  select(
+    ID,
+    Title,
+    SubmittedText,
+    ReasonText,
+    FederalCouncilResponseText
+  )
+
+
+Geschäfte <- Geschäfte |>
+  mutate(
+    Text = str_c(
+      na0(Title),
+
+      if_else(!is.na(SubmittedText), " EINGEREICHTER TEXT ", ""),
+      na0(SubmittedText),
+
+      if_else(!is.na(ReasonText), " BEGRÜNDUNG ", ""),
+      na0(ReasonText),
+
+      if_else(!is.na(FederalCouncilResponseText), " ANTWORT BR ", ""),
+      na0(FederalCouncilResponseText),
+
+      sep = " "
+    ),
+
+    Text = strip_html(Text)
+  ) |>
+  select(ID, Text)
+
+
+#Filter nach Finanzkontrolle
+
+Geschäfte_EFK <- Geschäfte |>
+  filter(
+    str_detect(
+      Text,
+      regex("Eidgenössische Finanzkontrolle|\\(EFK\\)", ignore_case = TRUE)
+    )
+  )
+
+
+```
+
+
+
+
+```{r}
+Geschäfte_EFK <- list()
+
+for (sid in SessionID) {
+
+  tmp <- get_data(
+    table = "Business",
+    SubmissionSession = sid,
+    Language = "DE"
+  ) |>
+    filter(BusinessType %in% Geschäftstyp) |>
+    mutate(
+      Text = str_c(
+        na0(Title),
+        na0(SubmittedText),
+        na0(ReasonText),
+        na0(FederalCouncilResponseText),
+        sep = " "
+      ),
+      Text = strip_html(Text)
+    ) |>
+    filter(str_detect(Text, pattern_efk)) |>
+    mutate(SessionID = sid) |>
+    select(SessionID, ID, Text)
+
+  if (nrow(tmp) > 0) {
+    Geschäfte_EFK[[as.character(sid)]] <- tmp
+  }
+}
+
+Geschäfte_EFK <- bind_rows(Geschäfte_EFK)
+
+
+ListeGeschäfte<-Geschäfte_EFK$ID
+```
+
+
+### Daten herunterladen
+
+
+
+* 14 Frage der Fragestunde
+* 12 + 13 Einfache Anfrage oder dringliche einfache Anfrage
+* 18 + 19 Anfrage oder dringliche Anfrage
+* 9 + 10 Interpellation und dringliche Interpellation
+* 8 Interpellation
+* 6 Postulat
+* 5 Motion
+* 4 Parlamentarische Initiative
+
+Man könnte auch weitere Filter einfügen wie zuständiges Departement usw, aber es 
+könnte einen zu agressiven Filter sein
+
+Überflüssige Informationen önnen direkt nach dem Herunterladen gelöscht werden
+```{r}
+ 
+
+DatenFilt <-get_data(table = "Business", ID=c(ListeGeschäfte),
+                     Language="DE")
+
+DatenFilt<-DatenFilt[c(1, 3, 6, 7, 20, 22, 31, 34)]
+DatenGrafiken<-DatenFilt
+```
+
+
+
+```{r}
+DatenFilt$DE<-paste("https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=", DatenFilt$ID, sep = "")
+DatenFilt$FR<-paste("https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=", DatenFilt$ID, sep = "")
+DatenFilt$IT<-paste("https://www.parlament.ch/it/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=", DatenFilt$ID, sep = "")
+```
+
+
+
+
+
+
+
+```{r}
+Liste<-DatenFilt$ID
+
+DatenFilt.it<-get_data(table = "Business", ID=Liste, Language="IT")
+DatenFilt.fr<-get_data(table = "Business", ID=Liste, Language="FR")
+
+DatenFilt.it<-DatenFilt.it[c(1, 6, 7, 20, 22, 34)]
+DatenFilt.fr<-DatenFilt.fr[c(1, 6, 7, 20, 22, 34)]
+
+names(DatenFilt.it)[1] <- "Nummer"
+names(DatenFilt.it)[2] <- "Typ.it"
+names(DatenFilt.it)[3] <- "Titel.it_"
+names(DatenFilt.it)[4] <- "Urh.it"
+names(DatenFilt.it)[5] <- "Status.it"
+names(DatenFilt.it)[6] <- "Rat.it"
+names(DatenFilt.fr)[1] <- "Nummer"
+names(DatenFilt.fr)[2] <- "Typ.fr"
+names(DatenFilt.fr)[3] <- "Titel.fr_"
+names(DatenFilt.fr)[4] <- "Urh.fr"
+names(DatenFilt.fr)[5] <- "Status.fr"
+names(DatenFilt.fr)[6] <- "Rat.fr"
+
+
+names(DatenFilt)[1] <- "Nummer"
+names(DatenFilt)[2] <- "Nr.::No.::n."
+names(DatenFilt)[3] <- "Typ.de"
+names(DatenFilt)[4] <- "Titel"
+names(DatenFilt)[5] <- "Urh.de_"
+names(DatenFilt)[6] <- "Stand"
+names(DatenFilt)[7] <- "Einreichung::Dépôt::Deposito"
+names(DatenFilt)[8] <- "Rat"
+```
+
+
+
+```{r}
+GeschListe<-merge(DatenFilt, DatenFilt.fr, by=c("Nummer", "Nummer"))
+GeschListe<-merge(GeschListe, DatenFilt.it, by=c("Nummer", "Nummer"))
+```
+
+
+```{r}
+GeschListe$Titel.de__<-paste(GeschListe$Urh.de,GeschListe$Titel, sep = ". ")
+GeschListe$Titel.fr__<-paste(GeschListe$Urh.fr,GeschListe$Titel.fr, sep = ". ")
+GeschListe$Titel.it__<-paste(GeschListe$Urh.it,GeschListe$Titel.it, sep = ". ")
+
+GeschListe$Titel.de<-paste(GeschListe$`Typ.de`,GeschListe$Titel.de__, sep = " ")
+GeschListe$Titel.fr<-paste(GeschListe$`Typ.fr`,GeschListe$Titel.fr__, sep = " ")
+GeschListe$Titel.it<-paste(GeschListe$`Typ.it`, GeschListe$Titel.it__, sep = " ")
+
+GeschListe$`Geschäftstitel::Titre de l'objet::Titolo dell'oggetto`<- paste(GeschListe$Titel.de, GeschListe$Titel.fr,
+                                        GeschListe$Titel.it, sep = "::")
+
+GeschListe$`Stand::Etat::Stato` <- paste(GeschListe$`Stand`,GeschListe$Status.fr ,
+                                       GeschListe$Status.it, sep = "::")
+
+GeschListe$`Rat::Cons.::Cons.` <- paste(GeschListe$`Rat`,GeschListe$Rat.fr,
+                                            GeschListe$Rat.it, sep = "::")
+```
+
+
+
+
+```{r}
+
+#GeschListe<-GeschListe[c(5,7,9, 10, 11, 20, 21, 22, 23 )]
+GeschListe<-GeschListe[c(2,7,9, 10, 11, 28, 29, 30 )]
+
+GeschListe$'Link::DE'<- "DE"
+GeschListe$'Link::FR'<- "FR"
+GeschListe$'Link::IT'<- "IT"
+
+GeschListe<-GeschListe[, c(1,8, 6, 2, 7, 9,10,11, 3,4,5)]
+```
+
+
+
+
+```{r}
+write.xlsx(GeschListe, file= "Vorstösse und PaIvs in denen die EFK genannt wird.xlsx", 
+           overwrite = TRUE, asTable = TRUE, sheetName="Liste Geschäfte",
+           startCol="C", StartRow=3)
+
+```
+
+
+
+
+```{r}
+Pfad<-"~/Documents/R_Projects"
+EXPORT_WIDTH  <- 13.5
+EXPORT_HEIGHT <- 12.45
+EXPORT_UNITS  <- "cm"
+EXPORT_DPI    <- 600
+```
+
+
+
+
+
+```{r}
+library(ggplot2)
+library(hrbrthemes)
+
+
+Lollipop <- DatenGrafiken[c(3, 8)]
+Lollipop$Anzahl<-1
+
+Lollipop$SubmissionCouncilAbbreviation[Lollipop$BusinessTypeAbbreviation=="Pet."]<- "BVers"
+Lollipop$SubmissionCouncilAbbreviation[Lollipop$BusinessTypeAbbreviation=="BRG"]<- "BVers"
+
+library(dplyr)
+
+Lollipop <- Lollipop %>%
+  group_by(BusinessTypeAbbreviation, SubmissionCouncilAbbreviation) %>%
+  summarise(
+    Anzahl = sum(Anzahl, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+Lollipop <- Lollipop %>%
+  rename(
+    Geschäftstyp = BusinessTypeAbbreviation,
+    Erstrat     = SubmissionCouncilAbbreviation,
+    Anzahl      = Anzahl
+  )
+
+library(dplyr)
+library(ggplot2)
+library(hrbrthemes)
+
+# Order Geschäftstyp if needed (optional but recommended)
+Lollipop$Geschäftstyp <- factor(
+  Lollipop$Geschäftstyp,
+  levels = rev(unique(Lollipop$Geschäftstyp))
+)
+
+# Data for segments: ONLY NR ↔ SR
+Segments_NR_SR <- Lollipop %>%
+  filter(Erstrat %in% c("NR", "SR")) %>%
+  tidyr::pivot_wider(
+    names_from  = Erstrat,
+    values_from = Anzahl
+  ) %>%
+  filter(!is.na(NR) & !is.na(SR))
+
+
+ggplot() +
+
+  # ---- Connecting lines ONLY for NR–SR ----
+  geom_segment(
+    data = Segments_NR_SR,
+    aes(
+      x = Geschäftstyp,
+      xend = Geschäftstyp,
+      y = NR,
+      yend = SR
+    ),
+    color = "grey50",
+    size = 0.8
+  ) +
+
+  # ---- Points ----
+  geom_point(
+    data = Lollipop,
+    aes(
+      x = Geschäftstyp,
+      y = Anzahl,
+      color = Erstrat
+    ),
+    size = 7,
+    alpha = 0.85
+  ) +
+
+  # ---- Value labels (optional, remove if not needed) ----
+  geom_text(
+    data = Lollipop,
+    aes(
+      x = Geschäftstyp,
+      y = Anzahl,
+      label = Anzahl
+    ),
+    color = "white",
+    size = 3,
+    fontface = "bold"
+  ) +
+
+  # ---- Colors & legend ----
+  scale_color_manual(
+    values = c(
+      "NR"    = "#5886ac",
+      "SR"    = "#ecc776",
+      "BVers" = "#e30613"
+    ),
+    guide = guide_legend(reverse = TRUE)
+  ) +
+
+  coord_flip() +
+
+  theme_ipsum() +
+  theme(
+    axis.title = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
+    legend.title = element_blank(),
+    legend.position = "bottom",
+    legend.text = element_text(size = 8)
+  ) +
+
+  labs(
+    x = "Geschäftstyp",
+    y = "Anzahl"
+  )
+
+ggsave2("Eingereicht_typ_Rat.png", path   = Pfad,
+  width  = EXPORT_WIDTH,
+  height = EXPORT_HEIGHT,
+  units  = EXPORT_UNITS,
+  dpi    = EXPORT_DPI)
+
+```
+
+```{r}
+
+
+library(dplyr)
+library(ggplot2)
+library(hrbrthemes)
+
+Liniendiagramm <- DatenGrafiken[c(7)]
+names(Liniendiagramm) <- "Datum"
+
+Liniendiagramm$Anzahl <- 1
+
+Liniendiagramm$Datum <- as.Date(Liniendiagramm$Datum)
+
+
+
+
+################
+library(dplyr)
+
+Liniendiagramm_monat <- Liniendiagramm %>%
+  mutate(
+    Monat = as.Date(format(Datum, "%Y-%m-01"))
+  ) %>%
+  group_by(Monat) %>%
+  summarise(
+    Anzahl = sum(Anzahl),
+    .groups = "drop"
+  )
+
+library(ggplot2)
+library(hrbrthemes)
+
+ggplot(Liniendiagramm_monat, aes(x = Monat, y = Anzahl)) +
+  geom_line(
+    color = "#407572",
+    linewidth = 1
+  ) +
+  geom_point(
+    color = "#407572",
+    size = 2.5
+  ) +
+  scale_x_date(
+    date_labels = "%Y-%m",   # Show Year-Month
+    date_breaks = "1 month"  # Adjust to show every month
+  ) +
+  theme_ipsum() +
+  theme(
+    axis.title = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.text.x = element_text(angle = 45, hjust = 1) # Rotate 45°
+  ) +
+  labs(
+    x = "Monat",
+    y = "Anzahl"
+  )
+
+
+ggsave2("Eingereicht_Monat.png", path   = Pfad,
+  width  = EXPORT_WIDTH,
+  height = EXPORT_HEIGHT,
+  units  = EXPORT_UNITS,
+  dpi    = EXPORT_DPI)
+
+
+```
+
+```{r}
+Balkendiagramm <- DatenGrafiken[c(3, 6)]
+Balkendiagramm$Anzahl <- 1
+
+
+
+
+library(ggplot2)
+library(hrbrthemes)
+library(dplyr)
+
+# Rename columns correctly
+names(Balkendiagramm)[names(Balkendiagramm) == "BusinessStatusText"] <- "Stand"
+names(Balkendiagramm)[names(Balkendiagramm) == "BusinessTypeAbbreviation"] <- "Geschäftstyp"
+
+# Aggregate by Stand and Geschäftstyp
+Balkendiagramm_summary <- Balkendiagramm %>%
+  group_by(Stand, Geschäftstyp) %>%
+  summarise(Anzahl = sum(Anzahl), .groups = "drop")
+
+# Define custom color palette
+custom_colors <- c("#ee765e", "#8ea6a0", "#407572", "#5a6a83", "#6586a9", "#63566f")
+
+# Plot
+ggplot(Balkendiagramm_summary, aes(x = Anzahl, y = Stand, fill = Geschäftstyp)) +
+  geom_col(width = 0.7, alpha = 0.8, show.legend = TRUE) +
+  geom_text(aes(label = ifelse(Anzahl >= 5, Anzahl, "")), 
+            position = position_stack(vjust = 0.5),
+            color = "white", size = 3.5, fontface = "bold") +
+  scale_fill_manual(values = custom_colors) +
+
+  theme_ipsum() +
+  theme(
+    axis.title = element_blank(),
+    axis.text.x = element_text(size = 8.1),
+    axis.text.y = element_text(size = 8.1),
+    legend.position = "bottom",
+    legend.title = element_blank(),
+    legend.text = element_text(size = 8),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
+    plot.background = element_rect(fill = "white", color = NA),
+    panel.background = element_rect(fill = "white", color = NA)
+  ) +
+  labs(
+    x = "Anzahl",
+    y = "Stand"
+  )
+
+ggsave2("Stand.png", path   = Pfad,
+  width  = EXPORT_WIDTH,
+  height = EXPORT_HEIGHT,
+  units  = EXPORT_UNITS,
+  dpi    = EXPORT_DPI)
+```
+
+

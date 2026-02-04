@@ -294,7 +294,7 @@ if (length(IDs_A_Traiter) > 0) {
   
   # Renommer les colonnes
   names(Nouveaux_Resultats) <- c(
-    "ID", "Numéro", "Type", "Titre_DE", "Auteur", 
+    "ID", "Numéro", "Type", "Titre_DE", "Auteur",
     "Statut_DE", "Date_dépôt", "Conseil",
     "Titre_FR", "Statut_FR", "Langue_détection",
     "Lien_DE", "Lien_FR"
