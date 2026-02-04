@@ -16,6 +16,7 @@ This project provides:
 - **Automatic deduplication** of results
 - **Multiple export formats**: Excel (.xlsx) and JSON
 - **GitHub-hosted data**: Widget fetches data from GitHub (no iCloud sync required)
+- **Automated updates**: GitHub Actions runs weekly (Sunday 23h)
 - **Multi-layer fallback**: GitHub → Local module → Cache → Parliament API
 
 ## Requirements
@@ -123,6 +124,15 @@ This project uses:
 
 MIT License
 
+## Automation
+
+A GitHub Action runs automatically **every Sunday at 23h (Swiss time)** to update the data:
+- Executes the R script
+- Commits updated JSON and Excel files
+- No manual intervention required
+
+You can also trigger it manually from the **Actions** tab on GitHub.
+
 ## Author
 
-Swiss Federal Audit Office (SFAO) / Contrôle fédéral des finances (CDF) / Eidgenössische Finanzkontrolle (EFK)
+Arnaud Bonvin
