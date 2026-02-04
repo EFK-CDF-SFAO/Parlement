@@ -99,7 +99,17 @@ IDs_Existants <- c()
 
 if (file.exists(FICHIER_EXCEL)) {
   cat("Chargement des données existantes depuis", FICHIER_EXCEL, "...\n")
-  Donnees_Existantes <- read.xlsx(FICHIER_EXCEL)
+  Donnees_Existantes <- read.xlsx(FICHIER_EXCEL, detectDates = TRUE)
+  
+  # Convertir les dates numériques Excel en dates lisibles
+  if ("Date_dépôt" %in% names(Donnees_Existantes)) {
+    Donnees_Existantes <- Donnees_Existantes |>
+      mutate(Date_dépôt = case_when(
+        is.numeric(Date_dépôt) ~ format(as.Date(Date_dépôt, origin = "1899-12-30"), "%Y-%m-%d"),
+        TRUE ~ as.character(Date_dépôt)
+      ))
+  }
+  
   IDs_Existants <- Donnees_Existantes$ID
   cat("  ->", nrow(Donnees_Existantes), "interventions existantes\n\n")
 } else {
