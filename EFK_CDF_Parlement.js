@@ -181,13 +181,35 @@ async function fetchAffairById(id) {
   return await fetchJSON(url);
 }
 
-async function fetchCouncillorParty(councillorId) {
-  if (!councillorId) return null;
-  const url = `${API_BASE}/councillors/${councillorId}?format=json&lang=${encodeURIComponent(cfg.apiLang)}`;
+// Récupérer le parti via l'API OData du Parlement
+async function fetchPartyForBusiness(businessId) {
+  if (!businessId) return null;
+  const lang = LANG === "de" ? "DE" : "FR";
   try {
-    const c = await fetchJSON(url);
-    return c?.party?.abbreviation || c?.partyAbbreviation || null;
-  } catch (_) {
+    // 1. Récupérer le BusinessRole avec Role=1 (auteur)
+    const roleUrl = `https://ws.parlament.ch/odata.svc/BusinessRole?$filter=BusinessNumber%20eq%20${businessId}%20and%20Role%20eq%201&$format=json`;
+    const roleReq = new Request(roleUrl);
+    roleReq.timeoutInterval = 10;
+    const roleData = JSON.parse(await roleReq.loadString());
+    
+    const roles = roleData?.d?.results || [];
+    if (roles.length === 0) return null;
+    
+    const memberNumber = roles[0]?.MemberCouncilNumber;
+    if (!memberNumber) return null;
+    
+    // 2. Récupérer le parti via MemberCouncil
+    const memberUrl = `https://ws.parlament.ch/odata.svc/MemberCouncil?$filter=PersonNumber%20eq%20${memberNumber}%20and%20Language%20eq%20'${lang}'&$format=json`;
+    const memberReq = new Request(memberUrl);
+    memberReq.timeoutInterval = 10;
+    const memberData = JSON.parse(await memberReq.loadString());
+    
+    const members = memberData?.d?.results || [];
+    if (members.length === 0) return null;
+    
+    return members[0]?.PartyAbbreviation || null;
+  } catch (e) {
+    console.log(`[DEBUG] Erreur récupération parti: ${e}`);
     return null;
   }
 }
@@ -542,6 +564,22 @@ w.addSpacer(6);
 
 // Affichage des 3 dernières interventions
 const last5 = items.slice(0, 3);
+
+// Récupérer les partis pour les items affichés (si pas déjà présent)
+for (const item of last5) {
+  if (!item.party && item.shortId) {
+    // Extraire l'ID numérique du shortId (ex: "25.4785" -> 20254785)
+    const parts = item.shortId.split(".");
+    if (parts.length === 2) {
+      const businessId = parseInt("20" + parts[0] + parts[1].padStart(4, "0"));
+      if (!isNaN(businessId)) {
+        try {
+          item.party = await fetchPartyForBusiness(businessId);
+        } catch (_) {}
+      }
+    }
+  }
+}
 
 if (!last5.length) {
   console.warn("[WARN] Aucun résultat à afficher");
