@@ -408,12 +408,13 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
     mutate(
       shortId = Numéro,
       title = Titre_FR,
+      title_de = Titre_DE,
       author = Auteur,
       updated = as.character(Date_dépôt),
       url_fr = Lien_FR,
       url_de = Lien_DE
     ) |>
-    select(shortId, title, author, Type, updated, url_fr, url_de)
+    select(shortId, title, title_de, author, Type, updated, url_fr, url_de)
   
   json_js <- jsonlite::toJSON(Derniers_JS, pretty = TRUE, auto_unbox = TRUE)
   
