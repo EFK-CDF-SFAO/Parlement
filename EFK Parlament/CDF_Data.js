@@ -1,0 +1,98 @@
+// Données CDF/EFK - Généré automatiquement par Recherche_CDF_EFK.R
+// Dernière mise à jour: 2026-02-02 21:48:00.004761
+
+const CDF_DATA = [
+  {
+    "shortId": "25.4785",
+    "title": "La rémunération des tâches confiées à l'OFDF dans les aéroports de Genève et Bâle doit profiter à l'OFDF !",
+    "author": "Addor Jean-Luc",
+    "Type": "Mo.",
+    "updated": "2025-12-19",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785"
+  },
+  {
+    "shortId": "25.4620",
+    "title": "Favoriser la fiabilité de l’IA en Suisse en rendant réutilisables les données de l’administration fédérale",
+    "author": "Michel Matthias",
+    "Type": "Mo.",
+    "updated": "2025-12-18",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620"
+  },
+  {
+    "shortId": "25.4696",
+    "title": "Assurer la transparence quant à l'efficacité des subventions accordées à toutes les technologies renouvelables",
+    "author": "Grossen Jürg",
+    "Type": "Ip.",
+    "updated": "2025-12-18",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696"
+  },
+  {
+    "shortId": "25.8194",
+    "title": "Imagerie médicale en Suisse romande : quel lien entre moratoires, volume d’examens et coûts ?",
+    "author": "Kolly Nicolas",
+    "Type": "Fra.",
+    "updated": "2025-12-10",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194"
+  },
+  {
+    "shortId": "25.8273",
+    "title": "Des revenus couvrant les coûts liés à la protection des espèces ? ",
+    "author": "Trede Aline",
+    "Type": "Fra.",
+    "updated": "2025-12-10",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273"
+  },
+  {
+    "shortId": "25.4463",
+    "title": "Trois nouveaux groupes de tâches pour le projet \"Désenchevêtrement 27\"",
+    "author": "Wettstein Felix",
+    "Type": "Mo.",
+    "updated": "2025-12-04",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"
+  },
+  {
+    "shortId": "25.4281",
+    "title": "Coordination plus efficace des moyens de transport dans le cadre des programmes d'agglomération",
+    "author": "Tuosto Brenda",
+    "Type": "Po.",
+    "updated": "2025-09-26",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281"
+  },
+  {
+    "shortId": "25.4317",
+    "title": "Renforcer la surveillance de la SSR tout en préservant l'autonomie des programmes",
+    "author": "Dobler Marcel",
+    "Type": "Mo.",
+    "updated": "2025-09-26",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317"
+  },
+  {
+    "shortId": "25.4145",
+    "title": "Optimiser l'examen des subventions pour garantir la santé des finances fédérales",
+    "author": "Gapany Johanna",
+    "Type": "Mo.",
+    "updated": "2025-09-25",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145"
+  },
+  {
+    "shortId": "25.4188",
+    "title": "Garantir la sécurité de l'approvisionnement et un accès rapide aux médicaments innovants",
+    "author": "Schmid Martin",
+    "Type": "Mo.",
+    "updated": "2025-09-25",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188"
+  }
+];
+
+module.exports = CDF_DATA;
+
