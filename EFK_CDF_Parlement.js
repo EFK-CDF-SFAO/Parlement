@@ -27,8 +27,8 @@ const GITHUB_JSON_URL = "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_P
 const DATA_MODULE = "CDF_Data";
 
 // URLs Curia Vista (clic sur le widget)
-const CV_FR = 'https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/suche-im-amtlichen-bulletin?k=Contr%C3%B4le%20f%C3%A9d%C3%A9ral%20des%20finances';
-const CV_DE = 'https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/suche-im-amtlichen-bulletin?k=Eidgen%C3%B6ssische%20Finanzkontrolle';
+const CV_FR = 'https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista#k=%22Contr%C3%B4le%20f%C3%A9d%C3%A9ral%20des%20finances%22';
+const CV_DE = 'https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista#k=%22Eidgen%C3%B6ssische%20Finanzkontrolle%22';
 
 // API Open Data
 const API_BASE = "https://ws-old.parlament.ch";
