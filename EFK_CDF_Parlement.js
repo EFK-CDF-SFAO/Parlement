@@ -181,33 +181,69 @@ async function fetchAffairById(id) {
   return await fetchJSON(url);
 }
 
-// Récupérer le parti via l'API OData du Parlement
-async function fetchPartyForBusiness(businessId) {
-  if (!businessId) return null;
-  const lang = LANG === "de" ? "DE" : "FR";
+// Mapping des partis selon la langue (API -> affichage)
+const PARTY_MAP = {
+  fr: {
+    "SVP": "UDC", "UDC": "UDC",
+    "FDP": "PLR", "PLR": "PLR", "FDP-Liberale": "PLR",
+    "GLP": "vert'libéraux", "PVL": "vert'libéraux",
+    "Mitte": "Centre", "Die Mitte": "Centre", "Le Centre": "Centre",
+    "SP": "PS", "PS": "PS",
+    "Grüne": "Les Verts", "VERT": "Les Verts", "Les Verts": "Les Verts", "GPS": "Les Verts",
+    "MCG": "MCG",
+    "EDU": "UDF", "UDF": "UDF",
+  },
+  de: {
+    "UDC": "SVP", "SVP": "SVP",
+    "PLR": "FDP", "FDP": "FDP", "FDP-Liberale": "FDP",
+    "PVL": "GLP", "GLP": "GLP", "vert'libéraux": "GLP",
+    "Centre": "Mitte", "Le Centre": "Mitte", "Die Mitte": "Mitte", "Mitte": "Mitte",
+    "PS": "SP", "SP": "SP",
+    "Les Verts": "Grüne", "VERT": "Grüne", "Grüne": "Grüne", "GPS": "Grüne",
+    "MCG": "MCG",
+    "UDF": "EDU", "EDU": "EDU",
+  }
+};
+
+function translateParty(apiParty) {
+  if (!apiParty) return null;
+  const map = PARTY_MAP[LANG] || PARTY_MAP.fr;
+  return map[apiParty] || apiParty;
+}
+
+// Récupérer le parti via l'API OData du Parlement (par nom de famille)
+async function fetchPartyByAuthorName(authorName) {
+  if (!authorName) return null;
   try {
-    // 1. Récupérer le BusinessRole avec Role=1 (auteur)
-    const roleUrl = `https://ws.parlament.ch/odata.svc/BusinessRole?$filter=BusinessNumber%20eq%20${businessId}%20and%20Role%20eq%201&$format=json`;
-    const roleReq = new Request(roleUrl);
-    roleReq.timeoutInterval = 10;
-    const roleData = JSON.parse(await roleReq.loadString());
+    // Extraire le nom de famille (premier mot du nom complet "Nom Prénom")
+    const parts = authorName.trim().split(/\s+/);
+    if (parts.length === 0) return null;
+    const lastName = parts[0];
     
-    const roles = roleData?.d?.results || [];
-    if (roles.length === 0) return null;
+    console.log(`[DEBUG] Recherche parti pour: ${lastName}`);
     
-    const memberNumber = roles[0]?.MemberCouncilNumber;
-    if (!memberNumber) return null;
-    
-    // 2. Récupérer le parti via MemberCouncil
-    const memberUrl = `https://ws.parlament.ch/odata.svc/MemberCouncil?$filter=PersonNumber%20eq%20${memberNumber}%20and%20Language%20eq%20'${lang}'&$format=json`;
+    // Chercher le MemberCouncil par nom de famille
+    const memberUrl = `https://ws.parlament.ch/odata.svc/MemberCouncil?$filter=LastName%20eq%20'${encodeURIComponent(lastName)}'%20and%20Language%20eq%20'DE'%20and%20Active%20eq%20true&$format=json`;
     const memberReq = new Request(memberUrl);
     memberReq.timeoutInterval = 10;
     const memberData = JSON.parse(await memberReq.loadString());
     
     const members = memberData?.d?.results || [];
+    console.log(`[DEBUG] MemberCouncil trouvés: ${members.length}`);
+    
     if (members.length === 0) return null;
     
-    return members[0]?.PartyAbbreviation || null;
+    // Si plusieurs résultats, essayer de matcher avec le prénom
+    let member = members[0];
+    if (members.length > 1 && parts.length > 1) {
+      const firstName = parts.slice(1).join(" ");
+      const match = members.find(m => m.FirstName === firstName);
+      if (match) member = match;
+    }
+    
+    const apiParty = member?.PartyAbbreviation;
+    console.log(`[DEBUG] Parti API: ${apiParty}`);
+    return translateParty(apiParty);
   } catch (e) {
     console.log(`[DEBUG] Erreur récupération parti: ${e}`);
     return null;
@@ -567,17 +603,10 @@ const last5 = items.slice(0, 3);
 
 // Récupérer les partis pour les items affichés (si pas déjà présent)
 for (const item of last5) {
-  if (!item.party && item.shortId) {
-    // Extraire l'ID numérique du shortId (ex: "25.4785" -> 20254785)
-    const parts = item.shortId.split(".");
-    if (parts.length === 2) {
-      const businessId = parseInt("20" + parts[0] + parts[1].padStart(4, "0"));
-      if (!isNaN(businessId)) {
-        try {
-          item.party = await fetchPartyForBusiness(businessId);
-        } catch (_) {}
-      }
-    }
+  if (!item.party && item.author) {
+    try {
+      item.party = await fetchPartyByAuthorName(item.author);
+    } catch (_) {}
   }
 }
 
