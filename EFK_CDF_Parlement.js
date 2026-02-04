@@ -564,5 +564,16 @@ if (!last5.length) {
   }
 }
 
+// Footer avec date de dernière mise à jour
+w.addSpacer();
+const lastFetch = fm.fileExists(PATH_LAST_FETCH) 
+  ? new Date(readText(PATH_LAST_FETCH))
+  : new Date();
+const footerLabel = LANG === "fr" ? "Mise à jour" : "Aktualisiert";
+const footer = w.addText(`${footerLabel}: ${lastFetch.toLocaleDateString(LANG === "fr" ? "fr-CH" : "de-CH")}`);
+footer.font = Font.systemFont(7);
+footer.textColor = TEXT_SECONDARY;
+footer.centerAlignText();
+
 Script.setWidget(w);
 Script.complete();
