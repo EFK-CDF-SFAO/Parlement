@@ -39,7 +39,7 @@ const INTERVENTION_TYPE_IDS = new Set([5, 6, 8, 9, 11, 13]);
 
 const CFG = {
   fr: {
-    title: "Le CDF au Parlement",
+    title: "CDF - Parlement",
     keyword: "Contrôle fédéral des finances",
     openUrl: CV_FR,
     apiLang: "fr",
@@ -47,7 +47,7 @@ const CFG = {
     labelLast: "Derniers objets déposés",
   },
   de: {
-    title: "Die EFK im Parlament",
+    title: "EFK - Parlament",
     keyword: "Eidgenössische Finanzkontrolle",
     openUrl: CV_DE,
     apiLang: "de",
@@ -70,10 +70,10 @@ const LANG = detectLang();
 const cfg = CFG[LANG];
 
 // --- Couleurs dynamiques (Light/Dark) ---
-const BG = Color.dynamic(new Color("#FFFFFF"), new Color("#1C1C1E"));
-const TEXT_PRIMARY = Color.dynamic(new Color("#000000"), new Color("#FFFFFF"));
-const TEXT_SECONDARY = Color.dynamic(new Color("#666666"), new Color("#AAAAAA"));
-const ACCENT = Color.dynamic(new Color("#E30613"), new Color("#FF6B6B"));
+const BG = Color.dynamic(new Color("#001F3F"), new Color("#001F3F")); // Bleu marine
+const TEXT_PRIMARY = Color.dynamic(new Color("#FFFFFF"), new Color("#FFFFFF"));
+const TEXT_SECONDARY = Color.dynamic(new Color("#B0C4DE"), new Color("#B0C4DE")); // Light steel blue
+const ACCENT = Color.dynamic(new Color("#FFD700"), new Color("#FFD700")); // Or
 
 // --- Cache ---
 const fm = FileManager.local();
