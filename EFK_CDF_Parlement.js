@@ -412,7 +412,8 @@ function addNewLine(w, label, ids, color) {
 }
 
 function addItemBlock(w, item) {
-  const header = `${item.shortId} — ${clamp(item.title, 60)}`;
+  const title = LANG === "de" && item.title_de ? item.title_de : item.title;
+  const header = `${item.shortId} — ${clamp(title, 60)}`;
   const h = w.addText(header);
   h.font = Font.boldSystemFont(10);
   h.textColor = TEXT_PRIMARY;
