@@ -1,96 +1,96 @@
 // Données CDF/EFK - Généré automatiquement par Recherche_CDF_EFK.R
-// Dernière mise à jour: 2026-02-02 21:48:00.004761
+// Dernière mise à jour: 2026-02-04 10:57:54.193979
 
 const CDF_DATA = [
   {
-    "shortId": "25.4785",
-    "title": "La rémunération des tâches confiées à l'OFDF dans les aéroports de Genève et Bâle doit profiter à l'OFDF !",
-    "author": "Addor Jean-Luc",
+    "shortId": "25.3835",
+    "title": "Encourager des produits chimiques sûrs et durables",
+    "author": "Silberschmidt Andri",
     "Type": "Mo.",
-    "updated": "2025-12-19",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785"
+    "updated": "45828",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253835",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253835"
   },
   {
-    "shortId": "25.4620",
-    "title": "Favoriser la fiabilité de l’IA en Suisse en rendant réutilisables les données de l’administration fédérale",
-    "author": "Michel Matthias",
-    "Type": "Mo.",
-    "updated": "2025-12-18",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620"
-  },
-  {
-    "shortId": "25.4696",
-    "title": "Assurer la transparence quant à l'efficacité des subventions accordées à toutes les technologies renouvelables",
-    "author": "Grossen Jürg",
+    "shortId": "25.3845",
+    "title": "Protéger nos enfants des pesticides. Renforcer la recherche et les mesures de prévention",
+    "author": "Clivaz Christophe",
     "Type": "Ip.",
-    "updated": "2025-12-18",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696"
+    "updated": "45828",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253845",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253845"
   },
   {
-    "shortId": "25.8194",
-    "title": "Imagerie médicale en Suisse romande : quel lien entre moratoires, volume d’examens et coûts ?",
-    "author": "Kolly Nicolas",
-    "Type": "Fra.",
-    "updated": "2025-12-10",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194"
-  },
-  {
-    "shortId": "25.8273",
-    "title": "Des revenus couvrant les coûts liés à la protection des espèces ? ",
-    "author": "Trede Aline",
-    "Type": "Fra.",
-    "updated": "2025-12-10",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273"
-  },
-  {
-    "shortId": "25.4463",
-    "title": "Trois nouveaux groupes de tâches pour le projet \"Désenchevêtrement 27\"",
-    "author": "Wettstein Felix",
+    "shortId": "25.3855",
+    "title": "Encourager des produits chimiques sûrs et durables",
+    "author": "Mühlemann Benjamin",
     "Type": "Mo.",
-    "updated": "2025-12-04",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"
+    "updated": "45828",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253855",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253855"
   },
   {
-    "shortId": "25.4281",
-    "title": "Coordination plus efficace des moyens de transport dans le cadre des programmes d'agglomération",
-    "author": "Tuosto Brenda",
+    "shortId": "25.3880",
+    "title": "Feu vert donné au Tardoc. Avec quelle protection pour les payeurs de primes ? (1)",
+    "author": "Buffat Michaël",
+    "Type": "Ip.",
+    "updated": "45828",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253880",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253880"
+  },
+  {
+    "shortId": "25.3892",
+    "title": "L’évaluation des technologies de la santé, un instrument important qui doit être mieux utilisé",
+    "author": "Hess Lorenz",
+    "Type": "Ip.",
+    "updated": "45828",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253892",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253892"
+  },
+  {
+    "shortId": "25.3893",
+    "title": " Transparence et justification des réserves financières de la Suva et contrôle du CDF",
+    "author": "Ruch Daniel",
     "Type": "Po.",
-    "updated": "2025-09-26",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281"
+    "updated": "45828",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253893",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253893"
   },
   {
-    "shortId": "25.4317",
-    "title": "Renforcer la surveillance de la SSR tout en préservant l'autonomie des programmes",
-    "author": "Dobler Marcel",
+    "shortId": "25.3730",
+    "title": "Assainissement des sites contaminés par les PFAS. Application effective du principe du pollueur-payeur",
+    "author": "Klopfenstein Broggini Delphine",
     "Type": "Mo.",
-    "updated": "2025-09-26",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317"
+    "updated": "45827",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253730",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253730"
   },
   {
-    "shortId": "25.4145",
-    "title": "Optimiser l'examen des subventions pour garantir la santé des finances fédérales",
-    "author": "Gapany Johanna",
-    "Type": "Mo.",
-    "updated": "2025-09-25",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145"
+    "shortId": "25.3630",
+    "title": "Assurer à long terme et de manière durable la sécurité financière des aérodromes régionaux suisses",
+    "author": "Wicki Hans",
+    "Type": "Ip.",
+    "updated": "45825",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253630",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253630"
   },
   {
-    "shortId": "25.4188",
-    "title": "Garantir la sécurité de l'approvisionnement et un accès rapide aux médicaments innovants",
-    "author": "Schmid Martin",
+    "shortId": "25.3637",
+    "title": "Mesures contraignantes en cas de hausse excessive des coûts, y compris pour les tarifs \"officiels\" définis dans la LAMal",
+    "author": "Engler Stefan",
     "Type": "Mo.",
-    "updated": "2025-09-25",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188"
+    "updated": "45825",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253637",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253637"
+  },
+  {
+    "shortId": "25.7355",
+    "title": "Propriété non élucidée de chars Leopard I",
+    "author": "Heimgartner Stefanie",
+    "Type": "Fra.",
+    "updated": "45812",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257355",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257355"
   }
 ];
 
