@@ -208,7 +208,8 @@ const PARTY_MAP = {
 function translateParty(apiParty) {
   if (!apiParty) return null;
   const map = PARTY_MAP[LANG] || PARTY_MAP.fr;
-  return map[apiParty] || apiParty;
+  // Chercher d'abord exact, puis en majuscules
+  return map[apiParty] || map[apiParty.toUpperCase()] || apiParty;
 }
 
 // Récupérer le parti via l'API OData du Parlement (par nom de famille)
