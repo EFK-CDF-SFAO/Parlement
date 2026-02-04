@@ -290,11 +290,19 @@ if (length(IDs_A_Traiter) > 0) {
     "Lien_DE", "Lien_FR"
   )
   
+  # Convertir Date_dépôt en caractère pour éviter les conflits de type
+  Nouveaux_Resultats <- Nouveaux_Resultats |>
+    mutate(Date_dépôt = as.character(Date_dépôt))
+  
   # ============================================================================
   # FUSIONNER AVEC LES DONNÉES EXISTANTES
   # ============================================================================
   
   if (!is.null(Donnees_Existantes)) {
+    # Convertir les dates existantes en caractère aussi
+    Donnees_Existantes <- Donnees_Existantes |>
+      mutate(Date_dépôt = as.character(Date_dépôt))
+    
     # Retirer les objets mis à jour des données existantes
     Donnees_Existantes_Filtrees <- Donnees_Existantes |>
       filter(!ID %in% IDs_A_Mettre_A_Jour)
