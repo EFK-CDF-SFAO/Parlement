@@ -272,6 +272,15 @@ Geschaefte_Uniques <- Tous_Geschaefte |>
 Nouveaux_IDs <- setdiff(Geschaefte_Uniques$ID, IDs_Existants)
 IDs_A_Mettre_A_Jour <- intersect(Geschaefte_Uniques$ID, IDs_Existants)
 
+# Ajouter les IDs avec Mention "À recalculer" pour forcer leur recalcul
+if (!is.null(Donnees_Existantes) && "Mention" %in% names(Donnees_Existantes)) {
+  IDs_A_Recalculer <- Donnees_Existantes |>
+    filter(Mention == "À recalculer") |>
+    pull(ID)
+  IDs_A_Mettre_A_Jour <- unique(c(IDs_A_Mettre_A_Jour, IDs_A_Recalculer))
+  cat("Objets à recalculer (Mention):", length(IDs_A_Recalculer), "\n")
+}
+
 cat("Nouveaux objets:", length(Nouveaux_IDs), "\n")
 cat("Objets à mettre à jour:", length(IDs_A_Mettre_A_Jour), "\n\n")
 
