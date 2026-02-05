@@ -110,6 +110,22 @@ if (file.exists(FICHIER_EXCEL)) {
       ))
   }
   
+  # Migration de l'ancienne structure vers la nouvelle si nécessaire
+  if ("Statut_DE" %in% names(Donnees_Existantes) && !"Statut" %in% names(Donnees_Existantes)) {
+    cat("  -> Migration de l'ancienne structure de colonnes...\n")
+    Donnees_Existantes <- Donnees_Existantes |>
+      mutate(
+        Statut = paste0(na0(Statut_DE), " / ", na0(Statut_FR)),
+        Mention = "À recalculer"
+      ) |>
+      select(ID, Numéro, Type, Auteur, Date_dépôt, Conseil, Titre_DE, Titre_FR, 
+             Statut, Lien_DE, Lien_FR, Mention)
+  } else if (!"Mention" %in% names(Donnees_Existantes)) {
+    # Ajouter la colonne Mention si elle n'existe pas (nouvelle structure sans Mention)
+    Donnees_Existantes <- Donnees_Existantes |>
+      mutate(Mention = "À recalculer")
+  }
+  
   IDs_Existants <- Donnees_Existantes$ID
   cat("  ->", nrow(Donnees_Existantes), "interventions existantes\n\n")
 } else {
@@ -269,16 +285,17 @@ if (length(IDs_A_Traiter) > 0) {
   
   cat("Récupération des détails pour", length(IDs_A_Traiter), "objets...\n")
   
-  # Données en allemand
+  # Données en allemand (avec textes pour détection de mention)
   Daten_DE <- get_data(table = "Business", ID = IDs_A_Traiter, Language = "DE") |>
     select(ID, BusinessShortNumber, BusinessTypeAbbreviation, Title, 
-           SubmittedBy, BusinessStatusText, SubmissionDate, SubmissionCouncilAbbreviation)
+           SubmittedBy, BusinessStatusText, SubmissionDate, SubmissionCouncilAbbreviation,
+           SubmittedText, ReasonText, FederalCouncilResponseText)
   
-  # Données en français
+  # Données en français (avec textes pour détection de mention)
   Daten_FR <- get_data(table = "Business", ID = IDs_A_Traiter, Language = "FR") |>
-    select(ID, Title, BusinessStatusText)
+    select(ID, Title, BusinessStatusText, SubmittedText, ReasonText, FederalCouncilResponseText)
   
-  names(Daten_FR) <- c("ID", "Titre_FR", "Statut_FR")
+  names(Daten_FR) <- c("ID", "Titre_FR", "Statut_FR", "SubmittedText_FR", "ReasonText_FR", "FederalCouncilResponseText_FR")
   
   # Fusion
   Nouveaux_Resultats <- Daten_DE |>
@@ -288,17 +305,49 @@ if (length(IDs_A_Traiter) > 0) {
       by = "ID"
     ) |>
     mutate(
+      # Combiner les textes de question (DE + FR)
+      Texte_Question = paste(
+        na0(SubmittedText), na0(ReasonText),
+        na0(SubmittedText_FR), na0(ReasonText_FR),
+        sep = " "
+      ) |> strip_html(),
+      # Combiner les textes de réponse (DE + FR)
+      Texte_Reponse = paste(
+        na0(FederalCouncilResponseText),
+        na0(FederalCouncilResponseText_FR),
+        sep = " "
+      ) |> strip_html(),
+      # Détecter où la mention apparaît
+      Mention_Elu = str_detect(Texte_Question, pattern_efk_de) | str_detect(Texte_Question, pattern_cdf_fr),
+      Mention_CF = str_detect(Texte_Reponse, pattern_efk_de) | str_detect(Texte_Reponse, pattern_cdf_fr),
+      # Créer la colonne Mention
+      Mention = case_when(
+        Mention_Elu & Mention_CF ~ "Élu & Conseil fédéral",
+        Mention_Elu ~ "Élu",
+        Mention_CF ~ "Conseil fédéral",
+        TRUE ~ "Titre uniquement"
+      ),
+      # Fusionner les statuts DE et FR
+      Statut = paste0(BusinessStatusText, " / ", Statut_FR),
+      # Créer les liens
       Lien_DE = paste0("https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=", ID),
       Lien_FR = paste0("https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=", ID)
+    ) |>
+    # Sélectionner et réorganiser les colonnes dans l'ordre demandé
+    select(
+      ID,
+      Numéro = BusinessShortNumber,
+      Type = BusinessTypeAbbreviation,
+      Auteur = SubmittedBy,
+      Date_dépôt = SubmissionDate,
+      Conseil = SubmissionCouncilAbbreviation,
+      Titre_DE = Title,
+      Titre_FR,
+      Statut,
+      Lien_DE,
+      Lien_FR,
+      Mention
     )
-  
-  # Renommer les colonnes
-  names(Nouveaux_Resultats) <- c(
-    "ID", "Numéro", "Type", "Titre_DE", "Auteur",
-    "Statut_DE", "Date_dépôt", "Conseil",
-    "Titre_FR", "Statut_FR", "Langue_détection",
-    "Lien_DE", "Lien_FR"
-  )
   
   # Convertir Date_dépôt en caractère pour éviter les conflits de type
   Nouveaux_Resultats <- Nouveaux_Resultats |>
@@ -365,15 +414,15 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       title_de = Titre_DE,
       author = Auteur,
       type = Type,
-      status = Statut_FR,
-      status_de = Statut_DE,
+      status = Statut,
       council = Conseil,
       date = as.character(Date_dépôt),
       url_fr = Lien_FR,
-      url_de = Lien_DE
+      url_de = Lien_DE,
+      mention = Mention
     ) |>
-    select(shortId, title, title_de, author, type, status, status_de, 
-           council, date, url_fr, url_de)
+    select(shortId, title, title_de, author, type, status, 
+           council, date, url_fr, url_de, mention)
   
   # Créer l'objet JSON avec métadonnées
   json_export <- list(
@@ -412,9 +461,10 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       author = Auteur,
       updated = as.character(Date_dépôt),
       url_fr = Lien_FR,
-      url_de = Lien_DE
+      url_de = Lien_DE,
+      mention = Mention
     ) |>
-    select(shortId, title, title_de, author, Type, updated, url_fr, url_de)
+    select(shortId, title, title_de, author, Type, updated, url_fr, url_de, mention)
   
   json_js <- jsonlite::toJSON(Derniers_JS, pretty = TRUE, auto_unbox = TRUE)
   

@@ -1,5 +1,5 @@
-// Données CDF/EFK - Généré automatiquement
-// Dernière mise à jour: 2026-02-04T14:13:55.025370
+// Données CDF/EFK - Généré automatiquement par Recherche_CDF_EFK.R
+// Dernière mise à jour: 2026-02-05 19:32:55.53425
 
 const CDF_DATA = [
   {
@@ -10,7 +10,8 @@ const CDF_DATA = [
     "Type": "Mo.",
     "updated": "2025-12-19",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
+    "mention": "Élu"
   },
   {
     "shortId": "25.4620",
@@ -20,7 +21,8 @@ const CDF_DATA = [
     "Type": "Mo.",
     "updated": "2025-12-18",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
+    "mention": "Élu"
   },
   {
     "shortId": "25.4696",
@@ -30,7 +32,8 @@ const CDF_DATA = [
     "Type": "Ip.",
     "updated": "2025-12-18",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
+    "mention": "Élu"
   },
   {
     "shortId": "25.8194",
@@ -40,7 +43,8 @@ const CDF_DATA = [
     "Type": "Fra.",
     "updated": "2025-12-10",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
+    "mention": "Conseil fédéral"
   },
   {
     "shortId": "25.8273",
@@ -50,7 +54,8 @@ const CDF_DATA = [
     "Type": "Fra.",
     "updated": "2025-12-10",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
+    "mention": "Élu & Conseil fédéral"
   },
   {
     "shortId": "25.4463",
@@ -60,7 +65,8 @@ const CDF_DATA = [
     "Type": "Mo.",
     "updated": "2025-12-04",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
+    "mention": "Élu"
   },
   {
     "shortId": "25.4281",
@@ -70,7 +76,8 @@ const CDF_DATA = [
     "Type": "Po.",
     "updated": "2025-09-26",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
+    "mention": "Élu & Conseil fédéral"
   },
   {
     "shortId": "25.4317",
@@ -80,7 +87,8 @@ const CDF_DATA = [
     "Type": "Mo.",
     "updated": "2025-09-26",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
+    "mention": "Élu & Conseil fédéral"
   },
   {
     "shortId": "25.4145",
@@ -90,7 +98,8 @@ const CDF_DATA = [
     "Type": "Mo.",
     "updated": "2025-09-25",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
+    "mention": "Conseil fédéral"
   },
   {
     "shortId": "25.4188",
@@ -100,8 +109,10 @@ const CDF_DATA = [
     "Type": "Mo.",
     "updated": "2025-09-25",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188"
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
+    "mention": "Conseil fédéral"
   }
 ];
 
 module.exports = CDF_DATA;
+

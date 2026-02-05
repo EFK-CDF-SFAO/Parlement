@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-02-04T14:02:28",
+    "updated": "2026-02-05T19:32:55",
     "total_count": 100,
     "source": "Swiss Parliament API",
     "legislature": 52
@@ -12,12 +12,12 @@
       "title_de": "Die Vergütung der Aufgaben, die dem Bundesamt für Zoll und Grenzsicherheit (BAZG) übertragen wurden und die dieses Amt an den Flughäfen Genf und Basel wahrnimmt, muss auch dem BAZG zugute kommen!",
       "author": "Addor Jean-Luc",
       "type": "Mo.",
-      "status": "Déposé",
-      "status_de": "Eingereicht",
+      "status": "Eingereicht / Déposé",
       "council": "NR",
       "date": "2025-12-19",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
+      "mention": "Élu"
     },
     {
       "shortId": "25.4620",
@@ -25,12 +25,12 @@
       "title_de": "Daten der Bundesverwaltung mehrfach nutzbar machen – als Basis für vertrauenswürdige KI in der Schweiz",
       "author": "Michel Matthias",
       "type": "Mo.",
-      "status": "Déposé",
-      "status_de": "Eingereicht",
+      "status": "Eingereicht / Déposé",
       "council": "SR",
       "date": "2025-12-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
+      "mention": "Élu"
     },
     {
       "shortId": "25.4696",
@@ -38,12 +38,12 @@
       "title_de": "Transparenz bei der Fördereffizienz aller erneuerbaren Technologien herstellen",
       "author": "Grossen Jürg",
       "type": "Ip.",
-      "status": "Déposé",
-      "status_de": "Eingereicht",
+      "status": "Eingereicht / Déposé",
       "council": "NR",
       "date": "2025-12-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
+      "mention": "Élu"
     },
     {
       "shortId": "25.8194",
@@ -51,12 +51,12 @@
       "title_de": "Medizinische Bildgebung in der Westschweiz: Wie hängen Moratorien, Untersuchungsvolumen und Kosten zusammen?",
       "author": "Kolly Nicolas",
       "type": "Fra.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-12-10",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
+      "mention": "Conseil fédéral"
     },
     {
       "shortId": "25.8273",
@@ -64,12 +64,12 @@
       "title_de": "Kostendeckende Erträge aus dem Artenschutz? ",
       "author": "Trede Aline",
       "type": "Fra.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-12-10",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
+      "mention": "Élu & Conseil fédéral"
     },
     {
       "shortId": "25.4463",
@@ -77,12 +77,12 @@
       "title_de": "Drei weitere Aufgabenbereiche für das Projekt Entflechtung 27",
       "author": "Wettstein Felix",
       "type": "Mo.",
-      "status": "Déposé",
-      "status_de": "Eingereicht",
+      "status": "Eingereicht / Déposé",
       "council": "NR",
       "date": "2025-12-04",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
+      "mention": "Élu"
     },
     {
       "shortId": "25.4281",
@@ -90,12 +90,12 @@
       "title_de": "Wirksamere Koordination der Verkehrsmittel im Rahmen von Agglomerationsprogrammen",
       "author": "Tuosto Brenda",
       "type": "Po.",
-      "status": "L’avis relatif à l’intervention est disponible",
-      "status_de": "Stellungnahme zum Vorstoss liegt vor",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-26",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
+      "mention": "Élu & Conseil fédéral"
     },
     {
       "shortId": "25.4317",
@@ -103,12 +103,12 @@
       "title_de": "Stärkung der Aufsicht über die SRG unter Wahrung der Programmautonomie",
       "author": "Dobler Marcel",
       "type": "Mo.",
-      "status": "L’avis relatif à l’intervention est disponible",
-      "status_de": "Stellungnahme zum Vorstoss liegt vor",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-26",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
+      "mention": "Élu & Conseil fédéral"
     },
     {
       "shortId": "25.4145",
@@ -116,12 +116,12 @@
       "title_de": "Für gesunde Bundesfinanzen. Subventionsüberprüfung optimieren",
       "author": "Gapany Johanna",
       "type": "Mo.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-09-25",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
+      "mention": "Conseil fédéral"
     },
     {
       "shortId": "25.4188",
@@ -129,12 +129,12 @@
       "title_de": "Versorgungssicherheit und raschen Zugang zu innovativen Medikamenten gewährleisten",
       "author": "Schmid Martin",
       "type": "Mo.",
-      "status": "Attribué à la commission compétente",
-      "status_de": "Zugewiesen an die behandelnde Kommission",
+      "status": "Zugewiesen an die behandelnde Kommission / Attribué à la commission compétente",
       "council": "SR",
       "date": "2025-09-25",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
+      "mention": "Conseil fédéral"
     },
     {
       "shortId": "25.4225",
@@ -142,12 +142,12 @@
       "title_de": "Giftiger Rasen. Warum sind toxische PFAS-Pestizide ausgerechnet zur Anwendung auf Spiel- und Sportplätzen oder in Wohnquartieren zugelassen? ",
       "author": "Schlatter Marionna",
       "type": "Ip.",
-      "status": "L’avis relatif à l’intervention est disponible",
-      "status_de": "Stellungnahme zum Vorstoss liegt vor",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-25",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254225",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254225"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254225",
+      "mention": "Élu & Conseil fédéral"
     },
     {
       "shortId": "25.4234",
@@ -155,12 +155,12 @@
       "title_de": "Finanzhilfen nach Artikel 74 IVG und Bedarfs- und Innovationsorientierung",
       "author": "Alijaj Islam",
       "type": "Mo.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-25",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254234",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254234"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254234",
+      "mention": "Élu"
     },
     {
       "shortId": "25.4071",
@@ -168,12 +168,12 @@
       "title_de": "Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?",
       "author": "Dittli Josef",
       "type": "Ip.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-09-23",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
+      "mention": "Conseil fédéral"
     },
     {
       "shortId": "25.4024",
@@ -181,12 +181,12 @@
       "title_de": "Grossprojekte im VBS an externe Dienstleister. Was für eine Strategie wird verfolgt?",
       "author": "Zryd Andrea",
       "type": "Ip.",
-      "status": "L’avis relatif à l’intervention est disponible",
-      "status_de": "Stellungnahme zum Vorstoss liegt vor",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-17",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254024",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254024"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254024",
+      "mention": "Élu & Conseil fédéral"
     },
     {
       "shortId": "25.7863",
@@ -194,12 +194,12 @@
       "title_de": "Steuerdebakel Waadt: Finanzausgleich betroffen?",
       "author": "Gugger Niklaus-Samuel",
       "type": "Fra.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
+      "mention": "Conseil fédéral"
     },
     {
       "shortId": "25.7888",
@@ -207,12 +207,12 @@
       "title_de": "Wann wird der Zwischenbericht des Gutachtens zur RUAG öffentlich?",
       "author": "Weichelt Manuela",
       "type": "Fra.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257888",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257888"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257888",
+      "mention": "Élu"
     },
     {
       "shortId": "25.7890",
@@ -220,12 +220,12 @@
       "title_de": "Rolle des Bundes bei der Sanierung der Deponie Gamsenried ",
       "author": "Clivaz Christophe",
       "type": "Fra.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257890",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257890"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257890",
+      "mention": "Élu & Conseil fédéral"
     },
     {
       "shortId": "25.4003",
@@ -233,12 +233,12 @@
       "title_de": "Wirtschaft entlasten durch Vereinfachung des Steuersystems",
       "author": "Grünliberale Fraktion",
       "type": "Po.",
-      "status": "L’avis relatif à l’intervention est disponible",
-      "status_de": "Stellungnahme zum Vorstoss liegt vor",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-11",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254003",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254003"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254003",
+      "mention": "Conseil fédéral"
     },
     {
       "shortId": "25.3984",
@@ -246,12 +246,12 @@
       "title_de": "Für gesunde Bundesfinanzen. Subventionsüberprüfung optimieren",
       "author": "FDP-Liberale Fraktion",
       "type": "Mo.",
-      "status": "En commission du Conseil des Etats",
-      "status_de": "In Kommission des Ständerats",
+      "status": "In Kommission des Ständerats / En commission du Conseil des Etats",
       "council": "NR",
       "date": "2025-09-10",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
+      "mention": "Conseil fédéral"
     },
     {
       "shortId": "25.7663",
@@ -259,12 +259,12 @@
       "title_de": "Ruag: Anwaltskosten in Millionenhöhe statt Munition für unsere Armee?",
       "author": "Addor Jean-Luc",
       "type": "Fra.",
-      "status": "Liquidé",
-      "status_de": "Erledigt",
+      "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-10",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257663",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257663"
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257663",
+      "mention": "Conseil fédéral"
     }
   ]
 }
