@@ -132,7 +132,3 @@ A GitHub Action runs automatically **every Sunday at 23h (Swiss time)** to updat
 - No manual intervention required
 
 You can also trigger it manually from the **Actions** tab on GitHub.
-
-## Author
-
-Arnaud Bonvin
