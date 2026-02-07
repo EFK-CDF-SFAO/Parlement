@@ -504,6 +504,9 @@ let dataSource = "none";
 
 const cachedItems = readJSON(PATH_CACHE, []);
 
+// Variable pour stocker les new_ids du JSON (vrais nouveaux objets)
+let githubNewIds = [];
+
 // Essayer GitHub si le cache est expiré
 if (!isCacheValid()) {
   console.log("[DEBUG] Fetch GitHub...");
@@ -519,7 +522,14 @@ if (!isCacheValid()) {
       dataSource = "github";
       writeJSON(PATH_CACHE, items);
       writeText(PATH_LAST_FETCH, new Date().toISOString());
-      console.log(`[DEBUG] ✓ GitHub: ${items.length} items (màj: ${data.meta?.updated || "?"})`);
+      
+      // Extraire les vrais nouveaux IDs du JSON
+      if (data.meta?.new_ids && Array.isArray(data.meta.new_ids)) {
+        githubNewIds = data.meta.new_ids;
+        console.log(`[DEBUG] ✓ GitHub: ${items.length} items, ${githubNewIds.length} vrais nouveaux`);
+      } else {
+        console.log(`[DEBUG] ✓ GitHub: ${items.length} items (màj: ${data.meta?.updated || "?"})`);
+      }
     }
   } catch (e) {
     console.log(`[DEBUG] GitHub non disponible: ${e}`);
@@ -576,21 +586,28 @@ if (!fetchOk) {
 
 console.log(`[DEBUG] Source: ${dataSource}, Items: ${items.length}`);
 
-// Détection des nouvelles interventions (quotidien)
+// Détection des nouvelles interventions (basée sur new_ids du JSON GitHub)
 let newIds = readJSON(PATH_NEW_IDS, []);
 if (!Array.isArray(newIds)) newIds = [];
 
 if (shouldDoDailyUpdate() && items.length > 0) {
-  const seenIds = new Set(readJSON(PATH_SEEN_IDS, []));
+  // Utiliser les new_ids du JSON si disponibles (vrais nouveaux objets)
+  if (dataSource === "github" && Array.isArray(githubNewIds) && githubNewIds.length > 0) {
+    newIds = githubNewIds;
+    console.log(`[DEBUG] Vrais nouveaux objets (JSON): ${newIds.length}`);
+  } else {
+    // Fallback: comparer avec les IDs vus précédemment
+    const seenIds = new Set(readJSON(PATH_SEEN_IDS, []));
+    const currentIds = items.map(x => x.shortId).filter(Boolean);
+    newIds = currentIds.filter(id => !seenIds.has(id));
+    console.log(`[DEBUG] Nouveaux objets (comparaison): ${newIds.length}`);
+  }
+  
+  // Sauvegarder les IDs vus
   const currentIds = items.map(x => x.shortId).filter(Boolean);
-  
-  newIds = currentIds.filter(id => !seenIds.has(id));
-  
   writeJSON(PATH_NEW_IDS, newIds);
   writeJSON(PATH_SEEN_IDS, currentIds);
   writeText(PATH_LAST_UPDATE, new Date().toISOString());
-  
-  console.log(`[DEBUG] Mise à jour quotidienne: ${newIds.length} nouveaux`);
 }
 
 // Affichage ligne "Derniers objets déposés" avec compteur nouveaux

@@ -579,13 +579,21 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
     select(shortId, title, title_de, author, type, status, 
            council, date, url_fr, url_de, mention)
   
+  # Liste des vrais nouveaux objets (pour le widget)
+  vrais_nouveaux_ids <- if (length(Nouveaux_IDs) > 0) {
+    Resultats |> filter(ID %in% Nouveaux_IDs) |> pull(Numéro)
+  } else {
+    character(0)
+  }
+  
   # Créer l'objet JSON avec métadonnées
   json_export <- list(
     meta = list(
       updated = format(Sys.time(), "%Y-%m-%dT%H:%M:%S"),
       total_count = nrow(Resultats),
       source = "Swiss Parliament API",
-      legislature = Legislatur
+      legislature = Legislatur,
+      new_ids = vrais_nouveaux_ids  # IDs des vrais nouveaux objets
     ),
     items = Donnees_JSON
   )
