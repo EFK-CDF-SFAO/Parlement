@@ -440,11 +440,13 @@ if (length(IDs_A_Traiter) > 0) {
 }
 
 # ============================================================================
-# EXPORT NOUVEAUTÉS (si nouveaux objets)
+# EXPORT NOUVEAUTÉS (nouveaux objets + mises à jour)
 # ============================================================================
 
-if (length(Nouveaux_IDs) > 0) {
-  cat("\nExport des", length(Nouveaux_IDs), "nouveaux objets...\n")
+if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
+  cat("\nExport des nouveautés et mises à jour...\n")
+  cat("  - Nouveaux objets:", length(Nouveaux_IDs), "\n")
+  cat("  - Mises à jour:", length(IDs_A_Mettre_A_Jour), "\n")
   
   # Créer le dossier Nouveautés s'il n'existe pas
   dossier_nouveautes <- file.path(script_dir, "Nouveautés")
@@ -452,10 +454,16 @@ if (length(Nouveaux_IDs) > 0) {
     dir.create(dossier_nouveautes)
   }
   
-  # Filtrer les nouveaux objets
-  Nouveaux_Objets <- Nouveaux_Resultats |>
-    filter(ID %in% Nouveaux_IDs) |>
-    select(Numéro, Auteur, Mention, Lien_FR)
+  # Préparer les données avec colonne Type
+  Export_Nouveautes <- Nouveaux_Resultats |>
+    mutate(
+      Type_MAJ = case_when(
+        ID %in% Nouveaux_IDs ~ "Nouveau",
+        ID %in% IDs_A_Mettre_A_Jour ~ "Mise à jour",
+        TRUE ~ "Autre"
+      )
+    ) |>
+    select(Type_MAJ, Numéro, Auteur, Mention, Lien_FR)
   
   # Nom du fichier avec la date
   nom_fichier <- paste0("Nouveautes_", format(Sys.Date(), "%Y-%m-%d"), ".xlsx")
@@ -463,7 +471,7 @@ if (length(Nouveaux_IDs) > 0) {
   
   # Exporter en Excel
   write.xlsx(
-    Nouveaux_Objets,
+    Export_Nouveautes,
     file = chemin_fichier,
     overwrite = TRUE,
     asTable = TRUE,
