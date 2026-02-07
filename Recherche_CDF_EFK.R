@@ -272,23 +272,24 @@ Geschaefte_Uniques <- Tous_Geschaefte |>
 Nouveaux_IDs <- setdiff(Geschaefte_Uniques$ID, IDs_Existants)
 IDs_A_Mettre_A_Jour <- intersect(Geschaefte_Uniques$ID, IDs_Existants)
 
-# Ajouter les IDs avec Mention "À recalculer" ou sans Auteur pour forcer leur recalcul
+# Séparer les recalculs internes des vrais changements de contenu
+IDs_Recalcul_Interne <- c()  # Juste correction Mention/Auteur (pas intéressant)
+
 if (!is.null(Donnees_Existantes)) {
-  IDs_A_Recalculer <- c()
-  
+  # IDs à recalculer pour Mention ou Auteur manquant
   if ("Mention" %in% names(Donnees_Existantes)) {
-    IDs_A_Recalculer <- c(IDs_A_Recalculer, 
+    IDs_Recalcul_Interne <- c(IDs_Recalcul_Interne, 
       Donnees_Existantes |> filter(Mention == "À recalculer") |> pull(ID))
   }
   
   if ("Auteur" %in% names(Donnees_Existantes)) {
-    IDs_A_Recalculer <- c(IDs_A_Recalculer,
+    IDs_Recalcul_Interne <- c(IDs_Recalcul_Interne,
       Donnees_Existantes |> filter(is.na(Auteur) | Auteur == "") |> pull(ID))
   }
   
-  IDs_A_Recalculer <- unique(IDs_A_Recalculer)
-  IDs_A_Mettre_A_Jour <- unique(c(IDs_A_Mettre_A_Jour, IDs_A_Recalculer))
-  cat("Objets à recalculer (Mention/Auteur):", length(IDs_A_Recalculer), "\n")
+  IDs_Recalcul_Interne <- unique(IDs_Recalcul_Interne)
+  IDs_A_Mettre_A_Jour <- unique(c(IDs_A_Mettre_A_Jour, IDs_Recalcul_Interne))
+  cat("Objets à recalculer (Mention/Auteur):", length(IDs_Recalcul_Interne), "\n")
 }
 
 cat("Nouveaux objets:", length(Nouveaux_IDs), "\n")
@@ -440,30 +441,69 @@ if (length(IDs_A_Traiter) > 0) {
 }
 
 # ============================================================================
-# EXPORT NOUVEAUTÉS (nouveaux objets + mises à jour)
+# EXPORT NOUVEAUTÉS (seulement les vrais changements pertinents)
 # ============================================================================
 
+# Détecter les vrais changements de contenu (pas les recalculs internes)
+Changements_Pertinents <- NULL
+
 if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
-  cat("\nExport des nouveautés et mises à jour...\n")
-  cat("  - Nouveaux objets:", length(Nouveaux_IDs), "\n")
-  cat("  - Mises à jour:", length(IDs_A_Mettre_A_Jour), "\n")
+  cat("\nAnalyse des changements pertinents...\n")
   
+  # 1. Nouveaux objets = toujours pertinents
+  if (length(Nouveaux_IDs) > 0) {
+    Nouveaux <- Nouveaux_Resultats |>
+      filter(ID %in% Nouveaux_IDs) |>
+      mutate(Type_Changement = "Nouvel objet")
+    Changements_Pertinents <- bind_rows(Changements_Pertinents, Nouveaux)
+    cat("  - Nouveaux objets:", length(Nouveaux_IDs), "\n")
+  }
+  
+  # 2. Comparer avec les données existantes pour détecter les vrais changements
+  IDs_MAJ_Reels <- setdiff(IDs_A_Mettre_A_Jour, IDs_Recalcul_Interne)
+  
+  if (length(IDs_MAJ_Reels) > 0 && !is.null(Donnees_Existantes)) {
+    # Comparer statut et détecter ajout réponse CF
+    for (id in IDs_MAJ_Reels) {
+      ancien <- Donnees_Existantes |> filter(ID == id)
+      nouveau <- Nouveaux_Resultats |> filter(ID == id)
+      
+      if (nrow(ancien) > 0 && nrow(nouveau) > 0) {
+        type_change <- c()
+        
+        # Vérifier changement de statut
+        if (!identical(ancien$Statut[1], nouveau$Statut[1])) {
+          type_change <- c(type_change, "Statut modifié")
+        }
+        
+        # Note: On ne peut pas facilement détecter l'ajout de réponse CF
+        # car on ne stocke pas le texte brut. On garde donc les MAJ réels.
+        if (length(type_change) == 0) {
+          type_change <- "Mise à jour contenu"
+        }
+        
+        MAJ <- nouveau |>
+          mutate(Type_Changement = paste(type_change, collapse = " + "))
+        Changements_Pertinents <- bind_rows(Changements_Pertinents, MAJ)
+      }
+    }
+    cat("  - Mises à jour réelles:", length(IDs_MAJ_Reels), "\n")
+  }
+  
+  cat("  - Recalculs internes (ignorés):", length(IDs_Recalcul_Interne), "\n")
+}
+
+# Exporter si changements pertinents
+if (!is.null(Changements_Pertinents) && nrow(Changements_Pertinents) > 0) {
   # Créer le dossier Nouveautés s'il n'existe pas
   dossier_nouveautes <- file.path(script_dir, "Nouveautés")
   if (!dir.exists(dossier_nouveautes)) {
     dir.create(dossier_nouveautes)
   }
   
-  # Préparer les données avec colonne Type
-  Export_Nouveautes <- Nouveaux_Resultats |>
-    mutate(
-      Type_MAJ = case_when(
-        ID %in% Nouveaux_IDs ~ "Nouveau",
-        ID %in% IDs_A_Mettre_A_Jour ~ "Mise à jour",
-        TRUE ~ "Autre"
-      )
-    ) |>
-    select(Type_MAJ, Numéro, Auteur, Mention, Lien_FR)
+  # Sélectionner les colonnes utiles
+  Export_Nouveautes <- Changements_Pertinents |>
+    select(Type_Changement, Numéro, Auteur, Mention, Statut, Lien_FR)
   
   # Nom du fichier avec la date
   nom_fichier <- paste0("Nouveautes_", format(Sys.Date(), "%Y-%m-%d"), ".xlsx")
@@ -478,7 +518,10 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
     sheetName = "Nouveautés"
   )
   
-  cat("  ->", chemin_fichier, "\n")
+  cat("\nExport nouveautés ->", chemin_fichier, "\n")
+  cat("  Total changements pertinents:", nrow(Export_Nouveautes), "\n")
+} else {
+  cat("\nAucun changement pertinent à exporter.\n")
 }
 
 # ============================================================================
