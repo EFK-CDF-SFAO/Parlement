@@ -463,7 +463,9 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
   IDs_MAJ_Reels <- setdiff(IDs_A_Mettre_A_Jour, IDs_Recalcul_Interne)
   
   if (length(IDs_MAJ_Reels) > 0 && !is.null(Donnees_Existantes)) {
-    # Comparer statut et détecter ajout réponse CF
+    nb_reponse_cf <- 0
+    nb_statut <- 0
+    
     for (id in IDs_MAJ_Reels) {
       ancien <- Donnees_Existantes |> filter(ID == id)
       nouveau <- Nouveaux_Resultats |> filter(ID == id)
@@ -471,23 +473,35 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
       if (nrow(ancien) > 0 && nrow(nouveau) > 0) {
         type_change <- c()
         
+        # Détecter ajout réponse du Conseil fédéral via la colonne Mention
+        ancien_mention <- ancien$Mention[1]
+        nouveau_mention <- nouveau$Mention[1]
+        
+        # Si avant pas de CF et maintenant oui = réponse CF ajoutée
+        avant_sans_cf <- ancien_mention %in% c("Élu", "Titre uniquement")
+        maintenant_avec_cf <- str_detect(nouveau_mention, "Conseil fédéral")
+        
+        if (avant_sans_cf && maintenant_avec_cf) {
+          type_change <- c(type_change, "Réponse CF ajoutée")
+          nb_reponse_cf <- nb_reponse_cf + 1
+        }
+        
         # Vérifier changement de statut
         if (!identical(ancien$Statut[1], nouveau$Statut[1])) {
           type_change <- c(type_change, "Statut modifié")
+          nb_statut <- nb_statut + 1
         }
         
-        # Note: On ne peut pas facilement détecter l'ajout de réponse CF
-        # car on ne stocke pas le texte brut. On garde donc les MAJ réels.
-        if (length(type_change) == 0) {
-          type_change <- "Mise à jour contenu"
+        # Si aucun changement détecté mais MAJ réelle, ignorer (pas pertinent)
+        if (length(type_change) > 0) {
+          MAJ <- nouveau |>
+            mutate(Type_Changement = paste(type_change, collapse = " + "))
+          Changements_Pertinents <- bind_rows(Changements_Pertinents, MAJ)
         }
-        
-        MAJ <- nouveau |>
-          mutate(Type_Changement = paste(type_change, collapse = " + "))
-        Changements_Pertinents <- bind_rows(Changements_Pertinents, MAJ)
       }
     }
-    cat("  - Mises à jour réelles:", length(IDs_MAJ_Reels), "\n")
+    cat("  - Réponses CF ajoutées:", nb_reponse_cf, "\n")
+    cat("  - Statuts modifiés:", nb_statut, "\n")
   }
   
   cat("  - Recalculs internes (ignorés):", length(IDs_Recalcul_Interne), "\n")
