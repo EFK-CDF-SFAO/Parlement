@@ -440,6 +440,40 @@ if (length(IDs_A_Traiter) > 0) {
 }
 
 # ============================================================================
+# EXPORT NOUVEAUTÉS (si nouveaux objets)
+# ============================================================================
+
+if (length(Nouveaux_IDs) > 0) {
+  cat("\nExport des", length(Nouveaux_IDs), "nouveaux objets...\n")
+  
+  # Créer le dossier Nouveautés s'il n'existe pas
+  dossier_nouveautes <- file.path(script_dir, "Nouveautés")
+  if (!dir.exists(dossier_nouveautes)) {
+    dir.create(dossier_nouveautes)
+  }
+  
+  # Filtrer les nouveaux objets
+  Nouveaux_Objets <- Nouveaux_Resultats |>
+    filter(ID %in% Nouveaux_IDs) |>
+    select(Numéro, Auteur, Mention, Lien_FR)
+  
+  # Nom du fichier avec la date
+  nom_fichier <- paste0("Nouveautes_", format(Sys.Date(), "%Y-%m-%d"), ".xlsx")
+  chemin_fichier <- file.path(dossier_nouveautes, nom_fichier)
+  
+  # Exporter en Excel
+  write.xlsx(
+    Nouveaux_Objets,
+    file = chemin_fichier,
+    overwrite = TRUE,
+    asTable = TRUE,
+    sheetName = "Nouveautés"
+  )
+  
+  cat("  ->", chemin_fichier, "\n")
+}
+
+# ============================================================================
 # EXPORT EXCEL
 # ============================================================================
 
