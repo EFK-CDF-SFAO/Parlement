@@ -13,6 +13,7 @@ const clearButton = document.getElementById('clearSearch');
 const typeFilter = document.getElementById('typeFilter');
 const councilFilter = document.getElementById('councilFilter');
 const yearFilter = document.getElementById('yearFilter');
+const partyFilter = document.getElementById('partyFilter');
 const resultsContainer = document.getElementById('results');
 const resultsCount = document.getElementById('resultsCount');
 const lastUpdate = document.getElementById('lastUpdate');
@@ -36,8 +37,9 @@ async function init() {
         // Display session summary if available
         displaySessionSummary(json.session_summary);
         
-        // Populate year filter
+        // Populate year and party filters
         populateYearFilter();
+        populatePartyFilter();
         
         // Initial display
         filteredData = [...allData];
@@ -117,6 +119,7 @@ function setupEventListeners() {
     typeFilter.addEventListener('change', applyFilters);
     councilFilter.addEventListener('change', applyFilters);
     yearFilter.addEventListener('change', applyFilters);
+    partyFilter.addEventListener('change', applyFilters);
     
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
@@ -142,11 +145,24 @@ function populateYearFilter() {
     });
 }
 
+function populatePartyFilter() {
+    const parties = [...new Set(allData.map(item => item.party).filter(Boolean))];
+    parties.sort();
+    
+    parties.forEach(party => {
+        const option = document.createElement('option');
+        option.value = party;
+        option.textContent = translateParty(party);
+        partyFilter.appendChild(option);
+    });
+}
+
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
     const typeValue = typeFilter.value;
     const councilValue = councilFilter.value;
     const yearValue = yearFilter.value;
+    const partyValue = partyFilter.value;
     
     filteredData = allData.filter(item => {
         // Text search
@@ -180,6 +196,11 @@ function applyFilters() {
             return false;
         }
         
+        // Party filter
+        if (partyValue && item.party !== partyValue) {
+            return false;
+        }
+        
         return true;
     });
     
@@ -192,6 +213,7 @@ function clearSearch() {
     typeFilter.value = '';
     councilFilter.value = '';
     yearFilter.value = '';
+    partyFilter.value = '';
     searchInput.focus();
     applyFilters();
 }
