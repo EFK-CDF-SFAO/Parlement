@@ -106,8 +106,9 @@ function escapeHtml(text) {
 
 function translateParty(party) {
     const translations = {
-        'Al': 'Verts',
-        'PSS': 'PS'
+        'Al': 'VERT-E-S',
+        'PSS': 'PS',
+        'M-E': 'Le Centre'
     };
     return translations[party] || party;
 }
@@ -176,7 +177,7 @@ function populateYearFilter() {
 
 function populatePartyFilter() {
     const parties = [...new Set(allData.map(item => item.party).filter(Boolean))];
-    parties.sort();
+    parties.sort((a, b) => translateParty(a).localeCompare(translateParty(b), 'fr'));
     
     parties.forEach(party => {
         const option = document.createElement('option');

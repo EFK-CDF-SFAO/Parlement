@@ -117,7 +117,8 @@ function translateParty(party) {
         'PLR': 'FDP',
         'UDC': 'SVP',
         'Le Centre': 'Die Mitte',
-        'Centre': 'Mitte'
+        'Centre': 'Mitte',
+        'M-E': 'Die Mitte'
     };
     return translations[party] || party;
 }
@@ -208,7 +209,7 @@ function populateYearFilter() {
 
 function populatePartyFilter() {
     const parties = [...new Set(allData.map(item => item.party).filter(Boolean))];
-    parties.sort();
+    parties.sort((a, b) => translateParty(a).localeCompare(translateParty(b), 'de'));
     
     parties.forEach(party => {
         const option = document.createElement('option');
