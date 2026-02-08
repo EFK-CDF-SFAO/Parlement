@@ -593,8 +593,33 @@ mark {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .lang-switcher {
+        align-self: flex-start;
+        margin-top: 0;
+    }
+    
     header h1 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+    }
+    
+    header .subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    nav a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
     }
     
     .filters {
