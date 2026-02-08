@@ -101,6 +101,7 @@ function translateParty(party) {
     const translations = {
         'VERT-E-S': 'GRÜNE',
         'Les Vert-e-s': 'GRÜNE',
+        'Al': 'GRÜNE',
         'pvl': 'GLP',
         'PVL': 'GLP',
         'Vert\'libéraux': 'GLP',
