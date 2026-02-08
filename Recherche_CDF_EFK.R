@@ -688,6 +688,25 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
         paste(head(par_parti$Parti, 3), collapse = ", ")
       } else ""
       
+      # Traduire les noms de partis pour l'allemand
+      partis_top_de <- if (nrow(par_parti) > 0) {
+        partis_de <- sapply(head(par_parti$Parti, 3), function(p) {
+          switch(p,
+            "VERT-E-S" = "GRÜNE",
+            "Les Vert-e-s" = "GRÜNE",
+            "pvl" = "GLP",
+            "PVL" = "GLP",
+            "PS" = "SP",
+            "PLR" = "FDP",
+            "UDC" = "SVP",
+            "Le Centre" = "Die Mitte",
+            "Centre" = "Mitte",
+            p  # default
+          )
+        })
+        paste(partis_de, collapse = ", ")
+      } else ""
+      
       # Générer un résumé thématique basé sur les titres
       themes_fr <- ""
       themes_de <- ""
@@ -796,7 +815,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
           paste0("Alle im Ständerat. ")
         },
         if (nrow(par_parti) > 0) {
-          paste0("Die aktivsten Parteien: ", partis_top, ".")
+          paste0("Die aktivsten Parteien: ", partis_top_de, ".")
         } else ""
       )
       
