@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFK/CDF - Statistiken</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="header-main">
+                <h1>🏛️ Parlamentarische Vorstösse</h1>
+                <p class="subtitle">Eidgenössische Finanzkontrolle</p>
+                <nav>
+                    <a href="index_de.html">Suche</a>
+                    <a href="liste_de.html">Gesamtliste</a>
+                    <a href="stats_de.html" class="active">Statistiken</a>
+                </nav>
+            </div>
+            <div class="lang-switcher">
+                <a href="stats.html">FR</a>
+                <span>|</span>
+                <a href="stats_de.html" class="active">DE</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats-section">
+            <h2>📊 Statistiken der Vorstösse</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Vorstösse nach Partei</h3>
+                    <div class="chart-container">
+                        <canvas id="partyChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Vorstösse nach Typ</h3>
+                    <div class="chart-container">
+                        <canvas id="typeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card full-width">
+                    <h3>Entwicklung pro Jahr</h3>
+                    <div class="chart-container-wide">
+                        <canvas id="yearChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card full-width">
+                    <h3>🏆 Aktivste Parlamentarier</h3>
+                    <div id="topAuthors" class="top-authors-list">
+                        <p>Laden...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Daten: <a href="https://ws.parlament.ch/" target="_blank">API des Schweizer Parlaments</a> · 
+               <a href="https://github.com/ArnaudBon20/EFK_CDF_Parlement" target="_blank">Quellcode</a></p>
+        </div>
+    </footer>
+
+    <script src="stats_de.js"></script>
+</body>
+</html>
