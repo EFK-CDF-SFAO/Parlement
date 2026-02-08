@@ -165,7 +165,9 @@ function renderResults() {
 
 function createCard(item, searchTerm) {
     const title = highlightText(item.title || item.title_de, searchTerm);
-    const author = highlightText(item.author, searchTerm);
+    const authorName = item.author || '';
+    const authorWithParty = item.party ? `${authorName} (${item.party})` : authorName;
+    const author = highlightText(authorWithParty, searchTerm);
     const shortId = highlightText(item.shortId, searchTerm);
     
     const date = item.date ? new Date(item.date).toLocaleDateString('fr-CH') : '';

@@ -155,7 +155,7 @@ function renderTable() {
     if (pageData.length === 0) {
         tableBody.innerHTML = `
             <tr>
-                <td colspan="7" style="text-align: center; padding: 2rem;">
+                <td colspan="8" style="text-align: center; padding: 2rem;">
                     Keine Daten verfügbar
                 </td>
             </tr>
@@ -175,6 +175,10 @@ function createRow(item) {
     const title = item.title_de || item.title || '';
     const council = item.council === 'NR' ? 'NR' : 'SR';
     
+    // Author with party
+    const authorName = item.author || '';
+    const authorWithParty = item.party ? `${authorName} (${item.party})` : authorName;
+    
     // Truncate title if too long
     const maxTitleLength = 80;
     const displayTitle = title.length > maxTitleLength 
@@ -190,15 +194,24 @@ function createRow(item) {
         status = status.substring(0, 30) + '...';
     }
     
+    // Mention (who cites EFK) - translate to German
+    let mention = item.mention || '';
+    mention = mention
+        .replace('Élu & Conseil fédéral', 'Parlamentarier & Bundesrat')
+        .replace('Élu', 'Parlamentarier')
+        .replace('Conseil fédéral', 'Bundesrat')
+        .replace('Titre uniquement', 'Nur Titel');
+    
     return `
         <tr>
             <td><a href="${url}" target="_blank" rel="noopener">${item.shortId}</a></td>
             <td>${item.type}</td>
             <td title="${escapeHtml(title)}">${escapeHtml(displayTitle)}</td>
-            <td>${escapeHtml(item.author || '')}</td>
+            <td>${escapeHtml(authorWithParty)}</td>
             <td>${council}</td>
             <td>${date}</td>
             <td title="${escapeHtml(item.status || '')}">${escapeHtml(status)}</td>
+            <td>${escapeHtml(mention)}</td>
         </tr>
     `;
 }
@@ -274,7 +287,7 @@ function escapeHtml(text) {
 function showLoading() {
     tableBody.innerHTML = `
         <tr>
-            <td colspan="7" style="text-align: center; padding: 2rem;">
+            <td colspan="8" style="text-align: center; padding: 2rem;">
                 <div class="spinner" style="margin: 0 auto;"></div>
             </td>
         </tr>
@@ -284,7 +297,7 @@ function showLoading() {
 function showError(message) {
     tableBody.innerHTML = `
         <tr>
-            <td colspan="7" style="text-align: center; padding: 2rem; color: var(--primary);">
+            <td colspan="8" style="text-align: center; padding: 2rem; color: var(--primary);">
                 ${message}
             </td>
         </tr>

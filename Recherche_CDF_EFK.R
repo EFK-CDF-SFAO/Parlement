@@ -317,6 +317,47 @@ if (length(IDs_A_Traiter) > 0) {
   
   names(Daten_FR) <- c("ID", "Titre_FR", "Statut_FR", "SubmittedText_FR", "ReasonText_FR", "FederalCouncilResponseText_FR")
   
+  # Récupérer les partis des auteurs via BusinessRole
+  cat("Récupération des partis des auteurs...\n")
+  
+  Auteurs <- tryCatch({
+    get_data(table = "BusinessRole", BusinessNumber = IDs_A_Traiter, Role = 7, Language = "FR") |>
+      filter(!is.na(MemberCouncilNumber)) |>
+      select(BusinessNumber, MemberCouncilNumber) |>
+      distinct()
+  }, error = function(e) {
+    cat("  Erreur récupération auteurs:", e$message, "\n")
+    NULL
+  })
+  
+  if (!is.null(Auteurs) && nrow(Auteurs) > 0) {
+    MemberCouncilIds <- unique(Auteurs$MemberCouncilNumber)
+    cat("  ->", length(MemberCouncilIds), "auteurs trouvés\n")
+    
+    Partis <- tryCatch({
+      get_data(table = "MemberCouncil", ID = MemberCouncilIds, Language = "FR") |>
+        select(ID, PartyAbbreviation) |>
+        rename(MemberCouncilNumber = ID, Parti = PartyAbbreviation)
+    }, error = function(e) {
+      cat("  Erreur récupération partis:", e$message, "\n")
+      NULL
+    })
+    
+    if (!is.null(Partis)) {
+      Auteurs <- Auteurs |>
+        left_join(Partis, by = "MemberCouncilNumber") |>
+        select(BusinessNumber, Parti) |>
+        rename(ID = BusinessNumber)
+      
+      Daten_DE <- Daten_DE |>
+        left_join(Auteurs, by = "ID")
+    } else {
+      Daten_DE <- Daten_DE |> mutate(Parti = NA_character_)
+    }
+  } else {
+    Daten_DE <- Daten_DE |> mutate(Parti = NA_character_)
+  }
+  
   # Récupérer les noms de commissions pour les objets sans auteur (SubmittedBy = NA)
   IDs_Sans_Auteur <- Daten_DE |> filter(is.na(SubmittedBy)) |> pull(ID)
   
@@ -396,6 +437,7 @@ if (length(IDs_A_Traiter) > 0) {
       Numéro = BusinessShortNumber,
       Type = BusinessTypeAbbreviation,
       Auteur = SubmittedBy,
+      Parti,
       Date_dépôt = SubmissionDate,
       Conseil = SubmissionCouncilAbbreviation,
       Titre_DE = Title,
@@ -418,6 +460,12 @@ if (length(IDs_A_Traiter) > 0) {
     # Convertir les dates existantes en caractère aussi
     Donnees_Existantes <- Donnees_Existantes |>
       mutate(Date_dépôt = as.character(Date_dépôt))
+    
+    # Ajouter la colonne Parti si elle n'existe pas
+    if (!"Parti" %in% names(Donnees_Existantes)) {
+      Donnees_Existantes <- Donnees_Existantes |>
+        mutate(Parti = NA_character_)
+    }
     
     # Retirer les objets mis à jour des données existantes
     Donnees_Existantes_Filtrees <- Donnees_Existantes |>
@@ -567,6 +615,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       title = Titre_FR,
       title_de = Titre_DE,
       author = Auteur,
+      party = if ("Parti" %in% names(Resultats)) Parti else NA_character_,
       type = Type,
       status = Statut,
       council = Conseil,
@@ -575,7 +624,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       url_de = Lien_DE,
       mention = Mention
     ) |>
-    select(shortId, title, title_de, author, type, status, 
+    select(shortId, title, title_de, author, party, type, status, 
            council, date, url_fr, url_de, mention)
   
   # Liste des vrais nouveaux objets (pour le widget)
