@@ -448,9 +448,13 @@ if (length(IDs_A_Traiter) > 0) {
       Mention
     )
   
-  # Convertir Date_dépôt en caractère pour éviter les conflits de type
+  # Convertir Date_dépôt en caractère et corriger les types d'interventions
   Nouveaux_Resultats <- Nouveaux_Resultats |>
-    mutate(Date_dépôt = as.character(Date_dépôt))
+    mutate(
+      Date_dépôt = as.character(Date_dépôt),
+      # Corriger le type "A" (Anfrage) en "Fra." pour cohérence
+      Type = ifelse(Type == "A", "Fra.", Type)
+    )
   
   # ============================================================================
   # FUSIONNER AVEC LES DONNÉES EXISTANTES
