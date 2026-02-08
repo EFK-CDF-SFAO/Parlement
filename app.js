@@ -41,9 +41,16 @@ async function init() {
         populateYearFilter();
         populatePartyFilter();
         
+        // Check for search parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchParam = urlParams.get('search');
+        if (searchParam) {
+            searchInput.value = searchParam;
+        }
+        
         // Initial display
         filteredData = [...allData];
-        renderResults();
+        applyFilters();
         
         // Setup event listeners
         setupEventListeners();

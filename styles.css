@@ -706,6 +706,11 @@ mark {
     gap: 0.5rem;
 }
 
+a.author-row {
+    text-decoration: none;
+    color: inherit;
+}
+
 .author-row {
     display: flex;
     align-items: center;
@@ -714,6 +719,7 @@ mark {
     border-radius: 10px;
     background: var(--background);
     transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 
 .author-row:hover {

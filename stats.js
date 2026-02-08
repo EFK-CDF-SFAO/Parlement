@@ -240,16 +240,17 @@ function renderTopAuthors() {
     topAuthors.forEach(([author, count], index) => {
         const party = authorParties[author] || '';
         const medalClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
+        const searchUrl = `index.html?search=${encodeURIComponent(author)}`;
         
         html += `
-            <div class="author-row ${medalClass}">
+            <a href="${searchUrl}" class="author-row ${medalClass}">
                 <div class="author-rank">${index + 1}</div>
                 <div class="author-info">
                     <div class="author-name">${author}</div>
                     <div class="author-party">${party}</div>
                 </div>
                 <div class="author-count">${count}</div>
-            </div>
+            </a>
         `;
     });
     html += '</div>';
