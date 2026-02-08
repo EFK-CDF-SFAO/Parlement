@@ -312,13 +312,16 @@ function renderResults() {
     }
 }
 
-function getAuthorTypeEmoji(author) {
-    if (!author) return '🧑';
-    const lowerAuthor = author.toLowerCase();
-    if (lowerAuthor.includes('conseil fédéral') || lowerAuthor.includes('bundesrat')) {
-        return '🏛️';
+function getMentionEmojis(mention) {
+    if (!mention) return '🧑';
+    const emojis = [];
+    if (mention.includes('Élu')) {
+        emojis.push('🧑');
     }
-    return '🧑';
+    if (mention.includes('Conseil fédéral')) {
+        emojis.push('🏛️');
+    }
+    return emojis.length > 0 ? emojis.join(' ') : '🧑';
 }
 
 function createCard(item, searchTerm) {
@@ -331,7 +334,7 @@ function createCard(item, searchTerm) {
     
     const date = item.date ? new Date(item.date).toLocaleDateString('de-CH') : '';
     const url = item.url_de || item.url_fr;
-    const authorEmoji = getAuthorTypeEmoji(item.author);
+    const mentionEmojis = getMentionEmojis(item.mention);
     
     // Status badge color
     let statusClass = 'badge-status';
@@ -345,7 +348,8 @@ function createCard(item, searchTerm) {
                 <span class="card-id">${shortId}</span>
                 <div class="card-badges">
                     <span class="badge badge-type">${item.type}</span>
-                    <span class="badge badge-council">${item.council === 'NR' ? 'NR' : 'SR'} ${authorEmoji}</span>
+                    <span class="badge badge-council">${item.council === 'NR' ? 'NR' : 'SR'}</span>
+                    <span class="badge badge-mention">${mentionEmojis}</span>
                 </div>
             </div>
             <h3 class="card-title">

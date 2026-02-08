@@ -357,6 +357,12 @@ main {
     color: #c2185b;
 }
 
+.badge-mention {
+    background: #424242;
+    color: white;
+    font-size: 0.9rem;
+}
+
 .badge-status {
     background: #e8f5e9;
     color: #2e7d32;
