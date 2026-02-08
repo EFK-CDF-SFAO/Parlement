@@ -175,9 +175,10 @@ function createRow(item) {
     const title = item.title || item.title_de || '';
     const council = item.council === 'NR' ? 'CN' : 'CE';
     
-    // Author with party
+    // Author with party (translated to French)
     const authorName = item.author || '';
-    const authorWithParty = item.party ? `${authorName} (${item.party})` : authorName;
+    const partyFR = translateParty(item.party || '');
+    const authorWithParty = partyFR ? `${authorName} (${partyFR})` : authorName;
     
     // Truncate title if too long
     const maxTitleLength = 80;
@@ -277,6 +278,14 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+function translateParty(party) {
+    const translations = {
+        'Al': 'Verts',
+        'PSS': 'PS'
+    };
+    return translations[party] || party;
 }
 
 function showLoading() {

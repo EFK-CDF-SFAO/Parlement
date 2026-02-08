@@ -97,6 +97,14 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+function translateParty(party) {
+    const translations = {
+        'Al': 'Verts',
+        'PSS': 'PS'
+    };
+    return translations[party] || party;
+}
+
 function setupEventListeners() {
     searchInput.addEventListener('input', debounce(applyFilters, 300));
     clearButton.addEventListener('click', clearSearch);
@@ -136,7 +144,7 @@ function populatePartyFilter() {
     parties.forEach(party => {
         const option = document.createElement('option');
         option.value = party;
-        option.textContent = party;
+        option.textContent = translateParty(party);
         partyFilter.appendChild(option);
     });
 }
@@ -235,7 +243,8 @@ function renderResults() {
 function createCard(item, searchTerm) {
     const title = highlightText(item.title || item.title_de, searchTerm);
     const authorName = item.author || '';
-    const authorWithParty = item.party ? `${authorName} (${item.party})` : authorName;
+    const partyFR = translateParty(item.party || '');
+    const authorWithParty = partyFR ? `${authorName} (${partyFR})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     const shortId = highlightText(item.shortId, searchTerm);
     
