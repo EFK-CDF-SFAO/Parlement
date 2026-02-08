@@ -176,7 +176,7 @@ function createRow(item) {
     const council = item.council === 'NR' ? 'NR' : 'SR';
     
     // Author with party (translated to German)
-    const authorName = item.author || '';
+    const authorName = translateAuthor(item.author || '');
     const partyDE = translateParty(item.party || '');
     const authorWithParty = partyDE ? `${authorName} (${partyDE})` : authorName;
     
@@ -301,6 +301,28 @@ function translateParty(party) {
         'Centre': 'Mitte'
     };
     return translations[party] || party;
+}
+
+function translateAuthor(author) {
+    const translations = {
+        'Commission des finances Conseil national': 'Finanzkommission Nationalrat',
+        'Commission des finances Conseil des États': 'Finanzkommission Ständerat',
+        'Commission de l\'économie et des redevances Conseil national': 'Kommission für Wirtschaft und Abgaben Nationalrat',
+        'Commission de l\'économie et des redevances Conseil des États': 'Kommission für Wirtschaft und Abgaben Ständerat',
+        'Commission de la sécurité sociale et de la santé publique Conseil national': 'Kommission für soziale Sicherheit und Gesundheit Nationalrat',
+        'Commission de la sécurité sociale et de la santé publique Conseil des États': 'Kommission für soziale Sicherheit und Gesundheit Ständerat',
+        'Commission des transports et des télécommunications Conseil national': 'Kommission für Verkehr und Fernmeldewesen Nationalrat',
+        'Commission des transports et des télécommunications Conseil des États': 'Kommission für Verkehr und Fernmeldewesen Ständerat',
+        'Commission de la politique de sécurité Conseil national': 'Sicherheitspolitische Kommission Nationalrat',
+        'Commission de la politique de sécurité Conseil des États': 'Sicherheitspolitische Kommission Ständerat',
+        'Commission des institutions politiques Conseil national': 'Staatspolitische Kommission Nationalrat',
+        'Commission des institutions politiques Conseil des États': 'Staatspolitische Kommission Ständerat',
+        'Commission de gestion Conseil national': 'Geschäftsprüfungskommission Nationalrat',
+        'Commission de gestion Conseil des États': 'Geschäftsprüfungskommission Ständerat',
+        'Commission de l\'environnement, de l\'aménagement du territoire et de l\'énergie Conseil national': 'Kommission für Umwelt, Raumplanung und Energie Nationalrat',
+        'Commission de l\'environnement, de l\'aménagement du territoire et de l\'énergie Conseil des États': 'Kommission für Umwelt, Raumplanung und Energie Ständerat'
+    };
+    return translations[author] || author;
 }
 
 function showLoading() {

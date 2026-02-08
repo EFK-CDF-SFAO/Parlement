@@ -105,6 +105,17 @@ function translateParty(party) {
     return translations[party] || party;
 }
 
+function getPartyFromAuthor(author) {
+    if (!author) return null;
+    if (author.includes('FDP') || author.includes('PLR')) return 'PLR';
+    if (author.includes('Grünliberale') || author.includes('Vert\'libéra')) return 'pvl';
+    if (author.includes('SVP') || author.includes('UDC')) return 'UDC';
+    if (author.includes('SP ') || author.includes('PS ') || author.includes('socialiste')) return 'PSS';
+    if (author.includes('Grüne') || author.includes('Verts') || author.includes('VERT')) return 'VERT-E-S';
+    if (author.includes('Mitte') || author.includes('Centre')) return 'Le Centre';
+    return null;
+}
+
 function setupEventListeners() {
     searchInput.addEventListener('input', debounce(applyFilters, 300));
     clearButton.addEventListener('click', clearSearch);
@@ -188,9 +199,12 @@ function applyFilters() {
             return false;
         }
         
-        // Party filter
-        if (partyValue && item.party !== partyValue) {
-            return false;
+        // Party filter (includes groups/factions)
+        if (partyValue) {
+            const itemParty = item.party || getPartyFromAuthor(item.author);
+            if (itemParty !== partyValue) {
+                return false;
+            }
         }
         
         return true;
