@@ -74,12 +74,16 @@ function displaySessionSummary(summary) {
     const container = document.getElementById('sessionSummary');
     const titleEl = document.getElementById('summaryTitle');
     const textEl = document.getElementById('summaryText');
+    const textMobileEl = document.getElementById('summaryTextMobile');
     const listEl = document.getElementById('summaryInterventions');
     
     if (!container || !titleEl || !textEl || !listEl) return;
     
     titleEl.textContent = summary.title_fr;
     textEl.innerHTML = summary.text_fr + (summary.themes_fr ? '<br><br><strong>Thèmes abordés :</strong> ' + escapeHtml(summary.themes_fr) : '');
+    if (textMobileEl) {
+        textMobileEl.innerHTML = summary.text_fr + (summary.themes_fr ? '<br><br>' + escapeHtml(summary.themes_fr) : '');
+    }
     
     // Build interventions list
     if (summary.interventions && summary.interventions.shortId) {

@@ -16,9 +16,13 @@
                 <!-- Résumé de session -->
                 <div id="sessionSummary" class="session-summary" style="display: none;">
                     <h3 id="summaryTitle"></h3>
-                    <p id="summaryText"></p>
-                    <details class="session-details mobile-collapsible">
+                    <p id="summaryText" class="summary-text-desktop"></p>
+                    <details class="summary-themes-mobile">
                         <summary>Thèmes abordés</summary>
+                        <p id="summaryTextMobile"></p>
+                    </details>
+                    <details>
+                        <summary>Voir les interventions de cette session</summary>
                         <ul id="summaryInterventions"></ul>
                     </details>
                 </div>
