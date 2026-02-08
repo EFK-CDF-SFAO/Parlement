@@ -39,6 +39,7 @@ header {
     color: white;
     padding: 1.5rem 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: relative;
 }
 
 header h1 {
@@ -613,8 +614,22 @@ mark {
     }
     
     .lang-switcher {
-        align-self: flex-start;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
         margin-top: 0;
+    }
+    
+    .lang-switcher a.active,
+    .lang-switcher span {
+        display: none;
+    }
+    
+    .lang-switcher a:not(.active) {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
     }
     
     header h1 {

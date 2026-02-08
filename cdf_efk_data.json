@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-02-08T18:10:03",
+    "updated": "2026-02-08T22:06:48",
     "total_count": 100,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -629,7 +629,7 @@
       "title_de": "Vernehmlassungsvorlage zum Entlastungspaket 27 und Änderung des Subventionsgesetzes. Auswirkungen und effektives Sparpotenzial",
       "author": "Graf Maya",
       "party": "VERT-E-S",
-      "type": "Fra.",
+      "type": "A",
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-03-20",
