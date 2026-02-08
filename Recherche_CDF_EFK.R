@@ -692,67 +692,44 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       themes_fr <- ""
       themes_de <- ""
       if (nrow(interventions_session) > 0) {
-        # Extraire les titres pour analyse
-        titres_fr <- interventions_session$Titre_FR
-        titres_de <- interventions_session$Titre_DE
-        
-        # Créer une liste descriptive des thèmes abordés
+        # Créer une liste descriptive : titre complet + (Nom, Parti)
         themes_list_fr <- sapply(seq_len(nrow(interventions_session)), function(i) {
           titre <- interventions_session$Titre_FR[i]
-          type <- interventions_session$Type[i]
           auteur <- interventions_session$Auteur[i]
+          parti <- if ("Parti" %in% names(interventions_session)) interventions_session$Parti[i] else ""
           
-          # Tronquer le titre si trop long
-          if (nchar(titre) > 80) {
-            titre <- paste0(substr(titre, 1, 77), "...")
+          # Extraire le nom de famille (premier mot car format "Nom Prénom")
+          nom_parts <- strsplit(auteur, " ")[[1]]
+          nom_famille <- nom_parts[1]
+          
+          # Format: Titre (Nom, Parti)
+          if (!is.na(parti) && parti != "") {
+            paste0(titre, " (", nom_famille, ", ", parti, ")")
+          } else {
+            paste0(titre, " (", nom_famille, ")")
           }
-          
-          type_fr <- switch(type,
-            "Mo." = "Une motion",
-            "Po." = "Un postulat", 
-            "Ip." = "Une interpellation",
-            "Fra." = "Une question",
-            "A" = "Une initiative",
-            "Un objet"
-          )
-          
-          paste0(type_fr, " de ", auteur, " porte sur « ", titre, " »")
         })
         
         themes_list_de <- sapply(seq_len(nrow(interventions_session)), function(i) {
           titre <- interventions_session$Titre_DE[i]
-          type <- interventions_session$Type[i]
           auteur <- interventions_session$Auteur[i]
+          parti <- if ("Parti" %in% names(interventions_session)) interventions_session$Parti[i] else ""
           
-          # Tronquer le titre si trop long
-          if (nchar(titre) > 80) {
-            titre <- paste0(substr(titre, 1, 77), "...")
+          # Extraire le nom de famille (premier mot car format "Nom Prénom")
+          nom_parts <- strsplit(auteur, " ")[[1]]
+          nom_famille <- nom_parts[1]
+          
+          # Format: Titel (Name, Partei)
+          if (!is.na(parti) && parti != "") {
+            paste0(titre, " (", nom_famille, ", ", parti, ")")
+          } else {
+            paste0(titre, " (", nom_famille, ")")
           }
-          
-          type_de <- switch(type,
-            "Mo." = "Eine Motion",
-            "Po." = "Ein Postulat",
-            "Ip." = "Eine Interpellation", 
-            "Fra." = "Eine Anfrage",
-            "A" = "Eine Initiative",
-            "Ein Vorstoss"
-          )
-          
-          paste0(type_de, " von ", auteur, " betrifft « ", titre, " »")
         })
         
-        # Limiter à 5 thèmes max pour la lisibilité
-        max_themes <- min(5, length(themes_list_fr))
-        themes_fr <- paste(themes_list_fr[1:max_themes], collapse = ". ")
-        themes_de <- paste(themes_list_de[1:max_themes], collapse = ". ")
-        
-        if (length(themes_list_fr) > max_themes) {
-          themes_fr <- paste0(themes_fr, ".")
-          themes_de <- paste0(themes_de, ".")
-        } else {
-          themes_fr <- paste0(themes_fr, ".")
-          themes_de <- paste0(themes_de, ".")
-        }
+        # Joindre tous les thèmes avec des points-virgules
+        themes_fr <- paste(themes_list_fr, collapse = " ; ")
+        themes_de <- paste(themes_list_de, collapse = " ; ")
       }
       
       resume_fr <- paste0(
