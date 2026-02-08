@@ -647,6 +647,38 @@ mark {
     th, td {
         padding: 0.5rem;
     }
+    
+    /* Session details collapsible on mobile */
+    .session-details.mobile-collapsible {
+        margin-top: 0.5rem;
+    }
+    
+    .session-details.mobile-collapsible summary {
+        cursor: pointer;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .session-details.mobile-collapsible ul {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Desktop: session details always open */
+@media (min-width: 769px) {
+    .session-details.mobile-collapsible {
+        display: block;
+    }
+    
+    .session-details.mobile-collapsible[open] summary,
+    .session-details.mobile-collapsible summary {
+        display: none;
+    }
+    
+    .session-details.mobile-collapsible ul {
+        display: block !important;
+    }
 }
 
 /* Statistics Page */

@@ -17,8 +17,8 @@
                 <div id="sessionSummary" class="session-summary" style="display: none;">
                     <h3 id="summaryTitle"></h3>
                     <p id="summaryText"></p>
-                    <details>
-                        <summary>Voir les interventions de cette session</summary>
+                    <details class="session-details mobile-collapsible">
+                        <summary>Thèmes abordés</summary>
                         <ul id="summaryInterventions"></ul>
                     </details>
                 </div>
@@ -41,7 +41,7 @@
         <section class="search-section">
             <h2>Rechercher une intervention</h2>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Rechercher par titre, auteur, numéro..." autofocus>
+                <input type="text" id="searchInput" placeholder="Rechercher par titre, auteur, numéro...">
                 <button id="clearSearch" class="btn-clear" title="Effacer">✕</button>
             </div>
             <div class="filters">
