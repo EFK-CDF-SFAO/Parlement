@@ -560,9 +560,8 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
   
   cat("Export JSON pour GitHub...\n")
   
-  # Préparer les données pour le JSON
+  # Préparer les données pour le JSON (toutes les interventions)
   Donnees_JSON <- Resultats |>
-    head(20) |>
     mutate(
       shortId = Numéro,
       title = Titre_FR,
