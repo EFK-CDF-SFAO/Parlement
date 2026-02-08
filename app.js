@@ -280,6 +280,15 @@ function renderResults() {
     }
 }
 
+function getAuthorTypeEmoji(author) {
+    if (!author) return '🧑';
+    const lowerAuthor = author.toLowerCase();
+    if (lowerAuthor.includes('conseil fédéral') || lowerAuthor.includes('bundesrat')) {
+        return '🏛️';
+    }
+    return '🧑';
+}
+
 function createCard(item, searchTerm) {
     const title = highlightText(item.title || item.title_de, searchTerm);
     const authorName = item.author || '';
@@ -290,6 +299,7 @@ function createCard(item, searchTerm) {
     
     const date = item.date ? new Date(item.date).toLocaleDateString('fr-CH') : '';
     const url = item.url_fr || item.url_de;
+    const authorEmoji = getAuthorTypeEmoji(item.author);
     
     // Status badge color
     let statusClass = 'badge-status';
@@ -303,7 +313,7 @@ function createCard(item, searchTerm) {
                 <span class="card-id">${shortId}</span>
                 <div class="card-badges">
                     <span class="badge badge-type">${item.type}</span>
-                    <span class="badge badge-council">${item.council === 'NR' ? 'CN' : 'CE'}</span>
+                    <span class="badge badge-council">${item.council === 'NR' ? 'CN' : 'CE'} ${authorEmoji}</span>
                 </div>
             </div>
             <h3 class="card-title">
