@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-02-08T17:07:59",
+    "updated": "2026-02-08T17:25:40",
     "total_count": 100,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -12,6 +12,8 @@
     "title_de": "Zusammenfassung der Wintersession 2025",
     "text_fr": "Durant la Session d'hiver 2025 (01.12 - 19.12.2025), 6 interventions mentionnant le CDF ont été déposées : 3 motions, 2 questions, 1 interpellation. 5 au Conseil national et 1 au Conseil des États. Les partis les plus actifs : UDC, VERT-E-S, PLR.",
     "text_de": "Während der Wintersession 2025 (01.12 - 19.12.2025) wurden 6 Vorstösse mit Bezug zur EFK eingereicht: 3 Motionen, 2 Anfragen, 1 Interpellation. 5 im Nationalrat und 1 im Ständerat. Die aktivsten Parteien: UDC, VERT-E-S, PLR.",
+    "themes_fr": "Une motion de Addor Jean-Luc porte sur « La rémunération des tâches confiées à l'OFDF dans les aéroports de Genève et ... ». Une motion de Michel Matthias porte sur « Favoriser la fiabilité de l’IA en Suisse en rendant réutilisables les données... ». Une interpellation de Grossen Jürg porte sur « Assurer la transparence quant à l'efficacité des subventions accordées à tout... ». Une question de Kolly Nicolas porte sur « Imagerie médicale en Suisse romande : quel lien entre moratoires, volume d’ex... ». Une question de Trede Aline porte sur « Des revenus couvrant les coûts liés à la protection des espèces ?  ».",
+    "themes_de": "Eine Motion von Addor Jean-Luc betrifft « Die Vergütung der Aufgaben, die dem Bundesamt für Zoll und Grenzsicherheit (B... ». Eine Motion von Michel Matthias betrifft « Daten der Bundesverwaltung mehrfach nutzbar machen – als Basis für vertrauens... ». Eine Interpellation von Grossen Jürg betrifft « Transparenz bei der Fördereffizienz aller erneuerbaren Technologien herstellen ». Eine Anfrage von Kolly Nicolas betrifft « Medizinische Bildgebung in der Westschweiz: Wie hängen Moratorien, Untersuchu... ». Eine Anfrage von Trede Aline betrifft « Kostendeckende Erträge aus dem Artenschutz?  ».",
     "session_start": "2025-12-01",
     "session_end": "2025-12-19",
     "display_until": "2026-03-02",

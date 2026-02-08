@@ -70,7 +70,7 @@ function displaySessionSummary(summary) {
     if (!container || !titleEl || !textEl || !listEl) return;
     
     titleEl.textContent = summary.title_fr;
-    textEl.textContent = summary.text_fr;
+    textEl.innerHTML = summary.text_fr + (summary.themes_fr ? '<br><br><strong>Thèmes abordés :</strong> ' + escapeHtml(summary.themes_fr) : '');
     
     // Build interventions list
     if (summary.interventions && summary.interventions.shortId) {
