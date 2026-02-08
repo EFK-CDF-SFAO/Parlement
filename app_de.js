@@ -208,13 +208,13 @@ function populateYearFilter() {
 }
 
 function populatePartyFilter() {
-    const parties = [...new Set(allData.map(item => item.party).filter(Boolean))];
-    parties.sort((a, b) => translateParty(a).localeCompare(translateParty(b), 'de'));
+    const translatedParties = [...new Set(allData.map(item => translateParty(item.party)).filter(Boolean))];
+    translatedParties.sort((a, b) => a.localeCompare(b, 'de'));
     
-    parties.forEach(party => {
+    translatedParties.forEach(party => {
         const option = document.createElement('option');
         option.value = party;
-        option.textContent = translateParty(party);
+        option.textContent = party;
         partyFilter.appendChild(option);
     });
 }
@@ -260,7 +260,7 @@ function applyFilters() {
         
         // Party filter (includes groups/factions)
         if (partyValue) {
-            const itemParty = item.party || getPartyFromAuthor(item.author);
+            const itemParty = translateParty(item.party) || getPartyFromAuthor(item.author);
             if (itemParty !== partyValue) {
                 return false;
             }
