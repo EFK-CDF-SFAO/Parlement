@@ -193,7 +193,7 @@ function createCard(item, searchTerm) {
                 <span>👤 ${author}</span>
                 <span>📅 ${date}</span>
             </div>
-            ${item.status ? `<div style="margin-top: 0.5rem;"><span class="badge ${statusClass}">${item.status}</span></div>` : ''}
+            ${item.status ? `<div style="margin-top: 0.5rem;"><span class="badge ${statusClass}">${getStatusFR(item.status)}</span></div>` : ''}
         </article>
     `;
 }
@@ -272,4 +272,12 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+function getStatusFR(status) {
+    if (!status) return '';
+    if (status.includes('/')) {
+        return status.split('/')[1].trim();
+    }
+    return status;
 }
