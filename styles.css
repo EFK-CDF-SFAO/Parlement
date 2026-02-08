@@ -665,36 +665,6 @@ mark {
     }
 }
 
-/* Summary text: desktop shows text, mobile shows collapsible */
-.summary-text-desktop {
-    display: block;
-}
-
-.summary-themes-mobile {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .summary-text-desktop {
-        display: none;
-    }
-    
-    .summary-themes-mobile {
-        display: block;
-        margin: 0.5rem 0;
-    }
-    
-    .summary-themes-mobile summary {
-        cursor: pointer;
-        font-weight: 500;
-        color: rgba(255, 255, 255, 0.9);
-    }
-    
-    .summary-themes-mobile p {
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-    }
-}
 
 /* Statistics Page */
 .stats-section {
