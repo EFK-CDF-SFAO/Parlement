@@ -6,8 +6,17 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 
 This project provides:
 1. **R Script** (`Recherche_CDF_EFK.R`) — Searches the Parliament API for interventions mentioning the Federal Audit Office in French ("Contrôle fédéral des finances", "CDF") and German ("Eidgenössische Finanzkontrolle", "EFK")
-2. **iOS Widget** (`EFK_CDF_Parlement.js`) — Scriptable widget displaying the latest parliamentary interventions on your iPhone
-3. **JSON Data** (`cdf_efk_data.json`) — Regularly updated data file hosted on GitHub
+2. **GitHub Pages Website** — Interactive web interface with search and full list of interventions
+3. **iOS Widget** (`EFK_CDF_Parlement.js`) — Scriptable widget displaying the latest parliamentary interventions on your iPhone
+4. **JSON Data** (`cdf_efk_data.json`) — Regularly updated data file hosted on GitHub
+
+## 🌐 Website
+
+The project includes a GitHub Pages website with:
+- **Search page** (`index.html`) — Filter interventions by text, type, council, and year
+- **Full list** (`liste.html`) — Sortable table with all interventions + Excel download
+
+**Live URL**: `https://[username].github.io/EFK-Parlament/`
 
 ## Features
 
