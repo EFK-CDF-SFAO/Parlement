@@ -105,6 +105,7 @@ function translateParty(party) {
         'PVL': 'GLP',
         'Vert\'libéraux': 'GLP',
         'PS': 'SP',
+        'PSS': 'SP',
         'PLR': 'FDP',
         'UDC': 'SVP',
         'Le Centre': 'Die Mitte',
