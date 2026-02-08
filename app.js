@@ -123,13 +123,32 @@ function getPartyFromAuthor(author) {
     return null;
 }
 
+function updateLangSwitcherLinks() {
+    const searchValue = searchInput.value.trim();
+    const langLinks = document.querySelectorAll('.lang-switcher a');
+    langLinks.forEach(link => {
+        const href = link.getAttribute('href').split('?')[0];
+        if (searchValue) {
+            link.setAttribute('href', `${href}?search=${encodeURIComponent(searchValue)}`);
+        } else {
+            link.setAttribute('href', href);
+        }
+    });
+}
+
 function setupEventListeners() {
-    searchInput.addEventListener('input', debounce(applyFilters, 300));
+    searchInput.addEventListener('input', () => {
+        debounce(applyFilters, 300)();
+        updateLangSwitcherLinks();
+    });
     clearButton.addEventListener('click', clearSearch);
     typeFilter.addEventListener('change', applyFilters);
     councilFilter.addEventListener('change', applyFilters);
     yearFilter.addEventListener('change', applyFilters);
     partyFilter.addEventListener('change', applyFilters);
+    
+    // Update lang switcher on load
+    updateLangSwitcherLinks();
     
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
