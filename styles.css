@@ -671,13 +671,23 @@ mark {
         display: block;
     }
     
-    .session-details.mobile-collapsible[open] summary,
     .session-details.mobile-collapsible summary {
         display: none;
     }
     
-    .session-details.mobile-collapsible ul {
-        display: block !important;
+    .session-details.mobile-collapsible > ul {
+        display: block;
+    }
+}
+
+/* Mobile: ensure details content is hidden when closed */
+@media (max-width: 768px) {
+    .session-details.mobile-collapsible:not([open]) > ul {
+        display: none;
+    }
+    
+    .session-details.mobile-collapsible[open] > ul {
+        display: block;
     }
 }
 
