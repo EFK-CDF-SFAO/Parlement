@@ -634,11 +634,15 @@ mark {
     color: var(--text);
 }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+.stats-row {
+    display: flex;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
+}
+
+.stats-row .stat-card {
+    flex: 1;
+    min-width: 0;
 }
 
 .stat-card {
@@ -646,10 +650,6 @@ mark {
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.stat-card.full-width {
-    grid-column: 1 / -1;
 }
 
 .stat-card h3 {
@@ -661,89 +661,117 @@ mark {
 }
 
 .chart-container {
-    height: 300px;
+    height: 280px;
     position: relative;
 }
 
 .chart-container-wide {
-    height: 250px;
+    height: 220px;
     position: relative;
+}
+
+.stat-card.top-card {
+    max-width: 400px;
 }
 
 /* Top Authors */
 .authors-ranking {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 
 .author-row {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: background 0.2s;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: var(--background);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .author-row:hover {
-    background: var(--background);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.author-row.gold {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffefc2 100%);
+    border: 1px solid #ffd700;
+}
+
+.author-row.silver {
+    background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+    border: 1px solid #c0c0c0;
+}
+
+.author-row.bronze {
+    background: linear-gradient(135deg, #fdf5ef 0%, #f5e6d8 100%);
+    border: 1px solid #cd7f32;
 }
 
 .author-rank {
-    width: 32px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50%;
+    background: var(--surface);
     color: var(--text-secondary);
+}
+
+.author-row.gold .author-rank {
+    background: #ffd700;
+    color: #fff;
+}
+
+.author-row.silver .author-rank {
+    background: #c0c0c0;
+    color: #fff;
+}
+
+.author-row.bronze .author-rank {
+    background: #cd7f32;
+    color: #fff;
 }
 
 .author-info {
-    min-width: 200px;
+    flex: 1;
+    min-width: 0;
 }
 
 .author-name {
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .author-party {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
 }
 
-.author-bar-container {
-    flex: 1;
-    height: 24px;
-    background: var(--background);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.author-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-    border-radius: 12px;
-    transition: width 0.5s ease;
-}
-
 .author-count {
-    min-width: 40px;
-    text-align: right;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     color: var(--primary);
+    background: var(--surface);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
 }
 
 @media (max-width: 768px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
+    .stats-row {
+        flex-direction: column;
     }
     
-    .author-info {
-        min-width: 120px;
-    }
-    
-    .author-bar-container {
-        display: none;
+    .stat-card.top-card {
+        max-width: none;
     }
 }

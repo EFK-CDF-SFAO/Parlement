@@ -233,7 +233,7 @@ function renderTopAuthors() {
     
     const topAuthors = Object.entries(authorCounts)
         .sort((a, b) => b[1] - a[1])
-        .slice(0, 15);
+        .slice(0, 5);
     
     const container = document.getElementById('topAuthors');
     
@@ -242,23 +242,17 @@ function renderTopAuthors() {
         return;
     }
     
-    const maxCount = topAuthors[0][1];
-    
     let html = '<div class="authors-ranking">';
     topAuthors.forEach(([author, count], index) => {
         const party = authorParties[author] || '';
-        const percentage = (count / maxCount) * 100;
-        const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '';
+        const medalClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
         
         html += `
-            <div class="author-row">
-                <div class="author-rank">${medal || (index + 1)}</div>
+            <div class="author-row ${medalClass}">
+                <div class="author-rank">${index + 1}</div>
                 <div class="author-info">
                     <div class="author-name">${author}</div>
                     <div class="author-party">${party}</div>
-                </div>
-                <div class="author-bar-container">
-                    <div class="author-bar" style="width: ${percentage}%"></div>
                 </div>
                 <div class="author-count">${count}</div>
             </div>
