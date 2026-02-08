@@ -175,9 +175,10 @@ function createRow(item) {
     const title = item.title_de || item.title || '';
     const council = item.council === 'NR' ? 'NR' : 'SR';
     
-    // Author with party
+    // Author with party (translated to German)
     const authorName = item.author || '';
-    const authorWithParty = item.party ? `${authorName} (${item.party})` : authorName;
+    const partyDE = translateParty(item.party || '');
+    const authorWithParty = partyDE ? `${authorName} (${partyDE})` : authorName;
     
     // Truncate title if too long
     const maxTitleLength = 80;
@@ -282,6 +283,22 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+function translateParty(party) {
+    const translations = {
+        'VERT-E-S': 'GRÜNE',
+        'Les Vert-e-s': 'GRÜNE',
+        'pvl': 'GLP',
+        'PVL': 'GLP',
+        'Vert\'libéraux': 'GLP',
+        'PS': 'SP',
+        'PLR': 'FDP',
+        'UDC': 'SVP',
+        'Le Centre': 'Die Mitte',
+        'Centre': 'Mitte'
+    };
+    return translations[party] || party;
 }
 
 function showLoading() {

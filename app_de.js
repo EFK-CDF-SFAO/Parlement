@@ -77,7 +77,7 @@ function displaySessionSummary(summary) {
         const items = summary.interventions.shortId.map((id, i) => {
             const title = summary.interventions.title_de[i] || '';
             const author = summary.interventions.author[i] || '';
-            const party = summary.interventions.party[i] || '';
+            const party = translateParty(summary.interventions.party[i] || '');
             const type = summary.interventions.type[i] || '';
             const url = summary.interventions.url_de[i] || '#';
             const authorWithParty = party ? `${author} (${party})` : author;
@@ -93,6 +93,22 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text || '';
     return div.innerHTML;
+}
+
+function translateParty(party) {
+    const translations = {
+        'VERT-E-S': 'GRÜNE',
+        'Les Vert-e-s': 'GRÜNE',
+        'pvl': 'GLP',
+        'PVL': 'GLP',
+        'Vert\'libéraux': 'GLP',
+        'PS': 'SP',
+        'PLR': 'FDP',
+        'UDC': 'SVP',
+        'Le Centre': 'Die Mitte',
+        'Centre': 'Mitte'
+    };
+    return translations[party] || party;
 }
 
 function setupEventListeners() {
@@ -213,7 +229,8 @@ function renderResults() {
 function createCard(item, searchTerm) {
     const title = highlightText(item.title_de || item.title, searchTerm);
     const authorName = item.author || '';
-    const authorWithParty = item.party ? `${authorName} (${item.party})` : authorName;
+    const partyDE = translateParty(item.party || '');
+    const authorWithParty = partyDE ? `${authorName} (${partyDE})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     const shortId = highlightText(item.shortId, searchTerm);
     

@@ -715,13 +715,27 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
           auteur <- interventions_session$Auteur[i]
           parti <- if ("Parti" %in% names(interventions_session)) interventions_session$Parti[i] else ""
           
+          # Traduire le nom du parti en allemand
+          parti_de <- switch(parti,
+            "VERT-E-S" = "GRÜNE",
+            "Les Vert-e-s" = "GRÜNE",
+            "pvl" = "GLP",
+            "PVL" = "GLP",
+            "PS" = "SP",
+            "PLR" = "FDP",
+            "UDC" = "SVP",
+            "Le Centre" = "Die Mitte",
+            "Centre" = "Mitte",
+            parti  # default: keep original
+          )
+          
           # Extraire le nom de famille (premier mot car format "Nom Prénom")
           nom_parts <- strsplit(auteur, " ")[[1]]
           nom_famille <- nom_parts[1]
           
           # Format: Titel (Name, Partei)
-          if (!is.na(parti) && parti != "") {
-            paste0(titre, " (", nom_famille, ", ", parti, ")")
+          if (!is.na(parti_de) && parti_de != "") {
+            paste0(titre, " (", nom_famille, ", ", parti_de, ")")
           } else {
             paste0(titre, " (", nom_famille, ")")
           }
