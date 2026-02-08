@@ -293,8 +293,18 @@ function getMentionEmojis(mention) {
     return emojis.length > 0 ? emojis.join(' ') : '🧑';
 }
 
+function isTitleMissing(title) {
+    if (!title) return true;
+    const missing = ['titre suit', 'titel folgt', ''];
+    return missing.includes(title.toLowerCase().trim());
+}
+
 function createCard(item, searchTerm) {
-    const title = highlightText(item.title || item.title_de, searchTerm);
+    const frMissing = isTitleMissing(item.title);
+    const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de);
+    const title = highlightText(displayTitle, searchTerm);
+    const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🇩🇪 Uniquement en allemand pour le moment</span>' : '';
+    
     const authorName = item.author || '';
     const partyFR = translateParty(item.party || '');
     const authorWithParty = partyFR ? `${authorName} (${partyFR})` : authorName;
@@ -324,6 +334,7 @@ function createCard(item, searchTerm) {
             <h3 class="card-title">
                 <a href="${url}" target="_blank" rel="noopener">${title}</a>
             </h3>
+            ${langWarning}
             <div class="card-meta">
                 <span>👤 ${author}</span>
                 <span>📅 ${date}</span>

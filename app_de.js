@@ -325,8 +325,18 @@ function getMentionEmojis(mention) {
     return emojis.length > 0 ? emojis.join(' ') : '🧑';
 }
 
+function isTitleMissing(title) {
+    if (!title) return true;
+    const missing = ['titre suit', 'titel folgt', ''];
+    return missing.includes(title.toLowerCase().trim());
+}
+
 function createCard(item, searchTerm) {
-    const title = highlightText(item.title_de || item.title, searchTerm);
+    const deMissing = isTitleMissing(item.title_de);
+    const displayTitle = deMissing && item.title ? item.title : (item.title_de || item.title);
+    const title = highlightText(displayTitle, searchTerm);
+    const langWarning = deMissing && item.title ? '<span class="lang-warning">🇫🇷 Derzeit nur auf Französisch verfügbar</span>' : '';
+    
     const authorName = translateAuthor(item.author || '');
     const partyDE = translateParty(item.party || '');
     const authorWithParty = partyDE ? `${authorName} (${partyDE})` : authorName;
@@ -356,6 +366,7 @@ function createCard(item, searchTerm) {
             <h3 class="card-title">
                 <a href="${url}" target="_blank" rel="noopener">${title}</a>
             </h3>
+            ${langWarning}
             <div class="card-meta">
                 <span>👤 ${author}</span>
                 <span>📅 ${date}</span>

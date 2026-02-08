@@ -363,6 +363,14 @@ main {
     font-size: 0.9rem;
 }
 
+.lang-warning {
+    display: block;
+    font-size: 0.75rem;
+    color: #666;
+    font-style: italic;
+    margin: 0.25rem 0;
+}
+
 .badge-status {
     background: #e8f5e9;
     color: #2e7d32;
