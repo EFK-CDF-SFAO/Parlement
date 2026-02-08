@@ -12,11 +12,21 @@ This project provides:
 
 ## 🌐 Website
 
-The project includes a GitHub Pages website with:
-- **Search page** (`index.html`) — Filter interventions by text, type, council, and year
-- **Full list** (`liste.html`) — Sortable table with all interventions + Excel download
+The project includes a bilingual GitHub Pages website (FR/DE) with:
 
-**Live URL**: `https://[username].github.io/EFK-Parlament/`
+### Pages
+- **Search** (`index.html` / `index_de.html`) — Filter interventions by text, type, council, year, and party
+- **Full list** (`liste.html` / `liste_de.html`) — Sortable table with all interventions + Excel export
+- **Statistics** (`stats.html` / `stats_de.html`) — Interactive charts and rankings
+
+### Features
+- 🔍 **Advanced filters**: Type, council, year, political party
+- 📊 **Statistics dashboard**: Interventions by party, by type, yearly evolution
+- 🏆 **Top 5 MPs**: Ranking of parliamentarians citing the SFAO most frequently
+- 🌐 **Bilingual**: Full French/German translation (party names, commissions, UI)
+- 📱 **Responsive**: Works on desktop and mobile
+
+**Live URL**: `https://arnaudbon20.github.io/EFK_CDF_Parlement/`
 
 ## Features
 
