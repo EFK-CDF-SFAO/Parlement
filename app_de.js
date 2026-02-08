@@ -325,6 +325,11 @@ function getMentionEmojis(mention) {
     return emojis.length > 0 ? emojis.join(' ') : '🧑';
 }
 
+function translateType(type) {
+    if (type === 'Fra.') return 'Frage';
+    return type;
+}
+
 function isTitleMissing(title) {
     if (!title) return true;
     const missing = ['titre suit', 'titel folgt', ''];
@@ -358,7 +363,7 @@ function createCard(item, searchTerm) {
             <div class="card-header">
                 <span class="card-id">${shortId}</span>
                 <div class="card-badges">
-                    <span class="badge badge-type">${item.type}</span>
+                    <span class="badge badge-type">${translateType(item.type)}</span>
                     <span class="badge badge-council">${item.council === 'NR' ? 'NR' : 'SR'}</span>
                     <span class="badge badge-mention">${mentionEmojis}</span>
                 </div>

@@ -34,7 +34,7 @@ const typeLabels = {
     'Mo.': 'Motion',
     'Po.': 'Postulat',
     'Ip.': 'Interpellation',
-    'Fra.': 'Question'
+    'Fra.': 'Q.'
 };
 
 async function init() {
