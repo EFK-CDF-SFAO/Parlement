@@ -33,6 +33,9 @@ async function init() {
             lastUpdate.textContent = `Mise à jour: ${date.toLocaleDateString('fr-CH')}`;
         }
         
+        // Display session summary if available
+        displaySessionSummary(json.session_summary);
+        
         // Populate year filter
         populateYearFilter();
         
@@ -46,6 +49,50 @@ async function init() {
         console.error('Error loading data:', error);
         showError('Erreur lors du chargement des données');
     }
+}
+
+function displaySessionSummary(summary) {
+    if (!summary) return;
+    
+    // Check if we should display the summary (before next session starts)
+    const today = new Date();
+    const displayUntil = summary.display_until ? new Date(summary.display_until) : null;
+    
+    if (displayUntil && today >= displayUntil) {
+        return; // Don't display after next session starts
+    }
+    
+    const container = document.getElementById('sessionSummary');
+    const titleEl = document.getElementById('summaryTitle');
+    const textEl = document.getElementById('summaryText');
+    const listEl = document.getElementById('summaryInterventions');
+    
+    if (!container || !titleEl || !textEl || !listEl) return;
+    
+    titleEl.textContent = summary.title_fr;
+    textEl.textContent = summary.text_fr;
+    
+    // Build interventions list
+    if (summary.interventions && summary.interventions.shortId) {
+        const items = summary.interventions.shortId.map((id, i) => {
+            const title = summary.interventions.title[i] || '';
+            const author = summary.interventions.author[i] || '';
+            const party = summary.interventions.party[i] || '';
+            const type = summary.interventions.type[i] || '';
+            const url = summary.interventions.url_fr[i] || '#';
+            const authorWithParty = party ? `${author} (${party})` : author;
+            return `<li><a href="${url}" target="_blank">${id}</a> – ${type} – ${escapeHtml(title.substring(0, 60))}${title.length > 60 ? '...' : ''} – <em>${escapeHtml(authorWithParty)}</em></li>`;
+        });
+        listEl.innerHTML = items.join('');
+    }
+    
+    container.style.display = 'block';
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text || '';
+    return div.innerHTML;
 }
 
 function setupEventListeners() {

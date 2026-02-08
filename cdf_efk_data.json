@@ -1,10 +1,40 @@
 {
   "meta": {
-    "updated": "2026-02-08T15:01:48",
+    "updated": "2026-02-08T17:07:59",
     "total_count": 100,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": ["25.4785", "25.4620", "25.4696", "25.8194", "25.8273", "25.4463", "25.4281", "25.4317", "25.4145", "25.4188", "25.4225", "25.4234", "25.4071", "25.4024", "25.7863", "25.7888", "25.7890", "25.4003", "25.3984", "25.7663", "25.7698", "25.3971", "25.7601", "25.3941", "25.3835", "25.3845", "25.3855", "25.3880", "25.3892", "25.3893", "25.3730", "25.3630", "25.3637", "25.7355", "25.7419", "25.3479", "25.3444", "25.3425", "25.3309", "25.3399", "25.3404", "25.3417", "25.1011", "25.3194", "25.3203", "25.3213", "25.3214", "25.3246", "25.3093", "25.7213", "25.3054", "25.7102", "25.7129", "25.7138", "25.3031", "25.7012", "25.3008", "24.4404", "24.4419", "24.7975", "24.8043", "24.4290", "24.4278", "24.4082", "24.4112", "24.4131", "24.4132", "24.4133", "24.4137", "24.3937", "24.3948", "24.7720", "24.7726", "24.7773", "24.7774", "24.3858", "24.3877", "24.7622", "24.7649", "24.3709", "24.3773", "24.3776", "24.3609", "24.3574", "24.3557", "24.3471", "24.3468", "24.3467", "24.3318", "24.3234", "24.3259", "24.3169", "24.3077", "24.7112", "24.7015", "23.4494", "23.4461", "23.4375", "23.4353", "23.4346"]
+    "new_ids": []
+  },
+  "session_summary": {
+    "session_id": "2025-hiver",
+    "title_fr": "Résumé de la session d'hiver 2025",
+    "title_de": "Zusammenfassung der Wintersession 2025",
+    "text_fr": "Durant la Session d'hiver 2025 (01.12 - 19.12.2025), 6 interventions mentionnant le CDF ont été déposées : 3 motions, 2 questions, 1 interpellation. 5 au Conseil national et 1 au Conseil des États. Les partis les plus actifs : UDC, VERT-E-S, PLR.",
+    "text_de": "Während der Wintersession 2025 (01.12 - 19.12.2025) wurden 6 Vorstösse mit Bezug zur EFK eingereicht: 3 Motionen, 2 Anfragen, 1 Interpellation. 5 im Nationalrat und 1 im Ständerat. Die aktivsten Parteien: UDC, VERT-E-S, PLR.",
+    "session_start": "2025-12-01",
+    "session_end": "2025-12-19",
+    "display_until": "2026-03-02",
+    "count": 6,
+    "by_type": {
+      "Mo.": 3,
+      "Fra.": 2,
+      "Ip.": 1
+    },
+    "by_council": {
+      "CN": 5,
+      "CE": 1
+    },
+    "interventions": {
+      "shortId": ["25.4785", "25.4620", "25.4696", "25.8194", "25.8273", "25.4463"],
+      "title": ["La rémunération des tâches confiées à l'OFDF dans les aéroports de Genève et Bâle doit profiter à l'OFDF !", "Favoriser la fiabilité de l’IA en Suisse en rendant réutilisables les données de l’administration fédérale", "Assurer la transparence quant à l'efficacité des subventions accordées à toutes les technologies renouvelables", "Imagerie médicale en Suisse romande : quel lien entre moratoires, volume d’examens et coûts ?", "Des revenus couvrant les coûts liés à la protection des espèces ? ", "Trois nouveaux groupes de tâches pour le projet \"Désenchevêtrement 27\""],
+      "title_de": ["Die Vergütung der Aufgaben, die dem Bundesamt für Zoll und Grenzsicherheit (BAZG) übertragen wurden und die dieses Amt an den Flughäfen Genf und Basel wahrnimmt, muss auch dem BAZG zugute kommen!", "Daten der Bundesverwaltung mehrfach nutzbar machen – als Basis für vertrauenswürdige KI in der Schweiz", "Transparenz bei der Fördereffizienz aller erneuerbaren Technologien herstellen", "Medizinische Bildgebung in der Westschweiz: Wie hängen Moratorien, Untersuchungsvolumen und Kosten zusammen?", "Kostendeckende Erträge aus dem Artenschutz? ", "Drei weitere Aufgabenbereiche für das Projekt Entflechtung 27"],
+      "author": ["Addor Jean-Luc", "Michel Matthias", "Grossen Jürg", "Kolly Nicolas", "Trede Aline", "Wettstein Felix"],
+      "party": ["UDC", "PLR", "pvl", "UDC", "VERT-E-S", "VERT-E-S"],
+      "type": ["Mo.", "Mo.", "Ip.", "Fra.", "Fra.", "Mo."],
+      "url_fr": ["https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"],
+      "url_de": ["https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"]
+    }
   },
   "items": [
     {

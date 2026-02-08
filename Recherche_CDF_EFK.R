@@ -603,6 +603,185 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
   )
   
   # ============================================================================
+  # GÉNÉRATION DU RÉSUMÉ DE SESSION
+  # ============================================================================
+  
+  cat("Génération du résumé de session...\n")
+  
+  # Charger les dates des sessions
+  sessions_file <- file.path(script_dir, "sessions.json")
+  sessions_data <- jsonlite::fromJSON(sessions_file)$sessions
+  sessions_data$start <- as.Date(sessions_data$start)
+  sessions_data$end <- as.Date(sessions_data$end)
+  
+  # Trouver la dernière session terminée
+  aujourd_hui <- Sys.Date()
+  sessions_terminees <- sessions_data |>
+    filter(end < aujourd_hui) |>
+    arrange(desc(end))
+  
+  # Trouver la prochaine session (pour savoir jusqu'à quand afficher le résumé)
+  prochaine_session <- sessions_data |>
+    filter(start > aujourd_hui) |>
+    arrange(start) |>
+    slice(1)
+  
+  session_summary <- NULL
+  
+  if (nrow(sessions_terminees) > 0) {
+    derniere_session <- sessions_terminees[1, ]
+    
+    # Filtrer les interventions déposées pendant cette session
+    interventions_session <- Resultats |>
+      filter(
+        as.Date(Date_dépôt) >= derniere_session$start,
+        as.Date(Date_dépôt) <= derniere_session$end
+      )
+    
+    if (nrow(interventions_session) > 0) {
+      cat("  ->", nrow(interventions_session), "interventions pour", derniere_session$name_fr, "\n")
+      
+      # Compter par type
+      par_type <- interventions_session |>
+        group_by(Type) |>
+        summarise(n = n(), .groups = "drop") |>
+        arrange(desc(n))
+      
+      # Compter par conseil
+      par_conseil <- interventions_session |>
+        group_by(Conseil) |>
+        summarise(n = n(), .groups = "drop")
+      
+      # Compter par parti
+      par_parti <- interventions_session |>
+        filter(!is.na(Parti)) |>
+        group_by(Parti) |>
+        summarise(n = n(), .groups = "drop") |>
+        arrange(desc(n))
+      
+      # Compter par mention (qui cite le CDF)
+      par_mention <- interventions_session |>
+        group_by(Mention) |>
+        summarise(n = n(), .groups = "drop")
+      
+      # Générer le résumé textuel FR
+      types_text_fr <- paste(
+        sapply(1:nrow(par_type), function(i) {
+          type_name <- switch(par_type$Type[i],
+            "Mo." = "motion",
+            "Po." = "postulat",
+            "Ip." = "interpellation",
+            "Fra." = "question",
+            "A" = "initiative",
+            par_type$Type[i]
+          )
+          if (par_type$n[i] > 1) type_name <- paste0(type_name, "s")
+          paste0(par_type$n[i], " ", type_name)
+        }),
+        collapse = ", "
+      )
+      
+      cn_count <- sum(par_conseil$n[par_conseil$Conseil == "NR"], na.rm = TRUE)
+      ce_count <- sum(par_conseil$n[par_conseil$Conseil == "SR"], na.rm = TRUE)
+      
+      partis_top <- if (nrow(par_parti) > 0) {
+        paste(head(par_parti$Parti, 3), collapse = ", ")
+      } else ""
+      
+      resume_fr <- paste0(
+        "Durant la ", derniere_session$name_fr, " (",
+        format(derniere_session$start, "%d.%m"), " - ",
+        format(derniere_session$end, "%d.%m.%Y"), "), ",
+        nrow(interventions_session), " interventions mentionnant le CDF ont été déposées : ",
+        types_text_fr, ". ",
+        if (cn_count > 0 && ce_count > 0) {
+          paste0(cn_count, " au Conseil national et ", ce_count, " au Conseil des États. ")
+        } else if (cn_count > 0) {
+          paste0("Toutes au Conseil national. ")
+        } else {
+          paste0("Toutes au Conseil des États. ")
+        },
+        if (nrow(par_parti) > 0) {
+          paste0("Les partis les plus actifs : ", partis_top, ".")
+        } else ""
+      )
+      
+      # Générer le résumé textuel DE
+      types_text_de <- paste(
+        sapply(1:nrow(par_type), function(i) {
+          type_name <- switch(par_type$Type[i],
+            "Mo." = "Motion",
+            "Po." = "Postulat",
+            "Ip." = "Interpellation",
+            "Fra." = "Anfrage",
+            "A" = "Initiative",
+            par_type$Type[i]
+          )
+          if (par_type$n[i] > 1 && !type_name %in% c("Anfrage")) type_name <- paste0(type_name, "en")
+          if (par_type$n[i] > 1 && type_name == "Anfrage") type_name <- "Anfragen"
+          paste0(par_type$n[i], " ", type_name)
+        }),
+        collapse = ", "
+      )
+      
+      resume_de <- paste0(
+        "Während der ", derniere_session$name_de, " (",
+        format(derniere_session$start, "%d.%m"), " - ",
+        format(derniere_session$end, "%d.%m.%Y"), ") wurden ",
+        nrow(interventions_session), " Vorstösse mit Bezug zur EFK eingereicht: ",
+        types_text_de, ". ",
+        if (cn_count > 0 && ce_count > 0) {
+          paste0(cn_count, " im Nationalrat und ", ce_count, " im Ständerat. ")
+        } else if (cn_count > 0) {
+          paste0("Alle im Nationalrat. ")
+        } else {
+          paste0("Alle im Ständerat. ")
+        },
+        if (nrow(par_parti) > 0) {
+          paste0("Die aktivsten Parteien: ", partis_top, ".")
+        } else ""
+      )
+      
+      # Créer l'objet résumé
+      session_summary <- list(
+        session_id = derniere_session$id,
+        title_fr = paste0("Résumé de la ", sub("Session ", "session ", derniere_session$name_fr)),
+        title_de = paste0("Zusammenfassung der ", derniere_session$name_de),
+        text_fr = resume_fr,
+        text_de = resume_de,
+        session_start = as.character(derniere_session$start),
+        session_end = as.character(derniere_session$end),
+        display_until = if (nrow(prochaine_session) > 0) as.character(prochaine_session$start[1]) else NA_character_,
+        count = nrow(interventions_session),
+        by_type = setNames(as.list(par_type$n), par_type$Type),
+        by_council = list(
+          CN = cn_count,
+          CE = ce_count
+        ),
+        interventions = interventions_session |>
+          mutate(
+            shortId = Numéro,
+            title = Titre_FR,
+            title_de = Titre_DE,
+            author = Auteur,
+            party = if ("Parti" %in% names(interventions_session)) Parti else NA_character_,
+            type = Type,
+            url_fr = Lien_FR,
+            url_de = Lien_DE
+          ) |>
+          select(shortId, title, title_de, author, party, type, url_fr, url_de) |>
+          as.list()
+      )
+      
+      cat("  -> Résumé généré pour", derniere_session$name_fr, "\n")
+    } else {
+      cat("  -> Aucune intervention pour la dernière session\n")
+    }
+  } else {
+    cat("  -> Aucune session terminée trouvée\n")
+  }
+  
+  # ============================================================================
   # EXPORT JSON POUR GITHUB
   # ============================================================================
   
@@ -643,6 +822,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       legislature = Legislatur,
       new_ids = vrais_nouveaux_ids  # IDs des vrais nouveaux objets
     ),
+    session_summary = session_summary,
     items = Donnees_JSON
   )
   

@@ -1,0 +1,92 @@
+{
+  "sessions": [
+    {
+      "id": "2025-hiver",
+      "name_fr": "Session d'hiver 2025",
+      "name_de": "Wintersession 2025",
+      "start": "2025-12-01",
+      "end": "2025-12-19",
+      "type": "ordinaire"
+    },
+    {
+      "id": "2026-printemps",
+      "name_fr": "Session de printemps 2026",
+      "name_de": "Frühjahrssession 2026",
+      "start": "2026-03-02",
+      "end": "2026-03-20",
+      "type": "ordinaire"
+    },
+    {
+      "id": "2026-speciale",
+      "name_fr": "Session spéciale 2026",
+      "name_de": "Sondersession 2026",
+      "start": "2026-04-27",
+      "end": "2026-05-01",
+      "type": "speciale"
+    },
+    {
+      "id": "2026-ete",
+      "name_fr": "Session d'été 2026",
+      "name_de": "Sommersession 2026",
+      "start": "2026-06-01",
+      "end": "2026-06-19",
+      "type": "ordinaire"
+    },
+    {
+      "id": "2026-automne",
+      "name_fr": "Session d'automne 2026",
+      "name_de": "Herbstsession 2026",
+      "start": "2026-09-14",
+      "end": "2026-10-02",
+      "type": "ordinaire"
+    },
+    {
+      "id": "2026-hiver",
+      "name_fr": "Session d'hiver 2026",
+      "name_de": "Wintersession 2026",
+      "start": "2026-11-30",
+      "end": "2026-12-18",
+      "type": "ordinaire"
+    },
+    {
+      "id": "2027-printemps",
+      "name_fr": "Session de printemps 2027",
+      "name_de": "Frühjahrssession 2027",
+      "start": "2027-03-01",
+      "end": "2027-03-19",
+      "type": "ordinaire"
+    },
+    {
+      "id": "2027-speciale",
+      "name_fr": "Session spéciale 2027",
+      "name_de": "Sondersession 2027",
+      "start": "2027-04-19",
+      "end": "2027-04-23",
+      "type": "speciale"
+    },
+    {
+      "id": "2027-ete",
+      "name_fr": "Session d'été 2027",
+      "name_de": "Sommersession 2027",
+      "start": "2027-05-31",
+      "end": "2027-06-18",
+      "type": "ordinaire"
+    },
+    {
+      "id": "2027-automne",
+      "name_fr": "Session d'automne 2027",
+      "name_de": "Herbstsession 2027",
+      "start": "2027-09-13",
+      "end": "2027-10-01",
+      "type": "ordinaire"
+    },
+    {
+      "id": "2027-hiver",
+      "name_fr": "Session d'hiver 2027",
+      "name_de": "Wintersession 2027",
+      "start": "2027-12-06",
+      "end": "2027-12-23",
+      "type": "ordinaire"
+    }
+  ]
+}
