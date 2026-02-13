@@ -6,6 +6,7 @@ const ITEMS_PER_PAGE = 20;
 let allData = [];
 let filteredData = [];
 let currentPage = 1;
+let newIds = []; // IDs des vrais nouveaux objets
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -27,6 +28,7 @@ async function init() {
         const response = await fetch(DATA_URL);
         const json = await response.json();
         allData = json.items || [];
+        newIds = json.meta?.new_ids || [];
         
         // Display last update
         if (json.meta && json.meta.updated) {
@@ -341,8 +343,8 @@ function createCard(item, searchTerm) {
     const authorWithParty = partyFR ? `${authorName} (${partyFR})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     
-    // Souligner le numéro si nouveau ou MAJ dans la dernière semaine
-    const isNew = isRecentlyUpdated(item.date_maj, 7);
+    // Souligner le numéro si c'est un vrai nouvel objet (dans new_ids)
+    const isNew = newIds.includes(item.shortId);
     const shortIdHighlighted = highlightText(item.shortId, searchTerm);
     const shortId = isNew ? `<span class="id-updated">${shortIdHighlighted}</span>` : shortIdHighlighted;
     
