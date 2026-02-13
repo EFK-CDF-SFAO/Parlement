@@ -859,3 +859,11 @@ a.author-row {
     color: #2e7d32 !important;
     font-weight: 500;
 }
+
+/* Numéro mis à jour/nouveau - souligné */
+.id-updated {
+    text-decoration: underline;
+    text-decoration-color: var(--success);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+}

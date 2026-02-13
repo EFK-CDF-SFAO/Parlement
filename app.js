@@ -237,6 +237,23 @@ function applyFilters() {
         return true;
     });
     
+    // Trier par date (desc), puis par date_maj (MAJ en premier), puis par numéro
+    filteredData.sort((a, b) => {
+        const dateA = a.date || '';
+        const dateB = b.date || '';
+        if (dateA !== dateB) {
+            return dateB.localeCompare(dateA); // Date desc
+        }
+        // Même date: MAJ récente en premier
+        const majA = a.date_maj || '';
+        const majB = b.date_maj || '';
+        if (majA !== majB) {
+            return majB.localeCompare(majA);
+        }
+        // Même date et MAJ: trier par numéro décroissant
+        return (b.shortId || '').localeCompare(a.shortId || '');
+    });
+    
     currentPage = 1;
     renderResults();
 }
@@ -304,6 +321,15 @@ function isTitleMissing(title) {
     return missing.includes(title.toLowerCase().trim());
 }
 
+function isRecentlyUpdated(dateStr, days) {
+    if (!dateStr) return false;
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffTime = now - date;
+    const diffDays = diffTime / (1000 * 60 * 60 * 24);
+    return diffDays <= days;
+}
+
 function createCard(item, searchTerm) {
     const frMissing = isTitleMissing(item.title);
     const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de);
@@ -314,7 +340,11 @@ function createCard(item, searchTerm) {
     const partyFR = translateParty(item.party || '');
     const authorWithParty = partyFR ? `${authorName} (${partyFR})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
-    const shortId = highlightText(item.shortId, searchTerm);
+    
+    // Souligner le numéro si nouveau ou MAJ dans la dernière semaine
+    const isNew = isRecentlyUpdated(item.date_maj, 7);
+    const shortIdHighlighted = highlightText(item.shortId, searchTerm);
+    const shortId = isNew ? `<span class="id-updated">${shortIdHighlighted}</span>` : shortIdHighlighted;
     
     const date = item.date ? new Date(item.date).toLocaleDateString('fr-CH') : '';
     const url = item.url_fr || item.url_de;

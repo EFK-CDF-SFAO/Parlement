@@ -269,6 +269,23 @@ function applyFilters() {
         return true;
     });
     
+    // Sortieren nach Datum (absteigend), dann nach date_maj (Aktualisierte zuerst), dann nach Nummer
+    filteredData.sort((a, b) => {
+        const dateA = a.date || '';
+        const dateB = b.date || '';
+        if (dateA !== dateB) {
+            return dateB.localeCompare(dateA); // Datum absteigend
+        }
+        // Gleiches Datum: Aktualisierte zuerst
+        const majA = a.date_maj || '';
+        const majB = b.date_maj || '';
+        if (majA !== majB) {
+            return majB.localeCompare(majA);
+        }
+        // Gleiches Datum und MAJ: nach Nummer absteigend sortieren
+        return (b.shortId || '').localeCompare(a.shortId || '');
+    });
+    
     currentPage = 1;
     renderResults();
 }
@@ -336,6 +353,15 @@ function isTitleMissing(title) {
     return missing.includes(title.toLowerCase().trim());
 }
 
+function isRecentlyUpdated(dateStr, days) {
+    if (!dateStr) return false;
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffTime = now - date;
+    const diffDays = diffTime / (1000 * 60 * 60 * 24);
+    return diffDays <= days;
+}
+
 function createCard(item, searchTerm) {
     const deMissing = isTitleMissing(item.title_de);
     const displayTitle = deMissing && item.title ? item.title : (item.title_de || item.title);
@@ -346,7 +372,11 @@ function createCard(item, searchTerm) {
     const partyDE = translateParty(item.party || '');
     const authorWithParty = partyDE ? `${authorName} (${partyDE})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
-    const shortId = highlightText(item.shortId, searchTerm);
+    
+    // Nummer unterstreichen wenn neu oder aktualisiert in der letzten Woche
+    const isNew = isRecentlyUpdated(item.date_maj, 7);
+    const shortIdHighlighted = highlightText(item.shortId, searchTerm);
+    const shortId = isNew ? `<span class="id-updated">${shortIdHighlighted}</span>` : shortIdHighlighted;
     
     const date = item.date ? new Date(item.date).toLocaleDateString('de-CH') : '';
     const url = item.url_de || item.url_fr;
