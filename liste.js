@@ -209,9 +209,9 @@ function createRow(item) {
     // Mention (who cites CDF)
     const mention = item.mention || '';
     
-    // Check if item was recently updated (date_maj exists and is recent)
-    const isRecentlyUpdated = item.date_maj && isDateRecent(item.date_maj, 7); // 7 jours
-    const statusClass = isRecentlyUpdated ? 'status-updated' : '';
+    // Check if status changed recently (statut_change_date exists and is within 3 weeks)
+    const hasStatusChanged = item.statut_change_date && isDateRecent(item.statut_change_date, 21); // 3 semaines
+    const statusClass = hasStatusChanged ? 'status-updated' : '';
     
     return `
         <tr>

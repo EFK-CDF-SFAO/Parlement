@@ -523,6 +523,9 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
   # IMPORTANT: On ne garde que les réponses CF où le CDF est mentionné (pas les simples changements de statut)
   IDs_MAJ_Reels <- setdiff(IDs_A_Mettre_A_Jour, IDs_Recalcul_Interne)
   
+  # Liste des IDs avec changement de statut (pour mise en évidence sur la page web)
+  IDs_Statut_Change <- c()
+  
   if (length(IDs_MAJ_Reels) > 0 && !is.null(Donnees_Existantes)) {
     nb_reponse_cf <- 0
     
@@ -531,6 +534,11 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
       nouveau <- Nouveaux_Resultats |> filter(ID == id)
       
       if (nrow(ancien) > 0 && nrow(nouveau) > 0) {
+        # Détecter changement de statut (pour mise en évidence)
+        if (!identical(ancien$Statut[1], nouveau$Statut[1])) {
+          IDs_Statut_Change <- c(IDs_Statut_Change, id)
+        }
+        
         # Détecter ajout réponse du Conseil fédéral avec mention CDF
         ancien_mention <- ancien$Mention[1]
         nouveau_mention <- nouveau$Mention[1]
@@ -545,10 +553,19 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
           Changements_Pertinents <- bind_rows(Changements_Pertinents, MAJ)
           nb_reponse_cf <- nb_reponse_cf + 1
         }
-        # Note: Les simples changements de statut (sans mention CDF par le CF) sont ignorés
+        # Note: Les simples changements de statut (sans mention CDF par le CF) sont ignorés dans Nouveautés
       }
     }
     cat("  - Réponses CF ajoutées (avec mention CDF):", nb_reponse_cf, "\n")
+    cat("  - Statuts modifiés (pour page web):", length(IDs_Statut_Change), "\n")
+    
+    # Marquer les objets avec changement de statut dans les résultats
+    if (length(IDs_Statut_Change) > 0) {
+      Resultats <- Resultats |>
+        mutate(
+          Statut_Change_Date = if_else(ID %in% IDs_Statut_Change, as.character(Sys.Date()), NA_character_)
+        )
+    }
   }
   
   cat("  - Recalculs internes (ignorés):", length(IDs_Recalcul_Interne), "\n")
@@ -898,12 +915,13 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       council = Conseil,
       date = as.character(Date_dépôt),
       date_maj = if ("Date_MAJ" %in% names(Resultats)) Date_MAJ else NA_character_,
+      statut_change_date = if ("Statut_Change_Date" %in% names(Resultats)) Statut_Change_Date else NA_character_,
       url_fr = Lien_FR,
       url_de = Lien_DE,
       mention = Mention
     ) |>
     select(shortId, title, title_de, author, party, type, status, 
-           council, date, date_maj, url_fr, url_de, mention)
+           council, date, date_maj, statut_change_date, url_fr, url_de, mention)
   
   # Liste des vrais nouveaux objets (pour le widget)
   vrais_nouveaux_ids <- if (length(Nouveaux_IDs) > 0) {
