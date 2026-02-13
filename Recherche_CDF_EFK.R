@@ -897,12 +897,13 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       status = Statut,
       council = Conseil,
       date = as.character(Date_dépôt),
+      date_maj = if ("Date_MAJ" %in% names(Resultats)) Date_MAJ else NA_character_,
       url_fr = Lien_FR,
       url_de = Lien_DE,
       mention = Mention
     ) |>
     select(shortId, title, title_de, author, party, type, status, 
-           council, date, url_fr, url_de, mention)
+           council, date, date_maj, url_fr, url_de, mention)
   
   # Liste des vrais nouveaux objets (pour le widget)
   vrais_nouveaux_ids <- if (length(Nouveaux_IDs) > 0) {

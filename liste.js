@@ -103,9 +103,20 @@ function sortData() {
         
         switch (currentSort.field) {
             case 'date':
-                valA = a.date || '';
-                valB = b.date || '';
-                break;
+                // Tri par date, puis par MAJ (aujourd'hui en premier), puis par numéro
+                const dateA = a.date || '';
+                const dateB = b.date || '';
+                if (dateA !== dateB) {
+                    return currentSort.order === 'desc' ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
+                }
+                // Même date: MAJ récente en premier
+                const majA = a.date_maj || '';
+                const majB = b.date_maj || '';
+                if (majA !== majB) {
+                    return majB.localeCompare(majA); // MAJ récente en premier
+                }
+                // Même date et MAJ: trier par numéro décroissant
+                return (b.shortId || '').localeCompare(a.shortId || '');
             case 'id':
                 valA = a.shortId || '';
                 valB = b.shortId || '';
@@ -198,6 +209,10 @@ function createRow(item) {
     // Mention (who cites CDF)
     const mention = item.mention || '';
     
+    // Check if item was recently updated (date_maj exists and is recent)
+    const isRecentlyUpdated = item.date_maj && isDateRecent(item.date_maj, 7); // 7 jours
+    const statusClass = isRecentlyUpdated ? 'status-updated' : '';
+    
     return `
         <tr>
             <td><a href="${url}" target="_blank" rel="noopener">${item.shortId}</a></td>
@@ -206,10 +221,19 @@ function createRow(item) {
             <td>${escapeHtml(authorWithParty)}</td>
             <td>${council}</td>
             <td>${date}</td>
-            <td title="${escapeHtml(item.status || '')}">${escapeHtml(status)}</td>
+            <td class="${statusClass}" title="${escapeHtml(item.status || '')}">${escapeHtml(status)}</td>
             <td>${escapeHtml(mention)}</td>
         </tr>
     `;
+}
+
+function isDateRecent(dateStr, days) {
+    if (!dateStr) return false;
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffTime = now - date;
+    const diffDays = diffTime / (1000 * 60 * 60 * 24);
+    return diffDays <= days;
 }
 
 function renderPagination(totalPages) {

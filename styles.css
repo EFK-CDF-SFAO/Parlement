@@ -852,3 +852,10 @@ a.author-row {
         max-width: none;
     }
 }
+
+/* Statut mis à jour récemment - surligné en vert */
+.status-updated {
+    background-color: #c8e6c9 !important;
+    color: #2e7d32 !important;
+    font-weight: 500;
+}
