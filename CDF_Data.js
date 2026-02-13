@@ -1,5 +1,5 @@
 // Données CDF/EFK - Généré automatiquement par Recherche_CDF_EFK.R
-// Dernière mise à jour: 2026-02-08 22:06:48.073167
+// Dernière mise à jour: 2026-02-13 21:21:03.068049
 
 const CDF_DATA = [
   {
@@ -11,7 +11,7 @@ const CDF_DATA = [
     "updated": "2025-12-19",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
     "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
-    "mention": "Élu"
+    "mention": "Élu & Conseil fédéral"
   },
   {
     "shortId": "25.4620",
@@ -33,7 +33,7 @@ const CDF_DATA = [
     "updated": "2025-12-18",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
     "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
-    "mention": "Élu"
+    "mention": "Élu & Conseil fédéral"
   },
   {
     "shortId": "25.8194",

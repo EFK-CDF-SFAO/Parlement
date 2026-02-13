@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-02-08T22:06:48",
+    "updated": "2026-02-13T21:21:03",
     "total_count": 100,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -46,12 +46,12 @@
       "author": "Addor Jean-Luc",
       "party": "UDC",
       "type": "Mo.",
-      "status": "Eingereicht / Déposé",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-19",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
-      "mention": "Élu"
+      "mention": "Élu & Conseil fédéral"
     },
     {
       "shortId": "25.4620",
@@ -74,12 +74,12 @@
       "author": "Grossen Jürg",
       "party": "pvl",
       "type": "Ip.",
-      "status": "Eingereicht / Déposé",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
-      "mention": "Élu"
+      "mention": "Élu & Conseil fédéral"
     },
     {
       "shortId": "25.8194",
@@ -116,7 +116,7 @@
       "author": "Wettstein Felix",
       "party": "VERT-E-S",
       "type": "Mo.",
-      "status": "Eingereicht / Déposé",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-04",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
@@ -629,7 +629,7 @@
       "title_de": "Vernehmlassungsvorlage zum Entlastungspaket 27 und Änderung des Subventionsgesetzes. Auswirkungen und effektives Sparpotenzial",
       "author": "Graf Maya",
       "party": "VERT-E-S",
-      "type": "Fra.",
+      "type": "A",
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-03-20",
