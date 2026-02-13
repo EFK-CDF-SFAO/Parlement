@@ -2,8 +2,8 @@ name: Update Parliament Data
 
 on:
   schedule:
-    # Chaque dimanche à 23h (heure suisse = UTC+1, donc 22h UTC)
-    - cron: '0 22 * * 0'
+    # Tous les 2 jours à 22h UTC (23h heure suisse)
+    - cron: '0 22 */2 * *'
   workflow_dispatch: # Permet l'exécution manuelle
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
