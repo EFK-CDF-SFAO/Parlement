@@ -449,9 +449,11 @@ if (length(IDs_A_Traiter) > 0) {
     )
   
   # Convertir Date_dépôt en caractère et corriger les types d'interventions
+  # Ajouter Date_MAJ pour les objets traités aujourd'hui
   Nouveaux_Resultats <- Nouveaux_Resultats |>
     mutate(
       Date_dépôt = as.character(Date_dépôt),
+      Date_MAJ = as.character(Sys.Date()),  # Date de mise à jour = aujourd'hui
       # Corriger le type "A" (Anfrage) en "Fra." pour cohérence
       Type = ifelse(Type == "A", "Fra.", Type)
     )
@@ -471,20 +473,26 @@ if (length(IDs_A_Traiter) > 0) {
         mutate(Parti = NA_character_)
     }
     
+    # Ajouter la colonne Date_MAJ si elle n'existe pas (pour les anciennes données)
+    if (!"Date_MAJ" %in% names(Donnees_Existantes)) {
+      Donnees_Existantes <- Donnees_Existantes |>
+        mutate(Date_MAJ = NA_character_)
+    }
+    
     # Retirer les objets mis à jour des données existantes
     Donnees_Existantes_Filtrees <- Donnees_Existantes |>
       filter(!ID %in% IDs_A_Mettre_A_Jour)
     
-    # Combiner
+    # Combiner et trier par Date_MAJ (desc) puis Date_dépôt (desc)
     Resultats <- bind_rows(Donnees_Existantes_Filtrees, Nouveaux_Resultats) |>
-      arrange(desc(Date_dépôt))
+      arrange(desc(Date_MAJ), desc(Date_dépôt))
     
     cat("Fusion avec données existantes...\n")
     cat("  - Conservés:", nrow(Donnees_Existantes_Filtrees), "\n")
     cat("  - Ajoutés/Mis à jour:", nrow(Nouveaux_Resultats), "\n")
   } else {
     Resultats <- Nouveaux_Resultats |>
-      arrange(desc(Date_dépôt))
+      arrange(desc(Date_MAJ), desc(Date_dépôt))
   }
   
 } else {
@@ -512,48 +520,35 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
   }
   
   # 2. Comparer avec les données existantes pour détecter les vrais changements
+  # IMPORTANT: On ne garde que les réponses CF où le CDF est mentionné (pas les simples changements de statut)
   IDs_MAJ_Reels <- setdiff(IDs_A_Mettre_A_Jour, IDs_Recalcul_Interne)
   
   if (length(IDs_MAJ_Reels) > 0 && !is.null(Donnees_Existantes)) {
     nb_reponse_cf <- 0
-    nb_statut <- 0
     
     for (id in IDs_MAJ_Reels) {
       ancien <- Donnees_Existantes |> filter(ID == id)
       nouveau <- Nouveaux_Resultats |> filter(ID == id)
       
       if (nrow(ancien) > 0 && nrow(nouveau) > 0) {
-        type_change <- c()
-        
-        # Détecter ajout réponse du Conseil fédéral via la colonne Mention
+        # Détecter ajout réponse du Conseil fédéral avec mention CDF
         ancien_mention <- ancien$Mention[1]
         nouveau_mention <- nouveau$Mention[1]
         
-        # Si avant pas de CF et maintenant oui = réponse CF ajoutée
+        # Si avant pas de CF et maintenant oui = réponse CF ajoutée (le CF cite le CDF)
         avant_sans_cf <- ancien_mention %in% c("Élu", "Titre uniquement")
         maintenant_avec_cf <- str_detect(nouveau_mention, "Conseil fédéral")
         
         if (avant_sans_cf && maintenant_avec_cf) {
-          type_change <- c(type_change, "Réponse CF ajoutée")
+          MAJ <- nouveau |>
+            mutate(Type_Changement = "Réponse CF ajoutée")
+          Changements_Pertinents <- bind_rows(Changements_Pertinents, MAJ)
           nb_reponse_cf <- nb_reponse_cf + 1
         }
-        
-        # Vérifier changement de statut
-        if (!identical(ancien$Statut[1], nouveau$Statut[1])) {
-          type_change <- c(type_change, "Statut modifié")
-          nb_statut <- nb_statut + 1
-        }
-        
-        # Si aucun changement détecté mais MAJ réelle, ignorer (pas pertinent)
-        if (length(type_change) > 0) {
-          MAJ <- nouveau |>
-            mutate(Type_Changement = paste(type_change, collapse = " + "))
-          Changements_Pertinents <- bind_rows(Changements_Pertinents, MAJ)
-        }
+        # Note: Les simples changements de statut (sans mention CDF par le CF) sont ignorés
       }
     }
-    cat("  - Réponses CF ajoutées:", nb_reponse_cf, "\n")
-    cat("  - Statuts modifiés:", nb_statut, "\n")
+    cat("  - Réponses CF ajoutées (avec mention CDF):", nb_reponse_cf, "\n")
   }
   
   cat("  - Recalculs internes (ignorés):", length(IDs_Recalcul_Interne), "\n")
@@ -598,13 +593,29 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
   
   cat("\nExport vers", FICHIER_EXCEL, "...\n")
   
-  write.xlsx(
-    Resultats, 
-    file = FICHIER_EXCEL,
-    overwrite = TRUE, 
-    asTable = TRUE, 
-    sheetName = "CDF-EFK"
-  )
+  # Créer le workbook avec mise en évidence des statuts mis à jour
+  wb <- createWorkbook()
+  addWorksheet(wb, "CDF-EFK")
+  writeDataTable(wb, "CDF-EFK", Resultats)
+  
+  # Style vert pour les objets mis à jour aujourd'hui (Date_MAJ = aujourd'hui)
+  style_vert <- createStyle(fontColour = "#006400", bgFill = "#90EE90")
+  
+  # Trouver les lignes avec Date_MAJ = aujourd'hui
+  date_aujourdhui <- as.character(Sys.Date())
+  lignes_maj <- which(Resultats$Date_MAJ == date_aujourdhui) + 1  # +1 pour l'en-tête
+  
+  # Trouver la colonne Statut
+  col_statut <- which(names(Resultats) == "Statut")
+  
+  # Appliquer le style vert aux cellules Statut des lignes mises à jour
+  if (length(lignes_maj) > 0 && length(col_statut) > 0) {
+    addStyle(wb, "CDF-EFK", style = style_vert, rows = lignes_maj, cols = col_statut, gridExpand = TRUE)
+    cat("  - Statuts surlignés en vert:", length(lignes_maj), "\n")
+  }
+  
+  # Sauvegarder le fichier
+  saveWorkbook(wb, file = FICHIER_EXCEL, overwrite = TRUE)
   
   # ============================================================================
   # GÉNÉRATION DU RÉSUMÉ DE SESSION
