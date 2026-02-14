@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-02-13T22:21:09",
+    "updated": "2026-02-14T16:48:09",
     "total_count": 100,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -49,7 +49,7 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-19",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
       "mention": "Élu & Conseil fédéral"
@@ -64,7 +64,7 @@
       "status": "Eingereicht / Déposé",
       "council": "SR",
       "date": "2025-12-18",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
       "mention": "Élu"
@@ -79,7 +79,7 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-18",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
       "mention": "Élu & Conseil fédéral"
@@ -94,7 +94,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-12-10",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
       "mention": "Conseil fédéral"
@@ -109,7 +109,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-12-10",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
       "mention": "Élu & Conseil fédéral"
@@ -124,7 +124,7 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-04",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
       "mention": "Élu"
@@ -139,7 +139,7 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-26",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
       "mention": "Élu & Conseil fédéral"
@@ -154,7 +154,7 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-26",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
       "mention": "Élu & Conseil fédéral"
@@ -169,7 +169,7 @@
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-09-25",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
       "mention": "Conseil fédéral"
@@ -184,7 +184,7 @@
       "status": "Zugewiesen an die behandelnde Kommission / Attribué à la commission compétente",
       "council": "SR",
       "date": "2025-09-25",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
       "mention": "Conseil fédéral"
@@ -199,7 +199,7 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-25",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254225",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254225",
       "mention": "Élu & Conseil fédéral"
@@ -214,7 +214,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-25",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254234",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254234",
       "mention": "Élu"
@@ -229,7 +229,7 @@
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-09-23",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
       "mention": "Conseil fédéral"
@@ -244,7 +244,7 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-17",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254024",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254024",
       "mention": "Élu & Conseil fédéral"
@@ -259,7 +259,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
       "mention": "Conseil fédéral"
@@ -274,7 +274,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257888",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257888",
       "mention": "Élu"
@@ -289,7 +289,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257890",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257890",
       "mention": "Élu & Conseil fédéral"
@@ -303,7 +303,7 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-11",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254003",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254003",
       "mention": "Conseil fédéral"
@@ -317,7 +317,7 @@
       "status": "In Kommission des Ständerats / En commission du Conseil des Etats",
       "council": "NR",
       "date": "2025-09-10",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
       "mention": "Conseil fédéral"
@@ -332,7 +332,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-10",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257663",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257663",
       "mention": "Conseil fédéral"
@@ -347,7 +347,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-10",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257698",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257698",
       "mention": "Conseil fédéral"
@@ -362,7 +362,7 @@
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-09-09",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253971",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253971",
       "mention": "Élu & Conseil fédéral"
@@ -377,7 +377,7 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-08",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257601",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257601",
       "mention": "Élu & Conseil fédéral"
@@ -391,7 +391,7 @@
       "status": "Überwiesen an den Bundesrat / Transmis au Conseil fédéral",
       "council": "NR",
       "date": "2025-06-23",
-      "date_maj": "2026-02-13",
+      "date_maj": "2026-02-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253941",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253941",
       "mention": "Conseil fédéral"
