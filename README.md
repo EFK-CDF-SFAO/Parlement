@@ -25,6 +25,8 @@ The project includes a bilingual GitHub Pages website (FR/DE) with:
 - 🏆 **Top 5 MPs**: Ranking of parliamentarians citing the SFAO most frequently
 - 🌐 **Bilingual**: Full French/German translation (party names, commissions, UI)
 - 📱 **Responsive**: Works on desktop and mobile
+- 🟢 **Status highlighting**: Recently updated statuses are highlighted in green (3 weeks)
+- 🔗 **New items indicator**: Underlined IDs for new interventions (1 week)
 
 **Live URL**: `https://arnaudbon20.github.io/EFK_CDF_Parlement/`
 
@@ -35,7 +37,7 @@ The project includes a bilingual GitHub Pages website (FR/DE) with:
 - **Automatic deduplication** of results
 - **Multiple export formats**: Excel (.xlsx) and JSON
 - **GitHub-hosted data**: Widget fetches data from GitHub (no iCloud sync required)
-- **Automated updates**: GitHub Actions runs weekly (Sunday 23h)
+- **Automated updates**: GitHub Actions runs every 2 days (22h UTC)
 - **Multi-layer fallback**: GitHub → Local module → Cache → Parliament API
 
 ## Requirements
@@ -145,9 +147,10 @@ MIT License
 
 ## Automation
 
-A GitHub Action runs automatically **every Sunday at 23h (Swiss time)** to update the data:
+A GitHub Action runs automatically **every 2 days at 22h UTC (23h Swiss time)** to update the data:
 - Executes the R script
 - Commits updated JSON and Excel files
+- Deploys to GitHub Pages
 - No manual intervention required
 
 You can also trigger it manually from the **Actions** tab on GitHub.
