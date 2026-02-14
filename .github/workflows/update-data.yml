@@ -37,7 +37,7 @@ jobs:
           
       - name: Install R packages
         run: |
-          install.packages(c("swissparl", "dplyr", "stringr", "lubridate", "openxlsx", "jsonlite"))
+          install.packages(c("swissparl", "dplyr", "stringr", "lubridate", "openxlsx", "jsonlite", "xfun"))
         shell: Rscript {0}
         
       - name: Run R script
