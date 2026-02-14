@@ -32,8 +32,13 @@ invisible(lapply(packages, library, character.only = TRUE))
 # RÉPERTOIRE DE TRAVAIL
 # ============================================================================
 
-script_dir <- "/Users/arnaudbonvin/Documents/Windsurf/EFK Parlament"
-setwd(script_dir)
+# Détecter si on est dans GitHub Actions (variable CI=true)
+if (Sys.getenv("CI") == "true") {
+  script_dir <- getwd()  # GitHub Actions: utiliser le répertoire courant
+} else {
+  script_dir <- "/Users/arnaudbonvin/Documents/Windsurf/EFK Parlament"
+  setwd(script_dir)
+}
 cat("Répertoire de travail:", getwd(), "\n\n")
 
 # ============================================================================
