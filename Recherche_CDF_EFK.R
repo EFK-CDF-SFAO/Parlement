@@ -915,7 +915,8 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       title_de = Titre_DE,
       author = Auteur,
       party = if ("Parti" %in% names(Resultats)) Parti else NA_character_,
-      type = Type,
+      # Corriger le type "A" (Anfrage) en "Fra." pour cohérence
+      type = ifelse(Type == "A", "Fra.", Type),
       status = Statut,
       council = Conseil,
       date = as.character(Date_dépôt),
