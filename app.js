@@ -117,6 +117,22 @@ function translateParty(party) {
     return translations[party] || party;
 }
 
+function translateAuthor(author) {
+    if (!author) return '';
+    const translations = {
+        'Sicherheitspolitische Kommission Nationalrat-Nationalrat': 'Commission de la politique de sécurité du Conseil national',
+        'Sicherheitspolitische Kommission Nationalrat': 'Commission de la politique de sécurité du Conseil national',
+        'Sicherheitspolitische Kommission Ständerat': 'Commission de la politique de sécurité du Conseil des États',
+        'FDP-Liberale Fraktion': 'Groupe libéral-radical',
+        'Grüne Fraktion': 'Groupe des VERT-E-S',
+        'Sozialdemokratische Fraktion': 'Groupe socialiste',
+        'SVP-Fraktion': 'Groupe de l\'Union démocratique du centre',
+        'Fraktion der Mitte': 'Groupe du Centre',
+        'Grünliberale Fraktion': 'Groupe vert\'libéral'
+    };
+    return translations[author] || author;
+}
+
 function getPartyFromAuthor(author) {
     if (!author) return null;
     if (author.includes('FDP') || author.includes('PLR')) return 'PLR';
@@ -347,7 +363,7 @@ function createCard(item, searchTerm) {
     const title = highlightText(displayTitle, searchTerm);
     const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🇩🇪 Uniquement en allemand pour le moment</span>' : '';
     
-    const authorName = item.author || '';
+    const authorName = translateAuthor(item.author || '');
     const partyFR = translateParty(item.party || '');
     const authorWithParty = partyFR ? `${authorName} (${partyFR})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
