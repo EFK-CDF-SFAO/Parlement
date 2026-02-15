@@ -71,9 +71,13 @@ pattern_efk_de <- regex(
 )
 
 pattern_cdf_fr <- regex(
-  "\\bContr(ô|o)le\\s+f(é|e)d(é|e)ral\\s+des\\s+finances\\b|\\(\\s*CDF\\s*\\)|\\bCDF\\b",
+  "\\bContr(ô|o)le\\s+f(é|e)d(é|e)ral\\s+des\\s+finances\\b|\\(\\s*CDF\\s*\\)|\\bCDF(?!-[NE])\\b",
   ignore_case = TRUE
 )
+
+# Pattern pour exclure les faux positifs (CDF = Commission des finances)
+# CDF-N = Commission des finances du National, CDF-E = Commission des finances des États
+pattern_faux_positif_cdf <- regex("\\bCDF-[NE]\\b", ignore_case = TRUE)
 
 # ============================================================================
 # FONCTIONS UTILITAIRES
@@ -129,6 +133,16 @@ if (file.exists(FICHIER_EXCEL)) {
     # Ajouter la colonne Mention si elle n'existe pas (nouvelle structure sans Mention)
     Donnees_Existantes <- Donnees_Existantes |>
       mutate(Mention = "À recalculer")
+  }
+  
+  # Exclure les faux positifs (objets qui ne mentionnent que CDF-N ou CDF-E, pas le vrai CDF)
+  # Ces objets parlent de la Commission des finances, pas du Contrôle fédéral des finances
+  faux_positifs <- c("24.3077")  # Liste des numéros à exclure manuellement
+  n_avant <- nrow(Donnees_Existantes)
+  Donnees_Existantes <- Donnees_Existantes |>
+    filter(!Numéro %in% faux_positifs)
+  if (nrow(Donnees_Existantes) < n_avant) {
+    cat("  -> Exclusion de", n_avant - nrow(Donnees_Existantes), "faux positifs (CDF = Commission des finances)\n")
   }
   
   IDs_Existants <- Donnees_Existantes$ID
