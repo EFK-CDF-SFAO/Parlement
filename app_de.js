@@ -1,5 +1,6 @@
 // Configuration
 const DATA_URL = 'cdf_efk_data.json';
+const EXCEL_URL = 'Objets_parlementaires_CDF_EFK.xlsx';
 const ITEMS_PER_PAGE = 20;
 
 // State
@@ -18,6 +19,7 @@ const partyFilter = document.getElementById('partyFilter');
 const resultsContainer = document.getElementById('results');
 const resultsCount = document.getElementById('resultsCount');
 const lastUpdate = document.getElementById('lastUpdate');
+const downloadBtn = document.getElementById('downloadBtn');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
@@ -181,6 +183,13 @@ function setupEventListeners() {
     councilFilter.addEventListener('change', applyFilters);
     yearFilter.addEventListener('change', applyFilters);
     partyFilter.addEventListener('change', applyFilters);
+    
+    // Download Excel button
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            window.open(EXCEL_URL, '_blank');
+        });
+    }
     
     // Update lang switcher on load
     updateLangSwitcherLinks();
