@@ -44,7 +44,8 @@
                 <button id="clearSearch" class="btn-clear" title="Effacer">✕</button>
             </div>
             <div class="filters">
-                <select id="typeFilter" multiple size="1">
+                <select id="typeFilter" multiple size="1" data-placeholder="Type">
+                    <option value="" disabled selected hidden>Type</option>
                     <option value="Mo.">Motion</option>
                     <option value="Po.">Postulat</option>
                     <option value="Ip.">Interpellation</option>
@@ -57,9 +58,11 @@
                     <option value="NR">Conseil national</option>
                     <option value="SR">Conseil des États</option>
                 </select>
-                <select id="yearFilter" multiple size="1">
+                <select id="yearFilter" multiple size="1" data-placeholder="Année">
+                    <option value="" disabled selected hidden>Année</option>
                 </select>
-                <select id="partyFilter" multiple size="1">
+                <select id="partyFilter" multiple size="1" data-placeholder="Parti">
+                    <option value="" disabled selected hidden>Parti</option>
                 </select>
             </div>
         </section>
