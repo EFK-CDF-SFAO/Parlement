@@ -231,7 +231,9 @@ function populatePartyFilter() {
 }
 
 function getSelectedValues(selectElement) {
-    return Array.from(selectElement.selectedOptions).map(opt => opt.value);
+    return Array.from(selectElement.selectedOptions)
+        .map(opt => opt.value)
+        .filter(val => val !== '');
 }
 
 function applyFilters() {
