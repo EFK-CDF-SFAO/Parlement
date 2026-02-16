@@ -301,7 +301,7 @@ main {
     border-radius: 6px;
     background: white;
     cursor: pointer;
-    min-width: 120px;
+    width: 140px;
     text-align: left;
     display: flex;
     align-items: center;

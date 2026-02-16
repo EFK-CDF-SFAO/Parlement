@@ -216,14 +216,17 @@ function populatePartyFilter() {
 
 function getCheckedValues(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) return [];
     const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:checked');
     return Array.from(checkboxes).map(cb => cb.value);
 }
 
 function updateFilterCount(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) return;
     const count = dropdown.querySelectorAll('input[type="checkbox"]:checked').length;
     const countSpan = dropdown.querySelector('.filter-count');
+    if (!countSpan) return;
     if (count > 0) {
         countSpan.textContent = count;
         countSpan.classList.add('active');
