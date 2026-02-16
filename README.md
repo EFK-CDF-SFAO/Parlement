@@ -20,13 +20,17 @@ The project includes a bilingual GitHub Pages website (FR/DE) with:
 - **Statistics** (`stats.html` / `stats_de.html`) — Interactive charts and rankings
 
 ### Features
-- 🔍 **Advanced filters**: Type, council, year, political party
-- 📊 **Statistics dashboard**: Interventions by party, by type, yearly evolution
+- 🔍 **Advanced filters**: Custom dropdown filters with checkboxes for multi-select (Type, Council, Year, Party)
+- ☑️ **"All" option**: Each filter includes a "Tous/Alle" checkbox selected by default
+- 🔄 **Reset button**: One-click reset for all filters and search
+- 📊 **Statistics dashboard**: Interactive charts with click-through to filtered search
 - 🏆 **Top 5 MPs**: Ranking of parliamentarians citing the SFAO most frequently
 - 🌐 **Bilingual**: Full French/German translation (party names, commissions, UI)
-- 📱 **Responsive**: Works on desktop and mobile
+- 📱 **Responsive**: Optimized for desktop and mobile
 - 🟢 **Status highlighting**: Recently updated statuses are highlighted in green (3 weeks)
 - 🔗 **New items indicator**: Underlined IDs for new interventions (1 week)
+- 💬 **Tooltips**: Hover over mention emojis (🧑/🏛️) to see who cites the SFAO
+- 📈 **Clickable charts**: Click on a party or type in statistics to filter search results
 
 **Live URL**: `https://arnaudbon20.github.io/EFK_CDF_Parlement/`
 
