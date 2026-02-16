@@ -8,19 +8,15 @@ let allData = [];
 let filteredData = [];
 let currentPage = 1;
 let newIds = []; // IDs der echten neuen Objekte
-let choicesType, choicesYear, choicesParty; // Choices.js instances
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
 const clearButton = document.getElementById('clearSearch');
-const typeFilter = document.getElementById('typeFilter');
-const councilFilter = document.getElementById('councilFilter');
-const yearFilter = document.getElementById('yearFilter');
-const partyFilter = document.getElementById('partyFilter');
 const resultsContainer = document.getElementById('results');
 const resultsCount = document.getElementById('resultsCount');
 const lastUpdate = document.getElementById('lastUpdate');
 const downloadBtn = document.getElementById('downloadBtn');
+const resetFiltersBtn = document.getElementById('resetFilters');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
@@ -46,8 +42,8 @@ async function init() {
         populateYearFilter();
         populatePartyFilter();
         
-        // Initialize Choices.js for multiple select filters
-        initChoices();
+        // Initialize dropdown filters
+        initDropdownFilters();
         
         // Check for search parameter in URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -211,74 +207,100 @@ function setupEventListeners() {
 }
 
 function populateYearFilter() {
+    const yearMenu = document.getElementById('yearMenu');
     const years = [...new Set(allData.map(item => item.date?.substring(0, 4)).filter(Boolean))];
     years.sort((a, b) => b - a);
     
     years.forEach(year => {
-        const option = document.createElement('option');
-        option.value = year;
-        option.textContent = year;
-        yearFilter.appendChild(option);
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${year}"> ${year}`;
+        yearMenu.appendChild(label);
     });
 }
 
 function populatePartyFilter() {
+    const partyMenu = document.getElementById('partyMenu');
     const translatedParties = [...new Set(allData.map(item => translateParty(item.party)).filter(Boolean))];
     translatedParties.sort((a, b) => a.localeCompare(b, 'de'));
     
     translatedParties.forEach(party => {
-        const option = document.createElement('option');
-        option.value = party;
-        option.textContent = party;
-        partyFilter.appendChild(option);
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${party}"> ${party}`;
+        partyMenu.appendChild(label);
     });
 }
 
-function getChoicesValues(choicesInstance) {
-    if (!choicesInstance) return [];
-    return choicesInstance.getValue(true) || [];
+function getCheckedValues(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:checked');
+    return Array.from(checkboxes).map(cb => cb.value);
 }
 
-function initChoices() {
-    const config = {
-        removeItemButton: true,
-        placeholderValue: '',
-        searchEnabled: false,
-        itemSelectText: '',
-        noResultsText: 'Keine Ergebnisse',
-        noChoicesText: 'Keine Optionen'
-    };
+function updateFilterCount(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const count = dropdown.querySelectorAll('input[type="checkbox"]:checked').length;
+    const countSpan = dropdown.querySelector('.filter-count');
+    if (count > 0) {
+        countSpan.textContent = count;
+        countSpan.classList.add('active');
+    } else {
+        countSpan.textContent = '';
+        countSpan.classList.remove('active');
+    }
+}
+
+function initDropdownFilters() {
+    const dropdowns = document.querySelectorAll('.filter-dropdown');
     
-    choicesType = new Choices(typeFilter, {
-        ...config,
-        placeholder: true,
-        placeholderValue: 'Typ'
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.filter-btn');
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdowns.forEach(d => {
+                if (d !== dropdown) d.classList.remove('open');
+            });
+            dropdown.classList.toggle('open');
+        });
+        
+        const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                updateFilterCount(dropdown.id);
+                applyFilters();
+            });
+        });
     });
     
-    choicesYear = new Choices(yearFilter, {
-        ...config,
-        placeholder: true,
-        placeholderValue: 'Jahr'
+    document.addEventListener('click', () => {
+        dropdowns.forEach(d => d.classList.remove('open'));
     });
     
-    choicesParty = new Choices(partyFilter, {
-        ...config,
-        placeholder: true,
-        placeholderValue: 'Partei'
+    document.querySelectorAll('.filter-menu').forEach(menu => {
+        menu.addEventListener('click', e => e.stopPropagation());
     });
     
-    // Add event listeners for Choices
-    typeFilter.addEventListener('change', applyFilters);
-    yearFilter.addEventListener('change', applyFilters);
-    partyFilter.addEventListener('change', applyFilters);
+    if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener('click', resetAllFilters);
+    }
+}
+
+function resetAllFilters() {
+    document.querySelectorAll('.filter-dropdown input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+    });
+    document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
+        updateFilterCount(dropdown.id);
+    });
+    searchInput.value = '';
+    applyFilters();
 }
 
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
-    const typeValues = getChoicesValues(choicesType);
-    const councilValue = councilFilter.value;
-    const yearValues = getChoicesValues(choicesYear);
-    const partyValues = getChoicesValues(choicesParty);
+    const typeValues = getCheckedValues('typeDropdown');
+    const councilValues = getCheckedValues('councilDropdown');
+    const yearValues = getCheckedValues('yearDropdown');
+    const partyValues = getCheckedValues('partyDropdown');
     
     filteredData = allData.filter(item => {
         // Text search
@@ -302,8 +324,8 @@ function applyFilters() {
             return false;
         }
         
-        // Council filter
-        if (councilValue && item.council !== councilValue) {
+        // Council filter (multiple)
+        if (councilValues.length > 0 && !councilValues.includes(item.council)) {
             return false;
         }
         

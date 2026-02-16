@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EFK/CDF - Parlamentarische Vorstösse</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 </head>
 <body>
     <header>
@@ -45,22 +44,34 @@
                 <button id="clearSearch" class="btn-clear" title="Löschen">✕</button>
             </div>
             <div class="filters">
-                <select id="typeFilter" multiple>
-                    <option value="Mo.">Motion</option>
-                    <option value="Po.">Postulat</option>
-                    <option value="Ip.">Interpellation</option>
-                    <option value="Fra.">Fragestunde</option>
-                    <option value="Pa. Iv.">Parlamentarische Initiative</option>
-                </select>
-                <select id="councilFilter">
-                    <option value="">Alle Räte</option>
-                    <option value="NR">Nationalrat</option>
-                    <option value="SR">Ständerat</option>
-                </select>
-                <select id="yearFilter" multiple>
-                </select>
-                <select id="partyFilter" multiple>
-                </select>
+                <div class="filter-dropdown" id="typeDropdown">
+                    <button class="filter-btn" type="button">Typ <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label><input type="checkbox" value="Mo."> Motion</label>
+                        <label><input type="checkbox" value="Po."> Postulat</label>
+                        <label><input type="checkbox" value="Ip."> Interpellation</label>
+                        <label><input type="checkbox" value="Fra."> Fragestunde</label>
+                        <label><input type="checkbox" value="Pa. Iv."> Parlamentarische Initiative</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="councilDropdown">
+                    <button class="filter-btn" type="button">Rat <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label><input type="checkbox" value="NR"> Nationalrat</label>
+                        <label><input type="checkbox" value="SR"> Ständerat</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="yearDropdown">
+                    <button class="filter-btn" type="button">Jahr <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="yearMenu">
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="partyDropdown">
+                    <button class="filter-btn" type="button">Partei <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="partyMenu">
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetFilters" title="Filter zurücksetzen">↻</button>
             </div>
         </section>
 
@@ -83,7 +94,6 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="app_de.js"></script>
 </body>
 </html>
