@@ -207,6 +207,12 @@ function populateYearFilter() {
     const years = [...new Set(allData.map(item => item.date?.substring(0, 4)).filter(Boolean))];
     years.sort((a, b) => b - a);
     
+    // Add "Alle" option
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all> Alle`;
+    yearMenu.appendChild(allLabel);
+    
     years.forEach(year => {
         const label = document.createElement('label');
         label.innerHTML = `<input type="checkbox" value="${year}"> ${year}`;
@@ -219,6 +225,12 @@ function populatePartyFilter() {
     const translatedParties = [...new Set(allData.map(item => translateParty(item.party)).filter(Boolean))];
     translatedParties.sort((a, b) => a.localeCompare(b, 'de'));
     
+    // Add "Alle" option
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all> Alle`;
+    partyMenu.appendChild(allLabel);
+    
     translatedParties.forEach(party => {
         const label = document.createElement('label');
         label.innerHTML = `<input type="checkbox" value="${party}"> ${party}`;
@@ -229,8 +241,8 @@ function populatePartyFilter() {
 function getCheckedValues(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
     if (!dropdown) return [];
-    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:checked');
-    return Array.from(checkboxes).map(cb => cb.value);
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:checked:not([data-select-all])');
+    return Array.from(checkboxes).map(cb => cb.value).filter(v => v);
 }
 
 function updateFilterCount(dropdownId) {
@@ -261,9 +273,19 @@ function initDropdownFilters() {
             dropdown.classList.toggle('open');
         });
         
+        // Handle checkbox changes
         const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(cb => {
-            cb.addEventListener('change', () => {
+            cb.addEventListener('change', (e) => {
+                const isSelectAll = e.target.hasAttribute('data-select-all');
+                if (isSelectAll && e.target.checked) {
+                    dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])').forEach(other => {
+                        other.checked = false;
+                    });
+                } else if (!isSelectAll && e.target.checked) {
+                    const selectAll = dropdown.querySelector('input[data-select-all]');
+                    if (selectAll) selectAll.checked = false;
+                }
                 updateFilterCount(dropdown.id);
                 applyFilters();
             });

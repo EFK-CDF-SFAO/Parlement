@@ -360,6 +360,13 @@ main {
     background: var(--background);
 }
 
+.filter-menu label.select-all {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+}
+
 .filter-menu input[type="checkbox"] {
     width: 16px;
     height: 16px;
