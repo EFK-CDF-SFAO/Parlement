@@ -28,14 +28,70 @@
       "CE": 1
     },
     "interventions": {
-      "shortId": ["25.4785", "25.4620", "25.4696", "25.8194", "25.8273", "25.4463"],
-      "title": ["La rémunération des tâches confiées à l'OFDF dans les aéroports de Genève et Bâle doit profiter à l'OFDF !", "Favoriser la fiabilité de l’IA en Suisse en rendant réutilisables les données de l’administration fédérale", "Assurer la transparence quant à l'efficacité des subventions accordées à toutes les technologies renouvelables", "Imagerie médicale en Suisse romande : quel lien entre moratoires, volume d’examens et coûts ?", "Des revenus couvrant les coûts liés à la protection des espèces ? ", "Trois nouveaux groupes de tâches pour le projet \"Désenchevêtrement 27\""],
-      "title_de": ["Die Vergütung der Aufgaben, die dem Bundesamt für Zoll und Grenzsicherheit (BAZG) übertragen wurden und die dieses Amt an den Flughäfen Genf und Basel wahrnimmt, muss auch dem BAZG zugute kommen!", "Daten der Bundesverwaltung mehrfach nutzbar machen – als Basis für vertrauenswürdige KI in der Schweiz", "Transparenz bei der Fördereffizienz aller erneuerbaren Technologien herstellen", "Medizinische Bildgebung in der Westschweiz: Wie hängen Moratorien, Untersuchungsvolumen und Kosten zusammen?", "Kostendeckende Erträge aus dem Artenschutz? ", "Drei weitere Aufgabenbereiche für das Projekt Entflechtung 27"],
-      "author": ["Addor Jean-Luc", "Michel Matthias", "Grossen Jürg", "Kolly Nicolas", "Trede Aline", "Wettstein Felix"],
-      "party": ["UDC", "PLR", "pvl", "UDC", "VERT-E-S", "VERT-E-S"],
-      "type": ["Mo.", "Mo.", "Ip.", "Fra.", "Fra.", "Mo."],
-      "url_fr": ["https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"],
-      "url_de": ["https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"]
+      "shortId": [
+        "25.4785",
+        "25.4620",
+        "25.4696",
+        "25.8194",
+        "25.8273",
+        "25.4463"
+      ],
+      "title": [
+        "La rémunération des tâches confiées à l'OFDF dans les aéroports de Genève et Bâle doit profiter à l'OFDF !",
+        "Favoriser la fiabilité de l’IA en Suisse en rendant réutilisables les données de l’administration fédérale",
+        "Assurer la transparence quant à l'efficacité des subventions accordées à toutes les technologies renouvelables",
+        "Imagerie médicale en Suisse romande : quel lien entre moratoires, volume d’examens et coûts ?",
+        "Des revenus couvrant les coûts liés à la protection des espèces ? ",
+        "Trois nouveaux groupes de tâches pour le projet \"Désenchevêtrement 27\""
+      ],
+      "title_de": [
+        "Die Vergütung der Aufgaben, die dem Bundesamt für Zoll und Grenzsicherheit (BAZG) übertragen wurden und die dieses Amt an den Flughäfen Genf und Basel wahrnimmt, muss auch dem BAZG zugute kommen!",
+        "Daten der Bundesverwaltung mehrfach nutzbar machen – als Basis für vertrauenswürdige KI in der Schweiz",
+        "Transparenz bei der Fördereffizienz aller erneuerbaren Technologien herstellen",
+        "Medizinische Bildgebung in der Westschweiz: Wie hängen Moratorien, Untersuchungsvolumen und Kosten zusammen?",
+        "Kostendeckende Erträge aus dem Artenschutz? ",
+        "Drei weitere Aufgabenbereiche für das Projekt Entflechtung 27"
+      ],
+      "author": [
+        "Addor Jean-Luc",
+        "Michel Matthias",
+        "Grossen Jürg",
+        "Kolly Nicolas",
+        "Trede Aline",
+        "Wettstein Felix"
+      ],
+      "party": [
+        "UDC",
+        "PLR",
+        "pvl",
+        "UDC",
+        "VERT-E-S",
+        "VERT-E-S"
+      ],
+      "type": [
+        "Mo.",
+        "Mo.",
+        "Ip.",
+        "Fra.",
+        "Fra.",
+        "Mo."
+      ],
+      "url_fr": [
+        "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
+        "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
+        "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
+        "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
+        "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
+        "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"
+      ],
+      "url_de": [
+        "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
+        "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
+        "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
+        "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
+        "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
+        "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463"
+      ]
     }
   },
   "items": [
@@ -687,7 +743,7 @@
       "title_de": "Vernehmlassungsvorlage zum Entlastungspaket 27 und Änderung des Subventionsgesetzes. Auswirkungen und effektives Sparpotenzial",
       "author": "Graf Maya",
       "party": "VERT-E-S",
-      "type": "Fra.",
+      "type": "A.",
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-03-20",
