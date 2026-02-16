@@ -167,7 +167,7 @@ function renderTypeChart() {
     
     const labels = Object.keys(typeCounts);
     const data = Object.values(typeCounts);
-    const colors = ['#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#F44336'];
+    const colors = ['#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#F44336', '#00BCD4'];
     
     const ctx = document.getElementById('typeChart').getContext('2d');
     new Chart(ctx, {
