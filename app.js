@@ -481,7 +481,7 @@ function translateType(type) {
         'Postulat': 'Postulat',
         'Po.': 'Po.',
         'Anfrage': 'Question',
-        'A.': 'Q.',
+        'A.': 'Question',
         'Parlamentarische Initiative': 'Initiative parlementaire',
         'Pa.Iv.': 'Iv.pa.',
         'Geschäft des Parlaments': 'Objet du Parlement'

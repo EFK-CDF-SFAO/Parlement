@@ -34,14 +34,16 @@ const typeLabels = {
     'Mo.': 'Motion',
     'Po.': 'Postulat',
     'Ip.': 'Interpellation',
-    'Fra.': 'Q.'
+    'Fra.': 'Heure des questions',
+    'A.': 'Question'
 };
 
 const typeToFilter = {
     'Motion': 'Mo.',
     'Postulat': 'Po.',
     'Interpellation': 'Ip.',
-    'Q.': 'Fra.'
+    'Heure des questions': 'Fra.',
+    'Question': 'A.'
 };
 
 const partyToFilter = {
