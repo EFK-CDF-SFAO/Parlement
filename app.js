@@ -344,7 +344,7 @@ function translateType(type) {
         'Motion': 'Motion',
         'Mo.': 'Mo.',
         'Fragestunde': 'Heure des questions',
-        'Fra.': 'Q.',
+        'Fra.': 'Heure des questions',
         'Geschäft des Bundesrates': 'Objet du Conseil fédéral',
         'Postulat': 'Postulat',
         'Po.': 'Po.',
