@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EFK/CDF - Parlamentarische Vorstösse</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 </head>
 <body>
     <header>
@@ -44,25 +45,21 @@
                 <button id="clearSearch" class="btn-clear" title="Löschen">✕</button>
             </div>
             <div class="filters">
-                <select id="typeFilter">
-                    <option value="">Alle Typen</option>
+                <select id="typeFilter" multiple>
                     <option value="Mo.">Motion</option>
                     <option value="Po.">Postulat</option>
                     <option value="Ip.">Interpellation</option>
                     <option value="Fra.">Fragestunde</option>
-                    <option value="Pa.Iv.">Parlamentarische Initiative</option>
-                    <option value="A.">Anfrage</option>
+                    <option value="Pa. Iv.">Parlamentarische Initiative</option>
                 </select>
                 <select id="councilFilter">
                     <option value="">Alle Räte</option>
                     <option value="NR">Nationalrat</option>
                     <option value="SR">Ständerat</option>
                 </select>
-                <select id="yearFilter">
-                    <option value="">Alle Jahre</option>
+                <select id="yearFilter" multiple>
                 </select>
-                <select id="partyFilter">
-                    <option value="">Alle Parteien</option>
+                <select id="partyFilter" multiple>
                 </select>
             </div>
         </section>
@@ -86,6 +83,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="app_de.js"></script>
 </body>
 </html>

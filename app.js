@@ -8,6 +8,7 @@ let allData = [];
 let filteredData = [];
 let currentPage = 1;
 let newIds = []; // IDs des vrais nouveaux objets
+let choicesType, choicesYear, choicesParty; // Choices.js instances
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -44,6 +45,9 @@ async function init() {
         // Populate year and party filters
         populateYearFilter();
         populatePartyFilter();
+        
+        // Initialize Choices.js for multiple select filters
+        initChoices();
         
         // Check for search parameter in URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -214,12 +218,51 @@ function populatePartyFilter() {
     });
 }
 
+function getChoicesValues(choicesInstance) {
+    if (!choicesInstance) return [];
+    return choicesInstance.getValue(true) || [];
+}
+
+function initChoices() {
+    const config = {
+        removeItemButton: true,
+        placeholderValue: '',
+        searchEnabled: false,
+        itemSelectText: '',
+        noResultsText: 'Aucun résultat',
+        noChoicesText: 'Aucune option'
+    };
+    
+    choicesType = new Choices(typeFilter, {
+        ...config,
+        placeholder: true,
+        placeholderValue: 'Type'
+    });
+    
+    choicesYear = new Choices(yearFilter, {
+        ...config,
+        placeholder: true,
+        placeholderValue: 'Année'
+    });
+    
+    choicesParty = new Choices(partyFilter, {
+        ...config,
+        placeholder: true,
+        placeholderValue: 'Parti'
+    });
+    
+    // Add event listeners for Choices
+    typeFilter.addEventListener('change', applyFilters);
+    yearFilter.addEventListener('change', applyFilters);
+    partyFilter.addEventListener('change', applyFilters);
+}
+
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
-    const typeValue = typeFilter.value;
+    const typeValues = getChoicesValues(choicesType);
     const councilValue = councilFilter.value;
-    const yearValue = yearFilter.value;
-    const partyValue = partyFilter.value;
+    const yearValues = getChoicesValues(choicesYear);
+    const partyValues = getChoicesValues(choicesParty);
     
     filteredData = allData.filter(item => {
         // Text search
@@ -238,8 +281,8 @@ function applyFilters() {
             }
         }
         
-        // Type filter
-        if (typeValue && item.type !== typeValue) {
+        // Type filter (multiple)
+        if (typeValues.length > 0 && !typeValues.includes(item.type)) {
             return false;
         }
         
@@ -248,15 +291,18 @@ function applyFilters() {
             return false;
         }
         
-        // Year filter
-        if (yearValue && !item.date?.startsWith(yearValue)) {
-            return false;
+        // Year filter (multiple)
+        if (yearValues.length > 0) {
+            const itemYear = item.date?.substring(0, 4);
+            if (!yearValues.includes(itemYear)) {
+                return false;
+            }
         }
         
-        // Party filter
-        if (partyValue) {
+        // Party filter (multiple)
+        if (partyValues.length > 0) {
             const itemParty = translateParty(item.party) || getPartyFromAuthor(item.author);
-            if (itemParty !== partyValue) {
+            if (!partyValues.includes(itemParty)) {
                 return false;
             }
         }

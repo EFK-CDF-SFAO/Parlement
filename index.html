@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CDF/EFK - Interventions parlementaires</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 </head>
 <body>
     <header>
@@ -44,25 +45,21 @@
                 <button id="clearSearch" class="btn-clear" title="Effacer">✕</button>
             </div>
             <div class="filters">
-                <select id="typeFilter">
-                    <option value="">Tous les types</option>
+                <select id="typeFilter" multiple>
                     <option value="Mo.">Motion</option>
                     <option value="Po.">Postulat</option>
                     <option value="Ip.">Interpellation</option>
                     <option value="Fra.">Heure des questions</option>
-                    <option value="Pa.Iv.">Initiative parlementaire</option>
-                    <option value="A.">Question</option>
+                    <option value="Pa. Iv.">Initiative parlementaire</option>
                 </select>
                 <select id="councilFilter">
                     <option value="">Tous les conseils</option>
                     <option value="NR">Conseil national</option>
                     <option value="SR">Conseil des États</option>
                 </select>
-                <select id="yearFilter">
-                    <option value="">Toutes les années</option>
+                <select id="yearFilter" multiple>
                 </select>
-                <select id="partyFilter">
-                    <option value="">Tous les partis</option>
+                <select id="partyFilter" multiple>
                 </select>
             </div>
         </section>
@@ -86,6 +83,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
