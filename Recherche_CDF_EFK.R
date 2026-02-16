@@ -52,7 +52,7 @@ Legislatur <- 52
 MOIS_MISE_A_JOUR <- 6
 
 # Types d'affaires à rechercher
-Geschaeftstyp <- c(5, 6, 8, 9, 10, 12, 13, 14, 18, 19)
+Geschaeftstyp <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 18, 19)
 
 # Fichiers
 FICHIER_EXCEL <- "Objets_parlementaires_CDF_EFK.xlsx"
