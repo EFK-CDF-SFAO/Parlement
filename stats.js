@@ -37,6 +37,22 @@ const typeLabels = {
     'Fra.': 'Q.'
 };
 
+const typeToFilter = {
+    'Motion': 'Mo.',
+    'Postulat': 'Po.',
+    'Interpellation': 'Ip.',
+    'Q.': 'Fra.'
+};
+
+const partyToFilter = {
+    'PS': 'PS',
+    'UDC': 'UDC',
+    'PLR': 'PLR',
+    'Le Centre': 'Le Centre',
+    'Verts': 'VERT-E-S',
+    'Vert\'libéraux': 'PVL'
+};
+
 async function init() {
     try {
         const response = await fetch('cdf_efk_data.json');
@@ -122,6 +138,14 @@ function renderPartyChart() {
             },
             scales: {
                 x: { beginAtZero: true }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const party = labels[index];
+                    const filterValue = partyToFilter[party] || party;
+                    window.location.href = `index.html?filter_party=${encodeURIComponent(filterValue)}`;
+                }
             }
         }
     });
@@ -160,6 +184,14 @@ function renderTypeChart() {
             plugins: {
                 legend: {
                     position: 'bottom'
+                }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const typeLabel = labels[index];
+                    const filterValue = typeToFilter[typeLabel] || typeLabel;
+                    window.location.href = `index.html?filter_type=${encodeURIComponent(filterValue)}`;
                 }
             }
         }

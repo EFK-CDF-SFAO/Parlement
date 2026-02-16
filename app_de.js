@@ -52,6 +52,17 @@ async function init() {
             searchInput.value = searchParam;
         }
         
+        // Check for filter parameters from stats page
+        const filterParty = urlParams.get('filter_party');
+        const filterType = urlParams.get('filter_type');
+        
+        if (filterParty) {
+            applyFilterFromUrl('partyDropdown', filterParty);
+        }
+        if (filterType) {
+            applyFilterFromUrl('typeDropdown', filterType);
+        }
+        
         // Initial display
         filteredData = [...allData];
         applyFilters();
@@ -309,11 +320,34 @@ function resetAllFilters() {
     document.querySelectorAll('.filter-dropdown input[type="checkbox"]').forEach(cb => {
         cb.checked = false;
     });
+    // Recheck "Alle" by default
+    document.querySelectorAll('.filter-dropdown input[data-select-all]').forEach(cb => {
+        cb.checked = true;
+    });
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
         updateFilterCount(dropdown.id);
     });
     searchInput.value = '';
     applyFilters();
+}
+
+function applyFilterFromUrl(dropdownId, filterValue) {
+    const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) return;
+    
+    // Uncheck "Alle"
+    const selectAll = dropdown.querySelector('input[data-select-all]');
+    if (selectAll) selectAll.checked = false;
+    
+    // Check the matching checkbox
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+    checkboxes.forEach(cb => {
+        if (cb.value === filterValue) {
+            cb.checked = true;
+        }
+    });
+    
+    updateFilterCount(dropdownId);
 }
 
 function applyFilters() {
@@ -431,15 +465,17 @@ function renderResults() {
 }
 
 function getMentionEmojis(mention) {
-    if (!mention) return '🧑';
-    const emojis = [];
-    if (mention.includes('Élu')) {
-        emojis.push('🧑');
+    if (!mention) return { emojis: '🧑', tooltip: 'Der Autor zitiert die EFK' };
+    const hasElu = mention.includes('Élu');
+    const hasCF = mention.includes('Conseil fédéral');
+    
+    if (hasElu && hasCF) {
+        return { emojis: '🧑 🏛️', tooltip: 'Der Autor und der Bundesrat zitieren die EFK' };
+    } else if (hasCF) {
+        return { emojis: '🏛️', tooltip: 'Der Bundesrat zitiert die EFK' };
+    } else {
+        return { emojis: '🧑', tooltip: 'Der Autor zitiert die EFK' };
     }
-    if (mention.includes('Conseil fédéral')) {
-        emojis.push('🏛️');
-    }
-    return emojis.length > 0 ? emojis.join(' ') : '🧑';
 }
 
 function translateType(type) {
@@ -480,7 +516,7 @@ function createCard(item, searchTerm) {
     
     const date = item.date ? new Date(item.date).toLocaleDateString('de-CH') : '';
     const url = item.url_de || item.url_fr;
-    const mentionEmojis = getMentionEmojis(item.mention);
+    const mentionData = getMentionEmojis(item.mention);
     
     // Status badge color
     let statusClass = 'badge-status';
@@ -495,7 +531,7 @@ function createCard(item, searchTerm) {
                 <div class="card-badges">
                     <span class="badge badge-type">${translateType(item.type)}</span>
                     <span class="badge badge-council">${item.council === 'NR' ? 'NR' : 'SR'}</span>
-                    <span class="badge badge-mention">${mentionEmojis}</span>
+                    <span class="badge badge-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
                 </div>
             </div>
             <h3 class="card-title">

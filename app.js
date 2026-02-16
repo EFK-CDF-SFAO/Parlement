@@ -52,6 +52,17 @@ async function init() {
             searchInput.value = searchParam;
         }
         
+        // Check for filter parameters from stats page
+        const filterParty = urlParams.get('filter_party');
+        const filterType = urlParams.get('filter_type');
+        
+        if (filterParty) {
+            applyFilterFromUrl('partyDropdown', filterParty);
+        }
+        if (filterType) {
+            applyFilterFromUrl('typeDropdown', filterType);
+        }
+        
         // Initial display
         filteredData = [...allData];
         applyFilters();
@@ -300,11 +311,34 @@ function resetAllFilters() {
     document.querySelectorAll('.filter-dropdown input[type="checkbox"]').forEach(cb => {
         cb.checked = false;
     });
+    // Recheck "Tous" by default
+    document.querySelectorAll('.filter-dropdown input[data-select-all]').forEach(cb => {
+        cb.checked = true;
+    });
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
         updateFilterCount(dropdown.id);
     });
     searchInput.value = '';
     applyFilters();
+}
+
+function applyFilterFromUrl(dropdownId, filterValue) {
+    const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) return;
+    
+    // Uncheck "Tous"
+    const selectAll = dropdown.querySelector('input[data-select-all]');
+    if (selectAll) selectAll.checked = false;
+    
+    // Check the matching checkbox
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+    checkboxes.forEach(cb => {
+        if (cb.value === filterValue) {
+            cb.checked = true;
+        }
+    });
+    
+    updateFilterCount(dropdownId);
 }
 
 function applyFilters() {
@@ -422,15 +456,17 @@ function renderResults() {
 }
 
 function getMentionEmojis(mention) {
-    if (!mention) return '🧑';
-    const emojis = [];
-    if (mention.includes('Élu')) {
-        emojis.push('🧑');
+    if (!mention) return { emojis: '🧑', tooltip: "L'auteur cite le CDF" };
+    const hasElu = mention.includes('Élu');
+    const hasCF = mention.includes('Conseil fédéral');
+    
+    if (hasElu && hasCF) {
+        return { emojis: '🧑 🏛️', tooltip: "L'auteur et le Conseil fédéral citent le CDF" };
+    } else if (hasCF) {
+        return { emojis: '🏛️', tooltip: "Le Conseil fédéral cite le CDF" };
+    } else {
+        return { emojis: '🧑', tooltip: "L'auteur cite le CDF" };
     }
-    if (mention.includes('Conseil fédéral')) {
-        emojis.push('🏛️');
-    }
-    return emojis.length > 0 ? emojis.join(' ') : '🧑';
 }
 
 function translateType(type) {
@@ -486,7 +522,7 @@ function createCard(item, searchTerm) {
     
     const date = item.date ? new Date(item.date).toLocaleDateString('fr-CH') : '';
     const url = item.url_fr || item.url_de;
-    const mentionEmojis = getMentionEmojis(item.mention);
+    const mentionData = getMentionEmojis(item.mention);
     
     // Status badge color
     let statusClass = 'badge-status';
@@ -501,7 +537,7 @@ function createCard(item, searchTerm) {
                 <div class="card-badges">
                     <span class="badge badge-type">${translateType(item.type)}</span>
                     <span class="badge badge-council">${item.council === 'NR' ? 'CN' : 'CE'}</span>
-                    <span class="badge badge-mention">${mentionEmojis}</span>
+                    <span class="badge badge-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
                 </div>
             </div>
             <h3 class="card-title">
