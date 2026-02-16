@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-02-16T15:14:10",
+    "updated": "2026-02-16T17:16:25",
     "total_count": 101,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "25.450"
+    "new_ids": "25.479"
   },
   "session_summary": {
     "session_id": "2025-hiver",
