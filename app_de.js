@@ -230,12 +230,16 @@ function populatePartyFilter() {
     });
 }
 
+function getSelectedValues(selectElement) {
+    return Array.from(selectElement.selectedOptions).map(opt => opt.value);
+}
+
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
-    const typeValue = typeFilter.value;
+    const typeValues = getSelectedValues(typeFilter);
     const councilValue = councilFilter.value;
-    const yearValue = yearFilter.value;
-    const partyValue = partyFilter.value;
+    const yearValues = getSelectedValues(yearFilter);
+    const partyValues = getSelectedValues(partyFilter);
     
     filteredData = allData.filter(item => {
         // Text search
@@ -254,8 +258,8 @@ function applyFilters() {
             }
         }
         
-        // Type filter
-        if (typeValue && item.type !== typeValue) {
+        // Type filter (multiple)
+        if (typeValues.length > 0 && !typeValues.includes(item.type)) {
             return false;
         }
         
@@ -264,15 +268,18 @@ function applyFilters() {
             return false;
         }
         
-        // Year filter
-        if (yearValue && !item.date?.startsWith(yearValue)) {
-            return false;
+        // Year filter (multiple)
+        if (yearValues.length > 0) {
+            const itemYear = item.date?.substring(0, 4);
+            if (!yearValues.includes(itemYear)) {
+                return false;
+            }
         }
         
-        // Party filter (includes groups/factions)
-        if (partyValue) {
+        // Party filter (multiple, includes groups/factions)
+        if (partyValues.length > 0) {
             const itemParty = translateParty(item.party) || getPartyFromAuthor(item.author);
-            if (itemParty !== partyValue) {
+            if (!partyValues.includes(itemParty)) {
                 return false;
             }
         }

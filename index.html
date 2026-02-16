@@ -44,23 +44,22 @@
                 <button id="clearSearch" class="btn-clear" title="Effacer">✕</button>
             </div>
             <div class="filters">
-                <select id="typeFilter">
-                    <option value="">Tous les types</option>
+                <select id="typeFilter" multiple size="1">
                     <option value="Mo.">Motion</option>
                     <option value="Po.">Postulat</option>
                     <option value="Ip.">Interpellation</option>
-                    <option value="Fra.">Question</option>
+                    <option value="Fra.">Heure des questions</option>
+                    <option value="Pa.Iv.">Initiative parlementaire</option>
+                    <option value="A.">Question</option>
                 </select>
                 <select id="councilFilter">
                     <option value="">Tous les conseils</option>
                     <option value="NR">Conseil national</option>
                     <option value="SR">Conseil des États</option>
                 </select>
-                <select id="yearFilter">
-                    <option value="">Toutes les années</option>
+                <select id="yearFilter" multiple size="1">
                 </select>
-                <select id="partyFilter">
-                    <option value="">Tous les partis</option>
+                <select id="partyFilter" multiple size="1">
                 </select>
             </div>
         </section>

@@ -49,9 +49,7 @@ cat("Répertoire de travail:", getwd(), "\n\n")
 Legislatur <- 52
 
 # Nombre de mois à rechercher pour les mises à jour
-# IMPORTANT: Mis à 36 pour recherche complète (nouveaux types ajoutés)
-# Remettre à 6 après la première exécution complète
-MOIS_MISE_A_JOUR <- 36
+MOIS_MISE_A_JOUR <- 6
 
 # Types d'affaires à rechercher
 Geschaeftstyp <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 18, 19)

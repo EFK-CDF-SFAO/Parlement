@@ -271,6 +271,23 @@ main {
     border-color: var(--primary);
 }
 
+.filters select[multiple] {
+    height: auto;
+    min-height: 38px;
+    padding: 0.25rem;
+}
+
+.filters select[multiple] option {
+    padding: 0.4rem 0.6rem;
+    margin: 0.1rem 0;
+    border-radius: 4px;
+}
+
+.filters select[multiple] option:checked {
+    background: var(--primary);
+    color: white;
+}
+
 /* Results */
 .results-section {
     background: var(--surface);
