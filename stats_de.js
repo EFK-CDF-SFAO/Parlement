@@ -56,7 +56,7 @@ const partyToFilter = {
     'FDP': 'PLR',
     'Die Mitte': 'Le Centre',
     'GRÜNE': 'VERT-E-S',
-    'GLP': 'PVL'
+    'GLP': 'pvl'
 };
 
 async function init() {

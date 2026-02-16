@@ -50,7 +50,7 @@ const partyToFilter = {
     'PLR': 'PLR',
     'Le Centre': 'Le Centre',
     'Verts': 'VERT-E-S',
-    'Vert\'libéraux': 'PVL'
+    'Vert\'libéraux': 'pvl'
 };
 
 async function init() {
