@@ -636,8 +636,8 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
   addWorksheet(wb, "CDF-EFK")
   writeDataTable(wb, "CDF-EFK", Resultats)
   
-  # Style vert pour les objets mis à jour aujourd'hui (Date_MAJ = aujourd'hui)
-  style_vert <- createStyle(fontColour = "#006400", bgFill = "#90EE90")
+  # Style vert léger pour les objets mis à jour aujourd'hui (Date_MAJ = aujourd'hui)
+  style_vert <- createStyle(fontColour = "#2E7D32", bgFill = "#E8F5E9")
   
   # Trouver les lignes avec Date_MAJ = aujourd'hui
   date_aujourdhui <- as.character(Sys.Date())
