@@ -207,10 +207,10 @@ function populateYearFilter() {
     const years = [...new Set(allData.map(item => item.date?.substring(0, 4)).filter(Boolean))];
     years.sort((a, b) => b - a);
     
-    // Add "Alle" option
+    // Add "Alle" option (checked by default)
     const allLabel = document.createElement('label');
     allLabel.className = 'select-all';
-    allLabel.innerHTML = `<input type="checkbox" data-select-all> Alle`;
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Alle`;
     yearMenu.appendChild(allLabel);
     
     years.forEach(year => {
@@ -225,10 +225,10 @@ function populatePartyFilter() {
     const translatedParties = [...new Set(allData.map(item => translateParty(item.party)).filter(Boolean))];
     translatedParties.sort((a, b) => a.localeCompare(b, 'de'));
     
-    // Add "Alle" option
+    // Add "Alle" option (checked by default)
     const allLabel = document.createElement('label');
     allLabel.className = 'select-all';
-    allLabel.innerHTML = `<input type="checkbox" data-select-all> Alle`;
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Alle`;
     partyMenu.appendChild(allLabel);
     
     translatedParties.forEach(party => {
