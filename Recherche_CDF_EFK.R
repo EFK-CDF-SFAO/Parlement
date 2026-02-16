@@ -138,7 +138,7 @@ if (file.exists(FICHIER_EXCEL)) {
   # Exclure les faux positifs (objets qui ne mentionnent que CDF-N ou CDF-E, pas le vrai CDF)
   # Ces objets parlent de la Commission des finances, pas du Contrôle fédéral des finances
   # 24.3077: CDF-N/CDF-E = Commission des finances
-  # 25.479: CdF = Commission des finances (Golay)
+  # 25.479: CdF = Commission des finances
   faux_positifs <- c("24.3077", "25.479")  # Liste des numéros à exclure manuellement
   n_avant <- nrow(Donnees_Existantes)
   Donnees_Existantes <- Donnees_Existantes |>
