@@ -230,18 +230,12 @@ function populatePartyFilter() {
     });
 }
 
-function getSelectedValues(selectElement) {
-    return Array.from(selectElement.selectedOptions)
-        .map(opt => opt.value)
-        .filter(val => val !== '');
-}
-
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
-    const typeValues = getSelectedValues(typeFilter);
+    const typeValue = typeFilter.value;
     const councilValue = councilFilter.value;
-    const yearValues = getSelectedValues(yearFilter);
-    const partyValues = getSelectedValues(partyFilter);
+    const yearValue = yearFilter.value;
+    const partyValue = partyFilter.value;
     
     filteredData = allData.filter(item => {
         // Text search
@@ -260,8 +254,8 @@ function applyFilters() {
             }
         }
         
-        // Type filter (multiple)
-        if (typeValues.length > 0 && !typeValues.includes(item.type)) {
+        // Type filter
+        if (typeValue && item.type !== typeValue) {
             return false;
         }
         
@@ -270,18 +264,15 @@ function applyFilters() {
             return false;
         }
         
-        // Year filter (multiple)
-        if (yearValues.length > 0) {
-            const itemYear = item.date?.substring(0, 4);
-            if (!yearValues.includes(itemYear)) {
-                return false;
-            }
+        // Year filter
+        if (yearValue && !item.date?.startsWith(yearValue)) {
+            return false;
         }
         
-        // Party filter (multiple, includes groups/factions)
-        if (partyValues.length > 0) {
+        // Party filter
+        if (partyValue) {
             const itemParty = translateParty(item.party) || getPartyFromAuthor(item.author);
-            if (!partyValues.includes(itemParty)) {
+            if (itemParty !== partyValue) {
                 return false;
             }
         }
