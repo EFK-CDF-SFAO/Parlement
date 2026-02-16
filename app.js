@@ -338,8 +338,23 @@ function getMentionEmojis(mention) {
 }
 
 function translateType(type) {
-    if (type === 'Fra.') return 'Q.';
-    return type;
+    const translations = {
+        'Interpellation': 'Interpellation',
+        'Ip.': 'Ip.',
+        'Motion': 'Motion',
+        'Mo.': 'Mo.',
+        'Fragestunde': 'Heure des questions',
+        'Fra.': 'Q.',
+        'Geschäft des Bundesrates': 'Objet du Conseil fédéral',
+        'Postulat': 'Postulat',
+        'Po.': 'Po.',
+        'Anfrage': 'Question',
+        'A.': 'Q.',
+        'Parlamentarische Initiative': 'Initiative parlementaire',
+        'Pa.Iv.': 'Iv.pa.',
+        'Geschäft des Parlaments': 'Objet du Parlement'
+    };
+    return translations[type] || type;
 }
 
 function isTitleMissing(title) {
