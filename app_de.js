@@ -179,10 +179,6 @@ function setupEventListeners() {
         updateLangSwitcherLinks();
     });
     clearButton.addEventListener('click', clearSearch);
-    typeFilter.addEventListener('change', applyFilters);
-    councilFilter.addEventListener('change', applyFilters);
-    yearFilter.addEventListener('change', applyFilters);
-    partyFilter.addEventListener('change', applyFilters);
     
     // Download Excel button
     if (downloadBtn) {

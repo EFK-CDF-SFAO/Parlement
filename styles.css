@@ -302,6 +302,7 @@ main {
     background: white;
     cursor: pointer;
     width: 140px;
+    height: 38px;
     text-align: left;
     display: flex;
     align-items: center;
@@ -367,12 +368,16 @@ main {
 
 .filter-reset {
     padding: 0.5rem 0.75rem;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     border: 1px solid var(--border);
     border-radius: 6px;
     background: white;
     cursor: pointer;
     color: var(--text-light);
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .filter-reset:hover {
@@ -765,6 +770,22 @@ mark {
     }
     
     .filters select {
+        width: 100%;
+    }
+    
+    .filter-dropdown {
+        width: 100%;
+    }
+    
+    .filter-btn {
+        width: 100%;
+    }
+    
+    .filter-menu {
+        width: 100%;
+    }
+    
+    .filter-reset {
         width: 100%;
     }
     
