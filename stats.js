@@ -89,7 +89,8 @@ function normalizeParty(party) {
         'pvl': 'Vert\'libéraux',
         'PVL': 'Vert\'libéraux',
         'Le Centre': 'Le Centre',
-        'Centre': 'Le Centre'
+        'Centre': 'Le Centre',
+        'M-E': 'Le Centre'
     };
     return normalized[party] || party;
 }

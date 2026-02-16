@@ -97,7 +97,8 @@ function normalizeParty(party) {
         'pvl': 'GLP',
         'PVL': 'GLP',
         'Le Centre': 'Die Mitte',
-        'Centre': 'Die Mitte'
+        'Centre': 'Die Mitte',
+        'M-E': 'Die Mitte'
     };
     return normalized[party] || party;
 }
