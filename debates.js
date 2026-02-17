@@ -5,7 +5,7 @@ const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
 const resultsContainer = document.getElementById('results');
 const resultsCount = document.getElementById('resultsCount');
-const sessionInfo = document.getElementById('sessionInfo');
+const lastUpdate = document.getElementById('lastUpdate');
 const resetFilters = document.getElementById('resetFilters');
 
 const councilLabels = {
@@ -40,7 +40,7 @@ async function init() {
         
         if (data.meta) {
             const updated = new Date(data.meta.updated);
-            sessionInfo.textContent = `Mise à jour: ${updated.toLocaleDateString('fr-CH')}`;
+            lastUpdate.textContent = `Mise à jour: ${updated.toLocaleDateString('fr-CH')}`;
         }
         
         populateYearFilter();
