@@ -42,7 +42,7 @@ async function init() {
         
         if (data.meta) {
             const updated = new Date(data.meta.updated);
-            sessionInfo.textContent = `Mis à jour: ${updated.toLocaleDateString('fr-CH')}`;
+            sessionInfo.textContent = `Mise à jour: ${updated.toLocaleDateString('fr-CH')}`;
         }
         
         populateSessionFilter();
@@ -314,10 +314,11 @@ function createCard(item) {
         ? `<a href="${curiaVistaUrl}" target="_blank" class="card-id" title="Voir l'objet sur Curia Vista">${item.business_number}</a>`
         : `<span class="card-id">${item.business_number || ''}</span>`;
     
-    // Titre avec lien bulletin (intervention)
-    const businessTitleLink = (item.business_title && bulletinUrl)
-        ? `<a href="${bulletinUrl}" target="_blank" title="Voir l'intervention complète">${item.business_title}</a>`
-        : (item.business_title || '');
+    // Titre avec lien bulletin (intervention) - toujours en français pour la page FR
+    const businessTitle = item.business_title_fr || item.business_title || '';
+    const businessTitleLink = (businessTitle && bulletinUrl)
+        ? `<a href="${bulletinUrl}" target="_blank" title="Voir l'intervention complète">${businessTitle}</a>`
+        : businessTitle;
     
     // Speaker sans lien
     const speakerText = `${item.speaker} (${partyDisplay}, ${item.canton || ''})`;

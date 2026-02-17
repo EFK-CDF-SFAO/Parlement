@@ -310,10 +310,11 @@ function createCard(item) {
         ? `<a href="${curiaVistaUrl}" target="_blank" class="card-id" title="Geschäft auf Curia Vista ansehen">${item.business_number}</a>`
         : `<span class="card-id">${item.business_number || ''}</span>`;
     
-    // Titre avec lien bulletin (intervention)
-    const businessTitleLink = (item.business_title && bulletinUrl)
-        ? `<a href="${bulletinUrl}" target="_blank" title="Vollständige Intervention ansehen">${item.business_title}</a>`
-        : (item.business_title || '');
+    // Titre avec lien bulletin (intervention) - toujours en allemand pour la page DE
+    const businessTitle = item.business_title_de || item.business_title || '';
+    const businessTitleLink = (businessTitle && bulletinUrl)
+        ? `<a href="${bulletinUrl}" target="_blank" title="Vollständige Intervention ansehen">${businessTitle}</a>`
+        : businessTitle;
     
     // Speaker sans lien
     const speakerText = `${item.speaker} (${partyDisplay}, ${item.canton || ''})`;
