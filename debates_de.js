@@ -340,7 +340,7 @@ function createCard(item) {
                 expandBtn.textContent = 'Mehr anzeigen';
             }
         });
-        card.querySelector('.card-body').appendChild(expandBtn);
+        card.appendChild(expandBtn);
     }
     
     return card;

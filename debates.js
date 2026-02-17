@@ -344,7 +344,7 @@ function createCard(item) {
                 expandBtn.textContent = 'Voir plus';
             }
         });
-        card.querySelector('.card-body').appendChild(expandBtn);
+        card.appendChild(expandBtn);
     }
     
     return card;
