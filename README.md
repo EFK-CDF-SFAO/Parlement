@@ -21,6 +21,9 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 - **Consistent design**: Debates page follows Objects page styling
 - **Mobile optimized**: Responsive layout for all pages
 - **Better text formatting**: Paragraphs, cleaned-up text, no formatting bugs
+- **"Show more" button**: Progressive loading (10 objects / 5 debates initially)
+- **Back to top button**: Quick navigation on mobile devices
+- **Session type filters**: Spring, Summer, Autumn, Winter, Special sessions
 
 ---
 
@@ -47,13 +50,15 @@ The project includes a bilingual GitHub Pages website (FR/DE) with:
 ### Features
 - 🔍 **Advanced filters**: Custom dropdown filters with checkboxes for multi-select
 - 🗣️ **Debate transcripts**: Full-text speeches with speaker details
-- � **Dual statistics**: Charts for both parliamentary objects and debates
-- 🎛️ **Chart filters**: Filter statistics by Year, Council, Party
+- 📊 **Dual statistics**: Charts for both parliamentary objects and debates
+- 🎛️ **Chart filters**: Filter statistics by Year, Council, Party, Session
 - 🏆 **Top rankings**: Most active MPs and speakers
 - 🌐 **Bilingual**: Full French/German translation
 - 📱 **Responsive**: Optimized for desktop and mobile
-- � **Smart highlighting**: CDF/EFK terms highlighted in debate texts
+- 🔶 **Smart highlighting**: CDF/EFK terms highlighted in debate texts
 - 📈 **Clickable charts**: Click to filter search results
+- ⬆️ **Back to top**: Quick scroll button on mobile
+- ➕ **Progressive loading**: "Show more" replaces pagination
 
 **Live URL**: `https://arnaudbon20.github.io/EFK_CDF_Parlement/`
 
