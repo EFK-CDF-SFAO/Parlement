@@ -315,19 +315,17 @@ function createCard(item) {
     
     card.innerHTML = `
         <div class="card-header">
-            <div class="card-meta">
-                ${businessNumber}
+            <span class="card-id">${item.business_number || ''}</span>
+            <div class="card-badges">
                 <span class="badge badge-council">${councilDisplay}</span>
             </div>
         </div>
-        <div class="card-business">${businessTitle}</div>
-        <div class="card-body">
-            <div class="speaker-info">
-                <span class="speaker-name">🗣️ ${speakerLink}</span>
-                <span class="speaker-details">📅 ${formatDate(item.date)}</span>
-            </div>
-            <div class="card-text">${highlightEFK(textPreview)}</div>
+        <h3 class="card-title">${businessTitle}</h3>
+        <div class="card-meta">
+            <span>🗣️ ${speakerLink}</span>
+            <span>📅 ${formatDate(item.date)}</span>
         </div>
+        <div class="card-text">${highlightEFK(textPreview)}</div>
     `;
     
     if (item.text.length > 400) {
