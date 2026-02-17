@@ -42,9 +42,9 @@ cat("Répertoire de travail:", getwd(), "\n\n")
 # PARAMÈTRES
 # ============================================================================
 
-# Sessions à analyser (ID de la session d'hiver 2025)
-# Pour ajouter d'autres sessions, ajouter les IDs ici
-SESSIONS_DEBATS <- c("5211")
+# Sessions à analyser (législature 52)
+# 5201: Session d'hiver 2023, 5202: Session de printemps 2024, etc.
+SESSIONS_DEBATS <- c("5201", "5202", "5203", "5204", "5205", "5206", "5207", "5208", "5209", "5210", "5211")
 
 # Fichiers de sortie
 FICHIER_DEBATS_EXCEL <- "Debats_CDF_EFK.xlsx"
