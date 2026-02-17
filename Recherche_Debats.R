@@ -94,7 +94,7 @@ for (session_id in SESSIONS_DEBATS) {
       filter(str_detect(Text, pattern_efk_de)) |>
       mutate(Langue = "DE") |>
       select(
-        ID, IdSession, IdSubject, SortOrder, MeetingDate, CouncilName, 
+        ID, IdSession, IdSubject, SortOrder, MeetingDate, MeetingCouncilAbbreviation, 
         SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
         Text, Langue, Start, End
       )
@@ -120,7 +120,7 @@ for (session_id in SESSIONS_DEBATS) {
       filter(!str_detect(Text, pattern_faux_positif_cdf)) |>
       mutate(Langue = "FR") |>
       select(
-        ID, IdSession, IdSubject, SortOrder, MeetingDate, CouncilName, 
+        ID, IdSession, IdSubject, SortOrder, MeetingDate, MeetingCouncilAbbreviation, 
         SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
         Text, Langue, Start, End
       )
@@ -207,9 +207,9 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
     mutate(
       Extrait = str_sub(Text, 1, 500)
     ) |>
-    select(ID, MeetingDate, CouncilName, SpeakerFullName, ParlGroupAbbreviation, 
+    select(ID, MeetingDate, MeetingCouncilAbbreviation, SpeakerFullName, ParlGroupAbbreviation, 
            CantonAbbreviation, Langue, Extrait, Text) |>
-    arrange(MeetingDate, CouncilName)
+    arrange(MeetingDate, MeetingCouncilAbbreviation)
   
   wb_debats <- createWorkbook()
   addWorksheet(wb_debats, "Débats-CDF-EFK")
@@ -223,9 +223,10 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
     transmute(
       id = ID,
       id_subject = IdSubject,
+      id_session = IdSession,
       sort_order = SortOrder,
       date = as.character(MeetingDate),
-      council = CouncilName,
+      council = MeetingCouncilAbbreviation,
       speaker = SpeakerFullName,
       function_speaker = SpeakerFunction,
       party = ParlGroupAbbreviation,

@@ -9,8 +9,8 @@ const sessionInfo = document.getElementById('sessionInfo');
 const resetFilters = document.getElementById('resetFilters');
 
 const councilLabels = {
-    'Nationalrat': 'Conseil national',
-    'Ständerat': 'Conseil des États'
+    'N': 'Conseil national',
+    'S': 'Conseil des États'
 };
 
 const partyLabels = {
@@ -45,6 +45,7 @@ async function init() {
             sessionInfo.textContent = `Session d'hiver 2025 · Mis à jour: ${updated.toLocaleDateString('fr-CH')}`;
         }
         
+        populateSessionFilter();
         populateCouncilFilter();
         populatePartyFilter();
         initDropdownFilters();
@@ -59,19 +60,50 @@ async function init() {
     }
 }
 
+// Mapping des sessions
+const sessionLabels = {
+    '5211': 'Hiver 2025',
+    '5210': 'Automne 2024',
+    '5209': 'Été 2024',
+    '5208': 'Printemps 2024'
+};
+
+function populateSessionFilter() {
+    const sessionMenu = document.getElementById('sessionMenu');
+    const sessions = [...new Set(allData.map(item => item.id_session).filter(Boolean))];
+    sessions.sort().reverse();
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Toutes`;
+    sessionMenu.appendChild(allLabel);
+    
+    sessions.forEach(session => {
+        const label = document.createElement('label');
+        const displayName = sessionLabels[session] || `Session ${session}`;
+        label.innerHTML = `<input type="checkbox" value="${session}"> ${displayName}`;
+        sessionMenu.appendChild(label);
+    });
+}
+
 function populateCouncilFilter() {
     const councilMenu = document.getElementById('councilMenu');
     const councils = [...new Set(allData.map(item => item.council).filter(Boolean))];
+    
+    // Options fixes pour le filtre conseil
+    const councilOptions = [
+        { value: 'N', label: 'Conseil national' },
+        { value: 'S', label: 'Conseil des États' }
+    ];
     
     const allLabel = document.createElement('label');
     allLabel.className = 'select-all';
     allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tous`;
     councilMenu.appendChild(allLabel);
     
-    councils.forEach(council => {
+    councilOptions.forEach(option => {
         const label = document.createElement('label');
-        const displayName = councilLabels[council] || council;
-        label.innerHTML = `<input type="checkbox" value="${council}"> ${displayName}`;
+        label.innerHTML = `<input type="checkbox" value="${option.value}"> ${option.label}`;
         councilMenu.appendChild(label);
     });
 }
@@ -188,6 +220,7 @@ function setupEventListeners() {
 
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
+    const sessionValues = getCheckedValues('sessionDropdown');
     const councilValues = getCheckedValues('councilDropdown');
     const partyValues = getCheckedValues('partyDropdown');
     
@@ -203,6 +236,10 @@ function applyFilters() {
             if (!searchFields.includes(searchTerm)) {
                 return false;
             }
+        }
+        
+        if (sessionValues && !sessionValues.includes(item.id_session)) {
+            return false;
         }
         
         if (councilValues && !councilValues.includes(item.council)) {
@@ -283,8 +320,8 @@ function createCard(item) {
                 <span class="badge badge-council">${councilDisplay}</span>
                 <span class="badge badge-date">${formatDate(item.date)}</span>
             </div>
-            ${businessInfo}
         </div>
+        ${businessInfo}
         <div class="card-body">
             <h3 class="card-title">${speakerLink}</h3>
             <p class="card-subtitle">${partyDisplay} · ${item.canton}</p>
