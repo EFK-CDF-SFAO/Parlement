@@ -1096,8 +1096,11 @@ a.author-row {
 
 .debate-card .card-meta {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-items: center;
     margin-bottom: 0.75rem;
+    font-size: 0.9rem;
 }
 
 .debate-card .card-title {
