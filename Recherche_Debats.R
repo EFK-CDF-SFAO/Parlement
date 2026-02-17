@@ -234,7 +234,10 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
       canton = CantonAbbreviation,
       affair_id = as.character(BusinessNumber),
       business_number = BusinessShortNumber,
-      business_title = ifelse(Langue == "DE", TitleDE, TitleFR),
+      business_title = case_when(
+        Langue == "DE" ~ coalesce(TitleDE, TitleFR),
+        TRUE ~ coalesce(TitleFR, TitleDE)
+      ),
       text = Text,
       language = Langue
     )
