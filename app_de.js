@@ -441,7 +441,7 @@ function renderResults() {
     const pageData = filteredData.slice(start, end);
     
     // Update count
-    resultsCount.textContent = `${filteredData.length} Vorstoss${filteredData.length !== 1 ? 'e' : ''} gefunden`;
+    resultsCount.textContent = `${filteredData.length} ${filteredData.length !== 1 ? 'Vorstösse' : 'Vorstoss'} gefunden`;
     
     if (pageData.length === 0) {
         resultsContainer.innerHTML = `

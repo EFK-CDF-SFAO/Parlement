@@ -53,12 +53,12 @@ const typeToFilter = {
 };
 
 const partyToFilter = {
-    'SP': 'PS',
-    'SVP': 'UDC',
-    'FDP': 'PLR',
-    'Die Mitte': 'Le Centre',
-    'GRÜNE': 'VERT-E-S',
-    'GLP': 'pvl'
+    'SP': 'SP',
+    'SVP': 'SVP',
+    'FDP': 'FDP',
+    'Die Mitte': 'Die Mitte',
+    'GRÜNE': 'GRÜNE',
+    'GLP': 'GLP'
 };
 
 async function init() {
