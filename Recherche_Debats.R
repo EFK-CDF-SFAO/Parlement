@@ -157,17 +157,17 @@ cat("  ->", length(subject_ids), "sujets uniques à enrichir\n")
 SubjectBusiness_All <- NULL
 for (sid in subject_ids) {
   sb <- tryCatch({
-    # Récupérer en FR
+    # Récupérer en FR pour le titre français
     result_fr <- get_data(table = "SubjectBusiness", Language = "FR", IdSubject = as.integer(sid))
-    # Récupérer en DE
-    result_de <- get_data(table = "SubjectBusiness", Language = "DE", IdSubject = as.integer(sid))
+    title_fr <- if(nrow(result_fr) > 0 && "Title" %in% names(result_fr)) result_fr$Title[1] else NA_character_
     
-    if (nrow(result_fr) > 0 || nrow(result_de) > 0) {
-      title_fr <- if(nrow(result_fr) > 0 && "Title" %in% names(result_fr)) result_fr$Title[1] else NA_character_
-      title_de <- if(nrow(result_de) > 0 && "Title" %in% names(result_de)) result_de$Title[1] else NA_character_
-      
-      base_result <- if(nrow(result_fr) > 0) result_fr else result_de
-      
+    # Récupérer en DE pour le titre allemand
+    result_de <- get_data(table = "SubjectBusiness", Language = "DE", IdSubject = as.integer(sid))
+    title_de <- if(nrow(result_de) > 0 && "Title" %in% names(result_de)) result_de$Title[1] else NA_character_
+    
+    base_result <- if(nrow(result_fr) > 0) result_fr else result_de
+    
+    if(nrow(base_result) > 0) {
       tibble(
         IdSubject = base_result$IdSubject[1],
         BusinessNumber = base_result$BusinessNumber[1],
@@ -179,11 +179,13 @@ for (sid in subject_ids) {
       NULL
     }
   }, error = function(e) {
+    cat("    Erreur pour sujet", sid, ":", conditionMessage(e), "\n")
     NULL
   })
   if (!is.null(sb)) {
     SubjectBusiness_All <- bind_rows(SubjectBusiness_All, sb)
   }
+  Sys.sleep(0.1)  # Pause pour éviter surcharge API
 }
 
 cat("  ->", if(!is.null(SubjectBusiness_All)) nrow(SubjectBusiness_All) else 0, "sujets avec infos business\n")
