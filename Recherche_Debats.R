@@ -157,11 +157,24 @@ cat("  ->", length(subject_ids), "sujets uniques à enrichir\n")
 SubjectBusiness_All <- NULL
 for (sid in subject_ids) {
   sb <- tryCatch({
-    result <- get_data(table = "SubjectBusiness", Language = "FR", IdSubject = as.integer(sid))
-    if (nrow(result) > 0) {
-      result |>
-        select(IdSubject, BusinessNumber, BusinessShortNumber, TitleFR, TitleDE) |>
-        head(1)
+    # Récupérer en FR
+    result_fr <- get_data(table = "SubjectBusiness", Language = "FR", IdSubject = as.integer(sid))
+    # Récupérer en DE
+    result_de <- get_data(table = "SubjectBusiness", Language = "DE", IdSubject = as.integer(sid))
+    
+    if (nrow(result_fr) > 0 || nrow(result_de) > 0) {
+      title_fr <- if(nrow(result_fr) > 0 && "Title" %in% names(result_fr)) result_fr$Title[1] else NA_character_
+      title_de <- if(nrow(result_de) > 0 && "Title" %in% names(result_de)) result_de$Title[1] else NA_character_
+      
+      base_result <- if(nrow(result_fr) > 0) result_fr else result_de
+      
+      tibble(
+        IdSubject = base_result$IdSubject[1],
+        BusinessNumber = base_result$BusinessNumber[1],
+        BusinessShortNumber = base_result$BusinessShortNumber[1],
+        TitleFR = title_fr,
+        TitleDE = title_de
+      )
     } else {
       NULL
     }

@@ -1180,3 +1180,26 @@ a.author-row {
     color: #666;
     font-size: 0.85rem;
 }
+
+.debate-card .card-text p {
+    margin-bottom: 0.5rem;
+}
+
+.debate-card .card-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile styles for debates */
+@media (max-width: 768px) {
+    .debate-card .card-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .debate-card .card-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}

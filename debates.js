@@ -265,20 +265,24 @@ function formatDate(dateStr) {
 }
 
 function highlightCDF(text) {
-    // Nettoyer les bugs de mise en forme
+    // Nettoyer les bugs de mise en forme - supprimer tout entre crochets
     let result = text
-        .replace(/\[NB\]/gi, ' ')
-        .replace(/\[AB\]/gi, ' ')
+        .replace(/\[[^\]]*\]/g, ' ')
         .replace(/\(NB\)/gi, ' ')
         .replace(/\(AB\)/gi, ' ')
         .replace(/\s+/g, ' ')
         .trim();
     
-    // Surligner les termes CDF/EFK
+    // Créer des paragraphes (couper après les phrases longues)
+    result = result.replace(/\. ([A-Z])/g, '.</p><p>$1');
+    result = '<p>' + result + '</p>';
+    
+    // Surligner les termes CDF/EFK (avec variantes)
     result = result.replace(/\bCDF\b/g, '<mark class="highlight">CDF</mark>');
     result = result.replace(/\bEFK\b/g, '<mark class="highlight">EFK</mark>');
     result = result.replace(/Contrôle fédéral des finances/gi, '<mark class="highlight">$&</mark>');
-    result = result.replace(/Eidgenössische Finanzkontrolle/gi, '<mark class="highlight">$&</mark>');
+    result = result.replace(/Eidgenössischen? Finanzkontrolle/gi, '<mark class="highlight">$&</mark>');
+    result = result.replace(/Finanzkontrolle/gi, '<mark class="highlight">$&</mark>');
     
     return result;
 }
