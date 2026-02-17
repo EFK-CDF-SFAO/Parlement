@@ -1,6 +1,10 @@
 let allData = [];
+let filteredData = [];
 let debatesData = [];
 let filteredDebatesData = [];
+let partyChartInstance = null;
+let typeChartInstance = null;
+let yearChartInstance = null;
 let debatePartyChartInstance = null;
 let debateCouncilChartInstance = null;
 
@@ -70,11 +74,11 @@ async function init() {
         const response = await fetch('cdf_efk_data.json');
         const data = await response.json();
         allData = data.items || [];
+        filteredData = [...allData];
         
-        renderPartyChart();
-        renderTypeChart();
-        renderYearChart();
-        renderTopAuthors();
+        populateObjectFilters();
+        setupObjectFilterListeners();
+        renderAllObjectCharts();
         
         // Charger les données des débats
         const debatesResponse = await fetch('debates_data.json');
@@ -88,6 +92,70 @@ async function init() {
     } catch (error) {
         console.error('Error loading data:', error);
     }
+}
+
+function populateObjectFilters() {
+    // Populer filtre années
+    const yearFilter = document.getElementById('objectYearFilter');
+    const years = [...new Set(allData.map(d => {
+        if (d.SubmissionDate) return d.SubmissionDate.substring(0, 4);
+        return null;
+    }).filter(Boolean))];
+    years.sort().reverse();
+    years.forEach(year => {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearFilter.appendChild(option);
+    });
+    
+    // Populer filtre partis
+    const partyFilter = document.getElementById('objectPartyFilter');
+    const parties = [...new Set(allData.map(d => {
+        const party = getPartyFromAuthor(d.SubmittedBy) || d.SubmittedBy;
+        return partyLabels[party] || party;
+    }).filter(Boolean))];
+    parties.sort();
+    parties.forEach(party => {
+        const option = document.createElement('option');
+        option.value = party;
+        option.textContent = party;
+        partyFilter.appendChild(option);
+    });
+}
+
+function setupObjectFilterListeners() {
+    document.getElementById('objectYearFilter').addEventListener('change', applyObjectFilters);
+    document.getElementById('objectCouncilFilter').addEventListener('change', applyObjectFilters);
+    document.getElementById('objectPartyFilter').addEventListener('change', applyObjectFilters);
+}
+
+function applyObjectFilters() {
+    const yearFilter = document.getElementById('objectYearFilter').value;
+    const councilFilter = document.getElementById('objectCouncilFilter').value;
+    const partyFilter = document.getElementById('objectPartyFilter').value;
+    
+    filteredData = allData.filter(item => {
+        if (yearFilter && item.SubmissionDate) {
+            if (!item.SubmissionDate.startsWith(yearFilter)) return false;
+        }
+        if (councilFilter && item.SubmissionCouncilAbbreviation !== councilFilter) return false;
+        if (partyFilter) {
+            const itemParty = getPartyFromAuthor(item.SubmittedBy) || item.SubmittedBy;
+            const normalizedParty = partyLabels[itemParty] || itemParty;
+            if (normalizedParty !== partyFilter) return false;
+        }
+        return true;
+    });
+    
+    renderAllObjectCharts();
+}
+
+function renderAllObjectCharts() {
+    renderPartyChart();
+    renderTypeChart();
+    renderYearChart();
+    renderTopAuthors();
 }
 
 function populateDebateFilters() {
@@ -180,9 +248,13 @@ function normalizeParty(party) {
 }
 
 function renderPartyChart() {
+    if (partyChartInstance) {
+        partyChartInstance.destroy();
+    }
+    
     const partyCounts = {};
     
-    allData.forEach(item => {
+    filteredData.forEach(item => {
         let party = item.party || getPartyFromAuthor(item.author);
         if (party) {
             party = normalizeParty(party);
@@ -203,7 +275,7 @@ function renderPartyChart() {
     });
     
     const ctx = document.getElementById('partyChart').getContext('2d');
-    new Chart(ctx, {
+    partyChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels,
@@ -237,9 +309,13 @@ function renderPartyChart() {
 }
 
 function renderTypeChart() {
+    if (typeChartInstance) {
+        typeChartInstance.destroy();
+    }
+    
     const typeCounts = {};
     
-    allData.forEach(item => {
+    filteredData.forEach(item => {
         const type = item.type;
         if (type) {
             const label = typeLabels[type] || type;
@@ -252,7 +328,7 @@ function renderTypeChart() {
     const colors = ['#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#F44336', '#00BCD4'];
     
     const ctx = document.getElementById('typeChart').getContext('2d');
-    new Chart(ctx, {
+    typeChartInstance = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: labels,
@@ -284,9 +360,13 @@ function renderTypeChart() {
 }
 
 function renderYearChart() {
+    if (yearChartInstance) {
+        yearChartInstance.destroy();
+    }
+    
     const yearCounts = {};
     
-    allData.forEach(item => {
+    filteredData.forEach(item => {
         if (item.date) {
             const year = item.date.substring(0, 4);
             yearCounts[year] = (yearCounts[year] || 0) + 1;
@@ -300,7 +380,7 @@ function renderYearChart() {
     const data = sortedYears.map(([, count]) => count);
     
     const ctx = document.getElementById('yearChart').getContext('2d');
-    new Chart(ctx, {
+    yearChartInstance = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels,
@@ -332,7 +412,7 @@ function renderTopAuthors() {
     const authorCounts = {};
     const authorParties = {};
     
-    allData.forEach(item => {
+    filteredData.forEach(item => {
         const author = item.author;
         if (author && !author.includes('Commission') && !author.includes('Kommission') && !author.includes('Fraktion')) {
             authorCounts[author] = (authorCounts[author] || 0) + 1;
