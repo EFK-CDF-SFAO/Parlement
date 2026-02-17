@@ -751,7 +751,14 @@ mark {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Responsive */
+/* Responsive - Écrans intermédiaires */
+@media (max-width: 1280px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+/* Responsive - Mobile */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
