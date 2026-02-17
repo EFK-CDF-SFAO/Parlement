@@ -736,6 +736,13 @@ mark.highlight {
     font-weight: 600;
 }
 
+mark.highlight-search {
+    background: #b3e5fc;
+    padding: 0.1rem 0.25rem;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
 /* Feedback box */
 .feedback-box {
     margin-top: 1rem;

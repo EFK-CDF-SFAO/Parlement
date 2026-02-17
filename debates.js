@@ -333,7 +333,7 @@ function formatDate(dateStr) {
     return `${day}.${month}.${year}`;
 }
 
-function highlightCDF(text) {
+function highlightCDF(text, searchTerm = '') {
     // Nettoyer les bugs de mise en forme - supprimer tout entre crochets
     let result = text
         .replace(/\[[^\]]*\]/g, ' ')
@@ -353,10 +353,17 @@ function highlightCDF(text) {
     result = result.replace(/Eidgenössischen? Finanzkontrolle/gi, '<mark class="highlight">$&</mark>');
     result = result.replace(/Finanzkontrolle/gi, '<mark class="highlight">$&</mark>');
     
+    // Surligner le terme de recherche si présent
+    if (searchTerm && searchTerm.length >= 2) {
+        const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const searchRegex = new RegExp(`(${escapedTerm})`, 'gi');
+        result = result.replace(searchRegex, '<mark class="highlight-search">$1</mark>');
+    }
+    
     return result;
 }
 
-function createCard(item) {
+function createCard(item, searchTerm = '') {
     const card = document.createElement('div');
     card.className = 'card debate-card';
     
@@ -404,7 +411,7 @@ function createCard(item) {
             <span>🗣️ ${speakerText}</span>
             <span>📅 ${formatDate(item.date)}</span>
         </div>
-        <div class="card-text">${highlightCDF(textPreview)}</div>
+        <div class="card-text">${highlightCDF(textPreview, searchTerm)}</div>
     `;
     
     if (item.text.length > 400) {
@@ -414,10 +421,10 @@ function createCard(item) {
         expandBtn.addEventListener('click', () => {
             const textDiv = card.querySelector('.card-text');
             if (expandBtn.textContent === 'Voir plus') {
-                textDiv.innerHTML = highlightCDF(item.text);
+                textDiv.innerHTML = highlightCDF(item.text, searchTerm);
                 expandBtn.textContent = 'Voir moins';
             } else {
-                textDiv.innerHTML = highlightCDF(textPreview);
+                textDiv.innerHTML = highlightCDF(textPreview, searchTerm);
                 expandBtn.textContent = 'Voir plus';
             }
         });
@@ -441,8 +448,9 @@ function renderResults() {
         return;
     }
     
+    const currentSearchTerm = searchInput.value.trim();
     filteredData.forEach(item => {
-        resultsContainer.appendChild(createCard(item));
+        resultsContainer.appendChild(createCard(item, currentSearchTerm));
     });
 }
 
