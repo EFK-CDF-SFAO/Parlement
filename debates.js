@@ -35,12 +35,15 @@ async function init() {
         const response = await fetch('debates_data.json');
         const data = await response.json();
         allData = data.items || [];
+        // Trier du plus récent au plus vieux
+        allData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
         
         if (data.meta) {
             const updated = new Date(data.meta.updated);
             sessionInfo.textContent = `Mise à jour: ${updated.toLocaleDateString('fr-CH')}`;
         }
         
+        populateYearFilter();
         populateSessionFilter();
         populateCouncilFilter();
         populatePartyFilter();
@@ -88,28 +91,50 @@ function applyUrlFilter(menuId, filterValue) {
     });
 }
 
-// Mapping des sessions
-const sessionLabels = {
-    '5211': 'Hiver 2025',
-    '5210': 'Automne 2024',
-    '5209': 'Été 2024',
-    '5208': 'Printemps 2024'
+// Mapping des types de sessions
+const sessionTypes = {
+    '5201': 'Hiver',
+    '5202': 'Printemps',
+    '5203': 'Spéciale',
+    '5204': 'Été',
+    '5205': 'Automne',
+    '5206': 'Hiver',
+    '5207': 'Printemps',
+    '5208': 'Spéciale',
+    '5209': 'Été',
+    '5210': 'Automne',
+    '5211': 'Hiver'
 };
+
+function populateYearFilter() {
+    const yearMenu = document.getElementById('yearMenu');
+    const years = [...new Set(allData.map(item => item.date ? item.date.substring(0, 4) : null).filter(Boolean))];
+    years.sort().reverse();
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Toutes`;
+    yearMenu.appendChild(allLabel);
+    
+    years.forEach(year => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${year}"> ${year}`;
+        yearMenu.appendChild(label);
+    });
+}
 
 function populateSessionFilter() {
     const sessionMenu = document.getElementById('sessionMenu');
-    const sessions = [...new Set(allData.map(item => item.id_session).filter(Boolean))];
-    sessions.sort().reverse();
+    const sessionTypesList = ['Hiver', 'Printemps', 'Été', 'Automne', 'Spéciale'];
     
     const allLabel = document.createElement('label');
     allLabel.className = 'select-all';
     allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Toutes`;
     sessionMenu.appendChild(allLabel);
     
-    sessions.forEach(session => {
+    sessionTypesList.forEach(sessionType => {
         const label = document.createElement('label');
-        const displayName = sessionLabels[session] || `Session ${session}`;
-        label.innerHTML = `<input type="checkbox" value="${session}"> ${displayName}`;
+        label.innerHTML = `<input type="checkbox" value="${sessionType}"> ${sessionType}`;
         sessionMenu.appendChild(label);
     });
 }
@@ -248,6 +273,7 @@ function setupEventListeners() {
 
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
+    const yearValues = getCheckedValues('yearDropdown');
     const sessionValues = getCheckedValues('sessionDropdown');
     const councilValues = getCheckedValues('councilDropdown');
     const partyValues = getCheckedValues('partyDropdown');
@@ -266,8 +292,20 @@ function applyFilters() {
             }
         }
         
-        if (sessionValues && !sessionValues.includes(item.id_session)) {
-            return false;
+        // Filtre année
+        if (yearValues && item.date) {
+            const itemYear = item.date.substring(0, 4);
+            if (!yearValues.includes(itemYear)) {
+                return false;
+            }
+        }
+        
+        // Filtre session (par type)
+        if (sessionValues) {
+            const itemSessionType = sessionTypes[item.id_session];
+            if (!sessionValues.includes(itemSessionType)) {
+                return false;
+            }
         }
         
         if (councilValues && !councilValues.includes(item.council)) {
@@ -280,6 +318,9 @@ function applyFilters() {
         
         return true;
     });
+    
+    // Trier du plus récent au plus vieux
+    filteredData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     
     renderResults();
 }
