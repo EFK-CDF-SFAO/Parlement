@@ -1274,18 +1274,20 @@ a.author-row {
 }
 
 .btn-show-more {
-    background: var(--primary-color);
-    color: white;
-    border: none;
+    background: white;
+    color: #333;
+    border: 2px solid var(--primary-color);
     padding: 0.75rem 2rem;
     font-size: 1rem;
+    font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s, border-color 0.3s;
 }
 
 .btn-show-more:hover {
-    background: var(--secondary-color);
+    background: var(--primary-color);
+    color: white;
     transform: translateY(-2px);
 }
 
