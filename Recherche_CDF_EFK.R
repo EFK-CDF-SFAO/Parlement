@@ -51,7 +51,6 @@ MOIS_MISE_A_JOUR <- 6
 Geschaeftstyp <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 18, 19)
 
 FICHIER_EXCEL <- "Objets_parlementaires_CDF_EFK.xlsx"
-FICHIER_DEBATS <- "Debats_CDF_EFK.xlsx"
 FICHIER_JSON <- "cdf_efk_data.json"
 GITHUB_RAW_URL <- "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_Parlement/main/cdf_efk_data.json"
 
@@ -254,110 +253,8 @@ Geschaefte_FR <- bind_rows(Geschaefte_FR)
 cat("Total objets trouvés en français:", nrow(Geschaefte_FR), "\n\n")
 
 # ============================================================================
-# RECHERCHE DANS LES DÉBATS PARLEMENTAIRES - ALLEMAND
+# NOTE: Les débats parlementaires sont gérés par Recherche_Debats.R
 # ============================================================================
-
-# Session d'hiver 2025 = 5211 (à paramétrer plus tard)
-SESSION_DEBATS <- "5211"
-
-cat("Recherche des débats mentionnant l'EFK/CDF (session", SESSION_DEBATS, ")...\n")
-
-Debats_DE <- tryCatch({
-  get_data(table = "Transcript", Language = "DE", IdSession = SESSION_DEBATS) |>
-    filter(!is.na(Text)) |>
-    mutate(Text = strip_html(Text)) |>
-    filter(str_detect(Text, pattern_efk_de)) |>
-    mutate(Langue = "DE") |>
-    select(
-      ID, IdSession, MeetingDate, CouncilName, 
-      SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
-      Text, Langue, Start, End
-    )
-}, error = function(e) {
-  cat("  Erreur récupération débats DE:", e$message, "\n")
-  NULL
-})
-
-cat("  Débats DE:", if (!is.null(Debats_DE)) nrow(Debats_DE) else 0, "\n")
-
-Debats_FR <- tryCatch({
-  get_data(table = "Transcript", Language = "FR", IdSession = SESSION_DEBATS) |>
-    filter(!is.na(Text)) |>
-    mutate(Text = strip_html(Text)) |>
-    filter(str_detect(Text, pattern_cdf_fr)) |>
-    filter(!str_detect(Text, pattern_faux_positif_cdf)) |>
-    mutate(Langue = "FR") |>
-    select(
-      ID, IdSession, MeetingDate, CouncilName, 
-      SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
-      Text, Langue, Start, End
-    )
-}, error = function(e) {
-  cat("  Erreur récupération débats FR:", e$message, "\n")
-  NULL
-})
-
-cat("  Débats FR:", if (!is.null(Debats_FR)) nrow(Debats_FR) else 0, "\n")
-
-# Combiner les débats (garder les deux langues pour avoir FR et DE)
-Debats_Tous <- bind_rows(Debats_DE, Debats_FR) |>
-  distinct(ID, .keep_all = TRUE)  # Dédoublonner par ID
-cat("Total débats uniques:", nrow(Debats_Tous), "\n\n")
-
-# ============================================================================
-# EXPORTER LES DÉBATS EN EXCEL SÉPARÉ
-# ============================================================================
-
-if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
-  cat("Export des débats...\n")
-  
-  Debats_Export <- Debats_Tous |>
-    mutate(
-      Extrait = str_sub(Text, 1, 500)
-    ) |>
-    select(ID, MeetingDate, CouncilName, SpeakerFullName, ParlGroupAbbreviation, 
-           CantonAbbreviation, Langue, Extrait, Text) |>
-    arrange(MeetingDate, CouncilName)
-  
-  wb_debats <- createWorkbook()
-  addWorksheet(wb_debats, "Débats-CDF-EFK")
-  writeDataTable(wb_debats, "Débats-CDF-EFK", Debats_Export)
-  
-  saveWorkbook(wb_debats, file = FICHIER_DEBATS, overwrite = TRUE)
-  cat("  -> Fichier débats exporté:", FICHIER_DEBATS, "\n\n")
-  
-  # Export JSON pour le site web
-  Debats_JSON <- Debats_Tous |>
-    transmute(
-      id = ID,
-      date = as.character(MeetingDate),
-      council = CouncilName,
-      speaker = SpeakerFullName,
-      function_speaker = SpeakerFunction,
-      party = ParlGroupAbbreviation,
-      canton = CantonAbbreviation,
-      text = Text,
-      language = Langue
-    )
-  
-  debats_json_file <- file.path(script_dir, "debates_data.json")
-  jsonlite::write_json(
-    list(
-      meta = list(
-        session = SESSION_DEBATS,
-        count = nrow(Debats_JSON),
-        updated = as.character(Sys.time())
-      ),
-      items = Debats_JSON
-    ),
-    debats_json_file,
-    auto_unbox = TRUE,
-    pretty = TRUE
-  )
-  cat("  -> debates_data.json exporté\n\n")
-} else {
-  cat("Aucun débat à exporter.\n\n")
-}
 
 # ============================================================================
 # FUSION DES RÉSULTATS DE LA RECHERCHE (INTERVENTIONS)
@@ -965,8 +862,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       total_count = nrow(Resultats),
       source = "Swiss Parliament API",
       legislature = Legislatur,
-      new_ids = vrais_nouveaux_ids,
-      debates_count = nrow(Debats_Tous)
+      new_ids = vrais_nouveaux_ids
     ),
     session_summary = session_summary,
     items = Donnees_JSON
@@ -989,12 +885,10 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
   cat("Total interventions:", nrow(Resultats), "\n")
   cat("Nouveaux:", length(Nouveaux_IDs), "\n")
   cat("Mis à jour:", length(IDs_A_Mettre_A_Jour), "\n")
-  cat("\nDébats parlementaires trouvés:", nrow(Debats_Tous), "\n")
   cat("\nRépartition par type:\n")
   print(table(Resultats$Type))
   cat("\nFichiers exportés:\n")
-  cat(" -", FICHIER_EXCEL, "(interventions)\n")
-  cat(" -", FICHIER_DEBATS, "(débats)\n")
+  cat(" -", FICHIER_EXCEL, "\n")
   cat(" -", FICHIER_JSON, "(pour GitHub)\n")
   cat("\n⚠️  N'oubliez pas de commit/push les fichiers sur GitHub!\n")
   
