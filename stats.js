@@ -161,18 +161,18 @@ function renderAllObjectCharts() {
     renderTopAuthors();
 }
 
-const sessionNames = {
-    '5201': 'Hiver 2023',
-    '5202': 'Printemps 2024',
-    '5203': 'Spéciale mai 2024',
-    '5204': 'Été 2024',
-    '5205': 'Automne 2024',
-    '5206': 'Hiver 2024',
-    '5207': 'Printemps 2025',
-    '5208': 'Spéciale avril 2025',
-    '5209': 'Été 2025',
-    '5210': 'Automne 2025',
-    '5211': 'Hiver 2025'
+const sessionTypes = {
+    '5201': 'Hiver',
+    '5202': 'Printemps',
+    '5203': 'Spéciale',
+    '5204': 'Été',
+    '5205': 'Automne',
+    '5206': 'Hiver',
+    '5207': 'Printemps',
+    '5208': 'Spéciale',
+    '5209': 'Été',
+    '5210': 'Automne',
+    '5211': 'Hiver'
 };
 
 function populateDebateFilters() {
@@ -187,14 +187,13 @@ function populateDebateFilters() {
         yearFilter.appendChild(option);
     });
     
-    // Populer filtre sessions
+    // Populer filtre sessions (5 types)
     const sessionFilter = document.getElementById('debateSessionFilter');
-    const sessions = [...new Set(debatesData.map(d => d.id_session).filter(Boolean))];
-    sessions.sort().reverse();
-    sessions.forEach(session => {
+    const sessionTypesList = ['Hiver', 'Printemps', 'Été', 'Automne', 'Spéciale'];
+    sessionTypesList.forEach(sessionType => {
         const option = document.createElement('option');
-        option.value = session;
-        option.textContent = sessionNames[session] || `Session ${session}`;
+        option.value = sessionType;
+        option.textContent = sessionType;
         sessionFilter.appendChild(option);
     });
     
@@ -231,8 +230,8 @@ function applyDebateFilters() {
         if (yearFilter && item.date) {
             if (!item.date.startsWith(yearFilter)) return false;
         }
-        // Filtre session
-        if (sessionFilter && item.id_session !== sessionFilter) return false;
+        // Filtre session (par type)
+        if (sessionFilter && sessionTypes[item.id_session] !== sessionFilter) return false;
         // Filtre conseil
         if (councilFilter && item.council !== councilFilter) return false;
         // Filtre parti
