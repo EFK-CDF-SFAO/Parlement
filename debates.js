@@ -297,34 +297,38 @@ function createCard(item) {
         ? `https://www.parlament.ch/fr/ratsbetrieb/amtliches-bulletin/amtliches-bulletin-die-verhandlungen?SubjectId=${item.id_subject}${votumAnchor}`
         : null;
     
+    // Lien couvrant nom + parti + canton
+    const speakerText = `${item.speaker} (${partyDisplay}, ${item.canton || ''})`;
     const speakerLink = bulletinUrl 
-        ? `<a href="${bulletinUrl}" target="_blank" class="speaker-link" title="Voir l'intervention complète">${item.speaker}</a>`
-        : item.speaker;
+        ? `<a href="${bulletinUrl}" target="_blank" class="speaker-link" title="Voir l'intervention complète">${speakerText}</a>`
+        : speakerText;
     
     // Lien vers l'objet parlementaire sur Curia Vista
     const curiaVistaUrl = item.affair_id 
         ? `https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${item.affair_id}`
         : null;
     
-    const businessInfo = (item.business_title && item.business_number) 
-        ? `<div class="card-business">
-            <a href="${curiaVistaUrl}" target="_blank" class="business-link" title="Voir l'objet sur Curia Vista">
-                ${item.business_title} (${item.business_number})
-            </a>
-           </div>`
+    // Numéro de l'objet en rouge (à gauche) et titre
+    const businessNumber = item.business_number 
+        ? `<span class="badge badge-number">${item.business_number}</span>`
         : '';
+    
+    const businessTitle = (item.business_title && curiaVistaUrl) 
+        ? `<a href="${curiaVistaUrl}" target="_blank" class="business-link" title="Voir l'objet sur Curia Vista">${item.business_title}</a>`
+        : (item.business_title || '');
     
     card.innerHTML = `
         <div class="card-header">
             <div class="card-meta">
+                ${businessNumber}
                 <span class="badge badge-council">${councilDisplay}</span>
             </div>
         </div>
-        ${businessInfo}
+        <div class="card-business">${businessTitle}</div>
         <div class="card-body">
             <div class="speaker-info">
-                <span class="speaker-name">🗣️ ${speakerLink} (${partyDisplay}, ${item.canton || ''})</span>
-                <span class="speaker-details">··· 📅 ${formatDate(item.date)}</span>
+                <span class="speaker-name">🗣️ ${speakerLink}</span>
+                <span class="speaker-details">📅 ${formatDate(item.date)}</span>
             </div>
             <div class="card-text">${highlightCDF(textPreview)}</div>
         </div>
