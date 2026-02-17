@@ -314,14 +314,13 @@ function createCard(item) {
         <div class="card-header">
             <div class="card-meta">
                 <span class="badge badge-council">${councilDisplay}</span>
-                <span class="badge badge-date">${formatDate(item.date)}</span>
             </div>
         </div>
         ${businessInfo}
         <div class="card-body">
             <div class="speaker-info">
-                <span class="speaker-name">${speakerLink}</span>
-                <span class="speaker-details">${partyDisplay} (${item.canton || ''})</span>
+                <span class="speaker-name">🗣️ ${speakerLink}</span>
+                <span class="speaker-details">${partyDisplay} (${item.canton || ''}) · 📅 ${formatDate(item.date)}</span>
             </div>
             <div class="card-text">${highlightEFK(textPreview)}</div>
         </div>
