@@ -84,6 +84,8 @@ async function init() {
         const debatesResponse = await fetch('debates_data.json');
         const debatesJson = await debatesResponse.json();
         debatesData = debatesJson.items || [];
+        // Trier du plus récent au plus vieux
+        debatesData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
         filteredDebatesData = [...debatesData];
         
         populateDebateFilters();
@@ -164,6 +166,20 @@ function renderAllObjectCharts() {
     renderTopAuthors();
 }
 
+const sessionNames = {
+    '5201': 'Wintersession 2023',
+    '5202': 'Frühjahrssession 2024',
+    '5203': 'Sondersession Mai 2024',
+    '5204': 'Sommersession 2024',
+    '5205': 'Herbstsession 2024',
+    '5206': 'Wintersession 2024',
+    '5207': 'Frühjahrssession 2025',
+    '5208': 'Sondersession April 2025',
+    '5209': 'Sommersession 2025',
+    '5210': 'Herbstsession 2025',
+    '5211': 'Wintersession 2025'
+};
+
 function populateDebateFilters() {
     // Populer filtre années
     const yearFilter = document.getElementById('debateYearFilter');
@@ -174,6 +190,17 @@ function populateDebateFilters() {
         option.value = year;
         option.textContent = year;
         yearFilter.appendChild(option);
+    });
+    
+    // Populer filtre sessions
+    const sessionFilter = document.getElementById('debateSessionFilter');
+    const sessions = [...new Set(debatesData.map(d => d.id_session).filter(Boolean))];
+    sessions.sort().reverse();
+    sessions.forEach(session => {
+        const option = document.createElement('option');
+        option.value = session;
+        option.textContent = sessionNames[session] || `Session ${session}`;
+        sessionFilter.appendChild(option);
     });
     
     // Populer filtre partis
@@ -193,26 +220,36 @@ function populateDebateFilters() {
 
 function setupDebateFilterListeners() {
     document.getElementById('debateYearFilter').addEventListener('change', applyDebateFilters);
+    document.getElementById('debateSessionFilter').addEventListener('change', applyDebateFilters);
     document.getElementById('debateCouncilFilter').addEventListener('change', applyDebateFilters);
     document.getElementById('debatePartyFilter').addEventListener('change', applyDebateFilters);
 }
 
 function applyDebateFilters() {
     const yearFilter = document.getElementById('debateYearFilter').value;
+    const sessionFilter = document.getElementById('debateSessionFilter').value;
     const councilFilter = document.getElementById('debateCouncilFilter').value;
     const partyFilter = document.getElementById('debatePartyFilter').value;
     
     filteredDebatesData = debatesData.filter(item => {
+        // Filtre année
         if (yearFilter && item.date) {
             if (!item.date.startsWith(yearFilter)) return false;
         }
+        // Filtre session
+        if (sessionFilter && item.id_session !== sessionFilter) return false;
+        // Filtre conseil
         if (councilFilter && item.council !== councilFilter) return false;
+        // Filtre parti
         if (partyFilter) {
             const itemParty = item.party ? (debatePartyLabels[item.party] || item.party) : 'Bundesrat';
             if (itemParty !== partyFilter) return false;
         }
         return true;
     });
+    
+    // Trier du plus récent au plus vieux
+    filteredDebatesData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     
     renderAllDebateCharts();
 }
