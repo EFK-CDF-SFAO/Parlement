@@ -729,6 +729,13 @@ mark {
     border-radius: 2px;
 }
 
+mark.highlight {
+    background: #ffeb3b;
+    padding: 0.1rem 0.25rem;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
 /* Feedback box */
 .feedback-box {
     margin-top: 1rem;

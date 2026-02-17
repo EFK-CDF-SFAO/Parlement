@@ -267,22 +267,18 @@ function formatDate(dateStr) {
 function highlightCDF(text) {
     // Nettoyer les bugs de mise en forme
     let result = text
-        .replace(/\(NB\)/gi, '')
-        .replace(/\(AB\)/gi, '')
+        .replace(/\[NB\]/gi, ' ')
+        .replace(/\[AB\]/gi, ' ')
+        .replace(/\(NB\)/gi, ' ')
+        .replace(/\(AB\)/gi, ' ')
         .replace(/\s+/g, ' ')
         .trim();
     
     // Surligner les termes CDF/EFK
-    const patterns = [
-        /\bCDF\b/gi,
-        /\bEFK\b/gi,
-        /Contrôle fédéral des finances/gi,
-        /Eidgenössische Finanzkontrolle/gi
-    ];
-    
-    patterns.forEach(pattern => {
-        result = result.replace(pattern, '<mark>$&</mark>');
-    });
+    result = result.replace(/\bCDF\b/g, '<mark class="highlight">CDF</mark>');
+    result = result.replace(/\bEFK\b/g, '<mark class="highlight">EFK</mark>');
+    result = result.replace(/Contrôle fédéral des finances/gi, '<mark class="highlight">$&</mark>');
+    result = result.replace(/Eidgenössische Finanzkontrolle/gi, '<mark class="highlight">$&</mark>');
     
     return result;
 }
