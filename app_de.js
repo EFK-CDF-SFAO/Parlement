@@ -1,12 +1,13 @@
 // Configuration
 const DATA_URL = 'cdf_efk_data.json';
 const EXCEL_URL = 'Objets_parlementaires_CDF_EFK.xlsx';
-const ITEMS_PER_PAGE = 20;
+const INITIAL_ITEMS = 10;
+const ITEMS_PER_LOAD = 10;
 
 // State
 let allData = [];
 let filteredData = [];
-let currentPage = 1;
+let displayedCount = 0;
 let newIds = []; // IDs der echten neuen Objekte
 
 // DOM Elements
@@ -434,33 +435,43 @@ function clearSearch() {
     applyFilters();
 }
 
-function renderResults() {
-    const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
-    const start = (currentPage - 1) * ITEMS_PER_PAGE;
-    const end = start + ITEMS_PER_PAGE;
-    const pageData = filteredData.slice(start, end);
-    
+function renderResults(loadMore = false) {
     // Update count
     resultsCount.textContent = `${filteredData.length} ${filteredData.length !== 1 ? 'Vorstösse' : 'Vorstoss'} gefunden`;
     
-    if (pageData.length === 0) {
+    if (filteredData.length === 0) {
         resultsContainer.innerHTML = `
             <div class="empty-state">
                 <h3>Keine Ergebnisse</h3>
                 <p>Versuchen Sie, Ihre Suchkriterien anzupassen</p>
             </div>
         `;
+        displayedCount = 0;
         return;
     }
     
     const searchTerm = searchInput.value.toLowerCase().trim();
     
-    resultsContainer.innerHTML = pageData.map(item => createCard(item, searchTerm)).join('');
+    if (!loadMore) {
+        displayedCount = Math.min(INITIAL_ITEMS, filteredData.length);
+        resultsContainer.innerHTML = '';
+    } else {
+        displayedCount = Math.min(displayedCount + ITEMS_PER_LOAD, filteredData.length);
+        const oldBtn = document.getElementById('showMoreBtn');
+        if (oldBtn) oldBtn.remove();
+    }
     
-    // Add pagination if needed
-    if (totalPages > 1) {
-        resultsContainer.innerHTML += createPagination(totalPages);
-        setupPaginationListeners();
+    const itemsToShow = filteredData.slice(0, displayedCount);
+    resultsContainer.innerHTML = itemsToShow.map(item => createCard(item, searchTerm)).join('');
+    
+    if (displayedCount < filteredData.length) {
+        const remaining = filteredData.length - displayedCount;
+        resultsContainer.innerHTML += `
+            <div class="show-more-container">
+                <button id="showMoreBtn" class="btn-show-more">Mehr anzeigen (${remaining} verbleibend)</button>
+            </div>
+        `;
+        document.getElementById('showMoreBtn').addEventListener('click', () => renderResults(true));
     }
 }
 

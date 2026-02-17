@@ -1266,6 +1266,29 @@ a.author-row {
     }
 }
 
+/* Bouton Afficher plus */
+.show-more-container {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.btn-show-more {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-show-more:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
 /* Bouton retour en haut */
 .scroll-top-btn {
     display: none;

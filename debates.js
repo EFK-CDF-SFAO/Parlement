@@ -1,5 +1,9 @@
+const INITIAL_ITEMS = 5;
+const ITEMS_PER_LOAD = 5;
+
 let allData = [];
 let filteredData = [];
+let displayedCount = 0;
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -434,8 +438,7 @@ function createCard(item, searchTerm = '') {
     return card;
 }
 
-function renderResults() {
-    resultsContainer.innerHTML = '';
+function renderResults(loadMore = false) {
     resultsCount.textContent = `${filteredData.length} intervention${filteredData.length !== 1 ? 's' : ''} trouvée${filteredData.length !== 1 ? 's' : ''}`;
     
     if (filteredData.length === 0) {
@@ -445,13 +448,35 @@ function renderResults() {
                 <p>Essayez de modifier vos critères de recherche</p>
             </div>
         `;
+        displayedCount = 0;
         return;
     }
     
     const currentSearchTerm = searchInput.value.trim();
-    filteredData.forEach(item => {
+    
+    if (!loadMore) {
+        displayedCount = Math.min(INITIAL_ITEMS, filteredData.length);
+        resultsContainer.innerHTML = '';
+    } else {
+        displayedCount = Math.min(displayedCount + ITEMS_PER_LOAD, filteredData.length);
+        const oldBtn = document.getElementById('showMoreBtn');
+        if (oldBtn) oldBtn.parentElement.remove();
+    }
+    
+    resultsContainer.innerHTML = '';
+    const itemsToShow = filteredData.slice(0, displayedCount);
+    itemsToShow.forEach(item => {
         resultsContainer.appendChild(createCard(item, currentSearchTerm));
     });
+    
+    if (displayedCount < filteredData.length) {
+        const remaining = filteredData.length - displayedCount;
+        const container = document.createElement('div');
+        container.className = 'show-more-container';
+        container.innerHTML = `<button id="showMoreBtn" class="btn-show-more">Afficher plus (${remaining} restant${remaining > 1 ? 's' : ''})</button>`;
+        resultsContainer.appendChild(container);
+        document.getElementById('showMoreBtn').addEventListener('click', () => renderResults(true));
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);
