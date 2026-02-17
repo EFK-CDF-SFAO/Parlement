@@ -23,6 +23,13 @@ const partyLabels = {
     'BD': 'BDP'
 };
 
+function getPartyDisplay(item) {
+    if (!item.party || item.party === 'undefined' || item.party === '') {
+        return 'Bundesrat';
+    }
+    return partyLabels[item.party] || item.party;
+}
+
 async function init() {
     try {
         const response = await fetch('debates_data.json');
@@ -237,7 +244,7 @@ function createCard(item) {
     card.className = 'card debate-card';
     
     const councilDisplay = councilLabels[item.council] || item.council;
-    const partyDisplay = partyLabels[item.party] || item.party;
+    const partyDisplay = getPartyDisplay(item);
     
     const textPreview = item.text.length > 400 
         ? item.text.substring(0, 400) + '...' 

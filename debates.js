@@ -23,6 +23,17 @@ const partyLabels = {
     'BD': 'PBD'
 };
 
+function getPartyDisplay(item) {
+    if (!item.party || item.party === 'undefined' || item.party === '') {
+        // Vérifier si c'est un conseiller fédéral
+        if (item.function_speaker && (item.function_speaker.includes('BR') || item.function_speaker.includes('CF'))) {
+            return 'Conseil fédéral';
+        }
+        return 'Conseil fédéral';
+    }
+    return partyLabels[item.party] || item.party;
+}
+
 async function init() {
     try {
         const response = await fetch('debates_data.json');
@@ -237,7 +248,7 @@ function createCard(item) {
     card.className = 'card debate-card';
     
     const councilDisplay = councilLabels[item.council] || item.council;
-    const partyDisplay = partyLabels[item.party] || item.party;
+    const partyDisplay = getPartyDisplay(item);
     
     const textPreview = item.text.length > 400 
         ? item.text.substring(0, 400) + '...' 
