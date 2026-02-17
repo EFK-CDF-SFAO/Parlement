@@ -1274,20 +1274,23 @@ a.author-row {
 }
 
 .btn-show-more {
-    background: white;
-    color: #333;
-    border: 2px solid var(--primary-color);
+    background-color: #ffffff;
+    color: #333333;
+    border: 2px solid #d32f2f;
     padding: 0.75rem 2rem;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s, border-color 0.3s;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.btn-show-more:hover {
-    background: var(--primary-color);
-    color: white;
+.btn-show-more:hover,
+.btn-show-more:active {
+    background-color: #d32f2f;
+    color: #ffffff;
+    -webkit-transform: translateY(-2px);
     transform: translateY(-2px);
 }
 
