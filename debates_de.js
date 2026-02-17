@@ -250,13 +250,28 @@ function createCard(item) {
         ? item.text.substring(0, 400) + '...' 
         : item.text;
     
+    // Lien vers l'intervention avec ancre #votumX
+    const votumAnchor = item.sort_order ? `#votum${item.sort_order}` : '';
     const bulletinUrl = item.id_subject 
-        ? `https://www.parlament.ch/de/ratsbetrieb/amtliches-bulletin/amtliches-bulletin-die-verhandlungen?SubjectId=${item.id_subject}`
+        ? `https://www.parlament.ch/de/ratsbetrieb/amtliches-bulletin/amtliches-bulletin-die-verhandlungen?SubjectId=${item.id_subject}${votumAnchor}`
         : null;
     
     const speakerLink = bulletinUrl 
         ? `<a href="${bulletinUrl}" target="_blank" class="speaker-link" title="Vollständige Intervention ansehen">${item.speaker}</a>`
         : item.speaker;
+    
+    // Lien vers l'objet parlementaire sur Curia Vista
+    const curiaVistaUrl = item.affair_id 
+        ? `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${item.affair_id}`
+        : null;
+    
+    const businessInfo = (item.business_title && item.business_number) 
+        ? `<div class="card-business">
+            <a href="${curiaVistaUrl}" target="_blank" class="business-link" title="Geschäft auf Curia Vista ansehen">
+                ${item.business_title} (${item.business_number})
+            </a>
+           </div>`
+        : '';
     
     card.innerHTML = `
         <div class="card-header">
@@ -264,6 +279,7 @@ function createCard(item) {
                 <span class="badge badge-council">${councilDisplay}</span>
                 <span class="badge badge-date">${formatDate(item.date)}</span>
             </div>
+            ${businessInfo}
         </div>
         <div class="card-body">
             <h3 class="card-title">${speakerLink}</h3>

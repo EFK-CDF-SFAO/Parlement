@@ -94,9 +94,8 @@ for (session_id in SESSIONS_DEBATS) {
       filter(str_detect(Text, pattern_efk_de)) |>
       mutate(Langue = "DE") |>
       select(
-        ID, IdSession, IdSubject, MeetingDate, CouncilName, 
+        ID, IdSession, IdSubject, SortOrder, MeetingDate, CouncilName, 
         SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
-        VoteBusinessShortNumber, VoteBusinessTitle,
         Text, Langue, Start, End
       )
   }, error = function(e) {
@@ -121,9 +120,8 @@ for (session_id in SESSIONS_DEBATS) {
       filter(!str_detect(Text, pattern_faux_positif_cdf)) |>
       mutate(Langue = "FR") |>
       select(
-        ID, IdSession, IdSubject, MeetingDate, CouncilName, 
+        ID, IdSession, IdSubject, SortOrder, MeetingDate, CouncilName, 
         SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
-        VoteBusinessShortNumber, VoteBusinessTitle,
         Text, Langue, Start, End
       )
   }, error = function(e) {
@@ -149,7 +147,53 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
     distinct(ID, .keep_all = TRUE)
 }
 
-cat("\nTotal débats uniques:", nrow(Debats_Tous), "\n\n")
+cat("\nTotal débats uniques:", nrow(Debats_Tous), "\n")
+
+# Récupérer les infos sur les objets parlementaires via SubjectBusiness
+cat("Récupération des infos sur les objets parlementaires...\n")
+subject_ids <- unique(Debats_Tous$IdSubject)
+cat("  ->", length(subject_ids), "sujets uniques à enrichir\n")
+
+SubjectBusiness_All <- NULL
+for (sid in subject_ids) {
+  sb <- tryCatch({
+    result <- get_data(table = "SubjectBusiness", Language = "FR", IdSubject = as.integer(sid))
+    if (nrow(result) > 0) {
+      result |>
+        select(IdSubject, BusinessNumber, BusinessShortNumber, Title) |>
+        head(1)
+    } else {
+      NULL
+    }
+  }, error = function(e) {
+    NULL
+  })
+  if (!is.null(sb)) {
+    SubjectBusiness_All <- bind_rows(SubjectBusiness_All, sb)
+  }
+}
+
+cat("  ->", if(!is.null(SubjectBusiness_All)) nrow(SubjectBusiness_All) else 0, "sujets avec infos business\n")
+
+if (!is.null(SubjectBusiness_All) && nrow(SubjectBusiness_All) > 0) {
+  # Convertir IdSubject en character pour le join
+  SubjectBusiness_All <- SubjectBusiness_All |>
+    mutate(IdSubject = as.character(IdSubject))
+  
+  Debats_Tous <- Debats_Tous |>
+    left_join(SubjectBusiness_All, by = "IdSubject")
+  cat("  -> Infos objets ajoutées pour", sum(!is.na(Debats_Tous$BusinessShortNumber)), "débats\n")
+} else {
+  # Ajouter les colonnes vides si pas de données
+  Debats_Tous <- Debats_Tous |>
+    mutate(
+      BusinessNumber = NA_integer_,
+      BusinessShortNumber = NA_character_,
+      Title = NA_character_
+    )
+}
+
+cat("\n")
 
 # ============================================================================
 # EXPORT
@@ -179,14 +223,16 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
     transmute(
       id = ID,
       id_subject = IdSubject,
+      sort_order = SortOrder,
       date = as.character(MeetingDate),
       council = CouncilName,
       speaker = SpeakerFullName,
       function_speaker = SpeakerFunction,
       party = ParlGroupAbbreviation,
       canton = CantonAbbreviation,
-      business_number = VoteBusinessShortNumber,
-      business_title = VoteBusinessTitle,
+      affair_id = as.character(BusinessNumber),
+      business_number = BusinessShortNumber,
+      business_title = Title,
       text = Text,
       language = Langue
     )

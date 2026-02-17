@@ -1094,3 +1094,22 @@ a.author-row {
     color: #1565c0;
     text-decoration: underline;
 }
+
+.card-business {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: #fff3e0;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.business-link {
+    color: #e65100;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.business-link:hover {
+    color: #bf360c;
+    text-decoration: underline;
+}
