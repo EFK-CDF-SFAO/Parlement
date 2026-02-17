@@ -1,5 +1,5 @@
 // Données CDF/EFK - Généré automatiquement par Recherche_CDF_EFK.R
-// Dernière mise à jour: 2026-02-13 22:21:09.756732
+// Dernière mise à jour: 2026-02-17 10:41:32.06159
 
 const CDF_DATA = [
   {
@@ -69,6 +69,17 @@ const CDF_DATA = [
     "mention": "Élu"
   },
   {
+    "shortId": "25.479",
+    "title": "Trop de bureaucratie ! Pour un grand ménage dans les lois et ordonnances",
+    "title_de": "Genug Bürokratie! Für einen Frühlingsputz der Gesetze und Verordnungen",
+    "author": "Golay Roger",
+    "Type": "Pa. Iv.",
+    "updated": "2025-09-26",
+    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250479",
+    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250479",
+    "mention": "Élu"
+  },
+  {
     "shortId": "25.4281",
     "title": "Coordination plus efficace des moyens de transport dans le cadre des programmes d'agglomération",
     "title_de": "Wirksamere Koordination der Verkehrsmittel im Rahmen von Agglomerationsprogrammen",
@@ -99,17 +110,6 @@ const CDF_DATA = [
     "updated": "2025-09-25",
     "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
     "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
-    "mention": "Conseil fédéral"
-  },
-  {
-    "shortId": "25.4188",
-    "title": "Garantir la sécurité de l'approvisionnement et un accès rapide aux médicaments innovants",
-    "title_de": "Versorgungssicherheit und raschen Zugang zu innovativen Medikamenten gewährleisten",
-    "author": "Schmid Martin",
-    "Type": "Mo.",
-    "updated": "2025-09-25",
-    "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
-    "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
     "mention": "Conseil fédéral"
   }
 ];
