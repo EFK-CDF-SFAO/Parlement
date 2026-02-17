@@ -257,66 +257,52 @@ cat("Total objets trouvés en français:", nrow(Geschaefte_FR), "\n\n")
 # RECHERCHE DANS LES DÉBATS PARLEMENTAIRES - ALLEMAND
 # ============================================================================
 
-cat("Recherche des débats mentionnant l'EFK en allemand...\n")
+# Session d'hiver 2025 = 5211 (à paramétrer plus tard)
+SESSION_DEBATS <- "5211"
+
+cat("Recherche des débats mentionnant l'EFK/CDF (session", SESSION_DEBATS, ")...\n")
 
 Debats_DE <- tryCatch({
-  get_data(table = "SpeechContent", Language = "DE") |>
+  get_data(table = "Transcript", Language = "DE", IdSession = SESSION_DEBATS) |>
     filter(!is.na(Text)) |>
-    mutate(
-      Text = strip_html(Text)
-    ) |>
+    mutate(Text = strip_html(Text)) |>
     filter(str_detect(Text, pattern_efk_de)) |>
-    mutate(
-      Type_Source = "Débat",
-      Langue = "DE"
-    ) |>
-    select(Text, Type_Source, Langue) |>
-    distinct()
+    mutate(Langue = "DE") |>
+    select(
+      ID, IdSession, MeetingDate, CouncilName, 
+      SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
+      Text, Langue, Start, End
+    )
 }, error = function(e) {
   cat("  Erreur récupération débats DE:", e$message, "\n")
   NULL
 })
 
-if (!is.null(Debats_DE) && nrow(Debats_DE) > 0) {
-  cat("  Débats trouvés en allemand:", nrow(Debats_DE), "\n")
-} else {
-  cat("  Aucun débat trouvé en allemand\n")
-}
-
-# ============================================================================
-# RECHERCHE DANS LES DÉBATS PARLEMENTAIRES - FRANÇAIS
-# ============================================================================
-
-cat("Recherche des débats mentionnant le CDF en français...\n")
+cat("  Débats DE:", if (!is.null(Debats_DE)) nrow(Debats_DE) else 0, "\n")
 
 Debats_FR <- tryCatch({
-  get_data(table = "SpeechContent", Language = "FR") |>
+  get_data(table = "Transcript", Language = "FR", IdSession = SESSION_DEBATS) |>
     filter(!is.na(Text)) |>
-    mutate(
-      Text = strip_html(Text)
-    ) |>
+    mutate(Text = strip_html(Text)) |>
     filter(str_detect(Text, pattern_cdf_fr)) |>
     filter(!str_detect(Text, pattern_faux_positif_cdf)) |>
-    mutate(
-      Type_Source = "Débat",
-      Langue = "FR"
-    ) |>
-    select(Text, Type_Source, Langue) |>
-    distinct()
+    mutate(Langue = "FR") |>
+    select(
+      ID, IdSession, MeetingDate, CouncilName, 
+      SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
+      Text, Langue, Start, End
+    )
 }, error = function(e) {
   cat("  Erreur récupération débats FR:", e$message, "\n")
   NULL
 })
 
-if (!is.null(Debats_FR) && nrow(Debats_FR) > 0) {
-  cat("  Débats trouvés en français:", nrow(Debats_FR), "\n")
-} else {
-  cat("  Aucun débat trouvé en français\n")
-}
+cat("  Débats FR:", if (!is.null(Debats_FR)) nrow(Debats_FR) else 0, "\n")
 
-# Combiner les débats
-Debats_Tous <- bind_rows(Debats_DE, Debats_FR)
-cat("Total débats trouvés:", nrow(Debats_Tous), "\n\n")
+# Combiner les débats (garder les deux langues pour avoir FR et DE)
+Debats_Tous <- bind_rows(Debats_DE, Debats_FR) |>
+  distinct(ID, .keep_all = TRUE)  # Dédoublonner par ID
+cat("Total débats uniques:", nrow(Debats_Tous), "\n\n")
 
 # ============================================================================
 # EXPORTER LES DÉBATS EN EXCEL SÉPARÉ
@@ -327,11 +313,11 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
   
   Debats_Export <- Debats_Tous |>
     mutate(
-      Date = as.character(Sys.Date()),
-      Extrait = str_sub(Text, 1, 500)  # Limiter à 500 caractères pour lisibilité
+      Extrait = str_sub(Text, 1, 500)
     ) |>
-    select(Langue, Type_Source, Date, Extrait, Text) |>
-    arrange(Langue)
+    select(ID, MeetingDate, CouncilName, SpeakerFullName, ParlGroupAbbreviation, 
+           CantonAbbreviation, Langue, Extrait, Text) |>
+    arrange(MeetingDate, CouncilName)
   
   wb_debats <- createWorkbook()
   addWorksheet(wb_debats, "Débats-CDF-EFK")
@@ -339,6 +325,36 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
   
   saveWorkbook(wb_debats, file = FICHIER_DEBATS, overwrite = TRUE)
   cat("  -> Fichier débats exporté:", FICHIER_DEBATS, "\n\n")
+  
+  # Export JSON pour le site web
+  Debats_JSON <- Debats_Tous |>
+    transmute(
+      id = ID,
+      date = as.character(MeetingDate),
+      council = CouncilName,
+      speaker = SpeakerFullName,
+      function_speaker = SpeakerFunction,
+      party = ParlGroupAbbreviation,
+      canton = CantonAbbreviation,
+      text = Text,
+      language = Langue
+    )
+  
+  debats_json_file <- file.path(script_dir, "debates_data.json")
+  jsonlite::write_json(
+    list(
+      meta = list(
+        session = SESSION_DEBATS,
+        count = nrow(Debats_JSON),
+        updated = as.character(Sys.time())
+      ),
+      items = Debats_JSON
+    ),
+    debats_json_file,
+    auto_unbox = TRUE,
+    pretty = TRUE
+  )
+  cat("  -> debates_data.json exporté\n\n")
 } else {
   cat("Aucun débat à exporter.\n\n")
 }
