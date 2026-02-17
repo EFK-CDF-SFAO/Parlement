@@ -254,6 +254,14 @@ function createCard(item) {
         ? item.text.substring(0, 400) + '...' 
         : item.text;
     
+    const bulletinUrl = item.id_subject 
+        ? `https://www.parlament.ch/fr/ratsbetrieb/amtliches-bulletin/amtliches-bulletin-die-verhandlungen?SubjectId=${item.id_subject}`
+        : null;
+    
+    const speakerLink = bulletinUrl 
+        ? `<a href="${bulletinUrl}" target="_blank" class="speaker-link" title="Voir l'intervention complète">${item.speaker}</a>`
+        : item.speaker;
+    
     card.innerHTML = `
         <div class="card-header">
             <div class="card-meta">
@@ -262,7 +270,7 @@ function createCard(item) {
             </div>
         </div>
         <div class="card-body">
-            <h3 class="card-title">${item.speaker}</h3>
+            <h3 class="card-title">${speakerLink}</h3>
             <p class="card-subtitle">${partyDisplay} · ${item.canton}</p>
             <div class="card-text">${highlightCDF(textPreview)}</div>
         </div>

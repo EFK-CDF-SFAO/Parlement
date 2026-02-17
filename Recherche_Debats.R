@@ -94,8 +94,9 @@ for (session_id in SESSIONS_DEBATS) {
       filter(str_detect(Text, pattern_efk_de)) |>
       mutate(Langue = "DE") |>
       select(
-        ID, IdSession, MeetingDate, CouncilName, 
+        ID, IdSession, IdSubject, MeetingDate, CouncilName, 
         SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
+        VoteBusinessShortNumber, VoteBusinessTitle,
         Text, Langue, Start, End
       )
   }, error = function(e) {
@@ -120,8 +121,9 @@ for (session_id in SESSIONS_DEBATS) {
       filter(!str_detect(Text, pattern_faux_positif_cdf)) |>
       mutate(Langue = "FR") |>
       select(
-        ID, IdSession, MeetingDate, CouncilName, 
+        ID, IdSession, IdSubject, MeetingDate, CouncilName, 
         SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
+        VoteBusinessShortNumber, VoteBusinessTitle,
         Text, Langue, Start, End
       )
   }, error = function(e) {
@@ -176,12 +178,15 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
   Debats_JSON <- Debats_Tous |>
     transmute(
       id = ID,
+      id_subject = IdSubject,
       date = as.character(MeetingDate),
       council = CouncilName,
       speaker = SpeakerFullName,
       function_speaker = SpeakerFunction,
       party = ParlGroupAbbreviation,
       canton = CantonAbbreviation,
+      business_number = VoteBusinessShortNumber,
+      business_title = VoteBusinessTitle,
       text = Text,
       language = Langue
     )
