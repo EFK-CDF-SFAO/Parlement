@@ -1161,6 +1161,35 @@ a.author-row {
     display: none;
 }
 
+/* Summary box styles */
+.summary-box {
+    padding: 1rem;
+}
+
+.summary-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    text-align: center;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.summary-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.summary-label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
 .debate-card .speaker-info {
     display: flex;
     flex-wrap: wrap;

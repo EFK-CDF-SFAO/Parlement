@@ -1,4 +1,5 @@
 let allData = [];
+let debatesData = [];
 
 const partyColors = {
     'SVP': '#009F4D',
@@ -71,6 +72,16 @@ async function init() {
         renderTypeChart();
         renderYearChart();
         renderTopAuthors();
+        
+        // Charger les données des débats
+        const debatesResponse = await fetch('debates_data.json');
+        const debatesJson = await debatesResponse.json();
+        debatesData = debatesJson.items || [];
+        
+        renderDebatePartyChart();
+        renderDebateCouncilChart();
+        renderTopSpeakers();
+        renderDebateSummary();
     } catch (error) {
         console.error('Error loading data:', error);
     }
@@ -299,6 +310,184 @@ function renderTopAuthors() {
     html += '</div>';
     
     container.innerHTML = html;
+}
+
+// ========== DEBATTEN-STATISTIKEN ==========
+
+const debatePartyLabels = {
+    'V': 'SVP',
+    'S': 'SP',
+    'RL': 'FDP',
+    'M-E': 'Die Mitte',
+    'G': 'GRÜNE',
+    'GL': 'GLP',
+    'BD': 'BDP'
+};
+
+const councilLabelsDE = {
+    'N': 'Nationalrat',
+    'S': 'Ständerat'
+};
+
+function renderDebatePartyChart() {
+    const partyCounts = {};
+    
+    debatesData.forEach(item => {
+        const party = debatePartyLabels[item.party] || item.party || 'Andere';
+        partyCounts[party] = (partyCounts[party] || 0) + 1;
+    });
+    
+    const sortedParties = Object.entries(partyCounts)
+        .sort((a, b) => b[1] - a[1]);
+    
+    const labels = sortedParties.map(([party]) => party);
+    const data = sortedParties.map(([, count]) => count);
+    const colors = labels.map(party => {
+        for (const [key, color] of Object.entries(partyColors)) {
+            if (normalizeParty(key) === party) return color;
+        }
+        return '#999';
+    });
+    
+    const ctx = document.getElementById('debatePartyChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Interventionen',
+                data: data,
+                backgroundColor: colors,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: { beginAtZero: true }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const party = labels[index];
+                    window.location.href = `debates_de.html?filter_party=${encodeURIComponent(party)}`;
+                }
+            }
+        }
+    });
+}
+
+function renderDebateCouncilChart() {
+    const councilCounts = {};
+    
+    debatesData.forEach(item => {
+        const council = councilLabelsDE[item.council] || item.council || 'Andere';
+        councilCounts[council] = (councilCounts[council] || 0) + 1;
+    });
+    
+    const labels = Object.keys(councilCounts);
+    const data = Object.values(councilCounts);
+    const colors = ['#3949ab', '#7986cb'];
+    
+    const ctx = document.getElementById('debateCouncilChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: colors,
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+}
+
+function renderTopSpeakers() {
+    const speakerCounts = {};
+    const speakerParties = {};
+    
+    debatesData.forEach(item => {
+        const speaker = item.speaker;
+        if (speaker) {
+            speakerCounts[speaker] = (speakerCounts[speaker] || 0) + 1;
+            if (item.party) {
+                speakerParties[speaker] = debatePartyLabels[item.party] || item.party;
+            }
+        }
+    });
+    
+    const topSpeakers = Object.entries(speakerCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5);
+    
+    const container = document.getElementById('topSpeakers');
+    
+    if (topSpeakers.length === 0) {
+        container.innerHTML = '<p>Keine Daten verfügbar</p>';
+        return;
+    }
+    
+    let html = '<div class="authors-ranking">';
+    topSpeakers.forEach(([speaker, count], index) => {
+        const party = speakerParties[speaker] || '';
+        const medalClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
+        const searchUrl = `debates_de.html?search=${encodeURIComponent(speaker)}`;
+        
+        html += `
+            <a href="${searchUrl}" class="author-row ${medalClass}">
+                <div class="author-rank">${index + 1}</div>
+                <div class="author-info">
+                    <div class="author-name">${speaker}</div>
+                    <div class="author-party">${party}</div>
+                </div>
+                <div class="author-count">${count}</div>
+            </a>
+        `;
+    });
+    html += '</div>';
+    
+    container.innerHTML = html;
+}
+
+function renderDebateSummary() {
+    const container = document.getElementById('debateSummary');
+    
+    const totalDebates = debatesData.length;
+    const uniqueSpeakers = new Set(debatesData.map(d => d.speaker)).size;
+    const uniqueObjects = new Set(debatesData.map(d => d.business_number).filter(Boolean)).size;
+    
+    container.innerHTML = `
+        <div class="summary-stats">
+            <div class="summary-item">
+                <span class="summary-value">${totalDebates}</span>
+                <span class="summary-label">Interventionen</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-value">${uniqueSpeakers}</span>
+                <span class="summary-label">Redner</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-value">${uniqueObjects}</span>
+                <span class="summary-label">Behandelte Geschäfte</span>
+            </div>
+        </div>
+    `;
 }
 
 document.addEventListener('DOMContentLoaded', init);
