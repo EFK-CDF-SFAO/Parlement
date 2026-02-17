@@ -1097,19 +1097,44 @@ a.author-row {
 
 .card-business {
     margin-top: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    background: #fff3e0;
-    border-radius: 4px;
-    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
 }
 
 .business-link {
-    color: #e65100;
+    color: #333;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .business-link:hover {
-    color: #bf360c;
+    color: var(--primary);
     text-decoration: underline;
+}
+
+.debate-card .card-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.debate-card .card-subtitle {
+    display: none;
+}
+
+.debate-card .speaker-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.debate-card .speaker-name {
+    color: var(--primary);
+}
+
+.debate-card .speaker-details {
+    color: #666;
+    font-size: 0.85rem;
 }

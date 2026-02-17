@@ -319,8 +319,10 @@ function createCard(item) {
         </div>
         ${businessInfo}
         <div class="card-body">
-            <h3 class="card-title">${speakerLink}</h3>
-            <p class="card-subtitle">${partyDisplay} · ${item.canton}</p>
+            <div class="speaker-info">
+                <span class="speaker-name">${speakerLink}</span>
+                <span class="speaker-details">${partyDisplay} (${item.canton || ''})</span>
+            </div>
             <div class="card-text">${highlightEFK(textPreview)}</div>
         </div>
     `;

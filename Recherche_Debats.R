@@ -160,7 +160,7 @@ for (sid in subject_ids) {
     result <- get_data(table = "SubjectBusiness", Language = "FR", IdSubject = as.integer(sid))
     if (nrow(result) > 0) {
       result |>
-        select(IdSubject, BusinessNumber, BusinessShortNumber, Title) |>
+        select(IdSubject, BusinessNumber, BusinessShortNumber, TitleFR, TitleDE) |>
         head(1)
     } else {
       NULL
@@ -189,7 +189,8 @@ if (!is.null(SubjectBusiness_All) && nrow(SubjectBusiness_All) > 0) {
     mutate(
       BusinessNumber = NA_integer_,
       BusinessShortNumber = NA_character_,
-      Title = NA_character_
+      TitleFR = NA_character_,
+      TitleDE = NA_character_
     )
 }
 
@@ -233,7 +234,7 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
       canton = CantonAbbreviation,
       affair_id = as.character(BusinessNumber),
       business_number = BusinessShortNumber,
-      business_title = Title,
+      business_title = ifelse(Langue == "DE", TitleDE, TitleFR),
       text = Text,
       language = Langue
     )
