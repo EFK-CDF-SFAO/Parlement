@@ -98,7 +98,7 @@ function populateObjectFilters() {
     // Populer filtre années
     const yearFilter = document.getElementById('objectYearFilter');
     const years = [...new Set(allData.map(d => {
-        if (d.SubmissionDate) return d.SubmissionDate.substring(0, 4);
+        if (d.date) return d.date.substring(0, 4);
         return null;
     }).filter(Boolean))];
     years.sort().reverse();
@@ -112,8 +112,8 @@ function populateObjectFilters() {
     // Populer filtre partis
     const partyFilter = document.getElementById('objectPartyFilter');
     const parties = [...new Set(allData.map(d => {
-        const party = getPartyFromAuthor(d.SubmittedBy) || d.SubmittedBy;
-        return partyLabels[party] || party;
+        const party = d.party || getPartyFromAuthor(d.author);
+        return normalizeParty(party);
     }).filter(Boolean))];
     parties.sort();
     parties.forEach(party => {
@@ -136,13 +136,19 @@ function applyObjectFilters() {
     const partyFilter = document.getElementById('objectPartyFilter').value;
     
     filteredData = allData.filter(item => {
-        if (yearFilter && item.SubmissionDate) {
-            if (!item.SubmissionDate.startsWith(yearFilter)) return false;
+        // Filtre année
+        if (yearFilter && item.date) {
+            if (!item.date.startsWith(yearFilter)) return false;
         }
-        if (councilFilter && item.SubmissionCouncilAbbreviation !== councilFilter) return false;
+        // Filtre conseil (NR=N, SR=S)
+        if (councilFilter) {
+            const councilCode = item.council === 'NR' ? 'N' : item.council === 'SR' ? 'S' : item.council;
+            if (councilCode !== councilFilter) return false;
+        }
+        // Filtre parti
         if (partyFilter) {
-            const itemParty = getPartyFromAuthor(item.SubmittedBy) || item.SubmittedBy;
-            const normalizedParty = partyLabels[itemParty] || itemParty;
+            const itemParty = item.party || getPartyFromAuthor(item.author);
+            const normalizedParty = normalizeParty(itemParty);
             if (normalizedParty !== partyFilter) return false;
         }
         return true;
