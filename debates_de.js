@@ -287,42 +287,40 @@ function createCard(item) {
         ? item.text.substring(0, 400) + '...' 
         : item.text;
     
-    // Lien vers l'intervention avec ancre #votumX
+    // Lien vers l'intervention avec ancre #votumX (va sur le titre)
     const votumAnchor = item.sort_order ? `#votum${item.sort_order}` : '';
     const bulletinUrl = item.id_subject 
         ? `https://www.parlament.ch/de/ratsbetrieb/amtliches-bulletin/amtliches-bulletin-die-verhandlungen?SubjectId=${item.id_subject}${votumAnchor}`
         : null;
     
-    // Lien couvrant nom + parti + canton
-    const speakerText = `${item.speaker} (${partyDisplay}, ${item.canton || ''})`;
-    const speakerLink = bulletinUrl 
-        ? `<a href="${bulletinUrl}" target="_blank" class="speaker-link" title="Vollständige Intervention ansehen">${speakerText}</a>`
-        : speakerText;
-    
-    // Lien vers l'objet parlementaire sur Curia Vista
+    // Lien vers l'objet parlementaire sur Curia Vista (va sur le numéro)
     const curiaVistaUrl = item.affair_id 
         ? `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${item.affair_id}`
         : null;
     
-    // Numéro de l'objet en rouge (à gauche) et titre
-    const businessNumber = item.business_number 
-        ? `<span class="badge badge-number">${item.business_number}</span>`
-        : '';
+    // Numéro avec lien Curia Vista
+    const businessNumberLink = (item.business_number && curiaVistaUrl)
+        ? `<a href="${curiaVistaUrl}" target="_blank" class="card-id" title="Geschäft auf Curia Vista ansehen">${item.business_number}</a>`
+        : `<span class="card-id">${item.business_number || ''}</span>`;
     
-    const businessTitle = (item.business_title && curiaVistaUrl) 
-        ? `<a href="${curiaVistaUrl}" target="_blank" class="business-link" title="Geschäft auf Curia Vista ansehen">${item.business_title}</a>`
+    // Titre avec lien bulletin (intervention)
+    const businessTitleLink = (item.business_title && bulletinUrl)
+        ? `<a href="${bulletinUrl}" target="_blank" title="Vollständige Intervention ansehen">${item.business_title}</a>`
         : (item.business_title || '');
+    
+    // Speaker sans lien
+    const speakerText = `${item.speaker} (${partyDisplay}, ${item.canton || ''})`;
     
     card.innerHTML = `
         <div class="card-header">
-            <span class="card-id">${item.business_number || ''}</span>
+            ${businessNumberLink}
             <div class="card-badges">
                 <span class="badge badge-council">${councilDisplay}</span>
             </div>
         </div>
-        <h3 class="card-title">${businessTitle}</h3>
+        <h3 class="card-title">${businessTitleLink}</h3>
         <div class="card-meta">
-            <span>🗣️ ${speakerLink}</span>
+            <span>🗣️ ${speakerText}</span>
             <span>📅 ${formatDate(item.date)}</span>
         </div>
         <div class="card-text">${highlightEFK(textPreview)}</div>
