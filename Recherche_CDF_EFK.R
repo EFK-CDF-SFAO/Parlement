@@ -631,26 +631,10 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
   
   cat("\nExport vers", FICHIER_EXCEL, "...\n")
   
-  # Créer le workbook avec mise en évidence des statuts mis à jour
+  # Créer le workbook (sans mise en forme de couleur)
   wb <- createWorkbook()
   addWorksheet(wb, "CDF-EFK")
   writeDataTable(wb, "CDF-EFK", Resultats)
-  
-  # Style vert léger pour les objets mis à jour aujourd'hui (Date_MAJ = aujourd'hui)
-  style_vert <- createStyle(fontColour = "#2E7D32", bgFill = "#E8F5E9")
-  
-  # Trouver les lignes avec Date_MAJ = aujourd'hui
-  date_aujourdhui <- as.character(Sys.Date())
-  lignes_maj <- which(Resultats$Date_MAJ == date_aujourdhui) + 1  # +1 pour l'en-tête
-  
-  # Trouver la colonne Statut
-  col_statut <- which(names(Resultats) == "Statut")
-  
-  # Appliquer le style vert aux cellules Statut des lignes mises à jour
-  if (length(lignes_maj) > 0 && length(col_statut) > 0) {
-    addStyle(wb, "CDF-EFK", style = style_vert, rows = lignes_maj, cols = col_statut, gridExpand = TRUE)
-    cat("  - Statuts surlignés en vert:", length(lignes_maj), "\n")
-  }
   
   # Sauvegarder le fichier
   saveWorkbook(wb, file = FICHIER_EXCEL, overwrite = TRUE)
