@@ -1265,3 +1265,38 @@ a.author-row {
         gap: 0.25rem;
     }
 }
+
+/* Bouton retour en haut */
+.scroll-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.scroll-top-btn.visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-top-btn:hover {
+    transform: scale(1.1);
+}
+
+@media (min-width: 769px) {
+    .scroll-top-btn {
+        display: none !important;
+    }
+}
