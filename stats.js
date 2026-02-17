@@ -312,9 +312,10 @@ const debatePartyLabels = {
     'S': 'PS',
     'RL': 'PLR',
     'M-E': 'Le Centre',
-    'G': 'Verts',
-    'GL': 'Vert\'libéraux',
-    'BD': 'PBD'
+    'G': 'VERT-E-S',
+    'GL': 'pvl',
+    'BD': 'PBD',
+    '': 'Conseil fédéral'
 };
 
 const councilLabels = {

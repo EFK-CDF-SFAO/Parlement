@@ -321,7 +321,8 @@ const debatePartyLabels = {
     'M-E': 'Die Mitte',
     'G': 'GRÜNE',
     'GL': 'GLP',
-    'BD': 'BDP'
+    'BD': 'BDP',
+    '': 'Bundesrat'
 };
 
 const councilLabelsDE = {

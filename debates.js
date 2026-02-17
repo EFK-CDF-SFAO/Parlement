@@ -18,17 +18,13 @@ const partyLabels = {
     'S': 'PS',
     'RL': 'PLR',
     'M-E': 'Le Centre',
-    'G': 'Verts',
-    'GL': 'Vert\'libéraux',
+    'G': 'VERT-E-S',
+    'GL': 'pvl',
     'BD': 'PBD'
 };
 
 function getPartyDisplay(item) {
     if (!item.party || item.party === 'undefined' || item.party === '') {
-        // Vérifier si c'est un conseiller fédéral
-        if (item.function_speaker && (item.function_speaker.includes('BR') || item.function_speaker.includes('CF'))) {
-            return 'Conseil fédéral';
-        }
         return 'Conseil fédéral';
     }
     return partyLabels[item.party] || item.party;
