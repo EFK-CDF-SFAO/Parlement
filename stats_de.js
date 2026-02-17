@@ -334,7 +334,7 @@ function renderDebatePartyChart() {
     const partyCounts = {};
     
     debatesData.forEach(item => {
-        const party = debatePartyLabels[item.party] || item.party || 'Andere';
+        const party = debatePartyLabels[item.party] || item.party || 'Bundesrat';
         partyCounts[party] = (partyCounts[party] || 0) + 1;
     });
     
@@ -436,6 +436,8 @@ function renderTopSpeakers() {
             speakerCounts[speaker] = (speakerCounts[speaker] || 0) + 1;
             if (item.party) {
                 speakerParties[speaker] = debatePartyLabels[item.party] || item.party;
+            } else {
+                speakerParties[speaker] = 'Bundesrat';
             }
         }
     });
