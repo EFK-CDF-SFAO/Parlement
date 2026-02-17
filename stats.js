@@ -407,6 +407,13 @@ function renderDebateCouncilChart() {
                 legend: {
                     position: 'bottom'
                 }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const council = labels[index];
+                    window.location.href = `debates.html?filter_council=${encodeURIComponent(council)}`;
+                }
             }
         }
     });

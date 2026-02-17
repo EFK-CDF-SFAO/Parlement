@@ -46,6 +46,22 @@ async function init() {
         populatePartyFilter();
         initDropdownFilters();
         
+        // Gérer les paramètres URL depuis la page stats
+        const urlParams = new URLSearchParams(window.location.search);
+        const filterParty = urlParams.get('filter_party');
+        const filterCouncil = urlParams.get('filter_council');
+        const searchParam = urlParams.get('search');
+        
+        if (filterParty) {
+            applyUrlFilter('partyMenu', filterParty);
+        }
+        if (filterCouncil) {
+            applyUrlFilter('councilMenu', filterCouncil);
+        }
+        if (searchParam) {
+            searchInput.value = searchParam;
+        }
+        
         filteredData = [...allData];
         applyFilters();
         
@@ -54,6 +70,22 @@ async function init() {
         console.error('Error loading data:', error);
         resultsContainer.innerHTML = '<p class="error">Erreur de chargement des données</p>';
     }
+}
+
+function applyUrlFilter(menuId, filterValue) {
+    const menu = document.getElementById(menuId);
+    if (!menu) return;
+    
+    // Décocher "Tous"
+    const selectAll = menu.querySelector('[data-select-all]');
+    if (selectAll) selectAll.checked = false;
+    
+    // Cocher uniquement la valeur filtrée
+    const checkboxes = menu.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+    checkboxes.forEach(cb => {
+        const label = cb.parentElement.textContent.trim();
+        cb.checked = label.includes(filterValue) || cb.value === filterValue;
+    });
 }
 
 // Mapping des sessions
