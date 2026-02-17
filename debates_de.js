@@ -38,7 +38,7 @@ async function init() {
         
         if (data.meta) {
             const updated = new Date(data.meta.updated);
-            sessionInfo.textContent = `Wintersession 2025 · Aktualisiert: ${updated.toLocaleDateString('de-CH')}`;
+            sessionInfo.textContent = `Aktualisiert: ${updated.toLocaleDateString('de-CH')}`;
         }
         
         populateSessionFilter();

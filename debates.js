@@ -42,7 +42,7 @@ async function init() {
         
         if (data.meta) {
             const updated = new Date(data.meta.updated);
-            sessionInfo.textContent = `Session d'hiver 2025 · Mis à jour: ${updated.toLocaleDateString('fr-CH')}`;
+            sessionInfo.textContent = `Mis à jour: ${updated.toLocaleDateString('fr-CH')}`;
         }
         
         populateSessionFilter();
