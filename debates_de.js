@@ -261,6 +261,14 @@ function formatDate(dateStr) {
 }
 
 function highlightEFK(text) {
+    // Nettoyer les bugs de mise en forme
+    let result = text
+        .replace(/\(NB\)/gi, '')
+        .replace(/\(AB\)/gi, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    
+    // Surligner les termes CDF/EFK
     const patterns = [
         /\bCDF\b/gi,
         /\bEFK\b/gi,
@@ -268,7 +276,6 @@ function highlightEFK(text) {
         /Eidgenössische Finanzkontrolle/gi
     ];
     
-    let result = text;
     patterns.forEach(pattern => {
         result = result.replace(pattern, '<mark>$&</mark>');
     });

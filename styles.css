@@ -1074,10 +1074,14 @@ a.author-row {
     border-color: var(--primary);
 }
 
-.badge-number {
-    background: #ffebee;
+.debate-card .card-id {
     color: #c62828;
     font-weight: 600;
+    text-decoration: none;
+}
+
+.debate-card .card-id:hover {
+    text-decoration: underline;
 }
 
 .badge-council {
@@ -1092,8 +1096,23 @@ a.author-row {
 
 .debate-card .card-meta {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.debate-card .card-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.debate-card .card-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.debate-card .card-title a:hover {
+    color: var(--primary);
+    text-decoration: underline;
 }
 
 .speaker-link {
