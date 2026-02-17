@@ -1,36 +1,59 @@
 # Swiss Federal Audit Office Parliament Monitor
 
-Monitor parliamentary interventions (motions, postulates, interpellations, questions) mentioning the **Swiss Federal Audit Office** (SFAO / CDF / EFK) using the Swiss Parliament Open Data API.
+Monitor parliamentary interventions (motions, postulates, interpellations, questions) and **debates** mentioning the **Swiss Federal Audit Office** (SFAO / CDF / EFK) using the Swiss Parliament Open Data API.
+
+## 🆕 What's New (February 2026)
+
+### 🗣️ Parliamentary Debates
+- **New page**: Real-time debates mentioning the SFAO from plenary sessions
+- **Transcript search**: Full-text search through parliamentary speeches
+- **Speaker info**: Name, party, canton for each intervention
+- **Direct links**: Click to see the full intervention on the Official Bulletin
+- **Smart highlighting**: CDF/EFK terms automatically highlighted in yellow
+
+### 📊 Enhanced Statistics
+- **Debate statistics section**: Party distribution, council breakdown, top speakers
+- **Interactive filters**: Filter all charts by Year, Council, Party
+- **Federal Council category**: Speeches by Federal Councillors tracked separately
+- **Click-through navigation**: Click any chart segment to filter debates
+
+### 🎨 UI Improvements
+- **Consistent design**: Debates page follows Objects page styling
+- **Mobile optimized**: Responsive layout for all pages
+- **Better text formatting**: Paragraphs, cleaned-up text, no formatting bugs
+
+---
 
 ## Overview
 
 This project provides:
-1. **R Script** (`Recherche_CDF_EFK.R`) — Searches the Parliament API for interventions mentioning the Federal Audit Office in French ("Contrôle fédéral des finances", "CDF") and German ("Eidgenössische Finanzkontrolle", "EFK")
-2. **GitHub Pages Website** — Interactive web interface with search and full list of interventions
-3. **iOS Widget** (`EFK_CDF_Parlement.js`) — Scriptable widget displaying the latest parliamentary interventions on your iPhone
-4. **JSON Data** (`cdf_efk_data.json`) — Regularly updated data file hosted on GitHub
+1. **R Scripts**:
+   - `Recherche_CDF_EFK.R` — Searches for parliamentary objects (motions, postulates, etc.)
+   - `Recherche_Debats.R` — Searches for debate transcripts mentioning SFAO
+2. **GitHub Pages Website** — Interactive web interface with search, debates, and statistics
+3. **iOS Widget** (`EFK_CDF_Parlement.js`) — Scriptable widget displaying the latest interventions
+4. **JSON Data** — `cdf_efk_data.json` (objects) + `debates_data.json` (debates)
 
 ## 🌐 Website
 
 The project includes a bilingual GitHub Pages website (FR/DE) with:
 
 ### Pages
-- **Search** (`index.html` / `index_de.html`) — Filter interventions by text, type, council, year, and party
-- **Full list** (`liste.html` / `liste_de.html`) — Sortable table with all interventions + Excel export
-- **Statistics** (`stats.html` / `stats_de.html`) — Interactive charts and rankings
+- **Objets** (`index.html` / `index_de.html`) — Filter interventions by text, type, council, year, party
+- **Débats** (`debates.html` / `debates_de.html`) — 🆕 Parliamentary debate transcripts
+- **Statistiques** (`stats.html` / `stats_de.html`) — Interactive charts for both objects and debates
+- **Liste** (`liste.html` / `liste_de.html`) — Sortable table with all interventions + Excel export
 
 ### Features
-- 🔍 **Advanced filters**: Custom dropdown filters with checkboxes for multi-select (Type, Council, Year, Party)
-- ☑️ **"All" option**: Each filter includes a "Tous/Alle" checkbox selected by default
-- 🔄 **Reset button**: One-click reset for all filters and search
-- 📊 **Statistics dashboard**: Interactive charts with click-through to filtered search
-- 🏆 **Top 5 MPs**: Ranking of parliamentarians citing the SFAO most frequently
-- 🌐 **Bilingual**: Full French/German translation (party names, commissions, UI)
+- 🔍 **Advanced filters**: Custom dropdown filters with checkboxes for multi-select
+- 🗣️ **Debate transcripts**: Full-text speeches with speaker details
+- � **Dual statistics**: Charts for both parliamentary objects and debates
+- 🎛️ **Chart filters**: Filter statistics by Year, Council, Party
+- 🏆 **Top rankings**: Most active MPs and speakers
+- 🌐 **Bilingual**: Full French/German translation
 - 📱 **Responsive**: Optimized for desktop and mobile
-- 🟢 **Status highlighting**: Recently updated statuses are highlighted in green (3 weeks)
-- 🔗 **New items indicator**: Underlined IDs for new interventions (1 week)
-- 💬 **Tooltips**: Hover over mention emojis (🧑/🏛️) to see who cites the SFAO
-- 📈 **Clickable charts**: Click on a party or type in statistics to filter search results
+- � **Smart highlighting**: CDF/EFK terms highlighted in debate texts
+- 📈 **Clickable charts**: Click to filter search results
 
 **Live URL**: `https://arnaudbon20.github.io/EFK_CDF_Parlement/`
 
@@ -114,19 +137,27 @@ Geschaeftstyp <- c(5, 6, 8, 9, 10, 12, 13, 14, 18, 19)
 | File | Description |
 |------|-------------|
 | `Objets_parlementaires_CDF_EFK.xlsx` | Full Excel export with all interventions |
-| `cdf_efk_data.json` | JSON data for GitHub (widget reads from here) |
+| `cdf_efk_data.json` | JSON data for objects (widget reads from here) |
 | `CDF_Data.js` | JavaScript module for Scriptable (local fallback) |
+| `Debats_CDF_EFK.xlsx` | 🆕 Excel export with debate transcripts |
+| `debates_data.json` | 🆕 JSON data for debates (website reads from here) |
 
 ## Workflow
 
-1. **Run the R script** (`Recherche_CDF_EFK.R`)
+### Parliamentary Objects
+1. **Run** `Recherche_CDF_EFK.R`
    - First run: Full search of all sessions
    - Subsequent runs: Only searches last 6 months (incremental)
 2. **Commit and push** `cdf_efk_data.json` to GitHub
-3. **Widget automatically fetches** data from GitHub
+
+### Parliamentary Debates 🆕
+1. **Run** `Recherche_Debats.R`
+   - Searches transcripts from configured sessions
+   - Exports both FR and DE titles for bilingual support
+2. **Commit and push** `debates_data.json` to GitHub
 
 ```bash
-git add cdf_efk_data.json
+git add cdf_efk_data.json debates_data.json
 git commit -m "Update parliament data"
 git push
 ```
