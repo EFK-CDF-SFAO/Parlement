@@ -1,5 +1,8 @@
 let allData = [];
 let debatesData = [];
+let filteredDebatesData = [];
+let debatePartyChartInstance = null;
+let debateCouncilChartInstance = null;
 
 const partyColors = {
     'UDC': '#009F4D',
@@ -72,14 +75,77 @@ async function init() {
         const debatesResponse = await fetch('debates_data.json');
         const debatesJson = await debatesResponse.json();
         debatesData = debatesJson.items || [];
+        filteredDebatesData = [...debatesData];
         
-        renderDebatePartyChart();
-        renderDebateCouncilChart();
-        renderTopSpeakers();
-        renderDebateSummary();
+        populateDebateFilters();
+        setupDebateFilterListeners();
+        renderAllDebateCharts();
     } catch (error) {
         console.error('Error loading data:', error);
     }
+}
+
+function populateDebateFilters() {
+    // Populer filtre années
+    const yearFilter = document.getElementById('debateYearFilter');
+    const years = [...new Set(debatesData.map(d => d.date ? d.date.substring(0, 4) : null).filter(Boolean))];
+    years.sort().reverse();
+    years.forEach(year => {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearFilter.appendChild(option);
+    });
+    
+    // Populer filtre partis
+    const partyFilter = document.getElementById('debatePartyFilter');
+    const parties = [...new Set(debatesData.map(d => {
+        if (!d.party) return 'Conseil fédéral';
+        return debatePartyLabels[d.party] || d.party;
+    }))];
+    parties.sort();
+    parties.forEach(party => {
+        const option = document.createElement('option');
+        option.value = party;
+        option.textContent = party;
+        partyFilter.appendChild(option);
+    });
+}
+
+function setupDebateFilterListeners() {
+    document.getElementById('debateYearFilter').addEventListener('change', applyDebateFilters);
+    document.getElementById('debateCouncilFilter').addEventListener('change', applyDebateFilters);
+    document.getElementById('debatePartyFilter').addEventListener('change', applyDebateFilters);
+}
+
+function applyDebateFilters() {
+    const yearFilter = document.getElementById('debateYearFilter').value;
+    const councilFilter = document.getElementById('debateCouncilFilter').value;
+    const partyFilter = document.getElementById('debatePartyFilter').value;
+    
+    filteredDebatesData = debatesData.filter(item => {
+        // Filtre année
+        if (yearFilter && item.date) {
+            if (!item.date.startsWith(yearFilter)) return false;
+        }
+        // Filtre conseil
+        if (councilFilter && item.council !== councilFilter) return false;
+        // Filtre parti
+        if (partyFilter) {
+            const itemParty = item.party ? (debatePartyLabels[item.party] || item.party) : 'Conseil fédéral';
+            if (itemParty !== partyFilter) return false;
+        }
+        return true;
+    });
+    
+    renderAllDebateCharts();
+}
+
+function renderAllDebateCharts() {
+    renderDebatePartyChart();
+    renderDebateCouncilChart();
+    renderTopSpeakers();
+    renderDebateSummary();
 }
 
 function getPartyFromAuthor(author) {
@@ -324,9 +390,13 @@ const councilLabels = {
 };
 
 function renderDebatePartyChart() {
+    if (debatePartyChartInstance) {
+        debatePartyChartInstance.destroy();
+    }
+    
     const partyCounts = {};
     
-    debatesData.forEach(item => {
+    filteredDebatesData.forEach(item => {
         const party = debatePartyLabels[item.party] || item.party || 'Conseil fédéral';
         partyCounts[party] = (partyCounts[party] || 0) + 1;
     });
@@ -344,7 +414,7 @@ function renderDebatePartyChart() {
     });
     
     const ctx = document.getElementById('debatePartyChart').getContext('2d');
-    new Chart(ctx, {
+    debatePartyChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels,
@@ -377,9 +447,13 @@ function renderDebatePartyChart() {
 }
 
 function renderDebateCouncilChart() {
+    if (debateCouncilChartInstance) {
+        debateCouncilChartInstance.destroy();
+    }
+    
     const councilCounts = {};
     
-    debatesData.forEach(item => {
+    filteredDebatesData.forEach(item => {
         const council = councilLabels[item.council] || item.council || 'Autre';
         councilCounts[council] = (councilCounts[council] || 0) + 1;
     });
@@ -389,7 +463,7 @@ function renderDebateCouncilChart() {
     const colors = ['#3949ab', '#7986cb'];
     
     const ctx = document.getElementById('debateCouncilChart').getContext('2d');
-    new Chart(ctx, {
+    debateCouncilChartInstance = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: labels,
@@ -423,7 +497,7 @@ function renderTopSpeakers() {
     const speakerCounts = {};
     const speakerParties = {};
     
-    debatesData.forEach(item => {
+    filteredDebatesData.forEach(item => {
         const speaker = item.speaker;
         if (speaker) {
             speakerCounts[speaker] = (speakerCounts[speaker] || 0) + 1;
@@ -471,9 +545,9 @@ function renderTopSpeakers() {
 function renderDebateSummary() {
     const container = document.getElementById('debateSummary');
     
-    const totalDebates = debatesData.length;
-    const uniqueSpeakers = new Set(debatesData.map(d => d.speaker)).size;
-    const uniqueObjects = new Set(debatesData.map(d => d.business_number).filter(Boolean)).size;
+    const totalDebates = filteredDebatesData.length;
+    const uniqueSpeakers = new Set(filteredDebatesData.map(d => d.speaker)).size;
+    const uniqueObjects = new Set(filteredDebatesData.map(d => d.business_number).filter(Boolean)).size;
     
     container.innerHTML = `
         <div class="summary-stats">

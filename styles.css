@@ -1190,6 +1190,34 @@ a.author-row {
     color: #666;
 }
 
+/* Stats filters */
+.stats-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stats-filters select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: white;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.stats-filters select:hover {
+    border-color: var(--primary);
+}
+
+.stats-filters select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.1);
+}
+
 .debate-card .speaker-info {
     display: flex;
     flex-wrap: wrap;
