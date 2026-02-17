@@ -323,8 +323,8 @@ function createCard(item) {
         ${businessInfo}
         <div class="card-body">
             <div class="speaker-info">
-                <span class="speaker-name">🗣️ ${speakerLink}</span>
-                <span class="speaker-details">${partyDisplay} (${item.canton || ''}) · 📅 ${formatDate(item.date)}</span>
+                <span class="speaker-name">🗣️ ${speakerLink} (${partyDisplay}, ${item.canton || ''})</span>
+                <span class="speaker-details">··· 📅 ${formatDate(item.date)}</span>
             </div>
             <div class="card-text">${highlightCDF(textPreview)}</div>
         </div>
