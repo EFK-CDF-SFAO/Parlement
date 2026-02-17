@@ -1,13 +1,34 @@
 name: Update Debates Data
 
 on:
-  # Exécution manuelle (recommandé: 3 fois par session)
   workflow_dispatch:
-  # Optionnel: exécution automatique pendant les sessions
-  # Session d'hiver: 2-20 décembre, Session printemps: 3-21 mars, etc.
-  # schedule:
-  #   - cron: '0 23 5,12,19 12 *'  # Session hiver (5, 12, 19 décembre)
-  #   - cron: '0 23 6,13,20 3 *'   # Session printemps
+  schedule:
+    # ============================================
+    # SESSIONS ORDINAIRES 2025
+    # Semaines 1-2: vendredi 1h (UTC = 0h), Semaine 3: samedi 2h (UTC = 1h)
+    # ============================================
+    
+    # Session de printemps 2025 (3-21 mars)
+    - cron: '0 0 7,14 3 5'    # Vendredis 7 et 14 mars à 1h CH
+    - cron: '0 1 22 3 6'      # Samedi 22 mars à 2h CH
+    
+    # Session d'été 2025 (2-20 juin)
+    - cron: '0 0 6,13 6 5'    # Vendredis 6 et 13 juin à 1h CH
+    - cron: '0 1 21 6 6'      # Samedi 21 juin à 2h CH
+    
+    # Session d'automne 2025 (8-26 septembre)
+    - cron: '0 0 12,19 9 5'   # Vendredis 12 et 19 septembre à 1h CH
+    - cron: '0 1 27 9 6'      # Samedi 27 septembre à 2h CH
+    
+    # Session d'hiver 2025 (1-19 décembre)
+    - cron: '0 0 5,12 12 5'   # Vendredis 5 et 12 décembre à 1h CH
+    - cron: '0 1 20 12 6'     # Samedi 20 décembre à 2h CH
+    
+    # ============================================
+    # SESSIONS SPÉCIALES 2025 (dates à ajuster)
+    # Vendredi 1h du matin
+    # ============================================
+    # - cron: '0 0 DD MM 5'  # Session spéciale - à activer si nécessaire
 
 permissions:
   contents: write
