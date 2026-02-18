@@ -244,7 +244,8 @@ function translateDepartment(deptDE) {
         'WBF': 'DEFR',
         'BK': 'ChF',
         'BGer': 'TF',
-        'Parl': 'Parl'
+        'Parl': 'Parl',
+        'VBV': 'AF'
     };
     return translations[deptDE] || deptDE;
 }
