@@ -378,7 +378,7 @@ main {
 
 .filter-reset {
     padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     border: 1px solid var(--border);
     border-radius: 6px;
     background: white;
