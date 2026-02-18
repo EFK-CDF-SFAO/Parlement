@@ -4,16 +4,23 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 
 ## 🆕 What's New (February 2026)
 
+### 🏢 Department Filter
+- **New filter**: Filter by responsible federal department (DFF, DETEC, DDPS, etc.)
+- **All pages**: Available on Objects, Debates, and Statistics pages
+- **Trilingual**: Department abbreviations translated (DE/FR/IT)
+- **"None" option**: Filter items without assigned department
+
 ### 🗣️ Parliamentary Debates
 - **New page**: Real-time debates mentioning the SFAO from plenary sessions
 - **Transcript search**: Full-text search through parliamentary speeches
 - **Speaker info**: Name, party, canton for each intervention
 - **Direct links**: Click to see the full intervention on the Official Bulletin
 - **Smart highlighting**: CDF/EFK terms automatically highlighted in yellow
+- **Department info**: Each debate linked to its responsible department
 
 ### 📊 Enhanced Statistics
 - **Debate statistics section**: Party distribution, council breakdown, top speakers
-- **Interactive filters**: Filter all charts by Year, Council, Party
+- **Interactive filters**: Filter all charts by Year, Council, Party, Department
 - **Federal Council category**: Speeches by Federal Councillors tracked separately
 - **Click-through navigation**: Click any chart segment to filter debates
 
@@ -39,13 +46,13 @@ This project provides:
 
 ## 🌐 Website
 
-The project includes a bilingual GitHub Pages website (FR/DE) with:
+The project includes a trilingual GitHub Pages website (FR/DE/IT) with:
 
 ### Pages
 - **Accueil** (`home.html` / `home_de.html`) — 🆕 Homepage with session summary and quick access
-- **Objets** (`index.html` / `index_de.html`) — Filter interventions by text, type, council, year, party
-- **Débats** (`debates.html` / `debates_de.html`) — Parliamentary debate transcripts
-- **Statistiques** (`stats.html` / `stats_de.html`) — Interactive charts for both objects and debates
+- **Objets** (`index.html` / `index_de.html` / `index_it.html`) — Filter interventions by text, type, council, year, party, department
+- **Débats** (`debates.html` / `debates_de.html` / `debates_it.html`) — Parliamentary debate transcripts with department filter
+- **Statistiques** (`stats.html` / `stats_de.html` / `stats_it.html`) — Interactive charts for both objects and debates
 
 ### Features
 - 🏠 **Homepage**: Session summary with latest interventions and debates overview
@@ -53,12 +60,14 @@ The project includes a bilingual GitHub Pages website (FR/DE) with:
 - 🗣️ **Debate transcripts**: Full-text speeches with speaker details
 - 📊 **Dual statistics**: Charts for both parliamentary objects and debates
 - 🎛️ **Multi-select filters**: Type, Council, Year, Party, Session
-- 🌐 **Bilingual search**: FR/DE synonyms (CDF↔EFK) automatically included
+- 🌐 **Trilingual**: Full support for French, German, and Italian
+- 🏢 **Department filter**: Filter by responsible federal department
 - 📱 **Responsive**: Optimized for desktop and mobile
 - 🔶 **Smart highlighting**: Search terms highlighted in results
 - ⬆️ **Back to top**: Quick scroll button on mobile
 - ➕ **Progressive loading**: "Show more" replaces pagination
 - 🏛️ **Favicon**: Custom parliament icon in browser tab
+- 🇨🇭 **Bilingual search**: FR/DE/IT synonyms (CDF↔EFK) automatically included
 
 **Live URL**: `https://arnaudbon20.github.io/EFK_CDF_Parlement/`
 
