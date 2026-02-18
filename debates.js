@@ -406,11 +406,14 @@ function highlightCDF(text, searchTerm = '') {
     result = result.replace(/Eidgenössischen? Finanzkontrolle/gi, '<mark class="highlight">$&</mark>');
     result = result.replace(/Finanzkontrolle/gi, '<mark class="highlight">$&</mark>');
     
-    // Surligner le terme de recherche si présent
+    // Surligner le terme de recherche et ses synonymes bilingues
     if (searchTerm && searchTerm.length >= 2) {
-        const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const searchRegex = new RegExp(`(${escapedTerm})`, 'gi');
-        result = result.replace(searchRegex, '<mark class="highlight-search">$1</mark>');
+        const searchTerms = getSearchTerms(searchTerm);
+        searchTerms.forEach(term => {
+            const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const searchRegex = new RegExp(`(${escapedTerm})`, 'gi');
+            result = result.replace(searchRegex, '<mark class="highlight-search">$1</mark>');
+        });
     }
     
     return result;
