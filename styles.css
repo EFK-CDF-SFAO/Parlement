@@ -417,11 +417,18 @@ main {
 #resultsCount {
     font-weight: 600;
     color: var(--text);
+    flex: 1;
+}
+
+.btn-download {
+    order: 0;
 }
 
 #lastUpdate {
     font-size: 0.85rem;
     color: var(--text-secondary);
+    flex: 1;
+    text-align: right;
 }
 
 .results-grid {
