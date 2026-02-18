@@ -1517,11 +1517,9 @@ a.author-row {
     background: var(--primary-dark);
 }
 
-/* Séparation résumé et liste objets */
+/* Liste objets */
 .home-list {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
+    margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
