@@ -357,7 +357,7 @@ function applyFilters() {
     const partyValues = getCheckedValues('partyDropdown');
     
     filteredData = allData.filter(item => {
-        // Text search
+        // Text search avec word boundaries
         if (searchTerm) {
             const searchFields = [
                 item.shortId,
@@ -365,10 +365,12 @@ function applyFilters() {
                 item.title_de,
                 item.author,
                 item.type,
-                item.status
-            ].filter(Boolean).map(f => f.toLowerCase());
+                item.status,
+                item.text,
+                item.text_de
+            ].filter(Boolean).join(' ');
             
-            if (!searchFields.some(f => f.includes(searchTerm))) {
+            if (!searchWholeWord(searchFields, searchTerm)) {
                 return false;
             }
         }
@@ -595,12 +597,21 @@ function setupPaginationListeners() {
 function highlightText(text, searchTerm) {
     if (!text || !searchTerm) return text || '';
     
-    const regex = new RegExp(`(${escapeRegex(searchTerm)})`, 'gi');
+    const escapedTerm = escapeRegex(searchTerm);
+    const regex = new RegExp(`(\\b${escapedTerm}\\b)`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
 }
 
 function escapeRegex(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Recherche par mot entier (word boundary)
+function searchWholeWord(text, term) {
+    if (!text || !term) return false;
+    const escapedTerm = escapeRegex(term);
+    const regex = new RegExp(`\\b${escapedTerm}\\b`, 'i');
+    return regex.test(text);
 }
 
 function showLoading() {

@@ -73,6 +73,14 @@ function getSearchTerms(term) {
     return synonyms ? synonyms : [lowerTerm];
 }
 
+// Recherche par mot entier (word boundary)
+function searchWholeWord(text, term) {
+    if (!text || !term) return false;
+    const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${escapedTerm}\\b`, 'i');
+    return regex.test(text);
+}
+
 function getPartyDisplay(item) {
     if (!item.party || item.party === 'undefined' || item.party === '') {
         return 'Conseil fédéral';
@@ -334,12 +342,14 @@ function applyFilters() {
                 item.speaker,
                 item.text,
                 item.party,
-                item.canton
-            ].filter(Boolean).join(' ').toLowerCase();
+                item.canton,
+                item.business_title_fr,
+                item.business_title_de
+            ].filter(Boolean).join(' ');
             
-            // Recherche avec synonymes bilingues
+            // Recherche par mot entier avec synonymes bilingues
             const searchTerms = getSearchTerms(searchTerm);
-            const found = searchTerms.some(term => searchFields.includes(term));
+            const found = searchTerms.some(term => searchWholeWord(searchFields, term));
             if (!found) {
                 return false;
             }

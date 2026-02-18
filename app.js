@@ -348,7 +348,7 @@ function applyFilters() {
     const partyValues = getCheckedValues('partyDropdown');
     
     filteredData = allData.filter(item => {
-        // Text search
+        // Text search avec word boundaries
         if (searchTerm) {
             const searchFields = [
                 item.shortId,
@@ -356,10 +356,12 @@ function applyFilters() {
                 item.title_de,
                 item.author,
                 item.type,
-                item.status
-            ].filter(Boolean).map(f => f.toLowerCase());
+                item.status,
+                item.text,      // Texte de l'objet
+                item.text_de    // Texte allemand
+            ].filter(Boolean).join(' ');
             
-            if (!searchFields.some(f => f.includes(searchTerm))) {
+            if (!searchWholeWord(searchFields, searchTerm)) {
                 return false;
             }
         }
@@ -603,12 +605,23 @@ function setupPaginationListeners() {
 function highlightText(text, searchTerm) {
     if (!text || !searchTerm) return text || '';
     
-    const regex = new RegExp(`(${escapeRegex(searchTerm)})`, 'gi');
+    // Surligner uniquement les mots entiers
+    const escapedTerm = escapeRegex(searchTerm);
+    const regex = new RegExp(`(\\b${escapedTerm}\\b)`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
 }
 
 function escapeRegex(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Recherche par mot entier (word boundary)
+function searchWholeWord(text, term) {
+    if (!text || !term) return false;
+    // Créer une regex avec word boundaries pour éviter les correspondances partielles
+    const escapedTerm = escapeRegex(term);
+    const regex = new RegExp(`\\b${escapedTerm}\\b`, 'i');
+    return regex.test(text);
 }
 
 function showLoading() {
