@@ -233,12 +233,26 @@ function populatePartyFilter() {
     });
 }
 
+function translateDepartment(deptDE) {
+    const translations = {
+        'EFD': 'DFF',
+        'EDI': 'DFI',
+        'UVEK': 'DETEC',
+        'VBS': 'DDPS',
+        'EJPD': 'DFJP',
+        'EDA': 'DFAE',
+        'WBF': 'DEFR',
+        'Parl': 'Parl'
+    };
+    return translations[deptDE] || deptDE;
+}
+
 function populateDepartmentFilter() {
     const deptMenu = document.getElementById('departmentMenu');
     if (!deptMenu) return;
     
     const departments = [...new Set(allData.map(item => item.department).filter(Boolean))];
-    departments.sort((a, b) => a.localeCompare(b, 'fr'));
+    departments.sort((a, b) => translateDepartment(a).localeCompare(translateDepartment(b), 'fr'));
     
     // Add "Tous" option (checked by default)
     const allLabel = document.createElement('label');
@@ -253,7 +267,8 @@ function populateDepartmentFilter() {
     
     departments.forEach(dept => {
         const label = document.createElement('label');
-        label.innerHTML = `<input type="checkbox" value="${dept}"> ${dept}`;
+        const deptFR = translateDepartment(dept);
+        label.innerHTML = `<input type="checkbox" value="${dept}"> ${deptFR}`;
         deptMenu.appendChild(label);
     });
 }

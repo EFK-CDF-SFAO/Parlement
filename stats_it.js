@@ -47,6 +47,20 @@ const typeLabels = {
     'A.': 'Interrogazione'
 };
 
+function translateDept(deptDE) {
+    const translations = {
+        'EFD': 'DFF',
+        'EDI': 'DFI',
+        'UVEK': 'DATEC',
+        'VBS': 'DDPS',
+        'EJPD': 'DFGP',
+        'EDA': 'DFAE',
+        'WBF': 'DEFR',
+        'Parl': 'Parl'
+    };
+    return translations[deptDE] || deptDE;
+}
+
 const typeToFilter = {
     'Mozione': 'Mo.',
     'Postulato': 'Po.',
@@ -167,13 +181,14 @@ function populateObjectFilters() {
     const deptMenu = document.getElementById('objectDeptMenu');
     if (deptMenu) {
         const departments = [...new Set(allData.map(d => d.department).filter(Boolean))];
-        departments.sort();
+        departments.sort((a, b) => translateDept(a).localeCompare(translateDept(b), 'it'));
         const noneLabel = document.createElement('label');
         noneLabel.innerHTML = `<input type="checkbox" value="none"> Nessuno`;
         deptMenu.appendChild(noneLabel);
         departments.forEach(dept => {
             const label = document.createElement('label');
-            label.innerHTML = `<input type="checkbox" value="${dept}"> ${dept}`;
+            const deptIT = translateDept(dept);
+            label.innerHTML = `<input type="checkbox" value="${dept}"> ${deptIT}`;
             deptMenu.appendChild(label);
         });
     }

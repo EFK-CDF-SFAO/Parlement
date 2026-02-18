@@ -173,7 +173,7 @@ function populateObjectFilters() {
     const deptMenu = document.getElementById('objectDeptMenu');
     if (deptMenu) {
         const departments = [...new Set(allData.map(d => d.department).filter(Boolean))];
-        departments.sort();
+        departments.sort((a, b) => a.localeCompare(b, 'de'));
         const noneLabel = document.createElement('label');
         noneLabel.innerHTML = `<input type="checkbox" value="none"> Kein`;
         deptMenu.appendChild(noneLabel);
