@@ -1479,7 +1479,6 @@ a.author-row {
 .intervention-author {
     color: var(--text-secondary);
     font-size: 0.95rem;
-    font-style: italic;
 }
 
 .debates-summary-list,

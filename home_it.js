@@ -186,7 +186,7 @@ function displayObjectsList(summary) {
                     <span class="intervention-id">${interventions.shortId[i]}</span>
                     <span class="intervention-type">${typeLabels[interventions.type[i]] || interventions.type[i]}</span>
                     <span class="intervention-title">${title}</span>
-                    <span class="intervention-author">${interventions.author[i]} (${interventions.party[i]})</span>
+                    <span class="intervention-author">👤 ${interventions.author[i]} (${interventions.party[i]})</span>
                 </a>
             </li>
         `;
