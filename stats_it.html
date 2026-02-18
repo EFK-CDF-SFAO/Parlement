@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDF/EFK - Statistiche</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="header-main">
+                <h1><a href="home_it.html" style="color: inherit; text-decoration: none;">🏛️ Il CDF alle Camere federali</a></h1>
+                <nav>
+                    <a href="home_it.html">Home</a>
+                    <a href="index_it.html">Oggetti</a>
+                    <a href="debates_it.html">Dibattiti</a>
+                    <a href="stats_it.html" class="active">Statistiche</a>
+                </nav>
+            </div>
+            <div class="lang-switcher">
+                <a href="stats.html">FR</a>
+                <span>|</span>
+                <a href="stats_de.html">DE</a>
+                <span>|</span>
+                <a href="stats_it.html" class="active">IT</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats-section">
+            <h2>📊 Statistiche degli interventi</h2>
+            
+            <div class="stats-filters">
+                <div class="filter-dropdown" id="objectYearDropdown">
+                    <button class="filter-btn" type="button">Anno <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="objectYearMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="objectCouncilDropdown">
+                    <button class="filter-btn" type="button">Consiglio <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                        <label><input type="checkbox" value="N"> Consiglio nazionale</label>
+                        <label><input type="checkbox" value="S"> Consiglio degli Stati</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="objectPartyDropdown">
+                    <button class="filter-btn" type="button">Partito <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="objectPartyMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetObjectFilters" title="Ripristinare">↻</button>
+            </div>
+            
+            <div class="stats-row">
+                <div class="stat-card">
+                    <h3>Interventi per partito</h3>
+                    <div class="chart-container">
+                        <canvas id="partyChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Interventi per tipo</h3>
+                    <div class="chart-container">
+                        <canvas id="typeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-row">
+                <div class="stat-card">
+                    <h3>📈 Evoluzione per anno</h3>
+                    <div class="chart-container-wide">
+                        <canvas id="yearChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="stat-card top-card">
+                    <h3>🏆 Top 5 dei parlamentari</h3>
+                    <div id="topAuthors" class="top-authors-list">
+                        <p>Caricamento...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="stats-section">
+            <h2>🗣️ Statistiche dei dibattiti</h2>
+            
+            <div class="stats-filters">
+                <div class="filter-dropdown" id="debateYearDropdown">
+                    <button class="filter-btn" type="button">Anno <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debateYearMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debateSessionDropdown">
+                    <button class="filter-btn" type="button">Sessione <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debateSessionMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutte</label>
+                        <label><input type="checkbox" value="Primaverile"> Primaverile</label>
+                        <label><input type="checkbox" value="Estiva"> Estiva</label>
+                        <label><input type="checkbox" value="Autunnale"> Autunnale</label>
+                        <label><input type="checkbox" value="Invernale"> Invernale</label>
+                        <label><input type="checkbox" value="Speciale"> Speciale</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debateCouncilDropdown">
+                    <button class="filter-btn" type="button">Consiglio <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                        <label><input type="checkbox" value="N"> Consiglio nazionale</label>
+                        <label><input type="checkbox" value="S"> Consiglio degli Stati</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debatePartyDropdown">
+                    <button class="filter-btn" type="button">Partito <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debatePartyMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetDebateFilters" title="Ripristinare">↻</button>
+            </div>
+            
+            <div class="stats-row">
+                <div class="stat-card">
+                    <h3>Interventi per partito</h3>
+                    <div class="chart-container">
+                        <canvas id="debatePartyChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Interventi per consiglio</h3>
+                    <div class="chart-container">
+                        <canvas id="debateCouncilChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-row">
+                <div class="stat-card top-card">
+                    <h3>🏆 Top 5 degli oratori (dibattiti)</h3>
+                    <div id="topSpeakers" class="top-authors-list">
+                        <p>Caricamento...</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>📊 Riassunto</h3>
+                    <div id="debateSummary" class="summary-box">
+                        <p>Caricamento...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Dati: <a href="https://ws-old.parlament.ch/" target="_blank">API del Parlamento svizzero</a> · 
+               <a href="https://github.com/ArnaudBon20/EFK_CDF_Parlement" target="_blank">Codice sorgente</a></p>
+            <p class="feedback-box"><a href="mailto:arnaud.bonvin@efk.admin.ch">Feedback?</a></p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Torna in alto">↑</button>
+    <script src="stats_it.js"></script>
+    <script>
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

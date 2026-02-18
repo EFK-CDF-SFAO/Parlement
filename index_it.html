@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDF/EFK - Interventi parlamentari</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="header-main">
+                <h1><a href="home_it.html" style="color: inherit; text-decoration: none;">🏛️ Il CDF alle Camere federali</a></h1>
+                <nav>
+                    <a href="home_it.html">Home</a>
+                    <a href="index_it.html" class="active">Oggetti</a>
+                    <a href="debates_it.html">Dibattiti</a>
+                    <a href="stats_it.html">Statistiche</a>
+                </nav>
+            </div>
+            <div class="lang-switcher">
+                <a href="index.html">FR</a>
+                <span>|</span>
+                <a href="index_de.html">DE</a>
+                <span>|</span>
+                <a href="index_it.html" class="active">IT</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="search-section">
+            <h2>Cercare un oggetto</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Cercare per titolo, autore, numero...">
+                <button id="clearSearch" class="btn-clear" title="Cancellare">✕</button>
+            </div>
+            <div class="filters">
+                <div class="filter-dropdown" id="typeDropdown">
+                    <button class="filter-btn" type="button">Tipo <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                        <label><input type="checkbox" value="Mo."> Mozione</label>
+                        <label><input type="checkbox" value="Po."> Postulato</label>
+                        <label><input type="checkbox" value="Ip."> Interpellanza</label>
+                        <label><input type="checkbox" value="Fra."> Ora delle domande</label>
+                        <label><input type="checkbox" value="A."> Interrogazione</label>
+                        <label><input type="checkbox" value="Pa. Iv."> Iniziativa parlamentare</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="councilDropdown">
+                    <button class="filter-btn" type="button">Consiglio <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                        <label><input type="checkbox" value="NR"> Consiglio nazionale</label>
+                        <label><input type="checkbox" value="SR"> Consiglio degli Stati</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="yearDropdown">
+                    <button class="filter-btn" type="button">Anno <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="yearMenu">
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="partyDropdown">
+                    <button class="filter-btn" type="button">Partito <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="partyMenu">
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetFilters" title="Ripristinare i filtri">↻</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div class="results-header">
+                <span id="resultsCount">Caricamento...</span>
+                <button id="downloadBtn" class="btn-download" title="Scaricare Excel">📥 Excel</button>
+                <span id="lastUpdate"></span>
+            </div>
+            <div id="results" class="results-grid">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Dati: <a href="https://ws-old.parlament.ch/" target="_blank">API del Parlamento svizzero</a></p>
+            <p>Fonte: <a href="https://github.com/ArnaudBon20/EFK_CDF_Parlement" target="_blank">GitHub</a></p>
+            <p class="feedback-box"><a href="mailto:arnaud.bonvin@efk.admin.ch">Feedback?</a></p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Torna in alto">↑</button>
+    <script src="app_it.js"></script>
+    <script>
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

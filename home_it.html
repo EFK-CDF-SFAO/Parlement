@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDF/EFK - Il CDF alle Camere federali</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="header-main">
+                <h1><a href="home_it.html" style="color: inherit; text-decoration: none;">🏛️ Il CDF alle Camere federali</a></h1>
+                <nav>
+                    <a href="home_it.html" class="active">Home</a>
+                    <a href="index_it.html">Oggetti</a>
+                    <a href="debates_it.html">Dibattiti</a>
+                    <a href="stats_it.html">Statistiche</a>
+                </nav>
+            </div>
+            <div class="lang-switcher">
+                <a href="home.html">FR</a>
+                <span>|</span>
+                <a href="home_de.html">DE</a>
+                <span>|</span>
+                <a href="home_it.html" class="active">IT</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Titolo sessione -->
+        <div class="session-title-banner">
+            <h2 id="summaryTitle">Caricamento...</h2>
+        </div>
+
+        <!-- Sezione Oggetti -->
+        <section class="home-section">
+            <h2>📋 Oggetti parlamentari</h2>
+            <p id="summaryText" class="session-text"></p>
+            <div id="objectsList" class="home-list">
+                <p>Caricamento degli interventi...</p>
+            </div>
+            <a href="index_it.html" class="btn-view-all">Vedi tutti gli oggetti →</a>
+        </section>
+
+        <!-- Sezione Dibattiti -->
+        <section class="home-section">
+            <h2>🗣️ Dibattiti parlamentari</h2>
+            <div id="debatesSummary" class="session-summary-home">
+                <p>Caricamento...</p>
+            </div>
+            <a href="debates_it.html" class="btn-view-all">Vedi tutti i dibattiti →</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Dati: <a href="https://ws-old.parlament.ch/" target="_blank">API del Parlamento svizzero</a></p>
+            <p>Fonte: <a href="https://github.com/ArnaudBon20/EFK_CDF_Parlement" target="_blank">GitHub</a></p>
+            <p class="feedback-box"><a href="mailto:arnaud.bonvin@efk.admin.ch">Feedback?</a></p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Torna in alto">↑</button>
+    <script src="home_it.js"></script>
+    <script>
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
