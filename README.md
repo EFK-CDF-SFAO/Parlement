@@ -4,14 +4,14 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 
 ## 🆕 What's New (February 2026)
 
-### �️ Legislature Filter & Extended Data
+### 🏛️ Legislature Filter & Extended Data
 - **New filter**: Filter by legislature (51st or 52nd)
 - **51st legislature**: December 2019 - September 2023 (sessions 5101-5122)
 - **52nd legislature**: December 2023 - ongoing (sessions 5201+)
 - **Extended database**: Now covers both legislatures (213 objects, 433 debates)
 - **All pages**: Available on Objects, Debates, and Statistics pages
 
-### �🏢 Department Filter
+### 🏢 Department Filter
 - **New filter**: Filter by responsible federal department (DFF, DETEC, DDPS, etc.)
 - **All pages**: Available on Objects, Debates, and Statistics pages
 - **Trilingual**: Department abbreviations translated (DE/FR/IT)
