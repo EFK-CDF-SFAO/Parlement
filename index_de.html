@@ -37,6 +37,14 @@
                 <button id="clearSearch" class="btn-clear" title="Löschen">✕</button>
             </div>
             <div class="filters">
+                <div class="filter-dropdown" id="legislatureDropdown">
+                    <button class="filter-btn" type="button">Legislatur <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
+                        <label><input type="checkbox" value="52"> 52. (ab Dez. 2023)</label>
+                        <label><input type="checkbox" value="51"> 51. (Dez. 2019 - Sept. 2023)</label>
+                    </div>
+                </div>
                 <div class="filter-dropdown" id="typeDropdown">
                     <button class="filter-btn" type="button">Typ <span class="filter-count"></span></button>
                     <div class="filter-menu">
@@ -70,14 +78,6 @@
                 <div class="filter-dropdown" id="departmentDropdown">
                     <button class="filter-btn" type="button">Departement <span class="filter-count"></span></button>
                     <div class="filter-menu" id="departmentMenu">
-                    </div>
-                </div>
-                <div class="filter-dropdown" id="legislatureDropdown">
-                    <button class="filter-btn" type="button">Legislatur <span class="filter-count"></span></button>
-                    <div class="filter-menu">
-                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
-                        <label><input type="checkbox" value="52"> 52. (ab Dez. 2023)</label>
-                        <label><input type="checkbox" value="51"> 51. (Dez. 2019 - Sept. 2023)</label>
                     </div>
                 </div>
                 <button class="filter-reset" id="resetFilters" title="Filter zurücksetzen">↻</button>
