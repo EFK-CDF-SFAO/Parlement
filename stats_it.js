@@ -56,6 +56,8 @@ function translateDept(deptDE) {
         'EJPD': 'DFGP',
         'EDA': 'DFAE',
         'WBF': 'DEFR',
+        'BK': 'CaF',
+        'BGer': 'TF',
         'Parl': 'Parl'
     };
     return translations[deptDE] || deptDE;
@@ -294,27 +296,46 @@ function populateDebateFilters() {
         partyMenu.appendChild(label);
     });
     
+    const deptMenu = document.getElementById('debateDeptMenu');
+    if (deptMenu) {
+        const departments = [...new Set(debatesData.map(d => d.department).filter(Boolean))];
+        departments.sort((a, b) => translateDept(a).localeCompare(translateDept(b), 'it'));
+        const noneLabel = document.createElement('label');
+        noneLabel.innerHTML = `<input type="checkbox" value="none"> Nessuno`;
+        deptMenu.appendChild(noneLabel);
+        departments.forEach(dept => {
+            const label = document.createElement('label');
+            const deptIT = translateDept(dept);
+            label.innerHTML = `<input type="checkbox" value="${dept}"> ${deptIT}`;
+            deptMenu.appendChild(label);
+        });
+    }
+    
     setupDropdown('debateYearDropdown');
     setupDropdown('debateSessionDropdown');
     setupDropdown('debateCouncilDropdown');
     setupDropdown('debatePartyDropdown');
+    setupDropdown('debateDeptDropdown');
 }
 
 function setupDebateFilterListeners() {
-    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown'].forEach(id => {
-        document.getElementById(id).addEventListener('change', applyDebateFilters);
+    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown', 'debateDeptDropdown'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('change', applyDebateFilters);
     });
     document.getElementById('resetDebateFilters').addEventListener('click', resetDebateFilters);
 }
 
 function resetDebateFilters() {
-    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown'].forEach(id => {
+    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown', 'debateDeptDropdown'].forEach(id => {
         const dropdown = document.getElementById(id);
+        if (!dropdown) return;
         const selectAll = dropdown.querySelector('[data-select-all]');
         const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
         if (selectAll) selectAll.checked = true;
         checkboxes.forEach(cb => cb.checked = false);
-        dropdown.querySelector('.filter-count').textContent = '';
+        const countSpan = dropdown.querySelector('.filter-count');
+        if (countSpan) countSpan.textContent = '';
     });
     applyDebateFilters();
 }
@@ -324,6 +345,7 @@ function applyDebateFilters() {
     const sessionFilters = getCheckedValues('debateSessionDropdown');
     const councilFilters = getCheckedValues('debateCouncilDropdown');
     const partyFilters = getCheckedValues('debatePartyDropdown');
+    const deptFilters = getCheckedValues('debateDeptDropdown');
     
     filteredDebatesData = debatesData.filter(item => {
         if (yearFilters.length > 0 && item.date) {
@@ -338,6 +360,10 @@ function applyDebateFilters() {
         if (partyFilters.length > 0) {
             const itemParty = item.party ? (debatePartyLabels[item.party] || item.party) : 'Consiglio federale';
             if (!partyFilters.includes(itemParty)) return false;
+        }
+        if (deptFilters.length > 0) {
+            const itemDept = item.department || 'none';
+            if (!deptFilters.includes(itemDept)) return false;
         }
         return true;
     });

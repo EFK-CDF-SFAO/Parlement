@@ -217,6 +217,8 @@ function translateDepartment(deptDE) {
         'EJPD': 'DFGP',
         'EDA': 'DFAE',
         'WBF': 'DEFR',
+        'BK': 'CaF',
+        'BGer': 'TF',
         'Parl': 'Parl'
     };
     return translations[deptDE] || deptDE;
