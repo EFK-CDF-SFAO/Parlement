@@ -262,11 +262,6 @@ function populateDepartmentFilter() {
     allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tous`;
     deptMenu.appendChild(allLabel);
     
-    // Add "Aucun" option for items without department
-    const noneLabel = document.createElement('label');
-    noneLabel.innerHTML = `<input type="checkbox" value="none"> Aucun`;
-    deptMenu.appendChild(noneLabel);
-    
     departments.forEach(dept => {
         const label = document.createElement('label');
         const deptFR = translateDepartment(dept);

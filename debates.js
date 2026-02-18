@@ -23,7 +23,7 @@ const partyLabels = {
     'RL': 'PLR',
     'M-E': 'Le Centre',
     'G': 'VERT-E-S',
-    'GL': 'pvl',
+    'GL': 'Vert\'libéraux',
     'BD': 'PBD'
 };
 
@@ -265,10 +265,6 @@ function populateDepartmentFilter() {
     allLabel.className = 'select-all';
     allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tous`;
     deptMenu.appendChild(allLabel);
-    
-    const noneLabel = document.createElement('label');
-    noneLabel.innerHTML = `<input type="checkbox" value="none"> Aucun`;
-    deptMenu.appendChild(noneLabel);
     
     departments.forEach(dept => {
         const label = document.createElement('label');

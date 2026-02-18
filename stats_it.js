@@ -20,6 +20,7 @@ const partyColors = {
     'Verdi': '#8BC34A',
     'VERT-E-S': '#8BC34A',
     'Al': '#8BC34A',
+    'Verdi liberali': '#CDDC39',
     'PVL': '#CDDC39',
     'pvl': '#CDDC39'
 };
@@ -300,9 +301,6 @@ function populateDebateFilters() {
     if (deptMenu) {
         const departments = [...new Set(debatesData.map(d => d.department).filter(Boolean))];
         departments.sort((a, b) => translateDept(a).localeCompare(translateDept(b), 'it'));
-        const noneLabel = document.createElement('label');
-        noneLabel.innerHTML = `<input type="checkbox" value="none"> Nessuno`;
-        deptMenu.appendChild(noneLabel);
         departments.forEach(dept => {
             const label = document.createElement('label');
             const deptIT = translateDept(dept);
@@ -626,7 +624,7 @@ const debatePartyLabels = {
     'RL': 'PLR',
     'M-E': 'Alleanza del Centro',
     'G': 'Verdi',
-    'GL': 'PVL',
+    'GL': 'Verdi liberali',
     'BD': 'PBD',
     '': 'Consiglio federale'
 };

@@ -19,6 +19,7 @@ const partyColors = {
     'VERT-E-S': '#8BC34A',
     'Les Vert-e-s': '#8BC34A',
     'Al': '#8BC34A',
+    'Vert\'libéraux': '#CDDC39',
     'pvl': '#CDDC39',
     'PVL': '#CDDC39'
 };
@@ -31,9 +32,9 @@ const partyLabels = {
     'Le Centre': 'Le Centre',
     'Centre': 'Le Centre',
     'M-E': 'Le Centre',
-    'VERT-E-S': 'Verts',
-    'Les Vert-e-s': 'Verts',
-    'Al': 'Verts',
+    'VERT-E-S': 'VERT-E-S',
+    'Les Vert-e-s': 'VERT-E-S',
+    'Al': 'VERT-E-S',
     'pvl': 'Vert\'libéraux',
     'PVL': 'Vert\'libéraux'
 };
@@ -189,10 +190,6 @@ function populateObjectFilters() {
     if (deptMenu) {
         const departments = [...new Set(allData.map(d => d.department).filter(Boolean))];
         departments.sort((a, b) => translateDept(a).localeCompare(translateDept(b), 'fr'));
-        // Ajouter option "Aucun"
-        const noneLabel = document.createElement('label');
-        noneLabel.innerHTML = `<input type="checkbox" value="none"> Aucun`;
-        deptMenu.appendChild(noneLabel);
         departments.forEach(dept => {
             const label = document.createElement('label');
             const deptFR = translateDept(dept);
@@ -314,9 +311,6 @@ function populateDebateFilters() {
     if (deptMenu) {
         const departments = [...new Set(debatesData.map(d => d.department).filter(Boolean))];
         departments.sort((a, b) => translateDept(a).localeCompare(translateDept(b), 'fr'));
-        const noneLabel = document.createElement('label');
-        noneLabel.innerHTML = `<input type="checkbox" value="none"> Aucun`;
-        deptMenu.appendChild(noneLabel);
         departments.forEach(dept => {
             const label = document.createElement('label');
             const deptFR = translateDept(dept);
@@ -646,7 +640,7 @@ const debatePartyLabels = {
     'RL': 'PLR',
     'M-E': 'Le Centre',
     'G': 'VERT-E-S',
-    'GL': 'pvl',
+    'GL': 'Vert\'libéraux',
     'BD': 'PBD',
     '': 'Conseil fédéral'
 };

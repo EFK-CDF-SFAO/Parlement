@@ -25,6 +25,7 @@ const partyColors = {
     'Les Vert-e-s': '#8BC34A',
     'Al': '#8BC34A',
     'GLP': '#CDDC39',
+    'Grünliberale': '#CDDC39',
     'pvl': '#CDDC39',
     'PVL': '#CDDC39'
 };
@@ -174,9 +175,6 @@ function populateObjectFilters() {
     if (deptMenu) {
         const departments = [...new Set(allData.map(d => d.department).filter(Boolean))];
         departments.sort((a, b) => a.localeCompare(b, 'de'));
-        const noneLabel = document.createElement('label');
-        noneLabel.innerHTML = `<input type="checkbox" value="none"> Kein`;
-        deptMenu.appendChild(noneLabel);
         departments.forEach(dept => {
             const label = document.createElement('label');
             label.innerHTML = `<input type="checkbox" value="${dept}"> ${dept}`;
@@ -289,9 +287,6 @@ function populateDebateFilters() {
     if (deptMenu) {
         const departments = [...new Set(debatesData.map(d => d.department).filter(Boolean))];
         departments.sort((a, b) => a.localeCompare(b, 'de'));
-        const noneLabel = document.createElement('label');
-        noneLabel.innerHTML = `<input type="checkbox" value="none"> Kein`;
-        deptMenu.appendChild(noneLabel);
         departments.forEach(dept => {
             const label = document.createElement('label');
             label.innerHTML = `<input type="checkbox" value="${dept}"> ${dept}`;

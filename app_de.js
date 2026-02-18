@@ -262,11 +262,6 @@ function populateDepartmentFilter() {
     allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Alle`;
     deptMenu.appendChild(allLabel);
     
-    // Add "Kein" option for items without department
-    const noneLabel = document.createElement('label');
-    noneLabel.innerHTML = `<input type="checkbox" value="none"> Kein`;
-    deptMenu.appendChild(noneLabel);
-    
     departments.forEach(dept => {
         const label = document.createElement('label');
         label.innerHTML = `<input type="checkbox" value="${dept}"> ${dept}`;
