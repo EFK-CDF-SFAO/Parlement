@@ -377,6 +377,15 @@ function applyFilterFromUrl(dropdownId, filterValue) {
     updateFilterCount(dropdownId);
 }
 
+function getLegislature(date) {
+    if (!date) return null;
+    // 52ème législature: à partir de décembre 2023 (session d'hiver 2023)
+    // 51ème législature: décembre 2019 - septembre 2023
+    if (date >= '2023-12-01') return '52';
+    if (date >= '2019-12-01') return '51';
+    return null;
+}
+
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
     const typeValues = getCheckedValues('typeDropdown');
@@ -384,6 +393,7 @@ function applyFilters() {
     const yearValues = getCheckedValues('yearDropdown');
     const partyValues = getCheckedValues('partyDropdown');
     const departmentValues = getCheckedValues('departmentDropdown');
+    const legislatureValues = getCheckedValues('legislatureDropdown');
     
     filteredData = allData.filter(item => {
         // Text search avec word boundaries
@@ -434,6 +444,14 @@ function applyFilters() {
         if (departmentValues.length > 0) {
             const itemDept = item.department || 'none';
             if (!departmentValues.includes(itemDept)) {
+                return false;
+            }
+        }
+        
+        // Legislature filter (multiple)
+        if (legislatureValues.length > 0) {
+            const itemLegislature = getLegislature(item.date);
+            if (!legislatureValues.includes(itemLegislature)) {
                 return false;
             }
         }

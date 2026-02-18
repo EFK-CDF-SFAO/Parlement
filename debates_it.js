@@ -336,6 +336,14 @@ function setupEventListeners() {
     });
 }
 
+function getLegislatureFromSession(sessionId) {
+    if (!sessionId) return null;
+    const sessionStr = String(sessionId);
+    if (sessionStr.startsWith('52')) return '52';
+    if (sessionStr.startsWith('51')) return '51';
+    return null;
+}
+
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase().trim();
     const yearValues = getCheckedValues('yearDropdown');
@@ -343,6 +351,7 @@ function applyFilters() {
     const councilValues = getCheckedValues('councilDropdown');
     const partyValues = getCheckedValues('partyDropdown');
     const departmentValues = getCheckedValues('departmentDropdown');
+    const legislatureValues = getCheckedValues('legislatureDropdown');
     
     filteredData = allData.filter(item => {
         if (searchTerm) {
@@ -388,6 +397,14 @@ function applyFilters() {
         if (departmentValues) {
             const itemDept = item.department || 'none';
             if (!departmentValues.includes(itemDept)) {
+                return false;
+            }
+        }
+        
+        // Filtre legislatura
+        if (legislatureValues) {
+            const itemLegislature = getLegislatureFromSession(item.id_session);
+            if (!legislatureValues.includes(itemLegislature)) {
                 return false;
             }
         }
