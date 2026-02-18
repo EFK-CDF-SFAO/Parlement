@@ -42,23 +42,23 @@ This project provides:
 The project includes a bilingual GitHub Pages website (FR/DE) with:
 
 ### Pages
+- **Accueil** (`home.html` / `home_de.html`) — 🆕 Homepage with session summary and quick access
 - **Objets** (`index.html` / `index_de.html`) — Filter interventions by text, type, council, year, party
-- **Débats** (`debates.html` / `debates_de.html`) — 🆕 Parliamentary debate transcripts
+- **Débats** (`debates.html` / `debates_de.html`) — Parliamentary debate transcripts
 - **Statistiques** (`stats.html` / `stats_de.html`) — Interactive charts for both objects and debates
-- **Liste** (`liste.html` / `liste_de.html`) — Sortable table with all interventions + Excel export
 
 ### Features
-- 🔍 **Advanced filters**: Custom dropdown filters with checkboxes for multi-select
+- 🏠 **Homepage**: Session summary with latest interventions and debates overview
+- 🔍 **Advanced search**: Full-text search in titles AND submitted text (word boundary matching)
 - 🗣️ **Debate transcripts**: Full-text speeches with speaker details
 - 📊 **Dual statistics**: Charts for both parliamentary objects and debates
-- 🎛️ **Chart filters**: Filter statistics by Year, Council, Party, Session
-- 🏆 **Top rankings**: Most active MPs and speakers
-- 🌐 **Bilingual**: Full French/German translation
+- 🎛️ **Multi-select filters**: Type, Council, Year, Party, Session
+- 🌐 **Bilingual search**: FR/DE synonyms (CDF↔EFK) automatically included
 - 📱 **Responsive**: Optimized for desktop and mobile
-- 🔶 **Smart highlighting**: CDF/EFK terms highlighted in debate texts
-- 📈 **Clickable charts**: Click to filter search results
+- 🔶 **Smart highlighting**: Search terms highlighted in results
 - ⬆️ **Back to top**: Quick scroll button on mobile
 - ➕ **Progressive loading**: "Show more" replaces pagination
+- 🏛️ **Favicon**: Custom parliament icon in browser tab
 
 **Live URL**: `https://arnaudbon20.github.io/EFK_CDF_Parlement/`
 
@@ -112,16 +112,36 @@ remotes::install_github("zumbov2/swissparl")
 
 ## Usage
 
-### Running the R Script
+### Running the R Scripts
+
+#### Parliamentary Objects (`Recherche_CDF_EFK.R`)
+
+```bash
+Rscript Recherche_CDF_EFK.R
+```
 
 The script will:
-1. Query all sessions from the current legislature (52)
-2. Search for interventions mentioning SFAO in German
-3. Search for interventions mentioning SFAO in French
-4. Merge and deduplicate results
+1. Load existing data from Excel (incremental mode)
+2. Search last 6 months for new/updated interventions
+3. Fetch full details including **submitted text** for search
+4. Generate session summary for homepage
 5. Export to:
-   - `Objets_parlementaires_CDF_EFK.xlsx` (Excel file with full details)
-   - `CDF_Data.js` (JavaScript module for the iOS widget)
+   - `Objets_parlementaires_CDF_EFK.xlsx` (Excel with full details)
+   - `cdf_efk_data.json` (JSON for website with text for search)
+
+#### Parliamentary Debates (`Recherche_Debats.R`)
+
+```bash
+Rscript Recherche_Debats.R
+```
+
+The script will:
+1. Search debate transcripts from configured sessions
+2. Extract speaker info (name, party, canton)
+3. Export bilingual titles (FR/DE)
+4. Export to:
+   - `Debats_CDF_EFK.xlsx` (Excel with transcripts)
+   - `debates_data.json` (JSON for website)
 
 ### Configuration
 
@@ -131,10 +151,8 @@ Edit the following variables in `Recherche_CDF_EFK.R`:
 # Legislature to analyze (52 = 2023-2027)
 Legislatur <- 52
 
-# Business types to search
-# 5 = Motion, 6 = Postulate, 8/9/10 = Interpellation
-# 12/13/14/18/19 = Questions
-Geschaeftstyp <- c(5, 6, 8, 9, 10, 12, 13, 14, 18, 19)
+# Months to search in incremental mode
+MOIS_MISE_A_JOUR <- 6
 ```
 
 ## Output Files
@@ -187,10 +205,26 @@ MIT License
 
 ## Automation
 
-A GitHub Action runs automatically **every 2 days at 22h UTC (23h Swiss time)** to update the data:
-- Executes the R script
-- Commits updated JSON and Excel files
-- Deploys to GitHub Pages
-- No manual intervention required
+### GitHub Actions
 
-You can also trigger it manually from the **Actions** tab on GitHub.
+A GitHub Action runs automatically to update the data:
+
+| Schedule | Action |
+|----------|--------|
+| Every 2 days at 22h UTC | Update parliamentary objects (`Recherche_CDF_EFK.R`) |
+| Every 2 days at 22h UTC | Update debate transcripts (`Recherche_Debats.R`) |
+
+The workflow:
+1. Executes both R scripts
+2. Commits updated JSON and Excel files
+3. Deploys to GitHub Pages
+4. No manual intervention required
+
+**Manual trigger**: Go to the **Actions** tab on GitHub → Select workflow → "Run workflow"
+
+### Session Updates
+
+The homepage automatically displays the **last completed session** summary:
+- Session dates are defined in `sessions.json`
+- Homepage switches to next session after the end date
+- No code changes needed for new sessions (just update `sessions.json`)
