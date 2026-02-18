@@ -105,6 +105,7 @@ async function init() {
         populateSessionFilter();
         populateCouncilFilter();
         populatePartyFilter();
+        populateDepartmentFilter();
         initDropdownFilters();
         
         // Gérer les paramètres URL depuis la page stats
@@ -237,6 +238,29 @@ function populatePartyFilter() {
     });
 }
 
+function populateDepartmentFilter() {
+    const deptMenu = document.getElementById('departmentMenu');
+    if (!deptMenu) return;
+    
+    const departments = [...new Set(allData.map(item => item.department).filter(Boolean))];
+    departments.sort((a, b) => a.localeCompare(b, 'de'));
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Alle`;
+    deptMenu.appendChild(allLabel);
+    
+    const noneLabel = document.createElement('label');
+    noneLabel.innerHTML = `<input type="checkbox" value="none"> Kein`;
+    deptMenu.appendChild(noneLabel);
+    
+    departments.forEach(dept => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${dept}"> ${dept}`;
+        deptMenu.appendChild(label);
+    });
+}
+
 function initDropdownFilters() {
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
         const btn = dropdown.querySelector('.filter-btn');
@@ -335,6 +359,7 @@ function applyFilters() {
     const sessionValues = getCheckedValues('sessionDropdown');
     const councilValues = getCheckedValues('councilDropdown');
     const partyValues = getCheckedValues('partyDropdown');
+    const departmentValues = getCheckedValues('departmentDropdown');
     
     filteredData = allData.filter(item => {
         if (searchTerm) {
@@ -377,6 +402,14 @@ function applyFilters() {
         
         if (partyValues && !partyValues.includes(item.party)) {
             return false;
+        }
+        
+        // Filtre Departement
+        if (departmentValues) {
+            const itemDept = item.department || 'none';
+            if (!departmentValues.includes(itemDept)) {
+                return false;
+            }
         }
         
         return true;

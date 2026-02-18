@@ -202,6 +202,17 @@ for (sid in subject_ids) {
     
     base_result <- if(nrow(result_fr) > 0) result_fr else result_de
     
+    # Récupérer le département via la table Business
+    dept <- NA_character_
+    if(nrow(base_result) > 0 && !is.na(base_result$BusinessNumber[1])) {
+      business_info <- tryCatch({
+        get_data(table = "Business", ID = base_result$BusinessNumber[1], Language = "DE")
+      }, error = function(e) NULL)
+      if(!is.null(business_info) && nrow(business_info) > 0 && "ResponsibleDepartmentAbbreviation" %in% names(business_info)) {
+        dept <- business_info$ResponsibleDepartmentAbbreviation[1]
+      }
+    }
+    
     if(nrow(base_result) > 0) {
       tibble(
         IdSubject = base_result$IdSubject[1],
@@ -209,7 +220,8 @@ for (sid in subject_ids) {
         BusinessShortNumber = base_result$BusinessShortNumber[1],
         TitleFR = title_fr,
         TitleDE = title_de,
-        TitleIT = title_it
+        TitleIT = title_it,
+        Department = dept
       )
     } else {
       NULL
@@ -242,7 +254,8 @@ if (!is.null(SubjectBusiness_All) && nrow(SubjectBusiness_All) > 0) {
       BusinessShortNumber = NA_character_,
       TitleFR = NA_character_,
       TitleDE = NA_character_,
-      TitleIT = NA_character_
+      TitleIT = NA_character_,
+      Department = NA_character_
     )
 }
 
@@ -289,6 +302,7 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
       business_title_fr = coalesce(TitleFR, TitleDE),
       business_title_de = coalesce(TitleDE, TitleFR),
       business_title_it = coalesce(TitleIT, TitleFR),
+      department = Department,
       text = Text,
       language = Langue
     )

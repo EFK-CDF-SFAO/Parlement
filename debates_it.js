@@ -81,6 +81,7 @@ async function init() {
         populateSessionFilter();
         populateCouncilFilter();
         populatePartyFilter();
+        populateDepartmentFilter();
         initDropdownFilters();
         
         const urlParams = new URLSearchParams(window.location.search);
@@ -207,6 +208,44 @@ function populatePartyFilter() {
     });
 }
 
+function translateDepartment(deptDE) {
+    const translations = {
+        'EFD': 'DFF',
+        'EDI': 'DFI',
+        'UVEK': 'DATEC',
+        'VBS': 'DDPS',
+        'EJPD': 'DFGP',
+        'EDA': 'DFAE',
+        'WBF': 'DEFR',
+        'Parl': 'Parl'
+    };
+    return translations[deptDE] || deptDE;
+}
+
+function populateDepartmentFilter() {
+    const deptMenu = document.getElementById('departmentMenu');
+    if (!deptMenu) return;
+    
+    const departments = [...new Set(allData.map(item => item.department).filter(Boolean))];
+    departments.sort((a, b) => translateDepartment(a).localeCompare(translateDepartment(b), 'it'));
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tutti`;
+    deptMenu.appendChild(allLabel);
+    
+    const noneLabel = document.createElement('label');
+    noneLabel.innerHTML = `<input type="checkbox" value="none"> Nessuno`;
+    deptMenu.appendChild(noneLabel);
+    
+    departments.forEach(dept => {
+        const label = document.createElement('label');
+        const deptIT = translateDepartment(dept);
+        label.innerHTML = `<input type="checkbox" value="${dept}"> ${deptIT}`;
+        deptMenu.appendChild(label);
+    });
+}
+
 function initDropdownFilters() {
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
         const btn = dropdown.querySelector('.filter-btn');
@@ -305,6 +344,7 @@ function applyFilters() {
     const sessionValues = getCheckedValues('sessionDropdown');
     const councilValues = getCheckedValues('councilDropdown');
     const partyValues = getCheckedValues('partyDropdown');
+    const departmentValues = getCheckedValues('departmentDropdown');
     
     filteredData = allData.filter(item => {
         if (searchTerm) {
@@ -344,6 +384,14 @@ function applyFilters() {
         
         if (partyValues && !partyValues.includes(item.party)) {
             return false;
+        }
+        
+        // Filtre dipartimento
+        if (departmentValues) {
+            const itemDept = item.department || 'none';
+            if (!departmentValues.includes(itemDept)) {
+                return false;
+            }
         }
         
         return true;
