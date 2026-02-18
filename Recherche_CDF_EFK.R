@@ -68,6 +68,11 @@ pattern_cdf_fr <- regex(
   ignore_case = TRUE
 )
 
+pattern_cdf_it <- regex(
+  "\\bControllo\\s+federale\\s+delle\\s+finanze\\b|\\bCDF\\b",
+  ignore_case = TRUE
+)
+
 pattern_faux_positif_cdf <- regex("\\bCDF-[NE]\\b", ignore_case = TRUE)
 
 # ============================================================================
@@ -421,8 +426,8 @@ if (length(IDs_A_Traiter) > 0) {
         na0(FederalCouncilResponseText_FR),
         sep = " "
       ) |> strip_html(),
-      Mention_Elu = str_detect(Texte_Question, pattern_efk_de) | str_detect(Texte_Question, pattern_cdf_fr),
-      Mention_CF = str_detect(Texte_Reponse, pattern_efk_de) | str_detect(Texte_Reponse, pattern_cdf_fr),
+      Mention_Elu = str_detect(Texte_Question, pattern_efk_de) | str_detect(Texte_Question, pattern_cdf_fr) | str_detect(Texte_Question, pattern_cdf_it),
+      Mention_CF = str_detect(Texte_Reponse, pattern_efk_de) | str_detect(Texte_Reponse, pattern_cdf_fr) | str_detect(Texte_Reponse, pattern_cdf_it),
       Mention = case_when(
         Mention_Elu & Mention_CF ~ "Élu & Conseil fédéral",
         Mention_Elu ~ "Élu",

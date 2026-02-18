@@ -590,16 +590,36 @@ function getStatusIT(status) {
     if (!status) return '';
     
     const translations = {
+        // Statuts liquidés
         'Liquidé': 'Liquidato',
         'Erledigt': 'Liquidato',
-        'Im Rat noch nicht behandelt': 'Non ancora trattato',
-        'Au Conseil, pas encore traité': 'Non ancora trattato',
+        // Non traité
+        'Im Rat noch nicht behandelt': 'Non ancora trattato in Consiglio',
+        'Au Conseil, pas encore traité': 'Non ancora trattato in Consiglio',
+        // Accepté/Adopté
         'Angenommen': 'Accettato',
         'Adopté': 'Accettato',
+        // Rejeté
         'Abgelehnt': 'Respinto',
         'Rejeté': 'Respinto',
+        // Retiré
         'Zurückgezogen': 'Ritirato',
-        'Retiré': 'Ritirato'
+        'Retiré': 'Ritirato',
+        // Transmis au CF
+        'Transmis au Conseil fédéral': 'Trasmesso al Consiglio federale',
+        'An den Bundesrat überwiesen': 'Trasmesso al Consiglio federale',
+        // Commission
+        'Attribué à la commission compétente': 'Assegnato alla commissione competente',
+        'Der zuständigen Kommission zugewiesen': 'Assegnato alla commissione competente',
+        // Déclaration disponible
+        'La déclaration sur l\'intervention est disponible': 'La dichiarazione sull\'intervento è disponibile',
+        'Die Erklärung zum Vorstoss liegt vor': 'La dichiarazione sull\'intervento è disponibile',
+        // En suspens
+        'Suspendu': 'Sospeso',
+        'Sistiert': 'Sospeso',
+        // Classé
+        'Classé': 'Tolto dal ruolo',
+        'Abgeschrieben': 'Tolto dal ruolo'
     };
     
     if (status.includes('/')) {

@@ -66,6 +66,12 @@ pattern_cdf_fr <- regex(
   ignore_case = TRUE
 )
 
+# Pattern italien (CDF)
+pattern_cdf_it <- regex(
+  "Controllo federale delle finanze",
+  ignore_case = TRUE
+)
+
 # Faux positifs à exclure (Commission des finances)
 pattern_faux_positif_cdf <- regex(
   "CDF-N|CDF-E|Commission des finances",
@@ -136,8 +142,33 @@ for (session_id in SESSIONS_DEBATS) {
     Debats_FR <- NULL
   }
   
+  # Recherche en italien
+  cat("  Recherche IT...")
+  Debats_IT <- tryCatch({
+    get_data(table = "Transcript", Language = "IT", IdSession = session_id) |>
+      filter(!is.na(Text)) |>
+      mutate(Text = strip_html(Text)) |>
+      filter(str_detect(Text, pattern_cdf_it)) |>
+      mutate(Langue = "IT") |>
+      select(
+        ID, IdSession, IdSubject, SortOrder, MeetingDate, MeetingCouncilAbbreviation, 
+        SpeakerFullName, SpeakerFunction, ParlGroupAbbreviation, CantonAbbreviation,
+        Text, Langue, Start, End
+      )
+  }, error = function(e) {
+    cat(" erreur:", e$message, "\n")
+    NULL
+  })
+  
+  if (!is.null(Debats_IT) && nrow(Debats_IT) > 0) {
+    cat(" ", nrow(Debats_IT), "trouvés\n")
+  } else {
+    cat(" 0 trouvés\n")
+    Debats_IT <- NULL
+  }
+  
   # Combiner
-  session_debats <- bind_rows(Debats_DE, Debats_FR)
+  session_debats <- bind_rows(Debats_DE, Debats_FR, Debats_IT)
   Debats_Tous <- bind_rows(Debats_Tous, session_debats)
 }
 
