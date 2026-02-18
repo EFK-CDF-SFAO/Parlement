@@ -444,7 +444,10 @@ function renderPartyChart() {
                 legend: { display: false }
             },
             scales: {
-                x: { beginAtZero: true }
+                x: { 
+                    beginAtZero: true,
+                    ticks: { stepSize: 1 }
+                }
             },
             onClick: (event, elements) => {
                 if (elements.length > 0) {
@@ -667,7 +670,10 @@ function renderDebatePartyChart() {
                 legend: { display: false }
             },
             scales: {
-                x: { beginAtZero: true }
+                x: { 
+                    beginAtZero: true,
+                    ticks: { stepSize: 1 }
+                }
             },
             onClick: (event, elements) => {
                 if (elements.length > 0) {
