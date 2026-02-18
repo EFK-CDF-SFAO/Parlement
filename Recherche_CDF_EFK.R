@@ -297,9 +297,16 @@ if (!is.null(Donnees_Existantes)) {
       Donnees_Existantes |> filter(is.na(Auteur) | Auteur == "") |> pull(ID))
   }
   
+  # Ajouter les objets sans département pour récupérer cette info
+  if ("Département" %in% names(Donnees_Existantes)) {
+    IDs_Sans_Dept <- Donnees_Existantes |> filter(is.na(Département) | Département == "") |> pull(ID)
+    IDs_Recalcul_Interne <- c(IDs_Recalcul_Interne, IDs_Sans_Dept)
+    cat("Objets sans département:", length(IDs_Sans_Dept), "\n")
+  }
+  
   IDs_Recalcul_Interne <- unique(IDs_Recalcul_Interne)
   IDs_A_Mettre_A_Jour <- unique(c(IDs_A_Mettre_A_Jour, IDs_Recalcul_Interne))
-  cat("Objets à recalculer (Mention/Auteur):", length(IDs_Recalcul_Interne), "\n")
+  cat("Objets à recalculer (Mention/Auteur/Dept):", length(IDs_Recalcul_Interne), "\n")
 }
 
 cat("Nouveaux objets:", length(Nouveaux_IDs), "\n")
