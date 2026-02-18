@@ -31,17 +31,27 @@
             <h2>📊 Statistiken der Vorstösse</h2>
             
             <div class="stats-filters">
-                <select id="objectYearFilter">
-                    <option value="">Alle Jahre</option>
-                </select>
-                <select id="objectCouncilFilter">
-                    <option value="">Alle Räte</option>
-                    <option value="N">Nationalrat</option>
-                    <option value="S">Ständerat</option>
-                </select>
-                <select id="objectPartyFilter">
-                    <option value="">Alle Parteien</option>
-                </select>
+                <div class="filter-dropdown" id="objectYearDropdown">
+                    <button class="filter-btn" type="button">Jahr <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="objectYearMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="objectCouncilDropdown">
+                    <button class="filter-btn" type="button">Rat <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
+                        <label><input type="checkbox" value="N"> Nationalrat</label>
+                        <label><input type="checkbox" value="S"> Ständerat</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="objectPartyDropdown">
+                    <button class="filter-btn" type="button">Partei <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="objectPartyMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetObjectFilters" title="Zurücksetzen">↻</button>
             </div>
             
             <div class="stats-row">
@@ -81,20 +91,38 @@
             <h2>🗣️ Debatten-Statistiken</h2>
             
             <div class="stats-filters">
-                <select id="debateYearFilter">
-                    <option value="">Alle Jahre</option>
-                </select>
-                <select id="debateSessionFilter">
-                    <option value="">Alle Sessionen</option>
-                </select>
-                <select id="debateCouncilFilter">
-                    <option value="">Alle Räte</option>
-                    <option value="N">Nationalrat</option>
-                    <option value="S">Ständerat</option>
-                </select>
-                <select id="debatePartyFilter">
-                    <option value="">Alle Parteien</option>
-                </select>
+                <div class="filter-dropdown" id="debateYearDropdown">
+                    <button class="filter-btn" type="button">Jahr <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debateYearMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debateSessionDropdown">
+                    <button class="filter-btn" type="button">Session <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debateSessionMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
+                        <label><input type="checkbox" value="Frühjahr"> Frühjahr</label>
+                        <label><input type="checkbox" value="Sommer"> Sommer</label>
+                        <label><input type="checkbox" value="Herbst"> Herbst</label>
+                        <label><input type="checkbox" value="Winter"> Winter</label>
+                        <label><input type="checkbox" value="Sonder"> Sonder</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debateCouncilDropdown">
+                    <button class="filter-btn" type="button">Rat <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
+                        <label><input type="checkbox" value="N"> Nationalrat</label>
+                        <label><input type="checkbox" value="S"> Ständerat</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debatePartyDropdown">
+                    <button class="filter-btn" type="button">Partei <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debatePartyMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Alle</label>
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetDebateFilters" title="Zurücksetzen">↻</button>
             </div>
             
             <div class="stats-row">

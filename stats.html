@@ -31,17 +31,27 @@
             <h2>📊 Statistiques des interventions</h2>
             
             <div class="stats-filters">
-                <select id="objectYearFilter">
-                    <option value="">Toutes les années</option>
-                </select>
-                <select id="objectCouncilFilter">
-                    <option value="">Tous les conseils</option>
-                    <option value="N">Conseil national</option>
-                    <option value="S">Conseil des États</option>
-                </select>
-                <select id="objectPartyFilter">
-                    <option value="">Tous les partis</option>
-                </select>
+                <div class="filter-dropdown" id="objectYearDropdown">
+                    <button class="filter-btn" type="button">Année <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="objectYearMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Toutes</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="objectCouncilDropdown">
+                    <button class="filter-btn" type="button">Conseil <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tous</label>
+                        <label><input type="checkbox" value="N"> Conseil national</label>
+                        <label><input type="checkbox" value="S"> Conseil des États</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="objectPartyDropdown">
+                    <button class="filter-btn" type="button">Parti <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="objectPartyMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tous</label>
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetObjectFilters" title="Réinitialiser">↻</button>
             </div>
             
             <div class="stats-row">
@@ -81,20 +91,38 @@
             <h2>🗣️ Statistiques des débats</h2>
             
             <div class="stats-filters">
-                <select id="debateYearFilter">
-                    <option value="">Toutes les années</option>
-                </select>
-                <select id="debateSessionFilter">
-                    <option value="">Toutes les sessions</option>
-                </select>
-                <select id="debateCouncilFilter">
-                    <option value="">Tous les conseils</option>
-                    <option value="N">Conseil national</option>
-                    <option value="S">Conseil des États</option>
-                </select>
-                <select id="debatePartyFilter">
-                    <option value="">Tous les partis</option>
-                </select>
+                <div class="filter-dropdown" id="debateYearDropdown">
+                    <button class="filter-btn" type="button">Année <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debateYearMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Toutes</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debateSessionDropdown">
+                    <button class="filter-btn" type="button">Session <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debateSessionMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Toutes</label>
+                        <label><input type="checkbox" value="Printemps"> Printemps</label>
+                        <label><input type="checkbox" value="Été"> Été</label>
+                        <label><input type="checkbox" value="Automne"> Automne</label>
+                        <label><input type="checkbox" value="Hiver"> Hiver</label>
+                        <label><input type="checkbox" value="Spéciale"> Spéciale</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debateCouncilDropdown">
+                    <button class="filter-btn" type="button">Conseil <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tous</label>
+                        <label><input type="checkbox" value="N"> Conseil national</label>
+                        <label><input type="checkbox" value="S"> Conseil des États</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="debatePartyDropdown">
+                    <button class="filter-btn" type="button">Parti <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="debatePartyMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tous</label>
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetDebateFilters" title="Réinitialiser">↻</button>
             </div>
             
             <div class="stats-row">

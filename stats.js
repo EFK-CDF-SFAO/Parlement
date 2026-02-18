@@ -91,62 +91,129 @@ async function init() {
     }
 }
 
+function getCheckedValues(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+    const selectAll = dropdown.querySelector('[data-select-all]');
+    if (selectAll && selectAll.checked) return [];
+    return Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+}
+
+function setupDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const btn = dropdown.querySelector('.filter-btn');
+    const menu = dropdown.querySelector('.filter-menu');
+    const selectAll = dropdown.querySelector('[data-select-all]');
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+    const countSpan = dropdown.querySelector('.filter-count');
+    
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.filter-dropdown.open').forEach(d => {
+            if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+    });
+    
+    function updateCount() {
+        const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+        if (selectAll && selectAll.checked) {
+            countSpan.textContent = '';
+        } else if (checked > 0) {
+            countSpan.textContent = `(${checked})`;
+        } else {
+            countSpan.textContent = '';
+        }
+    }
+    
+    if (selectAll) {
+        selectAll.addEventListener('change', () => {
+            checkboxes.forEach(cb => cb.checked = false);
+            updateCount();
+        });
+    }
+    
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+            if (cb.checked && selectAll) selectAll.checked = false;
+            if (!Array.from(checkboxes).some(c => c.checked) && selectAll) selectAll.checked = true;
+            updateCount();
+        });
+    });
+    
+    updateCount();
+}
+
 function populateObjectFilters() {
     // Populer filtre années
-    const yearFilter = document.getElementById('objectYearFilter');
-    const years = [...new Set(allData.map(d => {
-        if (d.date) return d.date.substring(0, 4);
-        return null;
-    }).filter(Boolean))];
+    const yearMenu = document.getElementById('objectYearMenu');
+    const years = [...new Set(allData.map(d => d.date ? d.date.substring(0, 4) : null).filter(Boolean))];
     years.sort().reverse();
     years.forEach(year => {
-        const option = document.createElement('option');
-        option.value = year;
-        option.textContent = year;
-        yearFilter.appendChild(option);
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${year}"> ${year}`;
+        yearMenu.appendChild(label);
     });
     
     // Populer filtre partis
-    const partyFilter = document.getElementById('objectPartyFilter');
+    const partyMenu = document.getElementById('objectPartyMenu');
     const parties = [...new Set(allData.map(d => {
         const party = d.party || getPartyFromAuthor(d.author);
         return normalizeParty(party);
     }).filter(Boolean))];
     parties.sort();
     parties.forEach(party => {
-        const option = document.createElement('option');
-        option.value = party;
-        option.textContent = party;
-        partyFilter.appendChild(option);
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${party}"> ${party}`;
+        partyMenu.appendChild(label);
     });
+    
+    // Setup dropdowns
+    setupDropdown('objectYearDropdown');
+    setupDropdown('objectCouncilDropdown');
+    setupDropdown('objectPartyDropdown');
 }
 
 function setupObjectFilterListeners() {
-    document.getElementById('objectYearFilter').addEventListener('change', applyObjectFilters);
-    document.getElementById('objectCouncilFilter').addEventListener('change', applyObjectFilters);
-    document.getElementById('objectPartyFilter').addEventListener('change', applyObjectFilters);
+    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown'].forEach(id => {
+        document.getElementById(id).addEventListener('change', applyObjectFilters);
+    });
+    document.getElementById('resetObjectFilters').addEventListener('click', resetObjectFilters);
+}
+
+function resetObjectFilters() {
+    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown'].forEach(id => {
+        const dropdown = document.getElementById(id);
+        const selectAll = dropdown.querySelector('[data-select-all]');
+        const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+        if (selectAll) selectAll.checked = true;
+        checkboxes.forEach(cb => cb.checked = false);
+        dropdown.querySelector('.filter-count').textContent = '';
+    });
+    applyObjectFilters();
 }
 
 function applyObjectFilters() {
-    const yearFilter = document.getElementById('objectYearFilter').value;
-    const councilFilter = document.getElementById('objectCouncilFilter').value;
-    const partyFilter = document.getElementById('objectPartyFilter').value;
+    const yearFilters = getCheckedValues('objectYearDropdown');
+    const councilFilters = getCheckedValues('objectCouncilDropdown');
+    const partyFilters = getCheckedValues('objectPartyDropdown');
     
     filteredData = allData.filter(item => {
         // Filtre année
-        if (yearFilter && item.date) {
-            if (!item.date.startsWith(yearFilter)) return false;
+        if (yearFilters.length > 0 && item.date) {
+            const year = item.date.substring(0, 4);
+            if (!yearFilters.includes(year)) return false;
         }
         // Filtre conseil (NR=N, SR=S)
-        if (councilFilter) {
+        if (councilFilters.length > 0) {
             const councilCode = item.council === 'NR' ? 'N' : item.council === 'SR' ? 'S' : item.council;
-            if (councilCode !== councilFilter) return false;
+            if (!councilFilters.includes(councilCode)) return false;
         }
         // Filtre parti
-        if (partyFilter) {
+        if (partyFilters.length > 0) {
             const itemParty = item.party || getPartyFromAuthor(item.author);
             const normalizedParty = normalizeParty(itemParty);
-            if (normalizedParty !== partyFilter) return false;
+            if (!partyFilters.includes(normalizedParty)) return false;
         }
         return true;
     });
@@ -177,72 +244,81 @@ const sessionTypes = {
 
 function populateDebateFilters() {
     // Populer filtre années
-    const yearFilter = document.getElementById('debateYearFilter');
+    const yearMenu = document.getElementById('debateYearMenu');
     const years = [...new Set(debatesData.map(d => d.date ? d.date.substring(0, 4) : null).filter(Boolean))];
     years.sort().reverse();
     years.forEach(year => {
-        const option = document.createElement('option');
-        option.value = year;
-        option.textContent = year;
-        yearFilter.appendChild(option);
-    });
-    
-    // Populer filtre sessions (5 types)
-    const sessionFilter = document.getElementById('debateSessionFilter');
-    const sessionTypesList = ['Hiver', 'Printemps', 'Été', 'Automne', 'Spéciale'];
-    sessionTypesList.forEach(sessionType => {
-        const option = document.createElement('option');
-        option.value = sessionType;
-        option.textContent = sessionType;
-        sessionFilter.appendChild(option);
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${year}"> ${year}`;
+        yearMenu.appendChild(label);
     });
     
     // Populer filtre partis
-    const partyFilter = document.getElementById('debatePartyFilter');
+    const partyMenu = document.getElementById('debatePartyMenu');
     const parties = [...new Set(debatesData.map(d => {
         if (!d.party) return 'Conseil fédéral';
         return debatePartyLabels[d.party] || d.party;
     }))];
     parties.sort();
     parties.forEach(party => {
-        const option = document.createElement('option');
-        option.value = party;
-        option.textContent = party;
-        partyFilter.appendChild(option);
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${party}"> ${party}`;
+        partyMenu.appendChild(label);
     });
+    
+    // Setup dropdowns
+    setupDropdown('debateYearDropdown');
+    setupDropdown('debateSessionDropdown');
+    setupDropdown('debateCouncilDropdown');
+    setupDropdown('debatePartyDropdown');
 }
 
 function setupDebateFilterListeners() {
-    document.getElementById('debateYearFilter').addEventListener('change', applyDebateFilters);
-    document.getElementById('debateSessionFilter').addEventListener('change', applyDebateFilters);
-    document.getElementById('debateCouncilFilter').addEventListener('change', applyDebateFilters);
-    document.getElementById('debatePartyFilter').addEventListener('change', applyDebateFilters);
+    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown'].forEach(id => {
+        document.getElementById(id).addEventListener('change', applyDebateFilters);
+    });
+    document.getElementById('resetDebateFilters').addEventListener('click', resetDebateFilters);
+}
+
+function resetDebateFilters() {
+    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown'].forEach(id => {
+        const dropdown = document.getElementById(id);
+        const selectAll = dropdown.querySelector('[data-select-all]');
+        const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+        if (selectAll) selectAll.checked = true;
+        checkboxes.forEach(cb => cb.checked = false);
+        dropdown.querySelector('.filter-count').textContent = '';
+    });
+    applyDebateFilters();
 }
 
 function applyDebateFilters() {
-    const yearFilter = document.getElementById('debateYearFilter').value;
-    const sessionFilter = document.getElementById('debateSessionFilter').value;
-    const councilFilter = document.getElementById('debateCouncilFilter').value;
-    const partyFilter = document.getElementById('debatePartyFilter').value;
+    const yearFilters = getCheckedValues('debateYearDropdown');
+    const sessionFilters = getCheckedValues('debateSessionDropdown');
+    const councilFilters = getCheckedValues('debateCouncilDropdown');
+    const partyFilters = getCheckedValues('debatePartyDropdown');
     
     filteredDebatesData = debatesData.filter(item => {
         // Filtre année
-        if (yearFilter && item.date) {
-            if (!item.date.startsWith(yearFilter)) return false;
+        if (yearFilters.length > 0 && item.date) {
+            const year = item.date.substring(0, 4);
+            if (!yearFilters.includes(year)) return false;
         }
         // Filtre session (par type)
-        if (sessionFilter && sessionTypes[item.id_session] !== sessionFilter) return false;
+        if (sessionFilters.length > 0) {
+            const sessionType = sessionTypes[item.id_session];
+            if (!sessionFilters.includes(sessionType)) return false;
+        }
         // Filtre conseil
-        if (councilFilter && item.council !== councilFilter) return false;
+        if (councilFilters.length > 0 && !councilFilters.includes(item.council)) return false;
         // Filtre parti
-        if (partyFilter) {
+        if (partyFilters.length > 0) {
             const itemParty = item.party ? (debatePartyLabels[item.party] || item.party) : 'Conseil fédéral';
-            if (itemParty !== partyFilter) return false;
+            if (!partyFilters.includes(itemParty)) return false;
         }
         return true;
     });
     
-    // Trier du plus récent au plus vieux
     filteredDebatesData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     
     renderAllDebateCharts();
@@ -579,7 +655,7 @@ function renderDebateCouncilChart() {
     
     const labels = Object.keys(councilCounts);
     const data = Object.values(councilCounts);
-    const colors = ['#3949ab', '#7986cb'];
+    const colors = ['#d32f2f', '#1976d2'];
     
     const ctx = document.getElementById('debateCouncilChart').getContext('2d');
     debateCouncilChartInstance = new Chart(ctx, {
@@ -687,3 +763,7 @@ function renderDebateSummary() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+document.addEventListener('click', () => {
+    document.querySelectorAll('.filter-dropdown.open').forEach(d => d.classList.remove('open'));
+});
