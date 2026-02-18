@@ -39,9 +39,10 @@ async function init() {
         // Display session summary if available
         displaySessionSummary(json.session_summary);
         
-        // Populate year and party filters
+        // Populate year, party and department filters
         populateYearFilter();
         populatePartyFilter();
+        populateDepartmentFilter();
         
         // Initialize dropdown filters
         initDropdownFilters();
@@ -248,6 +249,31 @@ function populatePartyFilter() {
     });
 }
 
+function populateDepartmentFilter() {
+    const deptMenu = document.getElementById('departmentMenu');
+    if (!deptMenu) return;
+    
+    const departments = [...new Set(allData.map(item => item.department).filter(Boolean))];
+    departments.sort((a, b) => a.localeCompare(b, 'de'));
+    
+    // Add "Alle" option (checked by default)
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Alle`;
+    deptMenu.appendChild(allLabel);
+    
+    // Add "Kein" option for items without department
+    const noneLabel = document.createElement('label');
+    noneLabel.innerHTML = `<input type="checkbox" value="none"> Kein`;
+    deptMenu.appendChild(noneLabel);
+    
+    departments.forEach(dept => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${dept}"> ${dept}`;
+        deptMenu.appendChild(label);
+    });
+}
+
 function getCheckedValues(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
     if (!dropdown) return [];
@@ -354,6 +380,7 @@ function applyFilters() {
     const councilValues = getCheckedValues('councilDropdown');
     const yearValues = getCheckedValues('yearDropdown');
     const partyValues = getCheckedValues('partyDropdown');
+    const departmentValues = getCheckedValues('departmentDropdown');
     
     filteredData = allData.filter(item => {
         // Text search avec word boundaries
@@ -396,6 +423,14 @@ function applyFilters() {
         if (partyValues.length > 0) {
             const itemParty = translateParty(item.party) || getPartyFromAuthor(item.author);
             if (!partyValues.includes(itemParty)) {
+                return false;
+            }
+        }
+        
+        // Department filter (multiple)
+        if (departmentValues.length > 0) {
+            const itemDept = item.department || 'none';
+            if (!departmentValues.includes(itemDept)) {
                 return false;
             }
         }
