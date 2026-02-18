@@ -1,6 +1,7 @@
 // Configuration
 const DATA_URL = 'cdf_efk_data.json';
 const DEBATES_URL = 'debates_data.json';
+const SESSIONS_URL = 'sessions.json';
 
 // Traduction des types d'objets
 const typeLabels = {
@@ -17,12 +18,19 @@ document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
     try {
+        // Load sessions data
+        const sessionsResponse = await fetch(SESSIONS_URL);
+        const sessionsJson = await sessionsResponse.json();
+        
+        // Déterminer la session à afficher (dernière session terminée)
+        const currentSession = getCurrentSession(sessionsJson.sessions);
+        
         // Load objects data
         const objectsResponse = await fetch(DATA_URL);
         const objectsJson = await objectsResponse.json();
         
-        // Display session summary
-        displaySessionSummary(objectsJson.session_summary);
+        // Display session summary avec session déterminée automatiquement
+        displaySessionSummary(objectsJson.session_summary, currentSession);
         
         // Display objects list
         displayObjectsList(objectsJson.session_summary);
@@ -32,11 +40,54 @@ async function init() {
         const debatesJson = await debatesResponse.json();
         
         // Display debates summary
-        displayDebatesSummary(debatesJson, objectsJson.session_summary);
+        displayDebatesSummary(debatesJson, currentSession);
         
     } catch (error) {
         console.error('Error loading data:', error);
     }
+}
+
+// Déterminer la dernière session terminée (afficher jusqu'au vendredi 9h de fin de session suivante)
+function getCurrentSession(sessions) {
+    const now = new Date();
+    
+    // Trier les sessions par date de début
+    const sortedSessions = sessions
+        .filter(s => s.type === 'ordinaire')
+        .sort((a, b) => new Date(a.start) - new Date(b.start));
+    
+    // Trouver la dernière session terminée
+    let lastEndedSession = null;
+    let nextSession = null;
+    
+    for (let i = 0; i < sortedSessions.length; i++) {
+        const session = sortedSessions[i];
+        const endDate = new Date(session.end);
+        
+        // Calculer le vendredi 9h après la fin de session (dernier jour + 9h)
+        const displayUntil = new Date(endDate);
+        displayUntil.setHours(9, 0, 0, 0);
+        
+        // Si la session suivante existe, afficher jusqu'au début de celle-ci
+        if (i + 1 < sortedSessions.length) {
+            const nextStart = new Date(sortedSessions[i + 1].start);
+            if (now < nextStart && now >= displayUntil) {
+                lastEndedSession = session;
+                nextSession = sortedSessions[i + 1];
+                break;
+            }
+        }
+        
+        // Si on est après la fin de cette session
+        if (now >= endDate) {
+            lastEndedSession = session;
+            if (i + 1 < sortedSessions.length) {
+                nextSession = sortedSessions[i + 1];
+            }
+        }
+    }
+    
+    return lastEndedSession;
 }
 
 function formatDate(dateStr) {
@@ -60,20 +111,24 @@ function getSessionName(sessionId) {
     return seasonMap[parts[1]] || '';
 }
 
-function displaySessionSummary(summary) {
+function displaySessionSummary(summary, currentSession) {
     if (!summary) return;
     
     const titleEl = document.getElementById('summaryTitle');
     const textEl = document.getElementById('summaryText');
     
+    // Utiliser la session déterminée automatiquement ou celle du JSON
+    const sessionStart = currentSession ? currentSession.start : summary.session_start;
+    const sessionEnd = currentSession ? currentSession.end : summary.session_end;
+    const sessionId = currentSession ? currentSession.id : summary.session_id;
+    
     // Construire le titre avec les dates
-    const sessionName = getSessionName(summary.session_id);
-    const startDate = formatDate(summary.session_start);
-    const endDate = formatDate(summary.session_end);
-    const year = summary.session_start ? summary.session_start.substring(0, 4) : '';
+    const sessionName = currentSession ? currentSession.name_fr : getSessionName(sessionId);
+    const startDate = formatDate(sessionStart);
+    const endDate = formatDate(sessionEnd);
     
     if (titleEl) {
-        titleEl.textContent = `Résumé de la ${sessionName} ${year} (${startDate} - ${endDate})`;
+        titleEl.textContent = `Résumé de la ${sessionName} (${startDate} - ${endDate})`;
     }
     
     // Texte avec référence à la session
@@ -107,17 +162,17 @@ function displayObjectsList(summary) {
     container.innerHTML = html;
 }
 
-function displayDebatesSummary(debatesData, sessionSummary) {
+function displayDebatesSummary(debatesData, currentSession) {
     const container = document.getElementById('debatesSummary');
     if (!container) return;
     
     const debates = debatesData.items || [];
     
-    // Filter debates from the last session
+    // Filter debates from the current session
     let sessionDebates = debates;
-    if (sessionSummary && sessionSummary.session_start && sessionSummary.session_end) {
-        const startDate = new Date(sessionSummary.session_start);
-        const endDate = new Date(sessionSummary.session_end);
+    if (currentSession && currentSession.start && currentSession.end) {
+        const startDate = new Date(currentSession.start);
+        const endDate = new Date(currentSession.end);
         sessionDebates = debates.filter(d => {
             // Format date YYYYMMDD -> Date
             const dateStr = String(d.date);
@@ -142,7 +197,7 @@ function displayDebatesSummary(debatesData, sessionSummary) {
     let html = '';
     
     // Nom de la session pour cohérence
-    const sessionName = sessionSummary ? getSessionName(sessionSummary.session_id) : 'la dernière session';
+    const sessionName = currentSession ? currentSession.name_fr : 'la dernière session';
     
     if (sessionDebates.length > 0) {
         html = `
