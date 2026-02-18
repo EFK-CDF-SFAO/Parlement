@@ -168,27 +168,47 @@ function populateObjectFilters() {
         partyMenu.appendChild(label);
     });
     
+    // Populer filtre départements
+    const deptMenu = document.getElementById('objectDeptMenu');
+    if (deptMenu) {
+        const departments = [...new Set(allData.map(d => d.department).filter(Boolean))];
+        departments.sort();
+        // Ajouter option "Aucun"
+        const noneLabel = document.createElement('label');
+        noneLabel.innerHTML = `<input type="checkbox" value="none"> Aucun`;
+        deptMenu.appendChild(noneLabel);
+        departments.forEach(dept => {
+            const label = document.createElement('label');
+            label.innerHTML = `<input type="checkbox" value="${dept}"> ${dept}`;
+            deptMenu.appendChild(label);
+        });
+    }
+    
     // Setup dropdowns
     setupDropdown('objectYearDropdown');
     setupDropdown('objectCouncilDropdown');
     setupDropdown('objectPartyDropdown');
+    setupDropdown('objectDeptDropdown');
 }
 
 function setupObjectFilterListeners() {
-    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown'].forEach(id => {
-        document.getElementById(id).addEventListener('change', applyObjectFilters);
+    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('change', applyObjectFilters);
     });
     document.getElementById('resetObjectFilters').addEventListener('click', resetObjectFilters);
 }
 
 function resetObjectFilters() {
-    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown'].forEach(id => {
+    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown'].forEach(id => {
         const dropdown = document.getElementById(id);
+        if (!dropdown) return;
         const selectAll = dropdown.querySelector('[data-select-all]');
         const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
         if (selectAll) selectAll.checked = true;
         checkboxes.forEach(cb => cb.checked = false);
-        dropdown.querySelector('.filter-count').textContent = '';
+        const countSpan = dropdown.querySelector('.filter-count');
+        if (countSpan) countSpan.textContent = '';
     });
     applyObjectFilters();
 }
@@ -197,6 +217,7 @@ function applyObjectFilters() {
     const yearFilters = getCheckedValues('objectYearDropdown');
     const councilFilters = getCheckedValues('objectCouncilDropdown');
     const partyFilters = getCheckedValues('objectPartyDropdown');
+    const deptFilters = getCheckedValues('objectDeptDropdown');
     
     filteredData = allData.filter(item => {
         // Filtre année
@@ -214,6 +235,11 @@ function applyObjectFilters() {
             const itemParty = item.party || getPartyFromAuthor(item.author);
             const normalizedParty = normalizeParty(itemParty);
             if (!partyFilters.includes(normalizedParty)) return false;
+        }
+        // Filtre département
+        if (deptFilters.length > 0) {
+            const itemDept = item.department || 'none';
+            if (!deptFilters.includes(itemDept)) return false;
         }
         return true;
     });
