@@ -25,6 +25,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 .container {
@@ -1353,6 +1354,7 @@ a.author-row {
     padding: 1.5rem 1rem;
     margin-bottom: 1rem;
     position: relative;
+    overflow: hidden;
 }
 
 .session-title-banner h2 {
