@@ -42,9 +42,17 @@ cat("Répertoire de travail:", getwd(), "\n\n")
 # PARAMÈTRES
 # ============================================================================
 
-# Sessions à analyser (législature 52)
-# 5201: Session d'hiver 2023, 5202: Session de printemps 2024, etc.
-SESSIONS_DEBATS <- c("5201", "5202", "5203", "5204", "5205", "5206", "5207", "5208", "5209", "5210", "5211")
+# Sessions à analyser (législatures 51 et 52)
+# 51ème législature: 5101-5122 (décembre 2019 - septembre 2023)
+# 52ème législature: 5201-5211 (décembre 2023 - )
+SESSIONS_DEBATS <- c(
+  # Législature 51
+  "5101", "5102", "5103", "5104", "5105", "5106", "5107", "5108", "5109", "5110",
+  "5111", "5112", "5113", "5114", "5115", "5116", "5117", "5118", "5119", "5120",
+  "5121", "5122",
+  # Législature 52
+  "5201", "5202", "5203", "5204", "5205", "5206", "5207", "5208", "5209", "5210", "5211"
+)
 
 # Fichiers de sortie
 FICHIER_DEBATS_EXCEL <- "Debats_CDF_EFK.xlsx"

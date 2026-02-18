@@ -46,7 +46,7 @@ cat("Répertoire de travail:", getwd(), "\n\n")
 # PARAMÈTRES
 # ============================================================================
 
-Legislatur <- 52
+Legislaturen <- c(51, 52)  # 51ème (2019-2023) et 52ème (2023-) législatures
 MOIS_MISE_A_JOUR <- 6
 Geschaeftstyp <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 18, 19)
 
@@ -146,18 +146,24 @@ if (file.exists(FICHIER_EXCEL)) {
 # DÉTERMINER LES SESSIONS À RECHERCHER
 # ============================================================================
 
-cat("Récupération des sessions de la législature", Legislatur, "...\n")
+cat("Récupération des sessions des législatures", paste(Legislaturen, collapse = " et "), "...\n")
 
-Sessionen <- get_data(
-  table = "Session",
-  Language = "DE",
-  LegislativePeriodNumber = Legislatur
-) |>
-  select(ID, SessionName, StartDate, EndDate) |>
-  mutate(
-    StartDate = as.Date(StartDate),
-    EndDate = as.Date(EndDate)
-  )
+Sessionen <- NULL
+for (Legislatur in Legislaturen) {
+  cat("  Législature", Legislatur, "...")
+  sess_tmp <- get_data(
+    table = "Session",
+    Language = "DE",
+    LegislativePeriodNumber = Legislatur
+  ) |>
+    select(ID, SessionName, StartDate, EndDate) |>
+    mutate(
+      StartDate = as.Date(StartDate),
+      EndDate = as.Date(EndDate)
+    )
+  cat(nrow(sess_tmp), "sessions\n")
+  Sessionen <- bind_rows(Sessionen, sess_tmp)
+}
 
 date_limite <- Sys.Date() - months(MOIS_MISE_A_JOUR)
 
