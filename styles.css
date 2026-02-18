@@ -1424,11 +1424,13 @@ a.author-row {
 .intervention-title {
     flex: 1;
     min-width: 200px;
+    color: var(--text);
 }
 
 .intervention-author {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-style: italic;
 }
 
 .debates-summary-list,

@@ -1,6 +1,16 @@
 // Configuration
 const DATA_URL = 'cdf_efk_data.json';
-const DEBATES_URL = 'debates_efk.json';
+const DEBATES_URL = 'debates_data.json';
+
+// Traduction des types d'objets
+const typeLabels = {
+    'Mo.': 'Motion',
+    'Po.': 'Postulat',
+    'Ip.': 'Interpellation',
+    'Fra.': 'Question',
+    'Iv. pa.': 'Initiative parl.',
+    'Iv. ct.': 'Initiative cant.'
+};
 
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
@@ -51,7 +61,7 @@ function displayObjectsList(summary) {
             <li>
                 <a href="${interventions.url_fr[i]}" target="_blank">
                     <span class="intervention-id">${interventions.shortId[i]}</span>
-                    <span class="intervention-type">${interventions.type[i]}</span>
+                    <span class="intervention-type">${typeLabels[interventions.type[i]] || interventions.type[i]}</span>
                     <span class="intervention-title">${interventions.title[i]}</span>
                     <span class="intervention-author">${interventions.author[i]} (${interventions.party[i]})</span>
                 </a>
@@ -75,20 +85,25 @@ function displayDebatesSummary(debatesData, sessionSummary) {
         const startDate = new Date(sessionSummary.session_start);
         const endDate = new Date(sessionSummary.session_end);
         sessionDebates = debates.filter(d => {
-            const debateDate = new Date(d.date);
+            // Format date YYYYMMDD -> Date
+            const dateStr = String(d.date);
+            const year = dateStr.substring(0, 4);
+            const month = dateStr.substring(4, 6);
+            const day = dateStr.substring(6, 8);
+            const debateDate = new Date(`${year}-${month}-${day}`);
             return debateDate >= startDate && debateDate <= endDate;
         });
     }
     
-    // Count by council
-    const cnCount = sessionDebates.filter(d => d.council === 'CN' || d.council === 'NR').length;
-    const ceCount = sessionDebates.filter(d => d.council === 'CE' || d.council === 'SR').length;
+    // Count by council (N = Nationalrat, S = Ständerat)
+    const cnCount = sessionDebates.filter(d => d.council === 'N' || d.council === 'CN' || d.council === 'NR').length;
+    const ceCount = sessionDebates.filter(d => d.council === 'S' || d.council === 'CE' || d.council === 'SR').length;
     
     // Get unique speakers
     const speakers = [...new Set(sessionDebates.map(d => d.speaker))];
     
     // Get unique topics (from object references if available)
-    const topics = [...new Set(sessionDebates.filter(d => d.affair_title).map(d => d.affair_title))];
+    const topics = [...new Set(sessionDebates.filter(d => d.business_title_fr).map(d => d.business_title_fr))];
     
     let html = '';
     
