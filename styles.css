@@ -1346,3 +1346,136 @@ a.author-row {
         display: none !important;
     }
 }
+
+/* Page d'accueil */
+.home-section {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.home-section h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+}
+
+.session-summary-home {
+    margin-bottom: 1rem;
+}
+
+.session-summary-home h3 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.session-summary-home p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.home-interventions-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.home-interventions-list li {
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+}
+
+.home-interventions-list li:last-child {
+    border-bottom: none;
+}
+
+.home-interventions-list a {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+}
+
+.home-interventions-list a:hover {
+    color: var(--primary);
+}
+
+.intervention-id {
+    font-weight: 600;
+    color: var(--primary);
+    min-width: 60px;
+}
+
+.intervention-type {
+    background: var(--background);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.intervention-title {
+    flex: 1;
+    min-width: 200px;
+}
+
+.intervention-author {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.debates-summary-list,
+.debates-topics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.debates-summary-list li,
+.debates-topics-list li {
+    padding: 0.25rem 0;
+    color: var(--text-secondary);
+}
+
+.debates-topics-list {
+    margin-left: 1rem;
+}
+
+.debates-topics-list li {
+    list-style: disc;
+    margin-left: 1rem;
+}
+
+.btn-view-all {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.btn-view-all:hover {
+    background: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+    .home-interventions-list a {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .intervention-title {
+        min-width: 100%;
+    }
+}
