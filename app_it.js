@@ -650,15 +650,20 @@ function getStatusIT(status) {
         // Retiré
         'Zurückgezogen': 'Ritirato',
         'Retiré': 'Ritirato',
+        // Déposé
+        'Eingereicht': 'Depositato',
+        'Déposé': 'Depositato',
         // Transmis au CF
         'Transmis au Conseil fédéral': 'Trasmesso al Consiglio federale',
         'An den Bundesrat überwiesen': 'Trasmesso al Consiglio federale',
         // Commission
         'Attribué à la commission compétente': 'Assegnato alla commissione competente',
         'Der zuständigen Kommission zugewiesen': 'Assegnato alla commissione competente',
-        // Déclaration disponible
+        // Déclaration/Avis disponible
         'La déclaration sur l\'intervention est disponible': 'La dichiarazione sull\'intervento è disponibile',
         'Die Erklärung zum Vorstoss liegt vor': 'La dichiarazione sull\'intervento è disponibile',
+        'L\'avis relatif à l\'intervention est disponible': 'La dichiarazione sull\'intervento è disponibile',
+        'Die Stellungnahme zum Vorstoss liegt vor': 'La dichiarazione sull\'intervento è disponibile',
         // En suspens
         'Suspendu': 'Sospeso',
         'Sistiert': 'Sospeso',
