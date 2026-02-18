@@ -432,6 +432,8 @@ if (length(IDs_A_Traiter) > 0) {
       Conseil = SubmissionCouncilAbbreviation,
       Titre_DE = Title,
       Titre_FR,
+      Texte_FR = SubmittedText_FR,
+      Texte_DE = SubmittedText,
       Statut,
       Lien_DE,
       Lien_FR,
@@ -845,10 +847,12 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       statut_change_date = if ("Statut_Change_Date" %in% names(Resultats)) Statut_Change_Date else NA_character_,
       url_fr = Lien_FR,
       url_de = Lien_DE,
-      mention = Mention
+      mention = Mention,
+      text = if ("Texte_FR" %in% names(Resultats)) Texte_FR else NA_character_,
+      text_de = if ("Texte_DE" %in% names(Resultats)) Texte_DE else NA_character_
     ) |>
     select(shortId, title, title_de, author, party, type, status, 
-           council, date, date_maj, statut_change_date, url_fr, url_de, mention)
+           council, date, date_maj, statut_change_date, url_fr, url_de, mention, text, text_de)
   
   vrais_nouveaux_ids <- if (length(Nouveaux_IDs) > 0) {
     Resultats |> filter(ID %in% Nouveaux_IDs) |> pull(Numéro)
