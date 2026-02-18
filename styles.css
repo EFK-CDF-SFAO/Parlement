@@ -796,19 +796,16 @@ mark.highlight-search {
         gap: 0.25rem;
     }
     
-    .lang-switcher span {
+    .lang-switcher span,
+    .lang-switcher a.active {
         display: none;
     }
     
     .lang-switcher a {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 0.25rem 0.4rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.25rem 0.5rem;
         border-radius: 4px;
-        font-size: 0.75rem;
-    }
-    
-    .lang-switcher a.active {
-        background: rgba(255, 255, 255, 0.35);
+        font-size: 0.8rem;
     }
     
     header h1 {
