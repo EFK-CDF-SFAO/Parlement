@@ -320,6 +320,16 @@ if (length(IDs_A_Traiter) > 0) {
   
   names(Daten_FR) <- c("ID", "Titre_FR", "Statut_FR", "SubmittedText_FR", "ReasonText_FR", "FederalCouncilResponseText_FR")
   
+  # Récupérer les titres italiens
+  Daten_IT <- tryCatch({
+    get_data(table = "Business", ID = IDs_A_Traiter, Language = "IT") |>
+      select(ID, Title) |>
+      rename(Titre_IT = Title)
+  }, error = function(e) {
+    cat("  Erreur récupération titres IT:", e$message, "\n")
+    data.frame(ID = IDs_A_Traiter, Titre_IT = NA_character_)
+  })
+  
   cat("Récupération des partis des auteurs...\n")
   
   Auteurs <- tryCatch({
@@ -395,6 +405,7 @@ if (length(IDs_A_Traiter) > 0) {
   
   Nouveaux_Resultats <- Daten_DE |>
     left_join(Daten_FR, by = "ID") |>
+    left_join(Daten_IT, by = "ID") |>
     left_join(
       Geschaefte_Uniques |> select(ID, Langues_Detection),
       by = "ID"
@@ -432,6 +443,7 @@ if (length(IDs_A_Traiter) > 0) {
       Conseil = SubmissionCouncilAbbreviation,
       Titre_DE = Title,
       Titre_FR,
+      Titre_IT,
       Texte_FR = SubmittedText_FR,
       Texte_DE = SubmittedText,
       Statut,
@@ -808,13 +820,14 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
             shortId = Numéro,
             title = Titre_FR,
             title_de = Titre_DE,
+            title_it = if ("Titre_IT" %in% names(interventions_session)) Titre_IT else NA_character_,
             author = Auteur,
             party = if ("Parti" %in% names(interventions_session)) Parti else NA_character_,
             type = Type,
             url_fr = Lien_FR,
             url_de = Lien_DE
           ) |>
-          select(shortId, title, title_de, author, party, type, url_fr, url_de) |>
+          select(shortId, title, title_de, title_it, author, party, type, url_fr, url_de) |>
           as.list()
       )
       
@@ -837,6 +850,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       shortId = Numéro,
       title = Titre_FR,
       title_de = Titre_DE,
+      title_it = if ("Titre_IT" %in% names(Resultats)) Titre_IT else NA_character_,
       author = Auteur,
       party = if ("Parti" %in% names(Resultats)) Parti else NA_character_,
       type = ifelse(Type == "A", "Fra.", Type),
@@ -851,7 +865,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       text = if ("Texte_FR" %in% names(Resultats)) Texte_FR else NA_character_,
       text_de = if ("Texte_DE" %in% names(Resultats)) Texte_DE else NA_character_
     ) |>
-    select(shortId, title, title_de, author, party, type, status, 
+    select(shortId, title, title_de, title_it, author, party, type, status, 
            council, date, date_maj, statut_change_date, url_fr, url_de, mention, text, text_de)
   
   vrais_nouveaux_ids <- if (length(Nouveaux_IDs) > 0) {

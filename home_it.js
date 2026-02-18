@@ -172,14 +172,20 @@ function displayObjectsList(summary) {
     let html = '<ul class="home-interventions-list">';
     
     for (let i = 0; i < interventions.shortId.length; i++) {
-        // URL italiano (utilizza url_fr car pas d'URL IT spécifique)
+        // URL italiano
         const url = interventions.url_fr[i].replace('/fr/', '/it/');
+        // Titre: priorité IT > FR > DE
+        const titleIT = interventions.title_it ? interventions.title_it[i] : null;
+        const titleFR = interventions.title[i];
+        const title = (titleIT && titleIT.trim() && titleIT.toLowerCase() !== 'titre suit') 
+            ? titleIT 
+            : titleFR;
         html += `
             <li>
                 <a href="${url}" target="_blank">
                     <span class="intervention-id">${interventions.shortId[i]}</span>
                     <span class="intervention-type">${typeLabels[interventions.type[i]] || interventions.type[i]}</span>
-                    <span class="intervention-title">${interventions.title[i]}</span>
+                    <span class="intervention-title">${title}</span>
                     <span class="intervention-author">${interventions.author[i]} (${interventions.party[i]})</span>
                 </a>
             </li>

@@ -478,10 +478,24 @@ function isTitleMissing(title) {
 }
 
 function createCard(item, searchTerm) {
-    const frMissing = isTitleMissing(item.title);
-    const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de);
+    // Priorité: titre IT > titre FR > titre DE
+    const hasIT = item.title_it && !isTitleMissing(item.title_it);
+    const hasFR = item.title && !isTitleMissing(item.title);
+    const hasDE = item.title_de && !isTitleMissing(item.title_de);
+    
+    let displayTitle, langWarning = '';
+    if (hasIT) {
+        displayTitle = item.title_it;
+    } else if (hasFR) {
+        displayTitle = item.title;
+        langWarning = '<span class="lang-warning">🇫🇷 Solo in francese</span>';
+    } else if (hasDE) {
+        displayTitle = item.title_de;
+        langWarning = '<span class="lang-warning">🇩🇪 Solo in tedesco</span>';
+    } else {
+        displayTitle = item.title || item.title_de || '';
+    }
     const title = highlightText(displayTitle, searchTerm);
-    const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🇩🇪 Solo in tedesco per il momento</span>' : '';
     
     const authorName = translateAuthor(item.author || '');
     const partyIT = translateParty(item.party || '');
