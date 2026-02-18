@@ -1311,9 +1311,9 @@ a.author-row {
     right: 2rem;
     width: 50px;
     height: 50px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
