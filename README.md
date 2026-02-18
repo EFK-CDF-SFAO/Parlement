@@ -4,11 +4,17 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 
 ## 🆕 What's New (February 2026)
 
-### 🏢 Department Filter
+### �️ Legislature Filter & Extended Data
+- **New filter**: Filter by legislature (51st or 52nd)
+- **51st legislature**: December 2019 - September 2023 (sessions 5101-5122)
+- **52nd legislature**: December 2023 - ongoing (sessions 5201+)
+- **Extended database**: Now covers both legislatures (213 objects, 433 debates)
+- **All pages**: Available on Objects, Debates, and Statistics pages
+
+### �🏢 Department Filter
 - **New filter**: Filter by responsible federal department (DFF, DETEC, DDPS, etc.)
 - **All pages**: Available on Objects, Debates, and Statistics pages
 - **Trilingual**: Department abbreviations translated (DE/FR/IT)
-- **"None" option**: Filter items without assigned department
 
 ### 🗣️ Parliamentary Debates
 - **New page**: Real-time debates mentioning the SFAO from plenary sessions
@@ -157,8 +163,8 @@ The script will:
 Edit the following variables in `Recherche_CDF_EFK.R`:
 
 ```r
-# Legislature to analyze (52 = 2023-2027)
-Legislatur <- 52
+# Legislatures to analyze (51 = 2019-2023, 52 = 2023-2027)
+Legislaturen <- c(51, 52)
 
 # Months to search in incremental mode
 MOIS_MISE_A_JOUR <- 6
@@ -178,15 +184,20 @@ MOIS_MISE_A_JOUR <- 6
 
 ### Parliamentary Objects
 1. **Run** `Recherche_CDF_EFK.R`
-   - First run: Full search of all sessions
+   - First run: Full search of all sessions (51st + 52nd legislature)
    - Subsequent runs: Only searches last 6 months (incremental)
+   - Objects older than 6 months don't change, no need to rescan
 2. **Commit and push** `cdf_efk_data.json` to GitHub
 
-### Parliamentary Debates 🆕
+### Parliamentary Debates
 1. **Run** `Recherche_Debats.R`
-   - Searches transcripts from configured sessions
+   - **Important**: Only scan the previous session + current session
+   - Past session transcripts don't change, no need for full rescan
+   - Update `SESSIONS_DEBATS` variable to include only recent sessions
    - Exports both FR and DE titles for bilingual support
 2. **Commit and push** `debates_data.json` to GitHub
+
+> ⚠️ **Performance tip**: For regular updates, don't rescan all sessions. Only add the current/previous session to avoid slow execution.
 
 ```bash
 git add cdf_efk_data.json debates_data.json
