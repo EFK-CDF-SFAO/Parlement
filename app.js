@@ -242,15 +242,14 @@ function getCheckedValues(dropdownId) {
 function updateFilterCount(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
     if (!dropdown) return;
-    const count = dropdown.querySelectorAll('input[type="checkbox"]:checked').length;
     const countSpan = dropdown.querySelector('.filter-count');
     if (!countSpan) return;
-    if (count > 0) {
-        countSpan.textContent = count;
-        countSpan.classList.add('active');
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all]):checked');
+    
+    if (checkboxes.length > 0) {
+        countSpan.textContent = `(${checkboxes.length})`;
     } else {
         countSpan.textContent = '';
-        countSpan.classList.remove('active');
     }
 }
 
