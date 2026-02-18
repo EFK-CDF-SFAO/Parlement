@@ -27,6 +27,52 @@ const partyLabels = {
     'BD': 'PBD'
 };
 
+// Synonymes bilingues pour recherche étendue
+const searchSynonyms = {
+    // Partis politiques
+    'plr': ['fdp', 'plr'],
+    'fdp': ['plr', 'fdp'],
+    'ps': ['sp', 'ps'],
+    'sp': ['ps', 'sp'],
+    'udc': ['svp', 'udc'],
+    'svp': ['udc', 'svp'],
+    'le centre': ['die mitte', 'le centre', 'mitte'],
+    'die mitte': ['le centre', 'die mitte', 'mitte'],
+    'mitte': ['le centre', 'die mitte', 'mitte'],
+    'les verts': ['grüne', 'verts', 'vert-e-s'],
+    'verts': ['grüne', 'les verts', 'vert-e-s'],
+    'vert-e-s': ['grüne', 'les verts', 'verts'],
+    'grüne': ['les verts', 'verts', 'vert-e-s'],
+    'vert\'libéraux': ['grünliberale', 'pvl', 'glp'],
+    'pvl': ['glp', 'vert\'libéraux', 'grünliberale'],
+    'glp': ['pvl', 'vert\'libéraux', 'grünliberale'],
+    'grünliberale': ['pvl', 'vert\'libéraux', 'glp'],
+    // Départements fédéraux
+    'ddps': ['vbs', 'ddps'],
+    'vbs': ['ddps', 'vbs'],
+    'dfae': ['eda', 'dfae'],
+    'eda': ['dfae', 'eda'],
+    'dfi': ['edi', 'dfi'],
+    'edi': ['dfi', 'edi'],
+    'dfjp': ['ejpd', 'dfjp'],
+    'ejpd': ['dfjp', 'ejpd'],
+    'dff': ['efd', 'dff'],
+    'efd': ['dff', 'efd'],
+    'defr': ['wbf', 'defr'],
+    'wbf': ['defr', 'wbf'],
+    'detec': ['uvek', 'detec'],
+    'uvek': ['detec', 'uvek'],
+    // CDF/EFK
+    'cdf': ['efk', 'cdf'],
+    'efk': ['cdf', 'efk']
+};
+
+function getSearchTerms(term) {
+    const lowerTerm = term.toLowerCase();
+    const synonyms = searchSynonyms[lowerTerm];
+    return synonyms ? synonyms : [lowerTerm];
+}
+
 function getPartyDisplay(item) {
     if (!item.party || item.party === 'undefined' || item.party === '') {
         return 'Conseil fédéral';
@@ -291,7 +337,10 @@ function applyFilters() {
                 item.canton
             ].filter(Boolean).join(' ').toLowerCase();
             
-            if (!searchFields.includes(searchTerm)) {
+            // Recherche avec synonymes bilingues
+            const searchTerms = getSearchTerms(searchTerm);
+            const found = searchTerms.some(term => searchFields.includes(term));
+            if (!found) {
                 return false;
             }
         }
