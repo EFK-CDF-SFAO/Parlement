@@ -169,6 +169,7 @@ header .subtitle {
 nav {
     display: flex;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 nav a {

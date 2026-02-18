@@ -194,9 +194,7 @@ function setupEventListeners() {
     
     // Download Excel button
     if (downloadBtn) {
-        downloadBtn.addEventListener('click', () => {
-            window.open(EXCEL_URL, '_blank');
-        });
+        downloadBtn.addEventListener('click', downloadFilteredData);
     }
     
     // Update lang switcher on load
@@ -640,4 +638,38 @@ function getStatusDE(status) {
         return status.split('/')[0].trim();
     }
     return status;
+}
+
+function downloadFilteredData() {
+    if (filteredData.length === 0) {
+        alert('Keine Daten zum Exportieren');
+        return;
+    }
+    
+    const headers = ['ID', 'Typ', 'Titel', 'Autor', 'Partei', 'Rat', 'Datum', 'Status', 'Link'];
+    const rows = filteredData.map(item => [
+        item.id || '',
+        item.type || '',
+        (item.title_de || item.title || '').replace(/"/g, '""'),
+        (item.author || '').replace(/"/g, '""'),
+        item.party || '',
+        item.council || '',
+        item.date || '',
+        getStatusDE(item.status),
+        item.url || ''
+    ]);
+    
+    const csvContent = [
+        headers.join(';'),
+        ...rows.map(row => row.map(cell => `"${cell}"`).join(';'))
+    ].join('\n');
+    
+    const BOM = '\uFEFF';
+    const blob = new Blob([BOM + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `Vorstoesse_EFK_${new Date().toISOString().slice(0,10)}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
 }
