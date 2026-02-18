@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-02-17T22:36:40",
+    "updated": "2026-02-18T10:26:05",
     "total_count": 101,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -49,10 +49,12 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-19",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254785",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé de prendre les dispositions nécessaires pour que les montants que la Confédération encaissera en exécution des accords respectivement conclu avec le canton de Genève et à conclure avec celui de Bâle-Ville pour rémunérer l'engagement de personnels de l'OFDF dans les contrôles aux frontières dans les aéroports de Genève et de Bâle soient intégralement affectés à l'OFDF, en sus du budget ordinaire dudit Office, et non pas versés dans la caisse générale de la Confédération.<\/p>",
+      "text_de": "<p>Der Bund nimmt aufgrund der mit dem Kanton Genf abgeschlossenen bzw. der mit dem Kanton Basel-Stadt abzuschliessenden Vereinbarung zur Vergütung des Einsatzes von BAZG-Personal bei den Grenzkontrollen an den Flughäfen Genf und Basel Geld ein. Der Bundesrat wird beauftragt, dafür zu sorgen, dass diese Beträge vollumfänglich dem BAZG zugewiesen werden, und zwar zusätzlich zum ordentlichen Budget des Amtes; die Einnahmen sollen nicht in die allgemeine Bundeskasse fliessen.<\/p>"
     },
     {
       "shortId": "25.4620",
@@ -64,10 +66,12 @@
       "status": "Eingereicht / Déposé",
       "council": "SR",
       "date": "2025-12-18",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
-      "mention": "Élu"
+      "mention": "Élu",
+      "text": "<p>Le Conseil fédéral est chargé de créer les bases légales nécessaires pour que l’administration fédérale puisse fournir aussi rapidement que possible des données structurées de qualité, à jour et surtout interopérables et comparables à l’échelle internationale qui puissent être réutilisées (notamment par l’intelligence artificielle [IA]) à des fins de recherche, de planification et de pilotage. Les normes contraignantes en la matière pour l’administration fédérale devront être édictées. Le Conseil fédéral est en outre chargé de désigner les données administratives qui devront être ainsi harmonisées, normalisées et rendues techniquement accessibles en priorité. Il faudra notamment examiner l’opportunité de fournir au public des données de registre supplémentaires. Les projets pilotes visés à l’art.&nbsp;15 de la loi fédérale du 17&nbsp;mars 2023 sur l’utilisation des moyens électroniques pour l’exécution des tâches des autorités (RS&nbsp;172.019) sont susceptibles d’accélérer ce processus et devront être proposés par le Conseil fédéral avec les ressources nécessaires.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, die rechtlichen Grundlagen zu erlassen, damit baldmöglichst&nbsp; qualitätsgesicherte, aktuelle und insbesondere international anschlussfähige und vergleichbare strukturierte Daten der Bundesverwaltung zur Mehrfachnutzung (unter anderem durch KI) für Forschung, Planung und Steuerung zur Verfügung gestellt werden.&nbsp;Diesbezügliche verbindliche Standards für die Bundesverwaltung sind zu erlassen.&nbsp;Der Bundesrat wird zudem beauftragt, eine prioritäre Auswahl jener Verwaltungsdaten zu definieren, die für eine zügige und KI-taugliche Mehrfachnutzung zuerst harmonisiert, standardisiert und technisch zugänglich gemacht werden sollen.&nbsp;Insbesondere die öffentliche Bereitstellung weiterer Registerdaten ist zu prüfen. Gezielte Pilotversuche nach Art. 15 EMBAG können dies beschleunigen und sind vom Bundesrat mit den benötigten Mitteln zu beantragen.<\/p>"
     },
     {
       "shortId": "25.4696",
@@ -79,10 +83,12 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-18",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254696",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>L'efficacité des subventions, à savoir le rapport entre les montants versés et l'énergie supplémentaire effectivement produite ou fournie au cours de l'année, en particulier en hiver, est essentielle pour mener une discussion factuelle sur la politique énergétique. Certes, les dépenses du fonds alimenté par le supplément réseau sont détaillées dans le compte d’État et l’augmentation des capacités de production est répertoriée dans les statistiques de l'Office fédéral de l'énergie (OFEN). Cependant, aucune vue d'ensemble systématique de ces données n'est fournie par la Confédération, alors qu’un tel instrument permettrait aux responsables politiques et au grand public de mieux cerner l'efficacité du soutien accordé aux différentes technologies.<\/p><p>Dans le cadre de son audit de 2023 concernant l’impact des subventions allouées aux grandes installations photovoltaïques, le Contrôle fédéral des finances a explicitement demandé que l’OFEN publie d'ici à fin 2025 une étude sur l'efficacité des subventions accordées à la technologie photovoltaïque. Si l’OFEN a annoncé dans son rapport son intention de publier cet indicateur dans le « Cockpit RU » de Pronovo à partir de 2024, il ne l’a pas encore fait. La Confédération reconnaît la pertinence d’une évaluation transparente de l’utilisation des fonds.<\/p><p>Pour des raisons d'égalité de traitement, de crédibilité de la politique d'encouragement et de capacité de pilotage stratégique, il est néanmoins nécessaire d'assurer cette transparence pour toutes les technologies encouragées, et pas seulement pour le photovoltaïque. La Confédération dispose déjà des données nécessaires. L’OFEN peut publier les données concernant l’efficacité du soutien en se fondant sur les bases légales en vigueur et n’a pas besoin d’un mandat spécifique à cet effet.<\/p><p>Je prie dès lors le Conseil fédéral de répondre aux questions suivantes :<\/p><ol style=\"list-style-type:decimal;\"><li>Est-il disposé à publier régulièrement et de manière standardisée les données concernant l'efficacité des subventions pour tous les instruments de promotion et toutes les technologies (photovoltaïque, force hydraulique, biomasse, énergie éolienne, etc.) ?<\/li><li>Si non, quelles sont les raisons juridiques ou organisationnelles qui s'y opposent, alors que les montants versés et les nouvelles installations sont déjà intégralement recensés aujourd'hui ?<\/li><li>Le Conseil fédéral partage-t-il l'avis selon lequel une présentation transparente de l'efficacité des subventions est nécessaire au pilotage politique de la transition énergétique, notamment pour ce qui concerne les incitations ciblées, la transparence des coûts et l’adhésion de la population ?<\/li><li>Comment peut-il garantir que l'obligation de publier à partir de 2026 les données relatives à l'efficacité des subventions allouées au photovoltaïque sera mise en œuvre de manière complète et rapide dans le « cockpit RU » ?<\/li><\/ol>",
+      "text_de": "<p>Die Fördereffizienz – also das Verhältnis zwischen ausgerichteten Fördermitteln und der tatsächlich produzierten oder zusätzlich bereitgestellten Energie über das Jahr - und insbesondere im Winter – ist zentral für eine faktenbasierte energiepolitische Diskussion. Heute werden zwar die einzelnen Ausgaben des Netzzuschlagsfonds in der Staatsrechnung detailliert offengelegt und der Zubau an Produktionskapazitäten in den Statistiken des Bundesamtes für Energie (BFE) ausgewiesen. Was jedoch fehlt, ist eine systematische Übersicht dieser Daten durch den Bund, so dass die Fördereffizienz der einzelnen Technologien für Politik und Öffentlichkeit nachvollziehbar wird.<\/p><p>Die EFK hat 2023 im Rahmen ihrer Prüfung «Wirkung der Subventionen an grosse Photovoltaikanlagen» explizit festgehalten, dass das BFE bis Ende 2025 die Fördereffizienz für die PV-Technologie veröffentlicht muss. Das BFE hat im Bericht angekündigt, diese Kennzahl im «Cockpit EIV» von Pronovo ab 2024 auszuweisen, was bisher aber nicht erfolgt ist. Der Bund anerkennt die Relevanz einer transparenten Beurteilung des Mitteleinsatzes im Grundsatz.<\/p><p>Aus Gründen der Gleichbehandlung, der Glaubwürdigkeit der Förderpolitik und der strategischen Steuerungsfähigkeit ist es jedoch notwendig, diese Transparenz für alle geförderten Technologien herzustellen – nicht nur für die Photovoltaik. Die erforderlichen Daten liegen beim Bund bereits vor. Eine Veröffentlichung der Fördereffizienz kann vom BFE gestützt auf geltende Verordnungen und Gesetzesgrundlagen vorgenommen werden und erfordert keinen zusätzlichen gesetzlichen Auftrag.<\/p><p>Ich bitte den Bundesrat, folgende Fragen zu beantworten:<\/p><ol style=\"list-style-type:decimal;\"><li>Ist der Bundesrat bereit, die Fördereffizienz für sämtliche Förderinstrumente und Technologien (PV, Wasserkraft, Biomasse, Wind usw.) regelmässig und standardisiert zu veröffentlichen?<\/li><li>Falls nein: Welche rechtlichen oder organisatorischen Gründe sprechen dagegen, obwohl die Auszahlungen und der Zubau bereits heute vollständig erhoben werden?<\/li><li>Teilt der Bundesrat die Ansicht, dass eine transparente Darstellung der Fördereffizienz für die politische Steuerung der Energiewende notwendig ist – gerade im Hinblick auf zielgerichtete Anreize, Kostenwahrheit und Akzeptanz der Bevölkerung?<\/li><li>Wie stellt der Bundesrat sicher, dass die Veröffentlichungspflicht der Fördereffizienz für die PV ab 2026 im Cockpit EIV vollständig und zeitnah umgesetzt wird?<\/li><\/ol>"
     },
     {
       "shortId": "25.8194",
@@ -94,10 +100,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-12-10",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258194",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>Plusieurs cantons romands, dont Fribourg, appliquent depuis des années un moratoire sur les nouveaux équipements médicaux lourds (IRM, CT-Scan), alors qu’ils comptent parmi ceux où les coûts de la santé par habitant sont les plus élevés.&nbsp;<br>- La Confédération dispose-t-elle d’analyses et de chiffres sur l’efficacité de ces moratoires?&nbsp;<br>- Ces moratoires ont-ils réduit le volume d’imagerie et les coûts?&nbsp;<br>- Les cantons avec le plus d’équipements par habitant réalisent-ils davantage d’imagerie par habitant ?<\/p>",
+      "text_de": "<p>Mehrere Westschweizer Kantone, darunter Freiburg, haben vor Jahren ein Moratorium für neue medizinische Grossgeräte&nbsp;(MRI, CT) verhängt, und trotzdem gehören sie zu den Kantonen mit den höchsten Gesundheitskosten pro Einwohnerin und Einwohner.&nbsp;<br>– Verfügt der Bund über Analysen und Zahlen zur Wirksamkeit dieser Moratorien?&nbsp;<br>– Haben diese Moratorien das Leistungsvolumen der medizinischen Bildgebung sowie die Kosten verringert?&nbsp;<br>– Führen die Kantone mit den meisten Geräten pro Einwohnerin und Einwohner mehr bildgebende Verfahren durch?<\/p>"
     },
     {
       "shortId": "25.8273",
@@ -109,10 +117,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-12-10",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258273",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>Chaque année, la Suisse délivre environ 100&nbsp;000 autorisations pour le commerce d'espèces végétales et animales menacées et effectue quelque 20&nbsp;000 contrôles à l'importation. Elle perçoit à cet effet des émoluments d'environ 4&nbsp;millions de francs. Selon le CDF, ces émoluments ne couvriraient pas les coûts et constitueraient donc une subvention dommageable à la biodiversité.<br>Compte tenu des débats en cours concernant le budget,<br>le Conseil fédéral est-il prêt à introduire des émoluments couvrant les coûts dans ce domaine&nbsp;?<br>Si oui, quand&nbsp;?<br>Si non, pourquoi&nbsp;?<\/p>",
+      "text_de": "<p>Die Schweiz stellt jährlich rund 100’000 Bewilligungen für den Handel mit gefährdeten Pflanzen- und Tierarten aus und führt gegen 20’000 Einfuhrkontrollen durch. Dafür erhebt sie Gebühren von ca. CHF 4 Mio. Laut EFK dürften diese Gebühren nicht kostendeckend und damit eine Subvention mit biodiversitätsschädigender Wirkung sein.<br>Angesichts der laufenden Debatten um den Finanzhaushalt:<br>Ist der Bundesrat bereit,&nbsp;hier&nbsp;kostendeckende Gebühren einzuführen?<br>Wenn ja, bis wann?<br>Wenn&nbsp;nein, warum nicht?<\/p>"
     },
     {
       "shortId": "25.4463",
@@ -124,10 +134,12 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-12-04",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254463",
-      "mention": "Élu"
+      "mention": "Élu",
+      "text": "<p>Le Conseil fédéral est chargé de proposer à la Conférence des gouvernements cantonaux (CdC) d’inclure dans le projet «&nbsp;Désenchevêtrement&nbsp;27 – Répartition des tâches entre la Confédération et les cantons&nbsp;» les trois groupes de tâches supplémentaires suivants&nbsp;: a) registres nationaux, b) infrastructures touristiques, et c) prévention des dangers naturels. Le mandat commun de la Confédération et de la CdC devra être modifié en conséquence.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, der Konferenz der Kantonsregierungen zu beantragen, die drei folgenden Aufgabenbereiche zusätzlich in das Projekt «Entflechtung 27 – Aufgabenteilung Bund-Kantone» aufzunehmen: a) Gesamtschweizerische Register, b) Tourismus-Infrastruktur, c) Prävention von Naturgefahren. Das gemeinsame Mandat von Bund und KdK sei entsprechend zu ergänzen.<\/p>"
     },
     {
       "shortId": "25.479",
@@ -139,10 +151,12 @@
       "status": "Zugewiesen an die behandelnde Kommission / Attribué à la commission compétente",
       "council": "NR",
       "date": "2025-09-26",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250479",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250479",
-      "mention": "Élu"
+      "mention": "Élu",
+      "text": "<p><i>L’art.&nbsp;10 du règlement du Conseil national est complété de manière qu’une Commission d’examen de la réglementation (CdER) soit mise sur pied. Le nouvel article est le suivant&nbsp;:<\/i><\/p><p>&nbsp;<\/p><p><i>Le conseil compte les commissions permanentes suivantes&nbsp;:<\/i><\/p><p><i> 1. Commission des finances (CdF)&nbsp;;<\/i><\/p><p><i> 2. Commission de gestion (CdG)&nbsp;;<\/i><\/p><p><i> 3. Commission de politique extérieure (CPE)&nbsp;;<\/i><\/p><p><i> 4. Commission de la science, de l’éducation et de la culture (CSEC)&nbsp;;<\/i><\/p><p><i> 5. Commission de la sécurité sociale et de la santé publique (CSSS)&nbsp;;<\/i><\/p><p><i> 6. Commission de l’environnement, de l’aménagement du territoire et de l’énergie (CEATE)&nbsp;;<\/i><\/p><p><i> 7. Commission de la politique de sécurité (CPS)&nbsp;;<\/i><\/p><p><i> 8. Commission des transports et des télécommunications (CTT)&nbsp;;<\/i><\/p><p><i> 9. Commission de l’économie et des redevances (CER)&nbsp;;<\/i><\/p><p><i>10. Commission des institutions politiques (CIP)&nbsp;;<\/i><\/p><p><i>11. Commission des affaires juridiques (CAJ)&nbsp;;<\/i><\/p><p><i>12. Commission de l’immunité (CdI)&nbsp;;<\/i><\/p><p><i>13. Commission d’examen de la réglementation (CdER).<\/i><\/p><p>&nbsp;<\/p><p><i>L’art.&nbsp;2, al.&nbsp;1, de la loi sur le Parlement (LParl) est complété par la phrase suivante&nbsp;:<\/i><\/p><p><i>«&nbsp;Une fois par an, pendant l’une des sessions ordinaires, la Commission d’examen de la réglementation de chaque conseil soumet à ce même conseil les résultats de ses travaux ainsi que ses propositions de loi.&nbsp;»<\/i><\/p>",
+      "text_de": "<p><i>Art. 10 des Geschäftsreglements des Nationalrates (GRN) wird dahingehend ergänzt, dass eine ständige Regulierungsprüfungskommission (RPK) eingesetzt wird. Der neue Artikel lautet:<\/i><\/p><p>&nbsp;<\/p><p><i>Es bestehen folgende ständige Kommissionen:<\/i><\/p><p><i> 1. Finanzkommission (FK);<\/i><\/p><p><i> 2. Geschäftsprüfungskommission (GPK);<\/i><\/p><p><i> 3. Aussenpolitische Kommission (APK);<\/i><\/p><p><i> 4. Kommission für Wissenschaft, Bildung und Kultur (WBK);<\/i><\/p><p><i> 5. Kommission für soziale Sicherheit und Gesundheit (SGK);<\/i><\/p><p><i> 6. Kommission für Umwelt, Raumplanung und Energie (UREK);<\/i><\/p><p><i> 7. Sicherheitspolitische Kommission (SiK);<\/i><\/p><p><i> 8. Kommission für Verkehr und Fernmeldewesen (KVF);<\/i><\/p><p><i> 9. Kommission für Wirtschaft und Abgaben (WAK);<\/i><\/p><p><i>10. Staatspolitische Kommission (SPK);<\/i><\/p><p><i>11. Kommission für Rechtsfragen (RK);<\/i><\/p><p><i>12.Immunitätskommission (IK);<\/i><\/p><p><i>13. Regulierungsprüfungskommission (RPK);<\/i><\/p><p>&nbsp;<\/p><p><i>Art. 2 Abs. 1 des Parlamentsgesetzes (ParlG) wird durch folgenden Satz ergänzt:<\/i><\/p><p><i>«Einmal jährlich, während einer der ordentlichen Sessionen, unterbreitet die Regulierungsprüfungskommission (RPK) jedes Rates ebendiesem ihre Arbeitsergebnisse sowie ihre Gesetzesvorschläge.»<\/i><\/p>"
     },
     {
       "shortId": "25.4281",
@@ -154,10 +168,12 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-26",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254281",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé de procéder à un examen et de présenter des pistes pour développer les programmes d’agglomération avec les objectifs suivants :&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Une meilleure coordination entre les planifications de la Confédération, des cantons et des communes, et donc une intégration plus complète des projets fédéraux dans les programmes d’agglomération, par exemple au moyen d’instances de planification inter-gouvernementales ;<\/li><li>Une meilleure coordination entre les différents modes de transport ainsi qu’entre aménagement du territoire et mobilité&nbsp;<\/li><li>Un processus de planification optimisé et un contrôle de l’efficacité renforcé.<\/li><\/ul>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, die&nbsp;Agglomerationsprogramme&nbsp;zu prüfen und Wege aufzuzeigen, wie sie auf folgende Ziele hin weiterentwickelt werden können:&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>bessere Koordination zwischen den Planungen von Bund, Kantonen und Gemeinden und damit eine umfassendere Integration von Bundesprojekten in die Agglomerationsprogramme, z.B. durch Planungsgremien, in denen alle staatlichen Ebenen vertreten sind;<\/li><li>bessere Koordination zwischen den verschiedenen Verkehrsmitteln sowie zwischen Raumplanung und Mobilität;&nbsp;<\/li><li>Optimierung des Planungsprozesses und verstärkte Wirksamkeitskontrolle.<\/li><\/ul>"
     },
     {
       "shortId": "25.4317",
@@ -169,10 +185,12 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-26",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254317",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé de présenter une modification de la loi fédérale sur la radio et la télévision (LRTV) afin de soumettre la SSR à la haute surveillance financière du Contrôle fédéral des finances (CDF) sans porter atteinte à l’autonomie des programmes.<\/p><p>Il respectera les principes suivants :<\/p><p>&nbsp;<\/p><p>1. Garantir l’autonomie dans la conception des programmes visée à l’art. 93, al. 3, Cst.<\/p><p>L’indépendance de la SSR dans la conception des programmes et dans ses activités rédactionnelles restera entièrement garantie.<\/p><p>&nbsp;<\/p><p>2. Éviter les doublons<\/p><p>La répartition des tâches entre l’OFCOM, le DETEC, l’organe de révision interne de la SSR et le CDF doit être clairement harmonisée et coordonnée, comme c’est le cas pour des entreprises comparables qui sont soumises à la surveillance du CDF (par ex. la Poste, Swisscom et les CFF). Il conviendra d’éviter les doublons lors des contrôles afin de maintenir l’efficacité du processus de contrôle. L’indépendance du CDF, telle qu’elle est définie dans la loi sur le Contrôle des finances, sera garantie en permanence.<\/p><p>&nbsp;<\/p><p>3. Assurer une surveillance complémentaire par le CDF<\/p><p>La surveillance actuelle par le DETEC et l’OFCOM et le contrôle des états financiers selon le droit de la société anonyme seront maintenus sans être remplacés. Lors du contrôle, le CDF agira de manière complémentaire et ciblée et interviendra de manière autonome et indépendante là où sa position particulière et sa spécialisation (par ex. contrôles de l’économicité) lui permettent de créer une plus-value, comme c’est le cas par rapport aux révisions internes, quand il définit lui-même l’accent qu’il va mettre.&nbsp;<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, eine Änderung des Bundesgesetzes über Radio und Fernsehen (RTVG) vorzulegen, damit die SRG der finanziellen Oberaufsicht der eidgenössischen Finanzkontrolle (EFK) ohne Beeinträchtigung der Programmautonomie, unterstellt wird.<\/p><p>Folgende Bedingungen sollen dabei berücksichtigt werden:<\/p><p>&nbsp;<\/p><p>1. Programmautonomie gemäss Bundesverfassung (Art. 93 Abs. 3 BV):<\/p><p>Die Unabhängigkeit der SRG in der Programmgestaltung und redaktionellen Tätigkeit bleibt vollständig gewährleistet.<\/p><p>&nbsp;<\/p><p>2. Vermeidung von Doppelspurigkeiten:<\/p><p>Die Aufgabenverteilung zwischen BAKOM, UVEK, interner Revision SRG und EFK ist klar abzustimmen und zu koordinieren, wie das bei vergleichbaren Unternehmen, welche der Aufsicht der EFK unterstehen (z.B. Post, Swisscom, SBB der Fall ist. Doppelspurigkeiten bei der Prüfung sollen vermieden werden, um den Prüfungsprozess effizient zu halten. Die Unabhängigkeit der EFK gemäss Finanzkontrollgesetz bleibt hierbei jederzeit gewahrt.<\/p><p>&nbsp;<\/p><p>3. Ergänzende Aufsicht durch die EFK:<\/p><p>Die bestehende Aufsicht durch UVEK/BAKOM und die aktienrechtliche Abschlussprüfung bleiben erhalten und werden nicht ersetzt. Die EFK wirkt bei der Prüfung gezielt ergänzend und wird selbständig und unabhängig dort eingesetzt, wo sie durch ihre Sonderstellung und Spezialisierung (z.B. Wirtschaftlichkeitsprüfungen) einen Mehrwert schaffen kann, wie zum Beispiel gegenüber internen Revisionen wo der Fokus selbst definiert wird.&nbsp;<\/p>"
     },
     {
       "shortId": "25.4145",
@@ -184,10 +202,12 @@
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-09-25",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254145",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé d’adapter l’examen des subventions tel qu’il est réglé dans la loi sur les subventions (LSu) de manière à mettre en place un ensemble de mesures permettant de réduire les subventions nuisibles.&nbsp;<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, die Subventionsprüfung gemäss Subventionsgesetz (SuG) so anzupassen, dass daraus ein Paket für einen Abbau von schädlichen Subventionen hervorgeht.&nbsp;<\/p>"
     },
     {
       "shortId": "25.4188",
@@ -199,10 +219,12 @@
       "status": "Zugewiesen an die behandelnde Kommission / Attribué à la commission compétente",
       "council": "SR",
       "date": "2025-09-25",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254188",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé d'adapter le cadre légal et réglementaire de sorte que les patients aient un accès rapide aux dernières innovations et à un large éventail de médicaments en Suisse. L'objectif sera de renforcer la sécurité de l'approvisionnement et de raccourcir le délai entre l'autorisation d'un médicament et sa disponibilité effective pour les patients.<\/p><p>La Suisse devra atteindre au moins le niveau de l'Allemagne en ce qui concerne la disponibilité de nouveaux traitements, mesurée par la disponibilité totale dans tous les domaines thérapeutiques selon l’indicateur Patients W.A.I.T. de l'EFPIA.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, die regulatorischen und gesetzlichen Rahmenbedingungen so anzupassen, dass der rasche und breite Zugang für Patientinnen und Patienten in der Schweiz zu neuen, innovativen Medikamenten sichergestellt ist. Ziel ist es, die Versorgungssicherheit zu stärken und die Zeitspanne zwischen der Zulassung eines Medikaments und seiner tatsächlichen Verfügbarkeit für die Patientinnen und Patienten zu verkürzen.<\/p><p>Dabei soll die Schweiz bezüglich der Verfügbarkeit neuer Therapien mindestens das Niveau von Deutschland erreichen, gemessen an der vollen Verfügbarkeit über alle Therapiegebiete» im EFPIA Patients W.A.I.T. Indicator.<\/p>"
     },
     {
       "shortId": "25.4225",
@@ -214,10 +236,12 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-25",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254225",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254225",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>Le Conseil fédéral a répondu à ma question 25.7494 que les pesticides contenant des PFAS sont autorisés pour des utilisations agricoles et non agricoles très spécifiques, par exemple sur les pelouses et les terrains de sport ou sur les platebandes ornementales.<\/p><p>&nbsp;<\/p><p>Il affirme que les avantages et les risques liés à l’utilisation des produits phytosanitaires sont examinés lors de la procédure d’homologation. L’autorisation serait accordée si les dangers et les risques pour les êtres humains, les animaux et l’environnement sont jugés acceptables. Or, selon diverses sources, moins de 1 % des PFAS ont été étudiés à l’échelon mondial quant à leurs effets sur la santé et ceux qui ont été étudiés ont pratiquement tous révélé une toxicité à long terme pour les êtres humains.<\/p><p>&nbsp;<\/p><p>Le Conseil fédéral ne dispose pas d'une vue d'ensemble des lieux où les produits phytosanitaires sont utilisés. Cependant, les pesticides contenant des PFAS sont de toute évidence autorisés dans des lieux fréquentés par des enfants : sur les pelouses des terrains de sport, dans les parcs, les aires de jeux, les quartiers résidentiels, etc. Les personnes qui utilisent ces produits dans l'agriculture ou dans les jardins sont également susceptibles d'être exposées à des risques pour leur santé.<\/p><p>&nbsp;<\/p><p>Je prie dès lors le Conseil fédéral de répondre aux questions suivantes :<\/p><p>&nbsp;<\/p><ol><li>Est-il exact que moins de 1 % des PFAS ont été testés à l’échelle mondiale quant à leurs effets sur la santé et que ceux qui ont fait l’objet de recherches se sont pratiquement toujours révélés toxiques pour l’être humain à long terme ? Si oui, sur quelle base la Confédération peut-elle procéder à une évaluation fiable des risques et à une pesée des intérêts dans le cadre de la procédure d'homologation ? Où ces informations sont-elles présentées de manière transparente ?<\/li><li>Comment le Conseil fédéral justifie-t-il l’homologation de pesticides contenant des PFAS pour des utilisations à proximité immédiate d'enfants, par exemple sur des terrains de sport, des aires de jeux ou dans des quartiers résidentiels, alors que les PFAS étudiés se sont presque toujours révélés toxiques à long terme ?<\/li><li>Comment le Conseil fédéral évalue-t-il les conséquences potentielles à long terme des pesticides contenant des PFAS sur les êtres humains, les animaux et l'environnement sans recourir à une biosurveillance systématique de la population ?<\/li><li>Pourquoi ne dispose-t-on pas d'une vue d'ensemble des endroits où les pesticides contenant des PFAS sont effectivement utilisés en Suisse ? Un système tel que digiFLUX pourrait-il garantir cette transparence à l'avenir et quels avantages le public et les autorités pourraient-ils en tirer ?<\/li><li>Quels enseignements le Conseil fédéral tire-t-il des critiques formulées à maintes reprises, notamment dans le rapport d'audit CDF-23489, concernant sa pratique en matière d'homologation ? Quelles améliorations sont prévues, à quelle échéance ?<\/li><\/ol>",
+      "text_de": "<p>Der Bundesrat antwortet auf meine Frage 25.7494 Pestizide mit PFAS würden für «sehr spezifische Anwendungen zugelassen», in der Landwirtschaft und im nichtlandwirtschaftlichen Bereich, etwa in Zier- und Sportrasen oder in Zierpflanzen.<\/p><p>&nbsp;<\/p><p>Bei der Zulassung würden «der Nutzen und die mit der Anwendung verbundenen Risiken» geprüft. Eine Zulassung werde erteilt, wenn die Gefahren und Risiken für Mensch, Tier und Umwelt als akzeptierbar beurteilt würden. Laut verschiedenen Quellen wurden weltweit jedoch weniger als 1% aller PFAS auf ihre gesundheitlichen Auswirkungen untersucht. Bei den untersuchten PFAS zeigte sich offenbar fast immer eine chronische Toxizität für Menschen.<\/p><p>&nbsp;<\/p><p>Der Bundesrat verfügt über keinen systematischen Überblick darüber, wo PSM ausgebracht werden. PFAS-Pestizide sind aber offenbar für die Anwendung in nächster Nähe von Kindern zugelassen: In Rasen von Sportplätzen, Pärken, Kinderspielplätzen, Wohnquartieren usw. Auch Menschen, die die Mittel in der Landwirtschaft oder in Gärten anwenden, dürften Gesundheitsrisiken ausgesetzt sein.<\/p><p>&nbsp;<\/p><p>Ich bitte den Bundesrat, folgende Fragen zu beantworten:<\/p><p>&nbsp;<\/p><ol><li>Ist es korrekt, dass weltweit weniger als 1% aller PFAS überhaupt auf gesundheitliche Auswirkungen geprüft wurden und sich bei jenen, die erforscht wurden, fast immer eine chronische Giftigkeit für Menschen zeigte? Falls ja: Auf welcher Basis kann der Bund in der Zulassungspraxis eine verlässliche Risikoabschätzung und Interessenabwägung vornehmen und wo sind sie transparent dargelegt?<\/li><li>Wie begründet der Bundesrat die Zulassung von PFAS-Pestiziden für Anwendungen in unmittelbarer Nähe von Kindern, etwa auf Sportplätzen, Spielwiesen oder in Wohnquartieren, wenn bei den untersuchten PFAS fast immer eine chronische Giftigkeit nachgewiesen wurde?<\/li><li>Wie prüft der Bundesrat die möglichen Langzeitfolgen von PFAS-Pestiziden für Menschen, Tiere und Umwelt ohne ein systematisches Human-Biomonitoring?<\/li><li>Warum gibt es keinen Überblick darüber, wo PFAS-haltige Pestizide in der Schweiz tatsächlich eingesetzt werden? Könnte ein System wie digiFLUX diese Transparenz künftig gewährleisten und welchen konkreten Nutzen hätten Öffentlichkeit und Behörden davon?<\/li><li>Welche Lehren zieht der Bundesrat aus der wiederholten Kritik, etwa im Prüfbericht EFK-23489, an seiner Zulassungspraxis, und welche konkreten Verbesserungen sind bis wann geplant?<\/li><\/ol>"
     },
     {
       "shortId": "25.4234",
@@ -229,10 +253,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-25",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254234",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254234",
-      "mention": "Élu"
+      "mention": "Élu",
+      "text": "<p>Le Conseil fédéral est chargé de modifier le règlement sur l’assurance-invalidité de manière à ce que les subventions allouées aux organisations d’aide privée aux invalides en vertu de l’art.&nbsp;74 LAI soient adaptées aux besoins des bénéficiaires sans modification de leur montant.<\/p><p>&nbsp;<\/p><p>Les fonds ainsi libérés pourront être utilisés pour financer des prestations dont le besoin est avéré mais qui ne sont pas couvertes à l’heure actuelle, ainsi que pour promouvoir l’innovation.<\/p>",
+      "text_de": "<p>Der Bundesrat soll mittels Verordnungsänderung dafür sorgen, dass die ausgerichteten Finanzhilfen nach Art. 74 des Invalidenversicherungsgesetzes an die Organisationen der privaten Behindertenhilfe sich bei gleichbleibendem Umfang am Bedarf orientieren.<\/p><p>&nbsp;<\/p><p>Die freiwerdenden Mittel können für heute nicht gedeckte Leistungen mit ausgewiesenem Bedarf und zur Innovationsförderung eingesetzt werden.<\/p>"
     },
     {
       "shortId": "25.4071",
@@ -244,10 +270,12 @@
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-09-23",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>En Suisse, les chevaux ont une particularité&nbsp;: ils sont enregistrés soit comme animaux de compagnie, soit comme animaux de rente. L'année dernière pour la première fois, davantage de chevaux ont été enregistrés comme animaux de compagnie plutôt que comme animaux de rente. Cette pratique conduit à l'incinération de très nombreux animaux après leur mort. Plusieurs milliers de tonnes de protéines animales sont ainsi perdues chaque année.<\/p><p>&nbsp;<\/p><p>Au vu des discussions sur le développement durable, l'économie circulaire et le gaspillage alimentaire, on peut s'interroger sur la pertinence de cette réglementation, d'autant plus qu'un cheval enregistré comme animal de rente peut également être incinéré pour des raisons émotionnelles&nbsp;: faire cette distinction perd donc également de sa clarté et de sa pertinence de ce point de vue.<\/p><p>&nbsp;<\/p><p>La question du rôle que le cheval jouera à l’avenir dans l'agriculture revêt de l’importance dans le cadre de la politique agricole 2030 (PA2030). Traditionnellement, le cheval était considéré comme un animal de travail et de rente, mais aujourd'hui, c'est l'utilisation comme animal de loisirs et de sport qui prévaut. Quelles en sont les conséquences pour l'agriculture, la politique relative à la détention d’animaux et l'utilisation des ressources&nbsp;?<br><br>&nbsp;Je prie le Conseil fédéral de répondre aux questions suivantes&nbsp;:<br>&nbsp;<\/p><ol style=\"list-style-type:decimal;\"><li>Pourquoi la Suisse maintient-elle cette réglementation spéciale pour les chevaux (animal de compagnie vs animal de rente), alors que les pays voisins y renoncent&nbsp;?<br>&nbsp;<\/li><li>Quelles mesures concrètes le Conseil fédéral examine-t-il ou prend-il pour supprimer cette distinction ou pour l'harmoniser avec les normes internationales&nbsp;?<br>&nbsp;<\/li><li>Est-il lui aussi d’avis que le système actuel constitue une forme de gaspillage alimentaire, étant donné que de grandes quantités de protéines sont brûlées chaque année sans être utilisées&nbsp;?<br>&nbsp;<\/li><li>Sur quelles bases de la médecine vétérinaire ou de la législation sur les denrées alimentaires cette distinction se fonde-t-elle&nbsp;? Sont-elles encore justifiées aujourd’hui d'un point de vue scientifique&nbsp;?<br>&nbsp;<\/li><li>Le Conseil fédéral est-il prêt à examiner des solutions autres que l'incinération dans l'esprit de l'économie circulaire (par ex. utilisation pour l'alimentation animale, les aliments spéciaux ou à des fins pharmaceutiques) afin de mieux valoriser les ressources&nbsp;?<br>&nbsp;<\/li><li>Comment évalue-t-il les obstacles administratifs et financiers auxquels sont actuellement confrontés les détenteurs d'animaux qui souhaitent enregistrer leur cheval comme animal de rente, et estime-t-il qu'une réforme soit nécessaire en la matière&nbsp;?<br>&nbsp;<\/li><li>Quelle importance accorde-t-il aux équidés dans la PA2030&nbsp;? Quel rôle les chevaux doivent-ils encore jouer dans l'agriculture à l'avenir&nbsp;?<\/li><\/ol>",
+      "text_de": "<p>In der Schweiz gilt bei Pferden eine Besonderheit: Sie werden entweder als Heim- oder als Nutztiere registriert. Im vergangenen Jahr waren erstmals mehr Pferde als Heim- statt Nutztiere eingetragen. Diese Praxis führt dazu, dass sehr viele Tiere nach ihrem Tod kremiert werden. Damit gehen jährlich mehrere tausend Tonnen an tierischem Protein verloren.<\/p><p>&nbsp;<\/p><p>Angesichts der Diskussionen über Nachhaltigkeit, Kreislaufwirtschaft und Food Waste stellt sich die Frage nach der Sinnhaftigkeit dieser Regelung. Zumal ein als Nutztier registriertes Pferd aus emotionalen Gründen ebenfalls kremiert werden darf – die Unterscheidung verliert also auch aus dieser Perspektive an Klarheit und Relevanz.<\/p><p>&nbsp;<\/p><p>Zudem ist die Frage nach der künftigen Rolle des Pferdes in der Landwirtschaft im Rahmen der Agrarpolitik 2030 (AP2030) von Bedeutung. Traditionell wurde das Pferd als Arbeits- und Nutztier verstanden, heute dominiert jedoch die Nutzung als Freizeit- und Sporttier. Welche Konsequenzen ergeben sich daraus für die Landwirtschaft, die Tierhaltungspolitik und die Ressourcennutzung?<br><br>&nbsp;Ich bitte den Bundesrat um die Beantwortung folgender Fragen:<br>&nbsp;<\/p><ol style=\"list-style-type:decimal;\"><li>Weshalb hält die Schweiz an dieser Sonderregelung (Heim- vs. Nutztier bei Pferden) fest, während umliegende Länder darauf verzichten?<br>&nbsp;<\/li><li>Welche konkreten Schritte prüft oder unternimmt der Bundesrat, um diese Unterscheidung aufzuheben oder mit internationalen Standards zu harmonisieren?<br>&nbsp;<\/li><li>Teilt der Bundesrat die Einschätzung, dass es sich beim heutigen System um eine Form von Food Waste handelt, weil jährlich grosse Mengen an Proteinen ungenutzt verbrannt werden?<br>&nbsp;<\/li><li>Auf welche veterinärmedizinischen oder lebensmittelrechtlichen Grundlagen stützt sich die Unterscheidung? Sind diese aus heutiger wissenschaftlicher Sicht noch gerechtfertigt?<br>&nbsp;<\/li><li>Ist der Bundesrat bereit, im Sinne der Kreislaufwirtschaft Alternativen zur Verbrennung zu prüfen (z. B. Nutzung für Tierfutter, Spezialnahrung oder pharmazeutische Zwecke), um Ressourcen besser zu verwerten?<br>&nbsp;<\/li><li>Wie beurteilt der Bundesrat die heutigen administrativen und finanziellen Hürden für Tierhalterinnen und Tierhalter, die ihr Pferd als Nutztier registrieren möchten, und sieht er hier Reformbedarf?<br>&nbsp;<\/li><li>Welche Bedeutung misst der Bundesrat den Equiden in der künftigen Agrarpolitik 2030 bei? Welche Rolle sollen Pferde in der Landwirtschaft künftig noch spielen?<\/li><\/ol>"
     },
     {
       "shortId": "25.4024",
@@ -259,10 +287,12 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-17",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254024",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254024",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>&nbsp;<\/p><p>1. Pourquoi le DDPS externalise-t-il intégralement la gestion des risques et de la qualité de ses grands projets au lieu de renforcer des services internes tels que le Contrôle fédéral des finances ou la révision interne&nbsp;?<\/p><p>2. À combien sont estimés les coûts des nouveaux contrats-cadres conclus pour une durée de douze ans&nbsp;? Comment s’assure-t-on que les coûts ne dérapent pas&nbsp;?<\/p><p>3. Pourquoi avoir choisi une durée de contrat aussi longue&nbsp;? Est-il possible de modifier ou de résilier les contrats en cas de besoin&nbsp;?<\/p><p>4. Quels critères ont déterminé le choix des prestataires externes&nbsp;? Comment éviter les conflits d’intérêts et garantir l’indépendance&nbsp;?<\/p><p>5. Quelles leçons le DDPS tire-t-il de précédentes expertises réalisées par des externes comme celle du cabinet d’avocat Homburger sur le F-35, qui a été taxée d’être un rapport de complaisance&nbsp;? Comment la transparence sera-t-il garantie&nbsp;?<\/p>",
+      "text_de": "<p>&nbsp;<\/p><p>1. Weshalb lagert das VBS das Qualitäts- und Risikomanagement bei seinen Grossprojekten vollständig an Externe aus, anstatt interne Stellen wie die EFK oder die interne Revision zu stärken?<\/p><p>2. Wie hoch werden die Kosten der neuen Rahmenverträge über zwölf Jahre geschätzt, und wie wird sichergestellt, dass diese nicht aus dem Ruder laufen?<\/p><p>3. Weshalb wurde eine so lange Vertragsdauer gewählt, und welche Möglichkeiten bestehen, Verträge bei Bedarf anzupassen oder zu beenden?<\/p><p>4. Nach welchen Kriterien werden die externen Dienstleister ausgewählt, und wie wird verhindert, dass Interessenkonflikte entstehen oder die Unabhängigkeit beeinträchtigt wird?<\/p><p>5. Welche Lehren zieht das VBS aus früheren externen Gutachten wie jenen der Kanzlei Homburger zum F-35, die als Gefälligkeitsgutachten kritisiert wurden, und wie wird künftig Transparenz garantiert?<\/p>"
     },
     {
       "shortId": "25.7863",
@@ -274,10 +304,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>Des rapports datant du printemps critiquent le calcul erroné de l’impôt sur la fortune dans le canton de Vaud qui a engendré une perte pouvant se chiffrer en millions de francs. Le canton de Vaud bénéficiant de la péréquation financière nationale, les erreurs pourraient avoir des répercussions sur les autres cantons et la Confédération.<br>- Est-ce que le Conseil fédéral partage cette analyse&nbsp;?<br>- Les paiements compensatoires déjà effectués peuvent-ils être corrigés&nbsp;?<br>- Quelles mesures entend prendre le Conseil fédéral pour éviter, à l’avenir, de telles erreurs&nbsp;?<\/p>",
+      "text_de": "<p>Berichte aus dem Frühjahr kritisieren die fehlerhafte Vermögenssteuerberechnung im Kanton Waadt, die ihm mutmasslich mehrere Millionen Franken kostete. Da Waadt Nehmerkanton im nationalen Finanzausgleich ist, könnten die Fehler auch andere Kantone und den Bund betreffen.<br>- Teilt der Bundesrat diese Einschätzung?<br>- Können bereits geleistete Ausgleichszahlungen korrigiert werden?<br>- Welche Massnahmen plant er, um solche Fehler künftig zu verhindern?<\/p>"
     },
     {
       "shortId": "25.7888",
@@ -289,10 +321,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257888",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257888",
-      "mention": "Élu"
+      "mention": "Élu",
+      "text": "<p>Quand le Parlement recevra-t-il le rapport d’enquête intermédiaire sur RUAG (mandaté au cabinet Niederer Kraft Frey), sur lequel se fonde l’audit du CDF&nbsp;?&nbsp;<br>Quand ce rapport sera-t-il porté à la connaissance du public&nbsp;?<\/p>",
+      "text_de": "<p>Wann erhält das Parlament und wann die Öffentlichkeit den Zwischenbericht des Gutachtens zur RUAG (Auftragnehmer Niederer Kraft Frey), der auch dem EFK Bericht zugrunde liegt?<\/p>"
     },
     {
       "shortId": "25.7890",
@@ -304,10 +338,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-17",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257890",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257890",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>Concernant le suivi de l’assainissement de cette décharge, le Contrôle fédéral des finances (CDF) souligne «&nbsp;l’absence d’une vision d’ensemble des risques et d’un suivi coordonné des différentes entités fédérales&nbsp;».<br>- Comment le Conseil fédéral réagit-il aux critiques du CDF?<br>- Entend-il réaliser une analyse globale des risques, en tenant compte des interfaces avec l'A9 et la correction du Rhône puis, sur cette base, établir un concept de surveillance avec des responsabilités clairement définies?<\/p>",
+      "text_de": "<p>Die Eidgenössische Finanzkontrolle (EFK) hat das Sanierungsprojekt geprüft und betont, es gebe «keine Gesamtübersicht über die Risiken und keine koordinierte Aufsicht durch die verschiedenen involvierten Bundesstellen».<br>- Wie reagiert der Bundesrat auf die Kritik der EFK?<br>- Plant er, die Risiken unter Einbezug der A9 und der Rhonekorrektion umfassend zu analysieren und gestützt darauf ein Aufsichtskonzept mit klar definierten Zuständigkeiten zu entwickeln?<\/p>"
     },
     {
       "shortId": "25.4003",
@@ -318,10 +354,12 @@
       "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "date": "2025-09-11",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254003",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254003",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé de présenter au Parlement un rapport qui clarifie&nbsp;: (i) quels sont les allégements fiscaux au niveau de la Confédération et dans quelle mesure les taux d’imposition pourraient être réduits si les allégements fiscaux étaient supprimés, (ii) lesquels des allégements génèrent une charge administrative élevée et (iii) lesquels sont en conflit avec le but d’une croissance durable. Sur la base de cette analyse, le Conseil fédéral devra élaborer des propositions pour une simplification du système fiscal sans incidence sur les recettes.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, dem Parlament einen Bericht vorzulegen, der darlegt, (i) welche Steuervergünstigungen auf Ebene Bund bestehen und wie stark die jeweiligen Steuersätze gesenkt werden könnten, wenn die Vergünstigungen aufgehoben werden, (ii) welche der Vergünstigungen zudem einen hohen administrativen Aufwand generieren und (iii) welche in Konflikt mit dem Ziel eines nachhaltigen Wachstums stehen. Basierend auf dieser Analyse soll der Bundesrat Vorschläge für eine ertragsneutrale Vereinfachung des Steuersystems erarbeiten.<\/p>"
     },
     {
       "shortId": "25.3984",
@@ -332,10 +370,12 @@
       "status": "In Kommission des Ständerats / En commission du Conseil des Etats",
       "council": "NR",
       "date": "2025-09-10",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé d’adapter l’examen des subventions tel qu’il est réglé dans la loi sur les subventions (LSu) de manière à mettre en place un ensemble de mesures permettant de réduire les subventions nuisibles.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, die Subventionsprüfung gemäss Subventionsgesetz (SuG) so anzupassen, dass daraus ein Paket für einen Abbau von schädlichen Subventionen hervorgeht.<\/p>"
     },
     {
       "shortId": "25.7663",
@@ -347,10 +387,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-10",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257663",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257663",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>RUAG, entre autres en lien avec certaines irrégularités, aurait engagé plus de 10 millions de francs en frais d'avocats <a href=\"https://www.blick.ch/politik/neues-ungemach-bei-ruag-bundesfirma-gibt-ueber-10-millionen-franken-fuer-gutachten-aus-id21203936.html.\">https://www.blick.ch/politik/neues-ungemach-bei-ruag-bundesfirma-gibt-ueber-10-millionen-franken-fuer-gutachten-aus-id21203936.html.<\/a><br>- Le Conseil fédéral tolère-t-il cette manière de sous-traiter à grands frais des tâches de gouvernance d'entreprise ?<br>- Entend-il prendre des mesures ?<br>- Ces honoraires faramineux ne seraient-ils pas mieux investis dans l'acquisition de munition ?<\/p>",
+      "text_de": "<p>Die Ruag soll unter anderem im Zusammenhang mit bestimmten Unregelmässigkeiten mehr als 10 Millionen Franken für Anwaltskosten ausgegeben haben <a href=\"https://www.blick.ch/politik/neues-ungemach-bei-ruag-bundesfirma-gibt-ueber-10-millionen-franken-fuer-gutachten-aus-id21203936.html.\">(https://www.blick.ch/politik/neues-ungemach-bei-ruag-bundesfirma-gibt-ueber-10-millionen-franken-fuer-gutachten-aus-id21203936.html).<\/a><br>– Duldet der Bundesrat diese Art der kostspieligen Auslagerung von Aufgaben der Corporate Governance?<br>– Beabsichtigt der Bundesrat, Massnahmen zu ergreifen?<br>– Wäre es nicht besser, diese enormen Beträge in den Kauf von Munition zu investieren?<\/p>"
     },
     {
       "shortId": "25.7698",
@@ -362,10 +404,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-10",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257698",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257698",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>D’après la presse, les coûts de l’enquête externe sur le scandale RUAG se montent aujourd’hui à plus de 10&nbsp;millions de francs.<br>- Quel est le montant des coûts engagés jusqu’à présent et à qui cet argent a-t-il été versé&nbsp;?<br>- Le Conseil fédéral juge-t-il ces coûts raisonnables&nbsp;? Comment justifie-t-il une telle dépense&nbsp;?<br>- Comment explique-t-il l’évidente faillite des mécanismes de contrôle internes, à la fois dans l’entreprise RUAG et au DDPS, qui a imposé cette enquête externe&nbsp;?<\/p>",
+      "text_de": "<p>Gemäss Medienberichten belaufen sich die Kosten für die externe Untersuchung des RUAG-Skandals inzwischen auf über CHF 10 Millionen.<br>- Wie hoch sind die bisherigen Kosten der Untersuchung und an wen wurden diese Mittel ausbezahlt?<br>- Hält der Bundesrat diese Kosten für verhältnismässig und wie rechtfertigt er sie?<br>- Wie erklärt der Bundesrat das offensichtliche Versagen der internen Kontrollmechanismen innerhalb der RUAG sowie im VBS, das dazu führte, dass diese externe Untersuchung notwendig&nbsp;wurde?<\/p>"
     },
     {
       "shortId": "25.3971",
@@ -377,10 +421,12 @@
       "status": "Erledigt / Liquidé",
       "council": "SR",
       "date": "2025-09-09",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253971",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253971",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est prié de répondre aux questions suivantes :<br>1. Comment La Poste calcule-t-elle le déficit annuel lié à la distribution postale des journaux, sachant que cette dernière se fait en même temps que celle des lettres ?<br>2. Quels postes de coûts sont inclus dans le calcul concluant à l’existence d’un déficit dans le cadre de la distribution postale des journaux ?<br>3. Ce déficit est-il vérifié ou audité par une instance externe, et si oui, par laquelle ? Dans le cas contraire, le Conseil fédéral envisage-t-il de faire auditer les chiffres avancés par la Poste par une instance neutre et à rendre publics ces derniers&nbsp;?<br>4. Si cette question ne fait pas l’objet d’un audit actuellement, le Conseil fédéral entend-il permettre aux Commissions de gestion du Conseil national et du Conseil des Etats d’accéder aux chiffres avancés par la Poste pour justifier l’existence d’un déficit dans la distribution postale des journaux&nbsp;?<\/p>",
+      "text_de": "<p>Der Bundesrat wird gebeten, folgende Fragen zu beantworten:<br>1. Wie berechnet die Post die jährliche Kostenunterdeckung bei der Zeitungszustellung, wenn berücksichtigt wird, dass die Zeitungen gleichzeitig mit der Briefpost zugestellt werden?<br>2. Welche Kostenpositionen sind in der Berechnung enthalten, die zum Egebnis führt, dass die Zeitungszustellung defizitär ist?<br>3. Wird die Kostenunterdeckung von einer externen Stelle geprüft oder auditiert, und wenn ja, von welcher? Wenn nein, beabsichtigt der Bundesrat, die Zahlen der Post von einer neutralen Instanz prüfen zu lassen und zu veröffentlichen?<br>4. Falls diese Frage derzeit nicht auditiert wird: Wird der Bundesrat den Geschäftsprüfungskommissionen des National- und Ständerats Zugang zu den Zahlen gewähren, mit denen die Post die defizitäre Zeitungszustellung belegt?<\/p>"
     },
     {
       "shortId": "25.7601",
@@ -392,10 +438,12 @@
       "status": "Erledigt / Liquidé",
       "council": "NR",
       "date": "2025-09-08",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257601",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257601",
-      "mention": "Élu & Conseil fédéral"
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>À la suite de sa réponse à mon intervention 25.3875:<br>- Le Conseil fédéral a-t-il vérifié s’il existait des bases légales qui obligeraient la Confédération, en tant que responsable de l’octroi des autorisations de mise sur le marché de substances potentiellement dangereuses, à surveiller les effets concrets de leur utilisation et à comparer les résultats constatés dans la pratique avec les effets «&nbsp;pronostiqués&nbsp;» au moment de l’autorisation&nbsp;?<br>Dans l’affirmative, à quelles conclusions parvient-il&nbsp;?<br>Dans la négative, pourquoi ne l’a-t-il pas fait&nbsp;?<br>- Quelles sont les recommandations du CDF concernant le biomonitoring humain dans son rapport d’audit 23489&nbsp;?<\/p>",
+      "text_de": "<p>Nach der Antwort des Bundesrates auf meine Ip. 25.3875:<br>- Hat er geprüft, ob eine gesetzliche Grundlage besteht, die den Bund als Zulassungsbehörde für potenziell problematische Stoffe verpflichtet, ein Monitoring der tatsächlichen Effekte ihrer Anwendung in der Praxis zu betreiben und die Ergebnisse mit den in der Zulassung «prognostizierten» Effekten zu vergleichen?<br>Wenn ja, zu welchem Schluss kommt er?<br>Wenn nein, warum nicht?<br>- Was empfiehlt die EFK im Prüfbericht 23489 zum Human-Biomonitoring?<\/p>"
     },
     {
       "shortId": "25.3941",
@@ -406,10 +454,12 @@
       "status": "Überwiesen an den Bundesrat / Transmis au Conseil fédéral",
       "council": "NR",
       "date": "2025-06-23",
-      "date_maj": "2026-02-17",
+      "date_maj": "2026-02-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253941",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253941",
-      "mention": "Conseil fédéral"
+      "mention": "Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé d’augmenter progressivement les effectifs de FEDPOL à raison de 10 à 20 postes supplémentaires par année pendant 10 ans, soit un total de 100 à 200 postes additionnels d'ici 2035, incluant des enquêteurs, des analystes, des spécialistes en forensique numérique et des experts en coopération internationale, afin de garantir l'efficacité de la lutte contre la criminalité grave au niveau fédéral.<\/p><p>&nbsp;<\/p><p>Une minorité de la commission (Gartmann, Heimgartner, Hess Erich, Hurter Thomas, Tuena, Riner, Walliser, Zuberbühler) propose de rejeter la motion.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, den Personalbestand des Fedpol über einen Zeitraum von zehn Jahren schrittweise um 10 bis 20&nbsp;Stellen pro Jahr aufzustocken und somit bis 2035 100 bis 200 zusätzliche Stellen zu schaffen. Diese umfassen Ermittlerinnen und Ermittler, Analystinnen und Analysten, Fachpersonen für IT-Forensik sowie Fachpersonen für internationale Zusammenarbeit. Ziel ist es, eine wirksame Bekämpfung der schweren Kriminalität auf Bundesebene sicherzustellen.<\/p><p>&nbsp;<\/p><p>Eine Minderheit der Kommission (Gartmann, Heimgartner, Hess Erich, Hurter Thomas, Tuena, Riner, Walliser, Zuberbühler) beantragt, die Motion abzulehnen.<\/p>"
     },
     {
       "shortId": "25.450",
