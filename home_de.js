@@ -39,14 +39,48 @@ async function init() {
     }
 }
 
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}.${month}.${year}`;
+}
+
+function getSessionName(sessionId) {
+    if (!sessionId) return '';
+    const parts = sessionId.split('-');
+    if (parts.length < 2) return '';
+    const seasonMap = {
+        'printemps': 'Frühjahrssession',
+        'ete': 'Sommersession',
+        'automne': 'Herbstsession',
+        'hiver': 'Wintersession'
+    };
+    return seasonMap[parts[1]] || '';
+}
+
 function displaySessionSummary(summary) {
     if (!summary) return;
     
     const titleEl = document.getElementById('summaryTitle');
     const textEl = document.getElementById('summaryText');
     
-    if (titleEl) titleEl.textContent = summary.title_de;
-    if (textEl) textEl.textContent = summary.text_de;
+    // Construire le titre avec les dates
+    const sessionName = getSessionName(summary.session_id);
+    const startDate = formatDate(summary.session_start);
+    const endDate = formatDate(summary.session_end);
+    const year = summary.session_start ? summary.session_start.substring(0, 4) : '';
+    
+    if (titleEl) {
+        titleEl.textContent = `Zusammenfassung der ${sessionName} ${year} (${startDate} - ${endDate})`;
+    }
+    
+    // Texte avec référence à la session
+    if (textEl) {
+        const text = summary.text_de.replace(/Wintersession \d{4}/gi, sessionName);
+        textEl.textContent = text;
+    }
 }
 
 function displayObjectsList(summary) {
@@ -107,9 +141,12 @@ function displayDebatesSummary(debatesData, sessionSummary) {
     
     let html = '';
     
+    // Nom de la session pour cohérence
+    const sessionName = sessionSummary ? getSessionName(sessionSummary.session_id) : 'der letzten Session';
+    
     if (sessionDebates.length > 0) {
         html = `
-            <p><strong>${sessionDebates.length} Wortmeldungen</strong> mit Bezug zur EFK während der letzten Session.</p>
+            <p><strong>${sessionDebates.length} Wortmeldungen</strong> mit Bezug zur EFK während der ${sessionName}.</p>
             <ul class="debates-summary-list">
                 <li>🏛️ <strong>${cnCount}</strong> im Nationalrat, <strong>${ceCount}</strong> im Ständerat</li>
                 <li>👥 <strong>${speakers.length}</strong> verschiedene Redner</li>
@@ -127,7 +164,7 @@ function displayDebatesSummary(debatesData, sessionSummary) {
             html += '</ul>';
         }
     } else {
-        html = '<p>Keine Debatten mit Bezug zur EFK während der letzten Session.</p>';
+        html = `<p>Keine Debatten mit Bezug zur EFK während der ${sessionName}.</p>`;
     }
     
     container.innerHTML = html;
