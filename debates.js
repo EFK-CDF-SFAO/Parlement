@@ -223,7 +223,12 @@ function populateCouncilFilter() {
 function populatePartyFilter() {
     const partyMenu = document.getElementById('partyMenu');
     const parties = [...new Set(allData.map(item => item.party).filter(Boolean))];
-    parties.sort();
+    // Trier par nom affiché (ordre alphabétique français)
+    parties.sort((a, b) => {
+        const nameA = partyLabels[a] || a;
+        const nameB = partyLabels[b] || b;
+        return nameA.localeCompare(nameB, 'fr');
+    });
     
     const allLabel = document.createElement('label');
     allLabel.className = 'select-all';

@@ -178,7 +178,7 @@ function populateObjectFilters() {
         const party = d.party || getPartyFromAuthor(d.author);
         return normalizeParty(party);
     }).filter(Boolean))];
-    parties.sort();
+    parties.sort((a, b) => a.localeCompare(b, 'fr'));
     parties.forEach(party => {
         const label = document.createElement('label');
         label.innerHTML = `<input type="checkbox" value="${party}"> ${party}`;
@@ -321,7 +321,7 @@ function populateDebateFilters() {
         if (!d.party) return 'Conseil fédéral';
         return debatePartyLabels[d.party] || d.party;
     }))];
-    parties.sort();
+    parties.sort((a, b) => a.localeCompare(b, 'fr'));
     parties.forEach(party => {
         const label = document.createElement('label');
         label.innerHTML = `<input type="checkbox" value="${party}"> ${party}`;
@@ -438,9 +438,9 @@ function normalizeParty(party) {
     const normalized = {
         'PSS': 'PS',
         'PS': 'PS',
-        'VERT-E-S': 'Verts',
-        'Les Vert-e-s': 'Verts',
-        'Al': 'Verts',
+        'VERT-E-S': 'VERT-E-S',
+        'Les Vert-e-s': 'VERT-E-S',
+        'Al': 'VERT-E-S',
         'pvl': 'Vert\'libéraux',
         'PVL': 'Vert\'libéraux',
         'Le Centre': 'Le Centre',
