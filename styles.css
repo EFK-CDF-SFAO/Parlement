@@ -1348,25 +1348,50 @@ a.author-row {
 }
 
 /* Page d'accueil */
-.session-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+.session-title-banner {
     text-align: center;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+    position: relative;
 }
 
-.session-header h2 {
-    color: white;
-    margin-bottom: 0.5rem;
-    font-size: 1.4rem;
+.session-title-banner h2 {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+    margin: 0;
+    position: relative;
 }
 
-.session-header p {
-    color: rgba(255, 255, 255, 0.9);
+.session-title-banner h2::before,
+.session-title-banner h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary));
+}
+
+.session-title-banner h2::before {
+    right: 100%;
+    background: linear-gradient(90deg, transparent, var(--primary));
+}
+
+.session-title-banner h2::after {
+    left: 100%;
+    background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+.session-text {
+    color: var(--text-secondary);
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
 }
 
 .home-section {

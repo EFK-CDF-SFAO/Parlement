@@ -113,9 +113,11 @@ function displaySessionSummary(summary, currentSession) {
         titleEl.textContent = `Zusammenfassung der ${sessionName} (${startDate} - ${endDate})`;
     }
     
-    // Texte avec référence à la session
+    // Texte avec référence à la session (enlever les dates car déjà dans le titre)
     if (textEl) {
-        const text = summary.text_de.replace(/Wintersession \d{4}/gi, sessionName);
+        let text = summary.text_de;
+        // Enlever "Während der Wintersession 2025 (01.12 - 19.12.2025)" et remplacer
+        text = text.replace(/Während der [^)]+\)/gi, `Während der ${sessionName}`);
         textEl.textContent = text;
     }
 }
