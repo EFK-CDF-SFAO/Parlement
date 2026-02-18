@@ -220,7 +220,8 @@ function displayDebatesSummary(debatesData, currentSession) {
     const ceCount = sessionDebates.filter(d => d.council === 'S' || d.council === 'CE' || d.council === 'SR').length;
     
     const speakers = [...new Set(sessionDebates.map(d => d.speaker))];
-    const topics = [...new Set(sessionDebates.filter(d => d.business_title_fr).map(d => d.business_title_fr))];
+    // Utiliser titre IT si disponible, sinon FR
+    const topics = [...new Set(sessionDebates.filter(d => d.business_title_it || d.business_title_fr).map(d => d.business_title_it || d.business_title_fr))];
     
     let html = '';
     

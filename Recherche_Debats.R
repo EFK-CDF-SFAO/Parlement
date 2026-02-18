@@ -165,6 +165,10 @@ for (sid in subject_ids) {
     result_de <- get_data(table = "SubjectBusiness", Language = "DE", IdSubject = as.integer(sid))
     title_de <- if(nrow(result_de) > 0 && "Title" %in% names(result_de)) result_de$Title[1] else NA_character_
     
+    # Récupérer en IT pour le titre italien
+    result_it <- get_data(table = "SubjectBusiness", Language = "IT", IdSubject = as.integer(sid))
+    title_it <- if(nrow(result_it) > 0 && "Title" %in% names(result_it)) result_it$Title[1] else NA_character_
+    
     base_result <- if(nrow(result_fr) > 0) result_fr else result_de
     
     if(nrow(base_result) > 0) {
@@ -173,7 +177,8 @@ for (sid in subject_ids) {
         BusinessNumber = base_result$BusinessNumber[1],
         BusinessShortNumber = base_result$BusinessShortNumber[1],
         TitleFR = title_fr,
-        TitleDE = title_de
+        TitleDE = title_de,
+        TitleIT = title_it
       )
     } else {
       NULL
@@ -205,7 +210,8 @@ if (!is.null(SubjectBusiness_All) && nrow(SubjectBusiness_All) > 0) {
       BusinessNumber = NA_integer_,
       BusinessShortNumber = NA_character_,
       TitleFR = NA_character_,
-      TitleDE = NA_character_
+      TitleDE = NA_character_,
+      TitleIT = NA_character_
     )
 }
 
@@ -251,6 +257,7 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
       business_number = BusinessShortNumber,
       business_title_fr = coalesce(TitleFR, TitleDE),
       business_title_de = coalesce(TitleDE, TitleFR),
+      business_title_it = coalesce(TitleIT, TitleFR),
       text = Text,
       language = Langue
     )
