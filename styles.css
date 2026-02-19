@@ -936,12 +936,15 @@ mark.highlight-search {
 }
 
 .stat-card.top-card {
-    max-width: 400px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
 }
 
 .stat-card.half-width {
-    max-width: 200px;
-    flex: 0 0 auto;
+    flex: 0.6;
+    min-width: 180px;
+    max-width: 250px;
 }
 
 /* Top Authors */
