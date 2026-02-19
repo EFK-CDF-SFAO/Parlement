@@ -682,7 +682,7 @@ function getStatusIT(status) {
         'La déclaration sur l\'intervention est disponible': 'La dichiarazione sull\'intervento è disponibile',
         'Die Erklärung zum Vorstoss liegt vor': 'La dichiarazione sull\'intervento è disponibile',
         'L\'avis relatif à l\'intervention est disponible': 'La dichiarazione sull\'intervento è disponibile',
-        "L’avis relatif à l’intervention est disponible": 'La dichiarazione sull'intervento è disponibile',
+        "L’avis relatif à l’intervention est disponible": 'La dichiarazione sull\'intervento è disponibile',
         'Die Stellungnahme zum Vorstoss liegt vor': 'La dichiarazione sull\'intervento è disponibile',
         // En suspens
         'Suspendu': 'Sospeso',
