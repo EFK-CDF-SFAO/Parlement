@@ -678,7 +678,8 @@ const debatePartyLabels = {
 
 const councilLabels = {
     'N': 'Conseil national',
-    'S': 'Conseil des États'
+    'S': 'Conseil des États',
+    'V': 'AF'
 };
 
 function renderDebatePartyChart() {

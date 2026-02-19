@@ -646,7 +646,8 @@ const debatePartyLabels = {
 
 const councilLabelsDE = {
     'N': 'Nationalrat',
-    'S': 'Ständerat'
+    'S': 'Ständerat',
+    'V': 'VBV'
 };
 
 function renderDebatePartyChart() {
