@@ -543,7 +543,7 @@ function createCard(item, searchTerm = '') {
         </div>
         <h3 class="card-title">${businessTitleLink}</h3>
         <div class="card-meta">
-            <span>� ${speakerText}</span>
+            <span>💬 ${speakerText}</span>
             <span>📅 ${formatDate(item.date)}</span>
         </div>
         <div class="card-text">${highlightCDF(textPreview, searchTerm)}</div>
