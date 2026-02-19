@@ -937,14 +937,12 @@ mark.highlight-search {
 
 .stat-card.top-card {
     flex: 1;
-    min-width: 250px;
-    max-width: 350px;
+    min-width: 200px;
 }
 
 .stat-card.half-width {
-    flex: 0.6;
-    min-width: 180px;
-    max-width: 250px;
+    flex: 1;
+    min-width: 200px;
 }
 
 /* Top Authors */
