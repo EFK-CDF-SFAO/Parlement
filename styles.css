@@ -939,6 +939,11 @@ mark.highlight-search {
     max-width: 400px;
 }
 
+.stat-card.half-width {
+    max-width: 200px;
+    flex: 0 0 auto;
+}
+
 /* Top Authors */
 .authors-ranking {
     display: flex;

@@ -421,6 +421,7 @@ function renderAllDebateCharts() {
     renderDebatePartyChart();
     renderDebateCouncilChart();
     renderTopSpeakers();
+    renderTopSpeakersNoCF();
     renderDebateSummary();
 }
 
@@ -808,6 +809,51 @@ function renderTopSpeakers() {
         .slice(0, 5);
     
     const container = document.getElementById('topSpeakers');
+    
+    if (topSpeakers.length === 0) {
+        container.innerHTML = '<p>Aucune donnée disponible</p>';
+        return;
+    }
+    
+    let html = '<div class="authors-ranking">';
+    topSpeakers.forEach(([speaker, count], index) => {
+        const party = speakerParties[speaker] || '';
+        const medalClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
+        const searchUrl = `debates.html?search=${encodeURIComponent(speaker)}`;
+        
+        html += `
+            <a href="${searchUrl}" class="author-row ${medalClass}">
+                <div class="author-rank">${index + 1}</div>
+                <div class="author-info">
+                    <div class="author-name">${speaker}</div>
+                    <div class="author-party">${party}</div>
+                </div>
+                <div class="author-count">${count}</div>
+            </a>
+        `;
+    });
+    html += '</div>';
+    
+    container.innerHTML = html;
+}
+
+function renderTopSpeakersNoCF() {
+    const speakerCounts = {};
+    const speakerParties = {};
+    
+    filteredDebatesData.forEach(item => {
+        const speaker = item.speaker;
+        if (speaker && item.party) {
+            speakerCounts[speaker] = (speakerCounts[speaker] || 0) + 1;
+            speakerParties[speaker] = debatePartyLabels[item.party] || item.party;
+        }
+    });
+    
+    const topSpeakers = Object.entries(speakerCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5);
+    
+    const container = document.getElementById('topSpeakersNoCF');
     
     if (topSpeakers.length === 0) {
         container.innerHTML = '<p>Aucune donnée disponible</p>';
