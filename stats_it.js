@@ -186,9 +186,6 @@ function populateObjectFilters() {
     if (deptMenu) {
         const departments = [...new Set(allData.map(d => d.department).filter(Boolean))];
         departments.sort((a, b) => translateDept(a).localeCompare(translateDept(b), 'it'));
-        const noneLabel = document.createElement('label');
-        noneLabel.innerHTML = `<input type="checkbox" value="none"> Nessuno`;
-        deptMenu.appendChild(noneLabel);
         departments.forEach(dept => {
             const label = document.createElement('label');
             const deptIT = translateDept(dept);
