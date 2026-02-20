@@ -21,6 +21,29 @@ function translateParty(party) {
     return translations[party] || party;
 }
 
+// Couleurs par type d'objet
+const typeColors = {
+    'Mo.': '#3B82F6',      // Bleu
+    'Po.': '#8B5CF6',      // Violet
+    'Ip.': '#F59E0B',      // Orange
+    'Fra.': '#10B981',     // Vert
+    'Iv. pa.': '#EC4899',  // Rose
+    'Iv. ct.': '#6366F1'   // Indigo
+};
+
+// Couleurs par parti
+const partyColors = {
+    'UDC': '#009F4D',
+    'PLR': '#0066CC',
+    'Le Centre': '#FF9900',
+    'M-E': '#FF9900',
+    'Parti socialiste': '#E41019',
+    'PSS': '#E41019',
+    'VERT-E-S': '#84B414',
+    'pvl': '#A6CF42',
+    'Vert\'libéraux': '#A6CF42'
+};
+
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
 
@@ -49,7 +72,7 @@ async function init() {
         const debatesJson = await debatesResponse.json();
         
         // Display debates summary
-        displayDebatesSummary(debatesJson, currentSession);
+        const debatesCount = displayDebatesSummary(debatesJson, currentSession);
         
     } catch (error) {
         console.error('Error loading data:', error);
@@ -163,33 +186,37 @@ function displayObjectsList(summary, newIds = []) {
         return idB.localeCompare(idA, undefined, { numeric: true });
     });
     
-    let html = '<ul class="home-interventions-list">';
+    let html = '';
     
     for (const i of indices) {
         const shortId = interventions.shortId[i];
         const isNew = newIds.includes(shortId);
-        const idClass = isNew ? 'intervention-id id-updated' : 'intervention-id';
         const party = translateParty(interventions.party[i]);
+        const type = interventions.type[i];
+        const typeColor = typeColors[type] || '#6B7280';
+        const partyColor = partyColors[party] || partyColors[interventions.party[i]] || '#6B7280';
         
         html += `
-            <li>
-                <a href="${interventions.url_fr[i]}" target="_blank">
-                    <span class="${idClass}">${shortId}</span>
-                    <span class="intervention-type">${typeLabels[interventions.type[i]] || interventions.type[i]}</span>
-                    <span class="intervention-title">${interventions.title[i]}</span>
-                    <span class="intervention-author">👤 ${interventions.author[i]} (${party})</span>
-                </a>
-            </li>
+            <a href="${interventions.url_fr[i]}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
+                <div class="card-header">
+                    <span class="card-type" style="background: ${typeColor};">${typeLabels[type] || type}</span>
+                    <span class="card-id">${shortId}</span>
+                </div>
+                <div class="card-title">${interventions.title[i]}</div>
+                <div class="card-footer">
+                    <span class="card-author">${interventions.author[i]}</span>
+                    <span class="card-party" style="background: ${partyColor};">${party}</span>
+                </div>
+            </a>
         `;
     }
     
-    html += '</ul>';
     container.innerHTML = html;
 }
 
 function displayDebatesSummary(debatesData, currentSession) {
     const container = document.getElementById('debatesSummary');
-    if (!container) return;
+    if (!container) return 0;
     
     const debates = debatesData.items || [];
     
@@ -248,4 +275,5 @@ function displayDebatesSummary(debatesData, currentSession) {
     }
     
     container.innerHTML = html;
+    return sessionDebates.length;
 }

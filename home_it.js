@@ -37,6 +37,26 @@ const sessionNames = {
     'hiver': 'sessione invernale'
 };
 
+// Couleurs par type d'objet
+const typeColors = {
+    'Mo.': '#3B82F6',
+    'Po.': '#8B5CF6',
+    'Ip.': '#F59E0B',
+    'Fra.': '#10B981',
+    'Iv. pa.': '#EC4899',
+    'Iv. ct.': '#6366F1'
+};
+
+// Couleurs par parti
+const partyColors = {
+    'UDC': '#009F4D',
+    'PLR': '#0066CC',
+    'Alleanza del Centro': '#FF9900',
+    'PS': '#E41019',
+    'Verdi': '#84B414',
+    'PVL': '#A6CF42'
+};
+
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
 
@@ -211,17 +231,19 @@ function displayObjectsList(summary, newIds = []) {
         return idB.localeCompare(idA, undefined, { numeric: true });
     });
     
-    let html = '<ul class="home-interventions-list">';
+    let html = '';
     
     for (const i of indices) {
         const shortId = interventions.shortId[i];
         const isNew = newIds.includes(shortId);
-        const idClass = isNew ? 'intervention-id id-updated' : 'intervention-id';
         const party = translateParty(interventions.party[i]);
+        const type = interventions.type[i];
+        const typeColor = typeColors[type] || '#6B7280';
+        const partyColor = partyColors[party] || '#6B7280';
         
         // URL italiano
         const url = interventions.url_fr[i].replace('/fr/', '/it/');
-        // Titre: priorité IT > FR > DE
+        // Titre: priorité IT > FR
         const titleIT = interventions.title_it ? interventions.title_it[i] : null;
         const titleFR = interventions.title[i];
         const title = (titleIT && titleIT.trim() && titleIT.toLowerCase() !== 'titre suit') 
@@ -229,18 +251,20 @@ function displayObjectsList(summary, newIds = []) {
             : titleFR;
         
         html += `
-            <li>
-                <a href="${url}" target="_blank">
-                    <span class="${idClass}">${shortId}</span>
-                    <span class="intervention-type">${typeLabels[interventions.type[i]] || interventions.type[i]}</span>
-                    <span class="intervention-title">${title}</span>
-                    <span class="intervention-author">👤 ${interventions.author[i]} (${party})</span>
-                </a>
-            </li>
+            <a href="${url}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
+                <div class="card-header">
+                    <span class="card-type" style="background: ${typeColor};">${typeLabels[type] || type}</span>
+                    <span class="card-id">${shortId}</span>
+                </div>
+                <div class="card-title">${title}</div>
+                <div class="card-footer">
+                    <span class="card-author">${interventions.author[i]}</span>
+                    <span class="card-party" style="background: ${partyColor};">${party}</span>
+                </div>
+            </a>
         `;
     }
     
-    html += '</ul>';
     container.innerHTML = html;
 }
 

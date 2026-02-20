@@ -33,6 +33,26 @@ function translateParty(party) {
     return translations[party] || party;
 }
 
+// Couleurs par type d'objet
+const typeColors = {
+    'Mo.': '#3B82F6',
+    'Po.': '#8B5CF6',
+    'Ip.': '#F59E0B',
+    'Fra.': '#10B981',
+    'Iv. pa.': '#EC4899',
+    'Iv. ct.': '#6366F1'
+};
+
+// Couleurs par parti
+const partyColors = {
+    'SVP': '#009F4D',
+    'FDP': '#0066CC',
+    'Die Mitte': '#FF9900',
+    'SP': '#E41019',
+    'GRÜNE': '#84B414',
+    'GLP': '#A6CF42'
+};
+
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
 
@@ -157,27 +177,31 @@ function displayObjectsList(summary, newIds = []) {
         return idB.localeCompare(idA, undefined, { numeric: true });
     });
     
-    let html = '<ul class="home-interventions-list">';
+    let html = '';
     
     for (const i of indices) {
         const shortId = interventions.shortId[i];
         const isNew = newIds.includes(shortId);
-        const idClass = isNew ? 'intervention-id id-updated' : 'intervention-id';
         const party = translateParty(interventions.party[i]);
+        const type = interventions.type[i];
+        const typeColor = typeColors[type] || '#6B7280';
+        const partyColor = partyColors[party] || '#6B7280';
         
         html += `
-            <li>
-                <a href="${interventions.url_de[i]}" target="_blank">
-                    <span class="${idClass}">${shortId}</span>
-                    <span class="intervention-type">${typeLabels[interventions.type[i]] || interventions.type[i]}</span>
-                    <span class="intervention-title">${interventions.title_de[i]}</span>
-                    <span class="intervention-author">👤 ${interventions.author[i]} (${party})</span>
-                </a>
-            </li>
+            <a href="${interventions.url_de[i]}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
+                <div class="card-header">
+                    <span class="card-type" style="background: ${typeColor};">${typeLabels[type] || type}</span>
+                    <span class="card-id">${shortId}</span>
+                </div>
+                <div class="card-title">${interventions.title_de[i]}</div>
+                <div class="card-footer">
+                    <span class="card-author">${interventions.author[i]}</span>
+                    <span class="card-party" style="background: ${partyColor};">${party}</span>
+                </div>
+            </a>
         `;
     }
     
-    html += '</ul>';
     container.innerHTML = html;
 }
 
