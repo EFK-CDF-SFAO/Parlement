@@ -216,11 +216,13 @@ git push
 
 ## Widget Features
 
-- Displays the 3 most recent interventions
-- Automatic language detection (French/German based on iOS settings)
-- Tap to open Curia Vista search
-- **Data source priority**: GitHub → Local module → Cache → Parliament API
+- Displays the **5 most recent interventions** (motions, postulates, interpellations, questions)
+- **Trilingual**: Automatic language detection (FR/DE/IT based on iOS settings)
+- Tap to open Curia Vista search in the corresponding language
+- **Data source priority**: GitHub JSON → Local module → Cache → Parliament API
 - Cache validity: 6 hours
+- Daily update detection for new interventions
+- Supported intervention types: Motion, Postulate, Interpellation, Question (+ urgent variants)
 
 ## API Reference
 
