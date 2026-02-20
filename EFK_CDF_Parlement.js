@@ -624,17 +624,21 @@ if (shouldDoDailyUpdate() && items.length > 0) {
   writeText(PATH_LAST_UPDATE, new Date().toISOString());
 }
 
-// Filtrer les items mis à jour dans les 7 derniers jours
+// Filtrer les items récents: soit dans new_ids du JSON, soit mis à jour < 7 jours
 const now = new Date();
 const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+const newIdsSet = new Set(githubNewIds);
 
 const recentItems = items.filter(item => {
+  // Si l'item est dans new_ids du JSON, il est récent
+  if (newIdsSet.has(item.shortId)) return true;
+  // Sinon, vérifier la date de mise à jour
   if (!item.updated) return false;
   const updatedDate = new Date(item.updated);
   return updatedDate >= sevenDaysAgo;
 });
 
-console.log(`[DEBUG] Items récents (< 7 jours): ${recentItems.length}`);
+console.log(`[DEBUG] Items récents (new_ids + < 7 jours): ${recentItems.length}`);
 
 // Affichage ligne "Mises à jour récentes"
 const labelStack = w.addStack();
