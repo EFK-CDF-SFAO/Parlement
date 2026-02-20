@@ -1562,3 +1562,53 @@ a.author-row {
         grid-row: 3;
     }
 }
+
+/* Session Detail for Year Chart */
+.session-detail {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--background);
+    border-radius: 10px;
+    border-left: 4px solid #2196F3;
+}
+
+.session-detail h4 {
+    margin: 0 0 0.75rem 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.session-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+.session-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.session-detail-item:hover {
+    transform: translateX(4px);
+}
+
+.session-detail-item .session-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.session-detail-item .session-count {
+    background: #2196F3;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}

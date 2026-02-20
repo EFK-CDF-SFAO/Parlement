@@ -611,9 +611,98 @@ function renderYearChart() {
             },
             scales: {
                 y: { beginAtZero: true }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const year = labels[index];
+                    showSessionDetail(year);
+                }
             }
         }
     });
+}
+
+function showSessionDetail(year) {
+    const detailContainer = document.getElementById('sessionDetail');
+    const titleEl = document.getElementById('sessionDetailTitle');
+    const contentEl = document.getElementById('sessionDetailContent');
+    
+    if (!detailContainer) return;
+    
+    // Définir les sessions par année
+    const sessionsByYear = {
+        'printemps': { name: 'Session de printemps', months: [3] },
+        'speciale': { name: 'Session spéciale', months: [4, 5] },
+        'ete': { name: 'Session d\'été', months: [6] },
+        'automne': { name: 'Session d\'automne', months: [9, 10] },
+        'hiver': { name: 'Session d\'hiver', months: [12] }
+    };
+    
+    // Compter les interventions par session pour l'année sélectionnée
+    const sessionCounts = {};
+    
+    filteredData.forEach(item => {
+        if (item.date && item.date.startsWith(year)) {
+            const month = parseInt(item.date.substring(5, 7));
+            let sessionKey = 'autre';
+            
+            if (month === 3) sessionKey = 'printemps';
+            else if (month === 4 || month === 5) sessionKey = 'speciale';
+            else if (month === 6) sessionKey = 'ete';
+            else if (month === 9 || month === 10) sessionKey = 'automne';
+            else if (month === 12) sessionKey = 'hiver';
+            else if (month === 1 || month === 2) sessionKey = 'hiver_prev';
+            
+            sessionCounts[sessionKey] = (sessionCounts[sessionKey] || 0) + 1;
+        }
+    });
+    
+    // Construire le HTML
+    titleEl.textContent = `Détail ${year} par session`;
+    
+    const sessionLabels = {
+        'printemps': 'Session de printemps',
+        'speciale': 'Session spéciale',
+        'ete': 'Session d\'été',
+        'automne': 'Session d\'automne',
+        'hiver': 'Session d\'hiver',
+        'hiver_prev': 'Session d\'hiver (année préc.)',
+        'autre': 'Hors session'
+    };
+    
+    let html = '<div class="session-detail-grid">';
+    
+    const orderedKeys = ['printemps', 'speciale', 'ete', 'automne', 'hiver', 'hiver_prev', 'autre'];
+    orderedKeys.forEach(key => {
+        if (sessionCounts[key]) {
+            html += `
+                <div class="session-detail-item" onclick="filterBySession('${year}', '${key}')">
+                    <span class="session-name">${sessionLabels[key]}</span>
+                    <span class="session-count">${sessionCounts[key]}</span>
+                </div>
+            `;
+        }
+    });
+    
+    html += '</div>';
+    contentEl.innerHTML = html;
+    detailContainer.style.display = 'block';
+}
+
+function filterBySession(year, sessionKey) {
+    // Rediriger vers la page objets avec le filtre année
+    const monthRanges = {
+        'printemps': [3, 3],
+        'speciale': [4, 5],
+        'ete': [6, 6],
+        'automne': [9, 10],
+        'hiver': [12, 12],
+        'hiver_prev': [1, 2],
+        'autre': [7, 8]
+    };
+    
+    window.location.href = `index.html?filter_year=${year}`;
 }
 
 function renderTopAuthors() {

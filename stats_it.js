@@ -590,9 +590,76 @@ function renderYearChart() {
             },
             scales: {
                 y: { beginAtZero: true }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const year = labels[index];
+                    showSessionDetail(year);
+                }
             }
         }
     });
+}
+
+function showSessionDetail(year) {
+    const detailContainer = document.getElementById('sessionDetail');
+    const titleEl = document.getElementById('sessionDetailTitle');
+    const contentEl = document.getElementById('sessionDetailContent');
+    
+    if (!detailContainer) return;
+    
+    const sessionCounts = {};
+    
+    filteredData.forEach(item => {
+        if (item.date && item.date.startsWith(year)) {
+            const month = parseInt(item.date.substring(5, 7));
+            let sessionKey = 'altro';
+            
+            if (month === 3) sessionKey = 'primavera';
+            else if (month === 4 || month === 5) sessionKey = 'speciale';
+            else if (month === 6) sessionKey = 'estiva';
+            else if (month === 9 || month === 10) sessionKey = 'autunno';
+            else if (month === 12) sessionKey = 'inverno';
+            else if (month === 1 || month === 2) sessionKey = 'inverno_prev';
+            
+            sessionCounts[sessionKey] = (sessionCounts[sessionKey] || 0) + 1;
+        }
+    });
+    
+    titleEl.textContent = `Dettaglio ${year} per sessione`;
+    
+    const sessionLabels = {
+        'primavera': 'Sessione primaverile',
+        'speciale': 'Sessione speciale',
+        'estiva': 'Sessione estiva',
+        'autunno': 'Sessione autunnale',
+        'inverno': 'Sessione invernale',
+        'inverno_prev': 'Sessione invernale (anno prec.)',
+        'altro': 'Fuori sessione'
+    };
+    
+    let html = '<div class="session-detail-grid">';
+    
+    const orderedKeys = ['primavera', 'speciale', 'estiva', 'autunno', 'inverno', 'inverno_prev', 'altro'];
+    orderedKeys.forEach(key => {
+        if (sessionCounts[key]) {
+            html += `
+                <div class="session-detail-item" onclick="filterBySession('${year}', '${key}')">
+                    <span class="session-name">${sessionLabels[key]}</span>
+                    <span class="session-count">${sessionCounts[key]}</span>
+                </div>
+            `;
+        }
+    });
+    
+    html += '</div>';
+    contentEl.innerHTML = html;
+    detailContainer.style.display = 'block';
+}
+
+function filterBySession(year, sessionKey) {
+    window.location.href = `index_it.html?filter_year=${year}`;
 }
 
 function renderTopAuthors() {
