@@ -170,11 +170,27 @@ function displaySessionSummary(summary, currentSession) {
         
         let text = `Durante la ${sessionName}, sono stati presentati ${count} interventi relativi al CDF: ${typesText.join(', ')}. `;
         if (cn > 0 && ce > 0) {
-            text += `${cn} al Consiglio nazionale e ${ce} al Consiglio degli Stati.`;
+            text += `${cn} al Consiglio nazionale e ${ce} al Consiglio degli Stati. `;
         } else if (cn > 0) {
-            text += `Tutti al Consiglio nazionale.`;
+            text += `Tutti al Consiglio nazionale. `;
         } else if (ce > 0) {
-            text += `Tutti al Consiglio degli Stati.`;
+            text += `Tutti al Consiglio degli Stati. `;
+        }
+        
+        // Ajouter les partis les plus actifs
+        if (summary.interventions && summary.interventions.party) {
+            const partyCounts = {};
+            summary.interventions.party.forEach(p => {
+                const translated = translateParty(p);
+                partyCounts[translated] = (partyCounts[translated] || 0) + 1;
+            });
+            const sortedParties = Object.entries(partyCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 3)
+                .map(([p]) => p);
+            if (sortedParties.length > 0) {
+                text += `I partiti più attivi: ${sortedParties.join(', ')}.`;
+            }
         }
         
         textEl.textContent = text;
