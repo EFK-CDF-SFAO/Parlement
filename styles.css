@@ -398,29 +398,27 @@ main {
 }
 
 .filter-actions {
-    display: flex;
+    display: inline-flex;
     gap: 0.5rem;
-    flex-shrink: 0;
     align-items: center;
-    margin-left: auto;
 }
 
 .filter-new-updates {
     background: linear-gradient(135deg, #10B981, #059669);
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 0.85rem;
     font-weight: 500;
     transition: all 0.2s;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.25rem;
     height: 38px;
-    flex-shrink: 0;
     white-space: nowrap;
+    font-family: inherit;
 }
 
 .filter-new-updates:hover {
@@ -431,6 +429,17 @@ main {
 .filter-new-updates.active {
     background: linear-gradient(135deg, #059669, #047857);
     box-shadow: 0 0 0 2px #10B981;
+}
+
+.new-badge {
+    background: white;
+    color: #059669;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Results */
