@@ -4,6 +4,15 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 
 ## 🆕 What's New (February 2026)
 
+### 🔘 Session Detail & Nouveautés Button
+- **Year chart click**: Click on a year in the "Evolution by Year" chart to see session breakdown
+- **Session detail**: Shows intervention count per session (Spring, Special, Summer, Autumn, Winter)
+- **Filter by session**: Click on a session to filter objects by year + session
+- **Nouveautés button**: New green button to filter only recently added/updated objects (highlighted in green)
+- **Toggle behavior**: Button turns white with green border when active, click again to deactivate
+- **Reset clears all**: Reset button now clears session filter and URL parameters
+- **Cross-browser**: Works on Chrome, Safari, Firefox, Edge (desktop & mobile)
+
 ### 🏛️ Legislature Filter & Extended Data
 - **New filter**: Filter by legislature (51st or 52nd)
 - **51st legislature**: December 2019 - September 2023 (sessions 5101-5122)
