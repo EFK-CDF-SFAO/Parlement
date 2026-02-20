@@ -1897,6 +1897,15 @@ a.author-row {
     gap: 0.25rem;
     min-width: 100px;
     flex: 1;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+}
+
+.debate-stat-card.clickable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: var(--primary);
 }
 
 .debate-stat-icon {

@@ -254,16 +254,16 @@ function displayDebatesSummary(debatesData, currentSession) {
     if (sessionDebates.length > 0) {
         html = `
             <div class="debates-mini-cards">
-                <div class="debate-stat-card">
+                <a href="debates.html?filter_council=N" class="debate-stat-card clickable">
                     <span class="debate-stat-icon">🏛️</span>
                     <span class="debate-stat-number">${cnCount}</span>
                     <span class="debate-stat-label">Conseil national</span>
-                </div>
-                <div class="debate-stat-card">
+                </a>
+                <a href="debates.html?filter_council=S" class="debate-stat-card clickable">
                     <span class="debate-stat-icon">🏛️</span>
                     <span class="debate-stat-number">${ceCount}</span>
                     <span class="debate-stat-label">Conseil des États</span>
-                </div>
+                </a>
                 <div class="debate-stat-card">
                     <span class="debate-stat-icon">👥</span>
                     <span class="debate-stat-number">${speakers.length}</span>
