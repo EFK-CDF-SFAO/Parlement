@@ -1865,4 +1865,14 @@ a.author-row {
     .home-cards {
         grid-template-columns: 1fr;
     }
+    
+    .card-header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    
+    .card-type {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
 }
