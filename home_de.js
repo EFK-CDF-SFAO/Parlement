@@ -16,6 +16,18 @@ const typeLabels = {
 // Traduction des partis
 function translateParty(party) {
     const translations = {
+        'VERT-E-S': 'GRÜNE',
+        'Les Vert-e-s': 'GRÜNE',
+        'Al': 'GRÜNE',
+        'pvl': 'GLP',
+        'PVL': 'GLP',
+        'Vert\'libéraux': 'GLP',
+        'PS': 'SP',
+        'PSS': 'SP',
+        'PLR': 'FDP',
+        'UDC': 'SVP',
+        'Le Centre': 'Die Mitte',
+        'Centre': 'Mitte',
         'M-E': 'Die Mitte'
     };
     return translations[party] || party;

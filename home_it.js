@@ -16,7 +16,15 @@ const typeLabels = {
 // Traduction des partis
 function translateParty(party) {
     const translations = {
-        'M-E': 'Alleanza del Centro'
+        'Al': 'Verdi',
+        'VERT-E-S': 'Verdi',
+        'PSS': 'PS',
+        'PS': 'PS',
+        'M-E': 'Alleanza del Centro',
+        'Le Centre': 'Alleanza del Centro',
+        'PLR': 'PLR',
+        'UDC': 'UDC',
+        'pvl': 'PVL'
     };
     return translations[party] || party;
 }
