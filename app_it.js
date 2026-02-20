@@ -529,34 +529,34 @@ function updateURL() {
     if (searchTerm) params.set('search', searchTerm);
     
     const yearValues = getCheckedValues('yearDropdown');
-    if (yearValues.length > 0 && yearValues.length < document.querySelectorAll('#yearDropdown input[type="checkbox"]:not([data-select-all])').length) {
+    if (yearValues && yearValues.length > 0) {
         params.set('filter_year', yearValues.join(','));
     }
     
     if (window.sessionFilter) params.set('filter_session', window.sessionFilter);
     
     const typeValues = getCheckedValues('typeDropdown');
-    if (typeValues.length > 0 && typeValues.length < document.querySelectorAll('#typeDropdown input[type="checkbox"]:not([data-select-all])').length) {
+    if (typeValues && typeValues.length > 0) {
         params.set('filter_type', typeValues.join(','));
     }
     
     const councilValues = getCheckedValues('councilDropdown');
-    if (councilValues.length > 0 && councilValues.length < document.querySelectorAll('#councilDropdown input[type="checkbox"]:not([data-select-all])').length) {
+    if (councilValues && councilValues.length > 0) {
         params.set('filter_council', councilValues.join(','));
     }
     
     const partyValues = getCheckedValues('partyDropdown');
-    if (partyValues.length > 0 && partyValues.length < document.querySelectorAll('#partyDropdown input[type="checkbox"]:not([data-select-all])').length) {
+    if (partyValues && partyValues.length > 0) {
         params.set('filter_party', partyValues.join(','));
     }
     
     const departmentValues = getCheckedValues('departmentDropdown');
-    if (departmentValues.length > 0 && departmentValues.length < document.querySelectorAll('#departmentDropdown input[type="checkbox"]:not([data-select-all])').length) {
+    if (departmentValues && departmentValues.length > 0) {
         params.set('filter_department', departmentValues.join(','));
     }
     
     const legislatureValues = getCheckedValues('legislatureDropdown');
-    if (legislatureValues.length > 0 && legislatureValues.length < document.querySelectorAll('#legislatureDropdown input[type="checkbox"]:not([data-select-all])').length) {
+    if (legislatureValues && legislatureValues.length > 0) {
         params.set('filter_legislature', legislatureValues.join(','));
     }
     
