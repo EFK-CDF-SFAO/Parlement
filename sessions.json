@@ -1,92 +1,47 @@
 {
   "sessions": [
-    {
-      "id": "2025-hiver",
-      "name_fr": "Session d'hiver 2025",
-      "name_de": "Wintersession 2025",
-      "start": "2025-12-01",
-      "end": "2025-12-19",
-      "type": "ordinaire"
-    },
-    {
-      "id": "2026-printemps",
-      "name_fr": "Session de printemps 2026",
-      "name_de": "Frühjahrssession 2026",
-      "start": "2026-03-02",
-      "end": "2026-03-20",
-      "type": "ordinaire"
-    },
-    {
-      "id": "2026-speciale",
-      "name_fr": "Session spéciale 2026",
-      "name_de": "Sondersession 2026",
-      "start": "2026-04-27",
-      "end": "2026-05-01",
-      "type": "speciale"
-    },
-    {
-      "id": "2026-ete",
-      "name_fr": "Session d'été 2026",
-      "name_de": "Sommersession 2026",
-      "start": "2026-06-01",
-      "end": "2026-06-19",
-      "type": "ordinaire"
-    },
-    {
-      "id": "2026-automne",
-      "name_fr": "Session d'automne 2026",
-      "name_de": "Herbstsession 2026",
-      "start": "2026-09-14",
-      "end": "2026-10-02",
-      "type": "ordinaire"
-    },
-    {
-      "id": "2026-hiver",
-      "name_fr": "Session d'hiver 2026",
-      "name_de": "Wintersession 2026",
-      "start": "2026-11-30",
-      "end": "2026-12-18",
-      "type": "ordinaire"
-    },
-    {
-      "id": "2027-printemps",
-      "name_fr": "Session de printemps 2027",
-      "name_de": "Frühjahrssession 2027",
-      "start": "2027-03-01",
-      "end": "2027-03-19",
-      "type": "ordinaire"
-    },
-    {
-      "id": "2027-speciale",
-      "name_fr": "Session spéciale 2027",
-      "name_de": "Sondersession 2027",
-      "start": "2027-04-19",
-      "end": "2027-04-23",
-      "type": "speciale"
-    },
-    {
-      "id": "2027-ete",
-      "name_fr": "Session d'été 2027",
-      "name_de": "Sommersession 2027",
-      "start": "2027-05-31",
-      "end": "2027-06-18",
-      "type": "ordinaire"
-    },
-    {
-      "id": "2027-automne",
-      "name_fr": "Session d'automne 2027",
-      "name_de": "Herbstsession 2027",
-      "start": "2027-09-13",
-      "end": "2027-10-01",
-      "type": "ordinaire"
-    },
-    {
-      "id": "2027-hiver",
-      "name_fr": "Session d'hiver 2027",
-      "name_de": "Wintersession 2027",
-      "start": "2027-12-06",
-      "end": "2027-12-23",
-      "type": "ordinaire"
-    }
+    {"id": "2019-hiver", "code": "5101", "name_fr": "Session d'hiver 2019", "name_de": "Wintersession 2019", "start": "2019-12-02", "end": "2019-12-20", "type": "ordinaire"},
+    {"id": "2020-printemps", "code": "5102", "name_fr": "Session de printemps 2020", "name_de": "Frühjahrssession 2020", "start": "2020-03-02", "end": "2020-03-12", "type": "ordinaire"},
+    {"id": "2020-speciale-mai", "code": "5103", "name_fr": "Session extraordinaire mai 2020", "name_de": "Session in der BernExpo 2020", "start": "2020-05-04", "end": "2020-05-06", "type": "speciale"},
+    {"id": "2020-ete", "code": "5104", "name_fr": "Session d'été 2020", "name_de": "Sommersession 2020", "start": "2020-06-02", "end": "2020-06-19", "type": "ordinaire"},
+    {"id": "2020-automne", "code": "5105", "name_fr": "Session d'automne 2020", "name_de": "Herbstsession 2020", "start": "2020-09-07", "end": "2020-09-25", "type": "ordinaire"},
+    {"id": "2020-speciale-oct", "code": "5106", "name_fr": "Session spéciale octobre 2020", "name_de": "Sondersession Oktober 2020", "start": "2020-10-29", "end": "2020-10-30", "type": "speciale"},
+    {"id": "2020-hiver", "code": "5107", "name_fr": "Session d'hiver 2020", "name_de": "Wintersession 2020", "start": "2020-11-30", "end": "2020-12-18", "type": "ordinaire"},
+    {"id": "2021-printemps", "code": "5108", "name_fr": "Session de printemps 2021", "name_de": "Frühjahrssession 2021", "start": "2021-03-01", "end": "2021-03-19", "type": "ordinaire"},
+    {"id": "2021-speciale-mai", "code": "5109", "name_fr": "Session spéciale mai 2021", "name_de": "Sondersession Mai 2021", "start": "2021-05-03", "end": "2021-05-05", "type": "speciale"},
+    {"id": "2021-ete", "code": "5110", "name_fr": "Session d'été 2021", "name_de": "Sommersession 2021", "start": "2021-05-31", "end": "2021-06-18", "type": "ordinaire"},
+    {"id": "2021-automne", "code": "5111", "name_fr": "Session d'automne 2021", "name_de": "Herbstsession 2021", "start": "2021-09-13", "end": "2021-10-01", "type": "ordinaire"},
+    {"id": "2021-hiver", "code": "5112", "name_fr": "Session d'hiver 2021", "name_de": "Wintersession 2021", "start": "2021-11-29", "end": "2021-12-17", "type": "ordinaire"},
+    {"id": "2022-printemps", "code": "5113", "name_fr": "Session de printemps 2022", "name_de": "Frühjahrssession 2022", "start": "2022-02-28", "end": "2022-03-18", "type": "ordinaire"},
+    {"id": "2022-speciale-mai", "code": "5114", "name_fr": "Session spéciale mai 2022", "name_de": "Sondersession Mai 2022", "start": "2022-05-09", "end": "2022-05-11", "type": "speciale"},
+    {"id": "2022-ete", "code": "5115", "name_fr": "Session d'été 2022", "name_de": "Sommersession 2022", "start": "2022-05-30", "end": "2022-06-17", "type": "ordinaire"},
+    {"id": "2022-automne", "code": "5116", "name_fr": "Session d'automne 2022", "name_de": "Herbstsession 2022", "start": "2022-09-12", "end": "2022-09-30", "type": "ordinaire"},
+    {"id": "2022-hiver", "code": "5117", "name_fr": "Session d'hiver 2022", "name_de": "Wintersession 2022", "start": "2022-11-28", "end": "2022-12-16", "type": "ordinaire"},
+    {"id": "2023-printemps", "code": "5118", "name_fr": "Session de printemps 2023", "name_de": "Frühjahrssession 2023", "start": "2023-02-27", "end": "2023-03-17", "type": "ordinaire"},
+    {"id": "2023-speciale-avr", "code": "5119", "name_fr": "Session extraordinaire avril 2023", "name_de": "Ausserordentliche Session 2023", "start": "2023-04-11", "end": "2023-04-13", "type": "speciale"},
+    {"id": "2023-speciale-mai", "code": "5120", "name_fr": "Session spéciale mai 2023", "name_de": "Sondersession Mai 2023", "start": "2023-05-02", "end": "2023-05-05", "type": "speciale"},
+    {"id": "2023-ete", "code": "5121", "name_fr": "Session d'été 2023", "name_de": "Sommersession 2023", "start": "2023-05-30", "end": "2023-06-16", "type": "ordinaire"},
+    {"id": "2023-automne", "code": "5122", "name_fr": "Session d'automne 2023", "name_de": "Herbstsession 2023", "start": "2023-09-11", "end": "2023-09-29", "type": "ordinaire"},
+    {"id": "2023-hiver", "code": "5201", "name_fr": "Session d'hiver 2023", "name_de": "Wintersession 2023", "start": "2023-12-04", "end": "2023-12-22", "type": "ordinaire"},
+    {"id": "2024-printemps", "code": "5202", "name_fr": "Session de printemps 2024", "name_de": "Frühjahrssession 2024", "start": "2024-02-26", "end": "2024-03-15", "type": "ordinaire"},
+    {"id": "2024-speciale-avr", "code": "5203", "name_fr": "Session spéciale avril 2024", "name_de": "Sondersession 4. 2024", "start": "2024-04-15", "end": "2024-04-17", "type": "speciale"},
+    {"id": "2024-ete", "code": "5204", "name_fr": "Session d'été 2024", "name_de": "Sommersession 2024", "start": "2024-05-27", "end": "2024-06-14", "type": "ordinaire"},
+    {"id": "2024-automne", "code": "5205", "name_fr": "Session d'automne 2024", "name_de": "Herbstsession 2024", "start": "2024-09-09", "end": "2024-09-27", "type": "ordinaire"},
+    {"id": "2024-hiver", "code": "5206", "name_fr": "Session d'hiver 2024", "name_de": "Wintersession 2024", "start": "2024-12-02", "end": "2024-12-20", "type": "ordinaire"},
+    {"id": "2025-printemps", "code": "5207", "name_fr": "Session de printemps 2025", "name_de": "Frühjahrssession 2025", "start": "2025-03-03", "end": "2025-03-21", "type": "ordinaire"},
+    {"id": "2025-speciale-mai", "code": "5208", "name_fr": "Session spéciale mai 2025", "name_de": "Sondersession 5. 2025", "start": "2025-05-05", "end": "2025-05-07", "type": "speciale"},
+    {"id": "2025-ete", "code": "5209", "name_fr": "Session d'été 2025", "name_de": "Sommersession 2025", "start": "2025-06-02", "end": "2025-06-20", "type": "ordinaire"},
+    {"id": "2025-automne", "code": "5210", "name_fr": "Session d'automne 2025", "name_de": "Herbstsession 2025", "start": "2025-09-08", "end": "2025-09-26", "type": "ordinaire"},
+    {"id": "2025-hiver", "code": "5211", "name_fr": "Session d'hiver 2025", "name_de": "Wintersession 2025", "start": "2025-12-01", "end": "2025-12-19", "type": "ordinaire"},
+    {"id": "2026-printemps", "name_fr": "Session de printemps 2026", "name_de": "Frühjahrssession 2026", "start": "2026-03-02", "end": "2026-03-20", "type": "ordinaire"},
+    {"id": "2026-speciale", "name_fr": "Session spéciale 2026", "name_de": "Sondersession 2026", "start": "2026-04-27", "end": "2026-05-01", "type": "speciale"},
+    {"id": "2026-ete", "name_fr": "Session d'été 2026", "name_de": "Sommersession 2026", "start": "2026-06-01", "end": "2026-06-19", "type": "ordinaire"},
+    {"id": "2026-automne", "name_fr": "Session d'automne 2026", "name_de": "Herbstsession 2026", "start": "2026-09-14", "end": "2026-10-02", "type": "ordinaire"},
+    {"id": "2026-hiver", "name_fr": "Session d'hiver 2026", "name_de": "Wintersession 2026", "start": "2026-11-30", "end": "2026-12-18", "type": "ordinaire"},
+    {"id": "2027-printemps", "name_fr": "Session de printemps 2027", "name_de": "Frühjahrssession 2027", "start": "2027-03-01", "end": "2027-03-19", "type": "ordinaire"},
+    {"id": "2027-speciale", "name_fr": "Session spéciale 2027", "name_de": "Sondersession 2027", "start": "2027-04-19", "end": "2027-04-23", "type": "speciale"},
+    {"id": "2027-ete", "name_fr": "Session d'été 2027", "name_de": "Sommersession 2027", "start": "2027-05-31", "end": "2027-06-18", "type": "ordinaire"},
+    {"id": "2027-automne", "name_fr": "Session d'automne 2027", "name_de": "Herbstsession 2027", "start": "2027-09-13", "end": "2027-10-01", "type": "ordinaire"},
+    {"id": "2027-hiver", "name_fr": "Session d'hiver 2027", "name_de": "Wintersession 2027", "start": "2027-12-06", "end": "2027-12-23", "type": "ordinaire"}
   ]
 }

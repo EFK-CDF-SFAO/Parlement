@@ -432,6 +432,47 @@ function applyFilters() {
     filteredData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     
     renderResults();
+    updateURL();
+}
+
+function updateURL() {
+    const params = new URLSearchParams();
+    
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm) params.set('search', searchTerm);
+    
+    const yearValues = getCheckedValues('yearDropdown');
+    if (yearValues.length > 0 && yearValues.length < document.querySelectorAll('#yearDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_year', yearValues.join(','));
+    }
+    
+    const sessionValues = getCheckedValues('sessionDropdown');
+    if (sessionValues.length > 0 && sessionValues.length < document.querySelectorAll('#sessionDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_session', sessionValues.join(','));
+    }
+    
+    const councilValues = getCheckedValues('councilDropdown');
+    if (councilValues.length > 0 && councilValues.length < document.querySelectorAll('#councilDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_council', councilValues.join(','));
+    }
+    
+    const partyValues = getCheckedValues('partyDropdown');
+    if (partyValues.length > 0 && partyValues.length < document.querySelectorAll('#partyDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_party', partyValues.join(','));
+    }
+    
+    const departmentValues = getCheckedValues('departmentDropdown');
+    if (departmentValues.length > 0 && departmentValues.length < document.querySelectorAll('#departmentDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_department', departmentValues.join(','));
+    }
+    
+    const legislatureValues = getCheckedValues('legislatureDropdown');
+    if (legislatureValues.length > 0 && legislatureValues.length < document.querySelectorAll('#legislatureDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_legislature', legislatureValues.join(','));
+    }
+    
+    const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+    window.history.replaceState({}, document.title, newUrl);
 }
 
 function formatDate(dateStr) {

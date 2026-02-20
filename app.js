@@ -544,6 +544,61 @@ function applyFilters() {
     
     currentPage = 1;
     renderResults();
+    updateURL();
+}
+
+function updateURL() {
+    const params = new URLSearchParams();
+    
+    // Search term
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm) params.set('search', searchTerm);
+    
+    // Year filter
+    const yearValues = getCheckedValues('yearDropdown');
+    if (yearValues.length > 0 && yearValues.length < document.querySelectorAll('#yearDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_year', yearValues.join(','));
+    }
+    
+    // Session filter
+    if (window.sessionFilter) params.set('filter_session', window.sessionFilter);
+    
+    // Type filter
+    const typeValues = getCheckedValues('typeDropdown');
+    if (typeValues.length > 0 && typeValues.length < document.querySelectorAll('#typeDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_type', typeValues.join(','));
+    }
+    
+    // Council filter
+    const councilValues = getCheckedValues('councilDropdown');
+    if (councilValues.length > 0 && councilValues.length < document.querySelectorAll('#councilDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_council', councilValues.join(','));
+    }
+    
+    // Party filter
+    const partyValues = getCheckedValues('partyDropdown');
+    if (partyValues.length > 0 && partyValues.length < document.querySelectorAll('#partyDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_party', partyValues.join(','));
+    }
+    
+    // Department filter
+    const departmentValues = getCheckedValues('departmentDropdown');
+    if (departmentValues.length > 0 && departmentValues.length < document.querySelectorAll('#departmentDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_department', departmentValues.join(','));
+    }
+    
+    // Legislature filter
+    const legislatureValues = getCheckedValues('legislatureDropdown');
+    if (legislatureValues.length > 0 && legislatureValues.length < document.querySelectorAll('#legislatureDropdown input[type="checkbox"]:not([data-select-all])').length) {
+        params.set('filter_legislature', legislatureValues.join(','));
+    }
+    
+    // New updates filter
+    if (window.newUpdatesFilter) params.set('nouveautes', '1');
+    
+    // Update URL without reload
+    const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+    window.history.replaceState({}, document.title, newUrl);
 }
 
 function clearSearch() {
