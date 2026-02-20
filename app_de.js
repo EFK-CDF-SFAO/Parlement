@@ -355,6 +355,15 @@ function resetAllFilters() {
         updateFilterCount(dropdown.id);
     });
     searchInput.value = '';
+    
+    // Clear session filter
+    window.sessionFilter = null;
+    
+    // Clear URL parameters
+    if (window.history.replaceState) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    
     applyFilters();
 }
 
