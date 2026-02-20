@@ -1774,6 +1774,13 @@ a.author-row {
     border-left: 4px solid #10B981;
 }
 
+.legend-hint {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;
