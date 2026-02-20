@@ -18,6 +18,7 @@ const resultsCount = document.getElementById('resultsCount');
 const lastUpdate = document.getElementById('lastUpdate');
 const downloadBtn = document.getElementById('downloadBtn');
 const resetFiltersBtn = document.getElementById('resetFilters');
+const showNewUpdatesBtn = document.getElementById('showNewUpdates');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
@@ -341,6 +342,23 @@ function initDropdownFilters() {
     if (resetFiltersBtn) {
         resetFiltersBtn.addEventListener('click', resetAllFilters);
     }
+    
+    // Show new updates button
+    if (showNewUpdatesBtn) {
+        showNewUpdatesBtn.addEventListener('click', toggleNewUpdatesFilter);
+    }
+}
+
+function toggleNewUpdatesFilter() {
+    window.newUpdatesFilter = !window.newUpdatesFilter;
+    
+    if (window.newUpdatesFilter) {
+        showNewUpdatesBtn.classList.add('active');
+    } else {
+        showNewUpdatesBtn.classList.remove('active');
+    }
+    
+    applyFilters();
 }
 
 function resetAllFilters() {
@@ -358,6 +376,12 @@ function resetAllFilters() {
     
     // Clear session filter
     window.sessionFilter = null;
+    
+    // Clear new updates filter
+    window.newUpdatesFilter = false;
+    if (showNewUpdatesBtn) {
+        showNewUpdatesBtn.classList.remove('active');
+    }
     
     // Clear URL parameters
     if (window.history.replaceState) {
@@ -454,6 +478,13 @@ function applyFilters() {
             };
             const validMonths = sessionMonths[window.sessionFilter] || [];
             if (!validMonths.includes(month)) {
+                return false;
+            }
+        }
+        
+        // New updates filter
+        if (window.newUpdatesFilter) {
+            if (!newIds.includes(item.shortId)) {
                 return false;
             }
         }
