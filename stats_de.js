@@ -724,7 +724,8 @@ function renderDebateCouncilChart() {
     
     const labels = Object.keys(councilCounts);
     const data = Object.values(councilCounts);
-    const colors = ['#EA5A4F', '#003399'];
+    // Rot = NR, Blau = SR, Violett = VBV
+    const colors = ['#EA5A4F', '#003399', '#8B5CF6'];
     
     const ctx = document.getElementById('debateCouncilChart').getContext('2d');
     debateCouncilChartInstance = new Chart(ctx, {
