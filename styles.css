@@ -1793,12 +1793,13 @@ a.author-row {
 }
 
 .card-type {
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 6px;
+    color: #6B7280;
+    background: transparent;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    border: 1.5px solid #D1D5DB;
     font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-weight: 500;
 }
 
 .card-id {

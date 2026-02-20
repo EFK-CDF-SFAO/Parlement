@@ -199,7 +199,7 @@ function displayObjectsList(summary, newIds = []) {
         html += `
             <a href="${interventions.url_fr[i]}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
                 <div class="card-header">
-                    <span class="card-type" style="background: ${typeColor};">${typeLabels[type] || type}</span>
+                    <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${shortId}</span>
                 </div>
                 <div class="card-title">${interventions.title[i]}</div>
