@@ -793,7 +793,7 @@ function downloadFilteredData() {
         item.council || '',
         item.date || '',
         getStatusIT(item.status),
-        item.url_fr || ''
+        (item.url_fr || '').replace('/fr/', '/it/')
     ]);
     
     const csvContent = [
