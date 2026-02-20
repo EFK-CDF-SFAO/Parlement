@@ -767,7 +767,7 @@ function getStatusIT(status) {
 
 function getPartyIT(party) {
     const translations = {
-        'Les Vert-e-s': 'Verdi',
+        'VERT-E-S': 'Verdi',
         'Le Centre': 'Alleanza del Centro',
         'Parti socialiste': 'PS',
         'PLR': 'PLR',

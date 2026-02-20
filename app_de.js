@@ -765,7 +765,7 @@ function getStatusDE(status) {
 
 function getPartyDE(party) {
     const translations = {
-        'Les Vert-e-s': 'Grüne',
+        'VERT-E-S': 'Grüne',
         'Le Centre': 'Die Mitte',
         'Parti socialiste': 'SP',
         'PLR': 'FDP',
