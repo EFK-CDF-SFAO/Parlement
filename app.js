@@ -807,7 +807,7 @@ function downloadFilteredData() {
         item.council || '',
         item.date || '',
         getStatusFR(item.status),
-        item.url || ''
+        item.url_fr || ''
     ]);
     
     const csvContent = [

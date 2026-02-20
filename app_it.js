@@ -765,6 +765,18 @@ function getStatusIT(status) {
     return translations[status] || status;
 }
 
+function getPartyIT(party) {
+    const translations = {
+        'Les Vert-e-s': 'Verdi',
+        'Le Centre': 'Alleanza del Centro',
+        'Parti socialiste': 'PS',
+        'PLR': 'PLR',
+        'UDC': 'UDC',
+        'Vert\'libéraux': 'Verdi liberali'
+    };
+    return translations[party] || party;
+}
+
 function downloadFilteredData() {
     if (filteredData.length === 0) {
         alert('Nessun dato da esportare');
@@ -775,13 +787,13 @@ function downloadFilteredData() {
     const rows = filteredData.map(item => [
         item.id || '',
         item.type || '',
-        (item.title || '').replace(/"/g, '""'),
+        (item.title_it || item.title || '').replace(/"/g, '""'),
         (item.author || '').replace(/"/g, '""'),
-        item.party || '',
+        getPartyIT(item.party) || '',
         item.council || '',
         item.date || '',
         getStatusIT(item.status),
-        item.url || ''
+        item.url_fr || ''
     ]);
     
     const csvContent = [

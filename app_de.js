@@ -763,6 +763,18 @@ function getStatusDE(status) {
     return status;
 }
 
+function getPartyDE(party) {
+    const translations = {
+        'Les Vert-e-s': 'Grüne',
+        'Le Centre': 'Die Mitte',
+        'Parti socialiste': 'SP',
+        'PLR': 'FDP',
+        'UDC': 'SVP',
+        'Vert\'libéraux': 'GLP'
+    };
+    return translations[party] || party;
+}
+
 function downloadFilteredData() {
     if (filteredData.length === 0) {
         alert('Keine Daten zum Exportieren');
@@ -775,11 +787,11 @@ function downloadFilteredData() {
         item.type || '',
         (item.title_de || item.title || '').replace(/"/g, '""'),
         (item.author || '').replace(/"/g, '""'),
-        item.party || '',
+        getPartyDE(item.party) || '',
         item.council || '',
         item.date || '',
         getStatusDE(item.status),
-        item.url || ''
+        item.url_de || ''
     ]);
     
     const csvContent = [
