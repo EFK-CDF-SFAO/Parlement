@@ -37,6 +37,8 @@ const API_BASE = "https://ws-old.parlament.ch";
 // 5 = Motion, 6 = Postulat, 8 = Interpellation, 9 = Interpellation urgente, 11 = Question, 13 = Question urgente
 const INTERVENTION_TYPE_IDS = new Set([5, 6, 8, 9, 11, 13]);
 
+const CV_IT = 'https://www.parlament.ch/it/ratsbetrieb/suche-curia-vista#k=%22Controllo%20federale%20delle%20finanze%22';
+
 const CFG = {
   fr: {
     title: "CDF - Parlement",
@@ -44,7 +46,8 @@ const CFG = {
     openUrl: CV_FR,
     apiLang: "fr",
     acceptLang: "fr-CH,fr;q=0.9",
-    labelLast: "Derniers objets déposés",
+    labelUpdates: "Mises à jour récentes",
+    noUpdates: "Pas de nouvelles mentions du CDF",
   },
   de: {
     title: "EFK - Parlament",
@@ -52,7 +55,17 @@ const CFG = {
     openUrl: CV_DE,
     apiLang: "de",
     acceptLang: "de-CH,de;q=0.9",
-    labelLast: "Letzte Vorstösse",
+    labelUpdates: "Aktuelle Aktualisierungen",
+    noUpdates: "Keine neuen EFK-Erwähnungen",
+  },
+  it: {
+    title: "CDF - Parlamento",
+    keyword: "Controllo federale delle finanze",
+    openUrl: CV_IT,
+    apiLang: "it",
+    acceptLang: "it-CH,it;q=0.9",
+    labelUpdates: "Aggiornamenti recenti",
+    noUpdates: "Nessuna nuova menzione del CDF",
   },
 };
 
@@ -62,6 +75,7 @@ function detectLang() {
     const pref = Device.preferredLanguages ? Device.preferredLanguages() : [];
     const first = (Array.isArray(pref) && pref.length ? String(pref[0]) : "").toLowerCase();
     if (first.startsWith("de")) return "de";
+    if (first.startsWith("it")) return "it";
   } catch (_) {}
   return "fr";
 }
@@ -610,27 +624,38 @@ if (shouldDoDailyUpdate() && items.length > 0) {
   writeText(PATH_LAST_UPDATE, new Date().toISOString());
 }
 
-// Affichage ligne "Derniers objets déposés" avec compteur nouveaux
+// Filtrer les items mis à jour dans les 7 derniers jours
+const now = new Date();
+const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+const recentItems = items.filter(item => {
+  if (!item.updated) return false;
+  const updatedDate = new Date(item.updated);
+  return updatedDate >= sevenDaysAgo;
+});
+
+console.log(`[DEBUG] Items récents (< 7 jours): ${recentItems.length}`);
+
+// Affichage ligne "Mises à jour récentes"
 const labelStack = w.addStack();
 labelStack.layoutHorizontally();
 labelStack.centerAlignContent();
 
-const labelLine = labelStack.addText(cfg.labelLast);
+const labelLine = labelStack.addText(cfg.labelUpdates);
 labelLine.font = Font.mediumSystemFont(11);
 labelLine.textColor = TEXT_SECONDARY;
 
-if (newIds.length > 0) {
+if (recentItems.length > 0) {
   labelStack.addSpacer(6);
-  const newLabel = LANG === "fr" ? `(nouveaux : ${newIds.length})` : `(neu: ${newIds.length})`;
-  const newText = labelStack.addText(newLabel);
-  newText.font = Font.mediumSystemFont(11);
-  newText.textColor = new Color("#FF0000"); // Rouge
+  const countText = labelStack.addText(`(${recentItems.length})`);
+  countText.font = Font.mediumSystemFont(11);
+  countText.textColor = new Color("#00FF00"); // Vert
 }
 
 w.addSpacer(6);
 
-// Affichage des 3 dernières interventions
-const last5 = items.slice(0, 3);
+// Affichage des 3 dernières mises à jour
+const last5 = recentItems.slice(0, 3);
 
 // Récupérer les partis pour les items affichés (si pas déjà présent)
 for (const item of last5) {
@@ -642,13 +667,16 @@ for (const item of last5) {
 }
 
 if (!last5.length) {
-  console.warn("[WARN] Aucun résultat à afficher");
-  const msg = fetchOk 
-    ? (LANG === "fr" ? "Aucun résultat trouvé." : "Keine Resultate.")
-    : (LANG === "fr" ? "Erreur réseau / API" : "Netzwerk-/API-Fehler");
+  console.warn("[WARN] Aucun résultat récent à afficher");
+  let msg;
+  if (!fetchOk) {
+    msg = LANG === "fr" ? "Erreur réseau / API" : (LANG === "de" ? "Netzwerk-/API-Fehler" : "Errore di rete / API");
+  } else {
+    msg = cfg.noUpdates;
+  }
   const t = w.addText(msg);
-  t.font = Font.boldSystemFont(13);
-  t.textColor = ACCENT;
+  t.font = Font.boldSystemFont(11);
+  t.textColor = TEXT_SECONDARY;
   
   if (errorMsg) {
     w.addSpacer(4);
@@ -668,8 +696,9 @@ w.addSpacer();
 const lastFetch = fm.fileExists(PATH_LAST_FETCH) 
   ? new Date(readText(PATH_LAST_FETCH))
   : new Date();
-const footerLabel = LANG === "fr" ? "Mise à jour" : "Aktualisiert";
-const footer = w.addText(`${footerLabel}: ${lastFetch.toLocaleDateString(LANG === "fr" ? "fr-CH" : "de-CH")}`);
+const footerLabel = LANG === "fr" ? "Mise à jour" : (LANG === "de" ? "Aktualisiert" : "Aggiornato");
+const localeMap = { fr: "fr-CH", de: "de-CH", it: "it-CH" };
+const footer = w.addText(`${footerLabel}: ${lastFetch.toLocaleDateString(localeMap[LANG] || "fr-CH")}`);
 footer.font = Font.systemFont(7);
 footer.textColor = TEXT_SECONDARY;
 footer.centerAlignText();
