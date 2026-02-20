@@ -770,7 +770,8 @@ function getPartyDE(party) {
         'Parti socialiste': 'SP',
         'PLR': 'FDP',
         'UDC': 'SVP',
-        'Vert\'libéraux': 'GLP'
+        'Vert\'libéraux': 'GLP',
+        'pvl': 'GLP'
     };
     return translations[party] || party;
 }
