@@ -57,6 +57,21 @@ const partyColors = {
     'PVL': '#A6CF42'
 };
 
+// Emojis per le citazioni CDF
+function getMentionEmojis(mention) {
+    if (!mention) return { emojis: '🧑', tooltip: "L'autore cita il CDF" };
+    const hasElu = mention.includes('Élu');
+    const hasCF = mention.includes('Conseil fédéral');
+    
+    if (hasElu && hasCF) {
+        return { emojis: '🧑 🏛️', tooltip: "L'autore e il Consiglio federale citano il CDF" };
+    } else if (hasCF) {
+        return { emojis: '🏛️', tooltip: "Il Consiglio federale cita il CDF" };
+    } else {
+        return { emojis: '🧑', tooltip: "L'autore cita il CDF" };
+    }
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
 
@@ -78,7 +93,7 @@ async function init() {
         
         // Display objects list avec new_ids pour soulignement vert
         const newIds = objectsJson.meta?.new_ids || [];
-        displayObjectsList(objectsJson.session_summary, newIds);
+        displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
         
         // Load debates data
         const debatesResponse = await fetch(DEBATES_URL);
@@ -217,11 +232,17 @@ function displaySessionSummary(summary, currentSession) {
     }
 }
 
-function displayObjectsList(summary, newIds = []) {
+function displayObjectsList(summary, newIds = [], allItems = []) {
     const container = document.getElementById('objectsList');
     if (!container || !summary || !summary.interventions) return;
     
     const interventions = summary.interventions;
+    
+    // Créer un map des items pour accès rapide aux mentions
+    const itemsMap = {};
+    allItems.forEach(item => {
+        itemsMap[item.shortId] = item;
+    });
     
     // Créer un tableau d'indices et trier par shortId décroissant
     const indices = interventions.shortId.map((_, i) => i);
@@ -240,6 +261,10 @@ function displayObjectsList(summary, newIds = []) {
         const type = interventions.type[i];
         const typeColor = typeColors[type] || '#6B7280';
         const partyColor = partyColors[party] || '#6B7280';
+        
+        // Récupérer la mention depuis les items
+        const itemData = itemsMap[shortId];
+        const mentionData = getMentionEmojis(itemData?.mention);
         
         // URL italiano
         const url = interventions.url_fr[i].replace('/fr/', '/it/');
@@ -260,6 +285,7 @@ function displayObjectsList(summary, newIds = []) {
                 <div class="card-footer">
                     <span class="card-author">${interventions.author[i]}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>
+                    <span class="card-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
                 </div>
             </a>
         `;

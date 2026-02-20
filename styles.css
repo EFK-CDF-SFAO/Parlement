@@ -1836,6 +1836,11 @@ a.author-row {
     font-weight: 500;
 }
 
+.card-mention {
+    font-size: 0.85rem;
+    cursor: help;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
     .hero-banner {
