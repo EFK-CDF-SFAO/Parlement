@@ -4,6 +4,14 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 
 ## 🆕 What's New (February 2026)
 
+### 🏠 Redesigned Homepage
+- **Hero banner**: Session summary with dates in a compact red banner
+- **Intervention cards**: Visual card layout with type badge (grey outline) and party badge (colored)
+- **Green border indicator**: Cards with a green left border = new or recently updated objects
+- **Debates mini-cards**: 3 clickable stat cards (National Council, Council of States, speakers count)
+- **Council filter links**: Click on a council card to open the debates page with pre-applied filter
+- **Trilingual**: All visual enhancements applied to FR, DE, IT versions
+
 ### 🔘 Session Detail & Nouveautés Button
 - **Year chart click**: Click on a year in the "Evolution by Year" chart to see session breakdown
 - **Session detail**: Shows intervention count per session (Spring, Special, Summer, Autumn, Winter)
