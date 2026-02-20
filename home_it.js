@@ -13,6 +13,14 @@ const typeLabels = {
     'Iv. ct.': 'Iniziativa cant.'
 };
 
+// Traduction des partis
+function translateParty(party) {
+    const translations = {
+        'M-E': 'Alleanza del Centro'
+    };
+    return translations[party] || party;
+}
+
 // Nomi delle sessioni in italiano
 const sessionNames = {
     'printemps': 'sessione primaverile',
@@ -40,8 +48,9 @@ async function init() {
         // Display session summary avec session déterminée automatiquement
         displaySessionSummary(objectsJson.session_summary, currentSession);
         
-        // Display objects list
-        displayObjectsList(objectsJson.session_summary);
+        // Display objects list avec new_ids pour soulignement vert
+        const newIds = objectsJson.meta?.new_ids || [];
+        displayObjectsList(objectsJson.session_summary, newIds);
         
         // Load debates data
         const debatesResponse = await fetch(DEBATES_URL);
@@ -164,14 +173,28 @@ function displaySessionSummary(summary, currentSession) {
     }
 }
 
-function displayObjectsList(summary) {
+function displayObjectsList(summary, newIds = []) {
     const container = document.getElementById('objectsList');
     if (!container || !summary || !summary.interventions) return;
     
     const interventions = summary.interventions;
+    
+    // Créer un tableau d'indices et trier par shortId décroissant
+    const indices = interventions.shortId.map((_, i) => i);
+    indices.sort((a, b) => {
+        const idA = interventions.shortId[a];
+        const idB = interventions.shortId[b];
+        return idB.localeCompare(idA, undefined, { numeric: true });
+    });
+    
     let html = '<ul class="home-interventions-list">';
     
-    for (let i = 0; i < interventions.shortId.length; i++) {
+    for (const i of indices) {
+        const shortId = interventions.shortId[i];
+        const isNew = newIds.includes(shortId);
+        const idClass = isNew ? 'intervention-id id-updated' : 'intervention-id';
+        const party = translateParty(interventions.party[i]);
+        
         // URL italiano
         const url = interventions.url_fr[i].replace('/fr/', '/it/');
         // Titre: priorité IT > FR > DE
@@ -180,13 +203,14 @@ function displayObjectsList(summary) {
         const title = (titleIT && titleIT.trim() && titleIT.toLowerCase() !== 'titre suit') 
             ? titleIT 
             : titleFR;
+        
         html += `
             <li>
                 <a href="${url}" target="_blank">
-                    <span class="intervention-id">${interventions.shortId[i]}</span>
+                    <span class="${idClass}">${shortId}</span>
                     <span class="intervention-type">${typeLabels[interventions.type[i]] || interventions.type[i]}</span>
                     <span class="intervention-title">${title}</span>
-                    <span class="intervention-author">👤 ${interventions.author[i]} (${interventions.party[i]})</span>
+                    <span class="intervention-author">👤 ${interventions.author[i]} (${party})</span>
                 </a>
             </li>
         `;
