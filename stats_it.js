@@ -621,7 +621,6 @@ function showSessionDetail(year) {
             else if (month === 6) sessionKey = 'estiva';
             else if (month === 9 || month === 10) sessionKey = 'autunno';
             else if (month === 12) sessionKey = 'inverno';
-            else if (month === 1 || month === 2) sessionKey = 'inverno_prev';
             
             sessionCounts[sessionKey] = (sessionCounts[sessionKey] || 0) + 1;
         }
@@ -635,13 +634,12 @@ function showSessionDetail(year) {
         'estiva': 'Sessione estiva',
         'autunno': 'Sessione autunnale',
         'inverno': 'Sessione invernale',
-        'inverno_prev': 'Sessione invernale (anno prec.)',
         'altro': 'Fuori sessione'
     };
     
     let html = '<div class="session-detail-grid">';
     
-    const orderedKeys = ['primavera', 'speciale', 'estiva', 'autunno', 'inverno', 'inverno_prev', 'altro'];
+    const orderedKeys = ['primavera', 'speciale', 'estiva', 'autunno', 'inverno', 'altro'];
     orderedKeys.forEach(key => {
         if (sessionCounts[key]) {
             html += `
@@ -659,7 +657,16 @@ function showSessionDetail(year) {
 }
 
 function filterBySession(year, sessionKey) {
-    window.location.href = `index_it.html?filter_year=${year}`;
+    const sessionNames = {
+        'primavera': 'printemps',
+        'speciale': 'speciale',
+        'estiva': 'ete',
+        'autunno': 'automne',
+        'inverno': 'hiver',
+        'altro': 'autre'
+    };
+    
+    window.location.href = `index_it.html?filter_year=${year}&filter_session=${sessionNames[sessionKey]}`;
 }
 
 function renderTopAuthors() {

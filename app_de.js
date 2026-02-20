@@ -57,6 +57,8 @@ async function init() {
         // Check for filter parameters from stats page
         const filterParty = urlParams.get('filter_party');
         const filterType = urlParams.get('filter_type');
+        const filterYear = urlParams.get('filter_year');
+        const filterSession = urlParams.get('filter_session');
         
         if (filterParty) {
             applyFilterFromUrl('partyDropdown', filterParty);
@@ -64,6 +66,12 @@ async function init() {
         if (filterType) {
             applyFilterFromUrl('typeDropdown', filterType);
         }
+        if (filterYear) {
+            applyFilterFromUrl('yearDropdown', filterYear);
+        }
+        
+        // Store session filter for use in applyFilters
+        window.sessionFilter = filterSession || null;
         
         // Initial display
         filteredData = [...allData];
@@ -420,6 +428,23 @@ function applyFilters() {
         if (yearValues.length > 0) {
             const itemYear = item.date?.substring(0, 4);
             if (!yearValues.includes(itemYear)) {
+                return false;
+            }
+        }
+        
+        // Session filter (from URL)
+        if (window.sessionFilter && item.date) {
+            const month = parseInt(item.date.substring(5, 7));
+            const sessionMonths = {
+                'printemps': [3],
+                'speciale': [4, 5],
+                'ete': [6],
+                'automne': [9, 10],
+                'hiver': [12],
+                'autre': [1, 2, 7, 8, 11]
+            };
+            const validMonths = sessionMonths[window.sessionFilter] || [];
+            if (!validMonths.includes(month)) {
                 return false;
             }
         }

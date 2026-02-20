@@ -610,7 +610,6 @@ function showSessionDetail(year) {
             else if (month === 6) sessionKey = 'sommer';
             else if (month === 9 || month === 10) sessionKey = 'herbst';
             else if (month === 12) sessionKey = 'winter';
-            else if (month === 1 || month === 2) sessionKey = 'winter_prev';
             
             sessionCounts[sessionKey] = (sessionCounts[sessionKey] || 0) + 1;
         }
@@ -619,18 +618,17 @@ function showSessionDetail(year) {
     titleEl.textContent = `Detail ${year} nach Session`;
     
     const sessionLabels = {
-        'fruehling': 'Frühjahrssession',
+        'fruehling': 'Frühjahrs session',
         'sonder': 'Sondersession',
         'sommer': 'Sommersession',
         'herbst': 'Herbstsession',
         'winter': 'Wintersession',
-        'winter_prev': 'Wintersession (Vorjahr)',
         'andere': 'Ausserhalb Session'
     };
     
     let html = '<div class="session-detail-grid">';
     
-    const orderedKeys = ['fruehling', 'sonder', 'sommer', 'herbst', 'winter', 'winter_prev', 'andere'];
+    const orderedKeys = ['fruehling', 'sonder', 'sommer', 'herbst', 'winter', 'andere'];
     orderedKeys.forEach(key => {
         if (sessionCounts[key]) {
             html += `
@@ -648,7 +646,16 @@ function showSessionDetail(year) {
 }
 
 function filterBySession(year, sessionKey) {
-    window.location.href = `index_de.html?filter_year=${year}`;
+    const sessionNames = {
+        'fruehling': 'printemps',
+        'sonder': 'speciale',
+        'sommer': 'ete',
+        'herbst': 'automne',
+        'winter': 'hiver',
+        'andere': 'autre'
+    };
+    
+    window.location.href = `index_de.html?filter_year=${year}&filter_session=${sessionNames[sessionKey]}`;
 }
 
 function renderTopAuthors() {

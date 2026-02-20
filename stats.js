@@ -652,7 +652,6 @@ function showSessionDetail(year) {
             else if (month === 6) sessionKey = 'ete';
             else if (month === 9 || month === 10) sessionKey = 'automne';
             else if (month === 12) sessionKey = 'hiver';
-            else if (month === 1 || month === 2) sessionKey = 'hiver_prev';
             
             sessionCounts[sessionKey] = (sessionCounts[sessionKey] || 0) + 1;
         }
@@ -667,13 +666,12 @@ function showSessionDetail(year) {
         'ete': 'Session d\'été',
         'automne': 'Session d\'automne',
         'hiver': 'Session d\'hiver',
-        'hiver_prev': 'Session d\'hiver (année préc.)',
         'autre': 'Hors session'
     };
     
     let html = '<div class="session-detail-grid">';
     
-    const orderedKeys = ['printemps', 'speciale', 'ete', 'automne', 'hiver', 'hiver_prev', 'autre'];
+    const orderedKeys = ['printemps', 'speciale', 'ete', 'automne', 'hiver', 'autre'];
     orderedKeys.forEach(key => {
         if (sessionCounts[key]) {
             html += `
@@ -691,18 +689,17 @@ function showSessionDetail(year) {
 }
 
 function filterBySession(year, sessionKey) {
-    // Rediriger vers la page objets avec le filtre année
-    const monthRanges = {
-        'printemps': [3, 3],
-        'speciale': [4, 5],
-        'ete': [6, 6],
-        'automne': [9, 10],
-        'hiver': [12, 12],
-        'hiver_prev': [1, 2],
-        'autre': [7, 8]
+    // Rediriger vers la page objets avec filtre année et session
+    const sessionNames = {
+        'printemps': 'printemps',
+        'speciale': 'speciale',
+        'ete': 'ete',
+        'automne': 'automne',
+        'hiver': 'hiver',
+        'autre': 'autre'
     };
     
-    window.location.href = `index.html?filter_year=${year}`;
+    window.location.href = `index.html?filter_year=${year}&filter_session=${sessionNames[sessionKey]}`;
 }
 
 function renderTopAuthors() {
