@@ -1878,3 +1878,64 @@ a.author-row {
         padding: 0.2rem 0.4rem;
     }
 }
+
+/* Debates Mini Cards */
+.debates-mini-cards {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.debate-stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 100px;
+    flex: 1;
+}
+
+.debate-stat-icon {
+    font-size: 1.25rem;
+}
+
+.debate-stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.debate-stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.no-debates {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    .debates-mini-cards {
+        gap: 0.5rem;
+    }
+    
+    .debate-stat-card {
+        padding: 0.75rem;
+        min-width: 80px;
+    }
+    
+    .debate-stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .debate-stat-label {
+        font-size: 0.7rem;
+    }
+}

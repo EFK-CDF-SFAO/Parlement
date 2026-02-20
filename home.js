@@ -253,25 +253,26 @@ function displayDebatesSummary(debatesData, currentSession) {
     
     if (sessionDebates.length > 0) {
         html = `
-            <p><strong>${sessionDebates.length} prises de parole</strong> mentionnant le CDF durant la ${sessionName}.</p>
-            <ul class="debates-summary-list">
-                <li>🏛️ <strong>${cnCount}</strong> au Conseil national, <strong>${ceCount}</strong> au Conseil des États</li>
-                <li>👥 <strong>${speakers.length}</strong> orateurs différents</li>
-            </ul>
+            <div class="debates-mini-cards">
+                <div class="debate-stat-card">
+                    <span class="debate-stat-icon">🏛️</span>
+                    <span class="debate-stat-number">${cnCount}</span>
+                    <span class="debate-stat-label">Conseil national</span>
+                </div>
+                <div class="debate-stat-card">
+                    <span class="debate-stat-icon">🏛️</span>
+                    <span class="debate-stat-number">${ceCount}</span>
+                    <span class="debate-stat-label">Conseil des États</span>
+                </div>
+                <div class="debate-stat-card">
+                    <span class="debate-stat-icon">👥</span>
+                    <span class="debate-stat-number">${speakers.length}</span>
+                    <span class="debate-stat-label">orateurs</span>
+                </div>
+            </div>
         `;
-        
-        if (topics.length > 0) {
-            html += `<p><strong>Objets discutés :</strong></p><ul class="debates-topics-list">`;
-            topics.slice(0, 5).forEach(topic => {
-                html += `<li>${topic}</li>`;
-            });
-            if (topics.length > 5) {
-                html += `<li><em>... et ${topics.length - 5} autres</em></li>`;
-            }
-            html += '</ul>';
-        }
     } else {
-        html = `<p>Aucun débat mentionnant le CDF durant la ${sessionName}.</p>`;
+        html = `<p class="no-debates">Aucun débat mentionnant le CDF durant la ${sessionName}.</p>`;
     }
     
     container.innerHTML = html;

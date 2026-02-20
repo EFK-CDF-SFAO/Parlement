@@ -244,25 +244,26 @@ function displayDebatesSummary(debatesData, currentSession) {
     
     if (sessionDebates.length > 0) {
         html = `
-            <p><strong>${sessionDebates.length} Wortmeldungen</strong> mit Bezug zur EFK während der ${sessionName}.</p>
-            <ul class="debates-summary-list">
-                <li>🏛️ <strong>${cnCount}</strong> im Nationalrat, <strong>${ceCount}</strong> im Ständerat</li>
-                <li>👥 <strong>${speakers.length}</strong> verschiedene Redner</li>
-            </ul>
+            <div class="debates-mini-cards">
+                <div class="debate-stat-card">
+                    <span class="debate-stat-icon">🏛️</span>
+                    <span class="debate-stat-number">${cnCount}</span>
+                    <span class="debate-stat-label">Nationalrat</span>
+                </div>
+                <div class="debate-stat-card">
+                    <span class="debate-stat-icon">🏛️</span>
+                    <span class="debate-stat-number">${ceCount}</span>
+                    <span class="debate-stat-label">Ständerat</span>
+                </div>
+                <div class="debate-stat-card">
+                    <span class="debate-stat-icon">👥</span>
+                    <span class="debate-stat-number">${speakers.length}</span>
+                    <span class="debate-stat-label">Redner</span>
+                </div>
+            </div>
         `;
-        
-        if (topics.length > 0) {
-            html += `<p><strong>Diskutierte Geschäfte:</strong></p><ul class="debates-topics-list">`;
-            topics.slice(0, 5).forEach(topic => {
-                html += `<li>${topic}</li>`;
-            });
-            if (topics.length > 5) {
-                html += `<li><em>... und ${topics.length - 5} weitere</em></li>`;
-            }
-            html += '</ul>';
-        }
     } else {
-        html = `<p>Keine Debatten mit Bezug zur EFK während der ${sessionName}.</p>`;
+        html = `<p class="no-debates">Keine Debatten mit Bezug zur EFK während der ${sessionName}.</p>`;
     }
     
     container.innerHTML = html;
