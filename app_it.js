@@ -682,7 +682,11 @@ function createCard(item, searchTerm) {
     
     const date = item.date ? new Date(item.date).toLocaleDateString('it-CH') : '';
     const dateMaj = item.date_maj ? new Date(item.date_maj).toLocaleDateString('it-CH') : '';
-    const showDateMaj = dateMaj && dateMaj !== date;
+    // Afficher 🔄 uniquement si mise à jour cette semaine (7 jours)
+    const now = new Date();
+    const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const dateMajObj = item.date_maj ? new Date(item.date_maj) : null;
+    const showDateMaj = dateMaj && dateMaj !== date && dateMajObj && dateMajObj >= oneWeekAgo;
     const url = (item.url_fr || item.url_de).replace('/fr/', '/it/');
     const mentionData = getMentionEmojis(item.mention);
     
