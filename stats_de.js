@@ -535,6 +535,33 @@ function renderTypeChart() {
     });
 }
 
+// Plugin für Pulsationseffekt auf Punkten
+const pulsePlugin = {
+    id: 'pulseEffect',
+    afterDraw: (chart) => {
+        const ctx = chart.ctx;
+        const meta = chart.getDatasetMeta(0);
+        if (!meta.data) return;
+        
+        const time = Date.now() / 1000;
+        const pulseRadius = 8 + Math.sin(time * 3) * 4;
+        const pulseOpacity = 0.3 + Math.sin(time * 3) * 0.2;
+        
+        meta.data.forEach((point) => {
+            const x = point.x;
+            const y = point.y;
+            
+            ctx.beginPath();
+            ctx.arc(x, y, pulseRadius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(234, 90, 79, ${pulseOpacity})`;
+            ctx.fill();
+            ctx.closePath();
+        });
+        
+        requestAnimationFrame(() => chart.draw());
+    }
+};
+
 function renderYearChart() {
     if (yearChartInstance) {
         yearChartInstance.destroy();
@@ -567,15 +594,24 @@ function renderYearChart() {
                 backgroundColor: 'rgba(33, 150, 243, 0.1)',
                 fill: true,
                 tension: 0.3,
-                pointRadius: 4,
-                pointBackgroundColor: '#2196F3'
+                pointRadius: 6,
+                pointBackgroundColor: '#EA5A4F',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointHoverRadius: 10,
+                pointHitRadius: 15
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { display: false }
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        afterLabel: () => '👆 Klicken für Details'
+                    }
+                }
             },
             scales: {
                 y: { beginAtZero: true }
@@ -587,7 +623,8 @@ function renderYearChart() {
                     showSessionDetail(year);
                 }
             }
-        }
+        },
+        plugins: [pulsePlugin]
     });
 }
 
