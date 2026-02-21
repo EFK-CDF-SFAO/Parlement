@@ -22,9 +22,11 @@ const partyLabels = {
     'S': 'PS',
     'RL': 'PLR',
     'M-E': 'Le Centre',
+    'CE': 'Le Centre',
+    'C': 'Le Centre',
+    'BD': 'Le Centre',
     'G': 'VERT-E-S',
-    'GL': 'Vert\'libéraux',
-    'BD': 'PBD'
+    'GL': 'Vert\'libéraux'
 };
 
 // Synonymes bilingues pour recherche étendue

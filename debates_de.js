@@ -22,9 +22,11 @@ const partyLabels = {
     'S': 'SP',
     'RL': 'FDP',
     'M-E': 'Die Mitte',
+    'CE': 'Die Mitte',
+    'C': 'Die Mitte',
+    'BD': 'Die Mitte',
     'G': 'GRÜNE',
-    'GL': 'GLP',
-    'BD': 'BDP'
+    'GL': 'GLP'
 };
 
 // Zweisprachige Synonyme für erweiterte Suche

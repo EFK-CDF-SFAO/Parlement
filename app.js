@@ -134,7 +134,12 @@ function translateParty(party) {
     const translations = {
         'Al': 'VERT-E-S',
         'PSS': 'PS',
-        'M-E': 'Le Centre'
+        'M-E': 'Le Centre',
+        'PDC': 'Le Centre',
+        'PBD': 'Le Centre',
+        'CSPO': 'Le Centre',
+        'CVP': 'Le Centre',
+        'BDP': 'Le Centre'
     };
     return translations[party] || party;
 }

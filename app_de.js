@@ -144,7 +144,12 @@ function translateParty(party) {
         'UDC': 'SVP',
         'Le Centre': 'Die Mitte',
         'Centre': 'Mitte',
-        'M-E': 'Die Mitte'
+        'M-E': 'Die Mitte',
+        'CVP': 'Die Mitte',
+        'BDP': 'Die Mitte',
+        'PDC': 'Die Mitte',
+        'PBD': 'Die Mitte',
+        'CSPO': 'Die Mitte'
     };
     return translations[party] || party;
 }

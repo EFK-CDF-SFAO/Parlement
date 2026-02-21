@@ -22,9 +22,11 @@ const partyLabels = {
     'S': 'PS',
     'RL': 'PLR',
     'M-E': 'Alleanza del Centro',
+    'CE': 'Alleanza del Centro',
+    'C': 'Alleanza del Centro',
+    'BD': 'Alleanza del Centro',
     'G': 'Verdi',
-    'GL': 'Verdi liberali',
-    'BD': 'PBD'
+    'GL': 'Verdi liberali'
 };
 
 const searchSynonyms = {
