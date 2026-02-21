@@ -424,12 +424,12 @@ function renderAllDebateCharts() {
 
 function getPartyFromAuthor(author) {
     if (!author) return null;
-    if (author.includes('FDP') || author.includes('PLR')) return 'PLR';
-    if (author.includes('Grünliberale') || author.includes('Vert\'libéra')) return 'pvl';
-    if (author.includes('SVP') || author.includes('UDC')) return 'UDC';
-    if (author.includes('SP ') || author.includes('PS ') || author.includes('socialiste')) return 'PSS';
-    if (author.includes('Grüne') || author.includes('Verts') || author.includes('VERT')) return 'VERT-E-S';
-    if (author.includes('Mitte') || author.includes('Centre')) return 'Le Centre';
+    if (author.includes('FDP') || author.includes('PLR') || author.includes('liberale radicale')) return 'PLR';
+    if (author.includes('Grünliberale') || author.includes('verde liberale')) return 'pvl';
+    if (author.includes('SVP') || author.includes('UDC') || author.includes('Schweizerischen Volkspartei') || author.includes('Unione democratica')) return 'UDC';
+    if (author.includes('SP ') || author.includes('PS ') || author.includes('socialista') || author.includes('Sozialdemokratische')) return 'PSS';
+    if (author.includes('Grüne') || author.includes('Verts') || author.includes('Verdi')) return 'VERT-E-S';
+    if (author.includes('Mitte') || author.includes('Centre') || author.includes('Centro') || author.includes('EVP')) return 'Le Centre';
     return null;
 }
 
