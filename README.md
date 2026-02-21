@@ -4,6 +4,28 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 
 ## 🆕 What's New (February 2026)
 
+### 🗄️ 50th Legislature Archive (NEW)
+- **Extended coverage**: Data now includes the 50th legislature (2015-2019)
+- **854 debates**: 421 new debates from sessions 5001-5019
+- **327 objects**: 111 new parliamentary objects from 2016-2019
+- **Legislature filter**: New "50" option in all filter dropdowns
+- **No "new" markers**: Archive objects are not marked as recently updated
+
+### 📊 Additional Object Types
+- **D.Ip.** (Interpellation urgente / Dringliche Interpellation / Interpellanza urgente)
+- **BRG** (Objet du CF / Geschäft des BR / Oggetto del CF)
+- **Pa. Iv.** (Initiative parlementaire) - now properly translated
+- **9 distinct colors** in type charts for better visibility
+
+### 📱 Mobile UX Improvements
+- **Clickable legends**: Chart legends (doughnut charts) are now clickable on mobile
+- **Touch-friendly**: Tap on legend labels to navigate to filtered pages
+- **Cursor pointer**: Visual feedback on hoverable elements
+
+### 🇮🇹 Italian Terminology
+- **"Interventi"**: Renamed from "Oggetti" in Italian interface
+- **Consistent labels**: Navigation, search, homepage all updated
+
 ### 🏠 Redesigned Homepage
 - **Hero banner**: Session summary with dates in a compact red banner
 - **Intervention cards**: Visual card layout with type badge (grey outline) and party badge (colored)
@@ -22,10 +44,11 @@ Monitor parliamentary interventions (motions, postulates, interpellations, quest
 - **Cross-browser**: Works on Chrome, Safari, Firefox, Edge (desktop & mobile)
 
 ### 🏛️ Legislature Filter & Extended Data
-- **New filter**: Filter by legislature (51st or 52nd)
+- **New filter**: Filter by legislature (50th, 51st or 52nd)
+- **50th legislature**: December 2015 - September 2019 (sessions 5001-5019)
 - **51st legislature**: December 2019 - September 2023 (sessions 5101-5122)
 - **52nd legislature**: December 2023 - ongoing (sessions 5201+)
-- **Extended database**: Now covers both legislatures (213 objects, 433 debates)
+- **Extended database**: Now covers 3 legislatures (327 objects, 854 debates)
 - **All pages**: Available on Objects, Debates, and Statistics pages
 
 ### 🏢 Department Filter
@@ -180,8 +203,8 @@ The script will:
 Edit the following variables in `Recherche_CDF_EFK.R`:
 
 ```r
-# Legislatures to analyze (51 = 2019-2023, 52 = 2023-2027)
-Legislaturen <- c(51, 52)
+# Legislatures to analyze (50 = 2015-2019, 51 = 2019-2023, 52 = 2023-2027)
+Legislaturen <- c(50, 51, 52)
 
 # Months to search in incremental mode
 MOIS_MISE_A_JOUR <- 6
