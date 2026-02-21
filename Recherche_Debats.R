@@ -42,17 +42,27 @@ cat("Répertoire de travail:", getwd(), "\n\n")
 # PARAMÈTRES
 # ============================================================================
 
-# Sessions à analyser (législatures 51 et 52)
+# Sessions à analyser
+# 50ème législature: 5001-5019 (décembre 2015 - septembre 2019)
 # 51ème législature: 5101-5122 (décembre 2019 - septembre 2023)
 # 52ème législature: 5201-5211 (décembre 2023 - )
+#
+# ARCHIVE: Pour scanner la 50ème législature uniquement
 SESSIONS_DEBATS <- c(
-  # Législature 51
-  "5101", "5102", "5103", "5104", "5105", "5106", "5107", "5108", "5109", "5110",
-  "5111", "5112", "5113", "5114", "5115", "5116", "5117", "5118", "5119", "5120",
-  "5121", "5122",
-  # Législature 52
-  "5201", "5202", "5203", "5204", "5205", "5206", "5207", "5208", "5209", "5210", "5211"
+  # Législature 50 (ARCHIVE)
+  "5001", "5002", "5003", "5004", "5005", "5006", "5007", "5008", "5009", "5010",
+  "5011", "5012", "5013", "5014", "5015", "5016", "5017", "5018", "5019"
 )
+
+# VERSION NORMALE (à réactiver après l'archive):
+# SESSIONS_DEBATS <- c(
+#   # Législature 51
+#   "5101", "5102", "5103", "5104", "5105", "5106", "5107", "5108", "5109", "5110",
+#   "5111", "5112", "5113", "5114", "5115", "5116", "5117", "5118", "5119", "5120",
+#   "5121", "5122",
+#   # Législature 52
+#   "5201", "5202", "5203", "5204", "5205", "5206", "5207", "5208", "5209", "5210", "5211"
+# )
 
 # Fichiers de sortie
 FICHIER_DEBATS_EXCEL <- "Debats_CDF_EFK.xlsx"
@@ -64,7 +74,7 @@ FICHIER_DEBATS_JSON <- "debates_data.json"
 
 # Pattern allemand (EFK)
 pattern_efk_de <- regex(
-"(?<!Kom|Sub|Del|Prä)[^a-zA-Z0-9]EFK[^a-zA-Z0-9]|Eidgenössische(n|r)? Finanzkontrolle",
+"(?<!Kom|Sub|Del|Prä)[^a-zA-Z0-9]EFK[^a-zA-Z0-9]|Eidgenössische(n|r)? Finanzkontrolle|Eidg\\.? Finanzkontrolle",
   ignore_case = TRUE
 )
 

@@ -414,8 +414,10 @@ function getLegislature(date) {
     if (!date) return null;
     // 52. Legislatur: ab Dezember 2023 (Wintersession 2023)
     // 51. Legislatur: Dezember 2019 - September 2023
+    // 50. Legislatur: Dezember 2015 - September 2019
     if (date >= '2023-12-01') return '52';
     if (date >= '2019-12-01') return '51';
+    if (date >= '2015-12-01') return '50';
     return null;
 }
 

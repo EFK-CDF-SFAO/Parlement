@@ -227,6 +227,7 @@ function getLegislature(date) {
     if (!date) return null;
     if (date >= '2023-12-01') return '52';
     if (date >= '2019-12-01') return '51';
+    if (date >= '2015-12-01') return '50';
     return null;
 }
 
@@ -235,6 +236,7 @@ function getLegislatureFromSession(sessionId) {
     const sessionStr = String(sessionId);
     if (sessionStr.startsWith('52')) return '52';
     if (sessionStr.startsWith('51')) return '51';
+    if (sessionStr.startsWith('50')) return '50';
     return null;
 }
 

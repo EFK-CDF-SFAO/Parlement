@@ -379,6 +379,7 @@ function getLegislatureFromSession(sessionId) {
     const sessionStr = String(sessionId);
     if (sessionStr.startsWith('52')) return '52';
     if (sessionStr.startsWith('51')) return '51';
+    if (sessionStr.startsWith('50')) return '50';
     return null;
 }
 
