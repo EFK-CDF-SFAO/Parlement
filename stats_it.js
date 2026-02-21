@@ -444,7 +444,12 @@ function normalizeParty(party) {
         'PVL': 'Verdi liberali',
         'Le Centre': 'Alleanza del Centro',
         'Centre': 'Alleanza del Centro',
-        'M-E': 'Alleanza del Centro'
+        'M-E': 'Alleanza del Centro',
+        'PDC': 'Alleanza del Centro',
+        'PBD': 'Alleanza del Centro',
+        'CSPO': 'Alleanza del Centro',
+        'CVP': 'Alleanza del Centro',
+        'BDP': 'Alleanza del Centro'
     };
     return normalized[party] || party;
 }
