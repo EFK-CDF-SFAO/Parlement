@@ -528,7 +528,16 @@ function renderTypeChart() {
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    position: 'bottom'
+                    position: 'bottom',
+                    onClick: (event, legendItem, legend) => {
+                        const index = legendItem.index;
+                        const typeLabel = labels[index];
+                        const filterValue = typeToFilter[typeLabel] || typeLabel;
+                        window.location.href = `index_de.html?filter_type=${encodeURIComponent(filterValue)}`;
+                    },
+                    labels: {
+                        cursor: 'pointer'
+                    }
                 }
             },
             onClick: (event, elements) => {
@@ -858,7 +867,15 @@ function renderDebateCouncilChart() {
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    position: 'bottom'
+                    position: 'bottom',
+                    onClick: (event, legendItem, legend) => {
+                        const index = legendItem.index;
+                        const council = labels[index];
+                        window.location.href = `debates_de.html?filter_council=${encodeURIComponent(council)}`;
+                    },
+                    labels: {
+                        cursor: 'pointer'
+                    }
                 }
             },
             onClick: (event, elements) => {
