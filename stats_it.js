@@ -2,6 +2,7 @@ let allData = [];
 let filteredData = [];
 let debatesData = [];
 let filteredDebatesData = [];
+let sessionsData = [];
 let partyChartInstance = null;
 let typeChartInstance = null;
 let yearChartInstance = null;
@@ -100,6 +101,11 @@ const partyToFilter = {
 
 async function init() {
     try {
+        // Charger les dates des sessions
+        const sessionsResponse = await fetch('sessions_dates.json');
+        const sessionsJson = await sessionsResponse.json();
+        sessionsData = sessionsJson.sessions || [];
+        
         const response = await fetch('cdf_efk_data.json');
         const data = await response.json();
         allData = data.items || [];
@@ -454,6 +460,42 @@ function normalizeParty(party) {
     return normalized[party] || party;
 }
 
+function getSessionTypeFromDate(dateStr) {
+    if (!dateStr || !sessionsData.length) {
+        const month = parseInt(dateStr.substring(5, 7));
+        if (month === 2 || month === 3) return 'primavera';
+        if (month === 4 || month === 5) return 'speciale';
+        if (month === 6 || month === 7) return 'estiva';
+        if (month >= 8 && month <= 10) return 'autunno';
+        return 'inverno';
+    }
+    
+    const sessionNameMap = {
+        'printemps': 'primavera', 'hiver': 'inverno', 'ete': 'estiva',
+        'automne': 'autunno', 'speciale': 'speciale'
+    };
+    
+    for (const session of sessionsData) {
+        if (dateStr >= session.from && dateStr <= session.to) {
+            return sessionNameMap[session.name] || session.name;
+        }
+    }
+    
+    let closestSession = null;
+    let minDistance = Infinity;
+    
+    for (const session of sessionsData) {
+        if (session.from.substring(0, 4) !== dateStr.substring(0, 4)) continue;
+        const distance = Math.abs(new Date(dateStr) - new Date(session.from));
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestSession = sessionNameMap[session.name] || session.name;
+        }
+    }
+    
+    return closestSession || 'inverno';
+}
+
 function renderPartyChart() {
     if (partyChartInstance) {
         partyChartInstance.destroy();
@@ -677,18 +719,7 @@ function showSessionDetail(year) {
     
     filteredData.forEach(item => {
         if (item.date && item.date.startsWith(year)) {
-            const month = parseInt(item.date.substring(5, 7));
-            let sessionKey;
-            
-            // Assegnare ogni mese alla sessione parlamentare corrispondente
-            // Primavera: Feb-Mar, Speciale: Apr-Mag, Estiva: Giu-Lug
-            // Autunno: Ago-Ott, Inverno: Nov-Gen
-            if (month === 2 || month === 3) sessionKey = 'primavera';
-            else if (month === 4 || month === 5) sessionKey = 'speciale';
-            else if (month === 6 || month === 7) sessionKey = 'estiva';
-            else if (month >= 8 && month <= 10) sessionKey = 'autunno';
-            else sessionKey = 'inverno'; // novembre, dicembre, gennaio
-            
+            const sessionKey = getSessionTypeFromDate(item.date);
             sessionCounts[sessionKey] = (sessionCounts[sessionKey] || 0) + 1;
         }
     });

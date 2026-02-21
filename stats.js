@@ -2,6 +2,7 @@ let allData = [];
 let filteredData = [];
 let debatesData = [];
 let filteredDebatesData = [];
+let sessionsData = [];
 let partyChartInstance = null;
 let typeChartInstance = null;
 let yearChartInstance = null;
@@ -99,6 +100,11 @@ const partyToFilter = {
 
 async function init() {
     try {
+        // Charger les dates des sessions
+        const sessionsResponse = await fetch('sessions_dates.json');
+        const sessionsJson = await sessionsResponse.json();
+        sessionsData = sessionsJson.sessions || [];
+        
         // Charger les données des objets parlementaires
         const response = await fetch('cdf_efk_data.json');
         const data = await response.json();
@@ -475,6 +481,46 @@ function normalizeParty(party) {
     return normalized[party] || party;
 }
 
+function getSessionTypeFromDate(dateStr) {
+    if (!dateStr || !sessionsData.length) {
+        // Fallback par mois si pas de données de sessions
+        const month = parseInt(dateStr.substring(5, 7));
+        if (month === 2 || month === 3) return 'printemps';
+        if (month === 4 || month === 5) return 'speciale';
+        if (month === 6 || month === 7) return 'ete';
+        if (month >= 8 && month <= 10) return 'automne';
+        return 'hiver';
+    }
+    
+    // Chercher la session correspondante par dates exactes
+    for (const session of sessionsData) {
+        if (dateStr >= session.from && dateStr <= session.to) {
+            return session.name;
+        }
+    }
+    
+    // Si pas dans une session exacte, trouver la session la plus proche
+    let closestSession = null;
+    let minDistance = Infinity;
+    
+    for (const session of sessionsData) {
+        const sessionYear = session.from.substring(0, 4);
+        const dateYear = dateStr.substring(0, 4);
+        if (sessionYear !== dateYear) continue;
+        
+        const sessionStart = new Date(session.from);
+        const itemDate = new Date(dateStr);
+        const distance = Math.abs(itemDate - sessionStart);
+        
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestSession = session.name;
+        }
+    }
+    
+    return closestSession || 'hiver';
+}
+
 function renderPartyChart() {
     if (partyChartInstance) {
         partyChartInstance.destroy();
@@ -710,18 +756,7 @@ function showSessionDetail(year) {
     
     filteredData.forEach(item => {
         if (item.date && item.date.startsWith(year)) {
-            const month = parseInt(item.date.substring(5, 7));
-            let sessionKey;
-            
-            // Assigner chaque mois à la session parlementaire correspondante
-            // Printemps: février-mars, Spéciale: avril-mai, Été: juin-juillet
-            // Automne: août-octobre, Hiver: novembre-janvier
-            if (month === 2 || month === 3) sessionKey = 'printemps';
-            else if (month === 4 || month === 5) sessionKey = 'speciale';
-            else if (month === 6 || month === 7) sessionKey = 'ete';
-            else if (month >= 8 && month <= 10) sessionKey = 'automne';
-            else sessionKey = 'hiver'; // novembre, décembre, janvier
-            
+            const sessionKey = getSessionTypeFromDate(item.date);
             sessionCounts[sessionKey] = (sessionCounts[sessionKey] || 0) + 1;
         }
     });
