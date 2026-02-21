@@ -101,7 +101,7 @@ const partyToFilter = {
 async function init() {
     try {
         // Charger les dates des sessions
-        const sessionsResponse = await fetch('sessions_dates.json');
+        const sessionsResponse = await fetch('sessions.json');
         const sessionsJson = await sessionsResponse.json();
         sessionsData = sessionsJson.sessions || [];
         
@@ -483,42 +483,28 @@ function normalizeParty(party) {
 
 function getSessionTypeFromDate(dateStr) {
     if (!dateStr || !sessionsData.length) {
-        // Fallback par mois si pas de données de sessions
-        const month = parseInt(dateStr.substring(5, 7));
-        if (month === 2 || month === 3) return 'printemps';
-        if (month === 4 || month === 5) return 'speciale';
-        if (month === 6 || month === 7) return 'ete';
-        if (month >= 8 && month <= 10) return 'automne';
-        return 'hiver';
+        return 'autre'; // Hors session si pas de données
     }
     
     // Chercher la session correspondante par dates exactes
     for (const session of sessionsData) {
-        if (dateStr >= session.from && dateStr <= session.to) {
-            return session.name;
+        if (dateStr >= session.start && dateStr <= session.end) {
+            // Extraire le type de session depuis l'id (ex: "2024-printemps" -> "printemps")
+            const parts = session.id.split('-');
+            if (parts.length >= 2) {
+                const sessionType = parts[1];
+                if (sessionType.startsWith('speciale')) return 'speciale';
+                if (sessionType === 'printemps') return 'printemps';
+                if (sessionType === 'ete') return 'ete';
+                if (sessionType === 'automne') return 'automne';
+                if (sessionType === 'hiver') return 'hiver';
+            }
+            return 'autre';
         }
     }
     
-    // Si pas dans une session exacte, trouver la session la plus proche
-    let closestSession = null;
-    let minDistance = Infinity;
-    
-    for (const session of sessionsData) {
-        const sessionYear = session.from.substring(0, 4);
-        const dateYear = dateStr.substring(0, 4);
-        if (sessionYear !== dateYear) continue;
-        
-        const sessionStart = new Date(session.from);
-        const itemDate = new Date(dateStr);
-        const distance = Math.abs(itemDate - sessionStart);
-        
-        if (distance < minDistance) {
-            minDistance = distance;
-            closestSession = session.name;
-        }
-    }
-    
-    return closestSession || 'hiver';
+    // Si pas dans une session exacte -> hors session
+    return 'autre';
 }
 
 function renderPartyChart() {

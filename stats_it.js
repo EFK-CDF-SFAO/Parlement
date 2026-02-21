@@ -102,7 +102,7 @@ const partyToFilter = {
 async function init() {
     try {
         // Charger les dates des sessions
-        const sessionsResponse = await fetch('sessions_dates.json');
+        const sessionsResponse = await fetch('sessions.json');
         const sessionsJson = await sessionsResponse.json();
         sessionsData = sessionsJson.sessions || [];
         
@@ -462,38 +462,27 @@ function normalizeParty(party) {
 
 function getSessionTypeFromDate(dateStr) {
     if (!dateStr || !sessionsData.length) {
-        const month = parseInt(dateStr.substring(5, 7));
-        if (month === 2 || month === 3) return 'primavera';
-        if (month === 4 || month === 5) return 'speciale';
-        if (month === 6 || month === 7) return 'estiva';
-        if (month >= 8 && month <= 10) return 'autunno';
-        return 'inverno';
+        return 'altro'; // Fuori sessione
     }
     
-    const sessionNameMap = {
-        'printemps': 'primavera', 'hiver': 'inverno', 'ete': 'estiva',
-        'automne': 'autunno', 'speciale': 'speciale'
-    };
-    
+    // Chercher la session correspondante par dates exactes
     for (const session of sessionsData) {
-        if (dateStr >= session.from && dateStr <= session.to) {
-            return sessionNameMap[session.name] || session.name;
+        if (dateStr >= session.start && dateStr <= session.end) {
+            const parts = session.id.split('-');
+            if (parts.length >= 2) {
+                const sessionType = parts[1];
+                if (sessionType.startsWith('speciale')) return 'speciale';
+                if (sessionType === 'printemps') return 'primavera';
+                if (sessionType === 'ete') return 'estiva';
+                if (sessionType === 'automne') return 'autunno';
+                if (sessionType === 'hiver') return 'inverno';
+            }
+            return 'altro';
         }
     }
     
-    let closestSession = null;
-    let minDistance = Infinity;
-    
-    for (const session of sessionsData) {
-        if (session.from.substring(0, 4) !== dateStr.substring(0, 4)) continue;
-        const distance = Math.abs(new Date(dateStr) - new Date(session.from));
-        if (distance < minDistance) {
-            minDistance = distance;
-            closestSession = sessionNameMap[session.name] || session.name;
-        }
-    }
-    
-    return closestSession || 'inverno';
+    // Si pas dans une session exacte -> hors session
+    return 'altro';
 }
 
 function renderPartyChart() {
