@@ -683,6 +683,8 @@ function createCard(item, searchTerm) {
     const shortId = isNew ? `<span class="id-updated">${shortIdHighlighted}</span>` : shortIdHighlighted;
     
     const date = item.date ? new Date(item.date).toLocaleDateString('de-CH') : '';
+    const dateMaj = item.date_maj ? new Date(item.date_maj).toLocaleDateString('de-CH') : '';
+    const showDateMaj = dateMaj && dateMaj !== date;
     const url = item.url_de || item.url_fr;
     const mentionData = getMentionEmojis(item.mention);
     
@@ -708,7 +710,7 @@ function createCard(item, searchTerm) {
             ${langWarning}
             <div class="card-meta">
                 <span>👤 ${author}</span>
-                <span>📅 ${date}</span>
+                <span>📅 ${date}${showDateMaj ? ` · 🔄 ${dateMaj}` : ''}</span>
             </div>
             ${item.status ? `<div style="margin-top: 0.5rem;"><span class="badge ${statusClass}">${getStatusDE(item.status)}</span></div>` : ''}
         </article>
