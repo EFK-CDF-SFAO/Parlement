@@ -45,7 +45,10 @@ const typeLabels = {
     'Po.': 'Postulato',
     'Ip.': 'Interpellanza',
     'Fra.': 'Ora delle domande',
-    'A.': 'Interrogazione'
+    'A.': 'Interrogazione',
+    'Pa. Iv.': 'Iniziativa parl.',
+    'D.Ip.': 'Interpellanza urgente',
+    'BRG': 'Oggetto del CF'
 };
 
 function translateDept(deptDE) {
@@ -70,7 +73,10 @@ const typeToFilter = {
     'Postulato': 'Po.',
     'Interpellanza': 'Ip.',
     'Ora delle domande': 'Fra.',
-    'Interrogazione': 'A.'
+    'Interrogazione': 'A.',
+    'Iniziativa parl.': 'Pa. Iv.',
+    'Interpellanza urgente': 'D.Ip.',
+    'Oggetto del CF': 'BRG'
 };
 
 const partyToFilter = {
@@ -514,7 +520,7 @@ function renderTypeChart() {
     
     const labels = Object.keys(typeCounts);
     const data = Object.values(typeCounts);
-    const colors = ['#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#F44336', '#00BCD4'];
+    const colors = ['#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#F44336', '#00BCD4', '#795548', '#607D8B', '#E91E63'];
     
     const ctx = document.getElementById('typeChart').getContext('2d');
     typeChartInstance = new Chart(ctx, {
