@@ -606,12 +606,7 @@ function renderYearChart() {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        afterLabel: () => '👆 Klicken für Details'
-                    }
-                }
+                legend: { display: false }
             },
             scales: {
                 y: { beginAtZero: true }

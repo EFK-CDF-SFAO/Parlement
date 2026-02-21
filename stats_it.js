@@ -617,12 +617,7 @@ function renderYearChart() {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        afterLabel: () => '👆 Clicca per i dettagli'
-                    }
-                }
+                legend: { display: false }
             },
             scales: {
                 y: { beginAtZero: true }
