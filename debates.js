@@ -224,23 +224,30 @@ function populateCouncilFilter() {
 
 function populatePartyFilter() {
     const partyMenu = document.getElementById('partyMenu');
-    const parties = [...new Set(allData.map(item => item.party).filter(Boolean))];
-    // Trier par nom affiché (ordre alphabétique français)
-    parties.sort((a, b) => {
-        const nameA = partyLabels[a] || a;
-        const nameB = partyLabels[b] || b;
-        return nameA.localeCompare(nameB, 'fr');
+    // Regrouper les anciens partis sous Le Centre
+    const partyGroups = {};
+    allData.forEach(item => {
+        if (!item.party) return;
+        const displayName = partyLabels[item.party] || item.party;
+        if (!partyGroups[displayName]) {
+            partyGroups[displayName] = [];
+        }
+        if (!partyGroups[displayName].includes(item.party)) {
+            partyGroups[displayName].push(item.party);
+        }
     });
+    
+    const displayNames = Object.keys(partyGroups).sort((a, b) => a.localeCompare(b, 'fr'));
     
     const allLabel = document.createElement('label');
     allLabel.className = 'select-all';
     allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tous`;
     partyMenu.appendChild(allLabel);
     
-    parties.forEach(party => {
+    displayNames.forEach(displayName => {
         const label = document.createElement('label');
-        const displayName = partyLabels[party] || party;
-        label.innerHTML = `<input type="checkbox" value="${party}"> ${displayName}`;
+        const values = partyGroups[displayName].join(',');
+        label.innerHTML = `<input type="checkbox" value="${values}"> ${displayName}`;
         partyMenu.appendChild(label);
     });
 }
@@ -433,8 +440,12 @@ function applyFilters() {
             return false;
         }
         
-        if (partyValues && !partyValues.includes(item.party)) {
-            return false;
+        if (partyValues) {
+            // Gérer les valeurs multiples séparées par des virgules
+            const allPartyValues = partyValues.flatMap(v => v.split(','));
+            if (!allPartyValues.includes(item.party)) {
+                return false;
+            }
         }
         
         // Filtre département

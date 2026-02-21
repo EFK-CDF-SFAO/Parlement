@@ -152,8 +152,10 @@ function translateAuthor(author) {
         'Sozialdemokratische Fraktion': 'Gruppo socialista',
         'Groupe socialiste': 'Gruppo socialista',
         'SVP-Fraktion': 'Gruppo dell\'Unione democratica di centro',
+        'Fraktion der Schweizerischen Volkspartei': 'Gruppo dell\'Unione democratica di centro',
         'Groupe de l\'Union démocratique du centre': 'Gruppo dell\'Unione democratica di centro',
         'Fraktion der Mitte': 'Gruppo del Centro',
+        'Die Mitte-Fraktion. Die Mitte. EVP.': 'Gruppo del Centro',
         'Groupe du Centre': 'Gruppo del Centro',
         'Grünliberale Fraktion': 'Gruppo verde liberale',
         'Groupe vert\'libéral': 'Gruppo verde liberale'
@@ -165,10 +167,10 @@ function getPartyFromAuthor(author) {
     if (!author) return null;
     if (author.includes('FDP') || author.includes('PLR') || author.includes('liberale radicale')) return 'PLR';
     if (author.includes('Grünliberale') || author.includes('verde liberale')) return 'PVL';
-    if (author.includes('SVP') || author.includes('UDC')) return 'UDC';
-    if (author.includes('SP ') || author.includes('PS ') || author.includes('socialista')) return 'PS';
+    if (author.includes('SVP') || author.includes('UDC') || author.includes('Schweizerischen Volkspartei') || author.includes('Unione democratica')) return 'UDC';
+    if (author.includes('SP ') || author.includes('PS ') || author.includes('socialista') || author.includes('Sozialdemokratische')) return 'PS';
     if (author.includes('Grüne') || author.includes('Verts') || author.includes('Verdi')) return 'Verdi';
-    if (author.includes('Mitte') || author.includes('Centre') || author.includes('Centro')) return 'Alleanza del Centro';
+    if (author.includes('Mitte') || author.includes('Centre') || author.includes('Centro') || author.includes('EVP')) return 'Alleanza del Centro';
     return null;
 }
 

@@ -156,12 +156,12 @@ function translateParty(party) {
 
 function getPartyFromAuthor(author) {
     if (!author) return null;
-    if (author.includes('FDP') || author.includes('PLR')) return 'PLR';
-    if (author.includes('Grünliberale') || author.includes('Vert\'libéra')) return 'pvl';
-    if (author.includes('SVP') || author.includes('UDC')) return 'UDC';
-    if (author.includes('SP ') || author.includes('PS ') || author.includes('socialiste')) return 'PSS';
+    if (author.includes('FDP') || author.includes('PLR') || author.includes('Liberale Fraktion')) return 'PLR';
+    if (author.includes('Grünliberale')) return 'pvl';
+    if (author.includes('SVP') || author.includes('UDC') || author.includes('Schweizerischen Volkspartei')) return 'UDC';
+    if (author.includes('SP ') || author.includes('PS ') || author.includes('Sozialdemokratische')) return 'PSS';
     if (author.includes('Grüne') || author.includes('Verts') || author.includes('VERT')) return 'VERT-E-S';
-    if (author.includes('Mitte') || author.includes('Centre')) return 'Le Centre';
+    if (author.includes('Mitte') || author.includes('Centre') || author.includes('EVP')) return 'Le Centre';
     return null;
 }
 

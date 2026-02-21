@@ -154,7 +154,9 @@ function translateAuthor(author) {
         'Grüne Fraktion': 'Groupe des VERT-E-S',
         'Sozialdemokratische Fraktion': 'Groupe socialiste',
         'SVP-Fraktion': 'Groupe de l\'Union démocratique du centre',
+        'Fraktion der Schweizerischen Volkspartei': 'Groupe de l\'Union démocratique du centre',
         'Fraktion der Mitte': 'Groupe du Centre',
+        'Die Mitte-Fraktion. Die Mitte. EVP.': 'Groupe du Centre',
         'Grünliberale Fraktion': 'Groupe vert\'libéral'
     };
     return translations[author] || author;
@@ -162,12 +164,12 @@ function translateAuthor(author) {
 
 function getPartyFromAuthor(author) {
     if (!author) return null;
-    if (author.includes('FDP') || author.includes('PLR')) return 'PLR';
-    if (author.includes('Grünliberale') || author.includes('Vert\'libéra')) return 'pvl';
-    if (author.includes('SVP') || author.includes('UDC')) return 'UDC';
-    if (author.includes('SP ') || author.includes('PS ') || author.includes('socialiste')) return 'PSS';
+    if (author.includes('FDP') || author.includes('PLR') || author.includes('libéral-radical')) return 'PLR';
+    if (author.includes('Grünliberale') || author.includes('vert\'libéral')) return 'pvl';
+    if (author.includes('SVP') || author.includes('UDC') || author.includes('Schweizerischen Volkspartei') || author.includes('Union démocratique')) return 'UDC';
+    if (author.includes('SP ') || author.includes('PS ') || author.includes('socialiste') || author.includes('Sozialdemokratische')) return 'PSS';
     if (author.includes('Grüne') || author.includes('Verts') || author.includes('VERT')) return 'VERT-E-S';
-    if (author.includes('Mitte') || author.includes('Centre')) return 'Le Centre';
+    if (author.includes('Mitte') || author.includes('Centre') || author.includes('EVP')) return 'Le Centre';
     return null;
 }
 
