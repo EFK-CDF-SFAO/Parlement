@@ -46,7 +46,7 @@ cat("Répertoire de travail:", getwd(), "\n\n")
 # PARAMÈTRES
 # ============================================================================
 
-Legislaturen <- c(51, 52)  # 51ème (2019-2023) et 52ème (2023-) législatures
+Legislaturen <- c(50, 51, 52)  # 50ème (2015-2019), 51ème (2019-2023) et 52ème (2023-)
 MOIS_MISE_A_JOUR <- 6
 Geschaeftstyp <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 18, 19)
 
