@@ -667,13 +667,16 @@ function showSessionDetail(year) {
     filteredData.forEach(item => {
         if (item.date && item.date.startsWith(year)) {
             const month = parseInt(item.date.substring(5, 7));
-            let sessionKey = 'andere';
+            let sessionKey;
             
-            if (month === 3) sessionKey = 'fruehling';
+            // Jeden Monat der entsprechenden Parlamentssession zuordnen
+            // Frühling: Feb-März, Sonder: Apr-Mai, Sommer: Jun-Jul
+            // Herbst: Aug-Okt, Winter: Nov-Jan
+            if (month === 2 || month === 3) sessionKey = 'fruehling';
             else if (month === 4 || month === 5) sessionKey = 'sonder';
-            else if (month === 6) sessionKey = 'sommer';
-            else if (month === 9 || month === 10) sessionKey = 'herbst';
-            else if (month === 12) sessionKey = 'winter';
+            else if (month === 6 || month === 7) sessionKey = 'sommer';
+            else if (month >= 8 && month <= 10) sessionKey = 'herbst';
+            else sessionKey = 'winter'; // November, Dezember, Januar
             
             sessionCounts[sessionKey] = (sessionCounts[sessionKey] || 0) + 1;
         }
