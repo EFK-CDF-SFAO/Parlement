@@ -684,11 +684,8 @@ function createCard(item, searchTerm) {
     
     const date = item.date ? new Date(item.date).toLocaleDateString('de-CH') : '';
     const dateMaj = item.date_maj ? new Date(item.date_maj).toLocaleDateString('de-CH') : '';
-    // Afficher 🔄 uniquement si mise à jour cette semaine (7 jours)
-    const now = new Date();
-    const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    const dateMajObj = item.date_maj ? new Date(item.date_maj) : null;
-    const showDateMaj = dateMaj && dateMaj !== date && dateMajObj && dateMajObj >= oneWeekAgo;
+    // Afficher 🔄 uniquement si objet dans new_ids (vraiment mis à jour)
+    const showDateMaj = isNew && dateMaj && dateMaj !== date;
     const url = item.url_de || item.url_fr;
     const mentionData = getMentionEmojis(item.mention);
     
