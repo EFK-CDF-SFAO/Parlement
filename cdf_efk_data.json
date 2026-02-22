@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-02-22T22:26:14",
-    "total_count": 328,
+    "updated": "2026-02-22T22:42:01",
+    "total_count": 327,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "25.479"
+    "new_ids": []
   },
   "session_summary": {
     "session_id": "2025-hiver",
@@ -228,25 +228,6 @@
       "mention": "Élu",
       "text": "<p>Le Conseil fédéral est chargé de proposer à la Conférence des gouvernements cantonaux (CdC) d’inclure dans le projet «&nbsp;Désenchevêtrement&nbsp;27 – Répartition des tâches entre la Confédération et les cantons&nbsp;» les trois groupes de tâches supplémentaires suivants&nbsp;: a) registres nationaux, b) infrastructures touristiques, et c) prévention des dangers naturels. Le mandat commun de la Confédération et de la CdC devra être modifié en conséquence.<\/p>",
       "text_de": "<p>Der Bundesrat wird beauftragt, der Konferenz der Kantonsregierungen zu beantragen, die drei folgenden Aufgabenbereiche zusätzlich in das Projekt «Entflechtung 27 – Aufgabenteilung Bund-Kantone» aufzunehmen: a) Gesamtschweizerische Register, b) Tourismus-Infrastruktur, c) Prävention von Naturgefahren. Das gemeinsame Mandat von Bund und KdK sei entsprechend zu ergänzen.<\/p>"
-    },
-    {
-      "shortId": "25.479",
-      "title": "Trop de bureaucratie ! Pour un grand ménage dans les lois et ordonnances",
-      "title_de": "Genug Bürokratie! Für einen Frühlingsputz der Gesetze und Verordnungen",
-      "title_it": "Stop alla burocrazia! Per una pulizia di primavera di leggi e ordinanze",
-      "author": "Golay Roger",
-      "party": "MCG",
-      "type": "Pa. Iv.",
-      "status": "Zugewiesen an die behandelnde Kommission / Attribué à la commission compétente",
-      "council": "NR",
-      "department": "Parl",
-      "date": "2025-09-26",
-      "date_maj": "2026-02-22",
-      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250479",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250479",
-      "mention": "Élu",
-      "text": "<p><i>L’art.&nbsp;10 du règlement du Conseil national est complété de manière qu’une Commission d’examen de la réglementation (CdER) soit mise sur pied. Le nouvel article est le suivant&nbsp;:<\/i><\/p><p>&nbsp;<\/p><p><i>Le conseil compte les commissions permanentes suivantes&nbsp;:<\/i><\/p><p><i> 1. Commission des finances (CdF)&nbsp;;<\/i><\/p><p><i> 2. Commission de gestion (CdG)&nbsp;;<\/i><\/p><p><i> 3. Commission de politique extérieure (CPE)&nbsp;;<\/i><\/p><p><i> 4. Commission de la science, de l’éducation et de la culture (CSEC)&nbsp;;<\/i><\/p><p><i> 5. Commission de la sécurité sociale et de la santé publique (CSSS)&nbsp;;<\/i><\/p><p><i> 6. Commission de l’environnement, de l’aménagement du territoire et de l’énergie (CEATE)&nbsp;;<\/i><\/p><p><i> 7. Commission de la politique de sécurité (CPS)&nbsp;;<\/i><\/p><p><i> 8. Commission des transports et des télécommunications (CTT)&nbsp;;<\/i><\/p><p><i> 9. Commission de l’économie et des redevances (CER)&nbsp;;<\/i><\/p><p><i>10. Commission des institutions politiques (CIP)&nbsp;;<\/i><\/p><p><i>11. Commission des affaires juridiques (CAJ)&nbsp;;<\/i><\/p><p><i>12. Commission de l’immunité (CdI)&nbsp;;<\/i><\/p><p><i>13. Commission d’examen de la réglementation (CdER).<\/i><\/p><p>&nbsp;<\/p><p><i>L’art.&nbsp;2, al.&nbsp;1, de la loi sur le Parlement (LParl) est complété par la phrase suivante&nbsp;:<\/i><\/p><p><i>«&nbsp;Une fois par an, pendant l’une des sessions ordinaires, la Commission d’examen de la réglementation de chaque conseil soumet à ce même conseil les résultats de ses travaux ainsi que ses propositions de loi.&nbsp;»<\/i><\/p>",
-      "text_de": "<p><i>Art. 10 des Geschäftsreglements des Nationalrates (GRN) wird dahingehend ergänzt, dass eine ständige Regulierungsprüfungskommission (RPK) eingesetzt wird. Der neue Artikel lautet:<\/i><\/p><p>&nbsp;<\/p><p><i>Es bestehen folgende ständige Kommissionen:<\/i><\/p><p><i> 1. Finanzkommission (FK);<\/i><\/p><p><i> 2. Geschäftsprüfungskommission (GPK);<\/i><\/p><p><i> 3. Aussenpolitische Kommission (APK);<\/i><\/p><p><i> 4. Kommission für Wissenschaft, Bildung und Kultur (WBK);<\/i><\/p><p><i> 5. Kommission für soziale Sicherheit und Gesundheit (SGK);<\/i><\/p><p><i> 6. Kommission für Umwelt, Raumplanung und Energie (UREK);<\/i><\/p><p><i> 7. Sicherheitspolitische Kommission (SiK);<\/i><\/p><p><i> 8. Kommission für Verkehr und Fernmeldewesen (KVF);<\/i><\/p><p><i> 9. Kommission für Wirtschaft und Abgaben (WAK);<\/i><\/p><p><i>10. Staatspolitische Kommission (SPK);<\/i><\/p><p><i>11. Kommission für Rechtsfragen (RK);<\/i><\/p><p><i>12.Immunitätskommission (IK);<\/i><\/p><p><i>13. Regulierungsprüfungskommission (RPK);<\/i><\/p><p>&nbsp;<\/p><p><i>Art. 2 Abs. 1 des Parlamentsgesetzes (ParlG) wird durch folgenden Satz ergänzt:<\/i><\/p><p><i>«Einmal jährlich, während einer der ordentlichen Sessionen, unterbreitet die Regulierungsprüfungskommission (RPK) jedes Rates ebendiesem ihre Arbeitsergebnisse sowie ihre Gesetzesvorschläge.»<\/i><\/p>"
     },
     {
       "shortId": "25.4281",
