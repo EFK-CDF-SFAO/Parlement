@@ -118,7 +118,7 @@ function displaySessionSummary(summary) {
         const items = summary.interventions.shortId.map((id, i) => {
             const title = summary.interventions.title[i] || '';
             const author = summary.interventions.author[i] || '';
-            const party = summary.interventions.party[i] || '';
+            const party = translateParty(summary.interventions.party[i] || '');
             const type = summary.interventions.type[i] || '';
             const url = summary.interventions.url_fr[i] || '#';
             const authorWithParty = party ? `${author} (${party})` : author;
