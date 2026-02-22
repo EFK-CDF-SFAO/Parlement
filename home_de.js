@@ -195,9 +195,12 @@ function displaySessionSummary(summary, currentSession) {
                 const translated = translateParty(p);
                 partyCounts[translated] = (partyCounts[translated] || 0) + 1;
             });
-            const sortedParties = Object.entries(partyCounts)
-                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-                .slice(0, 3)
+            const sorted = Object.entries(partyCounts)
+                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+            // Prendre tous les partis avec le même nombre max d'interventions
+            const maxCount = sorted[0]?.[1] || 0;
+            const sortedParties = sorted
+                .filter(([_, count]) => count === maxCount)
                 .map(([p]) => p);
             if (sortedParties.length > 0) {
                 text += `Die aktivsten Parteien: ${sortedParties.join(', ')}.`;
