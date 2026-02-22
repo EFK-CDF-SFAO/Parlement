@@ -9,6 +9,7 @@ let allData = [];
 let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // IDs der echten neuen Objekte
+let sessionsData = []; // Sessionsdaten
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -26,6 +27,10 @@ document.addEventListener('DOMContentLoaded', init);
 async function init() {
     showLoading();
     try {
+        const sessionsResponse = await fetch('sessions.json');
+        const sessionsJson = await sessionsResponse.json();
+        sessionsData = sessionsJson.sessions || [];
+        
         const response = await fetch(DATA_URL);
         const json = await response.json();
         allData = json.items || [];
@@ -128,6 +133,27 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text || '';
     return div.innerHTML;
+}
+
+function getSessionTypeFromDate(dateStr) {
+    if (!dateStr || !sessionsData.length) {
+        return 'autre';
+    }
+    for (const session of sessionsData) {
+        if (dateStr >= session.start && dateStr <= session.end) {
+            const parts = session.id.split('-');
+            if (parts.length >= 2) {
+                const sessionType = parts[1];
+                if (sessionType.startsWith('speciale')) return 'speciale';
+                if (sessionType === 'printemps') return 'printemps';
+                if (sessionType === 'ete') return 'ete';
+                if (sessionType === 'automne') return 'automne';
+                if (sessionType === 'hiver') return 'hiver';
+            }
+            return 'autre';
+        }
+    }
+    return 'autre';
 }
 
 function translateParty(party) {
@@ -472,19 +498,10 @@ function applyFilters() {
             }
         }
         
-        // Session filter (from URL)
+        // Session filter (from URL) - utilise les dates exactes
         if (window.sessionFilter && item.date) {
-            const month = parseInt(item.date.substring(5, 7));
-            const sessionMonths = {
-                'printemps': [3],
-                'speciale': [4, 5],
-                'ete': [6],
-                'automne': [9, 10],
-                'hiver': [12],
-                'autre': [1, 2, 7, 8, 11]
-            };
-            const validMonths = sessionMonths[window.sessionFilter] || [];
-            if (!validMonths.includes(month)) {
+            const itemSessionType = getSessionTypeFromDate(item.date);
+            if (itemSessionType !== window.sessionFilter) {
                 return false;
             }
         }
