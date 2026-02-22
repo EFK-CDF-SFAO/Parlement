@@ -1,51 +1,51 @@
 # Swiss Federal Audit Office Parliament Monitor
 
-Outil de veille parlementaire pour le **Contrôle fédéral des finances** (CDF / EFK / SFAO). Recense les interventions parlementaires (motions, postulats, interpellations, questions) et les débats mentionnant le CDF.
+Parliamentary monitoring tool for the **Swiss Federal Audit Office** (SFAO / CDF / EFK). Tracks parliamentary interventions (motions, postulates, interpellations, questions) and debates mentioning the SFAO.
 
-� **Site web** : [https://arnaudbon20.github.io/EFK_CDF_Parlement/](https://arnaudbon20.github.io/EFK_CDF_Parlement/)
-
----
-
-## Présentation
-
-Ce projet permet de :
-- **Suivre** les interventions parlementaires mentionnant le CDF (327 objets depuis 2015)
-- **Consulter** les transcriptions des débats en plénum (854 débats)
-- **Analyser** les statistiques par année, parti, conseil, département
-- **Recevoir** les mises à jour automatiques via GitHub Actions
-
-### Couverture
-| Législature | Période | Sessions |
-|-------------|---------|----------|
-| 50ème | Déc. 2015 – Sept. 2019 | 5001-5019 |
-| 51ème | Déc. 2019 – Sept. 2023 | 5101-5122 |
-| 52ème | Déc. 2023 – en cours | 5201+ |
+🔗 **Website**: [https://arnaudbon20.github.io/EFK_CDF_Parlement/](https://arnaudbon20.github.io/EFK_CDF_Parlement/)
 
 ---
 
-## Composants
+## Overview
 
-| Composant | Description |
+This project allows you to:
+- **Track** parliamentary interventions mentioning the SFAO (327 objects since 2015)
+- **Browse** plenary debate transcripts (854 debates)
+- **Analyze** statistics by year, party, council, department
+- **Receive** automatic updates via GitHub Actions
+
+### Coverage
+| Legislature | Period | Sessions |
+|-------------|--------|----------|
+| 50th | Dec. 2015 – Sept. 2019 | 5001-5019 |
+| 51st | Dec. 2019 – Sept. 2023 | 5101-5122 |
+| 52nd | Dec. 2023 – ongoing | 5201+ |
+
+---
+
+## Components
+
+| Component | Description |
 |-----------|-------------|
-| **Site web** | Interface trilingue (FR/DE/IT) avec recherche, débats et statistiques |
-| **Scripts R** | `Recherche_CDF_EFK.R` (objets) et `Recherche_Debats.R` (débats) |
-| **Widget iOS** | Widget Scriptable affichant les dernières interventions |
-| **Données JSON** | `cdf_efk_data.json` + `debates_data.json` |
+| **Website** | Trilingual interface (FR/DE/IT) with search, debates and statistics |
+| **R Scripts** | `Recherche_CDF_EFK.R` (objects) and `Recherche_Debats.R` (debates) |
+| **iOS Widget** | Scriptable widget displaying latest interventions |
+| **JSON Data** | `cdf_efk_data.json` + `debates_data.json` |
 
-### Pages du site
+### Website Pages
 | Page | Description |
 |------|-------------|
-| **Accueil** | Résumé de session et aperçu des dernières interventions |
-| **Objets** | Liste filtrable des interventions parlementaires |
-| **Débats** | Transcriptions des débats en plénum |
-| **Statistiques** | Graphiques interactifs (par année, parti, conseil, type) |
+| **Home** | Session summary and overview of latest interventions |
+| **Objects** | Filterable list of parliamentary interventions |
+| **Debates** | Plenary debate transcripts |
+| **Statistics** | Interactive charts (by year, party, council, type) |
 
-### Fonctionnalités
-- Recherche plein texte (titre + texte déposé)
-- Filtres multiples : type, conseil, année, parti, département, législature, session
-- Mise en évidence des termes recherchés
-- Interface responsive (desktop + mobile)
-- Chargement progressif ("Afficher plus")
+### Features
+- Full-text search (title + submitted text)
+- Multiple filters: type, council, year, party, department, legislature, session
+- Search term highlighting
+- Responsive interface (desktop + mobile)
+- Progressive loading ("Show more")
 
 ## Requirements
 
@@ -185,24 +185,24 @@ This project uses:
 
 MIT License
 
-## Automatisation
+## Automation
 
 ### GitHub Actions
 
-| Fréquence | Action |
-|-----------|--------|
-| Tous les jours à 22h UTC | Mise à jour des objets parlementaires |
-| Tous les 2 jours à 22h UTC | Mise à jour des transcriptions de débats |
+| Schedule | Action |
+|----------|--------|
+| Daily at 22h UTC | Update parliamentary objects |
+| Every 2 days at 22h UTC | Update debate transcripts |
 
-Les workflows :
-1. Exécutent les scripts R
-2. Commitent les fichiers JSON et Excel mis à jour
-3. Déploient sur GitHub Pages
+The workflows:
+1. Execute R scripts
+2. Commit updated JSON and Excel files
+3. Deploy to GitHub Pages
 
-**Déclenchement manuel** : Onglet **Actions** sur GitHub → Sélectionner le workflow → "Run workflow"
+**Manual trigger**: Go to **Actions** tab on GitHub → Select workflow → "Run workflow"
 
-### Gestion des sessions
+### Session Management
 
-La page d'accueil affiche automatiquement le résumé de la **dernière session terminée** :
-- Les dates de session sont définies dans `sessions.json`
-- La page bascule vers la session suivante après la date de fin
+The homepage automatically displays the **last completed session** summary:
+- Session dates are defined in `sessions.json`
+- Homepage switches to next session after the end date
