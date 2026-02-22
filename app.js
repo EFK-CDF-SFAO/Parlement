@@ -290,7 +290,8 @@ function translateDepartment(deptDE) {
         'BK': 'ChF',
         'BGer': 'TF',
         'Parl': 'Parl',
-        'VBV': 'AF'
+        'VBV': 'AF',
+        'AB-BA': 'AS-MPC'
     };
     return translations[deptDE] || deptDE;
 }
