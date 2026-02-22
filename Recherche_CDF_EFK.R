@@ -54,6 +54,9 @@ FICHIER_EXCEL <- "Objets_parlementaires_CDF_EFK.xlsx"
 FICHIER_JSON <- "cdf_efk_data.json"
 GITHUB_RAW_URL <- "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_Parlement/main/cdf_efk_data.json"
 
+# Objets à exclure (faux positifs - mentionnent CDF/EFK mais pas le Contrôle fédéral des finances)
+faux_positifs <- c("24.3077", "25.479")
+
 # ============================================================================
 # PATTERNS DE RECHERCHE
 # ============================================================================
@@ -128,7 +131,6 @@ if (file.exists(FICHIER_EXCEL)) {
       mutate(Mention = "À recalculer")
   }
   
-  faux_positifs <- c("24.3077", "25.479")
   n_avant <- nrow(Donnees_Existantes)
   Donnees_Existantes <- Donnees_Existantes |>
     filter(!Numéro %in% faux_positifs)
@@ -276,6 +278,7 @@ cat("Fusion et dédoublonnage des interventions...\n")
 Tous_Geschaefte <- bind_rows(Geschaefte_DE, Geschaefte_FR)
 
 Geschaefte_Uniques <- Tous_Geschaefte |>
+  filter(!BusinessShortNumber %in% faux_positifs) |>
   group_by(ID) |>
   summarise(
     BusinessShortNumber = first(BusinessShortNumber),
