@@ -220,7 +220,7 @@ function displaySessionSummary(summary, currentSession) {
                 partyCounts[translated] = (partyCounts[translated] || 0) + 1;
             });
             const sortedParties = Object.entries(partyCounts)
-                .sort((a, b) => b[1] - a[1])
+                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
                 .slice(0, 3)
                 .map(([p]) => p);
             if (sortedParties.length > 0) {

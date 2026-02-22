@@ -169,11 +169,41 @@ function displaySessionSummary(summary, currentSession) {
         titleEl.textContent = `Zusammenfassung der ${sessionName} (${startDate} - ${endDate})`;
     }
     
-    // Texte avec référence à la session (enlever les dates car déjà dans le titre)
+    // Générer le texte dynamiquement (comme IT)
     if (textEl) {
-        let text = summary.text_de;
-        // Enlever "Während der Wintersession 2025 (01.12 - 19.12.2025)" et remplacer
-        text = text.replace(/Während der [^)]+\)/gi, `Während der ${sessionName}`);
+        const count = summary.count || 0;
+        const types = summary.by_type || {};
+        
+        let typesText = [];
+        if (types['Ip.']) typesText.push(`${types['Ip.']} Interpellation${types['Ip.'] > 1 ? 'en' : ''}`);
+        if (types['Mo.']) typesText.push(`${types['Mo.']} Motion${types['Mo.'] > 1 ? 'en' : ''}`);
+        if (types['Fra.']) typesText.push(`${types['Fra.']} Anfrage${types['Fra.'] > 1 ? 'n' : ''}`);
+        if (types['Po.']) typesText.push(`${types['Po.']} Postulat${types['Po.'] > 1 ? 'e' : ''}`);
+        
+        const cn = summary.by_council?.CN || 0;
+        const ce = summary.by_council?.CE || 0;
+        
+        let text = `Während der ${sessionName} wurden ${count} Vorstösse mit Bezug zur EFK eingereicht: ${typesText.join(', ')}. `;
+        if (cn > 0 && ce > 0) {
+            text += `${cn} im Nationalrat und ${ce} im Ständerat. `;
+        }
+        
+        // Ajouter les partis les plus actifs
+        if (summary.interventions && summary.interventions.party) {
+            const partyCounts = {};
+            summary.interventions.party.forEach(p => {
+                const translated = translateParty(p);
+                partyCounts[translated] = (partyCounts[translated] || 0) + 1;
+            });
+            const sortedParties = Object.entries(partyCounts)
+                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+                .slice(0, 3)
+                .map(([p]) => p);
+            if (sortedParties.length > 0) {
+                text += `Die aktivsten Parteien: ${sortedParties.join(', ')}.`;
+            }
+        }
+        
         textEl.textContent = text;
     }
 }
