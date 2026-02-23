@@ -84,10 +84,13 @@ const LANG = detectLang();
 const cfg = CFG[LANG];
 
 // --- Couleurs dynamiques (Light/Dark) ---
-const BG = Color.dynamic(new Color("#001F3F"), new Color("#001F3F")); // Bleu marine
-const TEXT_PRIMARY = Color.dynamic(new Color("#FFFFFF"), new Color("#FFFFFF"));
-const TEXT_SECONDARY = Color.dynamic(new Color("#B0C4DE"), new Color("#B0C4DE")); // Light steel blue
-const ACCENT = Color.dynamic(new Color("#FFD700"), new Color("#FFD700")); // Or
+const BG = Color.dynamic(new Color("#FFFFFF"), new Color("#1C1C1E")); // Blanc / Gris foncé
+const TEXT_PRIMARY = Color.dynamic(new Color("#1C1C1E"), new Color("#FFFFFF"));
+const TEXT_SECONDARY = Color.dynamic(new Color("#6B7280"), new Color("#9CA3AF"));
+const ACCENT = new Color("#EA5A4F"); // Rouge CDF
+const ACCENT_LIGHT = Color.dynamic(new Color("#FEE2E2"), new Color("#7F1D1D")); // Rouge clair/foncé
+const CARD_BG = Color.dynamic(new Color("#F3F4F6"), new Color("#2C2C2E"));
+const SUCCESS = new Color("#10B981"); // Vert
 
 // --- Cache ---
 const fm = FileManager.local();
@@ -460,53 +463,99 @@ async function searchCDFInterventions() {
 }
 
 // --- UI ---
-function addTitle(w, text) {
+function addTitle(w, text, count) {
   const s = w.addStack();
   s.layoutHorizontally();
-  s.addSpacer();
+  s.centerAlignContent();
+  
+  // Icône
+  const icon = s.addText("🏛️");
+  icon.font = Font.systemFont(14);
+  s.addSpacer(6);
+  
+  // Titre
   const t = s.addText(text);
-  t.font = Font.boldSystemFont(14);
+  t.font = Font.boldSystemFont(15);
   t.textColor = TEXT_PRIMARY;
+  
   s.addSpacer();
+  
+  // Badge compteur si nouveautés
+  if (count > 0) {
+    const badge = s.addStack();
+    badge.backgroundColor = ACCENT;
+    badge.cornerRadius = 10;
+    badge.setPadding(2, 8, 2, 8);
+    const badgeText = badge.addText(String(count));
+    badgeText.font = Font.boldSystemFont(11);
+    badgeText.textColor = Color.white();
+  }
 }
 
-function addNewLine(w, label, ids, color) {
-  const s = w.addStack();
-  s.layoutHorizontally();
+function addItemCard(w, item, isNew) {
+  const card = w.addStack();
+  card.layoutVertically();
+  card.backgroundColor = CARD_BG;
+  card.cornerRadius = 10;
+  card.setPadding(8, 10, 8, 10);
   
-  const l = s.addText(label);
-  l.font = Font.boldSystemFont(11);
-  l.textColor = TEXT_SECONDARY;
+  // Ligne 1: Numéro + Badge nouveau
+  const topRow = card.addStack();
+  topRow.layoutHorizontally();
+  topRow.centerAlignContent();
   
-  const v = s.addText(ids.length > 0 ? ids.join(" / ") : "❌");
-  v.font = Font.systemFont(11);
-  v.textColor = ids.length > 0 ? color : TEXT_SECONDARY;
-  v.lineLimit = 1;
-}
-
-function addItemBlock(w, item) {
+  // Numéro avec accent
+  const idText = topRow.addText(item.shortId);
+  idText.font = Font.boldMonospacedSystemFont(11);
+  idText.textColor = ACCENT;
+  
+  topRow.addSpacer(6);
+  
+  // Badge "NEW" si nouveau
+  if (isNew) {
+    const newBadge = topRow.addStack();
+    newBadge.backgroundColor = SUCCESS;
+    newBadge.cornerRadius = 4;
+    newBadge.setPadding(1, 5, 1, 5);
+    const newText = newBadge.addText("NEW");
+    newText.font = Font.boldSystemFont(8);
+    newText.textColor = Color.white();
+  }
+  
+  topRow.addSpacer();
+  
+  card.addSpacer(3);
+  
+  // Ligne 2: Titre
   const title = LANG === "de" && item.title_de ? item.title_de : item.title;
-  const header = `${item.shortId} — ${clamp(title, 60)}`;
-  const h = w.addText(header);
-  h.font = Font.boldSystemFont(10);
-  h.textColor = TEXT_PRIMARY;
-  h.lineLimit = 1;
+  const titleText = card.addText(clamp(title, 55));
+  titleText.font = Font.mediumSystemFont(11);
+  titleText.textColor = TEXT_PRIMARY;
+  titleText.lineLimit = 2;
+  
+  card.addSpacer(4);
+  
+  // Ligne 3: Auteur + Parti
+  const bottomRow = card.addStack();
+  bottomRow.layoutHorizontally();
+  bottomRow.centerAlignContent();
+  
+  const authorIcon = bottomRow.addText("👤");
+  authorIcon.font = Font.systemFont(9);
+  bottomRow.addSpacer(3);
   
   const who = item.party ? `${item.author} (${item.party})` : item.author;
-  const a = w.addText(clamp(who, 40));
-  a.font = Font.systemFont(10);
-  a.textColor = TEXT_SECONDARY;
-  a.lineLimit = 1;
+  const authorText = bottomRow.addText(clamp(who, 35));
+  authorText.font = Font.systemFont(10);
+  authorText.textColor = TEXT_SECONDARY;
+  authorText.lineLimit = 1;
 }
 
 // --- Main ---
 const w = new ListWidget();
 w.backgroundColor = BG;
 w.url = cfg.openUrl;
-w.setPadding(6, 12, 12, 12);
-
-addTitle(w, cfg.title);
-w.addSpacer(6);
+w.setPadding(10, 12, 10, 12);
 
 // ============================================
 // 1. ESSAYER DE CHARGER DEPUIS GITHUB (prioritaire)
@@ -640,29 +689,11 @@ const recentItems = items.filter(item => {
 
 console.log(`[DEBUG] Items récents (new_ids + < 7 jours): ${recentItems.length}`);
 
-// Affichage ligne "Mises à jour récentes"
-const labelStack = w.addStack();
-labelStack.layoutHorizontally();
-labelStack.centerAlignContent();
-
-const labelLine = labelStack.addText(cfg.labelUpdates);
-labelLine.font = Font.mediumSystemFont(11);
-labelLine.textColor = TEXT_SECONDARY;
-
-if (recentItems.length > 0) {
-  labelStack.addSpacer(6);
-  const countText = labelStack.addText(`(${recentItems.length})`);
-  countText.font = Font.mediumSystemFont(11);
-  countText.textColor = new Color("#00FF00"); // Vert
-}
-
-w.addSpacer(6);
-
 // Affichage des 3 dernières mises à jour
-const last5 = recentItems.slice(0, 3);
+const last3 = recentItems.slice(0, 3);
 
 // Récupérer les partis pour les items affichés (si pas déjà présent)
-for (const item of last5) {
+for (const item of last3) {
   if (!item.party && item.author) {
     try {
       item.party = await fetchPartyByAuthorName(item.author);
@@ -670,28 +701,42 @@ for (const item of last5) {
   }
 }
 
-if (!last5.length) {
+// Titre avec compteur de nouveautés
+addTitle(w, cfg.title, last3.length);
+w.addSpacer(8);
+
+if (!last3.length) {
   console.warn("[WARN] Aucun résultat récent à afficher");
+  
+  // Message vide avec style
+  const emptyCard = w.addStack();
+  emptyCard.layoutVertically();
+  emptyCard.backgroundColor = CARD_BG;
+  emptyCard.cornerRadius = 10;
+  emptyCard.setPadding(16, 12, 16, 12);
+  
+  const emptyIcon = emptyCard.addText("✅");
+  emptyIcon.font = Font.systemFont(24);
+  emptyIcon.centerAlignText();
+  
+  emptyCard.addSpacer(6);
+  
   let msg;
   if (!fetchOk) {
-    msg = LANG === "fr" ? "Erreur réseau / API" : (LANG === "de" ? "Netzwerk-/API-Fehler" : "Errore di rete / API");
+    msg = LANG === "fr" ? "Erreur réseau" : (LANG === "de" ? "Netzwerkfehler" : "Errore di rete");
   } else {
     msg = cfg.noUpdates;
   }
-  const t = w.addText(msg);
-  t.font = Font.boldSystemFont(11);
-  t.textColor = TEXT_SECONDARY;
+  const emptyText = emptyCard.addText(msg);
+  emptyText.font = Font.mediumSystemFont(12);
+  emptyText.textColor = TEXT_SECONDARY;
+  emptyText.centerAlignText();
   
-  if (errorMsg) {
-    w.addSpacer(4);
-    const err = w.addText(`Erreur: ${clamp(errorMsg, 60)}`);
-    err.font = Font.systemFont(9);
-    err.textColor = TEXT_SECONDARY;
-  }
 } else {
-  for (let i = 0; i < last5.length; i++) {
-    addItemBlock(w, last5[i]);
-    if (i < last5.length - 1) w.addSpacer(6);
+  for (let i = 0; i < last3.length; i++) {
+    const isNew = newIdsSet.has(last3[i].shortId);
+    addItemCard(w, last3[i], isNew);
+    if (i < last3.length - 1) w.addSpacer(6);
   }
 }
 
@@ -700,12 +745,12 @@ w.addSpacer();
 const lastFetch = fm.fileExists(PATH_LAST_FETCH) 
   ? new Date(readText(PATH_LAST_FETCH))
   : new Date();
-const footerLabel = LANG === "fr" ? "Mise à jour" : (LANG === "de" ? "Aktualisiert" : "Aggiornato");
+const footerLabel = LANG === "fr" ? "Màj" : (LANG === "de" ? "Akt." : "Agg.");
 const localeMap = { fr: "fr-CH", de: "de-CH", it: "it-CH" };
 const footer = w.addText(`${footerLabel}: ${lastFetch.toLocaleDateString(localeMap[LANG] || "fr-CH")}`);
-footer.font = Font.systemFont(7);
+footer.font = Font.systemFont(8);
 footer.textColor = TEXT_SECONDARY;
-footer.centerAlignText();
+footer.rightAlignText();
 
 Script.setWidget(w);
 Script.complete();
