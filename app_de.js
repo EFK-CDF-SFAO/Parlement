@@ -708,8 +708,8 @@ function createCard(item, searchTerm) {
     
     const date = item.date ? new Date(item.date).toLocaleDateString('de-CH') : '';
     const dateMaj = item.date_maj ? new Date(item.date_maj).toLocaleDateString('de-CH') : '';
-    // Afficher 🔄 uniquement si objet dans new_ids (vraiment mis à jour)
-    const showDateMaj = isNew && dateMaj && dateMaj !== date;
+    // Afficher 🔄 si date de mise à jour existe et différente de la date de dépôt
+    const showDateMaj = dateMaj && dateMaj !== date;
     const url = item.url_de || item.url_fr;
     const mentionData = getMentionEmojis(item.mention);
     
