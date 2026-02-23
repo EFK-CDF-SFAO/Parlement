@@ -468,20 +468,18 @@ function addTitle(w, text, count) {
   s.layoutHorizontally();
   s.centerAlignContent();
   
-  // Icône
-  const icon = s.addText("🏛️");
-  icon.font = Font.systemFont(14);
-  s.addSpacer(6);
-  
-  // Titre
-  const t = s.addText(text);
-  t.font = Font.boldSystemFont(15);
-  t.textColor = TEXT_PRIMARY;
-  
+  // Centrer le titre
   s.addSpacer();
+  
+  // Emoji + Titre sur la même ligne
+  const titleText = count > 0 ? `🔔 ${text}` : `🔍 ${text}`;
+  const t = s.addText(titleText);
+  t.font = Font.boldSystemFont(14);
+  t.textColor = TEXT_PRIMARY;
   
   // Badge compteur si nouveautés
   if (count > 0) {
+    s.addSpacer(8);
     const badge = s.addStack();
     badge.backgroundColor = ACCENT;
     badge.cornerRadius = 10;
@@ -490,6 +488,8 @@ function addTitle(w, text, count) {
     badgeText.font = Font.boldSystemFont(11);
     badgeText.textColor = Color.white();
   }
+  
+  s.addSpacer();
 }
 
 function addItemCard(w, item, isNew) {
@@ -730,17 +730,11 @@ if (!last3.length) {
   
   emptyWrapper.addSpacer();
   
-  const emptyIcon = emptyCard.addText("✅");
-  emptyIcon.font = Font.systemFont(24);
-  emptyIcon.centerAlignText();
-  
-  emptyCard.addSpacer(6);
-  
   let msg;
   if (!fetchOk) {
-    msg = LANG === "fr" ? "Erreur réseau" : (LANG === "de" ? "Netzwerkfehler" : "Errore di rete");
+    msg = LANG === "fr" ? "⚠️ Erreur réseau" : (LANG === "de" ? "⚠️ Netzwerkfehler" : "⚠️ Errore di rete");
   } else {
-    msg = cfg.noUpdates;
+    msg = `😴 ${cfg.noUpdates}`;
   }
   const emptyText = emptyCard.addText(msg);
   emptyText.font = Font.mediumSystemFont(12);
