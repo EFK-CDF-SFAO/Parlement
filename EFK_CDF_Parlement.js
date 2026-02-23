@@ -493,11 +493,19 @@ function addTitle(w, text, count) {
 }
 
 function addItemCard(w, item, isNew) {
-  const card = w.addStack();
+  // Wrapper pour centrer la carte
+  const wrapper = w.addStack();
+  wrapper.layoutHorizontally();
+  wrapper.addSpacer();
+  
+  const card = wrapper.addStack();
   card.layoutVertically();
   card.backgroundColor = CARD_BG;
   card.cornerRadius = 10;
   card.setPadding(8, 10, 8, 10);
+  card.size = new Size(0, 0); // Auto-size
+  
+  wrapper.addSpacer();
   
   // Ligne 1: Numéro + Badge nouveau
   const topRow = card.addStack();
@@ -708,12 +716,19 @@ w.addSpacer(8);
 if (!last3.length) {
   console.warn("[WARN] Aucun résultat récent à afficher");
   
+  // Wrapper pour centrer
+  const emptyWrapper = w.addStack();
+  emptyWrapper.layoutHorizontally();
+  emptyWrapper.addSpacer();
+  
   // Message vide avec style
-  const emptyCard = w.addStack();
+  const emptyCard = emptyWrapper.addStack();
   emptyCard.layoutVertically();
   emptyCard.backgroundColor = CARD_BG;
   emptyCard.cornerRadius = 10;
-  emptyCard.setPadding(16, 12, 16, 12);
+  emptyCard.setPadding(16, 20, 16, 20);
+  
+  emptyWrapper.addSpacer();
   
   const emptyIcon = emptyCard.addText("✅");
   emptyIcon.font = Font.systemFont(24);
