@@ -475,10 +475,11 @@ if (length(IDs_A_Traiter) > 0) {
       Mention
     )
   
+  # Date_MAJ uniquement pour les VRAIS nouveaux objets, pas les mises à jour de routine
   Nouveaux_Resultats <- Nouveaux_Resultats |>
     mutate(
       Date_dépôt = as.character(Date_dépôt),
-      Date_MAJ = as.character(Sys.Date()),
+      Date_MAJ = if_else(ID %in% Nouveaux_IDs, as.character(Sys.Date()), NA_character_),
       Type = ifelse(Type == "A", "Fra.", Type)
     )
   
