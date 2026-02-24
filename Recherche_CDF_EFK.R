@@ -55,25 +55,27 @@ FICHIER_JSON <- "cdf_efk_data.json"
 GITHUB_RAW_URL <- "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_Parlement/main/cdf_efk_data.json"
 
 # Objets à exclure (faux positifs - mentionnent CDF/EFK mais pas le Contrôle fédéral des finances)
-faux_positifs <- c("24.3077", "25.479")
+faux_positifs <- c("24.3077", "25.479", "25.4670")
 
 # ============================================================================
 # PATTERNS DE RECHERCHE
 # ============================================================================
 
+# Pattern EFK: nom complet (insensible à la casse) OU sigle EFK en majuscules suivi d'espace/fin
 pattern_efk_de <- regex(
-  "\\b(Eidg(en(ö|oe)ssische)?|Eidg\\.)\\s*Finanzkontrolle\\b|\\(\\s*EFK\\s*\\)|\\bEFK\\b",
-  ignore_case = TRUE
+  "\\b(Eidg(en(ö|oe)ssische)?|Eidg\\.)\\s*Finanzkontrolle\\b|\\(\\s*EFK\\s*\\)|(?<![a-zA-Z])EFK(?![a-zA-Z])(?=[\\s,;:!?.)\"']|$)",
+  ignore_case = FALSE
 )
 
+# Pattern CDF: nom complet (insensible à la casse) OU sigle CDF en MAJUSCULES suivi d'espace/fin
+# Exclut: CdF, CDF-N, CDF-E, CDF. CDF, CDF; etc. (ponctuation directement collée)
 pattern_cdf_fr <- regex(
-  "\\bContr(ô|o)le\\s+f(é|e)d(é|e)ral\\s+des\\s+finances\\b|\\(\\s*CDF\\s*\\)|\\bCDF(?!-[NE])\\b",
-  ignore_case = TRUE
+  "\\b[Cc]ontr(ô|o)le\\s+[Ff](é|e)d(é|e)ral\\s+des\\s+[Ff]inances\\b|\\(\\s*CDF\\s*\\)|(?<![a-zA-Z])CDF(?![a-zA-Z-])(?=\\s|$)"
 )
 
+# Pattern CDF italien: nom complet (insensible à la casse) OU sigle CDF en MAJUSCULES suivi d'espace/fin
 pattern_cdf_it <- regex(
-  "\\bControllo\\s+federale\\s+delle\\s+finanze\\b|\\bCDF\\b",
-  ignore_case = TRUE
+  "\\b[Cc]ontrollo\\s+[Ff]ederale\\s+delle\\s+[Ff]inanze\\b|(?<![a-zA-Z])CDF(?![a-zA-Z-])(?=\\s|$)"
 )
 
 pattern_faux_positif_cdf <- regex("\\bCDF-[NE]\\b", ignore_case = TRUE)
