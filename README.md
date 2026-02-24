@@ -11,7 +11,7 @@ Parliamentary monitoring tool for the **Swiss Federal Audit Office** (SFAO / CDF
 This project allows you to:
 - **Track** parliamentary interventions mentioning the SFAO (327 objects since 2015)
 - **Browse** plenary debate transcripts (854 debates)
-- **Analyze** statistics by year, party, council, department
+- **Analyze** statistics by year, party, council, department, themes
 - **Receive** automatic updates via GitHub Actions
 
 ### Coverage
@@ -42,7 +42,8 @@ This project allows you to:
 
 ### Features
 - Full-text search (title + submitted text)
-- Multiple filters: type, council, year, party, department, legislature, session
+- Multiple filters: type, council, year, party, department, **themes (domaines)**, legislature, session
+- Trilingual theme names (FR/DE/IT) from Swiss Parliament API
 - Search term highlighting
 - Responsive interface (desktop + mobile)
 - Progressive loading ("Show more")
@@ -138,7 +139,7 @@ MOIS_MISE_A_JOUR <- 6
 | `cdf_efk_data.json` | JSON data for objects (widget reads from here) |
 | `CDF_Data.js` | JavaScript module for Scriptable (local fallback) |
 | `Debats_CDF_EFK.xlsx` | 🆕 Excel export with debate transcripts |
-| `debates_data.json` | 🆕 JSON data for debates (website reads from here) |
+| `debates_data.json` | JSON data for debates (website reads from here) |
 
 ## Workflow
 
