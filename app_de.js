@@ -45,10 +45,11 @@ async function init() {
         // Display session summary if available
         displaySessionSummary(json.session_summary);
         
-        // Populate year, party and department filters
+        // Populate year, party, department and tags filters
         populateYearFilter();
         populatePartyFilter();
         populateDepartmentFilter();
+        populateTagsFilter();
         
         // Initialize dropdown filters
         initDropdownFilters();
@@ -309,6 +310,33 @@ function populateDepartmentFilter() {
     });
 }
 
+function populateTagsFilter() {
+    const tagsMenu = document.getElementById('tagsMenu');
+    if (!tagsMenu) return;
+    
+    const allTags = new Set();
+    allData.forEach(item => {
+        if (item.tags_de) {
+            item.tags_de.split('|').forEach(tag => {
+                if (tag.trim()) allTags.add(tag.trim());
+            });
+        }
+    });
+    
+    const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'de'));
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Alle`;
+    tagsMenu.appendChild(allLabel);
+    
+    tagsArray.forEach(tag => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${tag}"> ${tag}`;
+        tagsMenu.appendChild(label);
+    });
+}
+
 function getCheckedValues(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
     if (!dropdown) return [];
@@ -459,6 +487,7 @@ function applyFilters() {
     const yearValues = getCheckedValues('yearDropdown');
     const partyValues = getCheckedValues('partyDropdown');
     const departmentValues = getCheckedValues('departmentDropdown');
+    const tagsValues = getCheckedValues('tagsDropdown');
     const legislatureValues = getCheckedValues('legislatureDropdown');
     
     filteredData = allData.filter(item => {
@@ -525,6 +554,15 @@ function applyFilters() {
         if (departmentValues.length > 0) {
             const itemDept = item.department || 'none';
             if (!departmentValues.includes(itemDept)) {
+                return false;
+            }
+        }
+        
+        // Tags filter (multiple)
+        if (tagsValues.length > 0) {
+            const itemTags = item.tags_de ? item.tags_de.split('|').map(t => t.trim()) : [];
+            const hasMatchingTag = itemTags.some(tag => tagsValues.includes(tag));
+            if (!hasMatchingTag) {
                 return false;
             }
         }

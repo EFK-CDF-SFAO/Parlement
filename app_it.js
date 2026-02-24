@@ -45,6 +45,7 @@ async function init() {
         populateYearFilter();
         populatePartyFilter();
         populateDepartmentFilter();
+        populateTagsFilter();
         initDropdownFilters();
         
         const urlParams = new URLSearchParams(window.location.search);
@@ -309,6 +310,33 @@ function populateDepartmentFilter() {
     });
 }
 
+function populateTagsFilter() {
+    const tagsMenu = document.getElementById('tagsMenu');
+    if (!tagsMenu) return;
+    
+    const allTags = new Set();
+    allData.forEach(item => {
+        if (item.tags) {
+            item.tags.split('|').forEach(tag => {
+                if (tag.trim()) allTags.add(tag.trim());
+            });
+        }
+    });
+    
+    const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'it'));
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tutti`;
+    tagsMenu.appendChild(allLabel);
+    
+    tagsArray.forEach(tag => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${tag}"> ${tag}`;
+        tagsMenu.appendChild(label);
+    });
+}
+
 function getCheckedValues(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
     if (!dropdown) return [];
@@ -455,6 +483,7 @@ function applyFilters() {
     const yearValues = getCheckedValues('yearDropdown');
     const partyValues = getCheckedValues('partyDropdown');
     const departmentValues = getCheckedValues('departmentDropdown');
+    const tagsValues = getCheckedValues('tagsDropdown');
     const legislatureValues = getCheckedValues('legislatureDropdown');
     
     filteredData = allData.filter(item => {
@@ -515,6 +544,15 @@ function applyFilters() {
         if (departmentValues.length > 0) {
             const itemDept = item.department || 'none';
             if (!departmentValues.includes(itemDept)) {
+                return false;
+            }
+        }
+        
+        // Tags filter (multiple)
+        if (tagsValues.length > 0) {
+            const itemTags = item.tags ? item.tags.split('|').map(t => t.trim()) : [];
+            const hasMatchingTag = itemTags.some(tag => tagsValues.includes(tag));
+            if (!hasMatchingTag) {
                 return false;
             }
         }

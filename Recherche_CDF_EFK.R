@@ -338,12 +338,12 @@ if (length(IDs_A_Traiter) > 0) {
     select(ID, BusinessShortNumber, BusinessTypeAbbreviation, Title, 
            SubmittedBy, BusinessStatusText, SubmissionDate, SubmissionCouncilAbbreviation,
            ResponsibleDepartmentAbbreviation, ResponsibleDepartmentName,
-           SubmittedText, ReasonText, FederalCouncilResponseText)
+           SubmittedText, ReasonText, FederalCouncilResponseText, TagNames)
   
   Daten_FR <- get_data(table = "Business", ID = IDs_A_Traiter, Language = "FR") |>
-    select(ID, Title, BusinessStatusText, SubmittedText, ReasonText, FederalCouncilResponseText)
+    select(ID, Title, BusinessStatusText, SubmittedText, ReasonText, FederalCouncilResponseText, TagNames)
   
-  names(Daten_FR) <- c("ID", "Titre_FR", "Statut_FR", "SubmittedText_FR", "ReasonText_FR", "FederalCouncilResponseText_FR")
+  names(Daten_FR) <- c("ID", "Titre_FR", "Statut_FR", "SubmittedText_FR", "ReasonText_FR", "FederalCouncilResponseText_FR", "TagNames_FR")
   
   # Récupérer les titres italiens
   Daten_IT <- tryCatch({
@@ -475,7 +475,9 @@ if (length(IDs_A_Traiter) > 0) {
       Statut,
       Lien_DE,
       Lien_FR,
-      Mention
+      Mention,
+      Domaines_DE = TagNames,
+      Domaines_FR = TagNames_FR
     )
   
   # Date_MAJ uniquement pour les VRAIS nouveaux objets, pas les mises à jour de routine
@@ -896,10 +898,12 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       url_de = Lien_DE,
       mention = Mention,
       text = if ("Texte_FR" %in% names(Resultats)) Texte_FR else NA_character_,
-      text_de = if ("Texte_DE" %in% names(Resultats)) Texte_DE else NA_character_
+      text_de = if ("Texte_DE" %in% names(Resultats)) Texte_DE else NA_character_,
+      tags = if ("Domaines_FR" %in% names(Resultats)) Domaines_FR else NA_character_,
+      tags_de = if ("Domaines_DE" %in% names(Resultats)) Domaines_DE else NA_character_
     ) |>
     select(shortId, title, title_de, title_it, author, party, type, status, 
-           council, department, date, date_maj, statut_change_date, url_fr, url_de, mention, text, text_de)
+           council, department, date, date_maj, statut_change_date, url_fr, url_de, mention, text, text_de, tags, tags_de)
   
   vrais_nouveaux_ids <- if (length(Nouveaux_IDs) > 0) {
     Resultats |> filter(ID %in% Nouveaux_IDs) |> pull(Numéro)
