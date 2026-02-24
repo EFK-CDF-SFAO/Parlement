@@ -328,6 +328,7 @@ function renderAllObjectCharts() {
     renderTypeChart();
     renderYearChart();
     renderTopAuthors();
+    updateGlobalSummary();
 }
 
 const sessionTypes = {
@@ -451,7 +452,42 @@ function renderAllDebateCharts() {
     renderDebateCouncilChart();
     renderTopSpeakers();
     renderTopSpeakersNoCF();
-    renderDebateSummary();
+    updateGlobalSummary();
+}
+
+function updateGlobalSummary() {
+    const objectsCountEl = document.getElementById('globalObjectsCount');
+    const debatesCountEl = document.getElementById('globalDebatesCount');
+    const periodEl = document.getElementById('globalPeriod');
+    
+    if (objectsCountEl) {
+        objectsCountEl.textContent = filteredData.length;
+    }
+    if (debatesCountEl) {
+        debatesCountEl.textContent = filteredDebatesData.length;
+    }
+    if (periodEl) {
+        const legislatures = new Set();
+        filteredData.forEach(item => {
+            const leg = getLegislature(item.date);
+            if (leg) legislatures.add(leg);
+        });
+        filteredDebatesData.forEach(item => {
+            const leg = getLegislatureFromSession(item.id_session);
+            if (leg) legislatures.add(leg);
+        });
+        
+        if (legislatures.size === 0) {
+            periodEl.textContent = '50ª - 52ª legislatura';
+        } else {
+            const sorted = [...legislatures].sort();
+            if (sorted.length === 1) {
+                periodEl.textContent = `${sorted[0]}ª legislatura`;
+            } else {
+                periodEl.textContent = `${sorted[0]}ª - ${sorted[sorted.length - 1]}ª legislatura`;
+            }
+        }
+    }
 }
 
 function getPartyFromAuthor(author) {

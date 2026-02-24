@@ -31,6 +31,24 @@
     </header>
 
     <main class="container">
+        <section class="global-summary">
+            <h2>📊 Vue d'ensemble</h2>
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <span class="summary-number" id="globalObjectsCount">-</span>
+                    <span class="summary-label">Objets parlementaires</span>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-number" id="globalDebatesCount">-</span>
+                    <span class="summary-label">Débats</span>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-period" id="globalPeriod">50ème - 52ème législature</span>
+                    <span class="summary-label">Période analysée</span>
+                </div>
+            </div>
+        </section>
+
         <section class="stats-section">
             <h2>📊 Statistiques des interventions</h2>
             
@@ -196,13 +214,6 @@
                 <div class="stat-card top-card">
                     <h3>📢 Orateurs (hors CF)</h3>
                     <div id="topSpeakersNoCF" class="top-authors-list">
-                        <p>Chargement...</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card half-width">
-                    <h3>📊 Résumé</h3>
-                    <div id="debateSummary" class="summary-box">
                         <p>Chargement...</p>
                     </div>
                 </div>
