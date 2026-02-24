@@ -345,14 +345,14 @@ if (length(IDs_A_Traiter) > 0) {
   
   names(Daten_FR) <- c("ID", "Titre_FR", "Statut_FR", "SubmittedText_FR", "ReasonText_FR", "FederalCouncilResponseText_FR", "TagNames_FR")
   
-  # Récupérer les titres italiens
+  # Récupérer les titres et tags italiens
   Daten_IT <- tryCatch({
     get_data(table = "Business", ID = IDs_A_Traiter, Language = "IT") |>
-      select(ID, Title) |>
-      rename(Titre_IT = Title)
+      select(ID, Title, TagNames) |>
+      rename(Titre_IT = Title, TagNames_IT = TagNames)
   }, error = function(e) {
     cat("  Erreur récupération titres IT:", e$message, "\n")
-    data.frame(ID = IDs_A_Traiter, Titre_IT = NA_character_)
+    data.frame(ID = IDs_A_Traiter, Titre_IT = NA_character_, TagNames_IT = NA_character_)
   })
   
   cat("Récupération des partis des auteurs...\n")
@@ -477,7 +477,8 @@ if (length(IDs_A_Traiter) > 0) {
       Lien_FR,
       Mention,
       Domaines_DE = TagNames,
-      Domaines_FR = TagNames_FR
+      Domaines_FR = TagNames_FR,
+      Domaines_IT = TagNames_IT
     )
   
   # Date_MAJ uniquement pour les VRAIS nouveaux objets, pas les mises à jour de routine
@@ -900,10 +901,11 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       text = if ("Texte_FR" %in% names(Resultats)) Texte_FR else NA_character_,
       text_de = if ("Texte_DE" %in% names(Resultats)) Texte_DE else NA_character_,
       tags = if ("Domaines_FR" %in% names(Resultats)) Domaines_FR else NA_character_,
-      tags_de = if ("Domaines_DE" %in% names(Resultats)) Domaines_DE else NA_character_
+      tags_de = if ("Domaines_DE" %in% names(Resultats)) Domaines_DE else NA_character_,
+      tags_it = if ("Domaines_IT" %in% names(Resultats)) Domaines_IT else NA_character_
     ) |>
     select(shortId, title, title_de, title_it, author, party, type, status, 
-           council, department, date, date_maj, statut_change_date, url_fr, url_de, mention, text, text_de, tags, tags_de)
+           council, department, date, date_maj, statut_change_date, url_fr, url_de, mention, text, text_de, tags, tags_de, tags_it)
   
   vrais_nouveaux_ids <- if (length(Nouveaux_IDs) > 0) {
     Resultats |> filter(ID %in% Nouveaux_IDs) |> pull(Numéro)

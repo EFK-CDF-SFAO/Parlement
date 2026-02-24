@@ -316,8 +316,8 @@ function populateTagsFilter() {
     
     const allTags = new Set();
     allData.forEach(item => {
-        if (item.tags) {
-            item.tags.split('|').forEach(tag => {
+        if (item.tags_it) {
+            item.tags_it.split('|').forEach(tag => {
                 if (tag.trim()) allTags.add(tag.trim());
             });
         }
@@ -550,7 +550,7 @@ function applyFilters() {
         
         // Tags filter (multiple)
         if (tagsValues.length > 0) {
-            const itemTags = item.tags ? item.tags.split('|').map(t => t.trim()) : [];
+            const itemTags = item.tags_it ? item.tags_it.split('|').map(t => t.trim()) : [];
             const hasMatchingTag = itemTags.some(tag => tagsValues.includes(tag));
             if (!hasMatchingTag) {
                 return false;
