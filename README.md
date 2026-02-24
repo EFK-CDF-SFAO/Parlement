@@ -4,6 +4,8 @@ Parliamentary monitoring tool for the **Swiss Federal Audit Office** (SFAO / CDF
 
 🔗 **Website**: [https://arnaudbon20.github.io/EFK_CDF_Parlement/](https://arnaudbon20.github.io/EFK_CDF_Parlement/)
 
+<img width="1281" height="641" alt="Site" src="https://github.com/user-attachments/assets/6051fddc-f6ee-42ba-930a-5cea950f842a" />
+
 ---
 
 ## Overview
