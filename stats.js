@@ -483,19 +483,64 @@ function updateGlobalSummary() {
     const debatesCountEl = document.getElementById('globalDebatesCount');
     const periodEl = document.getElementById('globalPeriod');
     
+    // Récupérer les filtres communs des deux blocs
+    const objectYearFilters = getCheckedValues('objectYearDropdown');
+    const objectLegislatureFilters = getCheckedValues('objectLegislatureDropdown');
+    const objectCouncilFilters = getCheckedValues('objectCouncilDropdown');
+    
+    const debateYearFilters = getCheckedValues('debateYearDropdown');
+    const debateLegislatureFilters = getCheckedValues('debateLegislatureDropdown');
+    const debateCouncilFilters = getCheckedValues('debateCouncilDropdown');
+    
+    // Combiner les filtres (union des filtres actifs)
+    const yearFilters = [...new Set([...objectYearFilters, ...debateYearFilters])];
+    const legislatureFilters = [...new Set([...objectLegislatureFilters, ...debateLegislatureFilters])];
+    const councilFilters = [...new Set([...objectCouncilFilters, ...debateCouncilFilters])];
+    
+    // Filtrer les objets avec les filtres combinés
+    const globalFilteredObjects = allData.filter(item => {
+        if (yearFilters.length > 0 && item.date) {
+            const year = item.date.substring(0, 4);
+            if (!yearFilters.includes(year)) return false;
+        }
+        if (legislatureFilters.length > 0) {
+            const itemLegislature = getLegislature(item.date);
+            if (!legislatureFilters.includes(itemLegislature)) return false;
+        }
+        if (councilFilters.length > 0) {
+            const councilCode = item.council === 'NR' ? 'N' : item.council === 'SR' ? 'S' : item.council;
+            if (!councilFilters.includes(councilCode)) return false;
+        }
+        return true;
+    });
+    
+    // Filtrer les débats avec les filtres combinés
+    const globalFilteredDebates = debatesData.filter(item => {
+        if (yearFilters.length > 0 && item.date) {
+            const year = item.date.substring(0, 4);
+            if (!yearFilters.includes(year)) return false;
+        }
+        if (legislatureFilters.length > 0) {
+            const itemLegislature = getLegislatureFromSession(item.id_session);
+            if (!legislatureFilters.includes(itemLegislature)) return false;
+        }
+        if (councilFilters.length > 0 && !councilFilters.includes(item.council)) return false;
+        return true;
+    });
+    
     if (objectsCountEl) {
-        objectsCountEl.textContent = filteredData.length;
+        objectsCountEl.textContent = globalFilteredObjects.length;
     }
     if (debatesCountEl) {
-        debatesCountEl.textContent = filteredDebatesData.length;
+        debatesCountEl.textContent = globalFilteredDebates.length;
     }
     if (periodEl) {
         const legislatures = new Set();
-        filteredData.forEach(item => {
+        globalFilteredObjects.forEach(item => {
             const leg = getLegislature(item.date);
             if (leg) legislatures.add(leg);
         });
-        filteredDebatesData.forEach(item => {
+        globalFilteredDebates.forEach(item => {
             const leg = getLegislatureFromSession(item.id_session);
             if (leg) legislatures.add(leg);
         });
