@@ -70,7 +70,13 @@
                         <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
                     </div>
                 </div>
-                <button class="filter-reset" id="resetObjectFilters" title="Ripristinare">↻</button>
+                <div class="filter-dropdown" id="objectTagsDropdown">
+                    <button class="filter-btn" type="button">Tematiche <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="objectTagsMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutte</label>
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetObjectFilters" title="Ripristina">↻</button>
             </div>
             
             <div class="stats-row">

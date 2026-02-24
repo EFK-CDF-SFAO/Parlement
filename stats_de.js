@@ -204,15 +204,34 @@ function populateObjectFilters() {
         });
     }
     
+    const tagsMenu = document.getElementById('objectTagsMenu');
+    if (tagsMenu) {
+        const allTags = new Set();
+        allData.forEach(item => {
+            if (item.tags_de) {
+                item.tags_de.split('|').forEach(tag => {
+                    if (tag.trim()) allTags.add(tag.trim());
+                });
+            }
+        });
+        const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'de'));
+        tagsArray.forEach(tag => {
+            const label = document.createElement('label');
+            label.innerHTML = `<input type="checkbox" value="${tag}"> ${tag}`;
+            tagsMenu.appendChild(label);
+        });
+    }
+    
     setupDropdown('objectYearDropdown');
     setupDropdown('objectCouncilDropdown');
     setupDropdown('objectPartyDropdown');
     setupDropdown('objectDeptDropdown');
+    setupDropdown('objectTagsDropdown');
     setupDropdown('objectLegislatureDropdown');
 }
 
 function setupObjectFilterListeners() {
-    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown', 'objectLegislatureDropdown'].forEach(id => {
+    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown', 'objectTagsDropdown', 'objectLegislatureDropdown'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.addEventListener('change', applyObjectFilters);
     });
@@ -220,7 +239,7 @@ function setupObjectFilterListeners() {
 }
 
 function resetObjectFilters() {
-    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown', 'objectLegislatureDropdown'].forEach(id => {
+    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown', 'objectTagsDropdown', 'objectLegislatureDropdown'].forEach(id => {
         const dropdown = document.getElementById(id);
         if (!dropdown) return;
         const selectAll = dropdown.querySelector('[data-select-all]');
@@ -255,6 +274,7 @@ function applyObjectFilters() {
     const councilFilters = getCheckedValues('objectCouncilDropdown');
     const partyFilters = getCheckedValues('objectPartyDropdown');
     const deptFilters = getCheckedValues('objectDeptDropdown');
+    const tagsFilters = getCheckedValues('objectTagsDropdown');
     const legislatureFilters = getCheckedValues('objectLegislatureDropdown');
     
     filteredData = allData.filter(item => {
@@ -274,6 +294,11 @@ function applyObjectFilters() {
         if (deptFilters.length > 0) {
             const itemDept = item.department || 'none';
             if (!deptFilters.includes(itemDept)) return false;
+        }
+        if (tagsFilters.length > 0) {
+            const itemTags = item.tags_de ? item.tags_de.split('|').map(t => t.trim()) : [];
+            const hasMatchingTag = itemTags.some(tag => tagsFilters.includes(tag));
+            if (!hasMatchingTag) return false;
         }
         if (legislatureFilters.length > 0) {
             const itemLegislature = getLegislature(item.date);
