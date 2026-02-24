@@ -957,19 +957,17 @@ mark.highlight-search {
     min-width: 180px;
 }
 
-.summary-number {
-    font-size: 2.5rem;
+.summary-number,
+.summary-period {
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--primary);
     line-height: 1.2;
+    text-align: center;
 }
 
-.summary-period {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-align: center;
-    line-height: 1.3;
+.summary-card:last-child {
+    min-width: 220px;
 }
 
 .summary-label {
