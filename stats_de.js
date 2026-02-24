@@ -450,15 +450,22 @@ function updateGlobalSummary() {
     const objectYearFilters = getCheckedValues('objectYearDropdown');
     const objectLegislatureFilters = getCheckedValues('objectLegislatureDropdown');
     const objectCouncilFilters = getCheckedValues('objectCouncilDropdown');
+    const objectPartyFilters = getCheckedValues('objectPartyDropdown');
+    const objectDeptFilters = getCheckedValues('objectDeptDropdown');
+    const objectTagsFilters = getCheckedValues('objectTagsDropdown');
     
     const debateYearFilters = getCheckedValues('debateYearDropdown');
     const debateLegislatureFilters = getCheckedValues('debateLegislatureDropdown');
     const debateCouncilFilters = getCheckedValues('debateCouncilDropdown');
+    const debatePartyFilters = getCheckedValues('debatePartyDropdown');
+    const debateDeptFilters = getCheckedValues('debateDeptDropdown');
     
     // Combiner les filtres (union des filtres actifs)
     const yearFilters = [...new Set([...objectYearFilters, ...debateYearFilters])];
     const legislatureFilters = [...new Set([...objectLegislatureFilters, ...debateLegislatureFilters])];
     const councilFilters = [...new Set([...objectCouncilFilters, ...debateCouncilFilters])];
+    const partyFilters = [...new Set([...objectPartyFilters, ...debatePartyFilters])];
+    const deptFilters = [...new Set([...objectDeptFilters, ...debateDeptFilters])];
     
     // Filtrer les objets avec les filtres combinés
     const globalFilteredObjects = allData.filter(item => {
@@ -474,6 +481,21 @@ function updateGlobalSummary() {
             const councilCode = item.council === 'NR' ? 'N' : item.council === 'SR' ? 'S' : item.council;
             if (!councilFilters.includes(councilCode)) return false;
         }
+        if (partyFilters.length > 0) {
+            const itemParty = item.party || getPartyFromAuthor(item.author);
+            const normalizedParty = normalizeParty(itemParty);
+            if (!partyFilters.includes(normalizedParty)) return false;
+        }
+        if (deptFilters.length > 0) {
+            const itemDept = item.department || 'none';
+            if (!deptFilters.includes(itemDept)) return false;
+        }
+        // Thématiques uniquement pour les objets
+        if (objectTagsFilters.length > 0) {
+            const itemTags = item.tags_de ? item.tags_de.split('|').map(t => t.trim()) : [];
+            const hasMatchingTag = itemTags.some(tag => objectTagsFilters.includes(tag));
+            if (!hasMatchingTag) return false;
+        }
         return true;
     });
     
@@ -488,6 +510,14 @@ function updateGlobalSummary() {
             if (!legislatureFilters.includes(itemLegislature)) return false;
         }
         if (councilFilters.length > 0 && !councilFilters.includes(item.council)) return false;
+        if (partyFilters.length > 0) {
+            const itemParty = item.party ? (debatePartyLabels[item.party] || item.party) : 'Bundesrat';
+            if (!partyFilters.includes(itemParty)) return false;
+        }
+        if (deptFilters.length > 0) {
+            const itemDept = item.department || 'none';
+            if (!deptFilters.includes(itemDept)) return false;
+        }
         return true;
     });
     
