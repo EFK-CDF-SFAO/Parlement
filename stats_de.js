@@ -498,24 +498,22 @@ function updateGlobalSummary() {
         debatesCountEl.textContent = globalFilteredDebates.length;
     }
     if (periodEl) {
-        const legislatures = new Set();
+        const years = new Set();
         globalFilteredObjects.forEach(item => {
-            const leg = getLegislature(item.date);
-            if (leg) legislatures.add(leg);
+            if (item.date) years.add(item.date.substring(0, 4));
         });
         globalFilteredDebates.forEach(item => {
-            const leg = getLegislatureFromSession(item.id_session);
-            if (leg) legislatures.add(leg);
+            if (item.date) years.add(item.date.substring(0, 4));
         });
         
-        if (legislatures.size === 0) {
-            periodEl.textContent = '50. - 52. Legislatur';
+        if (years.size === 0) {
+            periodEl.textContent = '2015 - 2026';
         } else {
-            const sorted = [...legislatures].sort();
+            const sorted = [...years].sort();
             if (sorted.length === 1) {
-                periodEl.textContent = `${sorted[0]}. Legislatur`;
+                periodEl.textContent = sorted[0];
             } else {
-                periodEl.textContent = `${sorted[0]}. - ${sorted[sorted.length - 1]}. Legislatur`;
+                periodEl.textContent = `${sorted[0]} - ${sorted[sorted.length - 1]}`;
             }
         }
     }
