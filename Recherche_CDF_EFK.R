@@ -61,21 +61,22 @@ faux_positifs <- c("24.3077", "25.479", "25.4670")
 # PATTERNS DE RECHERCHE
 # ============================================================================
 
-# Pattern EFK: nom complet (insensible à la casse) OU sigle EFK en majuscules suivi d'espace/fin
+# Pattern EFK: nom complet (insensible à la casse) OU sigle EFK en MAJUSCULES strictes
+# Exclut: EfK, Efk (f minuscule)
 pattern_efk_de <- regex(
-  "\\b(Eidg(en(ö|oe)ssische)?|Eidg\\.)\\s*Finanzkontrolle\\b|\\(\\s*EFK\\s*\\)|(?<![a-zA-Z])EFK(?![a-zA-Z])(?=[\\s,;:!?.)\"']|$)",
+  "\\b(Eidg(en(ö|oe)ssische)?|Eidg\\.)\\s*Finanzkontrolle\\b|\\(\\s*EFK\\s*\\)|(?<![a-zA-Z])EFK(?![a-zA-Z])",
   ignore_case = FALSE
 )
 
-# Pattern CDF: nom complet (insensible à la casse) OU sigle CDF en MAJUSCULES suivi d'espace/fin
-# Exclut: CdF, CDF-N, CDF-E, CDF. CDF, CDF; etc. (ponctuation directement collée)
+# Pattern CDF: nom complet (insensible à la casse) OU sigle CDF en MAJUSCULES strictes
+# Exclut: CdF, Cdf (d minuscule) et CDF-N, CDF-E
 pattern_cdf_fr <- regex(
-  "\\b[Cc]ontr(ô|o)le\\s+[Ff](é|e)d(é|e)ral\\s+des\\s+[Ff]inances\\b|\\(\\s*CDF\\s*\\)|(?<![a-zA-Z])CDF(?![a-zA-Z-])(?=\\s|$)"
+  "\\b[Cc]ontr(ô|o)le\\s+[Ff](é|e)d(é|e)ral\\s+des\\s+[Ff]inances\\b|\\(\\s*CDF\\s*\\)|(?<![a-zA-Z])CDF(?![a-zA-Z-])"
 )
 
-# Pattern CDF italien: nom complet (insensible à la casse) OU sigle CDF en MAJUSCULES suivi d'espace/fin
+# Pattern CDF italien: nom complet (insensible à la casse) OU sigle CDF en MAJUSCULES strictes
 pattern_cdf_it <- regex(
-  "\\b[Cc]ontrollo\\s+[Ff]ederale\\s+delle\\s+[Ff]inanze\\b|(?<![a-zA-Z])CDF(?![a-zA-Z-])(?=\\s|$)"
+  "\\b[Cc]ontrollo\\s+[Ff]ederale\\s+delle\\s+[Ff]inanze\\b|(?<![a-zA-Z])CDF(?![a-zA-Z-])"
 )
 
 pattern_faux_positif_cdf <- regex("\\bCDF-[NE]\\b", ignore_case = TRUE)
