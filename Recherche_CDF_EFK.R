@@ -316,6 +316,18 @@ if (!is.null(Donnees_Existantes)) {
     cat("Objets sans département:", length(IDs_Sans_Dept), "\n")
   }
   
+  # Ajouter les objets sans tags (Domaines) pour récupérer cette info
+  if ("Domaines_FR" %in% names(Donnees_Existantes)) {
+    IDs_Sans_Tags <- Donnees_Existantes |> filter(is.na(Domaines_FR) | Domaines_FR == "") |> pull(ID)
+    IDs_Recalcul_Interne <- c(IDs_Recalcul_Interne, IDs_Sans_Tags)
+    cat("Objets sans tags:", length(IDs_Sans_Tags), "\n")
+  } else {
+    # Si la colonne n'existe pas, récupérer les tags pour TOUS les objets
+    IDs_Sans_Tags <- Donnees_Existantes |> pull(ID)
+    IDs_Recalcul_Interne <- c(IDs_Recalcul_Interne, IDs_Sans_Tags)
+    cat("Colonne Domaines_FR absente - récupération tags pour tous:", length(IDs_Sans_Tags), "\n")
+  }
+  
   IDs_Recalcul_Interne <- unique(IDs_Recalcul_Interne)
   IDs_A_Mettre_A_Jour <- unique(c(IDs_A_Mettre_A_Jour, IDs_Recalcul_Interne))
   cat("Objets à recalculer (Mention/Auteur/Dept):", length(IDs_Recalcul_Interne), "\n")
@@ -511,6 +523,22 @@ if (length(IDs_A_Traiter) > 0) {
       Donnees_Existantes <- Donnees_Existantes |>
         mutate(Département = NA_character_)
     }
+    
+    if (!"Domaines_FR" %in% names(Donnees_Existantes)) {
+      Donnees_Existantes <- Donnees_Existantes |>
+        mutate(Domaines_FR = NA_character_, Domaines_DE = NA_character_, Domaines_IT = NA_character_)
+    }
+    
+    # Préserver les Date_MAJ existantes pour les objets mis à jour (pas nouveaux)
+    Date_MAJ_Existantes <- Donnees_Existantes |>
+      select(ID, Date_MAJ_Existante = Date_MAJ) |>
+      filter(ID %in% IDs_A_Mettre_A_Jour)
+    
+    # Fusionner les Date_MAJ existantes avec les nouveaux résultats
+    Nouveaux_Resultats <- Nouveaux_Resultats |>
+      left_join(Date_MAJ_Existantes, by = "ID") |>
+      mutate(Date_MAJ = if_else(!is.na(Date_MAJ_Existante), Date_MAJ_Existante, Date_MAJ)) |>
+      select(-Date_MAJ_Existante)
     
     Donnees_Existantes_Filtrees <- Donnees_Existantes |>
       filter(!ID %in% IDs_A_Mettre_A_Jour)
