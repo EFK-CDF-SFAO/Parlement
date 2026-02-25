@@ -55,8 +55,8 @@ FICHIER_JSON <- "cdf_efk_data.json"
 GITHUB_RAW_URL <- "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_Parlement/main/cdf_efk_data.json"
 
 # Objets à exclure (faux positifs - mentionnent CDF/EFK mais pas le Contrôle fédéral des finances)
-# 18.032: CdF-CE = Commission des finances, pas Contrôle fédéral des finances
-faux_positifs <- c("24.3077", "25.479", "25.4670", "18.032")
+# 16.025, 16.026, 18.032: CdF-CE/CdF-CN = Commission des finances, pas Contrôle fédéral des finances
+faux_positifs <- c("24.3077", "25.479", "25.4670", "18.032", "16.025", "16.026")
 
 # ============================================================================
 # PATTERNS DE RECHERCHE
@@ -80,7 +80,8 @@ pattern_cdf_it <- regex(
   "\\b[Cc]ontrollo\\s+[Ff]ederale\\s+delle\\s+[Ff]inanze\\b|(?<![a-zA-Z])CDF(?![a-zA-Z-])"
 )
 
-pattern_faux_positif_cdf <- regex("\\bCDF-[NE]\\b", ignore_case = TRUE)
+# Pattern faux positifs: CDF-N, CDF-E, CdF-CE, CdF-CN (Commission des finances, pas Contrôle fédéral)
+pattern_faux_positif_cdf <- regex("\\bC[dD]F-[NCSE]+\\b", ignore_case = TRUE)
 
 # ============================================================================
 # FONCTIONS UTILITAIRES
