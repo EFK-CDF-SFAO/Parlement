@@ -155,11 +155,22 @@ function setupDropdown(dropdownId) {
     });
     
     function updateCount() {
-        const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+        const checkedBoxes = Array.from(checkboxes).filter(cb => cb.checked);
         if (selectAll && selectAll.checked) {
             countSpan.textContent = '';
-        } else if (checked > 0) {
-            countSpan.textContent = `(${checked})`;
+        } else if (checkedBoxes.length > 0) {
+            const selectedLabels = checkedBoxes.map(cb => {
+                const label = cb.parentElement.textContent.trim();
+                return label;
+            });
+            
+            if (selectedLabels.length === 1) {
+                countSpan.textContent = `: ${selectedLabels[0]}`;
+            } else if (selectedLabels.length <= 2) {
+                countSpan.textContent = `: ${selectedLabels.join(', ')}`;
+            } else {
+                countSpan.textContent = `: ${selectedLabels[0]} +${selectedLabels.length - 1}`;
+            }
         } else {
             countSpan.textContent = '';
         }

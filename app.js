@@ -362,7 +362,19 @@ function updateFilterCount(dropdownId) {
     const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all]):checked');
     
     if (checkboxes.length > 0) {
-        countSpan.textContent = `(${checkboxes.length})`;
+        // Récupérer les labels des filtres sélectionnés
+        const selectedLabels = Array.from(checkboxes).map(cb => {
+            const label = cb.parentElement.textContent.trim();
+            return label;
+        });
+        
+        if (selectedLabels.length === 1) {
+            countSpan.textContent = `: ${selectedLabels[0]}`;
+        } else if (selectedLabels.length <= 2) {
+            countSpan.textContent = `: ${selectedLabels.join(', ')}`;
+        } else {
+            countSpan.textContent = `: ${selectedLabels[0]} +${selectedLabels.length - 1}`;
+        }
     } else {
         countSpan.textContent = '';
     }
