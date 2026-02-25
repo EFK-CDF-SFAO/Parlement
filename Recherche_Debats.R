@@ -86,10 +86,11 @@ pattern_cdf_it <- regex(
 )
 
 # Faux positifs à exclure (Commission des finances)
-# Inclut CdF-CE, CdF-CN et les objets 16.025, 16.026
+# CdF = Commission des finances (pas Contrôle fédéral des finances)
+# Inclut CdF, CdF-CE, CdF-CN, CdF-N, CdF-E et objets 16.025, 16.026
 pattern_faux_positif_cdf <- regex(
-  "C[dD]F-[NCSE]+|Commission des finances|16\\.025|16\\.026",
-  ignore_case = TRUE
+  "CdF(-[NCSE]+)?|Commission des finances|16\\.025|16\\.026",
+  ignore_case = FALSE
 )
 
 # ============================================================================
