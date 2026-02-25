@@ -1,7 +1,7 @@
 {
   "meta": {
     "updated": "2026-02-25T15:55:23",
-    "total_count": 328,
+    "total_count": 327,
     "source": "Swiss Parliament API",
     "legislature": 52,
     "new_ids": "25.1063"
@@ -7221,22 +7221,6 @@
       "mention": "Conseil fédéral",
       "text": "<p>Le Conseil fédéral est chargé d’augmenter progressivement les effectifs de FEDPOL à raison de 10 à 20 postes supplémentaires par année pendant 10 ans, soit un total de 100 à 200 postes additionnels d'ici 2035, incluant des enquêteurs, des analystes, des spécialistes en forensique numérique et des experts en coopération internationale, afin de garantir l'efficacité de la lutte contre la criminalité grave au niveau fédéral.</p><p>&nbsp;</p><p>Une minorité de la commission (Gartmann, Heimgartner, Hess Erich, Hurter Thomas, Tuena, Riner, Walliser, Zuberbühler) propose de rejeter la motion.</p>",
       "text_de": "<p>Der Bundesrat wird beauftragt, den Personalbestand des Fedpol über einen Zeitraum von zehn Jahren schrittweise um 10 bis 20&nbsp;Stellen pro Jahr aufzustocken und somit bis 2035 100 bis 200 zusätzliche Stellen zu schaffen. Diese umfassen Ermittlerinnen und Ermittler, Analystinnen und Analysten, Fachpersonen für IT-Forensik sowie Fachpersonen für internationale Zusammenarbeit. Ziel ist es, eine wirksame Bekämpfung der schweren Kriminalität auf Bundesebene sicherzustellen.</p><p>&nbsp;</p><p>Eine Minderheit der Kommission (Gartmann, Heimgartner, Hess Erich, Hurter Thomas, Tuena, Riner, Walliser, Zuberbühler) beantragt, die Motion abzulehnen.</p>"
-    },
-    {
-      "shortId": "18.032",
-      "title": "Geler les effectifs de la Confédération au niveau de 2015. Rapport du Conseil fédéral sur le classement de la motion 15.3494 (CdF-CE)",
-      "title_de": "Bestand des Bundespersonals auf dem Stand von 2015 einfrieren. Bericht des Bundesrates zur Abschreibung der Motion 15.3494 (FK-SR)",
-      "title_it": "Bloccare l'effettivo del personale della Confederazione al livello del 2015. Rapporto del Consiglio federale concernente lo stralcio della mozione 15.3494 (CdF-CS)",
-      "type": "BRG",
-      "status": "Erledigt / Liquidé",
-      "department": "EFD",
-      "date": "2018-03-16",
-      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20180032",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20180032",
-      "mention": "Titre uniquement",
-      "tags": "Politique d'Etat",
-      "tags_de": "Staatspolitik",
-      "tags_it": "Politica nazionale"
     }
   ]
 }

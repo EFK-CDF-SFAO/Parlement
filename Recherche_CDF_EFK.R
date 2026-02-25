@@ -55,7 +55,8 @@ FICHIER_JSON <- "cdf_efk_data.json"
 GITHUB_RAW_URL <- "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_Parlement/main/cdf_efk_data.json"
 
 # Objets à exclure (faux positifs - mentionnent CDF/EFK mais pas le Contrôle fédéral des finances)
-faux_positifs <- c("24.3077", "25.479", "25.4670")
+# 18.032: CdF-CE = Commission des finances, pas Contrôle fédéral des finances
+faux_positifs <- c("24.3077", "25.479", "25.4670", "18.032")
 
 # ============================================================================
 # PATTERNS DE RECHERCHE
