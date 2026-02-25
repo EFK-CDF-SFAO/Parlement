@@ -1086,18 +1086,31 @@ function renderDebateCouncilChart() {
     });
 }
 
+function isFederalCouncil(functionSpeaker) {
+    if (!functionSpeaker) return false;
+    return functionSpeaker.startsWith('BR') || functionSpeaker.startsWith('VPBR') || functionSpeaker.startsWith('BPR');
+}
+
 function renderTopSpeakers() {
     const speakerCounts = {};
     const speakerParties = {};
+    const speakerNames = {};
     
     filteredDebatesData.forEach(item => {
         const speaker = item.speaker;
         if (speaker) {
-            speakerCounts[speaker] = (speakerCounts[speaker] || 0) + 1;
-            if (item.party) {
-                speakerParties[speaker] = debatePartyLabels[item.party] || item.party;
+            const isCF = isFederalCouncil(item.function_speaker);
+            const key = isCF ? `${speaker}|CF` : `${speaker}|PARL`;
+            
+            speakerCounts[key] = (speakerCounts[key] || 0) + 1;
+            speakerNames[key] = speaker;
+            
+            if (isCF) {
+                speakerParties[key] = 'Consiglio federale';
+            } else if (item.party) {
+                speakerParties[key] = debatePartyLabels[item.party] || item.party;
             } else {
-                speakerParties[speaker] = 'Consiglio federale';
+                speakerParties[key] = '';
             }
         }
     });
@@ -1114,8 +1127,9 @@ function renderTopSpeakers() {
     }
     
     let html = '<div class="authors-ranking">';
-    topSpeakers.forEach(([speaker, count], index) => {
-        const party = speakerParties[speaker] || '';
+    topSpeakers.forEach(([key, count], index) => {
+        const speaker = speakerNames[key];
+        const party = speakerParties[key] || '';
         const medalClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
         const searchUrl = `debates_it.html?search=${encodeURIComponent(speaker)}`;
         
@@ -1141,7 +1155,7 @@ function renderTopSpeakersNoCF() {
     
     filteredDebatesData.forEach(item => {
         const speaker = item.speaker;
-        if (speaker && item.party) {
+        if (speaker && item.party && !isFederalCouncil(item.function_speaker)) {
             speakerCounts[speaker] = (speakerCounts[speaker] || 0) + 1;
             speakerParties[speaker] = debatePartyLabels[item.party] || item.party;
         }
