@@ -2,7 +2,7 @@
 
 Parliamentary monitoring tool for the **Swiss Federal Audit Office** (SFAO / CDF / EFK). Tracks parliamentary interventions (motions, postulates, interpellations, questions) and debates mentioning the SFAO.
 
-🔗 **Website**: [https://arnaudbon20.github.io/EFK_CDF_Parlement/](https://arnaudbon20.github.io/EFK_CDF_Parlement/)
+🔗 **Website**: [https://efk-cdf-sfao.github.io/Parlement/](https://efk-cdf-sfao.github.io/Parlement/)
 
 <img width="1281" height="641" alt="Site" src="https://github.com/user-attachments/assets/6051fddc-f6ee-42ba-930a-5cea950f842a" />
 
