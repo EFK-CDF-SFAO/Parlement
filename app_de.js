@@ -750,10 +750,9 @@ function createCard(item, searchTerm) {
     const authorWithParty = partyDE ? `${authorName} (${partyDE})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     
-    // Nummer unterstreichen wenn es ein echtes neues Objekt ist (in new_ids)
+    // Als neu markieren wenn es ein echtes neues Objekt ist (in new_ids)
     const isNew = newIds.includes(item.shortId);
-    const shortIdHighlighted = highlightText(item.shortId, searchTerm);
-    const shortId = isNew ? `<span class="id-updated">${shortIdHighlighted}</span>` : shortIdHighlighted;
+    const shortId = highlightText(item.shortId, searchTerm);
     
     const date = item.date ? new Date(item.date).toLocaleDateString('de-CH') : '';
     const dateMaj = item.date_maj ? new Date(item.date_maj).toLocaleDateString('de-CH') : '';
@@ -769,7 +768,7 @@ function createCard(item, searchTerm) {
     }
     
     return `
-        <article class="card">
+        <article class="card${isNew ? ' card-new' : ''}">
             <div class="card-header">
                 <span class="card-id">${shortId}</span>
                 <div class="card-badges">

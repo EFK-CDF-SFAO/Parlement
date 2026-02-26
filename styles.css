@@ -482,6 +482,10 @@ main {
     transform: translateY(-1px);
 }
 
+.card.card-new {
+    border-left: 4px solid #10B981;
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;
