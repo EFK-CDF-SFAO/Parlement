@@ -439,6 +439,7 @@ function applyFilters() {
                 item.text,
                 item.party,
                 item.canton,
+                item.business_number,
                 item.business_title_fr,
                 item.business_title_de
             ].filter(Boolean).join(' ');
