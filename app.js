@@ -67,6 +67,10 @@ async function init() {
         const filterType = urlParams.get('filter_type');
         const filterYear = urlParams.get('filter_year');
         const filterSession = urlParams.get('filter_session');
+        const filterCouncil = urlParams.get('filter_council');
+        const filterDept = urlParams.get('filter_dept');
+        const filterLegislature = urlParams.get('filter_legislature');
+        const filterTags = urlParams.get('filter_tags');
         
         if (filterParty) {
             applyFilterFromUrl('partyDropdown', filterParty);
@@ -76,6 +80,18 @@ async function init() {
         }
         if (filterYear) {
             applyFilterFromUrl('yearDropdown', filterYear);
+        }
+        if (filterCouncil) {
+            applyFilterFromUrl('councilDropdown', filterCouncil);
+        }
+        if (filterDept) {
+            applyFilterFromUrl('departmentDropdown', filterDept);
+        }
+        if (filterLegislature) {
+            applyFilterFromUrl('legislatureDropdown', filterLegislature);
+        }
+        if (filterTags) {
+            applyFilterFromUrl('tagsDropdown', filterTags);
         }
         
         // Store session filter for use in applyFilters

@@ -120,6 +120,10 @@ async function init() {
         const urlParams = new URLSearchParams(window.location.search);
         const filterParty = urlParams.get('filter_party');
         const filterCouncil = urlParams.get('filter_council');
+        const filterYear = urlParams.get('filter_year');
+        const filterSession = urlParams.get('filter_session');
+        const filterDept = urlParams.get('filter_dept');
+        const filterLegislature = urlParams.get('filter_legislature');
         const searchParam = urlParams.get('search');
         
         if (filterParty) {
@@ -127,6 +131,18 @@ async function init() {
         }
         if (filterCouncil) {
             applyUrlFilter('councilMenu', filterCouncil);
+        }
+        if (filterYear) {
+            applyUrlFilter('yearMenu', filterYear);
+        }
+        if (filterSession) {
+            applyUrlFilter('sessionMenu', filterSession);
+        }
+        if (filterDept) {
+            applyUrlFilter('departmentMenu', filterDept);
+        }
+        if (filterLegislature) {
+            applyUrlFilter('legislatureMenu', filterLegislature);
         }
         if (searchParam) {
             searchInput.value = searchParam;
