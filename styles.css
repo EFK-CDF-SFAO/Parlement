@@ -1032,8 +1032,8 @@ mark.highlight-search {
 
 .chart-screenshot-btn {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: -5px;
+    right: -5px;
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid #ddd;
     border-radius: 4px;
