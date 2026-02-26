@@ -21,7 +21,7 @@ const UPDATE_MINUTE = 30;
 const CACHE_VALIDITY_HOURS = 6;
 
 // URL GitHub pour les données JSON
-const GITHUB_JSON_URL = "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_Parlement/main/cdf_efk_data.json";
+const GITHUB_JSON_URL = "https://raw.githubusercontent.com/EFK-CDF-SFAO/Parlement/main/cdf_efk_data.json";
 
 // Fallback: Fichier JS local (iCloud Scriptable)
 const DATA_MODULE = "CDF_Data";
