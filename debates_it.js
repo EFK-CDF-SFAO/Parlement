@@ -222,8 +222,13 @@ function populatePartyFilter() {
     const partyMenu = document.getElementById('partyMenu');
     // Raggruppare i vecchi partiti sotto Alleanza del Centro
     const partyGroups = {};
+    let hasFederalCouncil = false;
+    
     allData.forEach(item => {
-        if (!item.party) return;
+        if (!item.party) {
+            hasFederalCouncil = true;
+            return;
+        }
         const displayName = partyLabels[item.party] || item.party;
         if (!partyGroups[displayName]) {
             partyGroups[displayName] = [];
@@ -239,6 +244,13 @@ function populatePartyFilter() {
     allLabel.className = 'select-all';
     allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tutti`;
     partyMenu.appendChild(allLabel);
+    
+    // Aggiungere Consiglio federale per primo
+    if (hasFederalCouncil) {
+        const cfLabel = document.createElement('label');
+        cfLabel.innerHTML = `<input type="checkbox" value="Consiglio federale"> Consiglio federale`;
+        partyMenu.appendChild(cfLabel);
+    }
     
     displayNames.forEach(displayName => {
         const label = document.createElement('label');
@@ -447,7 +459,11 @@ function applyFilters() {
         if (partyValues) {
             // Gestire valori multipli separati da virgole
             const allPartyValues = partyValues.flatMap(v => v.split(','));
-            if (!allPartyValues.includes(item.party)) {
+            // Consiglio federale = nessun partito (item.party vuoto)
+            const isFederalCouncil = !item.party;
+            const matchesFederalCouncil = allPartyValues.includes('Consiglio federale') && isFederalCouncil;
+            const matchesParty = item.party && allPartyValues.includes(item.party);
+            if (!matchesFederalCouncil && !matchesParty) {
                 return false;
             }
         }

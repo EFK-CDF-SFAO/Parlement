@@ -252,8 +252,13 @@ function populatePartyFilter() {
     const partyMenu = document.getElementById('partyMenu');
     // Alte Parteien unter Die Mitte gruppieren
     const partyGroups = {};
+    let hasFederalCouncil = false;
+    
     allData.forEach(item => {
-        if (!item.party) return;
+        if (!item.party) {
+            hasFederalCouncil = true;
+            return;
+        }
         const displayName = partyLabels[item.party] || item.party;
         if (!partyGroups[displayName]) {
             partyGroups[displayName] = [];
@@ -269,6 +274,13 @@ function populatePartyFilter() {
     allLabel.className = 'select-all';
     allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Alle`;
     partyMenu.appendChild(allLabel);
+    
+    // Bundesrat zuerst hinzufügen
+    if (hasFederalCouncil) {
+        const cfLabel = document.createElement('label');
+        cfLabel.innerHTML = `<input type="checkbox" value="Bundesrat"> Bundesrat`;
+        partyMenu.appendChild(cfLabel);
+    }
     
     displayNames.forEach(displayName => {
         const label = document.createElement('label');
@@ -462,7 +474,11 @@ function applyFilters() {
         if (partyValues) {
             // Mehrere Partei-Werte mit Komma behandeln
             const allPartyValues = partyValues.flatMap(v => v.split(','));
-            if (!allPartyValues.includes(item.party)) {
+            // Bundesrat = kein Partei (item.party leer)
+            const isFederalCouncil = !item.party;
+            const matchesFederalCouncil = allPartyValues.includes('Bundesrat') && isFederalCouncil;
+            const matchesParty = item.party && allPartyValues.includes(item.party);
+            if (!matchesFederalCouncil && !matchesParty) {
                 return false;
             }
         }
