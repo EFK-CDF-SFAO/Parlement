@@ -1112,6 +1112,11 @@ function isFederalCouncil(functionSpeaker) {
     return functionSpeaker.startsWith('BR') || functionSpeaker.startsWith('VPBR') || functionSpeaker.startsWith('BPR');
 }
 
+function isFederalChancellery(functionSpeaker) {
+    if (!functionSpeaker) return false;
+    return functionSpeaker.startsWith('BK');
+}
+
 function renderTopSpeakers() {
     const speakerCounts = {};
     const speakerParties = {};
@@ -1121,13 +1126,16 @@ function renderTopSpeakers() {
         const speaker = item.speaker;
         if (speaker) {
             const isCF = isFederalCouncil(item.function_speaker);
-            const key = isCF ? `${speaker}|CF` : `${speaker}|PARL`;
+            const isChancellery = isFederalChancellery(item.function_speaker);
+            const key = (isCF || isChancellery) ? `${speaker}|GOV` : `${speaker}|PARL`;
             
             speakerCounts[key] = (speakerCounts[key] || 0) + 1;
             speakerNames[key] = speaker;
             
             if (isCF) {
                 speakerParties[key] = 'Bundesrat';
+            } else if (isChancellery) {
+                speakerParties[key] = 'Bundeskanzlei';
             } else if (item.party) {
                 speakerParties[key] = debatePartyLabels[item.party] || item.party;
             } else {
@@ -1176,7 +1184,7 @@ function renderTopSpeakersNoCF() {
     
     filteredDebatesData.forEach(item => {
         const speaker = item.speaker;
-        if (speaker && item.party && !isFederalCouncil(item.function_speaker)) {
+        if (speaker && item.party && !isFederalCouncil(item.function_speaker) && !isFederalChancellery(item.function_speaker)) {
             speakerCounts[speaker] = (speakerCounts[speaker] || 0) + 1;
             speakerParties[speaker] = debatePartyLabels[item.party] || item.party;
         }
