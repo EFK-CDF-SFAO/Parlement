@@ -14,7 +14,8 @@ const resetFilters = document.getElementById('resetFilters');
 
 const councilLabels = {
     'N': 'Conseil national',
-    'S': 'Conseil des États'
+    'S': 'Conseil des États',
+    'AF': 'Assemblée fédérale'
 };
 
 const partyLabels = {
@@ -207,7 +208,8 @@ function populateCouncilFilter() {
     // Options fixes pour le filtre conseil
     const councilOptions = [
         { value: 'N', label: 'Conseil national' },
-        { value: 'S', label: 'Conseil des États' }
+        { value: 'S', label: 'Conseil des États' },
+        { value: 'AF', label: 'Assemblée fédérale' }
     ];
     
     const allLabel = document.createElement('label');

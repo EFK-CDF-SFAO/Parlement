@@ -14,7 +14,8 @@ const resetFilters = document.getElementById('resetFilters');
 
 const councilLabels = {
     'N': 'Nationalrat',
-    'S': 'Ständerat'
+    'S': 'Ständerat',
+    'AF': 'Bundesversammlung'
 };
 
 const partyLabels = {
@@ -207,7 +208,8 @@ function populateCouncilFilter() {
     // Feste Optionen für den Ratsfilter
     const councilOptions = [
         { value: 'N', label: 'Nationalrat' },
-        { value: 'S', label: 'Ständerat' }
+        { value: 'S', label: 'Ständerat' },
+        { value: 'AF', label: 'Bundesversammlung' }
     ];
     
     const allLabel = document.createElement('label');

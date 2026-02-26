@@ -955,7 +955,13 @@ const debatePartyLabels = {
 const councilLabelsDE = {
     'N': 'Nationalrat',
     'S': 'Ständerat',
-    'V': 'VBV'
+    'AF': 'Bundesversammlung'
+};
+
+const councilCodes = {
+    'Nationalrat': 'N',
+    'Ständerat': 'S',
+    'Bundesversammlung': 'AF'
 };
 
 function renderDebatePartyChart() {
@@ -1056,7 +1062,8 @@ function renderDebateCouncilChart() {
                     onClick: (event, legendItem, legend) => {
                         const index = legendItem.index;
                         const council = labels[index];
-                        window.location.href = `debates_de.html?filter_council=${encodeURIComponent(council)}`;
+                        const councilCode = councilCodes[council] || council;
+                        window.location.href = `debates_de.html?filter_council=${encodeURIComponent(councilCode)}`;
                     },
                     labels: {
                         cursor: 'pointer'
@@ -1067,7 +1074,8 @@ function renderDebateCouncilChart() {
                 if (elements.length > 0) {
                     const index = elements[0].index;
                     const council = labels[index];
-                    window.location.href = `debates_de.html?filter_council=${encodeURIComponent(council)}`;
+                    const councilCode = councilCodes[council] || council;
+                    window.location.href = `debates_de.html?filter_council=${encodeURIComponent(councilCode)}`;
                 }
             }
         }
