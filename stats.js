@@ -1005,13 +1005,13 @@ const debatePartyLabels = {
 const councilLabels = {
     'N': 'Conseil national',
     'S': 'Conseil des États',
-    'AF': 'Assemblée fédérale'
+    'V': 'Assemblée fédérale'
 };
 
 const councilCodes = {
     'Conseil national': 'N',
     'Conseil des États': 'S',
-    'Assemblée fédérale': 'AF'
+    'Assemblée fédérale': 'V'
 };
 
 function renderDebatePartyChart() {

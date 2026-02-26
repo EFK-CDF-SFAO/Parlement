@@ -15,7 +15,7 @@ const resetFilters = document.getElementById('resetFilters');
 const councilLabels = {
     'N': 'Nationalrat',
     'S': 'Ständerat',
-    'AF': 'Bundesversammlung'
+    'V': 'Vereinigte Bundesversammlung'
 };
 
 const partyLabels = {
@@ -77,9 +77,14 @@ function getSearchTerms(term) {
 }
 
 // Recherche par mot entier (word boundary)
+// Gère aussi les numéros d'objets avec points (ex: 22.202)
 function searchWholeWord(text, term) {
     if (!text || !term) return false;
     const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Pour les numéros d'objets (ex: 22.202), utiliser une recherche simple
+    if (/^\d+\.\d+$/.test(term)) {
+        return text.toLowerCase().includes(term.toLowerCase());
+    }
     const regex = new RegExp(`\\b${escapedTerm}\\b`, 'i');
     return regex.test(text);
 }
@@ -209,7 +214,7 @@ function populateCouncilFilter() {
     const councilOptions = [
         { value: 'N', label: 'Nationalrat' },
         { value: 'S', label: 'Ständerat' },
-        { value: 'AF', label: 'Bundesversammlung' }
+        { value: 'V', label: 'Vereinigte Bundesversammlung' }
     ];
     
     const allLabel = document.createElement('label');

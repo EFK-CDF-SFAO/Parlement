@@ -955,13 +955,13 @@ const debatePartyLabels = {
 const councilLabelsDE = {
     'N': 'Nationalrat',
     'S': 'Ständerat',
-    'AF': 'Bundesversammlung'
+    'V': 'Vereinigte Bundesversammlung'
 };
 
 const councilCodes = {
     'Nationalrat': 'N',
     'Ständerat': 'S',
-    'Bundesversammlung': 'AF'
+    'Vereinigte Bundesversammlung': 'V'
 };
 
 function renderDebatePartyChart() {
