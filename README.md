@@ -1,21 +1,16 @@
-<p align="center">
-  <img src="https://www.efk.admin.ch/images/logo_efk.svg" alt="EFK Logo" width="120">
-</p>
-
-<h1 align="center">🏛️ Le CDF au Parlement</h1>
+<h1 align="center">🏛️ SFAO Parliament Monitor</h1>
 
 <p align="center">
-  <strong>Outil de veille parlementaire du Contrôle fédéral des finances</strong><br>
-  <em>Swiss Federal Audit Office • Eidgenössische Finanzkontrolle • Controllo federale delle finanze</em>
+  <strong>Parliamentary monitoring tool for the Swiss Federal Audit Office</strong>
 </p>
 
 <p align="center">
   <a href="https://efk-cdf-sfao.github.io/Parlement/">
-    <img src="https://img.shields.io/badge/🌐_Site_Web-Accéder-EA5A4F?style=for-the-badge" alt="Website">
+    <img src="https://img.shields.io/badge/🌐_Website-Open-EA5A4F?style=for-the-badge" alt="Website">
   </a>
-  <img src="https://img.shields.io/badge/Objets-327+-003399?style=for-the-badge" alt="Objects">
-  <img src="https://img.shields.io/badge/Débats-729+-003399?style=for-the-badge" alt="Debates">
-  <img src="https://img.shields.io/badge/Langues-FR_DE_IT-gray?style=for-the-badge" alt="Languages">
+  <img src="https://img.shields.io/badge/Objects-327+-003399?style=for-the-badge" alt="Objects">
+  <img src="https://img.shields.io/badge/Debates-729+-003399?style=for-the-badge" alt="Debates">
+  <img src="https://img.shields.io/badge/Languages-FR_DE_IT-gray?style=for-the-badge" alt="Languages">
 </p>
 
 <br>
@@ -26,53 +21,53 @@
 
 ---
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-| 📊 **Objets parlementaires** | 🎤 **Débats** | 📈 **Statistiques** |
+| 📊 **Parliamentary Objects** | 🎤 **Debates** | 📈 **Statistics** |
 |:---:|:---:|:---:|
-| Motions, postulats, interpellations, questions | Transcriptions des séances plénières | Analyses par année, parti, conseil |
-| Recherche plein texte | Filtres par orateur et parti | Graphiques interactifs |
-| Filtres avancés (thèmes, département, session) | Texte intégral des interventions | Export possible |
+| Motions, postulates, interpellations, questions | Plenary session transcripts | Analysis by year, party, council |
+| Full-text search | Speaker and party filters | Interactive charts |
+| Advanced filters (themes, department, session) | Full intervention text | Export options |
 
-### 🔍 Recherche avancée
-- **Recherche plein texte** dans les titres et textes déposés
-- **Filtres multiples** : type, conseil, année, parti, département, thèmes, législature, session
-- **Mise en évidence** des termes recherchés
-- **Interface responsive** (desktop + mobile)
-
----
-
-## 📱 Widget iOS
-
-Un widget Scriptable affiche les 5 dernières interventions directement sur l'écran d'accueil de votre iPhone.
-
-### Installation rapide (avec mises à jour automatiques)
-
-1. Installez [Scriptable](https://apps.apple.com/app/scriptable/id1405459188) sur votre iPhone
-2. Créez un nouveau script et collez le contenu de [`EFK_CDF_Loader.js`](EFK_CDF_Loader.js)
-3. Ajoutez un widget Scriptable sur votre écran d'accueil
-4. Configurez-le pour exécuter votre script
-
-> 💡 **Avantage** : Le loader télécharge automatiquement les mises à jour du widget depuis GitHub. Vous n'aurez plus besoin de copier/coller le code à chaque mise à jour !
-
-### Fonctionnalités du widget
-- 🌍 **Trilingue** : détection automatique de la langue (FR/DE/IT)
-- 🔄 **Cache intelligent** : validité 24h, mise à jour automatique
-- 📲 **Tap to open** : ouvre Curia Vista dans la langue correspondante
+### 🔍 Advanced Search
+- **Full-text search** in titles and submitted texts
+- **Multiple filters**: type, council, year, party, department, themes, legislature, session
+- **Highlighting** of search terms
+- **Responsive interface** (desktop + mobile)
 
 ---
 
-## 🗓️ Couverture temporelle
+## 📱 iOS Widget
 
-| Législature | Période | Sessions |
-|:-----------:|:-------:|:--------:|
-| 50ème | Déc. 2015 – Sept. 2019 | 5001-5019 |
-| 51ème | Déc. 2019 – Sept. 2023 | 5101-5122 |
-| 52ème | Déc. 2023 – en cours | 5201+ |
+A Scriptable widget displays the 5 latest interventions directly on your iPhone home screen.
+
+### Quick Setup (with auto-updates)
+
+1. Install [Scriptable](https://apps.apple.com/app/scriptable/id1405459188) on your iPhone
+2. Create a new script and paste the contents of [`EFK_CDF_Loader.js`](EFK_CDF_Loader.js)
+3. Add a Scriptable widget to your home screen
+4. Configure it to run your script
+
+> 💡 **Benefit**: The loader automatically downloads widget updates from GitHub. No more copy/pasting code for each update!
+
+### Widget Features
+- 🌍 **Trilingual**: automatic language detection (FR/DE/IT)
+- 🔄 **Smart cache**: 24h validity, automatic refresh
+- 📲 **Tap to open**: opens Curia Vista in the corresponding language
 
 ---
 
-## ⚙️ Architecture technique
+## 🗓️ Coverage
+
+| Legislature | Period | Sessions |
+|:-----------:|:------:|:--------:|
+| 50th | Dec. 2015 – Sept. 2019 | 5001-5019 |
+| 51st | Dec. 2019 – Sept. 2023 | 5101-5122 |
+| 52nd | Dec. 2023 – ongoing | 5201+ |
+
+---
+
+## ⚙️ Technical Architecture
 
 ```
 📁 Parlement/
@@ -80,72 +75,72 @@ Un widget Scriptable affiche les 5 dernières interventions directement sur l'é
 │   ├── index.html / index_de.html / index_it.html
 │   ├── objects.html / debates.html / stats.html
 │   └── app.js / stats.js
-├── 📊 Scripts R
-│   ├── Recherche_CDF_EFK.R    → Objets parlementaires
-│   └── Recherche_Debats.R     → Débats
-├── 📱 Widget iOS
-│   ├── EFK_CDF_Loader.js      → Loader (à installer)
-│   └── EFK_CDF_Parlement.js   → Widget principal
-└── 📄 Données
-    ├── cdf_efk_data.json      → Objets
-    └── debates_data.json      → Débats
+├── 📊 R Scripts
+│   ├── Recherche_CDF_EFK.R    → Parliamentary objects
+│   └── Recherche_Debats.R     → Debates
+├── 📱 iOS Widget
+│   ├── EFK_CDF_Loader.js      → Loader (install this)
+│   └── EFK_CDF_Parlement.js   → Main widget
+└── 📄 Data
+    ├── cdf_efk_data.json      → Objects
+    └── debates_data.json      → Debates
 ```
 
 ---
 
-## 🔧 Installation pour développeurs
+## 🔧 Developer Setup
 
-### Prérequis
-- **R 4.0+** avec les packages : `swissparl`, `dplyr`, `stringr`, `tidyr`, `jsonlite`, `openxlsx`
-- **Git** pour le versioning
+### Requirements
+- **R 4.0+** with packages: `swissparl`, `dplyr`, `stringr`, `tidyr`, `jsonlite`, `openxlsx`
+- **Git** for version control
 
-### Installation des packages R
+### R Package Installation
 
 ```r
 install.packages(c("dplyr", "stringr", "tidyr", "xfun", "openxlsx", "jsonlite", "httr", "lubridate"))
 remotes::install_github("zumbov2/swissparl")
 ```
 
-### Exécution des scripts
+### Running the Scripts
 
 ```bash
-# Objets parlementaires (mode incrémental : 6 derniers mois)
+# Parliamentary objects (incremental mode: last 6 months)
 Rscript Recherche_CDF_EFK.R
 
-# Débats (scanner uniquement les sessions récentes)
+# Debates (scan only recent sessions)
 Rscript Recherche_Debats.R
 ```
 
 ---
 
-## 🤖 Automatisation
+## 🤖 Automation
 
-Les données sont mises à jour automatiquement via **GitHub Actions** :
+Data is automatically updated via **GitHub Actions**:
 
-| Fréquence | Action |
+| Frequency | Action |
 |:---------:|:------:|
-| Quotidien à 22h UTC | Mise à jour des objets parlementaires |
-| Tous les 2 jours à 22h UTC | Mise à jour des débats |
+| Daily at 22h UTC | Update parliamentary objects |
+| Every 2 days at 22h UTC | Update debates |
 
-> **Déclenchement manuel** : Onglet *Actions* → Sélectionner le workflow → *Run workflow*
+> **Manual trigger**: *Actions* tab → Select workflow → *Run workflow*
 
 ---
 
-## 📚 API utilisées
+## 📚 APIs Used
 
 - [Swiss Parliament Open Data API](https://ws.parlament.ch/)
-- [Package R swissparl](https://github.com/zumbov2/swissparl)
+- [swissparl R package](https://github.com/zumbov2/swissparl)
 
 ---
 
-## 📄 Licence
+## 📄 License
 
 MIT License
 
 ---
 
 <p align="center">
-  <strong>Contrôle fédéral des finances CDF</strong><br>
-  <em>Monbijoustrasse 45, 3003 Berne</em><br>
+  <strong>Swiss Federal Audit Office (SFAO)</strong><br>
+  <em>Monbijoustrasse 45, 3003 Bern</em><br>
   <a href="https://www.efk.admin.ch">www.efk.admin.ch</a>
 </p>
