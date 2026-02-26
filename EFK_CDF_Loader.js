@@ -77,8 +77,9 @@ async function loadScript() {
         return;
     }
     
-    // Exécuter le script (qui contient son propre Script.setWidget() et Script.complete())
-    await eval(code);
+    // Exécuter le script en l'encapsulant dans une fonction async
+    const asyncFunc = new Function(`return (async () => { ${code} })();`);
+    await asyncFunc();
 }
 
 await loadScript();
