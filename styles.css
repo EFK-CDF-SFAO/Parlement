@@ -1166,6 +1166,10 @@ a.author-row {
     .stat-card.top-card {
         max-width: none;
     }
+    
+    .chart-screenshot-btn {
+        display: none;
+    }
 }
 
 /* Statut mis à jour récemment - surligné en vert */
