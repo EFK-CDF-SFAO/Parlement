@@ -481,6 +481,34 @@ function applyDebateFilters() {
     renderAllDebateCharts();
 }
 
+// Construit l'URL vers debates.html avec tous les filtres actifs + un filtre additionnel
+function buildDebatesUrl(additionalFilter = {}) {
+    const params = new URLSearchParams();
+    
+    // Récupérer les filtres actifs du bloc débats
+    const yearFilters = getCheckedValues('debateYearDropdown');
+    const sessionFilters = getCheckedValues('debateSessionDropdown');
+    const councilFilters = getCheckedValues('debateCouncilDropdown');
+    const partyFilters = getCheckedValues('debatePartyDropdown');
+    const deptFilters = getCheckedValues('debateDeptDropdown');
+    const legislatureFilters = getCheckedValues('debateLegislatureDropdown');
+    
+    // Ajouter les filtres existants
+    if (yearFilters.length > 0) params.set('filter_year', yearFilters.join(','));
+    if (sessionFilters.length > 0) params.set('filter_session', sessionFilters.join(','));
+    if (councilFilters.length > 0) params.set('filter_council', councilFilters.join(','));
+    if (partyFilters.length > 0) params.set('filter_party', partyFilters.join(','));
+    if (deptFilters.length > 0) params.set('filter_dept', deptFilters.join(','));
+    if (legislatureFilters.length > 0) params.set('filter_legislature', legislatureFilters.join(','));
+    
+    // Ajouter le filtre additionnel (celui sur lequel on a cliqué)
+    if (additionalFilter.council) params.set('filter_council', additionalFilter.council);
+    if (additionalFilter.party) params.set('filter_party', additionalFilter.party);
+    
+    const queryString = params.toString();
+    return `debates.html${queryString ? '?' + queryString : ''}`;
+}
+
 function renderAllDebateCharts() {
     renderDebatePartyChart();
     renderDebateCouncilChart();
@@ -1067,7 +1095,7 @@ function renderDebatePartyChart() {
                 if (elements.length > 0) {
                     const index = elements[0].index;
                     const party = labels[index];
-                    window.location.href = `debates.html?filter_party=${encodeURIComponent(party)}`;
+                    window.location.href = buildDebatesUrl({ party: party });
                 }
             }
         }
@@ -1113,7 +1141,7 @@ function renderDebateCouncilChart() {
                         const index = legendItem.index;
                         const council = labels[index];
                         const councilCode = councilCodes[council] || council;
-                        window.location.href = `debates.html?filter_council=${encodeURIComponent(councilCode)}`;
+                        window.location.href = buildDebatesUrl({ council: councilCode });
                     },
                     labels: {
                         cursor: 'pointer'
@@ -1125,7 +1153,7 @@ function renderDebateCouncilChart() {
                     const index = elements[0].index;
                     const council = labels[index];
                     const councilCode = councilCodes[council] || council;
-                    window.location.href = `debates.html?filter_council=${encodeURIComponent(councilCode)}`;
+                    window.location.href = buildDebatesUrl({ council: councilCode });
                 }
             }
         }
