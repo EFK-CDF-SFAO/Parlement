@@ -321,6 +321,34 @@ function applyObjectFilters() {
     renderAllObjectCharts();
 }
 
+// Construit l'URL vers index_de.html avec tous les filtres actifs + un filtre additionnel
+function buildObjectsUrl(additionalFilter = {}) {
+    const params = new URLSearchParams();
+    
+    const yearFilters = getCheckedValues('objectYearDropdown');
+    const councilFilters = getCheckedValues('objectCouncilDropdown');
+    const partyFilters = getCheckedValues('objectPartyDropdown');
+    const deptFilters = getCheckedValues('objectDeptDropdown');
+    const tagsFilters = getCheckedValues('objectTagsDropdown');
+    const legislatureFilters = getCheckedValues('objectLegislatureDropdown');
+    
+    if (yearFilters.length > 0) params.set('filter_year', yearFilters.join(','));
+    if (councilFilters.length > 0) params.set('filter_council', councilFilters.join(','));
+    if (partyFilters.length > 0) params.set('filter_party', partyFilters.join(','));
+    if (deptFilters.length > 0) params.set('filter_dept', deptFilters.join(','));
+    if (tagsFilters.length > 0) params.set('filter_tags', tagsFilters.join(','));
+    if (legislatureFilters.length > 0) params.set('filter_legislature', legislatureFilters.join(','));
+    
+    if (additionalFilter.year) params.set('filter_year', additionalFilter.year);
+    if (additionalFilter.council) params.set('filter_council', additionalFilter.council);
+    if (additionalFilter.party) params.set('filter_party', additionalFilter.party);
+    if (additionalFilter.type) params.set('filter_type', additionalFilter.type);
+    if (additionalFilter.session) params.set('filter_session', additionalFilter.session);
+    
+    const queryString = params.toString();
+    return `index_de.html${queryString ? '?' + queryString : ''}`;
+}
+
 function renderAllObjectCharts() {
     renderPartyChart();
     renderTypeChart();
@@ -701,7 +729,7 @@ function renderPartyChart() {
                     const index = elements[0].index;
                     const party = labels[index];
                     const filterValue = partyToFilter[party] || party;
-                    window.location.href = `index_de.html?filter_party=${encodeURIComponent(filterValue)}`;
+                    window.location.href = buildObjectsUrl({ party: filterValue });
                 }
             }
         }
@@ -749,7 +777,7 @@ function renderTypeChart() {
                         const index = legendItem.index;
                         const typeLabel = labels[index];
                         const filterValue = typeToFilter[typeLabel] || typeLabel;
-                        window.location.href = `index_de.html?filter_type=${encodeURIComponent(filterValue)}`;
+                        window.location.href = buildObjectsUrl({ type: filterValue });
                     },
                     labels: {
                         cursor: 'pointer'
@@ -761,7 +789,7 @@ function renderTypeChart() {
                     const index = elements[0].index;
                     const typeLabel = labels[index];
                     const filterValue = typeToFilter[typeLabel] || typeLabel;
-                    window.location.href = `index_de.html?filter_type=${encodeURIComponent(filterValue)}`;
+                    window.location.href = buildObjectsUrl({ type: filterValue });
                 }
             }
         }
@@ -903,16 +931,7 @@ function showSessionDetail(year) {
 }
 
 function filterBySession(year, sessionKey) {
-    const sessionNames = {
-        'fruehling': 'printemps',
-        'sonder': 'speciale',
-        'sommer': 'ete',
-        'herbst': 'automne',
-        'winter': 'hiver',
-        'andere': 'autre'
-    };
-    
-    window.location.href = `index_de.html?filter_year=${year}&filter_session=${sessionNames[sessionKey]}`;
+    window.location.href = buildObjectsUrl({ year: year, session: sessionKey });
 }
 
 function renderTopAuthors() {
