@@ -9,6 +9,16 @@ let yearChartInstance = null;
 let debatePartyChartInstance = null;
 let debateCouncilChartInstance = null;
 
+function downloadChart(canvasId, filename) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    
+    const link = document.createElement('a');
+    link.download = `${filename}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+}
+
 const partyColors = {
     'UDC': '#009F4D',
     'PSS': '#E53935',

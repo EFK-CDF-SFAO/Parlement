@@ -1030,6 +1030,26 @@ mark.highlight-search {
     position: relative;
 }
 
+.chart-screenshot-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: opacity 0.2s, background 0.2s;
+    z-index: 10;
+}
+
+.chart-screenshot-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 1);
+}
+
 .stat-card.top-card {
     flex: 1;
     min-width: 200px;
