@@ -136,11 +136,3 @@ Data is automatically updated via **GitHub Actions**:
 ## 📄 License
 
 MIT License
-
----
-
-<p align="center">
-  <strong>Swiss Federal Audit Office (SFAO)</strong><br>
-  <em>Monbijoustrasse 45, 3003 Bern</em><br>
-  <a href="https://www.efk.admin.ch">www.efk.admin.ch</a>
-</p>
