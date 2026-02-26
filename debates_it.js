@@ -137,13 +137,16 @@ function applyUrlFilter(menuId, filterValue) {
     const menu = document.getElementById(menuId);
     if (!menu) return;
     
+    // Support multiple values separated by comma
+    const filterValues = filterValue.split(',').map(v => v.trim());
+    
     const selectAll = menu.querySelector('[data-select-all]');
     if (selectAll) selectAll.checked = false;
     
     const checkboxes = menu.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
     checkboxes.forEach(cb => {
         const label = cb.parentElement.textContent.trim();
-        cb.checked = label.includes(filterValue) || cb.value === filterValue;
+        cb.checked = filterValues.some(v => label.includes(v) || cb.value === v);
     });
 }
 

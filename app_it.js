@@ -479,12 +479,15 @@ function applyFilterFromUrl(dropdownId, filterValue) {
     const dropdown = document.getElementById(dropdownId);
     if (!dropdown) return;
     
+    // Support multiple values separated by comma
+    const filterValues = filterValue.split(',').map(v => v.trim());
+    
     const selectAll = dropdown.querySelector('input[data-select-all]');
     if (selectAll) selectAll.checked = false;
     
     const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
     checkboxes.forEach(cb => {
-        if (cb.value === filterValue) {
+        if (filterValues.includes(cb.value)) {
             cb.checked = true;
         }
     });
