@@ -298,6 +298,7 @@ function applyObjectFilters() {
     const deptFilters = getCheckedValues('objectDeptDropdown');
     const tagsFilters = getCheckedValues('objectTagsDropdown');
     const legislatureFilters = getCheckedValues('objectLegislatureDropdown');
+    const mentionFilters = getCheckedValues('objectMentionDropdown');
     
     filteredData = allData.filter(item => {
         if (yearFilters.length > 0 && item.date) {
@@ -325,6 +326,17 @@ function applyObjectFilters() {
         if (legislatureFilters.length > 0) {
             const itemLegislature = getLegislature(item.date);
             if (!legislatureFilters.includes(itemLegislature)) return false;
+        }
+        // Mention filter (wer die EFK erwähnt)
+        if (mentionFilters.length > 0) {
+            const mentionMap = {
+                'elu': 'Élu',
+                'cf': 'Conseil fédéral',
+                'both': 'Élu & Conseil fédéral'
+            };
+            const itemMention = item.mention || '';
+            const matchesMention = mentionFilters.some(v => mentionMap[v] === itemMention);
+            if (!matchesMention) return false;
         }
         return true;
     });
