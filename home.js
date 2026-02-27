@@ -192,7 +192,7 @@ function displaySessionSummary(summary, currentSession) {
         const cn = summary.by_council?.CN || 0;
         const ce = summary.by_council?.CE || 0;
         
-        let text = `Durant la ${sessionName}, ${count} interventions mentionnant le CDF ont été déposées : ${typesText.join(', ')}. `;
+        let text = `Durant la ${sessionName}, ${count} interventions mentionnant le CDF ont été déposées ou ont fait l'objet d'une réponse du Conseil fédéral qui cite le CDF : ${typesText.join(', ')}. `;
         if (cn > 0 && ce > 0) {
             text += `${cn} au Conseil national et ${ce} au Conseil des États. `;
         }

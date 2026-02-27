@@ -183,7 +183,7 @@ function displaySessionSummary(summary, currentSession) {
         const cn = summary.by_council?.CN || 0;
         const ce = summary.by_council?.CE || 0;
         
-        let text = `Während der ${sessionName} wurden ${count} Vorstösse mit Bezug zur EFK eingereicht: ${typesText.join(', ')}. `;
+        let text = `Während der ${sessionName} wurden ${count} Vorstösse mit Bezug zur EFK eingereicht oder mit einer Antwort des Bundesrates versehen, die die EFK erwähnt: ${typesText.join(', ')}. `;
         if (cn > 0 && ce > 0) {
             text += `${cn} im Nationalrat und ${ce} im Ständerat. `;
         }

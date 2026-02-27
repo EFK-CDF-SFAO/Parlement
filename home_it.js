@@ -203,7 +203,7 @@ function displaySessionSummary(summary, currentSession) {
         const cn = summary.by_council?.CN || 0;
         const ce = summary.by_council?.CE || 0;
         
-        let text = `Durante la ${sessionName}, sono stati presentati ${count} interventi relativi al CDF: ${typesText.join(', ')}. `;
+        let text = `Durante la ${sessionName}, sono stati presentati ${count} interventi relativi al CDF o che hanno ricevuto una risposta del Consiglio federale che cita il CDF: ${typesText.join(', ')}. `;
         if (cn > 0 && ce > 0) {
             text += `${cn} al Consiglio nazionale e ${ce} al Consiglio degli Stati. `;
         } else if (cn > 0) {
