@@ -42,12 +42,8 @@ cat("Répertoire de travail:", getwd(), "\n\n")
 # PARAMÈTRES
 # ============================================================================
 
-# Sessions à analyser
-# 50ème législature: 5001-5019 (décembre 2015 - septembre 2019)
-# 51ème législature: 5101-5122 (décembre 2019 - septembre 2023)
-# 52ème législature: 5201-5211 (décembre 2023 - )
-#
-SESSIONS_DEBATS <- c(
+# Toutes les sessions (pour scan complet local)
+TOUTES_SESSIONS <- c(
   # Législature 50
   "5001", "5002", "5003", "5004", "5005", "5006", "5007", "5008", "5009", "5010",
   "5011", "5012", "5013", "5014", "5015", "5016", "5017", "5018", "5019",
@@ -59,6 +55,45 @@ SESSIONS_DEBATS <- c(
   "5201", "5202", "5203", "5204", "5205", "5206", "5207", "5208", "5209", "5210", "5211",
   "5212", "5213", "5214", "5215", "5216", "5217", "5218"
 )
+
+# En mode CI: scanner uniquement la session en cours + session précédente (1 mois de marge)
+# Sinon: scanner toutes les sessions
+if (Sys.getenv("CI") == "true") {
+  cat("Mode CI détecté: scan limité à la session en cours + précédente\n")
+  
+  # Lire sessions.json pour trouver la session actuelle
+  sessions_json <- jsonlite::fromJSON("sessions.json")
+  today <- Sys.Date()
+  
+  # Trouver les sessions avec un code qui sont en cours ou récentes (< 1 mois)
+  sessions_df <- sessions_json$sessions
+  sessions_df$start <- as.Date(sessions_df$start)
+  sessions_df$end <- as.Date(sessions_df$end)
+  
+  # Filtrer les sessions avec un code
+  sessions_avec_code <- sessions_df[!is.na(sessions_df$code) & sessions_df$code != "", ]
+  
+  # Trouver la session en cours ou la plus récente terminée
+  date_limite <- today - 30  # 1 mois en arrière
+  sessions_recentes <- sessions_avec_code[
+    sessions_avec_code$end >= date_limite | 
+    (sessions_avec_code$start <= today & sessions_avec_code$end >= today),
+  ]
+  
+  if (nrow(sessions_recentes) > 0) {
+    SESSIONS_DEBATS <- sessions_recentes$code
+    cat("Sessions à scanner:", paste(SESSIONS_DEBATS, collapse = ", "), "\n")
+  } else {
+    # Fallback: prendre les 2 dernières sessions avec code
+    sessions_triees <- sessions_avec_code[order(sessions_avec_code$end, decreasing = TRUE), ]
+    SESSIONS_DEBATS <- head(sessions_triees$code, 2)
+    cat("Aucune session récente, fallback sur:", paste(SESSIONS_DEBATS, collapse = ", "), "\n")
+  }
+} else {
+  # Mode local: scanner toutes les sessions
+  SESSIONS_DEBATS <- TOUTES_SESSIONS
+  cat("Mode local: scan complet de toutes les sessions\n")
+}
 
 # Fichiers de sortie
 FICHIER_DEBATS_EXCEL <- "Debats_CDF_EFK.xlsx"
@@ -196,7 +231,26 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
     distinct(ID, .keep_all = TRUE)
 }
 
-cat("\nTotal débats uniques:", nrow(Debats_Tous), "\n")
+cat("\nTotal débats scannés:", nrow(Debats_Tous), "\n")
+
+# En mode CI: fusionner avec les données existantes (autres sessions non scannées)
+if (Sys.getenv("CI") == "true" && file.exists(FICHIER_DEBATS_JSON)) {
+  cat("Fusion avec les données existantes...\n")
+  ancien_json <- jsonlite::fromJSON(FICHIER_DEBATS_JSON)
+  
+  if (!is.null(ancien_json$items) && length(ancien_json$items) > 0) {
+    # Convertir les anciens items en tibble
+    anciens_debats <- as_tibble(ancien_json$items)
+    
+    # Garder les débats des sessions NON scannées cette fois
+    sessions_scannees <- SESSIONS_DEBATS
+    anciens_autres_sessions <- anciens_debats |>
+      filter(!id_session %in% sessions_scannees)
+    
+    cat("  -> Débats existants (autres sessions):", nrow(anciens_autres_sessions), "\n")
+    cat("  -> Débats scannés (sessions récentes):", nrow(Debats_Tous), "\n")
+  }
+}
 
 # Récupérer les infos sur les objets parlementaires via SubjectBusiness
 cat("Récupération des infos sur les objets parlementaires...\n")
@@ -303,7 +357,7 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
   
   # Export JSON
   cat("Export JSON...\n")
-  Debats_JSON <- Debats_Tous |>
+  Debats_JSON_Nouveaux <- Debats_Tous |>
     transmute(
       id = ID,
       id_subject = IdSubject,
@@ -327,10 +381,26 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
   
   # Charger les IDs existants depuis le JSON précédent pour détecter les nouveaux
   ids_existants <- c()
+  Debats_JSON <- Debats_JSON_Nouveaux
+  
   if (file.exists(FICHIER_DEBATS_JSON)) {
     ancien_json <- jsonlite::fromJSON(FICHIER_DEBATS_JSON)
     if (!is.null(ancien_json$items) && length(ancien_json$items) > 0) {
       ids_existants <- ancien_json$items$id
+      
+      # En mode CI: fusionner avec les anciens débats des autres sessions
+      if (Sys.getenv("CI") == "true") {
+        anciens_items <- as_tibble(ancien_json$items)
+        # Garder les débats des sessions NON scannées
+        anciens_autres <- anciens_items |>
+          filter(!id_session %in% SESSIONS_DEBATS)
+        
+        # Fusionner: anciens (autres sessions) + nouveaux (sessions scannées)
+        Debats_JSON <- bind_rows(anciens_autres, Debats_JSON_Nouveaux) |>
+          distinct(id, .keep_all = TRUE)
+        
+        cat("  -> Fusion: ", nrow(anciens_autres), " anciens + ", nrow(Debats_JSON_Nouveaux), " scannés = ", nrow(Debats_JSON), " total\n")
+      }
     }
   }
   
