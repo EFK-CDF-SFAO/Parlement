@@ -269,10 +269,11 @@ function populateObjectFilters() {
     setupDropdown('objectDeptDropdown');
     setupDropdown('objectTagsDropdown');
     setupDropdown('objectLegislatureDropdown');
+    setupDropdown('objectMentionDropdown');
 }
 
 function setupObjectFilterListeners() {
-    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown', 'objectTagsDropdown', 'objectLegislatureDropdown'].forEach(id => {
+    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown', 'objectTagsDropdown', 'objectLegislatureDropdown', 'objectMentionDropdown'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.addEventListener('change', applyObjectFilters);
     });
@@ -280,7 +281,7 @@ function setupObjectFilterListeners() {
 }
 
 function resetObjectFilters() {
-    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown', 'objectTagsDropdown', 'objectLegislatureDropdown'].forEach(id => {
+    ['objectYearDropdown', 'objectCouncilDropdown', 'objectPartyDropdown', 'objectDeptDropdown', 'objectTagsDropdown', 'objectLegislatureDropdown', 'objectMentionDropdown'].forEach(id => {
         const dropdown = document.getElementById(id);
         if (!dropdown) return;
         const selectAll = dropdown.querySelector('[data-select-all]');
