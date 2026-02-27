@@ -180,19 +180,24 @@ function applyUrlFilter(menuId, filterValue) {
     });
 }
 
-// Mapping des types de sessions
+// Mapping des types de sessions (législatures 50, 51, 52)
 const sessionTypes = {
-    '5201': 'Hiver',
-    '5202': 'Printemps',
-    '5203': 'Spéciale',
-    '5204': 'Été',
-    '5205': 'Automne',
-    '5206': 'Hiver',
-    '5207': 'Printemps',
-    '5208': 'Spéciale',
-    '5209': 'Été',
-    '5210': 'Automne',
-    '5211': 'Hiver'
+    // Législature 50 (2015-2019)
+    '5001': 'Hiver', '5002': 'Printemps', '5003': 'Spéciale', '5004': 'Été', '5005': 'Automne',
+    '5006': 'Hiver', '5007': 'Printemps', '5008': 'Spéciale', '5009': 'Été', '5010': 'Automne',
+    '5011': 'Hiver', '5012': 'Printemps', '5013': 'Été', '5014': 'Automne',
+    '5015': 'Hiver', '5016': 'Printemps', '5017': 'Spéciale', '5018': 'Été', '5019': 'Automne',
+    // Législature 51 (2019-2023)
+    '5101': 'Hiver', '5102': 'Printemps', '5103': 'Spéciale', '5104': 'Été', '5105': 'Automne',
+    '5106': 'Spéciale', '5107': 'Hiver', '5108': 'Printemps', '5109': 'Spéciale', '5110': 'Été',
+    '5111': 'Automne', '5112': 'Hiver', '5113': 'Printemps', '5114': 'Spéciale', '5115': 'Été',
+    '5116': 'Automne', '5117': 'Hiver', '5118': 'Printemps', '5119': 'Spéciale', '5120': 'Spéciale',
+    '5121': 'Été', '5122': 'Automne',
+    // Législature 52 (2023-)
+    '5201': 'Hiver', '5202': 'Printemps', '5203': 'Spéciale', '5204': 'Été', '5205': 'Automne',
+    '5206': 'Hiver', '5207': 'Printemps', '5208': 'Spéciale', '5209': 'Été', '5210': 'Automne',
+    '5211': 'Hiver', '5212': 'Printemps', '5213': 'Spéciale', '5214': 'Été', '5215': 'Automne',
+    '5216': 'Hiver', '5217': 'Printemps', '5218': 'Spéciale'
 };
 
 function populateYearFilter() {
