@@ -396,18 +396,24 @@ function renderAllObjectCharts() {
     updateGlobalSummary();
 }
 
+// Mapping dei tipi di sessione (legislature 50, 51, 52)
 const sessionTypes = {
-    '5201': 'Invernale',
-    '5202': 'Primaverile',
-    '5203': 'Speciale',
-    '5204': 'Estiva',
-    '5205': 'Autunnale',
-    '5206': 'Invernale',
-    '5207': 'Primaverile',
-    '5208': 'Speciale',
-    '5209': 'Estiva',
-    '5210': 'Autunnale',
-    '5211': 'Invernale'
+    // Legislatura 50 (2015-2019)
+    '5001': 'Invernale', '5002': 'Primaverile', '5003': 'Speciale', '5004': 'Estiva', '5005': 'Autunnale',
+    '5006': 'Invernale', '5007': 'Primaverile', '5008': 'Speciale', '5009': 'Estiva', '5010': 'Autunnale',
+    '5011': 'Invernale', '5012': 'Primaverile', '5013': 'Estiva', '5014': 'Autunnale',
+    '5015': 'Invernale', '5016': 'Primaverile', '5017': 'Speciale', '5018': 'Estiva', '5019': 'Autunnale',
+    // Legislatura 51 (2019-2023)
+    '5101': 'Invernale', '5102': 'Primaverile', '5103': 'Speciale', '5104': 'Estiva', '5105': 'Autunnale',
+    '5106': 'Speciale', '5107': 'Invernale', '5108': 'Primaverile', '5109': 'Speciale', '5110': 'Estiva',
+    '5111': 'Autunnale', '5112': 'Invernale', '5113': 'Primaverile', '5114': 'Speciale', '5115': 'Estiva',
+    '5116': 'Autunnale', '5117': 'Invernale', '5118': 'Primaverile', '5119': 'Speciale', '5120': 'Speciale',
+    '5121': 'Estiva', '5122': 'Autunnale',
+    // Legislatura 52 (2023-)
+    '5201': 'Invernale', '5202': 'Primaverile', '5203': 'Speciale', '5204': 'Estiva', '5205': 'Autunnale',
+    '5206': 'Invernale', '5207': 'Primaverile', '5208': 'Speciale', '5209': 'Estiva', '5210': 'Autunnale',
+    '5211': 'Invernale', '5212': 'Primaverile', '5213': 'Speciale', '5214': 'Estiva', '5215': 'Autunnale',
+    '5216': 'Invernale', '5217': 'Primaverile', '5218': 'Speciale'
 };
 
 function populateDebateFilters() {

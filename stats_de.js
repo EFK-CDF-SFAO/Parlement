@@ -383,18 +383,24 @@ function renderAllObjectCharts() {
     updateGlobalSummary();
 }
 
+// Mapping der Sessionstypen (Legislaturen 50, 51, 52)
 const sessionTypes = {
-    '5201': 'Winter',
-    '5202': 'Frühjahr',
-    '5203': 'Sonder',
-    '5204': 'Sommer',
-    '5205': 'Herbst',
-    '5206': 'Winter',
-    '5207': 'Frühjahr',
-    '5208': 'Sonder',
-    '5209': 'Sommer',
-    '5210': 'Herbst',
-    '5211': 'Winter'
+    // Legislatur 50 (2015-2019)
+    '5001': 'Winter', '5002': 'Frühjahr', '5003': 'Sonder', '5004': 'Sommer', '5005': 'Herbst',
+    '5006': 'Winter', '5007': 'Frühjahr', '5008': 'Sonder', '5009': 'Sommer', '5010': 'Herbst',
+    '5011': 'Winter', '5012': 'Frühjahr', '5013': 'Sommer', '5014': 'Herbst',
+    '5015': 'Winter', '5016': 'Frühjahr', '5017': 'Sonder', '5018': 'Sommer', '5019': 'Herbst',
+    // Legislatur 51 (2019-2023)
+    '5101': 'Winter', '5102': 'Frühjahr', '5103': 'Sonder', '5104': 'Sommer', '5105': 'Herbst',
+    '5106': 'Sonder', '5107': 'Winter', '5108': 'Frühjahr', '5109': 'Sonder', '5110': 'Sommer',
+    '5111': 'Herbst', '5112': 'Winter', '5113': 'Frühjahr', '5114': 'Sonder', '5115': 'Sommer',
+    '5116': 'Herbst', '5117': 'Winter', '5118': 'Frühjahr', '5119': 'Sonder', '5120': 'Sonder',
+    '5121': 'Sommer', '5122': 'Herbst',
+    // Legislatur 52 (2023-)
+    '5201': 'Winter', '5202': 'Frühjahr', '5203': 'Sonder', '5204': 'Sommer', '5205': 'Herbst',
+    '5206': 'Winter', '5207': 'Frühjahr', '5208': 'Sonder', '5209': 'Sommer', '5210': 'Herbst',
+    '5211': 'Winter', '5212': 'Frühjahr', '5213': 'Sonder', '5214': 'Sommer', '5215': 'Herbst',
+    '5216': 'Winter', '5217': 'Frühjahr', '5218': 'Sonder'
 };
 
 function populateDebateFilters() {
