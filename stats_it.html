@@ -108,7 +108,16 @@
                         <label class="select-all"><input type="checkbox" data-select-all checked> Tutte</label>
                     </div>
                 </div>
-                <button class="filter-reset" id="resetObjectFilters" title="Ripristina">↻</button>
+                <div class="filter-dropdown" id="objectMentionDropdown">
+                    <button class="filter-btn" type="button">Chi cita <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="objectMentionMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tutti</label>
+                        <label><input type="checkbox" value="elu"> 👤 Parlamentare</label>
+                        <label><input type="checkbox" value="cf"> 🏛️ Consiglio federale</label>
+                        <label><input type="checkbox" value="both"> 👤🏛️ Entrambi</label>
+                    </div>
+                </div>
+                <button class="filter-reset" id="resetObjectFilters" title="Ripristinare">↻</button>
             </div>
             
             <div class="stats-row">

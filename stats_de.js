@@ -341,6 +341,7 @@ function buildObjectsUrl(additionalFilter = {}) {
     const deptFilters = getCheckedValues('objectDeptDropdown');
     const tagsFilters = getCheckedValues('objectTagsDropdown');
     const legislatureFilters = getCheckedValues('objectLegislatureDropdown');
+    const mentionFilters = getCheckedValues('objectMentionDropdown');
     
     if (yearFilters.length > 0) params.set('filter_year', yearFilters.join(','));
     if (councilFilters.length > 0) params.set('filter_council', councilFilters.join(','));
@@ -348,12 +349,14 @@ function buildObjectsUrl(additionalFilter = {}) {
     if (deptFilters.length > 0) params.set('filter_dept', deptFilters.join(','));
     if (tagsFilters.length > 0) params.set('filter_tags', tagsFilters.join(','));
     if (legislatureFilters.length > 0) params.set('filter_legislature', legislatureFilters.join(','));
+    if (mentionFilters.length > 0) params.set('filter_mention', mentionFilters.join(','));
     
     if (additionalFilter.year) params.set('filter_year', additionalFilter.year);
     if (additionalFilter.council) params.set('filter_council', additionalFilter.council);
     if (additionalFilter.party) params.set('filter_party', additionalFilter.party);
     if (additionalFilter.type) params.set('filter_type', additionalFilter.type);
     if (additionalFilter.session) params.set('filter_session', additionalFilter.session);
+    if (additionalFilter.mention) params.set('filter_mention', additionalFilter.mention);
     
     const queryString = params.toString();
     return `index_de.html${queryString ? '?' + queryString : ''}`;
@@ -527,6 +530,7 @@ function updateGlobalSummary() {
     const objectPartyFilters = getCheckedValues('objectPartyDropdown');
     const objectDeptFilters = getCheckedValues('objectDeptDropdown');
     const objectTagsFilters = getCheckedValues('objectTagsDropdown');
+    const objectMentionFilters = getCheckedValues('objectMentionDropdown');
     
     const debateYearFilters = getCheckedValues('debateYearDropdown');
     const debateLegislatureFilters = getCheckedValues('debateLegislatureDropdown');
@@ -569,6 +573,17 @@ function updateGlobalSummary() {
             const itemTags = item.tags_de ? item.tags_de.split('|').map(t => t.trim()) : [];
             const hasMatchingTag = itemTags.some(tag => objectTagsFilters.includes(tag));
             if (!hasMatchingTag) return false;
+        }
+        // Mention filter (wer die EFK erwähnt)
+        if (objectMentionFilters.length > 0) {
+            const mentionMap = {
+                'elu': 'Élu',
+                'cf': 'Conseil fédéral',
+                'both': 'Élu & Conseil fédéral'
+            };
+            const itemMention = item.mention || '';
+            const matchesMention = objectMentionFilters.some(v => mentionMap[v] === itemMention);
+            if (!matchesMention) return false;
         }
         return true;
     });
