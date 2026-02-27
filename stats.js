@@ -638,6 +638,23 @@ function updateGlobalSummary() {
     if (objectsCountEl) {
         objectsCountEl.textContent = globalFilteredObjects.length;
     }
+    
+    // Calculer les % de qui cite le CDF
+    const pctEluEl = document.getElementById('pctElu');
+    const pctCFEl = document.getElementById('pctCF');
+    const pctBothEl = document.getElementById('pctBoth');
+    
+    if (pctEluEl && pctCFEl && pctBothEl && globalFilteredObjects.length > 0) {
+        const total = globalFilteredObjects.length;
+        const eluOnly = globalFilteredObjects.filter(item => item.mention === 'Élu').length;
+        const cfOnly = globalFilteredObjects.filter(item => item.mention === 'Conseil fédéral').length;
+        const both = globalFilteredObjects.filter(item => item.mention === 'Élu & Conseil fédéral').length;
+        
+        pctEluEl.textContent = Math.round(eluOnly / total * 100) + '%';
+        pctCFEl.textContent = Math.round(cfOnly / total * 100) + '%';
+        pctBothEl.textContent = Math.round(both / total * 100) + '%';
+    }
+    
     if (debatesCountEl) {
         debatesCountEl.textContent = globalFilteredDebates.length;
     }

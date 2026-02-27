@@ -62,6 +62,7 @@ async function init() {
         const filterDept = urlParams.get('filter_dept');
         const filterLegislature = urlParams.get('filter_legislature');
         const filterTags = urlParams.get('filter_tags');
+        const filterMention = urlParams.get('filter_mention');
         
         if (filterParty) {
             applyFilterFromUrl('partyDropdown', filterParty);
@@ -83,6 +84,9 @@ async function init() {
         }
         if (filterTags) {
             applyFilterFromUrl('tagsDropdown', filterTags);
+        }
+        if (filterMention) {
+            applyFilterFromUrl('mentionDropdown', filterMention);
         }
         
         // Store session filter for use in applyFilters
@@ -515,6 +519,7 @@ function applyFilters() {
     const departmentValues = getCheckedValues('departmentDropdown');
     const tagsValues = getCheckedValues('tagsDropdown');
     const legislatureValues = getCheckedValues('legislatureDropdown');
+    const mentionValues = getCheckedValues('mentionDropdown');
     
     filteredData = allData.filter(item => {
         if (searchTerm) {
@@ -591,6 +596,20 @@ function applyFilters() {
         if (legislatureValues.length > 0) {
             const itemLegislature = getLegislature(item.date);
             if (!legislatureValues.includes(itemLegislature)) {
+                return false;
+            }
+        }
+        
+        // Mention filter (chi cita il CDF)
+        if (mentionValues.length > 0) {
+            const mentionMap = {
+                'elu': 'Élu',
+                'cf': 'Conseil fédéral',
+                'both': 'Élu & Conseil fédéral'
+            };
+            const itemMention = item.mention || '';
+            const matchesMention = mentionValues.some(v => mentionMap[v] === itemMention);
+            if (!matchesMention) {
                 return false;
             }
         }

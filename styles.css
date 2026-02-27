@@ -973,6 +973,46 @@ mark.highlight-search {
     margin-top: 0.25rem;
 }
 
+.mention-breakdown {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+.mention-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    min-width: 50px;
+}
+
+.mention-stat:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.mention-stat:hover .mention-pct {
+    color: white;
+}
+
+.mention-icon {
+    font-size: 0.9rem;
+}
+
+.mention-pct {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
 @media (max-width: 768px) {
     .summary-cards {
         flex-direction: column;
