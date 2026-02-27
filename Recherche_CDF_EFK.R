@@ -816,7 +816,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
         "Durant la ", derniere_session$name_fr, " (",
         format(derniere_session$start, "%d.%m"), " - ",
         format(derniere_session$end, "%d.%m.%Y"), "), ",
-        nrow(interventions_session), " interventions mentionnant le CDF ont été déposées : ",
+        nrow(interventions_session), " interventions mentionnant le CDF ont été déposées ou ont fait l'objet d'une réponse du Conseil fédéral qui cite le CDF : ",
         types_text_fr, ". ",
         if (cn_count > 0 && ce_count > 0) {
           paste0(cn_count, " au Conseil national et ", ce_count, " au Conseil des États. ")
@@ -851,7 +851,7 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
         "Während der ", derniere_session$name_de, " (",
         format(derniere_session$start, "%d.%m"), " - ",
         format(derniere_session$end, "%d.%m.%Y"), ") wurden ",
-        nrow(interventions_session), " Vorstösse mit Bezug zur EFK eingereicht: ",
+        nrow(interventions_session), " Vorstösse mit Bezug zur EFK eingereicht oder mit einer Antwort des Bundesrates versehen, die die EFK erwähnt: ",
         types_text_de, ". ",
         if (cn_count > 0 && ce_count > 0) {
           paste0(cn_count, " im Nationalrat und ", ce_count, " im Ständerat. ")
