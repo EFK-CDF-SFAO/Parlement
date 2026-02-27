@@ -27,23 +27,21 @@ jobs:
         
       - name: Check if in session
         id: check
+        shell: bash
         run: |
           TODAY=$(date +%Y-%m-%d)
           IN_SESSION="false"
           
-          # Lire les sessions depuis sessions.json
-          while IFS= read -r line; do
-            START=$(echo "$line" | jq -r '.start')
-            END=$(echo "$line" | jq -r '.end')
-            if [[ "$TODAY" >= "$START" && "$TODAY" <= "$END" ]]; then
-              IN_SESSION="true"
-              echo "Currently in session: $START to $END"
-              break
-            fi
-          done < <(jq -c '.sessions[]' sessions.json)
+          # Vérifier si en session via jq directement
+          SESSION_MATCH=$(jq -r --arg today "$TODAY" '.sessions[] | select(.start <= $today and .end >= $today) | "in session: \(.start) to \(.end)"' sessions.json | head -1)
+          
+          if [ -n "$SESSION_MATCH" ]; then
+            IN_SESSION="true"
+            echo "Currently $SESSION_MATCH"
+          fi
           
           # Toujours exécuter si workflow_dispatch
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             IN_SESSION="true"
             echo "Manual trigger - forcing execution"
           fi
