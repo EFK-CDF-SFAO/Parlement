@@ -52,6 +52,8 @@ Geschaeftstyp <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 18, 19)
 
 FICHIER_EXCEL <- "Objets_parlementaires_CDF_EFK.xlsx"
 FICHIER_JSON <- "cdf_efk_data.json"
+FICHIER_NEW_IDS <- "new_ids_tracking.json"  # Suivi des nouveautés avec dates
+JOURS_NOUVEAUTE <- 4  # Durée d'affichage des marques vertes
 GITHUB_RAW_URL <- "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_Parlement/main/cdf_efk_data.json"
 
 # Objets à exclure (faux positifs - mentionnent CDF/EFK mais pas le Contrôle fédéral des finances)
@@ -937,11 +939,45 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
     select(shortId, title, title_de, title_it, author, party, type, status, 
            council, department, date, date_maj, statut_change_date, url_fr, url_de, mention, text, text_de, tags, tags_de, tags_it)
   
-  vrais_nouveaux_ids <- if (length(Nouveaux_IDs) > 0) {
-    Resultats |> filter(ID %in% Nouveaux_IDs) |> pull(Numéro)
+  # Charger le suivi existant des new_ids
+  new_ids_tracking <- if (file.exists(FICHIER_NEW_IDS)) {
+    jsonlite::fromJSON(FICHIER_NEW_IDS)
   } else {
-    character(0)
+    list()
   }
+  
+  # Convertir en data.frame si nécessaire
+  if (is.list(new_ids_tracking) && length(new_ids_tracking) > 0) {
+    new_ids_df <- tibble(
+      id = names(new_ids_tracking),
+      date_added = as.Date(unlist(new_ids_tracking))
+    )
+  } else {
+    new_ids_df <- tibble(id = character(0), date_added = as.Date(character(0)))
+  }
+  
+  # Filtrer les IDs de moins de JOURS_NOUVEAUTE jours
+  date_limite_nouveaute <- Sys.Date() - JOURS_NOUVEAUTE
+  new_ids_df <- new_ids_df |>
+    filter(date_added >= date_limite_nouveaute)
+  
+  # Ajouter les nouveaux IDs de cette exécution
+  if (length(Nouveaux_IDs) > 0) {
+    nouveaux_short_ids <- Resultats |> filter(ID %in% Nouveaux_IDs) |> pull(Numéro)
+    for (nid in nouveaux_short_ids) {
+      if (!nid %in% new_ids_df$id) {
+        new_ids_df <- bind_rows(new_ids_df, tibble(id = nid, date_added = Sys.Date()))
+      }
+    }
+  }
+  
+  # Sauvegarder le suivi mis à jour
+  new_ids_list <- setNames(as.list(as.character(new_ids_df$date_added)), new_ids_df$id)
+  jsonlite::write_json(new_ids_list, FICHIER_NEW_IDS, auto_unbox = TRUE, pretty = TRUE)
+  cat("  -> Nouveautés actives:", nrow(new_ids_df), "(", JOURS_NOUVEAUTE, "jours)\n")
+  
+  # Liste finale des IDs à marquer comme nouveaux
+  vrais_nouveaux_ids <- new_ids_df$id
   
   json_export <- list(
     meta = list(

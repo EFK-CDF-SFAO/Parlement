@@ -1,0 +1,11 @@
+# Fichiers de suivi des nouveautés (générés localement)
+new_ids_tracking.json
+new_ids_debates_tracking.json
+
+# macOS
+.DS_Store
+
+# R
+.Rhistory
+.RData
+.Rproj.user/

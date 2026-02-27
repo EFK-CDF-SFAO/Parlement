@@ -63,6 +63,8 @@ SESSIONS_DEBATS <- c(
 # Fichiers de sortie
 FICHIER_DEBATS_EXCEL <- "Debats_CDF_EFK.xlsx"
 FICHIER_DEBATS_JSON <- "debates_data.json"
+FICHIER_NEW_IDS_DEBATS <- "new_ids_debates_tracking.json"  # Suivi des nouveautés avec dates
+JOURS_NOUVEAUTE <- 4  # Durée d'affichage des marques vertes
 
 # ============================================================================
 # PATTERNS DE RECHERCHE
@@ -323,6 +325,58 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
       language = Langue
     )
   
+  # Charger les IDs existants depuis le JSON précédent pour détecter les nouveaux
+  ids_existants <- c()
+  if (file.exists(FICHIER_DEBATS_JSON)) {
+    ancien_json <- jsonlite::fromJSON(FICHIER_DEBATS_JSON)
+    if (!is.null(ancien_json$items) && length(ancien_json$items) > 0) {
+      ids_existants <- ancien_json$items$id
+    }
+  }
+  
+  # Détecter les nouveaux débats
+  nouveaux_ids <- setdiff(Debats_JSON$id, ids_existants)
+  cat("  -> Nouveaux débats détectés:", length(nouveaux_ids), "\n")
+  
+  # Charger le suivi existant des new_ids
+  new_ids_tracking <- if (file.exists(FICHIER_NEW_IDS_DEBATS)) {
+    jsonlite::fromJSON(FICHIER_NEW_IDS_DEBATS)
+  } else {
+    list()
+  }
+  
+  # Convertir en data.frame si nécessaire
+  if (is.list(new_ids_tracking) && length(new_ids_tracking) > 0) {
+    new_ids_df <- tibble(
+      id = names(new_ids_tracking),
+      date_added = as.Date(unlist(new_ids_tracking))
+    )
+  } else {
+    new_ids_df <- tibble(id = character(0), date_added = as.Date(character(0)))
+  }
+  
+  # Filtrer les IDs de moins de JOURS_NOUVEAUTE jours
+  date_limite_nouveaute <- Sys.Date() - JOURS_NOUVEAUTE
+  new_ids_df <- new_ids_df |>
+    filter(date_added >= date_limite_nouveaute)
+  
+  # Ajouter les nouveaux IDs de cette exécution
+  if (length(nouveaux_ids) > 0) {
+    for (nid in nouveaux_ids) {
+      if (!nid %in% new_ids_df$id) {
+        new_ids_df <- bind_rows(new_ids_df, tibble(id = as.character(nid), date_added = Sys.Date()))
+      }
+    }
+  }
+  
+  # Sauvegarder le suivi mis à jour
+  new_ids_list <- setNames(as.list(as.character(new_ids_df$date_added)), new_ids_df$id)
+  jsonlite::write_json(new_ids_list, FICHIER_NEW_IDS_DEBATS, auto_unbox = TRUE, pretty = TRUE)
+  cat("  -> Nouveautés actives:", nrow(new_ids_df), "(", JOURS_NOUVEAUTE, "jours)\n")
+  
+  # Liste finale des IDs à marquer comme nouveaux
+  vrais_nouveaux_ids <- new_ids_df$id
+  
   jsonlite::write_json(
     list(
       meta = list(
@@ -330,6 +384,7 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
         count = nrow(Debats_JSON),
         updated = as.character(Sys.time())
       ),
+      new_ids = vrais_nouveaux_ids,
       items = Debats_JSON
     ),
     FICHIER_DEBATS_JSON,

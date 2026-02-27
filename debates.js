@@ -4,6 +4,7 @@ const ITEMS_PER_LOAD = 5;
 let allData = [];
 let filteredData = [];
 let displayedCount = 0;
+let newIds = []; // IDs des nouveaux débats (< 4 jours)
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -11,6 +12,7 @@ const resultsContainer = document.getElementById('results');
 const resultsCount = document.getElementById('resultsCount');
 const lastUpdate = document.getElementById('lastUpdate');
 const resetFilters = document.getElementById('resetFilters');
+const showNewUpdatesBtn = document.getElementById('showNewUpdates');
 
 const councilLabels = {
     'N': 'Conseil national',
@@ -101,6 +103,7 @@ async function init() {
         const response = await fetch('debates_data.json');
         const data = await response.json();
         allData = data.items || [];
+        newIds = data.new_ids || [];
         // Trier du plus récent au plus vieux
         allData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
         
@@ -428,8 +431,30 @@ function setupEventListeners() {
             checkboxes.forEach(cb => cb.checked = false);
             updateFilterCount(dropdown.id);
         });
+        // Clear new updates filter
+        window.newUpdatesFilter = false;
+        if (showNewUpdatesBtn) {
+            showNewUpdatesBtn.classList.remove('active');
+        }
         applyFilters();
     });
+    
+    // Show new updates button
+    if (showNewUpdatesBtn) {
+        showNewUpdatesBtn.addEventListener('click', toggleNewUpdatesFilter);
+    }
+}
+
+function toggleNewUpdatesFilter() {
+    window.newUpdatesFilter = !window.newUpdatesFilter;
+    
+    if (window.newUpdatesFilter) {
+        showNewUpdatesBtn.classList.add('active');
+    } else {
+        showNewUpdatesBtn.classList.remove('active');
+    }
+    
+    applyFilters();
 }
 
 function getLegislatureFromSession(sessionId) {
@@ -451,6 +476,13 @@ function applyFilters() {
     const legislatureValues = getCheckedValues('legislatureDropdown');
     
     filteredData = allData.filter(item => {
+        // New updates filter
+        if (window.newUpdatesFilter) {
+            if (!newIds.includes(item.id)) {
+                return false;
+            }
+        }
+        
         if (searchTerm) {
             const searchFields = [
                 item.speaker,
@@ -611,7 +643,8 @@ function highlightCDF(text, searchTerm = '') {
 
 function createCard(item, searchTerm = '') {
     const card = document.createElement('div');
-    card.className = 'card debate-card';
+    const isNew = newIds.includes(item.id);
+    card.className = `card debate-card${isNew ? ' card-new' : ''}`;
     
     const councilDisplay = councilLabels[item.council] || item.council;
     const partyDisplay = getPartyDisplay(item);
