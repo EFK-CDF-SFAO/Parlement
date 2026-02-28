@@ -284,18 +284,32 @@ cat("Fusion et dédoublonnage des interventions...\n")
 
 Tous_Geschaefte <- bind_rows(Geschaefte_DE, Geschaefte_FR)
 
-Geschaefte_Uniques <- Tous_Geschaefte |>
-  filter(!BusinessShortNumber %in% faux_positifs) |>
-  group_by(ID) |>
-  summarise(
-    BusinessShortNumber = first(BusinessShortNumber),
-    Title = first(Title),
-    BusinessTypeAbbreviation = first(BusinessTypeAbbreviation),
-    SubmissionDate = first(SubmissionDate),
-    BusinessStatusText = first(BusinessStatusText),
-    Langues_Detection = paste(unique(Langue_Detection), collapse = ", "),
-    .groups = "drop"
+# Vérifier si des nouveaux objets ont été trouvés
+if (nrow(Tous_Geschaefte) == 0 || !"BusinessShortNumber" %in% names(Tous_Geschaefte)) {
+  cat("Aucun nouvel objet trouvé dans les sessions analysées.\n")
+  Geschaefte_Uniques <- tibble(
+    ID = integer(),
+    BusinessShortNumber = character(),
+    Title = character(),
+    BusinessTypeAbbreviation = character(),
+    SubmissionDate = as.Date(character()),
+    BusinessStatusText = character(),
+    Langues_Detection = character()
   )
+} else {
+  Geschaefte_Uniques <- Tous_Geschaefte |>
+    filter(!BusinessShortNumber %in% faux_positifs) |>
+    group_by(ID) |>
+    summarise(
+      BusinessShortNumber = first(BusinessShortNumber),
+      Title = first(Title),
+      BusinessTypeAbbreviation = first(BusinessTypeAbbreviation),
+      SubmissionDate = first(SubmissionDate),
+      BusinessStatusText = first(BusinessStatusText),
+      Langues_Detection = paste(unique(Langue_Detection), collapse = ", "),
+      .groups = "drop"
+    )
+}
 
 Nouveaux_IDs <- setdiff(Geschaefte_Uniques$ID, IDs_Existants)
 IDs_A_Mettre_A_Jour <- intersect(Geschaefte_Uniques$ID, IDs_Existants)
