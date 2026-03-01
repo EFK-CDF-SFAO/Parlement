@@ -35,6 +35,15 @@
 - **Highlighting** of search terms
 - **Responsive interface** (desktop + mobile)
 
+### 🏛️ Live Session Animation
+During parliamentary sessions, the homepage displays an animated pixel art Federal Palace:
+- **Dynamic sky**: changes based on time of day (morning, day, evening, night)
+- **Animated characters**: MPs entering the building (7:45-8:30 and 14:30-15:00)
+- **Debate bubbles**: visible during session hours (8:30-13:00 and 15:00-19:00)
+- **Night mode**: illuminated windows and twinkling stars (19:00-7:45)
+- **Auto-activation**: starts at 12:00 on the first day of session, ends at 12:00 on the last day
+- **New objects display**: shows newly submitted parliamentary objects during the session
+
 ---
 
 ## 📱 iOS Widget
