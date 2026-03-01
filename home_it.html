@@ -6,6 +6,7 @@
     <title>CDF/EFK - Il CDF alle Camere federali</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="session-animation.css">
 </head>
 <body>
     <header>
@@ -30,14 +31,68 @@
     </header>
 
     <main class="container">
+        <!-- Animation Session -->
+        <div id="sessionAnimation" class="session-animation-container" style="display: none;">
+            <div class="session-title-pixel" id="sessionTitlePixel">Sessione primaverile 2026</div>
+            <div class="session-date-pixel" id="sessionDatePixel">2 - 20 marzo 2026</div>
+            
+            <div class="pixel-scene">
+                <div class="pixel-etoiles" id="pixelEtoiles"></div>
+                <div class="pixel-sol"></div>
+                
+                <div class="pixel-palais">
+                    <div class="p-tour gauche"><div class="p-tour-coupole"></div><div class="p-tour-fenetre"></div></div>
+                    <div class="p-tour droite"><div class="p-tour-coupole"></div><div class="p-tour-fenetre"></div></div>
+                    <div class="p-croix"></div>
+                    <div class="p-lanterne"></div>
+                    <div class="p-coupole"></div>
+                    <div class="p-coupole-drum"></div>
+                    <div class="p-sous-coupole">
+                        <div class="p-fenetre-haute"></div>
+                        <div class="p-fenetre-haute"></div>
+                        <div class="p-fenetre-haute"></div>
+                    </div>
+                    <div class="p-fronton-triangle"></div>
+                    <div class="p-fronton-base"></div>
+                    <div class="p-colonnade">
+                        <div class="p-cols">
+                            <div class="p-col"></div><div class="p-col"></div><div class="p-col"></div>
+                            <div class="p-col"></div><div class="p-col"></div><div class="p-col"></div>
+                        </div>
+                    </div>
+                    <div class="p-aile gauche">
+                        <div class="p-aile-niveau n1"><div class="p-win"></div><div class="p-win"></div><div class="p-win"></div></div>
+                        <div class="p-aile-niveau n2"><div class="p-win"></div><div class="p-win"></div><div class="p-win"></div></div>
+                        <div class="p-aile-niveau n3"><div class="p-win small"></div><div class="p-win small"></div><div class="p-win small"></div></div>
+                    </div>
+                    <div class="p-aile droite">
+                        <div class="p-aile-niveau n1"><div class="p-win"></div><div class="p-win"></div><div class="p-win"></div></div>
+                        <div class="p-aile-niveau n2"><div class="p-win"></div><div class="p-win"></div><div class="p-win"></div></div>
+                        <div class="p-aile-niveau n3"><div class="p-win small"></div><div class="p-win small"></div><div class="p-win small"></div></div>
+                    </div>
+                    <div class="p-base">
+                        <div class="p-arcades-row">
+                            <div class="p-arc"></div>
+                            <div class="p-arc porte"></div>
+                            <div class="p-arc"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pixel-personnages" id="pixelPersos"></div>
+                <div class="pixel-bulle g">...</div>
+                <div class="pixel-bulle d">!</div>
+            </div>
+        </div>
+
         <!-- Hero Banner -->
-        <div class="hero-banner">
+        <div class="hero-banner" id="heroBanner">
             <h2 id="summaryTitle">Caricamento...</h2>
         </div>
 
         <!-- Sezione Oggetti -->
         <section class="home-section">
-            <h2>📋 Interventi parlamentari</h2>
+            <h2>📋 Ultimi interventi depositati</h2>
             <p class="legend-hint">🟢 Banda verde = novità o aggiornamento recente</p>
             <p id="summaryText" class="session-text"></p>
             <div id="objectsList" class="home-cards">
@@ -48,7 +103,7 @@
 
         <!-- Sezione Dibattiti -->
         <section class="home-section">
-            <h2>💬 Dibattiti parlamentari</h2>
+            <h2>💬 Ultimi dibattiti</h2>
             <div id="debatesSummary" class="session-summary-home">
                 <p>Caricamento...</p>
             </div>

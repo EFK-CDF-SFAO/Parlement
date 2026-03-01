@@ -81,19 +81,34 @@ async function init() {
         const sessionsResponse = await fetch(SESSIONS_URL);
         const sessionsJson = await sessionsResponse.json();
         
-        // Déterminer la session à afficher (dernière session terminée)
-        const currentSession = getCurrentSession(sessionsJson.sessions);
+        // Vérifier si une session est active
+        const activeSession = getActiveSession(sessionsJson.sessions);
+        
+        if (activeSession) {
+            showSessionAnimation(activeSession);
+        } else {
+            document.getElementById('heroBanner').style.display = 'block';
+            document.getElementById('sessionAnimation').style.display = 'none';
+        }
+        
+        // Déterminer la session à afficher
+        const currentSession = activeSession || getCurrentSession(sessionsJson.sessions);
         
         // Load objects data
         const objectsResponse = await fetch(DATA_URL);
         const objectsJson = await objectsResponse.json();
         
-        // Display session summary avec session déterminée automatiquement
-        displaySessionSummary(objectsJson.session_summary, currentSession);
-        
-        // Display objects list avec new_ids pour soulignement vert
+        // Display session summary ou nouveaux objets si session active
         const newIds = objectsJson.meta?.new_ids || [];
-        displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
+        
+        if (activeSession) {
+            displayNewObjectsDuringSession(objectsJson.items, newIds, activeSession);
+            const summaryText = document.getElementById('summaryText');
+            if (summaryText) summaryText.style.display = 'none';
+        } else {
+            displaySessionSummary(objectsJson.session_summary, currentSession);
+            displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
+        }
         
         // Load debates data
         const debatesResponse = await fetch(DEBATES_URL);
@@ -105,6 +120,153 @@ async function init() {
     } catch (error) {
         console.error('Error loading data:', error);
     }
+}
+
+// Vérifier si une session est actuellement active
+function getActiveSession(sessions) {
+    const now = new Date();
+    
+    for (const session of sessions) {
+        const startDate = new Date(session.start);
+        const endDate = new Date(session.end);
+        const sessionEndFriday = new Date(endDate);
+        sessionEndFriday.setHours(12, 0, 0, 0);
+        
+        if (now >= startDate && now <= sessionEndFriday) {
+            return session;
+        }
+    }
+    return null;
+}
+
+function showSessionAnimation(session) {
+    const container = document.getElementById('sessionAnimation');
+    const heroBanner = document.getElementById('heroBanner');
+    
+    container.style.display = 'block';
+    heroBanner.style.display = 'none';
+    
+    // Utiliser name_fr comme fallback si name_it n'existe pas
+    const sessionName = session.name_it || session.name_fr.replace('Session de printemps', 'Sessione primaverile')
+        .replace('Session d\'été', 'Sessione estiva')
+        .replace('Session d\'automne', 'Sessione autunnale')
+        .replace('Session d\'hiver', 'Sessione invernale');
+    
+    document.getElementById('sessionTitlePixel').textContent = sessionName;
+    document.getElementById('sessionDatePixel').textContent = formatSessionDatesIt(session.start, session.end);
+    
+    initSessionAnimations();
+}
+
+function formatSessionDatesIt(startStr, endStr) {
+    const start = new Date(startStr);
+    const end = new Date(endStr);
+    const months = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 
+                    'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+    
+    const startDay = start.getDate();
+    const endDay = end.getDate();
+    const month = months[end.getMonth()];
+    const year = end.getFullYear();
+    
+    if (start.getMonth() === end.getMonth()) {
+        return `${startDay} - ${endDay} ${month} ${year}`;
+    } else {
+        return `${startDay} ${months[start.getMonth()]} - ${endDay} ${month} ${year}`;
+    }
+}
+
+function initSessionAnimations() {
+    genererEtoilesSession();
+    updateSessionSky();
+    setInterval(updateSessionSky, 60000);
+}
+
+function genererEtoilesSession() {
+    const container = document.getElementById('pixelEtoiles');
+    if (!container) return;
+    container.innerHTML = '';
+    for (let i = 0; i < 15; i++) {
+        const star = document.createElement('div');
+        star.className = 'pixel-star';
+        star.style.left = (Math.random() * 95 + 2) + '%';
+        star.style.top = (Math.random() * 90) + '%';
+        star.style.animationDelay = (Math.random() * 2) + 's';
+        container.appendChild(star);
+    }
+}
+
+function getSessionTime() {
+    const now = new Date();
+    return now.getHours() + now.getMinutes() / 60;
+}
+
+function shouldShowPersonnages(time) {
+    return (time >= 7.75 && time < 8.5) || (time >= 14.5 && time < 15);
+}
+
+function shouldShowBulles(time) {
+    return (time >= 8.5 && time < 13) || (time >= 15 && time < 19);
+}
+
+function genererPersonnagesSession() {
+    const container = document.getElementById('pixelPersos');
+    if (!container) return;
+    container.innerHTML = '';
+    
+    const time = getSessionTime();
+    if (!shouldShowPersonnages(time)) return;
+    
+    const personnages = [
+        { parti: 'udc', dir: 'gauche', femme: false },
+        { parti: 'ps', dir: 'droite', femme: true },
+        { parti: 'plr', dir: 'gauche', femme: false },
+        { parti: 'verts', dir: 'droite', femme: true },
+        { parti: 'centre', dir: 'gauche', femme: false },
+        { parti: 'vertlib', dir: 'droite', femme: true }
+    ];
+    
+    for (let i = 0; i < personnages.length; i++) {
+        const p = personnages[i];
+        const perso = document.createElement('div');
+        let classes = `pixel-perso ${p.parti} ${p.dir}`;
+        if (p.femme) classes += ' femme';
+        perso.className = classes;
+        perso.style.animationDelay = (i * 1.2) + 's';
+        perso.style.animationDuration = '8s';
+        container.appendChild(perso);
+    }
+}
+
+function gererBullesSession() {
+    const time = getSessionTime();
+    const bulles = document.querySelectorAll('.pixel-bulle');
+    const show = shouldShowBulles(time);
+    bulles.forEach(b => {
+        b.style.display = show ? 'block' : 'none';
+    });
+}
+
+function updateSessionSky() {
+    const container = document.getElementById('sessionAnimation');
+    if (!container) return;
+    
+    const time = getSessionTime();
+    
+    container.classList.remove('morning', 'day', 'evening', 'night');
+    
+    if (time >= 7.75 && time < 8) {
+        container.classList.add('morning');
+    } else if (time >= 8 && time < 19) {
+        container.classList.add('day');
+    } else if (time >= 19 && time < 21) {
+        container.classList.add('evening');
+    } else {
+        container.classList.add('night');
+    }
+    
+    genererPersonnagesSession();
+    gererBullesSession();
 }
 
 // Déterminer la dernière session terminée
@@ -287,6 +449,59 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
                 <div class="card-title">${title}</div>
                 <div class="card-footer">
                     <span class="card-author">${interventions.author[i]}</span>
+                    <span class="card-party" style="background: ${partyColor};">${party}</span>
+                    <span class="card-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
+                </div>
+            </a>
+        `;
+    }
+    
+    container.innerHTML = html;
+}
+
+// Afficher les nouveaux objets déposés pendant la session active
+function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
+    const container = document.getElementById('objectsList');
+    if (!container) return;
+    
+    const startDate = new Date(activeSession.start);
+    const endDate = new Date(activeSession.end);
+    
+    const newObjects = allItems.filter(item => {
+        if (!newIds.includes(item.shortId)) return false;
+        if (item.dateDeposit) {
+            const depositDate = new Date(item.dateDeposit);
+            return depositDate >= startDate && depositDate <= endDate;
+        }
+        return true;
+    });
+    
+    if (newObjects.length === 0) {
+        container.innerHTML = '<p class="no-data">Nessun nuovo intervento depositato durante questa sessione.</p>';
+        return;
+    }
+    
+    newObjects.sort((a, b) => b.shortId.localeCompare(a.shortId, undefined, { numeric: true }));
+    
+    let html = '';
+    for (const item of newObjects) {
+        const party = translateParty(item.party);
+        const type = item.type;
+        const partyColor = partyColors[party] || '#6B7280';
+        const mentionData = getMentionEmojis(item.mention);
+        const url = item.url_fr.replace('/fr/', '/it/');
+        const title = (item.title_it && item.title_it.trim() && item.title_it.toLowerCase() !== 'titre suit') 
+            ? item.title_it : item.title;
+        
+        html += `
+            <a href="${url}" target="_blank" class="intervention-card card-new">
+                <div class="card-header">
+                    <span class="card-type">${typeLabels[type] || type}</span>
+                    <span class="card-id">${item.shortId}</span>
+                </div>
+                <div class="card-title">${title}</div>
+                <div class="card-footer">
+                    <span class="card-author">${item.author}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>
                     <span class="card-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
                 </div>

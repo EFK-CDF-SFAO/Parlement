@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session de printemps 2026 - Test V2</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ===== STYLE PIXEL ART ===== */
+        
+        .pixel-container {
+            background: #9BBC0F;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid #0F380F;
+            margin-bottom: 1rem;
+            image-rendering: pixelated;
+        }
+
+        .pixel-container.morning {
+            background: linear-gradient(to bottom, #FFE4B5 0%, #87CEEB 100%);
+        }
+
+        .pixel-container.day {
+            background: linear-gradient(to bottom, #4A90D9 0%, #87CEEB 60%, #98D8AA 100%);
+        }
+
+        .pixel-container.evening {
+            background: linear-gradient(to bottom, #1E3A5F 0%, #3D5A80 40%, #98C1D9 100%);
+        }
+
+        .pixel-container.night {
+            background: linear-gradient(to bottom, #0D1B2A 0%, #1B263B 60%, #415A77 100%);
+        }
+
+        .session-title-pixel {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0F380F;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pixel-container.evening .session-title-pixel,
+        .pixel-container.evening .session-date-pixel,
+        .pixel-container.night .session-title-pixel,
+        .pixel-container.night .session-date-pixel {
+            color: #E2E8F0;
+        }
+
+        .session-date-pixel {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #306230;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Scène pixel */
+        .pixel-scene {
+            position: relative;
+            width: 100%;
+            max-width: 280px;
+            height: 120px;
+            margin: 0 auto;
+        }
+
+        /* Sol */
+        .pixel-sol {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: #228B22;
+            border-top: 4px solid #006400;
+        }
+
+        /* ===== PALAIS FÉDÉRAL PIXEL ART FIDÈLE ===== */
+        .pixel-palais {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 100px;
+        }
+
+        /* === AILES LATÉRALES (accolées au centre) === */
+        .p-aile {
+            position: absolute;
+            bottom: 0;
+            width: 44px;
+            height: 36px;
+            background: #D8D4C8;
+            border: 2px solid #A0987C;
+            z-index: 2;
+        }
+        .p-aile.gauche { left: 0; }
+        .p-aile.droite { right: 0; }
+
+        /* Fenêtres ailes: 3 niveaux alignés */
+        .p-aile-niveau {
+            position: absolute;
+            left: 4px;
+            right: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .p-aile-niveau.n1 { bottom: 3px; }
+        .p-aile-niveau.n2 { bottom: 14px; }
+        .p-aile-niveau.n3 { bottom: 26px; }
+        
+        .p-win {
+            width: 8px;
+            height: 9px;
+            background: #4A6A8A;
+            border: 1px solid #2A4A6A;
+            border-radius: 4px 4px 0 0;
+        }
+        .p-win.small {
+            width: 6px;
+            height: 6px;
+            border-radius: 3px 3px 0 0;
+        }
+
+        /* === TOURS EN ARRIÈRE-PLAN (base cachée derrière bâtiment) === */
+        .p-tour {
+            position: absolute;
+            bottom: 28px;
+            width: 24px;
+            height: 30px;
+            background: #C8C4B8;
+            border: 2px solid #989080;
+            z-index: 1;
+        }
+        .p-tour.gauche { left: 42px; }
+        .p-tour.droite { right: 42px; }
+        
+        .p-tour-coupole {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 8px;
+            background: #5AB8A8;
+            border: 2px solid #3A9888;
+            border-radius: 10px 10px 0 0;
+        }
+        .p-tour-fenetre {
+            position: absolute;
+            top: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 8px;
+            background: #4A6A8A;
+            border: 1px solid #2A4A6A;
+            border-radius: 5px 5px 0 0;
+        }
+
+        /* === CORPS CENTRAL (même largeur à chaque niveau) === */
+        /* Niveau 0: Base avec 3 arcades (même largeur que colonnade) */
+        .p-base {
+            position: absolute;
+            bottom: 0;
+            left: 42px;
+            width: 96px;
+            height: 20px;
+            background: #D8D4C8;
+            border: 2px solid #A0987C;
+            z-index: 3;
+        }
+
+        /* 3 arcades fines (14px) très basses */
+        .p-arcades-row {
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .p-arc {
+            width: 14px;
+            height: 14px;
+            background: #3A3A3A;
+            border: 2px solid #2A2A2A;
+            border-radius: 7px 7px 0 0;
+        }
+        .p-arc.porte {
+            width: 18px;
+            height: 16px;
+            background: #B8962C;
+            border-color: #8A7020;
+            border-radius: 9px 9px 0 0;
+        }
+
+        /* Niveau 1: Colonnade avec 6 colonnes (même largeur que base) */
+        .p-colonnade {
+            position: absolute;
+            bottom: 18px;
+            left: 42px;
+            width: 96px;
+            height: 20px;
+            background: #E4E0D4;
+            border: 2px solid #A0987C;
+            border-bottom: none;
+            z-index: 3;
+        }
+        .p-cols {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .p-col {
+            width: 4px;
+            height: 16px;
+            background: #F0ECE0;
+            border: 1px solid #C0B8A0;
+        }
+
+        /* Niveau 2: Fronton triangulaire CENTRÉ (avant-plan avec contour) */
+        .p-fronton-base {
+            position: absolute;
+            bottom: 36px;
+            left: 46px;
+            width: 88px;
+            height: 4px;
+            background: #D8D4C8;
+            border: 2px solid #8A8470;
+            border-bottom: none;
+            z-index: 10;
+        }
+        .p-fronton-triangle {
+            position: absolute;
+            bottom: 38px;
+            left: 46px;
+            width: 0;
+            height: 0;
+            border-left: 44px solid transparent;
+            border-right: 44px solid transparent;
+            border-bottom: 14px solid #D8D4C8;
+            z-index: 10;
+            filter: drop-shadow(0 0 0 #8A8470);
+        }
+        /* Contour du triangle */
+        .p-fronton-triangle::before {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: -46px;
+            width: 0;
+            height: 0;
+            border-left: 46px solid transparent;
+            border-right: 46px solid transparent;
+            border-bottom: 16px solid #8A8470;
+            z-index: -1;
+        }
+
+        /* Niveau 3: Bloc sous coupole (même largeur que coupole, DERRIÈRE triangle) */
+        .p-sous-coupole {
+            position: absolute;
+            bottom: 42px;
+            left: 72px;
+            width: 36px;
+            height: 20px;
+            background: #D8D4C8;
+            border: 2px solid #A0987C;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 3px;
+            padding-top: 3px;
+            z-index: 3;
+        }
+        .p-fenetre-haute {
+            width: 8px;
+            height: 8px;
+            background: #4A6A8A;
+            border: 1px solid #2A4A6A;
+            border-radius: 4px 4px 0 0;
+        }
+
+        /* === COUPOLE CENTRALE === */
+        .p-coupole-drum {
+            position: absolute;
+            bottom: 60px;
+            left: 72px;
+            width: 36px;
+            height: 4px;
+            background: #C8C4B8;
+            border: 2px solid #989488;
+            z-index: 5;
+        }
+        .p-coupole {
+            position: absolute;
+            bottom: 62px;
+            left: 76px;
+            width: 28px;
+            height: 14px;
+            background: #5AB8A8;
+            border: 2px solid #3A9888;
+            border-radius: 14px 14px 4px 4px;
+            z-index: 5;
+        }
+        .p-lanterne {
+            position: absolute;
+            bottom: 74px;
+            left: 84px;
+            width: 12px;
+            height: 5px;
+            background: #5AB8A8;
+            border: 2px solid #3A9888;
+            border-radius: 6px 6px 0 0;
+            z-index: 5;
+        }
+        .p-croix {
+            position: absolute;
+            bottom: 77px;
+            left: 87px;
+            width: 6px;
+            height: 8px;
+            background: #D4A020;
+            z-index: 5;
+        }
+        .p-croix::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: -3px;
+            width: 12px;
+            height: 3px;
+            background: #D4A020;
+        }
+
+        /* === ÉCLAIRAGE NUIT === */
+        .pixel-container.night .p-win,
+        .pixel-container.night .p-fenetre-haute,
+        .pixel-container.night .p-tour-fenetre {
+            background: #FFE082;
+            border-color: #D4A030;
+        }
+        .pixel-container.night .p-arc {
+            background: #2A2A2A;
+        }
+        .pixel-container.night .p-arc.porte {
+            background: #FFCC44;
+        }
+
+        /* ===== PERSONNAGES ===== */
+        .pixel-personnages {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            z-index: 10;
+        }
+
+        .pixel-perso {
+            position: absolute;
+            bottom: 0;
+            width: 8px;
+            height: 14px;
+        }
+
+        .pixel-perso::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 1px;
+            width: 6px;
+            height: 6px;
+            background: #FFDAB9;
+            border: 1px solid #D2691E;
+        }
+
+        .pixel-perso::after {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 0;
+            width: 8px;
+            height: 7px;
+        }
+
+        /* Couleurs des partis (corps) */
+        .pixel-perso.udc::after { background: #009F4D; }
+        .pixel-perso.plr::after { background: #0066CC; }
+        .pixel-perso.ps::after { background: #E41019; }
+        .pixel-perso.centre::after { background: #FF9900; }
+        .pixel-perso.verts::after { background: #84B414; }
+        .pixel-perso.vertlib::after { background: #A6CF42; }
+
+        /* Personnages femmes (cheveux longs) */
+        .pixel-perso.femme::before {
+            width: 8px;
+            height: 8px;
+            left: 0;
+            border-radius: 0;
+        }
+
+        .pixel-perso.gauche { animation: marcheG 7s linear infinite; }
+        .pixel-perso.droite { animation: marcheD 8s linear infinite; }
+
+        @keyframes marcheG {
+            0%, 5% { left: 0px; opacity: 0; }
+            6% { left: 0px; opacity: 1; }
+            50% { left: 130px; opacity: 1; }
+            51%, 100% { left: 130px; opacity: 0; }
+        }
+
+        @keyframes marcheD {
+            0%, 5% { right: 0px; left: auto; opacity: 0; }
+            6% { right: 0px; left: auto; opacity: 1; }
+            50% { right: 130px; left: auto; opacity: 1; }
+            51%, 100% { right: 130px; left: auto; opacity: 0; }
+        }
+
+        /* Bulles */
+        .pixel-bulle {
+            position: absolute;
+            bottom: 85px;
+            width: 20px;
+            height: 14px;
+            background: white;
+            border: 2px solid #333;
+            font-size: 8px;
+            text-align: center;
+            line-height: 10px;
+            padding-bottom: 2px;
+            opacity: 0;
+        }
+        .pixel-bulle.g { left: 110px; animation: bulle 6s infinite; }
+        .pixel-bulle.d { right: 110px; animation: bulle 6s infinite 3s; }
+
+        @keyframes bulle {
+            0%, 35% { opacity: 0; }
+            40%, 60% { opacity: 1; }
+            65%, 100% { opacity: 0; }
+        }
+
+        /* Étoiles */
+        .pixel-etoiles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pixel-container.night .pixel-etoiles { opacity: 1; }
+
+        .pixel-star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #FFF;
+            animation: twinkle 1.5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Cacher personnages/bulles la nuit */
+        .pixel-container.night .pixel-personnages,
+        .pixel-container.night .pixel-bulle { display: none; }
+
+        /* Heure */
+        .pixel-time {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 9px;
+            color: #0F380F;
+            background: rgba(255,255,255,0.7);
+            padding: 2px 4px;
+            border: 2px solid #0F380F;
+        }
+
+        .pixel-container.evening .pixel-time,
+        .pixel-container.night .pixel-time {
+            color: #E2E8F0;
+            background: rgba(0,0,0,0.5);
+            border-color: #E2E8F0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="header-main">
+                <h1><a href="home.html" style="color: inherit; text-decoration: none;">🏛️ Le CDF aux Chambres fédérales</a></h1>
+                <nav>
+                    <a href="home.html" class="active">Accueil</a>
+                    <a href="index.html">Objets</a>
+                    <a href="debates.html">Débats</a>
+                    <a href="stats.html">Statistiques</a>
+                </nav>
+            </div>
+            <div class="lang-switcher">
+                <a href="session_test_v2.html" class="active">FR</a>
+                <span>|</span>
+                <a href="session_test_de.html">DE</a>
+                <span>|</span>
+                <a href="session_test_it.html">IT</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Animation pixel art -->
+        <div class="pixel-container" id="pixelContainer">
+            <div class="session-title-pixel">Session de printemps 2026</div>
+            <div class="session-date-pixel">2 - 20 mars 2026</div>
+            
+            <div class="pixel-scene">
+                <div class="pixel-etoiles" id="pixelEtoiles"></div>
+                <div class="pixel-sol"></div>
+                
+                <!-- Palais fédéral fidèle -->
+                <div class="pixel-palais">
+                    <!-- Tours en arrière-plan avec petites coupoles et fenêtres -->
+                    <div class="p-tour gauche">
+                        <div class="p-tour-coupole"></div>
+                        <div class="p-tour-fenetre"></div>
+                    </div>
+                    <div class="p-tour droite">
+                        <div class="p-tour-coupole"></div>
+                        <div class="p-tour-fenetre"></div>
+                    </div>
+                    
+                    <!-- Coupole centrale -->
+                    <div class="p-croix"></div>
+                    <div class="p-lanterne"></div>
+                    <div class="p-coupole"></div>
+                    <div class="p-coupole-drum"></div>
+                    
+                    <!-- Bloc sous coupole avec 3 fenêtres -->
+                    <div class="p-sous-coupole">
+                        <div class="p-fenetre-haute"></div>
+                        <div class="p-fenetre-haute"></div>
+                        <div class="p-fenetre-haute"></div>
+                    </div>
+                    
+                    <!-- Fronton triangulaire -->
+                    <div class="p-fronton-triangle"></div>
+                    <div class="p-fronton-base"></div>
+                    
+                    <!-- Colonnade avec 6 colonnes -->
+                    <div class="p-colonnade">
+                        <div class="p-cols">
+                            <div class="p-col"></div>
+                            <div class="p-col"></div>
+                            <div class="p-col"></div>
+                            <div class="p-col"></div>
+                            <div class="p-col"></div>
+                            <div class="p-col"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ailes latérales avec 3 niveaux -->
+                    <div class="p-aile gauche">
+                        <div class="p-aile-niveau n1">
+                            <div class="p-win"></div>
+                            <div class="p-win"></div>
+                            <div class="p-win"></div>
+                        </div>
+                        <div class="p-aile-niveau n2">
+                            <div class="p-win"></div>
+                            <div class="p-win"></div>
+                            <div class="p-win"></div>
+                        </div>
+                        <div class="p-aile-niveau n3">
+                            <div class="p-win small"></div>
+                            <div class="p-win small"></div>
+                            <div class="p-win small"></div>
+                        </div>
+                    </div>
+                    <div class="p-aile droite">
+                        <div class="p-aile-niveau n1">
+                            <div class="p-win"></div>
+                            <div class="p-win"></div>
+                            <div class="p-win"></div>
+                        </div>
+                        <div class="p-aile-niveau n2">
+                            <div class="p-win"></div>
+                            <div class="p-win"></div>
+                            <div class="p-win"></div>
+                        </div>
+                        <div class="p-aile-niveau n3">
+                            <div class="p-win small"></div>
+                            <div class="p-win small"></div>
+                            <div class="p-win small"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Base avec 3 arcades -->
+                    <div class="p-base">
+                        <div class="p-arcades-row">
+                            <div class="p-arc"></div>
+                            <div class="p-arc porte"></div>
+                            <div class="p-arc"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pixel-personnages" id="pixelPersos"></div>
+                <div class="pixel-bulle g">...</div>
+                <div class="pixel-bulle d">!</div>
+            </div>
+        </div>
+
+        <!-- Section Objets parlementaires (style home.html) -->
+        <section class="home-section">
+            <h2>📋 Derniers objets déposés</h2>
+            <div class="home-cards" id="objectsCards">
+                <!-- Card 1 -->
+                <a href="index.html?id=26.3042" class="intervention-card card-new">
+                    <div class="card-header">
+                        <span class="card-type">Motion</span>
+                        <span class="card-id">26.3042</span>
+                    </div>
+                    <div class="card-title">Renforcement du contrôle des finances fédérales</div>
+                    <div class="card-footer">
+                        <span class="card-author">Müller Thomas</span>
+                        <span class="card-party" style="background: #009F4D;">UDC</span>
+                        <span class="card-mention" title="L'auteur cite le CDF">🧑</span>
+                    </div>
+                </a>
+                <!-- Card 2 -->
+                <a href="index.html?id=26.401" class="intervention-card card-new">
+                    <div class="card-header">
+                        <span class="card-type">Interpellation</span>
+                        <span class="card-id">26.401</span>
+                    </div>
+                    <div class="card-title">Suivi des recommandations du CDF dans les offices fédéraux</div>
+                    <div class="card-footer">
+                        <span class="card-author">Schneider Anna</span>
+                        <span class="card-party" style="background: #E41019;">PS</span>
+                        <span class="card-mention" title="L'auteur et le Conseil fédéral citent le CDF">🧑 🏛️</span>
+                    </div>
+                </a>
+                <!-- Card 3 -->
+                <a href="index.html?id=26.3088" class="intervention-card">
+                    <div class="card-header">
+                        <span class="card-type">Postulat</span>
+                        <span class="card-id">26.3088</span>
+                    </div>
+                    <div class="card-title">Transparence dans l'attribution des mandats de conseil</div>
+                    <div class="card-footer">
+                        <span class="card-author">Weber Marco</span>
+                        <span class="card-party" style="background: #0066CC;">PLR</span>
+                        <span class="card-mention" title="L'auteur cite le CDF">🧑</span>
+                    </div>
+                </a>
+            </div>
+            <a href="index.html?filter_session=Printemps" class="btn-view-all">Voir tous les objets de la session →</a>
+        </section>
+
+        <!-- Section Débats (style home.html) -->
+        <section class="home-section">
+            <h2>💬 Derniers débats</h2>
+            <div class="home-cards" id="debatesCards">
+                <!-- Débat 1 -->
+                <a href="debates.html?id=123456" class="intervention-card card-new">
+                    <div class="card-header">
+                        <span class="card-type">Débat</span>
+                        <span class="card-id">25.301</span>
+                    </div>
+                    <div class="card-title">Efficacité des contrôles dans le domaine de l'asile</div>
+                    <div class="card-footer">
+                        <span class="card-author">Keller Hans, Amaudruz Céline</span>
+                        <span class="card-party" style="background: #009F4D;">UDC</span>
+                    </div>
+                </a>
+                <!-- Débat 2 -->
+                <a href="debates.html?id=123457" class="intervention-card card-new">
+                    <div class="card-header">
+                        <span class="card-type">Débat</span>
+                        <span class="card-id">25.052</span>
+                    </div>
+                    <div class="card-title">Compte d'État 2025 - Discussion du rapport du CDF</div>
+                    <div class="card-footer">
+                        <span class="card-author">Feri Yvonne, Pfister Gerhard</span>
+                        <span class="card-party" style="background: #FF9900;">Centre</span>
+                    </div>
+                </a>
+                <!-- Débat 3 -->
+                <a href="debates.html?id=123458" class="intervention-card">
+                    <div class="card-header">
+                        <span class="card-type">Débat</span>
+                        <span class="card-id">26.002</span>
+                    </div>
+                    <div class="card-title">Budget 2027 - Prise de position du CDF</div>
+                    <div class="card-footer">
+                        <span class="card-author">Grossen Jürg</span>
+                        <span class="card-party" style="background: #A6CF42;">Vert'lib.</span>
+                    </div>
+                </a>
+            </div>
+            <a href="debates.html?filter_session=Printemps" class="btn-view-all">Voir tous les débats de la session →</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Données: <a href="https://ws-old.parlament.ch/" target="_blank">API du Parlement suisse</a></p>
+            <p>Source: <a href="https://github.com/EFK-CDF-SFAO/Parlement" target="_blank">GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function genererEtoiles() {
+            const container = document.getElementById('pixelEtoiles');
+            for (let i = 0; i < 15; i++) {
+                const star = document.createElement('div');
+                star.className = 'pixel-star';
+                star.style.left = (Math.random() * 95 + 2) + '%';
+                star.style.top = (Math.random() * 90) + '%';
+                star.style.animationDelay = (Math.random() * 2) + 's';
+                container.appendChild(star);
+            }
+        }
+
+        // Mode test: changer testMode pour voir différentes heures
+        // 'auto' = heure réelle, ou un nombre (ex: 8.5 pour 8h30)
+        const testMode = 8; // CHANGER ICI POUR TESTER (ex: 8, 10, 14.5, 16, 20)
+        
+        function getTestTime() {
+            if (testMode === 'auto') {
+                const now = new Date();
+                return now.getHours() + now.getMinutes() / 60;
+            }
+            return testMode;
+        }
+
+        // Timing:
+        // 7h45-8h30: personnages entrent, pas de bulles
+        // 8h30-13h: bulles de débats, pas de personnages
+        // 13h-14h30: pause (rien)
+        // 14h30-15h: personnages entrent, pas de bulles
+        // 15h-19h: bulles de débats, pas de personnages
+        // 19h-7h45: nuit (rien)
+        
+        function shouldShowPersonnages(time) {
+            return (time >= 7.75 && time < 8.5) || (time >= 14.5 && time < 15);
+        }
+        
+        function shouldShowBulles(time) {
+            return (time >= 8.5 && time < 13) || (time >= 15 && time < 19);
+        }
+
+        function genererPersonnages() {
+            const container = document.getElementById('pixelPersos');
+            container.innerHTML = '';
+            
+            const time = getTestTime();
+            
+            if (!shouldShowPersonnages(time)) return;
+            
+            const personnages = [
+                { parti: 'udc', dir: 'gauche', femme: false },
+                { parti: 'ps', dir: 'droite', femme: true },
+                { parti: 'plr', dir: 'gauche', femme: false },
+                { parti: 'verts', dir: 'droite', femme: true },
+                { parti: 'centre', dir: 'gauche', femme: false },
+                { parti: 'vertlib', dir: 'droite', femme: true }
+            ];
+            
+            for (let i = 0; i < personnages.length; i++) {
+                const p = personnages[i];
+                const perso = document.createElement('div');
+                let classes = `pixel-perso ${p.parti} ${p.dir}`;
+                if (p.femme) classes += ' femme';
+                perso.className = classes;
+                // Premier personnage commence immédiatement, les autres avec délai
+                perso.style.animationDelay = (i * 1.2) + 's';
+                perso.style.animationDuration = '8s';
+                container.appendChild(perso);
+            }
+        }
+        
+        function gererBulles() {
+            const time = getTestTime();
+            const bulles = document.querySelectorAll('.pixel-bulle');
+            const show = shouldShowBulles(time);
+            bulles.forEach(b => {
+                b.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        function updateSky() {
+            const container = document.getElementById('pixelContainer');
+            const time = getTestTime();
+            const hour = Math.floor(time);
+            
+            container.classList.remove('morning', 'day', 'evening', 'night');
+            
+            if (time >= 7.75 && time < 8) {
+                container.classList.add('morning');
+            } else if (time >= 8 && time < 19) {
+                container.classList.add('day');
+            } else if (time >= 19 && time < 21) {
+                container.classList.add('evening');
+            } else {
+                container.classList.add('night');
+            }
+            
+            genererPersonnages();
+            gererBulles();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            genererEtoiles();
+            updateSky();
+            setInterval(updateSky, 60000);
+        });
+    </script>
+</body>
+</html>

@@ -6,6 +6,7 @@
     <title>CDF/EFK - Le CDF aux Chambres fédérales</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="session-animation.css">
 </head>
 <body>
     <header>
@@ -30,14 +31,81 @@
     </header>
 
     <main class="container">
-        <!-- Hero Banner -->
-        <div class="hero-banner">
+        <!-- Animation Session (visible uniquement pendant les sessions) -->
+        <div id="sessionAnimation" class="session-animation-container" style="display: none;">
+            <div class="session-title-pixel" id="sessionTitlePixel">Session de printemps 2026</div>
+            <div class="session-date-pixel" id="sessionDatePixel">2 - 20 mars 2026</div>
+            
+            <div class="pixel-scene">
+                <div class="pixel-etoiles" id="pixelEtoiles"></div>
+                <div class="pixel-sol"></div>
+                
+                <div class="pixel-palais">
+                    <!-- Tours arrière-plan -->
+                    <div class="p-tour gauche"><div class="p-tour-coupole"></div><div class="p-tour-fenetre"></div></div>
+                    <div class="p-tour droite"><div class="p-tour-coupole"></div><div class="p-tour-fenetre"></div></div>
+                    
+                    <!-- Coupole centrale -->
+                    <div class="p-croix"></div>
+                    <div class="p-lanterne"></div>
+                    <div class="p-coupole"></div>
+                    <div class="p-coupole-drum"></div>
+                    
+                    <!-- Bloc sous coupole -->
+                    <div class="p-sous-coupole">
+                        <div class="p-fenetre-haute"></div>
+                        <div class="p-fenetre-haute"></div>
+                        <div class="p-fenetre-haute"></div>
+                    </div>
+                    
+                    <!-- Fronton -->
+                    <div class="p-fronton-triangle"></div>
+                    <div class="p-fronton-base"></div>
+                    
+                    <!-- Colonnade -->
+                    <div class="p-colonnade">
+                        <div class="p-cols">
+                            <div class="p-col"></div><div class="p-col"></div><div class="p-col"></div>
+                            <div class="p-col"></div><div class="p-col"></div><div class="p-col"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ailes -->
+                    <div class="p-aile gauche">
+                        <div class="p-aile-niveau n1"><div class="p-win"></div><div class="p-win"></div><div class="p-win"></div></div>
+                        <div class="p-aile-niveau n2"><div class="p-win"></div><div class="p-win"></div><div class="p-win"></div></div>
+                        <div class="p-aile-niveau n3"><div class="p-win small"></div><div class="p-win small"></div><div class="p-win small"></div></div>
+                    </div>
+                    <div class="p-aile droite">
+                        <div class="p-aile-niveau n1"><div class="p-win"></div><div class="p-win"></div><div class="p-win"></div></div>
+                        <div class="p-aile-niveau n2"><div class="p-win"></div><div class="p-win"></div><div class="p-win"></div></div>
+                        <div class="p-aile-niveau n3"><div class="p-win small"></div><div class="p-win small"></div><div class="p-win small"></div></div>
+                    </div>
+                    
+                    <!-- Base avec arcades -->
+                    <div class="p-base">
+                        <div class="p-arcades-row">
+                            <div class="p-arc"></div>
+                            <div class="p-arc porte"></div>
+                            <div class="p-arc"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pixel-personnages" id="pixelPersos"></div>
+                <div class="pixel-bulle g">...</div>
+                <div class="pixel-bulle d">!</div>
+            </div>
+        </div>
+
+        <!-- Hero Banner (visible hors session) -->
+        <div class="hero-banner" id="heroBanner">
             <h2 id="summaryTitle">Chargement...</h2>
         </div>
 
         <!-- Section Objets -->
         <section class="home-section">
-            <h2>📋 Objets parlementaires</h2>
+            <h2>📋 Derniers objets déposés</h2>
             <p class="legend-hint">🟢 Bande verte = nouveauté ou mise à jour récente</p>
             <p id="summaryText" class="session-text"></p>
             <div id="objectsList" class="home-cards">
@@ -48,7 +116,7 @@
 
         <!-- Section Débats -->
         <section class="home-section">
-            <h2>💬 Débats parlementaires</h2>
+            <h2>💬 Derniers débats</h2>
             <div id="debatesSummary" class="session-summary-home">
                 <p>Chargement...</p>
             </div>

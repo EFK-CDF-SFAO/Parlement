@@ -68,19 +68,39 @@ async function init() {
         const sessionsResponse = await fetch(SESSIONS_URL);
         const sessionsJson = await sessionsResponse.json();
         
-        // Déterminer la session à afficher (dernière session terminée)
-        const currentSession = getCurrentSession(sessionsJson.sessions);
+        // Vérifier si une session est active
+        const activeSession = getActiveSession(sessionsJson.sessions);
+        
+        if (activeSession) {
+            // Session active : afficher l'animation
+            showSessionAnimation(activeSession);
+        } else {
+            // Pas de session active : afficher le résumé classique
+            document.getElementById('heroBanner').style.display = 'block';
+            document.getElementById('sessionAnimation').style.display = 'none';
+        }
+        
+        // Déterminer la session à afficher (dernière session terminée ou active)
+        const currentSession = activeSession || getCurrentSession(sessionsJson.sessions);
         
         // Load objects data
         const objectsResponse = await fetch(DATA_URL);
         const objectsJson = await objectsResponse.json();
         
-        // Display session summary avec session déterminée automatiquement
-        displaySessionSummary(objectsJson.session_summary, currentSession);
-        
-        // Display objects list avec new_ids pour soulignement vert
+        // Display session summary ou message session active
         const newIds = objectsJson.meta?.new_ids || [];
-        displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
+        
+        if (activeSession) {
+            // Session active: afficher les nouveaux objets déposés
+            displayNewObjectsDuringSession(objectsJson.items, newIds, activeSession);
+            // Cacher le texte de résumé
+            const summaryText = document.getElementById('summaryText');
+            if (summaryText) summaryText.style.display = 'none';
+        } else {
+            // Hors session: affichage normal
+            displaySessionSummary(objectsJson.session_summary, currentSession);
+            displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
+        }
         
         // Load debates data
         const debatesResponse = await fetch(DEBATES_URL);
@@ -92,6 +112,156 @@ async function init() {
     } catch (error) {
         console.error('Error loading data:', error);
     }
+}
+
+// Vérifier si une session est actuellement active (du début jusqu'au vendredi 12h)
+function getActiveSession(sessions) {
+    const now = new Date();
+    
+    for (const session of sessions) {
+        const startDate = new Date(session.start);
+        const endDate = new Date(session.end);
+        
+        // Calculer le vendredi 12h de la dernière semaine de session
+        const sessionEndFriday = new Date(endDate);
+        sessionEndFriday.setHours(12, 0, 0, 0);
+        
+        // Si on est entre le début et le vendredi 12h de fin
+        if (now >= startDate && now <= sessionEndFriday) {
+            return session;
+        }
+    }
+    
+    return null;
+}
+
+// Afficher l'animation de session
+function showSessionAnimation(session) {
+    const container = document.getElementById('sessionAnimation');
+    const heroBanner = document.getElementById('heroBanner');
+    
+    container.style.display = 'block';
+    heroBanner.style.display = 'none';
+    
+    // Mettre à jour le titre et les dates
+    document.getElementById('sessionTitlePixel').textContent = session.name_fr;
+    document.getElementById('sessionDatePixel').textContent = formatSessionDates(session.start, session.end);
+    
+    // Initialiser les animations
+    initSessionAnimations();
+}
+
+// Formater les dates de session (ex: "2 - 20 mars 2026")
+function formatSessionDates(startStr, endStr) {
+    const start = new Date(startStr);
+    const end = new Date(endStr);
+    const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 
+                    'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    
+    const startDay = start.getDate();
+    const endDay = end.getDate();
+    const month = months[end.getMonth()];
+    const year = end.getFullYear();
+    
+    if (start.getMonth() === end.getMonth()) {
+        return `${startDay} - ${endDay} ${month} ${year}`;
+    } else {
+        return `${startDay} ${months[start.getMonth()]} - ${endDay} ${month} ${year}`;
+    }
+}
+
+// Initialiser les animations de la session
+function initSessionAnimations() {
+    genererEtoilesSession();
+    updateSessionSky();
+    setInterval(updateSessionSky, 60000);
+}
+
+function genererEtoilesSession() {
+    const container = document.getElementById('pixelEtoiles');
+    if (!container) return;
+    container.innerHTML = '';
+    for (let i = 0; i < 15; i++) {
+        const star = document.createElement('div');
+        star.className = 'pixel-star';
+        star.style.left = (Math.random() * 95 + 2) + '%';
+        star.style.top = (Math.random() * 90) + '%';
+        star.style.animationDelay = (Math.random() * 2) + 's';
+        container.appendChild(star);
+    }
+}
+
+function getSessionTime() {
+    const now = new Date();
+    return now.getHours() + now.getMinutes() / 60;
+}
+
+function shouldShowPersonnages(time) {
+    return (time >= 7.75 && time < 8.5) || (time >= 14.5 && time < 15);
+}
+
+function shouldShowBulles(time) {
+    return (time >= 8.5 && time < 13) || (time >= 15 && time < 19);
+}
+
+function genererPersonnagesSession() {
+    const container = document.getElementById('pixelPersos');
+    if (!container) return;
+    container.innerHTML = '';
+    
+    const time = getSessionTime();
+    if (!shouldShowPersonnages(time)) return;
+    
+    const personnages = [
+        { parti: 'udc', dir: 'gauche', femme: false },
+        { parti: 'ps', dir: 'droite', femme: true },
+        { parti: 'plr', dir: 'gauche', femme: false },
+        { parti: 'verts', dir: 'droite', femme: true },
+        { parti: 'centre', dir: 'gauche', femme: false },
+        { parti: 'vertlib', dir: 'droite', femme: true }
+    ];
+    
+    for (let i = 0; i < personnages.length; i++) {
+        const p = personnages[i];
+        const perso = document.createElement('div');
+        let classes = `pixel-perso ${p.parti} ${p.dir}`;
+        if (p.femme) classes += ' femme';
+        perso.className = classes;
+        perso.style.animationDelay = (i * 1.2) + 's';
+        perso.style.animationDuration = '8s';
+        container.appendChild(perso);
+    }
+}
+
+function gererBullesSession() {
+    const time = getSessionTime();
+    const bulles = document.querySelectorAll('.pixel-bulle');
+    const show = shouldShowBulles(time);
+    bulles.forEach(b => {
+        b.style.display = show ? 'block' : 'none';
+    });
+}
+
+function updateSessionSky() {
+    const container = document.getElementById('sessionAnimation');
+    if (!container) return;
+    
+    const time = getSessionTime();
+    
+    container.classList.remove('morning', 'day', 'evening', 'night');
+    
+    if (time >= 7.75 && time < 8) {
+        container.classList.add('morning');
+    } else if (time >= 8 && time < 19) {
+        container.classList.add('day');
+    } else if (time >= 19 && time < 21) {
+        container.classList.add('evening');
+    } else {
+        container.classList.add('night');
+    }
+    
+    genererPersonnagesSession();
+    gererBullesSession();
 }
 
 // Déterminer la dernière session terminée (afficher jusqu'au vendredi 9h de fin de session suivante)
@@ -218,6 +388,62 @@ function displaySessionSummary(summary, currentSession) {
         
         textEl.textContent = text;
     }
+}
+
+// Afficher les nouveaux objets déposés pendant la session active
+function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
+    const container = document.getElementById('objectsList');
+    if (!container) return;
+    
+    // Filtrer les objets déposés pendant la session active
+    const startDate = new Date(activeSession.start);
+    const endDate = new Date(activeSession.end);
+    
+    const newObjects = allItems.filter(item => {
+        // Vérifier si l'objet est dans newIds (nouveaux/mis à jour)
+        if (!newIds.includes(item.shortId)) return false;
+        
+        // Vérifier la date de dépôt si disponible
+        if (item.dateDeposit) {
+            const depositDate = new Date(item.dateDeposit);
+            return depositDate >= startDate && depositDate <= endDate;
+        }
+        return true; // Si pas de date, inclure par défaut
+    });
+    
+    if (newObjects.length === 0) {
+        container.innerHTML = '<p class="no-data">Aucun nouvel objet déposé durant cette session.</p>';
+        return;
+    }
+    
+    // Trier par shortId décroissant
+    newObjects.sort((a, b) => b.shortId.localeCompare(a.shortId, undefined, { numeric: true }));
+    
+    let html = '';
+    for (const item of newObjects) {
+        const party = translateParty(item.party);
+        const type = item.type;
+        const typeColor = typeColors[type] || '#6B7280';
+        const partyColor = partyColors[party] || partyColors[item.party] || '#6B7280';
+        const mentionData = getMentionEmojis(item.mention);
+        
+        html += `
+            <a href="${item.url_fr}" target="_blank" class="intervention-card card-new">
+                <div class="card-header">
+                    <span class="card-type">${typeLabels[type] || type}</span>
+                    <span class="card-id">${item.shortId}</span>
+                </div>
+                <div class="card-title">${item.title}</div>
+                <div class="card-footer">
+                    <span class="card-author">${item.author}</span>
+                    <span class="card-party" style="background: ${partyColor};">${party}</span>
+                    <span class="card-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
+                </div>
+            </a>
+        `;
+    }
+    
+    container.innerHTML = html;
 }
 
 function displayObjectsList(summary, newIds = [], allItems = []) {
