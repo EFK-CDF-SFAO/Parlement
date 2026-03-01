@@ -114,20 +114,19 @@ async function init() {
     }
 }
 
-// Vérifier si une session est actuellement active (du début jusqu'au vendredi 12h)
+// Vérifier si une session est actuellement active (du premier jour 12h jusqu'au dernier jour 12h)
 function getActiveSession(sessions) {
     const now = new Date();
     
     for (const session of sessions) {
         const startDate = new Date(session.start);
+        startDate.setHours(12, 0, 0, 0); // Début à 12h le premier jour
+        
         const endDate = new Date(session.end);
+        endDate.setHours(12, 0, 0, 0); // Fin à 12h le dernier jour
         
-        // Calculer le vendredi 12h de la dernière semaine de session
-        const sessionEndFriday = new Date(endDate);
-        sessionEndFriday.setHours(12, 0, 0, 0);
-        
-        // Si on est entre le début et le vendredi 12h de fin
-        if (now >= startDate && now <= sessionEndFriday) {
+        // Si on est entre le premier jour 12h et le dernier jour 12h
+        if (now >= startDate && now <= endDate) {
             return session;
         }
     }
