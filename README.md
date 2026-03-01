@@ -119,8 +119,8 @@ Data is automatically updated via **GitHub Actions**:
 
 | Frequency | Action |
 |:---------:|:------:|
-| Daily at 22h UTC | Update parliamentary objects |
-| Every 2 days at 22h UTC | Update debates |
+| Twice daily at 13h UTC and 22h UTC | Update parliamentary objects |
+| Twice daily at 13h UTC and 22h UTC | Update debates |
 
 > **Manual trigger**: *Actions* tab → Select workflow → *Run workflow*
 
