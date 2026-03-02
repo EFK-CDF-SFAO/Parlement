@@ -630,44 +630,41 @@ function displayDebatesSummary(debatesData, currentSession) {
         });
     }
     
-    const cnCount = sessionDebates.filter(d => d.council === 'N' || d.council === 'CN' || d.council === 'NR').length;
-    const ceCount = sessionDebates.filter(d => d.council === 'S' || d.council === 'CE' || d.council === 'SR').length;
-    
-    const speakers = [...new Set(sessionDebates.map(d => d.speaker))];
-    // Utiliser titre IT si disponible, sinon FR
-    const topics = [...new Set(sessionDebates.filter(d => d.business_title_it || d.business_title_fr).map(d => d.business_title_it || d.business_title_fr))];
-    
     let html = '';
     
-    let sessionName = 'l\'ultima sessione';
-    if (currentSession) {
-        const nameFr = currentSession.name_fr.toLowerCase();
-        if (nameFr.includes('hiver')) sessionName = 'la sessione invernale';
-        else if (nameFr.includes('printemps')) sessionName = 'la sessione primaverile';
-        else if (nameFr.includes('été') || nameFr.includes('ete')) sessionName = 'la sessione estiva';
-        else if (nameFr.includes('automne')) sessionName = 'la sessione autunnale';
-    }
-    
     if (sessionDebates.length > 0) {
-        html = `
-            <div class="debates-mini-cards">
-                <a href="debates_it.html?filter_council=N" class="debate-stat-card clickable">
-                    <span class="debate-stat-icon">🏛️</span>
-                    <span class="debate-stat-number">${cnCount}</span>
-                    <span class="debate-stat-label">Consiglio nazionale</span>
+        // Trier par date décroissante puis par sort_order
+        sessionDebates.sort((a, b) => {
+            const dateCompare = String(b.date).localeCompare(String(a.date));
+            if (dateCompare !== 0) return dateCompare;
+            return (b.sort_order || 0) - (a.sort_order || 0);
+        });
+        
+        // Afficher les 5 derniers débats en format carte
+        const latestDebates = sessionDebates.slice(0, 5);
+        
+        for (const debate of latestDebates) {
+            const councilLabel = debate.council === 'N' ? 'Consiglio nazionale' : 'Consiglio degli Stati';
+            const party = translateParty(debate.party);
+            const partyColor = partyColors[party] || partyColors[debate.party] || '#6B7280';
+            const title = debate.business_title_it || debate.business_title_fr || 'Dibattito parlamentare';
+            const businessNumber = debate.business_number || '';
+            const debateUrl = `debates_it.html?search=${encodeURIComponent(debate.speaker)}`;
+            
+            html += `
+                <a href="${debateUrl}" class="intervention-card">
+                    <div class="card-header">
+                        <span class="card-type">${councilLabel}</span>
+                        <span class="card-id">${businessNumber}</span>
+                    </div>
+                    <div class="card-title">${title}</div>
+                    <div class="card-footer">
+                        <span class="card-author">${debate.speaker}</span>
+                        <span class="card-party" style="background: ${partyColor};">${party}</span>
+                    </div>
                 </a>
-                <a href="debates_it.html?filter_council=S" class="debate-stat-card clickable">
-                    <span class="debate-stat-icon">🏛️</span>
-                    <span class="debate-stat-number">${ceCount}</span>
-                    <span class="debate-stat-label">Consiglio degli Stati</span>
-                </a>
-                <div class="debate-stat-card">
-                    <span class="debate-stat-icon">👥</span>
-                    <span class="debate-stat-number">${speakers.length}</span>
-                    <span class="debate-stat-label">oratori</span>
-                </div>
-            </div>
-        `;
+            `;
+        }
     } else {
         html = `<p class="no-debates">Nessun dibattito che menziona il CDF.</p>`;
     }

@@ -616,41 +616,42 @@ function displayDebatesSummary(debatesData, currentSession) {
         });
     }
     
-    // Count by council (N = Nationalrat, S = Ständerat)
-    const cnCount = sessionDebates.filter(d => d.council === 'N' || d.council === 'CN' || d.council === 'NR').length;
-    const ceCount = sessionDebates.filter(d => d.council === 'S' || d.council === 'CE' || d.council === 'SR').length;
-    
-    // Get unique speakers
-    const speakers = [...new Set(sessionDebates.map(d => d.speaker))];
-    
-    // Get unique topics (from object references if available)
-    const topics = [...new Set(sessionDebates.filter(d => d.business_title_fr).map(d => d.business_title_fr))];
-    
     let html = '';
     
-    // Nom de la session pour cohérence
-    const sessionName = currentSession ? currentSession.name_fr : 'la dernière session';
-    
     if (sessionDebates.length > 0) {
-        html = `
-            <div class="debates-mini-cards">
-                <a href="debates.html?filter_council=N" class="debate-stat-card clickable">
-                    <span class="debate-stat-icon">🏛️</span>
-                    <span class="debate-stat-number">${cnCount}</span>
-                    <span class="debate-stat-label">Conseil national</span>
+        // Trier par date décroissante puis par sort_order
+        sessionDebates.sort((a, b) => {
+            const dateCompare = String(b.date).localeCompare(String(a.date));
+            if (dateCompare !== 0) return dateCompare;
+            return (b.sort_order || 0) - (a.sort_order || 0);
+        });
+        
+        // Afficher les 5 derniers débats en format carte
+        const latestDebates = sessionDebates.slice(0, 5);
+        
+        for (const debate of latestDebates) {
+            const council = debate.council === 'N' ? 'CN' : 'CE';
+            const councilLabel = debate.council === 'N' ? 'Conseil national' : 'Conseil des États';
+            const party = translateParty(debate.party);
+            const partyColor = partyColors[party] || partyColors[debate.party] || '#6B7280';
+            const title = debate.business_title_fr || 'Débat parlementaire';
+            const businessNumber = debate.business_number || '';
+            const debateUrl = `debates.html?search=${encodeURIComponent(debate.speaker)}`;
+            
+            html += `
+                <a href="${debateUrl}" class="intervention-card">
+                    <div class="card-header">
+                        <span class="card-type">${councilLabel}</span>
+                        <span class="card-id">${businessNumber}</span>
+                    </div>
+                    <div class="card-title">${title}</div>
+                    <div class="card-footer">
+                        <span class="card-author">${debate.speaker}</span>
+                        <span class="card-party" style="background: ${partyColor};">${party}</span>
+                    </div>
                 </a>
-                <a href="debates.html?filter_council=S" class="debate-stat-card clickable">
-                    <span class="debate-stat-icon">🏛️</span>
-                    <span class="debate-stat-number">${ceCount}</span>
-                    <span class="debate-stat-label">Conseil des États</span>
-                </a>
-                <div class="debate-stat-card">
-                    <span class="debate-stat-icon">👥</span>
-                    <span class="debate-stat-number">${speakers.length}</span>
-                    <span class="debate-stat-label">orateurs</span>
-                </div>
-            </div>
-        `;
+            `;
+        }
     } else {
         html = `<p class="no-debates">Aucun débat mentionnant le CDF.</p>`;
     }
