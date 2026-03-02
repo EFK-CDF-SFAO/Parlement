@@ -36,6 +36,7 @@
     color: #333;
     text-shadow: 1px 1px 0 white;
     z-index: 20;
+    white-space: nowrap;
 }
 .session-date-pixel {
     position: absolute;
@@ -46,6 +47,17 @@
     color: #555;
     text-shadow: 1px 1px 0 white;
     z-index: 20;
+    white-space: nowrap;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .session-title-pixel {
+        font-size: 12px;
+    }
+    .session-date-pixel {
+        font-size: 10px;
+    }
 }
 .session-animation-container.evening .session-title-pixel,
 .session-animation-container.evening .session-date-pixel,
