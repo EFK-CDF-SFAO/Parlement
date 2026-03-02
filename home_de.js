@@ -145,6 +145,9 @@ function showSessionAnimation(session) {
     container.style.display = 'block';
     heroBanner.style.display = 'none';
     
+    // Speichern des Enddatums für getSessionDayInfo
+    window.currentSessionEnd = session.end;
+    
     document.getElementById('sessionTitlePixel').textContent = session.name_de;
     document.getElementById('sessionDatePixel').textContent = formatSessionDates(session.start, session.end);
     
@@ -224,11 +227,65 @@ function getSessionTime() {
     return now.getHours() + now.getMinutes() / 60;
 }
 
+function getSessionDayInfo() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0=Sonntag, 1=Montag, ..., 5=Freitag, 6=Samstag
+    
+    // Enddatum der Session für letzten Freitag
+    const sessionEnd = window.currentSessionEnd;
+    let isLastFriday = false;
+    
+    if (sessionEnd && dayOfWeek === 5) {
+        const endDate = new Date(sessionEnd);
+        const todayDate = now.toDateString();
+        const endDateStr = endDate.toDateString();
+        isLastFriday = (todayDate === endDateStr);
+    }
+    
+    return { dayOfWeek, isLastFriday };
+}
+
 function shouldShowPersonnages(time) {
+    const { dayOfWeek, isLastFriday } = getSessionDayInfo();
+    
+    // Samstag/Sonntag: keine Personen
+    if (dayOfWeek === 0 || dayOfWeek === 6) return false;
+    
+    // Freitag (ausser letzter): keine Personen
+    if (dayOfWeek === 5 && !isLastFriday) return false;
+    
+    // Montag: Personen nur ab 14:30
+    if (dayOfWeek === 1) {
+        return (time >= 14.5 && time < 15);
+    }
+    
+    // Letzter Freitag: keine Personen (direkte Debatten 8:30-12:00)
+    if (isLastFriday) return false;
+    
+    // Dienstag, Mittwoch, Donnerstag: normale Zeiten
     return (time >= 7.75 && time < 8.5) || (time >= 14.5 && time < 15);
 }
 
 function shouldShowBulles(time) {
+    const { dayOfWeek, isLastFriday } = getSessionDayInfo();
+    
+    // Samstag/Sonntag: keine Blasen
+    if (dayOfWeek === 0 || dayOfWeek === 6) return false;
+    
+    // Freitag (ausser letzter): keine Blasen
+    if (dayOfWeek === 5 && !isLastFriday) return false;
+    
+    // Montag: Blasen nur ab 15:00
+    if (dayOfWeek === 1) {
+        return (time >= 15 && time < 19);
+    }
+    
+    // Letzter Freitag: Blasen nur 8:30-12:00
+    if (isLastFriday) {
+        return (time >= 8.5 && time < 12);
+    }
+    
+    // Dienstag, Mittwoch, Donnerstag: normale Zeiten
     return (time >= 8.5 && time < 13) || (time >= 15 && time < 19);
 }
 
