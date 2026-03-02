@@ -230,8 +230,8 @@
 .p-arc.porte {
     width: 18px;
     height: 16px;
-    background: #B8962C;
-    border-color: #8A7020;
+    background: #3A3A3A;
+    border-color: #2A2A2A;
     border-radius: 9px 9px 0 0;
 }
 
@@ -385,7 +385,7 @@
     background: #2A2A2A;
 }
 .session-animation-container.night .p-arc.porte {
-    background: #FFCC44;
+    background: #2A2A2A;
 }
 
 /* ===== PERSONNAGES ===== */
