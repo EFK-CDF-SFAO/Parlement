@@ -156,7 +156,37 @@ function showSessionAnimation(session) {
     document.getElementById('sessionTitlePixel').textContent = sessionName;
     document.getElementById('sessionDatePixel').textContent = formatSessionDatesIt(session.start, session.end);
     
+    // Mettre à jour les URLs des boutons avec les filtres de session
+    const year = new Date(session.start).getFullYear();
+    const sessionType = getSessionType(session.id);
+    
+    const btnObjects = document.getElementById('btnViewObjects');
+    const btnDebates = document.getElementById('btnViewDebates');
+    
+    if (btnObjects) {
+        btnObjects.href = `index_it.html?filter_year=${year}`;
+    }
+    if (btnDebates) {
+        btnDebates.href = `debates_it.html?filter_year=${year}&filter_session=${sessionType}`;
+    }
+    
     initSessionAnimations();
+}
+
+// Obtenir le type de session (Primaverile, Estiva, Autunnale, Invernale)
+function getSessionType(sessionId) {
+    const typeMap = {
+        'printemps': 'Primaverile',
+        'ete': 'Estiva',
+        'automne': 'Autunnale',
+        'hiver': 'Invernale',
+        'speciale': 'Speciale'
+    };
+    const parts = sessionId.split('-');
+    if (parts.length >= 2) {
+        return typeMap[parts[1]] || 'Primaverile';
+    }
+    return 'Primaverile';
 }
 
 function formatSessionDatesIt(startStr, endStr) {

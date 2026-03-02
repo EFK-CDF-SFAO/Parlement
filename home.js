@@ -146,8 +146,38 @@ function showSessionAnimation(session) {
     document.getElementById('sessionTitlePixel').textContent = session.name_fr;
     document.getElementById('sessionDatePixel').textContent = formatSessionDates(session.start, session.end);
     
+    // Mettre à jour les URLs des boutons avec les filtres de session
+    const year = new Date(session.start).getFullYear();
+    const sessionType = getSessionType(session.id);
+    
+    const btnObjects = document.getElementById('btnViewObjects');
+    const btnDebates = document.getElementById('btnViewDebates');
+    
+    if (btnObjects) {
+        btnObjects.href = `index.html?filter_year=${year}`;
+    }
+    if (btnDebates) {
+        btnDebates.href = `debates.html?filter_year=${year}&filter_session=${sessionType}`;
+    }
+    
     // Initialiser les animations
     initSessionAnimations();
+}
+
+// Obtenir le type de session (Printemps, Été, Automne, Hiver)
+function getSessionType(sessionId) {
+    const typeMap = {
+        'printemps': 'Printemps',
+        'ete': 'Été',
+        'automne': 'Automne',
+        'hiver': 'Hiver',
+        'speciale': 'Spéciale'
+    };
+    const parts = sessionId.split('-');
+    if (parts.length >= 2) {
+        return typeMap[parts[1]] || 'Printemps';
+    }
+    return 'Printemps';
 }
 
 // Formater les dates de session (ex: "2 - 20 mars 2026")

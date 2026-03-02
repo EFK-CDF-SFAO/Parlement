@@ -146,7 +146,37 @@ function showSessionAnimation(session) {
     document.getElementById('sessionTitlePixel').textContent = session.name_de;
     document.getElementById('sessionDatePixel').textContent = formatSessionDates(session.start, session.end);
     
+    // Mettre à jour les URLs des boutons avec les filtres de session
+    const year = new Date(session.start).getFullYear();
+    const sessionType = getSessionType(session.id);
+    
+    const btnObjects = document.getElementById('btnViewObjects');
+    const btnDebates = document.getElementById('btnViewDebates');
+    
+    if (btnObjects) {
+        btnObjects.href = `index_de.html?filter_year=${year}`;
+    }
+    if (btnDebates) {
+        btnDebates.href = `debates_de.html?filter_year=${year}&filter_session=${sessionType}`;
+    }
+    
     initSessionAnimations();
+}
+
+// Obtenir le type de session (Frühjahr, Sommer, Herbst, Winter)
+function getSessionType(sessionId) {
+    const typeMap = {
+        'printemps': 'Frühjahr',
+        'ete': 'Sommer',
+        'automne': 'Herbst',
+        'hiver': 'Winter',
+        'speciale': 'Sonder'
+    };
+    const parts = sessionId.split('-');
+    if (parts.length >= 2) {
+        return typeMap[parts[1]] || 'Frühjahr';
+    }
+    return 'Frühjahr';
 }
 
 function formatSessionDates(startStr, endStr) {
