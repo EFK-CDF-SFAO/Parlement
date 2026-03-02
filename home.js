@@ -634,8 +634,9 @@ function displayDebatesSummary(debatesData, currentSession) {
             return (b.sort_order || 0) - (a.sort_order || 0);
         });
         
-        // Afficher les 3 derniers débats en format carte
-        const latestDebates = sessionDebates.slice(0, 3);
+        // Afficher les 5 derniers débats en format carte
+        const latestDebates = sessionDebates.slice(0, 5);
+        const newDebateIds = debatesData.new_ids || [];
         
         for (const debate of latestDebates) {
             const council = debate.council === 'N' ? 'CN' : 'CE';
@@ -645,9 +646,10 @@ function displayDebatesSummary(debatesData, currentSession) {
             const title = debate.business_title_fr || 'Débat parlementaire';
             const businessNumber = debate.business_number || '';
             const debateUrl = `debates.html?search=${encodeURIComponent(debate.speaker)}`;
+            const isNew = newDebateIds.includes(debate.id);
             
             html += `
-                <a href="${debateUrl}" class="intervention-card card-new">
+                <a href="${debateUrl}" class="intervention-card${isNew ? ' card-new' : ''}">
                     <div class="card-header">
                         <span class="card-type">${councilLabel}</span>
                         <span class="card-id">${businessNumber}</span>
