@@ -261,6 +261,7 @@ function setupEventListeners() {
 function populateYearFilter() {
     const yearMenu = document.getElementById('yearMenu');
     const years = [...new Set(allData.map(item => item.date?.substring(0, 4)).filter(Boolean))];
+    if (!years.includes('2026')) years.push('2026');
     years.sort((a, b) => b - a);
     
     const allLabel = document.createElement('label');

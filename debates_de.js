@@ -203,6 +203,7 @@ const sessionTypes = {
 function populateYearFilter() {
     const yearMenu = document.getElementById('yearMenu');
     const years = [...new Set(allData.map(item => item.date ? item.date.substring(0, 4) : null).filter(Boolean))];
+    if (!years.includes('2026')) years.push('2026');
     years.sort().reverse();
     
     const allLabel = document.createElement('label');

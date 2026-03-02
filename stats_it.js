@@ -207,6 +207,7 @@ function setupDropdown(dropdownId) {
 function populateObjectFilters() {
     const yearMenu = document.getElementById('objectYearMenu');
     const years = [...new Set(allData.map(d => d.date ? d.date.substring(0, 4) : null).filter(Boolean))];
+    if (!years.includes('2026')) years.push('2026');
     years.sort().reverse();
     years.forEach(year => {
         const label = document.createElement('label');
@@ -419,6 +420,7 @@ const sessionTypes = {
 function populateDebateFilters() {
     const yearMenu = document.getElementById('debateYearMenu');
     const years = [...new Set(debatesData.map(d => d.date ? d.date.substring(0, 4) : null).filter(Boolean))];
+    if (!years.includes('2026')) years.push('2026');
     years.sort().reverse();
     years.forEach(year => {
         const label = document.createElement('label');
