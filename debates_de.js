@@ -178,6 +178,12 @@ function applyUrlFilter(menuId, filterValue) {
         const label = cb.parentElement.textContent.trim();
         cb.checked = filterValues.some(v => label.includes(v) || cb.value === v);
     });
+    
+    // Mettre à jour l'affichage du dropdown
+    const dropdown = menu.closest('.filter-dropdown');
+    if (dropdown) {
+        updateFilterCount(dropdown.id);
+    }
 }
 
 // Mapping der Sessionstypen (Legislaturen 50, 51, 52)
