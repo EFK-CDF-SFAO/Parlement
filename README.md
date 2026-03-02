@@ -46,9 +46,9 @@ During parliamentary sessions, the homepage displays an animated pixel art Feder
 | Day | Characters | Debate bubbles |
 |-----|------------|----------------|
 | **Monday** | 14:30-15:00 | 15:00-19:00 |
-| **Tuesday-Thursday** | 7:45-8:30 + 14:30-15:00 | 8:30-13:00 + 15:00-19:00 |
+| **Tuesday-Thursday** | 7:45-8:00 + 14:30-15:00 | 8:00-13:00 + 15:00-19:00 |
 | **Friday (1st & 2nd)** | — | — |
-| **Friday (last)** | — | 8:30-12:00 |
+| **Friday (last)** | 7:45-8:00 | 8:00-12:00 |
 | **Saturday-Sunday** | — | — |
 
 > The sky background always changes according to the time, even on days without animations.
