@@ -288,24 +288,14 @@
 .p-fronton-triangle::before {
     content: '';
     position: absolute;
-    top: 0px;
+    top: 2px;
     left: -46px;
     width: 0;
     height: 0;
     border-left: 46px solid transparent;
     border-right: 46px solid transparent;
-    border-bottom: 16px solid #8A8470;
+    border-bottom: 12px solid #8A8470;
     z-index: -1;
-}
-.p-fronton-triangle::after {
-    content: '';
-    position: absolute;
-    bottom: -14px;
-    left: -44px;
-    width: 88px;
-    height: 4px;
-    background: #D8D4C8;
-    z-index: 1;
 }
 
 /* Bloc sous coupole */
