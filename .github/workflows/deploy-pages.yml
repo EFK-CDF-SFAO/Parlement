@@ -4,13 +4,13 @@ on:
   push:
     branches: ["main"]
     paths:
-      - 'index.html'
-      - 'liste.html'
-      - 'styles.css'
-      - 'app.js'
-      - 'liste.js'
-      - 'cdf_efk_data.json'
-      - 'Objets_parlementaires_CDF_EFK.xlsx'
+      - '*.html'
+      - '*.css'
+      - '*.js'
+      - '*.json'
+      - '*.xlsx'
+      - 'sessions.json'
+      - 'session-animation.css'
   workflow_dispatch:
 
 permissions:
