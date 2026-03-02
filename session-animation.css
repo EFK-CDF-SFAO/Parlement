@@ -282,7 +282,7 @@
     height: 0;
     border-left: 44px solid transparent;
     border-right: 44px solid transparent;
-    border-bottom: 14px solid #D8D4C8;
+    border-bottom: 14px solid #8A8470;
     z-index: 10;
 }
 .p-fronton-triangle::before {
@@ -294,7 +294,7 @@
     height: 0;
     border-left: 46px solid transparent;
     border-right: 46px solid transparent;
-    border-bottom: 12px solid #8A8470;
+    border-bottom: 12px solid #D8D4C8;
     z-index: -1;
 }
 
