@@ -1591,18 +1591,6 @@ a.author-row {
     gap: 1rem;
 }
 
-@media (min-width: 768px) {
-    #debatesSummary {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (min-width: 1200px) {
-    #debatesSummary {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
 .session-summary-home h3 {
     color: var(--text);
     font-size: 1.1rem;
