@@ -37,12 +37,21 @@
 
 ### 🏛️ Live Session Animation
 During parliamentary sessions, the homepage displays an animated pixel art Federal Palace:
-- **Dynamic sky**: changes based on time of day (morning, day, evening, night)
-- **Animated characters**: MPs entering the building (7:45-8:30 and 14:30-15:00)
-- **Debate bubbles**: visible during session hours (8:30-13:00 and 15:00-19:00)
-- **Night mode**: illuminated windows and twinkling stars (19:00-7:45)
+- **Dynamic sky**: changes based on time of day (morning 7:45-8:00, day 8:00-19:00, evening 19:00-21:00, night 21:00-7:45)
 - **Auto-activation**: starts at 12:00 on the first day of session, ends at 12:00 on the last day
 - **New objects display**: shows newly submitted parliamentary objects during the session
+
+**Animation schedule by day:**
+
+| Day | Characters | Debate bubbles |
+|-----|------------|----------------|
+| **Monday** | 14:30-15:00 | 15:00-19:00 |
+| **Tuesday-Thursday** | 7:45-8:30 + 14:30-15:00 | 8:30-13:00 + 15:00-19:00 |
+| **Friday (1st & 2nd)** | — | — |
+| **Friday (last)** | — | 8:30-12:00 |
+| **Saturday-Sunday** | — | — |
+
+> The sky background always changes according to the time, even on days without animations.
 
 ---
 
