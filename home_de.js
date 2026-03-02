@@ -532,8 +532,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     });
     
     if (newObjects.length === 0) {
-        const sessionName = activeSession.name_de;
-        container.innerHTML = `<p class="no-debates">Keine neuen Vorstösse während der ${sessionName}.</p>`;
+        container.innerHTML = `<p class="no-debates">Keine neuen Vorstösse.</p>`;
         return;
     }
     
@@ -623,7 +622,7 @@ function displayDebatesSummary(debatesData, currentSession) {
             </div>
         `;
     } else {
-        html = `<p class="no-debates">Keine Debatten mit Bezug zur EFK während der ${sessionName}.</p>`;
+        html = `<p class="no-debates">Keine Debatten mit Bezug zur EFK.</p>`;
     }
     
     container.innerHTML = html;
