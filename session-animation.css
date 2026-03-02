@@ -445,8 +445,8 @@
     z-index: 15;
     display: none;
 }
-.pixel-bulle.g { left: 110px; }
-.pixel-bulle.d { right: 110px; }
+.pixel-bulle.g { left: calc(50% - 60px); }
+.pixel-bulle.d { left: calc(50% + 40px); }
 .pixel-bulle.active { display: block; animation: bulle 6s infinite; }
 .pixel-bulle.d.active { animation-delay: 3s; }
 
