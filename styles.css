@@ -2055,8 +2055,8 @@ a.author-row {
 .no-debates {
     color: var(--text-secondary);
     font-style: italic;
-    font-size: 0.85rem;
-    text-align: center;
+    font-size: 0.9rem;
+    text-align: left;
 }
 
 @media (max-width: 480px) {
