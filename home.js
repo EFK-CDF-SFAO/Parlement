@@ -93,9 +93,11 @@ async function init() {
         if (activeSession) {
             // Session active: afficher les nouveaux objets déposés
             displayNewObjectsDuringSession(objectsJson.items, newIds, activeSession);
-            // Cacher le texte de résumé
+            // Cacher le texte de résumé et la légende verte
             const summaryText = document.getElementById('summaryText');
             if (summaryText) summaryText.style.display = 'none';
+            const legendHint = document.querySelector('.legend-hint');
+            if (legendHint) legendHint.style.display = 'none';
         } else {
             // Hors session: affichage normal
             displaySessionSummary(objectsJson.session_summary, currentSession);
@@ -267,7 +269,11 @@ function gererBullesSession() {
     const bulles = document.querySelectorAll('.pixel-bulle');
     const show = shouldShowBulles(time);
     bulles.forEach(b => {
-        b.style.display = show ? 'block' : 'none';
+        if (show) {
+            b.classList.add('active');
+        } else {
+            b.classList.remove('active');
+        }
     });
 }
 
@@ -441,7 +447,8 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     });
     
     if (newObjects.length === 0) {
-        container.innerHTML = '<p class="no-data">Aucun nouvel objet déposé durant cette session.</p>';
+        const sessionName = activeSession.name_fr;
+        container.innerHTML = `<p class="no-debates">Aucun nouvel objet déposé durant la ${sessionName}.</p>`;
         return;
     }
     

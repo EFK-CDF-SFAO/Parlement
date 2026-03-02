@@ -443,9 +443,12 @@
     padding-bottom: 2px;
     opacity: 0;
     z-index: 15;
+    display: none;
 }
-.pixel-bulle.g { left: 110px; animation: bulle 6s infinite; }
-.pixel-bulle.d { right: 110px; animation: bulle 6s infinite 3s; }
+.pixel-bulle.g { left: 110px; }
+.pixel-bulle.d { right: 110px; }
+.pixel-bulle.active { display: block; animation: bulle 6s infinite; }
+.pixel-bulle.d.active { animation-delay: 3s; }
 
 @keyframes bulle {
     0%, 35% { opacity: 0; }

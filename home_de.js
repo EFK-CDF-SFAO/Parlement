@@ -101,6 +101,8 @@ async function init() {
             displayNewObjectsDuringSession(objectsJson.items, newIds, activeSession);
             const summaryText = document.getElementById('summaryText');
             if (summaryText) summaryText.style.display = 'none';
+            const legendHint = document.querySelector('.legend-hint');
+            if (legendHint) legendHint.style.display = 'none';
         } else {
             displaySessionSummary(objectsJson.session_summary, currentSession);
             displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
@@ -264,7 +266,11 @@ function gererBullesSession() {
     const bulles = document.querySelectorAll('.pixel-bulle');
     const show = shouldShowBulles(time);
     bulles.forEach(b => {
-        b.style.display = show ? 'block' : 'none';
+        if (show) {
+            b.classList.add('active');
+        } else {
+            b.classList.remove('active');
+        }
     });
 }
 
@@ -469,7 +475,8 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     });
     
     if (newObjects.length === 0) {
-        container.innerHTML = '<p class="no-data">Keine neuen Vorstösse während dieser Session.</p>';
+        const sessionName = activeSession.name_de;
+        container.innerHTML = `<p class="no-debates">Keine neuen Vorstösse während der ${sessionName}.</p>`;
         return;
     }
     
