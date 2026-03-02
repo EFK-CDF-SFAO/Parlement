@@ -147,8 +147,9 @@ function showSessionAnimation(session) {
     // Stocker la date de fin pour getSessionDayInfo
     window.currentSessionEnd = session.end;
     
-    // Mettre à jour le titre et les dates
-    document.getElementById('sessionTitlePixel').textContent = session.name_fr;
+    // Mettre à jour le titre et les dates (sans l'année dans le titre)
+    const titleWithoutYear = session.name_fr.replace(/\s*\d{4}$/, '');
+    document.getElementById('sessionTitlePixel').textContent = titleWithoutYear;
     document.getElementById('sessionDatePixel').textContent = formatSessionDates(session.start, session.end);
     
     // Mettre à jour les URLs des boutons avec les filtres de session

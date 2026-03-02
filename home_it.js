@@ -154,11 +154,13 @@ function showSessionAnimation(session) {
     
     // Utiliser name_fr comme fallback si name_it n'existe pas
     const sessionName = session.name_it || session.name_fr.replace('Session de printemps', 'Sessione primaverile')
-        .replace('Session d\'été', 'Sessione estiva')
-        .replace('Session d\'automne', 'Sessione autunnale')
-        .replace('Session d\'hiver', 'Sessione invernale');
+        .replace("Session d'été", 'Sessione estiva')
+        .replace("Session d'automne", 'Sessione autunnale')
+        .replace("Session d'hiver", 'Sessione invernale');
     
-    document.getElementById('sessionTitlePixel').textContent = sessionName;
+    // Titolo senza anno
+    const titleWithoutYear = sessionName.replace(/\s*\d{4}$/, '');
+    document.getElementById('sessionTitlePixel').textContent = titleWithoutYear;
     document.getElementById('sessionDatePixel').textContent = formatSessionDatesIt(session.start, session.end);
     
     // Mettre à jour les URLs des boutons avec les filtres de session

@@ -148,7 +148,9 @@ function showSessionAnimation(session) {
     // Speichern des Enddatums für getSessionDayInfo
     window.currentSessionEnd = session.end;
     
-    document.getElementById('sessionTitlePixel').textContent = session.name_de;
+    // Titel ohne Jahr
+    const titleWithoutYear = session.name_de.replace(/\s*\d{4}$/, '');
+    document.getElementById('sessionTitlePixel').textContent = titleWithoutYear;
     document.getElementById('sessionDatePixel').textContent = formatSessionDates(session.start, session.end);
     
     // Mettre à jour les URLs des boutons avec les filtres de session

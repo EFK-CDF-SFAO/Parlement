@@ -42,7 +42,7 @@
 }
 .session-date-pixel {
     position: absolute;
-    top: 28px;
+    top: 32px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 12px;
