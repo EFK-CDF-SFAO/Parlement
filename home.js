@@ -104,12 +104,12 @@ async function init() {
             displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
         }
         
-        // Load debates data
-        const debatesResponse = await fetch(DEBATES_URL);
-        const debatesJson = await debatesResponse.json();
-        
-        // Display debates summary
-        const debatesCount = displayDebatesSummary(debatesJson, currentSession);
+        // Load debates data (uniquement pendant session active)
+        if (activeSession) {
+            const debatesResponse = await fetch(DEBATES_URL);
+            const debatesJson = await debatesResponse.json();
+            displayDebatesSummary(debatesJson, activeSession);
+        }
         
     } catch (error) {
         console.error('Error loading data:', error);
