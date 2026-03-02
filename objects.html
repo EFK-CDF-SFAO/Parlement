@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CDF/EFK - Débats parlementaires</title>
+    <title>CDF/EFK - Interventions parlementaires</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,53 +14,63 @@
                 <h1><a href="home.html" style="color: inherit; text-decoration: none;">🏛️ Le CDF aux Chambres fédérales</a></h1>
                 <nav>
                     <a href="home.html">Accueil</a>
-                    <a href="objects.html">Objets</a>
-                    <a href="debates.html" class="active">Débats</a>
+                    <a href="objects.html" class="active">Objets</a>
+                    <a href="debates.html">Débats</a>
                     <a href="stats.html">Statistiques</a>
                 </nav>
             </div>
             <div class="lang-switcher">
-                <a href="debates.html" class="active">FR</a>
+                <a href="objects.html" class="active">FR</a>
                 <span>|</span>
-                <a href="debates_de.html">DE</a>
+                <a href="objects_de.html">DE</a>
                 <span>|</span>
-                <a href="debates_it.html">IT</a>
+                <a href="objects_it.html">IT</a>
             </div>
         </div>
     </header>
 
     <main class="container">
         <section class="search-section">
-            <h2>Débats parlementaires</h2>
-            <p class="section-intro">Interventions orales mentionnant le CDF lors des débats au Conseil national et au Conseil des États.</p>
-            
+            <h2>Rechercher un objet</h2>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Rechercher dans les débats...">
+                <input type="text" id="searchInput" placeholder="Rechercher par titre, auteur, numéro...">
                 <button id="clearSearch" class="btn-clear" title="Effacer">✕</button>
             </div>
             <div class="filters">
                 <div class="filter-dropdown" id="legislatureDropdown">
                     <button class="filter-btn" type="button">Législature <span class="filter-count"></span></button>
-                    <div class="filter-menu" id="legislatureMenu">
+                    <div class="filter-menu">
                         <label class="select-all"><input type="checkbox" data-select-all checked> Toutes</label>
                         <label><input type="checkbox" value="52"> 52ème (dès déc. 2023)</label>
                         <label><input type="checkbox" value="51"> 51ème (déc. 2019 - sept. 2023)</label>
                         <label><input type="checkbox" value="50"> 50ème (déc. 2015 - sept. 2019)</label>
                     </div>
                 </div>
-                <div class="filter-dropdown" id="yearDropdown">
-                    <button class="filter-btn" type="button">Année <span class="filter-count"></span></button>
-                    <div class="filter-menu" id="yearMenu">
-                    </div>
-                </div>
-                <div class="filter-dropdown" id="sessionDropdown">
-                    <button class="filter-btn" type="button">Session <span class="filter-count"></span></button>
-                    <div class="filter-menu" id="sessionMenu">
+                <div class="filter-dropdown" id="typeDropdown">
+                    <button class="filter-btn" type="button">Type <span class="filter-count"></span></button>
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tous</label>
+                        <label><input type="checkbox" value="Mo."> Motion</label>
+                        <label><input type="checkbox" value="Po."> Postulat</label>
+                        <label><input type="checkbox" value="Ip."> Interpellation</label>
+                        <label><input type="checkbox" value="Fra."> Heure des questions</label>
+                        <label><input type="checkbox" value="A."> Question</label>
+                        <label><input type="checkbox" value="Pa. Iv."> Initiative parlementaire</label>
+                        <label><input type="checkbox" value="D.Ip."> Interpellation urgente</label>
+                        <label><input type="checkbox" value="BRG"> Objet du Conseil fédéral</label>
                     </div>
                 </div>
                 <div class="filter-dropdown" id="councilDropdown">
                     <button class="filter-btn" type="button">Conseil <span class="filter-count"></span></button>
-                    <div class="filter-menu" id="councilMenu">
+                    <div class="filter-menu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tous</label>
+                        <label><input type="checkbox" value="NR"> Conseil national</label>
+                        <label><input type="checkbox" value="SR"> Conseil des États</label>
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="yearDropdown">
+                    <button class="filter-btn" type="button">Année <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="yearMenu">
                     </div>
                 </div>
                 <div class="filter-dropdown" id="partyDropdown">
@@ -73,6 +83,20 @@
                     <div class="filter-menu" id="departmentMenu">
                     </div>
                 </div>
+                <div class="filter-dropdown" id="tagsDropdown">
+                    <button class="filter-btn" type="button">Thématiques <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="tagsMenu">
+                    </div>
+                </div>
+                <div class="filter-dropdown" id="mentionDropdown">
+                    <button class="filter-btn" type="button">Qui cite <span class="filter-count"></span></button>
+                    <div class="filter-menu" id="mentionMenu">
+                        <label class="select-all"><input type="checkbox" data-select-all checked> Tous</label>
+                        <label><input type="checkbox" value="elu"> 👤 Élu</label>
+                        <label><input type="checkbox" value="cf"> 🏛️ Conseil fédéral</label>
+                        <label><input type="checkbox" value="both"> 👤🏛️ Les deux</label>
+                    </div>
+                </div>
                 <div class="filter-actions">
                     <button class="filter-reset" id="resetFilters" title="Réinitialiser les filtres">↻</button>
                     <button class="filter-new-updates" id="showNewUpdates" title="Afficher les nouveautés">Nouveautés</button>
@@ -83,6 +107,7 @@
         <section class="results-section">
             <div class="results-header">
                 <span id="resultsCount">Chargement...</span>
+                <button id="downloadBtn" class="btn-download" title="Télécharger Excel">📥 Excel</button>
                 <span id="lastUpdate"></span>
             </div>
             <div id="results" class="results-grid">
@@ -99,7 +124,7 @@
     </footer>
 
     <button id="scrollTopBtn" class="scroll-top-btn" title="Retour en haut">↑</button>
-    <script src="debates.js"></script>
+    <script src="app.js"></script>
     <script>
         const scrollBtn = document.getElementById('scrollTopBtn');
         window.addEventListener('scroll', () => {
