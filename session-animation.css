@@ -374,18 +374,32 @@
     background: #D4A020;
 }
 
-/* Éclairage nuit */
-.session-animation-container.night .p-win,
-.session-animation-container.night .p-fenetre-haute,
-.session-animation-container.night .p-tour-fenetre {
+/* Éclairage soir - fenêtres allumées */
+.session-animation-container.evening .p-win,
+.session-animation-container.evening .p-fenetre-haute,
+.session-animation-container.evening .p-tour-fenetre {
     background: #FFE082;
     border-color: #D4A030;
 }
-.session-animation-container.night .p-arc {
+.session-animation-container.evening .p-arc {
     background: #2A2A2A;
 }
-.session-animation-container.night .p-arc.porte {
+.session-animation-container.evening .p-arc.porte {
     background: #2A2A2A;
+}
+
+/* Éclairage nuit - fenêtres sombres */
+.session-animation-container.night .p-win,
+.session-animation-container.night .p-fenetre-haute,
+.session-animation-container.night .p-tour-fenetre {
+    background: #2A3A4A;
+    border-color: #1A2A3A;
+}
+.session-animation-container.night .p-arc {
+    background: #1A1A1A;
+}
+.session-animation-container.night .p-arc.porte {
+    background: #1A1A1A;
 }
 
 /* ===== PERSONNAGES ===== */
