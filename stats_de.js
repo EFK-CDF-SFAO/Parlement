@@ -346,7 +346,7 @@ function applyObjectFilters() {
     renderAllObjectCharts();
 }
 
-// Construit l'URL vers index_de.html avec tous les filtres actifs + un filtre additionnel
+// Construit l'URL vers objects_de.html avec tous les filtres actifs + un filtre additionnel
 function buildObjectsUrl(additionalFilter = {}) {
     const params = new URLSearchParams();
     
@@ -374,7 +374,7 @@ function buildObjectsUrl(additionalFilter = {}) {
     if (additionalFilter.mention) params.set('filter_mention', additionalFilter.mention);
     
     const queryString = params.toString();
-    return `index_de.html${queryString ? '?' + queryString : ''}`;
+    return `objects_de.html${queryString ? '?' + queryString : ''}`;
 }
 
 function renderAllObjectCharts() {
@@ -1027,7 +1027,7 @@ function renderTopAuthors() {
     topAuthors.forEach(([author, count], index) => {
         const party = authorParties[author] || '';
         const medalClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
-        const searchUrl = `index_de.html?search=${encodeURIComponent(author)}`;
+        const searchUrl = `objects_de.html?search=${encodeURIComponent(author)}`;
         
         html += `
             <a href="${searchUrl}" class="author-row ${medalClass}">
