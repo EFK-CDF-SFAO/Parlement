@@ -255,19 +255,21 @@ function shouldShowPersonnages(time) {
     // Samedi/Dimanche: pas de personnages
     if (dayOfWeek === 0 || dayOfWeek === 6) return false;
     
-    // Vendredi (sauf dernier): pas de personnages
+    // Vendredi (1er & 2ème): pas de personnages
     if (dayOfWeek === 5 && !isLastFriday) return false;
     
-    // Lundi: personnages seulement à partir de 14h30
+    // Lundi: personnages 14:30-15:00
     if (dayOfWeek === 1) {
         return (time >= 14.5 && time < 15);
     }
     
-    // Dernier vendredi: pas de personnages (débats directs 8h30-12h)
-    if (isLastFriday) return false;
+    // Dernier vendredi: personnages 7:45-8:00
+    if (isLastFriday) {
+        return (time >= 7.75 && time < 8);
+    }
     
-    // Mardi, mercredi, jeudi: horaires normaux
-    return (time >= 7.75 && time < 8.5) || (time >= 14.5 && time < 15);
+    // Mardi, mercredi, jeudi: 7:45-8:00 + 14:30-15:00
+    return (time >= 7.75 && time < 8) || (time >= 14.5 && time < 15);
 }
 
 function shouldShowBulles(time) {
@@ -276,21 +278,21 @@ function shouldShowBulles(time) {
     // Samedi/Dimanche: pas de bulles
     if (dayOfWeek === 0 || dayOfWeek === 6) return false;
     
-    // Vendredi (sauf dernier): pas de bulles
+    // Vendredi (1er & 2ème): pas de bulles
     if (dayOfWeek === 5 && !isLastFriday) return false;
     
-    // Lundi: bulles seulement à partir de 15h
+    // Lundi: bulles 15:00-19:00
     if (dayOfWeek === 1) {
         return (time >= 15 && time < 19);
     }
     
-    // Dernier vendredi: bulles seulement 8h30-12h
+    // Dernier vendredi: bulles 8:00-12:00
     if (isLastFriday) {
-        return (time >= 8.5 && time < 12);
+        return (time >= 8 && time < 12);
     }
     
-    // Mardi, mercredi, jeudi: horaires normaux
-    return (time >= 8.5 && time < 13) || (time >= 15 && time < 19);
+    // Mardi, mercredi, jeudi: 8:00-13:00 + 15:00-19:00
+    return (time >= 8 && time < 13) || (time >= 15 && time < 19);
 }
 
 function genererPersonnagesSession() {

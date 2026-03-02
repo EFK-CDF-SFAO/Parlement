@@ -253,19 +253,21 @@ function shouldShowPersonnages(time) {
     // Samstag/Sonntag: keine Personen
     if (dayOfWeek === 0 || dayOfWeek === 6) return false;
     
-    // Freitag (ausser letzter): keine Personen
+    // Freitag (1. & 2.): keine Personen
     if (dayOfWeek === 5 && !isLastFriday) return false;
     
-    // Montag: Personen nur ab 14:30
+    // Montag: Personen 14:30-15:00
     if (dayOfWeek === 1) {
         return (time >= 14.5 && time < 15);
     }
     
-    // Letzter Freitag: keine Personen (direkte Debatten 8:30-12:00)
-    if (isLastFriday) return false;
+    // Letzter Freitag: Personen 7:45-8:00
+    if (isLastFriday) {
+        return (time >= 7.75 && time < 8);
+    }
     
-    // Dienstag, Mittwoch, Donnerstag: normale Zeiten
-    return (time >= 7.75 && time < 8.5) || (time >= 14.5 && time < 15);
+    // Dienstag, Mittwoch, Donnerstag: 7:45-8:00 + 14:30-15:00
+    return (time >= 7.75 && time < 8) || (time >= 14.5 && time < 15);
 }
 
 function shouldShowBulles(time) {
@@ -274,21 +276,21 @@ function shouldShowBulles(time) {
     // Samstag/Sonntag: keine Blasen
     if (dayOfWeek === 0 || dayOfWeek === 6) return false;
     
-    // Freitag (ausser letzter): keine Blasen
+    // Freitag (1. & 2.): keine Blasen
     if (dayOfWeek === 5 && !isLastFriday) return false;
     
-    // Montag: Blasen nur ab 15:00
+    // Montag: Blasen 15:00-19:00
     if (dayOfWeek === 1) {
         return (time >= 15 && time < 19);
     }
     
-    // Letzter Freitag: Blasen nur 8:30-12:00
+    // Letzter Freitag: Blasen 8:00-12:00
     if (isLastFriday) {
-        return (time >= 8.5 && time < 12);
+        return (time >= 8 && time < 12);
     }
     
-    // Dienstag, Mittwoch, Donnerstag: normale Zeiten
-    return (time >= 8.5 && time < 13) || (time >= 15 && time < 19);
+    // Dienstag, Mittwoch, Donnerstag: 8:00-13:00 + 15:00-19:00
+    return (time >= 8 && time < 13) || (time >= 15 && time < 19);
 }
 
 function genererPersonnagesSession() {
