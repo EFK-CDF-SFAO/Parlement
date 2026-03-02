@@ -53,8 +53,11 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git add cdf_efk_data.json Objets_parlementaires_CDF_EFK.xlsx || true
+          git stash --include-untracked || true
           git pull --rebase origin main || true
-          git add cdf_efk_data.json Objets_parlementaires_CDF_EFK.xlsx
+          git stash pop || true
+          git add cdf_efk_data.json Objets_parlementaires_CDF_EFK.xlsx || true
           git diff --quiet --cached || git commit -m "Update parliament data - $(date +'%Y-%m-%d')"
           git push
 
