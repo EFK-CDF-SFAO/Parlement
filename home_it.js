@@ -571,11 +571,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     });
     
     if (newObjects.length === 0) {
-        const sessionName = activeSession.name_it || activeSession.name_fr.replace("Session de printemps", "Sessione primaverile")
-            .replace("Session d'été", "Sessione estiva")
-            .replace("Session d'automne", "Sessione autunnale")
-            .replace("Session d'hiver", "Sessione invernale");
-        container.innerHTML = `<p class="no-debates">Nessun nuovo intervento depositato durante la ${sessionName}.</p>`;
+        container.innerHTML = `<p class="no-debates">Nessun nuovo intervento depositato.</p>`;
         return;
     }
     
@@ -669,7 +665,7 @@ function displayDebatesSummary(debatesData, currentSession) {
             </div>
         `;
     } else {
-        html = `<p class="no-debates">Nessun dibattito che menziona il CDF durante ${sessionName}.</p>`;
+        html = `<p class="no-debates">Nessun dibattito che menziona il CDF.</p>`;
     }
     
     container.innerHTML = html;

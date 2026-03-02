@@ -504,8 +504,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     });
     
     if (newObjects.length === 0) {
-        const sessionName = activeSession.name_fr;
-        container.innerHTML = `<p class="no-debates">Aucun nouvel objet déposé durant la ${sessionName}.</p>`;
+        container.innerHTML = `<p class="no-debates">Aucun nouvel objet déposé.</p>`;
         return;
     }
     
@@ -650,7 +649,7 @@ function displayDebatesSummary(debatesData, currentSession) {
             </div>
         `;
     } else {
-        html = `<p class="no-debates">Aucun débat mentionnant le CDF durant la ${sessionName}.</p>`;
+        html = `<p class="no-debates">Aucun débat mentionnant le CDF.</p>`;
     }
     
     container.innerHTML = html;
