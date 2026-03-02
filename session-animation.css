@@ -358,16 +358,16 @@
 .p-croix {
     position: absolute;
     bottom: 78.5px;
-    left: 90px;
+    left: 89px;
     width: 1px;
-    height: 3px;
+    height: 2px;
     background: #D4A020;
-    z-index: 4;
+    z-index: 6;
 }
 .p-croix::before {
     content: '';
     position: absolute;
-    top: 2px;
+    top: 0px;
     left: -1px;
     width: 3px;
     height: 1px;
