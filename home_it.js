@@ -16,14 +16,19 @@ const typeLabels = {
 // Traduction des partis
 function translateParty(party) {
     const translations = {
+        'V': 'UDC',
+        'S': 'PS',
+        'RL': 'PLR',
+        'M-E': 'Alleanza del Centro',
+        'M': 'Alleanza del Centro',
+        'G': 'Verdi',
+        'GL': 'PVL',
+        'BD': 'PBD',
+        'CEg': 'PEV',
         'Al': 'Verdi',
         'VERT-E-S': 'Verdi',
         'PSS': 'PS',
-        'PS': 'PS',
-        'M-E': 'Alleanza del Centro',
         'Le Centre': 'Alleanza del Centro',
-        'PLR': 'PLR',
-        'UDC': 'UDC',
         'pvl': 'PVL'
     };
     return translations[party] || party;
@@ -54,7 +59,9 @@ const partyColors = {
     'Alleanza del Centro': '#FF9900',
     'PS': '#E41019',
     'Verdi': '#84B414',
-    'PVL': '#A6CF42'
+    'PVL': '#A6CF42',
+    'PBD': '#FFCC00',
+    'PEV': '#FFCC00'
 };
 
 // Emojis per le citazioni CDF

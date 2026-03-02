@@ -16,6 +16,15 @@ const typeLabels = {
 // Traduction des partis
 function translateParty(party) {
     const translations = {
+        'V': 'SVP',
+        'S': 'SP',
+        'RL': 'FDP',
+        'M-E': 'Die Mitte',
+        'M': 'Die Mitte',
+        'G': 'GRÜNE',
+        'GL': 'GLP',
+        'BD': 'BDP',
+        'CEg': 'EVP',
         'VERT-E-S': 'GRÜNE',
         'Les Vert-e-s': 'GRÜNE',
         'Al': 'GRÜNE',
@@ -27,8 +36,7 @@ function translateParty(party) {
         'PLR': 'FDP',
         'UDC': 'SVP',
         'Le Centre': 'Die Mitte',
-        'Centre': 'Mitte',
-        'M-E': 'Die Mitte'
+        'Centre': 'Mitte'
     };
     return translations[party] || party;
 }
@@ -48,9 +56,12 @@ const partyColors = {
     'SVP': '#009F4D',
     'FDP': '#0066CC',
     'Die Mitte': '#FF9900',
+    'Mitte': '#FF9900',
     'SP': '#E41019',
     'GRÜNE': '#84B414',
-    'GLP': '#A6CF42'
+    'GLP': '#A6CF42',
+    'BDP': '#FFCC00',
+    'EVP': '#FFCC00'
 };
 
 // Emojis pour les mentions EFK
