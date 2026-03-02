@@ -21,10 +21,10 @@ function translateParty(party) {
         'RL': 'PLR',
         'M-E': 'Le Centre',
         'M': 'Le Centre',
-        'G': 'Verts',
-        'GL': 'Vert\'lib.',
-        'BD': 'PBD',
-        'CEg': 'PEV'
+        'G': 'VERT-E-S',
+        'GL': 'Vert\'libéraux',
+        'BD': 'Le Centre',
+        'CEg': 'Le Centre'
     };
     return translations[party] || party;
 }
@@ -46,15 +46,10 @@ const partyColors = {
     'Le Centre': '#FF9900',
     'M-E': '#FF9900',
     'PS': '#E41019',
-    'Parti socialiste': '#E41019',
     'PSS': '#E41019',
-    'Verts': '#84B414',
     'VERT-E-S': '#84B414',
-    'Vert\'lib.': '#A6CF42',
-    'pvl': '#A6CF42',
     'Vert\'libéraux': '#A6CF42',
-    'PBD': '#FFCC00',
-    'PEV': '#FFCC00'
+    'pvl': '#A6CF42'
 };
 
 // Emojis pour les mentions CDF
