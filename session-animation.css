@@ -358,9 +358,9 @@
 .p-croix {
     position: absolute;
     bottom: 78.5px;
-    left: 89px;
+    left: 90px;
     width: 1px;
-    height: 4px;
+    height: 3px;
     background: #D4A020;
     z-index: 4;
 }
