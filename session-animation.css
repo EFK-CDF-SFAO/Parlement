@@ -389,6 +389,7 @@
     bottom: 0;
     width: 8px;
     height: 14px;
+    opacity: 0;
 }
 .pixel-perso::before {
     content: '';
