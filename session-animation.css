@@ -357,10 +357,10 @@
 }
 .p-croix {
     position: absolute;
-    bottom: 77.5px;
+    bottom: 78.5px;
     left: 89px;
     width: 1px;
-    height: 5px;
+    height: 4px;
     background: #D4A020;
     z-index: 4;
 }
