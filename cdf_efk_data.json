@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-03-01T21:32:56",
+    "updated": "2026-03-02T11:53:07",
     "total_count": 328,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -16,7 +16,7 @@
     "themes_de": " Das Ruder wieder übernehmen (Ruch, FDP) ; Verwaltungspraxis bei Fintech-Lizenzen (Pamini, SVP) ; Die Vergütung der Aufgaben, die dem Bundesamt für Zoll und Grenzsicherheit (BAZG) übertragen wurden und die dieses Amt an den Flughäfen Genf und Basel wahrnimmt, muss auch dem BAZG zugute kommen! (Addor, SVP) ; Ermöglichen fehlende provisorische Steuerrechnungen NFA Optimierungen durch die Kantone? (Bertschy, GLP) ; Daten der Bundesverwaltung mehrfach nutzbar machen – als Basis für vertrauenswürdige KI in der Schweiz (Michel, FDP) ; Transparenz bei der Fördereffizienz aller erneuerbaren Technologien herstellen (Grossen, GLP) ; Unbürokratische Entlastung bei invasiven Schadorganismen (Blunschy, M-E) ; Museumsfinanzierung. Kriterien, Transparenz und zukünftige Ausrichtung (Gmür-Schönenberger, M-E) ; Medikamente als Kostentreiber in der obligatorischen Krankenpflegeversicherung? (Schläfli, SP) ; Medizinische Bildgebung in der Westschweiz: Wie hängen Moratorien, Untersuchungsvolumen und Kosten zusammen? (Kolly, SVP) ; Kostendeckende Erträge aus dem Artenschutz?  (Trede, GRÜNE) ; Drei weitere Aufgabenbereiche für das Projekt Entflechtung 27 (Wettstein, GRÜNE)",
     "session_start": "2025-12-01",
     "session_end": "2025-12-19",
-    "display_until": "2026-03-02",
+    "display_until": "2026-04-27",
     "count": 12,
     "by_type": {
       "Ip.": 5,
