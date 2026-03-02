@@ -1,0 +1,70 @@
+name: Update Session Codes
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Tous les jours à 8h Suisse (7h UTC)
+    - cron: '0 7 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-codes:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check and update session codes
+        run: |
+          # Date dans 7 jours
+          TARGET_DATE=$(date -d "+7 days" +%Y-%m-%d)
+          echo "Checking for sessions starting on: $TARGET_DATE"
+          
+          # Trouver les sessions qui commencent dans 7 jours et n'ont pas de code
+          SESSIONS_TO_UPDATE=$(jq -r --arg target "$TARGET_DATE" '
+            .sessions[] | 
+            select(.start == $target and (.code == null or .code == "")) | 
+            .id
+          ' sessions.json)
+          
+          if [ -z "$SESSIONS_TO_UPDATE" ]; then
+            echo "No sessions starting in 7 days without a code"
+            exit 0
+          fi
+          
+          echo "Sessions to update: $SESSIONS_TO_UPDATE"
+          
+          # Récupérer le dernier code utilisé
+          LAST_CODE=$(jq -r '[.sessions[] | select(.code != null and .code != "") | .code] | map(tonumber) | max' sessions.json)
+          echo "Last used code: $LAST_CODE"
+          
+          # Calculer le prochain code
+          NEXT_CODE=$((LAST_CODE + 1))
+          echo "Next code: $NEXT_CODE"
+          
+          # Mettre à jour chaque session
+          for SESSION_ID in $SESSIONS_TO_UPDATE; do
+            echo "Updating session $SESSION_ID with code $NEXT_CODE"
+            
+            # Mettre à jour le fichier JSON
+            jq --arg id "$SESSION_ID" --arg code "$NEXT_CODE" '
+              .sessions |= map(
+                if .id == $id then . + {code: $code} else . end
+              )
+            ' sessions.json > sessions_tmp.json && mv sessions_tmp.json sessions.json
+            
+            NEXT_CODE=$((NEXT_CODE + 1))
+          done
+          
+          echo "Sessions updated successfully"
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add sessions.json
+          git diff --quiet --cached || git commit -m "feat: Add session code for upcoming session"
+          git push
