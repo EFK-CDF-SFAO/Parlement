@@ -149,6 +149,9 @@ function showSessionAnimation(session) {
     container.style.display = 'block';
     heroBanner.style.display = 'none';
     
+    // Memorizzare la data di fine per getSessionDayInfo
+    window.currentSessionEnd = session.end;
+    
     // Utiliser name_fr comme fallback si name_it n'existe pas
     const sessionName = session.name_it || session.name_fr.replace('Session de printemps', 'Sessione primaverile')
         .replace('Session d\'été', 'Sessione estiva')
@@ -234,11 +237,65 @@ function getSessionTime() {
     return now.getHours() + now.getMinutes() / 60;
 }
 
+function getSessionDayInfo() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0=domenica, 1=lunedì, ..., 5=venerdì, 6=sabato
+    
+    // Data di fine sessione per ultimo venerdì
+    const sessionEnd = window.currentSessionEnd;
+    let isLastFriday = false;
+    
+    if (sessionEnd && dayOfWeek === 5) {
+        const endDate = new Date(sessionEnd);
+        const todayDate = now.toDateString();
+        const endDateStr = endDate.toDateString();
+        isLastFriday = (todayDate === endDateStr);
+    }
+    
+    return { dayOfWeek, isLastFriday };
+}
+
 function shouldShowPersonnages(time) {
+    const { dayOfWeek, isLastFriday } = getSessionDayInfo();
+    
+    // Sabato/Domenica: nessun personaggio
+    if (dayOfWeek === 0 || dayOfWeek === 6) return false;
+    
+    // Venerdì (tranne ultimo): nessun personaggio
+    if (dayOfWeek === 5 && !isLastFriday) return false;
+    
+    // Lunedì: personaggi solo dalle 14:30
+    if (dayOfWeek === 1) {
+        return (time >= 14.5 && time < 15);
+    }
+    
+    // Ultimo venerdì: nessun personaggio (dibattiti diretti 8:30-12:00)
+    if (isLastFriday) return false;
+    
+    // Martedì, mercoledì, giovedì: orari normali
     return (time >= 7.75 && time < 8.5) || (time >= 14.5 && time < 15);
 }
 
 function shouldShowBulles(time) {
+    const { dayOfWeek, isLastFriday } = getSessionDayInfo();
+    
+    // Sabato/Domenica: nessuna bolla
+    if (dayOfWeek === 0 || dayOfWeek === 6) return false;
+    
+    // Venerdì (tranne ultimo): nessuna bolla
+    if (dayOfWeek === 5 && !isLastFriday) return false;
+    
+    // Lunedì: bolle solo dalle 15:00
+    if (dayOfWeek === 1) {
+        return (time >= 15 && time < 19);
+    }
+    
+    // Ultimo venerdì: bolle solo 8:30-12:00
+    if (isLastFriday) {
+        return (time >= 8.5 && time < 12);
+    }
+    
+    // Martedì, mercoledì, giovedì: orari normali
     return (time >= 8.5 && time < 13) || (time >= 15 && time < 19);
 }
 

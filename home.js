@@ -144,6 +144,9 @@ function showSessionAnimation(session) {
     container.style.display = 'block';
     heroBanner.style.display = 'none';
     
+    // Stocker la date de fin pour getSessionDayInfo
+    window.currentSessionEnd = session.end;
+    
     // Mettre à jour le titre et les dates
     document.getElementById('sessionTitlePixel').textContent = session.name_fr;
     document.getElementById('sessionDatePixel').textContent = formatSessionDates(session.start, session.end);
@@ -227,11 +230,65 @@ function getSessionTime() {
     return now.getHours() + now.getMinutes() / 60;
 }
 
+function getSessionDayInfo() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0=dimanche, 1=lundi, ..., 5=vendredi, 6=samedi
+    
+    // Récupérer la session active pour savoir si c'est le dernier vendredi
+    const sessionEnd = window.currentSessionEnd;
+    let isLastFriday = false;
+    
+    if (sessionEnd && dayOfWeek === 5) {
+        const endDate = new Date(sessionEnd);
+        const todayDate = now.toDateString();
+        const endDateStr = endDate.toDateString();
+        isLastFriday = (todayDate === endDateStr);
+    }
+    
+    return { dayOfWeek, isLastFriday };
+}
+
 function shouldShowPersonnages(time) {
+    const { dayOfWeek, isLastFriday } = getSessionDayInfo();
+    
+    // Samedi/Dimanche: pas de personnages
+    if (dayOfWeek === 0 || dayOfWeek === 6) return false;
+    
+    // Vendredi (sauf dernier): pas de personnages
+    if (dayOfWeek === 5 && !isLastFriday) return false;
+    
+    // Lundi: personnages seulement à partir de 14h30
+    if (dayOfWeek === 1) {
+        return (time >= 14.5 && time < 15);
+    }
+    
+    // Dernier vendredi: pas de personnages (débats directs 8h30-12h)
+    if (isLastFriday) return false;
+    
+    // Mardi, mercredi, jeudi: horaires normaux
     return (time >= 7.75 && time < 8.5) || (time >= 14.5 && time < 15);
 }
 
 function shouldShowBulles(time) {
+    const { dayOfWeek, isLastFriday } = getSessionDayInfo();
+    
+    // Samedi/Dimanche: pas de bulles
+    if (dayOfWeek === 0 || dayOfWeek === 6) return false;
+    
+    // Vendredi (sauf dernier): pas de bulles
+    if (dayOfWeek === 5 && !isLastFriday) return false;
+    
+    // Lundi: bulles seulement à partir de 15h
+    if (dayOfWeek === 1) {
+        return (time >= 15 && time < 19);
+    }
+    
+    // Dernier vendredi: bulles seulement 8h30-12h
+    if (isLastFriday) {
+        return (time >= 8.5 && time < 12);
+    }
+    
+    // Mardi, mercredi, jeudi: horaires normaux
     return (time >= 8.5 && time < 13) || (time >= 15 && time < 19);
 }
 
