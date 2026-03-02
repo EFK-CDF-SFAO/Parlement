@@ -658,7 +658,7 @@ function displayDebatesSummary(debatesData, currentSession) {
             const debateUrl = `debates_it.html?search=${encodeURIComponent(debate.speaker)}`;
             
             html += `
-                <a href="${debateUrl}" class="intervention-card">
+                <a href="${debateUrl}" class="intervention-card card-new">
                     <div class="card-header">
                         <span class="card-type">${councilLabel}</span>
                         <span class="card-id">${businessNumber}</span>
