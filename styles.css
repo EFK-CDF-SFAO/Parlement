@@ -1588,7 +1588,13 @@ a.author-row {
 #debatesSummary {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    #debatesSummary {
+        gap: 1rem;
+    }
 }
 
 .session-summary-home h3 {
