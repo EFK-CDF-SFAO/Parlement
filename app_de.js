@@ -759,8 +759,12 @@ function getMentionEmojis(mention) {
 }
 
 function translateType(type) {
-    if (type === 'Fra.') return 'Frage';
-    return type;
+    const translations = {
+        'Fra.': 'Frage',
+        'Dringliche Interpellation': 'Dringliche Interpellation',
+        'D.Ip.': 'D.Ip.'
+    };
+    return translations[type] || type;
 }
 
 function isTitleMissing(title) {

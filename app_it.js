@@ -744,6 +744,8 @@ function translateType(type) {
     const translations = {
         'Interpellation': 'Interpellanza',
         'Ip.': 'Ip.',
+        'Dringliche Interpellation': 'Interpellanza urgente',
+        'D.Ip.': 'Ip. urg.',
         'Motion': 'Mozione',
         'Mo.': 'Mo.',
         'Fragestunde': 'Ora delle domande',
