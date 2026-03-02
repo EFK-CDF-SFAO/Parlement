@@ -1,10 +1,10 @@
 {
   "meta": {
-    "sessions": "5211, 5210",
-    "count": 731,
-    "updated": "2026-03-02 21:37:12.876482"
+    "sessions": "5212",
+    "count": 734,
+    "updated": "2026-03-02 22:00:25.824576"
   },
-  "new_ids": [],
+  "new_ids": ["369302", "369311", "369304"],
   "items": [
     {
       "id": "191252",
@@ -14418,6 +14418,66 @@
       "business_title_it": "Legge federale concernente il conferimento del carattere obbligatorio generale al contratto collettivo di lavoro. Modifica  (Consultazione dei conti annuali degli organi responsabili dell’esecuzione in comune)",
       "department": "WBF",
       "text": "Le projet de loi que nous traitons aujourd'hui vise à adapter la loi fédérale permettant d'étendre le champ d'application de la convention collective de travail (LECCT). L'objectif du projet est d'accroître la transparence sur les moyens financiers des caisses des commissions paritaires (CP) des conventions collectives de travail (CCT) étendues au niveau fédéral. Il trouve son origine dans la motion 21.3599 de la Commission de l'économie et des redevances du Conseil national, \"Transparence sur les moyens financiers des commissions paritaires\". Cette motion chargeait le Conseil fédéral de prendre deux types de mesures[NB]: premièrement, les mesures nécessaires pour que les caisses des CP des CCT étendues au niveau fédéral soient tenues, d'une part, de publier leur rapport annuel comptable et, d'autre part, de rendre des comptes sur le but des moyens à disposition dans le capital des fonds et sur leur utilisation[NB]; deuxièmement, les mesures permettant au Secrétariat d'État à l'économie (SECO) de confier l'audit financier au Contrôle fédéral des finances (CDF) ou à des experts autres, internes ou externes à l'administration.\nLe Conseil fédéral s'était opposé à la motion. Il faisait valoir, d'une part, que les deux premiers objectifs de la motion visant la transparence financière étaient d'ores et déjà réalisés, dès lors que les comptes de ces caisses pouvaient être sollicités en vertu de la loi sur la transparence auprès de l'autorité de surveillance, le SECO, et que la troisième demande relative à l'audit par le CDF était déjà réalisée, puisque celui-ci avait déjà planifié son programme et que ce dernier comportait un audit du système de contrôle des comptes des caisses des CP des CCT étendues. La motion fut néanmoins adoptée en 2022 par les deux chambres. \nEn 2023, le CDF a publié son rapport sur la surveillance exercée par le SECO sur les caisses des CP des CCT étendues au niveau fédéral. Le CDF a mis en exergue la bonne qualité de la surveillance exercée par le SECO, avec quelques recommandations d'amélioration des processus, acceptées par celui-ci.\nÀ la suite de cela, le Conseil fédéral a soumis le projet au Parlement. Ce projet du Conseil fédéral porte donc uniquement sur le premier point de la motion relatif à la publication du rapport annuel des comptes des CP. En effet, comme le rappelle le Conseil fédéral dans le message, les deux dernières demandes mentionnées dans la motion sont déjà remplies. En effet, en ce qui concerne le contrôle de l'utilisation des fonds, les CP des CCT étendues au niveau fédéral sont déjà tenues de remettre chaque année au SECO leur comptabilité sur les contributions aux frais d'exécution des CCT en vertu des articles 3 et 5 LECCT. Le SECO, en sa qualité d'autorité de surveillance, vérifie que ces contributions soient utilisées conformément aux directives relatives aux contributions.\nS'agissant de la demande relative aux audits, le SECO peut, en tant qu'autorité de surveillance, faire appel à des experts internes ou externes à l'administration fédérale pour effectuer l'audit financier. Il a d'ailleurs déjà eu recours à cette possibilité.\nLe projet du Conseil fédéral ne prévoit toutefois pas une obligation de publication des comptes des caisses des CP comme le demandait la motion, mais simplement un droit de consultation des comptes annuels des CP pour les employeurs et les travailleurs soumis à la CCT étendue au niveau fédéral. Cette solution a été retenue, car l'obligation de publication des comptes aurait violé des dispositions constitutionnelles et aurait créé une inégalité de traitement entre associations dès lors que les CP des CCT sont constituées sous forme d'associations et que les associations, contrairement aux sociétés cotées en bourse, n'ont pas d'obligation de publication des comptes. Cette solution proposée par le Conseil fédéral a été largement approuvée lors de la procédure de consultation.\nOn peut encore signaler que, comme l'affirmait le Conseil fédéral dans sa réponse à la motion, lors des auditions des partenaires sociaux menées par la Commission de l'économie et des redevances du Conseil national, il a été confirmé par ceux-ci que les rapports financiers des caisses des CCT étendues au niveau fédéral sont, pour la plupart, aujourd'hui déjà, disponibles pour la consultation.\nLe projet a été traité en commission le 28 août dernier. Il a été adopté par la commission sans modification ni autre proposition, à l'unanimité. Il convient encore de rappeler qu'il avait également été adopté, sans modification, à l'unanimité, par le Conseil national en date du 17 juin 2024.\nJe vous invite donc, au nom de la commission, à entrer en matière et à adopter le projet.\n",
+      "language": "FR"
+    },
+    {
+      "id": "369302",
+      "id_subject": "70448",
+      "id_session": "5212",
+      "sort_order": 2,
+      "date": "20260302",
+      "council": "S",
+      "speaker": "Stark Jakob",
+      "function_speaker": "Mit-M",
+      "party": "V",
+      "canton": "TG",
+      "affair_id": "20254620",
+      "business_number": "25.4620",
+      "business_title_fr": "Favoriser la fiabilité de l’IA en Suisse en rendant réutilisables les données de l’administration fédérale",
+      "business_title_de": "Daten der Bundesverwaltung mehrfach nutzbar machen – als Basis für vertrauenswürdige KI in der Schweiz",
+      "business_title_it": "Permettere l’utilizzo multiplo dei dati dell’Amministrazione federale quale base per un’IA affidabile in Svizzera",
+      "department": "EDI",
+      "text": "Dieses Thema ist von grosser forschungs- und wirtschaftspolitischer Bedeutung. Es ist komplex und wichtig. In mehreren Berichten hat die Eidgenössische Finanzkontrolle darauf hingewiesen, dass in diesem Bereich die rechtlichen Grundlagen zu verbessern seien, um die Mehrfachnutzung öffentlicher Daten sicherzustellen, insbesondere auch durch Aktivitäten des Bundesamtes für Statistik. Die Ablehnung des Vorstosses durch den Bundesrat kommt in dieser Situation etwas überraschend. Ich schlage Ihnen vor, dass dieses doch komplexe Thema in der zuständigen Kommission vertieft behandelt wird, damit der Rat dann auf einer gesicherten Grundlage den richtigen Entscheid treffen kann.\nMein Antrag lautet also: Überweisung an die zuständige Kommission.\n",
+      "language": "DE"
+    },
+    {
+      "id": "369311",
+      "id_subject": "70448",
+      "id_session": "5212",
+      "sort_order": 3,
+      "date": "20260302",
+      "council": "S",
+      "speaker": "Michel Matthias",
+      "function_speaker": "Mit-M",
+      "party": "RL",
+      "canton": "ZG",
+      "affair_id": "20254620",
+      "business_number": "25.4620",
+      "business_title_fr": "Favoriser la fiabilité de l’IA en Suisse en rendant réutilisables les données de l’administration fédérale",
+      "business_title_de": "Daten der Bundesverwaltung mehrfach nutzbar machen – als Basis für vertrauenswürdige KI in der Schweiz",
+      "business_title_it": "Permettere l’utilizzo multiplo dei dati dell’Amministrazione federale quale base per un’IA affidabile in Svizzera",
+      "department": "EDI",
+      "text": "Ich habe den Satz des Bundesrates gelesen: \"Ohne verbindliche Standards und einheitliche Beschreibung der Daten aus vertrauenswürdigen Quellen können KI-gestützte Analysen weder verlässlich noch effizient durchgeführt werden.\" Da sind wir uns einig. Dann kommt aber die Kehrtwendung. Wir sind uns nicht einig, ob die Instrumente, die dem Bundesrat oder der Verwaltung heute zur Verfügung stehen, ausreichen, um das Ziel zu erreichen. Ich glaube, die Hindernisse sind eben mehr als nur die Finanzressourcen, wie der Bundesrat suggeriert, sondern es bestehen, wie Herr Kollege Stark angetönt hat, auch Regelungslücken. Ich gebe der Kommission wirklich mit auf den Weg, dass sie die EFK-Berichte genau anschaut, in denen es heisst, es fehle an Weisungskompetenzen und an Durchsetzungskraft etwa des Bundesamtes für Statistik. Ich glaube, hier ist schon etwas mehr zu tun. Aber um Klärung zu erhalten, bin ich einverstanden mit dem Antrag zur Überweisung an die Kommission.\n",
+      "language": "DE"
+    },
+    {
+      "id": "369304",
+      "id_subject": "70449",
+      "id_session": "5212",
+      "sort_order": 1,
+      "date": "20260302",
+      "council": "N",
+      "speaker": "Gaillard Benoît",
+      "function_speaker": "Mit-M",
+      "party": "S",
+      "canton": "VD",
+      "affair_id": "20254408",
+      "business_number": "25.4408",
+      "business_title_fr": "E-ID. Évaluer la mise en oeuvre après deux ans",
+      "business_title_de": "E-ID. Evaluierung der Umsetzung nach zwei Jahren",
+      "business_title_it": "Id-e. Valutazione dell'attuazione dopo due anni",
+      "department": "EJPD",
+      "text": "Après avoir trouvé une extrêmement large majorité dans notre conseil, la loi sur l'e-ID n'a été acceptée qu'avec un peu moins de 50,4 pour cent des voix en septembre dernier. Du reste, comme des recours sont encore pendants, la loi n'est même pas définitivement en vigueur à ce jour.\nLa campagne de votation avait été marquée par de nombreuses expressions d'une certaine défiance sur l'interprétation du texte de loi, sur les engagements du Conseil fédéral et sur la manière dont le projet allait réellement être mis en oeuvre. Je cite quelques-uns des domaines controversés : le caractère facultatif de l'e-ID allait-il être respecté ? Le code source serait-il réellement publié, comme le prévoit la loi ? Les demandes excessives d'informations de prestataires privés pourraient-elles être évitées, comme nous l'avons défendu du côté du oui dans la campagne de votation ? Et puis, inévitablement, le cadre financier annoncé serait-il respecté ?\nDepuis la campagne de votation, deux nouveaux événements se sont produits. D'une part, le financement pour la mise en oeuvre de l'e-ID a été réduit dans le cadre des discussions sur le budget 2026 - je l'ai regretté à titre personnel, mais c'était une décision du conseil. D'autre part, le Contrôle fédéral des finances a émis un certain nombre de critiques sur la manière dont le projet était mené. La réduction budgétaire en particulier va probablement modifier la manière dont ce projet pourra être concrètement mis en oeuvre. Cela ne donne que davantage de poids au postulat qui vous est proposé par l'unanimité de la Commission des affaires juridiques de notre conseil.\nIl faut prendre au sérieux les doutes d'une partie de la population sur la numérisation qui se sont exprimées, lors de cette campagne de votation, en général face à un projet de numérisation, et en particulier sur les points que j'ai listés tout à l'heure. À notre avis - et, encore une fois, nous étions unanimes en commission -, la meilleure manière de prendre au sérieux ces doutes, c'est de procéder, 18 mois après son introduction, à une évaluation rigoureuse de la mise en place de l'identité électronique. C'est ce que vous propose ce postulat de commission.\nJe vous invite à l'accepter, ce qui ne devrait pas être très difficile dans la mesure où aucune autre proposition n'a été formulée.\n",
       "language": "FR"
     }
   ]
