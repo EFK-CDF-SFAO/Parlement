@@ -15,7 +15,7 @@
 
 const SCRIPT_URL = "https://raw.githubusercontent.com/EFK-CDF-SFAO/Parlement/main/EFK_CDF_Parlement.js";
 const CACHE_FILE = "EFK_CDF_Parlement_cached.js";
-const CACHE_VALIDITY_HOURS = 24;
+const CACHE_VALIDITY_HOURS = 1;
 
 async function loadScript() {
     const fm = FileManager.iCloud();
