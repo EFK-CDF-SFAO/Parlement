@@ -105,7 +105,11 @@ async function init() {
         const objectsJson = await objectsResponse.json();
         
         // Display session summary ou nouveaux objets si session active
-        const newIds = objectsJson.meta?.new_ids || [];
+        let newIds = objectsJson.meta?.new_ids || [];
+        // Convertir en tableau si c'est une string
+        if (typeof newIds === 'string') {
+            newIds = newIds.split(',').map(id => id.trim()).filter(id => id);
+        }
         
         if (activeSession) {
             displayNewObjectsDuringSession(objectsJson.items, newIds, activeSession);
@@ -568,17 +572,8 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const container = document.getElementById('objectsList');
     if (!container) return;
     
-    const startDate = new Date(activeSession.start);
-    const endDate = new Date(activeSession.end);
-    
-    const newObjects = allItems.filter(item => {
-        if (!newIds.includes(item.shortId)) return false;
-        if (item.dateDeposit) {
-            const depositDate = new Date(item.dateDeposit);
-            return depositDate >= startDate && depositDate <= endDate;
-        }
-        return true;
-    });
+    // Filtrer les objets qui sont dans newIds (nouveaux/mis à jour)
+    const newObjects = allItems.filter(item => newIds.includes(item.shortId));
     
     if (newObjects.length === 0) {
         container.innerHTML = `<p class="no-debates">Nessun nuovo intervento depositato.</p>`;

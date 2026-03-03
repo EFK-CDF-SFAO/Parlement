@@ -96,7 +96,11 @@ async function init() {
         const objectsJson = await objectsResponse.json();
         
         // Display session summary ou message session active
-        const newIds = objectsJson.meta?.new_ids || [];
+        let newIds = objectsJson.meta?.new_ids || [];
+        // Convertir en tableau si c'est une string
+        if (typeof newIds === 'string') {
+            newIds = newIds.split(',').map(id => id.trim()).filter(id => id);
+        }
         
         if (activeSession) {
             // Session active: afficher les nouveaux objets déposés
@@ -498,21 +502,8 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const container = document.getElementById('objectsList');
     if (!container) return;
     
-    // Filtrer les objets déposés pendant la session active
-    const startDate = new Date(activeSession.start);
-    const endDate = new Date(activeSession.end);
-    
-    const newObjects = allItems.filter(item => {
-        // Vérifier si l'objet est dans newIds (nouveaux/mis à jour)
-        if (!newIds.includes(item.shortId)) return false;
-        
-        // Vérifier la date de dépôt si disponible
-        if (item.dateDeposit) {
-            const depositDate = new Date(item.dateDeposit);
-            return depositDate >= startDate && depositDate <= endDate;
-        }
-        return true; // Si pas de date, inclure par défaut
-    });
+    // Filtrer les objets qui sont dans newIds (nouveaux/mis à jour)
+    const newObjects = allItems.filter(item => newIds.includes(item.shortId));
     
     if (newObjects.length === 0) {
         container.innerHTML = `<p class="no-debates">Aucun nouvel objet déposé.</p>`;
