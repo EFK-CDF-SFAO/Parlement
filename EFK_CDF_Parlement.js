@@ -712,6 +712,12 @@ if (shouldDoDailyUpdate() && items.length > 0) {
   writeText(PATH_LAST_UPDATE, new Date().toISOString());
 }
 
+// Debug: afficher les IDs récupérés
+console.log(`[DEBUG] githubNewIds: ${JSON.stringify(githubNewIds)}`);
+console.log(`[DEBUG] githubNewDebateIds: ${JSON.stringify(githubNewDebateIds)}`);
+console.log(`[DEBUG] debateItems count: ${debateItems.length}`);
+console.log(`[DEBUG] items count: ${items.length}`);
+
 // Filtrer les items récents: soit dans new_ids du JSON, soit mis à jour < 7 jours
 const now = new Date();
 const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
