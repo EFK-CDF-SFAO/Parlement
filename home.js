@@ -102,6 +102,9 @@ async function init() {
         // Display session summary ou message session active
         const newIds = objectsJson.meta?.new_ids || [];
         
+        console.log('DEBUG init - activeSession:', activeSession);
+        console.log('DEBUG init - newIds:', newIds, 'type:', typeof newIds);
+        
         if (activeSession) {
             // Session active: afficher les nouveaux objets déposés
             displayNewObjectsDuringSession(objectsJson.items, newIds, activeSession);
@@ -500,6 +503,10 @@ function displaySessionSummary(summary, currentSession) {
 // Afficher les nouveaux objets déposés pendant la session active
 function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const container = document.getElementById('objectsList');
+    console.log('DEBUG displayNewObjects - container:', container);
+    console.log('DEBUG displayNewObjects - allItems count:', allItems?.length);
+    console.log('DEBUG displayNewObjects - newIds:', newIds, 'type:', typeof newIds);
+    
     if (!container) return;
     
     // Convertir newIds en tableau si c'est une string
@@ -507,19 +514,25 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     if (typeof newIds === 'string') {
         newIdsArray = newIds.split(',').map(id => id.trim()).filter(id => id);
     }
+    console.log('DEBUG displayNewObjects - newIdsArray:', newIdsArray);
     
     // Garder la nouveauté pendant 4 jours (comme les débats)
     const now = new Date();
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+    console.log('DEBUG displayNewObjects - fourDaysAgo:', fourDaysAgo);
     
     const newObjects = allItems.filter(item => {
         // Vérifier si l'objet est dans newIds
-        if (!newIdsArray.includes(item.shortId)) return false;
+        const inNewIds = newIdsArray.includes(item.shortId);
+        if (!inNewIds) return false;
         
         // Garder si déposé/mis à jour dans les 4 derniers jours
         const itemDate = new Date(item.date_maj || item.date);
-        return itemDate >= fourDaysAgo;
+        const isRecent = itemDate >= fourDaysAgo;
+        console.log('DEBUG filter - item:', item.shortId, 'date:', item.date_maj || item.date, 'isRecent:', isRecent);
+        return isRecent;
     });
+    console.log('DEBUG displayNewObjects - newObjects count:', newObjects.length);
     
     if (newObjects.length === 0) {
         container.innerHTML = `<p class="no-debates">Aucun nouvel objet déposé.</p>`;
