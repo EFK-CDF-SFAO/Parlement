@@ -826,4 +826,10 @@ footer.textColor = TEXT_SECONDARY;
 footer.rightAlignText();
 
 Script.setWidget(w);
+
+// Afficher le widget si lancé directement dans Scriptable
+if (!config.runsInWidget) {
+  await w.presentMedium();
+}
+
 Script.complete();
