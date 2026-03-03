@@ -34,7 +34,13 @@ async function init() {
         const response = await fetch(DATA_URL);
         const json = await response.json();
         allData = json.items || [];
-        newIds = json.meta?.new_ids || [];
+        // Convertire new_ids in array se è una stringa
+        let rawNewIds = json.meta?.new_ids || [];
+        if (typeof rawNewIds === 'string') {
+            newIds = rawNewIds.split(',').map(id => id.trim()).filter(id => id);
+        } else {
+            newIds = rawNewIds;
+        }
         
         if (json.meta && json.meta.updated) {
             const date = new Date(json.meta.updated);
