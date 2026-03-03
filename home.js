@@ -100,7 +100,10 @@ async function init() {
         const objectsJson = await objectsResponse.json();
         
         // Display session summary ou message session active
-        const newIds = objectsJson.meta?.new_ids || [];
+        // new_ids peut être une string ou un tableau
+        const rawNewIds = objectsJson.meta?.new_ids;
+        console.log('DEBUG init - rawNewIds:', rawNewIds, 'type:', typeof rawNewIds);
+        const newIds = rawNewIds || '';
         
         console.log('DEBUG init - activeSession:', activeSession);
         console.log('DEBUG init - newIds:', newIds, 'type:', typeof newIds);
