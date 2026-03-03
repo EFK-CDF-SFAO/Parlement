@@ -8,9 +8,13 @@ const typeLabels = {
     'Mo.': 'Motion',
     'Po.': 'Postulat',
     'Ip.': 'Interpellation',
+    'D.Ip.': 'Ip. urgente',
     'Fra.': 'Question',
+    'A.': 'Question',
+    'Pa. Iv.': 'Initiative parl.',
     'Iv. pa.': 'Initiative parl.',
-    'Iv. ct.': 'Initiative cant.'
+    'Iv. ct.': 'Initiative cant.',
+    'BRG': 'Objet du CF'
 };
 
 // Traduction des partis

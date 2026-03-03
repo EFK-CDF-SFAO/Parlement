@@ -8,9 +8,13 @@ const typeLabels = {
     'Mo.': 'Motion',
     'Po.': 'Postulat',
     'Ip.': 'Interpellation',
-    'Fra.': 'Anfrage',
+    'D.Ip.': 'Dringliche Ip.',
+    'Fra.': 'Fragestunde',
+    'A.': 'Anfrage',
+    'Pa. Iv.': 'Parl. Initiative',
     'Iv. pa.': 'Parl. Initiative',
-    'Iv. ct.': 'Standesinitiative'
+    'Iv. ct.': 'Standesinitiative',
+    'BRG': 'Geschäft des BR'
 };
 
 // Traduction des partis

@@ -8,9 +8,13 @@ const typeLabels = {
     'Mo.': 'Mozione',
     'Po.': 'Postulato',
     'Ip.': 'Interpellanza',
-    'Fra.': 'Interrogazione',
+    'D.Ip.': 'Ip. urgente',
+    'Fra.': 'Ora delle domande',
+    'A.': 'Interrogazione',
+    'Pa. Iv.': 'Iniziativa parl.',
     'Iv. pa.': 'Iniziativa parl.',
-    'Iv. ct.': 'Iniziativa cant.'
+    'Iv. ct.': 'Iniziativa cant.',
+    'BRG': 'Oggetto del CF'
 };
 
 // Traduction des partis
