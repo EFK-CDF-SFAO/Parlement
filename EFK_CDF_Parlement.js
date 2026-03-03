@@ -595,8 +595,13 @@ if (!isCacheValid()) {
       writeText(PATH_LAST_FETCH, new Date().toISOString());
       
       // Extraire les vrais nouveaux IDs du JSON
-      if (data.meta?.new_ids && Array.isArray(data.meta.new_ids)) {
-        githubNewIds = data.meta.new_ids;
+      if (data.meta?.new_ids) {
+        if (Array.isArray(data.meta.new_ids)) {
+          githubNewIds = data.meta.new_ids;
+        } else if (typeof data.meta.new_ids === 'string') {
+          // Convertir string en tableau (peut être séparé par virgules)
+          githubNewIds = data.meta.new_ids.split(',').map(id => id.trim()).filter(id => id);
+        }
         console.log(`[DEBUG] ✓ GitHub: ${items.length} items, ${githubNewIds.length} vrais nouveaux`);
       } else {
         console.log(`[DEBUG] ✓ GitHub: ${items.length} items (màj: ${data.meta?.updated || "?"})`);
