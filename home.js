@@ -100,11 +100,7 @@ async function init() {
         const objectsJson = await objectsResponse.json();
         
         // Display session summary ou message session active
-        // Convertir new_ids en tableau si c'est une string
-        let newIds = objectsJson.meta?.new_ids || [];
-        if (typeof newIds === 'string') {
-            newIds = newIds.split(',').map(id => id.trim()).filter(id => id);
-        }
+        const newIds = objectsJson.meta?.new_ids || [];
         
         if (activeSession) {
             // Session active: afficher les nouveaux objets déposés
@@ -506,14 +502,19 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const container = document.getElementById('objectsList');
     if (!container) return;
     
-    // Filtrer les objets qui sont dans newIds
+    // Convertir newIds en tableau si c'est une string
+    let newIdsArray = newIds;
+    if (typeof newIds === 'string') {
+        newIdsArray = newIds.split(',').map(id => id.trim()).filter(id => id);
+    }
+    
     // Garder la nouveauté pendant 4 jours (comme les débats)
     const now = new Date();
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     
     const newObjects = allItems.filter(item => {
         // Vérifier si l'objet est dans newIds
-        if (!newIds.includes(item.shortId)) return false;
+        if (!newIdsArray.includes(item.shortId)) return false;
         
         // Garder si déposé/mis à jour dans les 4 derniers jours
         const itemDate = new Date(item.date_maj || item.date);
