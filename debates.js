@@ -5,6 +5,7 @@ let allData = [];
 let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // IDs des nouveaux débats (< 4 jours)
+let objectsData = {}; // Mapping business_number -> tags pour le filtre thématique
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -100,10 +101,27 @@ function getPartyDisplay(item) {
 
 async function init() {
     try {
-        const response = await fetch('debates_data.json');
-        const data = await response.json();
+        // Charger les débats et les objets en parallèle
+        const [debatesResponse, objectsResponse] = await Promise.all([
+            fetch('debates_data.json'),
+            fetch('cdf_efk_data.json')
+        ]);
+        
+        const data = await debatesResponse.json();
+        const objectsJson = await objectsResponse.json();
+        
         allData = data.items || [];
         newIds = data.new_ids || [];
+        
+        // Créer le mapping business_number -> tags
+        if (objectsJson.items) {
+            objectsJson.items.forEach(item => {
+                if (item.shortId && item.tags) {
+                    objectsData[item.shortId] = item.tags;
+                }
+            });
+        }
+        
         // Trier du plus récent au plus vieux
         allData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
         
@@ -117,6 +135,7 @@ async function init() {
         populateCouncilFilter();
         populatePartyFilter();
         populateDepartmentFilter();
+        populateTagsFilter();
         initDropdownFilters();
         
         // Gérer les paramètres URL depuis la page stats
@@ -342,6 +361,39 @@ function populateDepartmentFilter() {
     });
 }
 
+function getDebateTags(item) {
+    // Récupérer les tags de l'objet associé au débat via business_number
+    if (!item.business_number) return [];
+    const tags = objectsData[item.business_number];
+    if (!tags) return [];
+    return tags.split('|').map(t => t.trim()).filter(t => t);
+}
+
+function populateTagsFilter() {
+    const tagsMenu = document.getElementById('tagsMenu');
+    if (!tagsMenu) return;
+    
+    // Extraire tous les tags uniques des débats via leurs objets associés
+    const allTags = new Set();
+    allData.forEach(item => {
+        const tags = getDebateTags(item);
+        tags.forEach(tag => allTags.add(tag));
+    });
+    
+    const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'fr'));
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tous`;
+    tagsMenu.appendChild(allLabel);
+    
+    tagsArray.forEach(tag => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${tag}"> ${tag}`;
+        tagsMenu.appendChild(label);
+    });
+}
+
 function initDropdownFilters() {
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
         const btn = dropdown.querySelector('.filter-btn');
@@ -486,6 +538,7 @@ function applyFilters() {
     const partyValues = getCheckedValues('partyDropdown');
     const departmentValues = getCheckedValues('departmentDropdown');
     const legislatureValues = getCheckedValues('legislatureDropdown');
+    const tagsValues = getCheckedValues('tagsDropdown');
     
     filteredData = allData.filter(item => {
         // New updates filter
@@ -558,6 +611,15 @@ function applyFilters() {
         if (legislatureValues) {
             const itemLegislature = getLegislatureFromSession(item.id_session);
             if (!legislatureValues.includes(itemLegislature)) {
+                return false;
+            }
+        }
+        
+        // Filtre thématique (via les tags de l'objet associé)
+        if (tagsValues) {
+            const itemTags = getDebateTags(item);
+            const hasMatchingTag = tagsValues.some(tag => itemTags.includes(tag));
+            if (!hasMatchingTag) {
                 return false;
             }
         }
