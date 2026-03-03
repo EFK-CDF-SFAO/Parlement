@@ -1,10 +1,10 @@
 {
   "meta": {
     "sessions": "5212",
-    "count": 734,
-    "updated": "2026-03-02 22:00:25.824576"
+    "count": 735,
+    "updated": "2026-03-03 13:16:12.20014"
   },
-  "new_ids": ["369302", "369311", "369304"],
+  "new_ids": "369583",
   "items": [
     {
       "id": "191252",
@@ -14458,6 +14458,26 @@
       "business_title_it": "Permettere l’utilizzo multiplo dei dati dell’Amministrazione federale quale base per un’IA affidabile in Svizzera",
       "department": "EDI",
       "text": "Ich habe den Satz des Bundesrates gelesen: \"Ohne verbindliche Standards und einheitliche Beschreibung der Daten aus vertrauenswürdigen Quellen können KI-gestützte Analysen weder verlässlich noch effizient durchgeführt werden.\" Da sind wir uns einig. Dann kommt aber die Kehrtwendung. Wir sind uns nicht einig, ob die Instrumente, die dem Bundesrat oder der Verwaltung heute zur Verfügung stehen, ausreichen, um das Ziel zu erreichen. Ich glaube, die Hindernisse sind eben mehr als nur die Finanzressourcen, wie der Bundesrat suggeriert, sondern es bestehen, wie Herr Kollege Stark angetönt hat, auch Regelungslücken. Ich gebe der Kommission wirklich mit auf den Weg, dass sie die EFK-Berichte genau anschaut, in denen es heisst, es fehle an Weisungskompetenzen und an Durchsetzungskraft etwa des Bundesamtes für Statistik. Ich glaube, hier ist schon etwas mehr zu tun. Aber um Klärung zu erhalten, bin ich einverstanden mit dem Antrag zur Überweisung an die Kommission.\n",
+      "language": "DE"
+    },
+    {
+      "id": "369583",
+      "id_subject": "70457",
+      "id_session": "5212",
+      "sort_order": 94,
+      "date": "20260303",
+      "council": "N",
+      "speaker": "Guggisberg Lars",
+      "function_speaker": "Mit-M",
+      "party": "V",
+      "canton": "BE",
+      "affair_id": "20250041",
+      "business_number": "25.041",
+      "business_title_fr": "Budget 2026 assorti du plan intégré des tâches et des finances 2027-2029",
+      "business_title_de": "Voranschlag 2026 mit integriertem Aufgaben- und Finanzplan 2027-2029",
+      "business_title_it": "Preventivo 2026 con piano integrato dei compiti e delle finanze 2027-2029",
+      "department": "EFD",
+      "text": "Ich sage es gleich vorweg: Dieser Antrag zur Regionalpolitik bereitet mir keine Freude. Wenn ich meinen Kanton Bern vertreten möchte, müsste ich klar gegen diese Kürzung stimmen, denn er profitiert erheblich von der Finanzierung der NRP-Projekte. Das mache ich aber nicht, weil es beim EP 27 nicht um einzelne Parlamentarier, einzelne Kantone oder Partikularinteressen geht. Es geht darum, die Gesamtinteressen des Bundeshaushaltes und die Einhaltung der bewährten Schuldenbremse im Blick zu behalten. Wenn jeder sein eigenes \"Gärtli\" verteidigt, kommen wir auf keinen grünen Zweig. Es bleibt dabei: Man kann das Fell des Bären nicht waschen, ohne es nass zu machen. Das übergeordnete Ziel ist es, eine Lösung zu finden, um das strukturelle Defizit in den Griff zu bekommen. Hier geht es nicht um eine eigentliche Sparmassnahme in der Regionalpolitik, sondern darum, einen Fonds auf ein angemessenes Niveau zu bringen. Sein Eigenkapital beträgt eine Milliarde Franken, seine Liquidität rund eine halbe Milliarde Franken. Selbst die Eidgenössische Finanzkontrolle hat kürzlich kritisiert, dass der Fonds massiv überdotiert ist. Es geht darum, in den nächsten drei Jahren 50 Millionen Franken einzusparen, also 5 Prozent. Für mich ist entscheidend, ob ein reifes Regionalprojekt nicht realisiert werden kann. Die Verwaltung hat diese Frage klar verneint. Dementsprechend kann man hier den Bundesrat und damit meine Minderheit bedenkenlos unterstützen. Die Regionalpolitik wird dadurch in keiner Weise geschwächt. Die vorübergehende Kürzung ist gut verkraftbar. Besten Dank, wenn Sie mich dabei unterstützen.\n",
       "language": "DE"
     },
     {
