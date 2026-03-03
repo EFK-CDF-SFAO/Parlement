@@ -100,13 +100,7 @@ async function init() {
         const objectsJson = await objectsResponse.json();
         
         // Display session summary ou message session active
-        // new_ids peut être une string ou un tableau
-        const rawNewIds = objectsJson.meta?.new_ids;
-        console.log('DEBUG init - rawNewIds:', rawNewIds, 'type:', typeof rawNewIds);
-        const newIds = rawNewIds || '';
-        
-        console.log('DEBUG init - activeSession:', activeSession);
-        console.log('DEBUG init - newIds:', newIds, 'type:', typeof newIds);
+        const newIds = objectsJson.meta?.new_ids || '';
         
         if (activeSession) {
             // Session active: afficher les nouveaux objets déposés
@@ -506,10 +500,6 @@ function displaySessionSummary(summary, currentSession) {
 // Afficher les nouveaux objets déposés pendant la session active
 function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const container = document.getElementById('objectsList');
-    console.log('DEBUG displayNewObjects - container:', container);
-    console.log('DEBUG displayNewObjects - allItems count:', allItems?.length);
-    console.log('DEBUG displayNewObjects - newIds:', newIds, 'type:', typeof newIds);
-    
     if (!container) return;
     
     // Convertir newIds en tableau si c'est une string
@@ -517,25 +507,19 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     if (typeof newIds === 'string') {
         newIdsArray = newIds.split(',').map(id => id.trim()).filter(id => id);
     }
-    console.log('DEBUG displayNewObjects - newIdsArray:', newIdsArray);
     
     // Garder la nouveauté pendant 4 jours (comme les débats)
     const now = new Date();
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
-    console.log('DEBUG displayNewObjects - fourDaysAgo:', fourDaysAgo);
     
     const newObjects = allItems.filter(item => {
         // Vérifier si l'objet est dans newIds
-        const inNewIds = newIdsArray.includes(item.shortId);
-        if (!inNewIds) return false;
+        if (!newIdsArray.includes(item.shortId)) return false;
         
         // Garder si déposé/mis à jour dans les 4 derniers jours
         const itemDate = new Date(item.date_maj || item.date);
-        const isRecent = itemDate >= fourDaysAgo;
-        console.log('DEBUG filter - item:', item.shortId, 'date:', item.date_maj || item.date, 'isRecent:', isRecent);
-        return isRecent;
+        return itemDate >= fourDaysAgo;
     });
-    console.log('DEBUG displayNewObjects - newObjects count:', newObjects.length);
     
     if (newObjects.length === 0) {
         container.innerHTML = `<p class="no-debates">Aucun nouvel objet déposé.</p>`;
@@ -661,6 +645,10 @@ function displayDebatesSummary(debatesData, currentSession) {
         const latestDebates = sessionDebates.slice(0, 5);
         const newDebateIds = debatesData.new_ids || [];
         
+        // Garder la bande verte pendant 4 jours
+        const now = new Date();
+        const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+        
         for (const debate of latestDebates) {
             const council = debate.council === 'N' ? 'CN' : 'CE';
             const councilLabel = debate.council === 'N' ? 'Conseil national' : 'Conseil des États';
@@ -669,7 +657,10 @@ function displayDebatesSummary(debatesData, currentSession) {
             const title = debate.business_title_fr || 'Débat parlementaire';
             const businessNumber = debate.business_number || '';
             const debateUrl = `debates.html?search=${encodeURIComponent(debate.speaker)}`;
-            const isNew = newDebateIds.includes(debate.id);
+            
+            // Nouveau si dans new_ids ET date < 4 jours
+            const debateDate = new Date(`${String(debate.date).substring(0,4)}-${String(debate.date).substring(4,6)}-${String(debate.date).substring(6,8)}`);
+            const isNew = newDebateIds.includes(debate.id) && debateDate >= fourDaysAgo;
             
             html += `
                 <a href="${debateUrl}" class="intervention-card${isNew ? ' card-new' : ''}">
