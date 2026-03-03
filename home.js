@@ -502,20 +502,23 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const container = document.getElementById('objectsList');
     if (!container) return;
     
-    // Filtrer les objets déposés pendant la session active
-    const startDate = new Date(activeSession.start);
-    const endDate = new Date(activeSession.end);
+    // Convertir newIds en tableau si c'est une string
+    let newIdsArray = newIds;
+    if (typeof newIds === 'string') {
+        newIdsArray = newIds.split(',').map(id => id.trim()).filter(id => id);
+    }
+    
+    // Filtrer les objets dans newIds (nouveaux/mis à jour dans les 4 derniers jours)
+    const now = new Date();
+    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     
     const newObjects = allItems.filter(item => {
-        // Vérifier si l'objet est dans newIds (nouveaux/mis à jour)
-        if (!newIds.includes(item.shortId)) return false;
+        // Vérifier si l'objet est dans newIds
+        if (!newIdsArray.includes(item.shortId)) return false;
         
-        // Vérifier la date de dépôt si disponible
-        if (item.dateDeposit) {
-            const depositDate = new Date(item.dateDeposit);
-            return depositDate >= startDate && depositDate <= endDate;
-        }
-        return true; // Si pas de date, inclure par défaut
+        // Vérifier que l'objet a été déposé/mis à jour dans les 4 derniers jours
+        const itemDate = new Date(item.date_maj || item.date);
+        return itemDate >= fourDaysAgo;
     });
     
     if (newObjects.length === 0) {
