@@ -100,7 +100,11 @@ async function init() {
         const objectsJson = await objectsResponse.json();
         
         // Display session summary ou message session active
-        const newIds = objectsJson.meta?.new_ids || [];
+        // Convertir new_ids en tableau si c'est une string
+        let newIds = objectsJson.meta?.new_ids || [];
+        if (typeof newIds === 'string') {
+            newIds = newIds.split(',').map(id => id.trim()).filter(id => id);
+        }
         
         if (activeSession) {
             // Session active: afficher les nouveaux objets déposés

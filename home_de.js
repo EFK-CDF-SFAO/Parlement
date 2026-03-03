@@ -107,7 +107,11 @@ async function init() {
         const objectsJson = await objectsResponse.json();
         
         // Display session summary ou nouveaux objets si session active
-        const newIds = objectsJson.meta?.new_ids || [];
+        // new_ids in Array konvertieren wenn es ein String ist
+        let newIds = objectsJson.meta?.new_ids || [];
+        if (typeof newIds === 'string') {
+            newIds = newIds.split(',').map(id => id.trim()).filter(id => id);
+        }
         
         if (activeSession) {
             displayNewObjectsDuringSession(objectsJson.items, newIds, activeSession);
