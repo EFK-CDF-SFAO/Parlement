@@ -581,63 +581,61 @@ let githubNewIds = [];
 let githubNewDebateIds = [];
 let debateItems = [];
 
-// Essayer GitHub si le cache est expiré
-if (!isCacheValid()) {
-  console.log("[DEBUG] Fetch GitHub...");
+// Toujours essayer de récupérer les données (même si cache valide, pour les new_ids)
+console.log("[DEBUG] Fetch GitHub...");
+
+// Récupérer les objets parlementaires
+try {
+  const req = new Request(GITHUB_JSON_URL);
+  req.timeoutInterval = 10;
+  const response = await req.loadString();
+  const data = JSON.parse(response);
   
-  // Récupérer les objets parlementaires
-  try {
-    const req = new Request(GITHUB_JSON_URL);
-    req.timeoutInterval = 10;
-    const response = await req.loadString();
-    const data = JSON.parse(response);
+  if (data?.items && Array.isArray(data.items) && data.items.length > 0) {
+    items = data.items;
+    fetchOk = true;
+    dataSource = "github";
+    writeJSON(PATH_CACHE, items);
+    writeText(PATH_LAST_FETCH, new Date().toISOString());
     
-    if (data?.items && Array.isArray(data.items) && data.items.length > 0) {
-      items = data.items;
-      fetchOk = true;
-      dataSource = "github";
-      writeJSON(PATH_CACHE, items);
-      writeText(PATH_LAST_FETCH, new Date().toISOString());
-      
-      // Extraire les vrais nouveaux IDs du JSON
-      if (data.meta?.new_ids) {
-        if (Array.isArray(data.meta.new_ids)) {
-          githubNewIds = data.meta.new_ids;
-        } else if (typeof data.meta.new_ids === 'string') {
-          githubNewIds = data.meta.new_ids.split(',').map(id => id.trim()).filter(id => id);
-        }
-        console.log(`[DEBUG] ✓ GitHub objets: ${items.length} items, ${githubNewIds.length} nouveaux`);
-      } else {
-        console.log(`[DEBUG] ✓ GitHub objets: ${items.length} items`);
+    // Extraire les vrais nouveaux IDs du JSON
+    if (data.meta?.new_ids) {
+      if (Array.isArray(data.meta.new_ids)) {
+        githubNewIds = data.meta.new_ids;
+      } else if (typeof data.meta.new_ids === 'string') {
+        githubNewIds = data.meta.new_ids.split(',').map(id => id.trim()).filter(id => id);
+      }
+      console.log(`[DEBUG] ✓ GitHub objets: ${items.length} items, ${githubNewIds.length} nouveaux`);
+    } else {
+      console.log(`[DEBUG] ✓ GitHub objets: ${items.length} items`);
+    }
+  }
+} catch (e) {
+  console.log(`[DEBUG] GitHub objets non disponible: ${e}`);
+}
+
+// Récupérer les débats
+try {
+  const reqDebates = new Request(GITHUB_DEBATES_URL);
+  reqDebates.timeoutInterval = 10;
+  const responseDebates = await reqDebates.loadString();
+  const debatesData = JSON.parse(responseDebates);
+  
+  if (debatesData?.items && Array.isArray(debatesData.items)) {
+    debateItems = debatesData.items;
+    
+    // Extraire les nouveaux débats
+    if (debatesData.new_ids) {
+      if (Array.isArray(debatesData.new_ids)) {
+        githubNewDebateIds = debatesData.new_ids;
+      } else if (typeof debatesData.new_ids === 'string') {
+        githubNewDebateIds = debatesData.new_ids.split(',').map(id => id.trim()).filter(id => id);
       }
     }
-  } catch (e) {
-    console.log(`[DEBUG] GitHub objets non disponible: ${e}`);
+    console.log(`[DEBUG] ✓ GitHub débats: ${debateItems.length} items, ${githubNewDebateIds.length} nouveaux`);
   }
-  
-  // Récupérer les débats
-  try {
-    const reqDebates = new Request(GITHUB_DEBATES_URL);
-    reqDebates.timeoutInterval = 10;
-    const responseDebates = await reqDebates.loadString();
-    const debatesData = JSON.parse(responseDebates);
-    
-    if (debatesData?.items && Array.isArray(debatesData.items)) {
-      debateItems = debatesData.items;
-      
-      // Extraire les nouveaux débats
-      if (debatesData.new_ids) {
-        if (Array.isArray(debatesData.new_ids)) {
-          githubNewDebateIds = debatesData.new_ids;
-        } else if (typeof debatesData.new_ids === 'string') {
-          githubNewDebateIds = debatesData.new_ids.split(',').map(id => id.trim()).filter(id => id);
-        }
-      }
-      console.log(`[DEBUG] ✓ GitHub débats: ${debateItems.length} items, ${githubNewDebateIds.length} nouveaux`);
-    }
-  } catch (e) {
-    console.log(`[DEBUG] GitHub débats non disponible: ${e}`);
-  }
+} catch (e) {
+  console.log(`[DEBUG] GitHub débats non disponible: ${e}`);
 }
 
 // ============================================
