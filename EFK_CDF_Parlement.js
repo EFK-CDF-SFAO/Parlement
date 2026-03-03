@@ -761,11 +761,14 @@ let last3 = allRecentItems.slice(0, 3);
 if (last3.length > 0) {
   writeJSON(PATH_RECENT_ITEMS, last3);
   console.log(`[DEBUG] Items récents sauvegardés dans le cache`);
-} else {
-  // Utiliser le cache si aucun item récent
+}
+
+// Toujours essayer le cache si last3 est vide
+if (last3.length === 0) {
   const cachedRecent = readJSON(PATH_RECENT_ITEMS, []);
   if (cachedRecent.length > 0) {
     last3 = cachedRecent;
+    fetchOk = true; // Marquer comme OK pour éviter message erreur
     console.log(`[DEBUG] Utilisation du cache items récents: ${last3.length}`);
   }
 }
