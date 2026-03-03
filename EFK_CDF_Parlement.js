@@ -799,10 +799,15 @@ if (!last3.length) {
   
 } else {
   for (let i = 0; i < last3.length; i++) {
-    // Marquer comme nouveau si c'est un objet dans newIds OU un débat
-    const isNew = last3[i].isDebate || newIdsSet.has(last3[i].shortId);
-    addItemCard(w, last3[i], isNew);
-    if (i < last3.length - 1) w.addSpacer(6);
+    try {
+      // Marquer comme nouveau si c'est un objet dans newIds OU un débat
+      const isNew = last3[i].isDebate || newIdsSet.has(last3[i].shortId);
+      console.log(`[DEBUG] Affichage item ${i}: ${last3[i].shortId}, isNew: ${isNew}`);
+      addItemCard(w, last3[i], isNew);
+      if (i < last3.length - 1) w.addSpacer(6);
+    } catch (e) {
+      console.error(`[ERROR] Erreur affichage item ${i}: ${e}`);
+    }
   }
 }
 
