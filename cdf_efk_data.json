@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-03-02T21:48:00",
+    "updated": "2026-03-03T12:55:22",
     "total_count": 329,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "26.3028"
+    "new_ids": []
   },
   "session_summary": {
     "session_id": "2025-hiver",
@@ -56,7 +56,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263028",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263028",
       "mention": "Élu",
-      "text": "<p>La mise en production du nouveau système informatique du Secrétariat d’État à l’économie (SECO), sous la responsabilité du Département fédéral de l’économie, de la formation et de la recherche (DEFR), a provoqué des retards massifs et inacceptables dans le versement des indemnités de chômage.<\/p><p>&nbsp;<\/p><p>Des milliers de chômeurs, ont été privées de revenus pendant plusieurs semaines, sans faute de leur part. Cette situation constitue une atteinte grave à la sécurité sociale et un échec manifeste de la gouvernance informatique fédérale, dont les conséquences ont été reportées sur les individus et sur les cantons, les communes et les organismes sociaux.<\/p><p>&nbsp;<\/p><p><i><strong>Le Conseil fédéral est prié de répondre aux questions suivantes :<\/strong><\/i><\/p><p>&nbsp;<\/p><p>1. Qui, au sein du SECO et du DEFR, a validé la mise en production de ce système malgré les risques connus&nbsp;; notamment les avertissements du contrôle fédéral des finances ?<\/p><p>2. Le Conseil fédéral reconnaît-il une faute de pilotage de la part de la direction du SECO&nbsp;; alors que le contrôle fédéral de finances avait donné l’alerte ?<\/p><p>3. Combien de personnes ont été touchées au niveau national et dans les cantons, et pour quel montant total, à ce jour, les indemnités ont-elles été versées avec retard ?<\/p><p>4. Le Conseil fédéral s’engage-t-il à garantir que 100 % des indemnités dues seront versées dans un délai maximal de 10 jours&nbsp;; en mettant en œuvre l’article 31 de l’Ordonnance sur l’assurance-chômage (OACI), en lien avec la Loi sur l’assurance-chômage (LACI), qui régit le droit aux avances de prestations ?<\/p><p>5. Le Conseil fédéral s’engage-t-il à renforcer les moyens, afin de résoudre ces graves disfonctionnements&nbsp;; aux conséquences importantes pour les bénéficiaires&nbsp;?&nbsp;<\/p><p>6. Le Conseil fédéral s’engage-t-il à indemniser automatiquement les assurés lésés pour tous les frais et pénalités subis en raison de ces retards ?<\/p><p>7. Le Conseil fédéral ordonnera-t-il avant la fin du premier semestre 2026 un audit externe indépendant, et en publiera-t-il l’intégralité des conclusions ?<\/p>"
+      "text": "<p>La mise en production du nouveau système informatique du Secrétariat d’État à l’économie (SECO), sous la responsabilité du Département fédéral de l’économie, de la formation et de la recherche (DEFR), a provoqué des retards massifs et inacceptables dans le versement des indemnités de chômage.<\/p><p>&nbsp;<\/p><p>Des milliers de chômeurs, ont été privées de revenus pendant plusieurs semaines, sans faute de leur part. Cette situation constitue une atteinte grave à la sécurité sociale et un échec manifeste de la gouvernance informatique fédérale, dont les conséquences ont été reportées sur les individus et sur les cantons, les communes et les organismes sociaux.<\/p><p>&nbsp;<\/p><p><i><strong>Le Conseil fédéral est prié de répondre aux questions suivantes :<\/strong><\/i><\/p><p>&nbsp;<\/p><p>1. Qui, au sein du SECO et du DEFR, a validé la mise en production de ce système malgré les risques connus&nbsp;; notamment les avertissements du contrôle fédéral des finances ?<\/p><p>2. Le Conseil fédéral reconnaît-il une faute de pilotage de la part de la direction du SECO&nbsp;; alors que le contrôle fédéral de finances avait donné l’alerte ?<\/p><p>3. Combien de personnes ont été touchées au niveau national et dans les cantons, et pour quel montant total, à ce jour, les indemnités ont-elles été versées avec retard ?<\/p><p>4. Le Conseil fédéral s’engage-t-il à garantir que 100 % des indemnités dues seront versées dans un délai maximal de 10 jours&nbsp;; en mettant en œuvre l’article 31 de l’Ordonnance sur l’assurance-chômage (OACI), en lien avec la Loi sur l’assurance-chômage (LACI), qui régit le droit aux avances de prestations ?<\/p><p>5. Le Conseil fédéral s’engage-t-il à renforcer les moyens, afin de résoudre ces graves disfonctionnements&nbsp;; aux conséquences importantes pour les bénéficiaires&nbsp;?&nbsp;<\/p><p>6. Le Conseil fédéral s’engage-t-il à indemniser automatiquement les assurés lésés pour tous les frais et pénalités subis en raison de ces retards ?<\/p><p>7. Le Conseil fédéral ordonnera-t-il avant la fin du premier semestre 2026 un audit externe indépendant, et en publiera-t-il l’intégralité des conclusions ?<\/p>",
+      "tags": "Politique d'Etat|Finances|Médias et communication|Emploi et travail|Protection sociale",
+      "tags_de": "Staatspolitik|Finanzwesen|Medien und Kommunikation|Beschäftigung und Arbeit|Sozialer Schutz",
+      "tags_it": "Politica nazionale|Finanze|Media e comunicazione|Occupazione e lavoro|Protezione sociale"
     },
     {
       "shortId": "25.4582",
@@ -6629,10 +6632,11 @@
       "author": "Michel Matthias",
       "party": "PLR",
       "type": "Mo.",
-      "status": "In Ständerat geplant / Planifié au Conseil des Etats",
+      "status": "Zugewiesen an die behandelnde Kommission / Attribué à la commission compétente",
       "council": "SR",
       "department": "EDI",
       "date": "2025-12-18",
+      "statut_change_date": "2026-03-03",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254620",
       "mention": "Élu",
