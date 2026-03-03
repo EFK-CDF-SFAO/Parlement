@@ -2,9 +2,9 @@
   "meta": {
     "sessions": "5212",
     "count": 735,
-    "updated": "2026-03-03 13:16:12.20014"
+    "updated": "2026-03-03 21:35:17.312249"
   },
-  "new_ids": "369583",
+  "new_ids": [],
   "items": [
     {
       "id": "191252",
@@ -14464,7 +14464,7 @@
       "id": "369583",
       "id_subject": "70457",
       "id_session": "5212",
-      "sort_order": 94,
+      "sort_order": 95,
       "date": "20260303",
       "council": "N",
       "speaker": "Guggisberg Lars",
