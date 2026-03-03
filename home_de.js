@@ -539,18 +539,13 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const container = document.getElementById('objectsList');
     if (!container) return;
     
-    // Convertir newIds en tableau si c'est une string
-    let newIdsArray = newIds;
-    if (typeof newIds === 'string') {
-        newIdsArray = newIds.split(',').map(id => id.trim()).filter(id => id);
-    }
-    
-    // Filtrer les objets dans newIds (nouveaux/mis à jour dans les 4 derniers jours)
+    // Filtrer les objets qui sont dans newIds
+    // Garder la nouveauté pendant 4 jours (comme les débats)
     const now = new Date();
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     
     const newObjects = allItems.filter(item => {
-        if (!newIdsArray.includes(item.shortId)) return false;
+        if (!newIds.includes(item.shortId)) return false;
         const itemDate = new Date(item.date_maj || item.date);
         return itemDate >= fourDaysAgo;
     });
