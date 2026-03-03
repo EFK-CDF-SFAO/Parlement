@@ -658,6 +658,10 @@ function displayDebatesSummary(debatesData, currentSession) {
         const latestDebates = sessionDebates.slice(0, 5);
         const newDebateIds = debatesData.new_ids || [];
         
+        // Mantenere la banda verde per 4 giorni
+        const now = new Date();
+        const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+        
         for (const debate of latestDebates) {
             const councilLabel = debate.council === 'N' ? 'Consiglio nazionale' : 'Consiglio degli Stati';
             const party = translateParty(debate.party);
@@ -665,7 +669,10 @@ function displayDebatesSummary(debatesData, currentSession) {
             const title = debate.business_title_it || debate.business_title_fr || 'Dibattito parlamentare';
             const businessNumber = debate.business_number || '';
             const debateUrl = `debates_it.html?search=${encodeURIComponent(debate.speaker)}`;
-            const isNew = newDebateIds.includes(debate.id);
+            
+            // Nuovo se in new_ids E data < 4 giorni
+            const debateDate = new Date(`${String(debate.date).substring(0,4)}-${String(debate.date).substring(4,6)}-${String(debate.date).substring(6,8)}`);
+            const isNew = newDebateIds.includes(debate.id) && debateDate >= fourDaysAgo;
             
             html += `
                 <a href="${debateUrl}" class="intervention-card${isNew ? ' card-new' : ''}">

@@ -620,6 +620,10 @@ function displayDebatesSummary(debatesData, currentSession) {
         const latestDebates = sessionDebates.slice(0, 5);
         const newDebateIds = debatesData.new_ids || [];
         
+        // Garder la bande verte pendant 4 jours
+        const now = new Date();
+        const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+        
         for (const debate of latestDebates) {
             const councilLabel = debate.council === 'N' ? 'Nationalrat' : 'Ständerat';
             const party = translateParty(debate.party);
@@ -627,7 +631,10 @@ function displayDebatesSummary(debatesData, currentSession) {
             const title = debate.business_title_de || 'Parlamentsdebatte';
             const businessNumber = debate.business_number || '';
             const debateUrl = `debates_de.html?search=${encodeURIComponent(debate.speaker)}`;
-            const isNew = newDebateIds.includes(debate.id);
+            
+            // Neu wenn in new_ids UND Datum < 4 Tage
+            const debateDate = new Date(`${String(debate.date).substring(0,4)}-${String(debate.date).substring(4,6)}-${String(debate.date).substring(6,8)}`);
+            const isNew = newDebateIds.includes(debate.id) && debateDate >= fourDaysAgo;
             
             html += `
                 <a href="${debateUrl}" class="intervention-card${isNew ? ' card-new' : ''}">
