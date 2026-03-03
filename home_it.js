@@ -177,7 +177,7 @@ function showSessionAnimation(session) {
     const btnDebates = document.getElementById('btnViewDebates');
     
     if (btnObjects) {
-        btnObjects.href = `objets_it.html?filter_year=${year}`;
+        btnObjects.href = `objects_it.html?filter_year=${year}`;
     }
     if (btnDebates) {
         btnDebates.href = `debates_it.html?filter_year=${year}&filter_session=${sessionType}`;
