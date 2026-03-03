@@ -5,16 +5,16 @@ const SESSIONS_URL = 'sessions.json';
 
 // Traduzione dei tipi di oggetti
 const typeLabels = {
-    'Mo.': 'Mozione',
-    'Po.': 'Postulato',
-    'Ip.': 'Interpellanza',
-    'D.Ip.': 'Ip. urgente',
-    'Fra.': 'Ora delle domande',
-    'A.': 'Interrogazione',
-    'Pa. Iv.': 'Iniziativa parl.',
-    'Iv. pa.': 'Iniziativa parl.',
-    'Iv. ct.': 'Iniziativa cant.',
-    'BRG': 'Oggetto del CF'
+    'Mo.': 'Mo.',
+    'Po.': 'Po.',
+    'Ip.': 'Ip.',
+    'D.Ip.': 'Ip. urg.',
+    'Fra.': 'Fra.',
+    'A.': 'A.',
+    'Pa. Iv.': 'Pa. Iv.',
+    'Iv. pa.': 'Iv. pa.',
+    'Iv. ct.': 'Iv. ct.',
+    'BRG': 'BRG'
 };
 
 // Traduction des partis
