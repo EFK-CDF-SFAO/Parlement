@@ -497,48 +497,50 @@ function displaySessionSummary(summary, currentSession) {
     }
 }
 
-// Afficher les nouveaux objets déposés pendant la session active
+// Afficher les objets déposés pendant la session active
 function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const container = document.getElementById('objectsList');
     if (!container) return;
     
-    // Convertir newIds en tableau si c'est une string
-    let newIdsArray = newIds;
-    if (typeof newIds === 'string') {
-        newIdsArray = newIds.split(',').map(id => id.trim()).filter(id => id);
-    }
+    // Dates de la session (comparaison par string YYYY-MM-DD)
+    const sessionStartStr = activeSession.start; // ex: "2026-03-02"
+    const sessionEndStr = activeSession.end;     // ex: "2026-03-20"
     
-    // Garder la nouveauté pendant 4 jours (comme les débats)
-    const now = new Date();
-    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
-    
-    const newObjects = allItems.filter(item => {
-        // Vérifier si l'objet est dans newIds
-        if (!newIdsArray.includes(item.shortId)) return false;
-        
-        // Garder si déposé/mis à jour dans les 4 derniers jours
-        const itemDate = new Date(item.date_maj || item.date);
-        return itemDate >= fourDaysAgo;
+    // Filtrer les objets déposés pendant la session en cours
+    const sessionObjects = allItems.filter(item => {
+        const itemDateStr = (item.date || '').substring(0, 10); // "2026-03-02"
+        return itemDateStr >= sessionStartStr && itemDateStr <= sessionEndStr;
     });
     
-    if (newObjects.length === 0) {
-        container.innerHTML = `<p class="no-debates">Aucun nouvel objet déposé.</p>`;
+    if (sessionObjects.length === 0) {
+        container.innerHTML = `<p class="no-debates">Aucun objet déposé durant cette session.</p>`;
         return;
     }
     
-    // Trier par shortId décroissant
-    newObjects.sort((a, b) => b.shortId.localeCompare(a.shortId, undefined, { numeric: true }));
+    // Trier par shortId décroissant (plus récents en premier)
+    sessionObjects.sort((a, b) => b.shortId.localeCompare(a.shortId, undefined, { numeric: true }));
+    
+    // Limiter à 5 objets maximum
+    const objectsToShow = sessionObjects.slice(0, 5);
+    
+    // Bande verte uniquement si déposé dans les 4 derniers jours
+    const now = new Date();
+    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     
     let html = '';
-    for (const item of newObjects) {
+    for (const item of objectsToShow) {
         const party = translateParty(item.party);
         const type = item.type;
         const typeColor = typeColors[type] || '#6B7280';
         const partyColor = partyColors[party] || partyColors[item.party] || '#6B7280';
         const mentionData = getMentionEmojis(item.mention);
         
+        // Bande verte si déposé il y a moins de 4 jours
+        const itemDate = new Date(item.date + 'T12:00:00');
+        const isNew = itemDate >= fourDaysAgo;
+        
         html += `
-            <a href="${item.url_fr}" target="_blank" class="intervention-card card-new">
+            <a href="${item.url_fr}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
                 <div class="card-header">
                     <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${item.shortId}</span>
