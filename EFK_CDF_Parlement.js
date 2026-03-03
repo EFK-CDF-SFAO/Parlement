@@ -750,9 +750,11 @@ console.log(`[DEBUG] Items récents objets: ${recentItems.length}, débats: ${ne
 
 // Combiner objets et débats (débats en premier car plus récents)
 const allRecentItems = [...newDebates, ...recentItems];
+console.log(`[DEBUG] allRecentItems: ${allRecentItems.length}`);
 
 // Affichage des 3 dernières mises à jour (objets + débats combinés)
 const last3 = allRecentItems.slice(0, 3);
+console.log(`[DEBUG] last3: ${last3.length}, premier: ${last3[0]?.title || 'aucun'}`);
 
 // Récupérer les partis pour les items affichés (si pas déjà présent)
 for (const item of last3) {
