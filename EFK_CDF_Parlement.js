@@ -561,6 +561,7 @@ function addItemCard(w, item, isNew) {
 }
 
 // --- Main ---
+console.log(`[DEBUG] Mode: ${config.runsInWidget ? 'widget' : 'app'}`);
 const w = new ListWidget();
 w.backgroundColor = BG;
 w.url = cfg.openUrl;
