@@ -5,6 +5,7 @@ let allData = [];
 let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // ID dei nuovi dibattiti (< 4 giorni)
+let objectsData = {}; // Mapping business_number -> tags per filtro tematico
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -77,11 +78,28 @@ function getPartyDisplay(item) {
 
 async function init() {
     try {
-        const response = await fetch('debates_data.json');
-        const data = await response.json();
+        // Caricare dibattiti e oggetti in parallelo
+        const [debatesResponse, objectsResponse] = await Promise.all([
+            fetch('debates_data.json'),
+            fetch('cdf_efk_data.json')
+        ]);
+        
+        const data = await debatesResponse.json();
+        const objectsJson = await objectsResponse.json();
+        
         allData = data.items || [];
         newIds = data.new_ids || [];
-        // Trier du plus récent au plus vieux
+        
+        // Creare mapping business_number -> tags_it
+        if (objectsJson.items) {
+            objectsJson.items.forEach(item => {
+                if (item.shortId && item.tags_it) {
+                    objectsData[item.shortId] = item.tags_it;
+                }
+            });
+        }
+        
+        // Ordinare dal più recente al più vecchio
         allData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
         
         if (data.meta) {
@@ -94,6 +112,7 @@ async function init() {
         populateCouncilFilter();
         populatePartyFilter();
         populateDepartmentFilter();
+        populateTagsFilter();
         initDropdownFilters();
         
         const urlParams = new URLSearchParams(window.location.search);
@@ -314,6 +333,39 @@ function populateDepartmentFilter() {
     });
 }
 
+function getDebateTags(item) {
+    // Recuperare i tag dell'oggetto associato tramite business_number
+    if (!item.business_number) return [];
+    const tags = objectsData[item.business_number];
+    if (!tags) return [];
+    return tags.split('|').map(t => t.trim()).filter(t => t);
+}
+
+function populateTagsFilter() {
+    const tagsMenu = document.getElementById('tagsMenu');
+    if (!tagsMenu) return;
+    
+    // Estrarre tutti i tag unici dei dibattiti tramite i loro oggetti associati
+    const allTags = new Set();
+    allData.forEach(item => {
+        const tags = getDebateTags(item);
+        tags.forEach(tag => allTags.add(tag));
+    });
+    
+    const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'it'));
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Tutti`;
+    tagsMenu.appendChild(allLabel);
+    
+    tagsArray.forEach(tag => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${tag}"> ${tag}`;
+        tagsMenu.appendChild(label);
+    });
+}
+
 function initDropdownFilters() {
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
         const btn = dropdown.querySelector('.filter-btn');
@@ -456,6 +508,7 @@ function applyFilters() {
     const partyValues = getCheckedValues('partyDropdown');
     const departmentValues = getCheckedValues('departmentDropdown');
     const legislatureValues = getCheckedValues('legislatureDropdown');
+    const tagsValues = getCheckedValues('tagsDropdown');
     
     filteredData = allData.filter(item => {
         if (window.newUpdatesFilter) {
@@ -528,10 +581,19 @@ function applyFilters() {
             }
         }
         
+        // Filtro tematico (tramite tag dell'oggetto associato)
+        if (tagsValues) {
+            const itemTags = getDebateTags(item);
+            const hasMatchingTag = tagsValues.some(tag => itemTags.includes(tag));
+            if (!hasMatchingTag) {
+                return false;
+            }
+        }
+        
         return true;
     });
     
-    // Trier du plus récent au plus vieux
+    // Ordinare dal più recente al più vecchio
     filteredData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     
     renderResults();

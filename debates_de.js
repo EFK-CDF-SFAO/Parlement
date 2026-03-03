@@ -5,6 +5,7 @@ let allData = [];
 let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // IDs der neuen Debatten (< 4 Tage)
+let objectsData = {}; // Mapping business_number -> tags für Themenfilter
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -100,10 +101,27 @@ function getPartyDisplay(item) {
 
 async function init() {
     try {
-        const response = await fetch('debates_data.json');
-        const data = await response.json();
+        // Debatten und Objekte parallel laden
+        const [debatesResponse, objectsResponse] = await Promise.all([
+            fetch('debates_data.json'),
+            fetch('cdf_efk_data.json')
+        ]);
+        
+        const data = await debatesResponse.json();
+        const objectsJson = await objectsResponse.json();
+        
         allData = data.items || [];
         newIds = data.new_ids || [];
+        
+        // Mapping business_number -> tags_de erstellen
+        if (objectsJson.items) {
+            objectsJson.items.forEach(item => {
+                if (item.shortId && item.tags_de) {
+                    objectsData[item.shortId] = item.tags_de;
+                }
+            });
+        }
+        
         // Sortieren vom neuesten zum ältesten
         allData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
         
@@ -117,6 +135,7 @@ async function init() {
         populateCouncilFilter();
         populatePartyFilter();
         populateDepartmentFilter();
+        populateTagsFilter();
         initDropdownFilters();
         
         // Gérer les paramètres URL depuis la page stats
@@ -324,6 +343,39 @@ function populateDepartmentFilter() {
     });
 }
 
+function getDebateTags(item) {
+    // Tags des zugehörigen Objekts über business_number abrufen
+    if (!item.business_number) return [];
+    const tags = objectsData[item.business_number];
+    if (!tags) return [];
+    return tags.split('|').map(t => t.trim()).filter(t => t);
+}
+
+function populateTagsFilter() {
+    const tagsMenu = document.getElementById('tagsMenu');
+    if (!tagsMenu) return;
+    
+    // Alle einzigartigen Tags der Debatten über ihre zugehörigen Objekte extrahieren
+    const allTags = new Set();
+    allData.forEach(item => {
+        const tags = getDebateTags(item);
+        tags.forEach(tag => allTags.add(tag));
+    });
+    
+    const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'de'));
+    
+    const allLabel = document.createElement('label');
+    allLabel.className = 'select-all';
+    allLabel.innerHTML = `<input type="checkbox" data-select-all checked> Alle`;
+    tagsMenu.appendChild(allLabel);
+    
+    tagsArray.forEach(tag => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${tag}"> ${tag}`;
+        tagsMenu.appendChild(label);
+    });
+}
+
 function initDropdownFilters() {
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {
         const btn = dropdown.querySelector('.filter-btn');
@@ -466,6 +518,7 @@ function applyFilters() {
     const partyValues = getCheckedValues('partyDropdown');
     const departmentValues = getCheckedValues('departmentDropdown');
     const legislatureValues = getCheckedValues('legislatureDropdown');
+    const tagsValues = getCheckedValues('tagsDropdown');
     
     filteredData = allData.filter(item => {
         if (window.newUpdatesFilter) {
@@ -537,6 +590,15 @@ function applyFilters() {
         if (legislatureValues) {
             const itemLegislature = getLegislatureFromSession(item.id_session);
             if (!legislatureValues.includes(itemLegislature)) {
+                return false;
+            }
+        }
+        
+        // Themenfilter (über Tags des zugehörigen Objekts)
+        if (tagsValues) {
+            const itemTags = getDebateTags(item);
+            const hasMatchingTag = tagsValues.some(tag => itemTags.includes(tag));
+            if (!hasMatchingTag) {
                 return false;
             }
         }
