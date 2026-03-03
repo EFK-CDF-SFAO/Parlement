@@ -103,6 +103,7 @@ const PATH_SEEN_IDS = fm.joinPath(dir, `seen_ids_v2_${LANG}.json`);
 const PATH_NEW_IDS = fm.joinPath(dir, `new_ids_v2_${LANG}.json`);
 const PATH_LAST_UPDATE = fm.joinPath(dir, `last_update_v2_${LANG}.txt`);
 const PATH_LAST_FETCH = fm.joinPath(dir, `last_fetch_v2_${LANG}.txt`);
+const PATH_RECENT_ITEMS = fm.joinPath(dir, `recent_items_${LANG}.json`);
 
 function readJSON(path, fallback) {
   try {
@@ -754,7 +755,21 @@ const allRecentItems = [...newDebates, ...recentItems];
 console.log(`[DEBUG] allRecentItems: ${allRecentItems.length}`);
 
 // Affichage des 3 dernières mises à jour (objets + débats combinés)
-const last3 = allRecentItems.slice(0, 3);
+let last3 = allRecentItems.slice(0, 3);
+
+// Sauvegarder les items récents pour le cache widget
+if (last3.length > 0) {
+  writeJSON(PATH_RECENT_ITEMS, last3);
+  console.log(`[DEBUG] Items récents sauvegardés dans le cache`);
+} else {
+  // Utiliser le cache si aucun item récent
+  const cachedRecent = readJSON(PATH_RECENT_ITEMS, []);
+  if (cachedRecent.length > 0) {
+    last3 = cachedRecent;
+    console.log(`[DEBUG] Utilisation du cache items récents: ${last3.length}`);
+  }
+}
+
 console.log(`[DEBUG] last3: ${last3.length}, premier: ${last3[0]?.title || 'aucun'}`);
 
 // Récupérer les partis pour les items affichés (si pas déjà présent)
