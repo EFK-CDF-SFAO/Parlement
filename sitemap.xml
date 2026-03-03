@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Page d'accueil / Landing -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Home FR -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/home.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/home.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/home_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/home_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Home DE -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/home_de.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/home.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/home_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/home_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Home IT -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/home_it.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/home.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/home_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/home_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Objects FR -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/objects.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/objects.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/objects_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/objects_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Objects DE -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/objects_de.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/objects.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/objects_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/objects_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Objects IT -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/objects_it.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/objects.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/objects_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/objects_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Debates FR -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/debates.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/debates.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/debates_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/debates_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Debates DE -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/debates_de.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/debates.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/debates_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/debates_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Debates IT -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/debates_it.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/debates.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/debates_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/debates_it.html"/>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Stats FR -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/stats.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/stats.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/stats_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/stats_it.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Stats DE -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/stats_de.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/stats.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/stats_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/stats_it.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Stats IT -->
+  <url>
+    <loc>https://efk-cdf-sfao.github.io/Parlement/stats_it.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/stats.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/stats_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/stats_it.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>
