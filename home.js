@@ -645,7 +645,7 @@ function displayDebatesSummary(debatesData, currentSession) {
             const partyColor = partyColors[party] || partyColors[debate.party] || '#6B7280';
             const title = debate.business_title_fr || 'Débat parlementaire';
             const businessNumber = debate.business_number || '';
-            const debateUrl = `https://www.parlament.ch/fr/ratsbetrieb/amtliches-bulletin/amtliches-bulletin-die-verhandlungen?SubjectId=${debate.id_subject}#votum${debate.sort_order}`;
+            const debateUrl = `debates.html?search=${encodeURIComponent(debate.speaker)}`;
             const isNew = newDebateIds.includes(debate.id);
             
             html += `
