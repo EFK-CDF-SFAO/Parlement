@@ -22,6 +22,7 @@ const CACHE_VALIDITY_HOURS = 6;
 
 // URL GitHub pour les données JSON
 const GITHUB_JSON_URL = "https://raw.githubusercontent.com/EFK-CDF-SFAO/Parlement/main/cdf_efk_data.json";
+const GITHUB_DEBATES_URL = "https://raw.githubusercontent.com/EFK-CDF-SFAO/Parlement/main/debates_data.json";
 
 // Fallback: Fichier JS local (iCloud Scriptable)
 const DATA_MODULE = "CDF_Data";
@@ -575,12 +576,16 @@ let dataSource = "none";
 
 const cachedItems = readJSON(PATH_CACHE, []);
 
-// Variable pour stocker les new_ids du JSON (vrais nouveaux objets)
+// Variable pour stocker les new_ids du JSON (vrais nouveaux objets et débats)
 let githubNewIds = [];
+let githubNewDebateIds = [];
+let debateItems = [];
 
 // Essayer GitHub si le cache est expiré
 if (!isCacheValid()) {
   console.log("[DEBUG] Fetch GitHub...");
+  
+  // Récupérer les objets parlementaires
   try {
     const req = new Request(GITHUB_JSON_URL);
     req.timeoutInterval = 10;
@@ -599,16 +604,39 @@ if (!isCacheValid()) {
         if (Array.isArray(data.meta.new_ids)) {
           githubNewIds = data.meta.new_ids;
         } else if (typeof data.meta.new_ids === 'string') {
-          // Convertir string en tableau (peut être séparé par virgules)
           githubNewIds = data.meta.new_ids.split(',').map(id => id.trim()).filter(id => id);
         }
-        console.log(`[DEBUG] ✓ GitHub: ${items.length} items, ${githubNewIds.length} vrais nouveaux`);
+        console.log(`[DEBUG] ✓ GitHub objets: ${items.length} items, ${githubNewIds.length} nouveaux`);
       } else {
-        console.log(`[DEBUG] ✓ GitHub: ${items.length} items (màj: ${data.meta?.updated || "?"})`);
+        console.log(`[DEBUG] ✓ GitHub objets: ${items.length} items`);
       }
     }
   } catch (e) {
-    console.log(`[DEBUG] GitHub non disponible: ${e}`);
+    console.log(`[DEBUG] GitHub objets non disponible: ${e}`);
+  }
+  
+  // Récupérer les débats
+  try {
+    const reqDebates = new Request(GITHUB_DEBATES_URL);
+    reqDebates.timeoutInterval = 10;
+    const responseDebates = await reqDebates.loadString();
+    const debatesData = JSON.parse(responseDebates);
+    
+    if (debatesData?.items && Array.isArray(debatesData.items)) {
+      debateItems = debatesData.items;
+      
+      // Extraire les nouveaux débats
+      if (debatesData.new_ids) {
+        if (Array.isArray(debatesData.new_ids)) {
+          githubNewDebateIds = debatesData.new_ids;
+        } else if (typeof debatesData.new_ids === 'string') {
+          githubNewDebateIds = debatesData.new_ids.split(',').map(id => id.trim()).filter(id => id);
+        }
+      }
+      console.log(`[DEBUG] ✓ GitHub débats: ${debateItems.length} items, ${githubNewDebateIds.length} nouveaux`);
+    }
+  } catch (e) {
+    console.log(`[DEBUG] GitHub débats non disponible: ${e}`);
   }
 }
 
@@ -690,6 +718,7 @@ if (shouldDoDailyUpdate() && items.length > 0) {
 const now = new Date();
 const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 const newIdsSet = new Set(githubNewIds);
+const newDebateIdsSet = new Set(githubNewDebateIds);
 
 const recentItems = items.filter(item => {
   // Si l'item est dans new_ids du JSON, il est récent
@@ -700,10 +729,26 @@ const recentItems = items.filter(item => {
   return updatedDate >= sevenDaysAgo;
 });
 
-console.log(`[DEBUG] Items récents (new_ids + < 7 jours): ${recentItems.length}`);
+// Filtrer les nouveaux débats
+const newDebates = debateItems.filter(debate => {
+  return newDebateIdsSet.has(debate.id) || newDebateIdsSet.has(String(debate.id));
+}).map(debate => ({
+  shortId: `Débat ${debate.id}`,
+  title: debate[`business_title_${LANG}`] || debate.business_title_fr || "Débat parlementaire",
+  author: debate.speaker,
+  party: debate.party,
+  type: "Débat",
+  isDebate: true,
+  updated: debate.date ? String(debate.date) : null
+}));
 
-// Affichage des 3 dernières mises à jour
-const last3 = recentItems.slice(0, 3);
+console.log(`[DEBUG] Items récents objets: ${recentItems.length}, débats: ${newDebates.length}`);
+
+// Combiner objets et débats (débats en premier car plus récents)
+const allRecentItems = [...newDebates, ...recentItems];
+
+// Affichage des 3 dernières mises à jour (objets + débats combinés)
+const last3 = allRecentItems.slice(0, 3);
 
 // Récupérer les partis pour les items affichés (si pas déjà présent)
 for (const item of last3) {
@@ -748,7 +793,8 @@ if (!last3.length) {
   
 } else {
   for (let i = 0; i < last3.length; i++) {
-    const isNew = newIdsSet.has(last3[i].shortId);
+    // Marquer comme nouveau si c'est un objet dans newIds OU un débat
+    const isNew = last3[i].isDebate || newIdsSet.has(last3[i].shortId);
     addItemCard(w, last3[i], isNew);
     if (i < last3.length - 1) w.addSpacer(6);
   }
