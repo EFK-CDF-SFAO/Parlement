@@ -105,6 +105,50 @@ concatener_textes <- function(df) {
     )
 }
 
+# Normaliser les noms de partis (groupes parlementaires -> sigle du parti)
+normaliser_parti <- function(parti) {
+  if (is.na(parti) || parti == "") return(parti)
+  
+  # Mapping des groupes parlementaires et variantes vers le sigle standard
+  mapping <- c(
+    # Verts
+    "Al" = "VERT-E-S",
+    "Grüne Fraktion" = "VERT-E-S",
+    "Les Vert-e-s" = "VERT-E-S",
+    "Grüne" = "VERT-E-S",
+    # PS
+    "PSS" = "PS",
+    "Sozialdemokratische Fraktion" = "PS",
+    "SP" = "PS",
+    # Centre
+    "M-E" = "Le Centre",
+    "PDC" = "Le Centre",
+    "PBD" = "Le Centre",
+    "CSPO" = "Le Centre",
+    "CVP" = "Le Centre",
+    "BDP" = "Le Centre",
+    "Fraktion der Mitte" = "Le Centre",
+    "Die Mitte-Fraktion. Die Mitte. EVP." = "Le Centre",
+    "Die Mitte" = "Le Centre",
+    "Mitte" = "Le Centre",
+    # PLR
+    "FDP-Liberale Fraktion" = "PLR",
+    "FDP" = "PLR",
+    # UDC
+    "SVP-Fraktion" = "UDC",
+    "SVP" = "UDC",
+    "Fraktion der Schweizerischen Volkspartei" = "UDC",
+    # Vert'libéraux
+    "Grünliberale Fraktion" = "pvl",
+    "GLP" = "pvl"
+  )
+  
+  if (parti %in% names(mapping)) {
+    return(mapping[parti])
+  }
+  return(parti)
+}
+
 # ============================================================================
 # CHARGER LES DONNÉES EXISTANTES
 # ============================================================================
@@ -411,6 +455,10 @@ if (length(IDs_A_Traiter) > 0) {
     })
     
     if (!is.null(Partis)) {
+      # Normaliser les noms de partis (groupes parlementaires -> sigles)
+      Partis <- Partis |>
+        mutate(Parti = sapply(Parti, normaliser_parti))
+      
       Auteurs <- Auteurs |>
         left_join(Partis, by = "MemberCouncilNumber") |>
         select(BusinessNumber, Parti) |>
