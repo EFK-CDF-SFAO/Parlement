@@ -757,6 +757,7 @@ const last3 = allRecentItems.slice(0, 3);
 console.log(`[DEBUG] last3: ${last3.length}, premier: ${last3[0]?.title || 'aucun'}`);
 
 // Récupérer les partis pour les items affichés (si pas déjà présent)
+console.log(`[DEBUG] Début récupération partis...`);
 for (const item of last3) {
   if (!item.party && item.author) {
     try {
@@ -764,6 +765,7 @@ for (const item of last3) {
     } catch (_) {}
   }
 }
+console.log(`[DEBUG] Fin récupération partis, début affichage...`);
 
 // Titre avec compteur de nouveautés
 addTitle(w, cfg.title, last3.length);
