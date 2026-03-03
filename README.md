@@ -55,27 +55,7 @@ During parliamentary sessions, the homepage displays an animated pixel art Feder
 
 ---
 
-## 📱 iOS Widget
-
-A Scriptable widget displays the 5 latest interventions directly on your iPhone home screen.
-
-### Quick Setup (with auto-updates)
-
-1. Install [Scriptable](https://apps.apple.com/app/scriptable/id1405459188) on your iPhone
-2. Create a new script and paste the contents of [`EFK_CDF_Loader.js`](EFK_CDF_Loader.js)
-3. Add a Scriptable widget to your home screen
-4. Configure it to run your script
-
-> 💡 **Benefit**: The loader automatically downloads widget updates from GitHub. No more copy/pasting code for each update!
-
-### Widget Features
-- 🌍 **Trilingual**: automatic language detection (FR/DE/IT)
-- 🔄 **Smart cache**: 24h validity, automatic refresh
-- 📲 **Tap to open**: opens Curia Vista in the corresponding language
-
----
-
-## 🗓️ Coverage
+## ️ Coverage
 
 | Legislature | Period | Sessions |
 |:-----------:|:------:|:--------:|
@@ -96,9 +76,6 @@ A Scriptable widget displays the 5 latest interventions directly on your iPhone 
 ├── 📊 R Scripts
 │   ├── Recherche_CDF_EFK.R    → Parliamentary objects
 │   └── Recherche_Debats.R     → Debates
-├── 📱 iOS Widget
-│   ├── EFK_CDF_Loader.js      → Loader (install this)
-│   └── EFK_CDF_Parlement.js   → Main widget
 └── 📄 Data
     ├── cdf_efk_data.json      → Objects
     └── debates_data.json      → Debates
