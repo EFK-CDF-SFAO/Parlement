@@ -516,14 +516,22 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     const now = new Date();
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     
+    console.log('DEBUG newIdsArray:', newIdsArray);
+    console.log('DEBUG fourDaysAgo:', fourDaysAgo);
+    
     const newObjects = allItems.filter(item => {
         // Vérifier si l'objet est dans newIds
-        if (!newIdsArray.includes(item.shortId)) return false;
+        const inNewIds = newIdsArray.includes(item.shortId);
+        if (!inNewIds) return false;
         
         // Vérifier que l'objet a été déposé/mis à jour dans les 4 derniers jours
         const itemDate = new Date(item.date_maj || item.date);
-        return itemDate >= fourDaysAgo;
+        const isRecent = itemDate >= fourDaysAgo;
+        console.log('DEBUG item:', item.shortId, 'date:', item.date_maj || item.date, 'itemDate:', itemDate, 'isRecent:', isRecent);
+        return isRecent;
     });
+    
+    console.log('DEBUG newObjects:', newObjects.length);
     
     if (newObjects.length === 0) {
         container.innerHTML = `<p class="no-debates">Aucun nouvel objet déposé.</p>`;
