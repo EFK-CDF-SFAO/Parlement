@@ -80,14 +80,21 @@ function getSearchTerms(term) {
 }
 
 // Recherche par mot entier (word boundary)
-// Gère aussi les numéros d'objets avec points (ex: 22.202)
+// Gère les numéros d'objets (ex: 22.202) et les noms avec accents (ex: André)
 function searchWholeWord(text, term) {
     if (!text || !term) return false;
-    const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const lowerText = text.toLowerCase();
+    const lowerTerm = term.toLowerCase();
     // Pour les numéros d'objets (ex: 22.202), utiliser une recherche simple
     if (/^\d+\.\d+$/.test(term)) {
-        return text.toLowerCase().includes(term.toLowerCase());
+        return lowerText.includes(lowerTerm);
     }
+    // Pour les noms complets (contenant un espace) ou avec accents, recherche simple
+    if (term.includes(' ') || /[àâäéèêëïîôùûüçöü]/i.test(term)) {
+        return lowerText.includes(lowerTerm);
+    }
+    // Sinon, utiliser word boundary
+    const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`\\b${escapedTerm}\\b`, 'i');
     return regex.test(text);
 }
