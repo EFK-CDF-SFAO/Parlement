@@ -660,12 +660,11 @@ function updateGlobalSummary() {
         const eluInclusive = globalFilteredObjects.filter(item => item.mention === 'Élu' || item.mention === 'Élu & Conseil fédéral').length;
         const cfInclusive = globalFilteredObjects.filter(item => item.mention === 'Conseil fédéral' || item.mention === 'Élu & Conseil fédéral').length;
         
-        pctEluEl.textContent = Math.round(eluInclusive / total * 100) + '%';
-        pctCFEl.textContent = Math.round(cfInclusive / total * 100) + '%';
+        pctEluEl.textContent = eluInclusive;
+        pctCFEl.textContent = cfInclusive;
         
         if (bothNoteEl && both > 0) {
-            const bothPct = Math.round(both / total * 100);
-            bothNoteEl.textContent = `di cui ${bothPct}% da entrambi`;
+            bothNoteEl.textContent = `di cui ${both} da entrambi`;
         }
     }
     

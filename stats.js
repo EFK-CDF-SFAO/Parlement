@@ -688,12 +688,11 @@ function updateGlobalSummary() {
         // Inclusif : CF seul + les deux
         const cfInclusive = globalFilteredObjects.filter(item => item.mention === 'Conseil fédéral' || item.mention === 'Élu & Conseil fédéral').length;
         
-        pctEluEl.textContent = Math.round(eluInclusive / total * 100) + '%';
-        pctCFEl.textContent = Math.round(cfInclusive / total * 100) + '%';
+        pctEluEl.textContent = eluInclusive;
+        pctCFEl.textContent = cfInclusive;
         
         if (bothNoteEl && both > 0) {
-            const bothPct = Math.round(both / total * 100);
-            bothNoteEl.textContent = `dont ${bothPct}% par les deux`;
+            bothNoteEl.textContent = `dont ${both} par les deux`;
         }
     }
     
