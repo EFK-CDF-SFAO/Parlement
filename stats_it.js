@@ -482,6 +482,34 @@ function resetDebateFilters() {
     applyDebateFilters();
 }
 
+// Filtrare entrambe le sezioni per legislatura (dalla panoramica)
+function filterByLegislature(legValue) {
+    const objDropdown = document.getElementById('objectLegislatureDropdown');
+    if (objDropdown) {
+        const selectAll = objDropdown.querySelector('[data-select-all]');
+        if (selectAll) selectAll.checked = false;
+        objDropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])').forEach(cb => {
+            cb.checked = (cb.value === legValue);
+        });
+        const countSpan = objDropdown.querySelector('.filter-count');
+        if (countSpan) countSpan.textContent = '(1)';
+    }
+    
+    const debDropdown = document.getElementById('debateLegislatureDropdown');
+    if (debDropdown) {
+        const selectAll = debDropdown.querySelector('[data-select-all]');
+        if (selectAll) selectAll.checked = false;
+        debDropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])').forEach(cb => {
+            cb.checked = (cb.value === legValue);
+        });
+        const countSpan = debDropdown.querySelector('.filter-count');
+        if (countSpan) countSpan.textContent = '(1)';
+    }
+    
+    applyObjectFilters();
+    applyDebateFilters();
+}
+
 // Filtrare i dibattiti per consiglio (dalla panoramica)
 function filterDebatesByCouncil(councilCode) {
     const dropdown = document.getElementById('debateCouncilDropdown');

@@ -499,6 +499,36 @@ function resetDebateFilters() {
     applyDebateFilters();
 }
 
+// Filtrer les deux sections par législature depuis le résumé
+function filterByLegislature(legValue) {
+    // Appliquer sur le bloc objets
+    const objDropdown = document.getElementById('objectLegislatureDropdown');
+    if (objDropdown) {
+        const selectAll = objDropdown.querySelector('[data-select-all]');
+        if (selectAll) selectAll.checked = false;
+        objDropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])').forEach(cb => {
+            cb.checked = (cb.value === legValue);
+        });
+        const countSpan = objDropdown.querySelector('.filter-count');
+        if (countSpan) countSpan.textContent = '(1)';
+    }
+    
+    // Appliquer sur le bloc débats
+    const debDropdown = document.getElementById('debateLegislatureDropdown');
+    if (debDropdown) {
+        const selectAll = debDropdown.querySelector('[data-select-all]');
+        if (selectAll) selectAll.checked = false;
+        debDropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])').forEach(cb => {
+            cb.checked = (cb.value === legValue);
+        });
+        const countSpan = debDropdown.querySelector('.filter-count');
+        if (countSpan) countSpan.textContent = '(1)';
+    }
+    
+    applyObjectFilters();
+    applyDebateFilters();
+}
+
 // Filtrer les débats par conseil depuis le résumé
 function filterDebatesByCouncil(councilCode) {
     const dropdown = document.getElementById('debateCouncilDropdown');
