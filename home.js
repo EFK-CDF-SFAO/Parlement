@@ -578,18 +578,24 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
         return idB.localeCompare(idA, undefined, { numeric: true });
     });
     
+    // Bande verte si mise à jour < 4 jours
+    const now = new Date();
+    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+    
     let html = '';
     
     for (const i of indices) {
         const shortId = interventions.shortId[i];
-        const isNew = newIds.includes(shortId);
+        const itemData = itemsMap[shortId];
+        const itemDateStr = itemData?.date_maj || itemData?.date || '';
+        const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+        const isNew = itemDate ? itemDate >= fourDaysAgo : false;
         const party = translateParty(interventions.party[i]);
         const type = interventions.type[i];
         const typeColor = typeColors[type] || '#6B7280';
         const partyColor = partyColors[party] || partyColors[interventions.party[i]] || '#6B7280';
         
         // Récupérer la mention depuis les items
-        const itemData = itemsMap[shortId];
         const mentionData = getMentionEmojis(itemData?.mention);
         
         html += `
@@ -660,9 +666,9 @@ function displayDebatesSummary(debatesData, currentSession) {
             const businessNumber = debate.business_number || '';
             const debateUrl = `debates.html?search=${encodeURIComponent(debate.speaker)}`;
             
-            // Nouveau si dans new_ids ET date < 4 jours
+            // Bande verte si date < 4 jours
             const debateDate = new Date(`${String(debate.date).substring(0,4)}-${String(debate.date).substring(4,6)}-${String(debate.date).substring(6,8)}`);
-            const isNew = newDebateIds.includes(debate.id) && debateDate >= fourDaysAgo;
+            const isNew = debateDate >= fourDaysAgo;
             
             html += `
                 <a href="${debateUrl}" class="intervention-card${isNew ? ' card-new' : ''}">

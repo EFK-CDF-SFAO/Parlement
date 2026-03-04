@@ -717,7 +717,12 @@ function highlightCDF(text, searchTerm = '') {
 
 function createCard(item, searchTerm = '') {
     const card = document.createElement('div');
-    const isNew = newIds.includes(item.id);
+    // Bande verte si date < 4 jours
+    const now = new Date();
+    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+    const dateStr = String(item.date);
+    const debateDate = new Date(`${dateStr.substring(0,4)}-${dateStr.substring(4,6)}-${dateStr.substring(6,8)}T12:00:00`);
+    const isNew = debateDate >= fourDaysAgo;
     card.className = `card debate-card${isNew ? ' card-new' : ''}`;
     
     const councilDisplay = councilLabels[item.council] || item.council;

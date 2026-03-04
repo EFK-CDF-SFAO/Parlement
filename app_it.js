@@ -799,8 +799,12 @@ function createCard(item, searchTerm) {
     const authorWithParty = partyIT ? `${authorName} (${partyIT})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     
-    // Segnare come nuovo se è un vero nuovo oggetto (in new_ids)
-    const isNew = newIds.includes(item.shortId);
+    // Bande verte si mise à jour < 4 jours
+    const now = new Date();
+    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+    const itemDateStr = item.date_maj || item.date || '';
+    const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+    const isNew = itemDate ? itemDate >= fourDaysAgo : false;
     const shortId = highlightText(item.shortId, searchTerm);
     
     const date = item.date ? new Date(item.date).toLocaleDateString('it-CH') : '';
