@@ -548,9 +548,17 @@ function applyFilters() {
     const tagsValues = getCheckedValues('tagsDropdown');
     
     filteredData = allData.filter(item => {
-        // New updates filter
+        // New updates filter (< 4 jours, cohérent avec la bande verte)
         if (window.newUpdatesFilter) {
-            if (!newIds.includes(item.id)) {
+            const now = new Date();
+            const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+            const dateStr = String(item.date);
+            const year = dateStr.substring(0, 4);
+            const month = dateStr.substring(4, 6);
+            const day = dateStr.substring(6, 8);
+            const itemDate = new Date(`${year}-${month}-${day}T12:00:00`);
+            const isRecent = itemDate >= fourDaysAgo;
+            if (!isRecent) {
                 return false;
             }
         }

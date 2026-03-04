@@ -596,9 +596,14 @@ function applyFilters() {
             }
         }
         
-        // New updates filter
+        // New updates filter (< 4 jours, cohérent avec la bande verte)
         if (window.newUpdatesFilter) {
-            if (!newIds.includes(item.shortId)) {
+            const now = new Date();
+            const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+            const itemDateStr = item.date_maj || item.date || '';
+            const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+            const isRecent = itemDate ? itemDate >= fourDaysAgo : false;
+            if (!isRecent) {
                 return false;
             }
         }
