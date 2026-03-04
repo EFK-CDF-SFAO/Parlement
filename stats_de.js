@@ -636,20 +636,24 @@ function updateGlobalSummary() {
         objectsCountEl.textContent = globalFilteredObjects.length;
     }
     
-    // Berechnen der % wer die EFK erwähnt
+    // Berechnen der % wer die EFK erwähnt (inklusiv: "beide" zählt für jeden)
     const pctEluEl = document.getElementById('pctElu');
     const pctCFEl = document.getElementById('pctCF');
-    const pctBothEl = document.getElementById('pctBoth');
+    const bothNoteEl = document.getElementById('mentionBothNote');
     
-    if (pctEluEl && pctCFEl && pctBothEl && globalFilteredObjects.length > 0) {
+    if (pctEluEl && pctCFEl && globalFilteredObjects.length > 0) {
         const total = globalFilteredObjects.length;
-        const eluOnly = globalFilteredObjects.filter(item => item.mention === 'Élu').length;
-        const cfOnly = globalFilteredObjects.filter(item => item.mention === 'Conseil fédéral').length;
         const both = globalFilteredObjects.filter(item => item.mention === 'Élu & Conseil fédéral').length;
+        const eluInclusive = globalFilteredObjects.filter(item => item.mention === 'Élu' || item.mention === 'Élu & Conseil fédéral').length;
+        const cfInclusive = globalFilteredObjects.filter(item => item.mention === 'Conseil fédéral' || item.mention === 'Élu & Conseil fédéral').length;
         
-        pctEluEl.textContent = Math.round(eluOnly / total * 100) + '%';
-        pctCFEl.textContent = Math.round(cfOnly / total * 100) + '%';
-        pctBothEl.textContent = Math.round(both / total * 100) + '%';
+        pctEluEl.textContent = Math.round(eluInclusive / total * 100) + '%';
+        pctCFEl.textContent = Math.round(cfInclusive / total * 100) + '%';
+        
+        if (bothNoteEl && both > 0) {
+            const bothPct = Math.round(both / total * 100);
+            bothNoteEl.textContent = `davon ${bothPct}% von beiden`;
+        }
     }
     
     if (debatesCountEl) {

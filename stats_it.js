@@ -649,20 +649,24 @@ function updateGlobalSummary() {
         objectsCountEl.textContent = globalFilteredObjects.length;
     }
     
-    // Calcolare le % di chi cita il CDF
+    // Calcolare le % di chi cita il CDF (inclusivo: "entrambi" conta per ciascuno)
     const pctEluEl = document.getElementById('pctElu');
     const pctCFEl = document.getElementById('pctCF');
-    const pctBothEl = document.getElementById('pctBoth');
+    const bothNoteEl = document.getElementById('mentionBothNote');
     
-    if (pctEluEl && pctCFEl && pctBothEl && globalFilteredObjects.length > 0) {
+    if (pctEluEl && pctCFEl && globalFilteredObjects.length > 0) {
         const total = globalFilteredObjects.length;
-        const eluOnly = globalFilteredObjects.filter(item => item.mention === 'Élu').length;
-        const cfOnly = globalFilteredObjects.filter(item => item.mention === 'Conseil fédéral').length;
         const both = globalFilteredObjects.filter(item => item.mention === 'Élu & Conseil fédéral').length;
+        const eluInclusive = globalFilteredObjects.filter(item => item.mention === 'Élu' || item.mention === 'Élu & Conseil fédéral').length;
+        const cfInclusive = globalFilteredObjects.filter(item => item.mention === 'Conseil fédéral' || item.mention === 'Élu & Conseil fédéral').length;
         
-        pctEluEl.textContent = Math.round(eluOnly / total * 100) + '%';
-        pctCFEl.textContent = Math.round(cfOnly / total * 100) + '%';
-        pctBothEl.textContent = Math.round(both / total * 100) + '%';
+        pctEluEl.textContent = Math.round(eluInclusive / total * 100) + '%';
+        pctCFEl.textContent = Math.round(cfInclusive / total * 100) + '%';
+        
+        if (bothNoteEl && both > 0) {
+            const bothPct = Math.round(both / total * 100);
+            bothNoteEl.textContent = `di cui ${bothPct}% da entrambi`;
+        }
     }
     
     if (debatesCountEl) {
