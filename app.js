@@ -195,7 +195,8 @@ function translateParty(party) {
         'PBD': 'Le Centre',
         'CSPO': 'Le Centre',
         'CVP': 'Le Centre',
-        'BDP': 'Le Centre'
+        'BDP': 'Le Centre',
+        'AI': 'VERT-E-S'
     };
     return translations[party] || party;
 }
@@ -980,14 +981,15 @@ function downloadFilteredData() {
         return;
     }
     
+    const councilMap = { 'N': 'CN', 'S': 'CE', 'V': 'AF' };
     const headers = ['ID', 'Type', 'Titre', 'Auteur', 'Parti', 'Conseil', 'Date', 'Statut', 'Lien'];
     const rows = filteredData.map(item => [
         item.id || '',
-        item.type || '',
+        translateType(item.type) || '',
         (item.title || '').replace(/"/g, '""'),
-        (item.author || '').replace(/"/g, '""'),
-        item.party || '',
-        item.council || '',
+        (translateAuthor(item.author) || '').replace(/"/g, '""'),
+        translateParty(item.party) || getPartyFromAuthor(item.author) || '',
+        councilMap[item.council] || item.council || '',
         item.date || '',
         getStatusFR(item.status),
         item.url_fr || ''

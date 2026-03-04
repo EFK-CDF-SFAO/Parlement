@@ -202,7 +202,8 @@ function translateParty(party) {
         'BDP': 'Die Mitte',
         'PDC': 'Die Mitte',
         'PBD': 'Die Mitte',
-        'CSPO': 'Die Mitte'
+        'CSPO': 'Die Mitte',
+        'AI': 'GRÜNE'
     };
     return translations[party] || party;
 }
@@ -955,14 +956,15 @@ function downloadFilteredData() {
         return;
     }
     
+    const councilMap = { 'N': 'NR', 'S': 'SR', 'V': 'BV' };
     const headers = ['ID', 'Typ', 'Titel', 'Autor', 'Partei', 'Rat', 'Datum', 'Status', 'Link'];
     const rows = filteredData.map(item => [
         item.id || '',
-        item.type || '',
+        translateType(item.type) || '',
         (item.title_de || item.title || '').replace(/"/g, '""'),
-        (item.author || '').replace(/"/g, '""'),
-        getPartyDE(item.party) || '',
-        item.council || '',
+        (translateAuthor(item.author) || '').replace(/"/g, '""'),
+        translateParty(item.party) || translateParty(getPartyFromAuthor(item.author)) || '',
+        councilMap[item.council] || item.council || '',
         item.date || '',
         getStatusDE(item.status),
         item.url_de || ''
