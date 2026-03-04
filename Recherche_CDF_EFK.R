@@ -58,7 +58,9 @@ GITHUB_RAW_URL <- "https://raw.githubusercontent.com/ArnaudBon20/EFK_CDF_Parleme
 
 # Objets à exclure (faux positifs - mentionnent CDF/EFK mais pas le Contrôle fédéral des finances)
 # 16.025, 16.026, 18.032: CdF-CE/CdF-CN = Commission des finances, pas Contrôle fédéral des finances
-faux_positifs <- c("24.3077", "25.479", "25.4670", "18.032", "16.025", "16.026")
+# 17.495, 16.3303, 16.3319, 16.3281, 24.3858, 24.3609, 22.7445, 21.3033: CdF./CdF-CE/CdF-E/CdF-N/CdF-CN dans le titre uniquement
+faux_positifs <- c("24.3077", "25.479", "25.4670", "18.032", "16.025", "16.026",
+                   "17.495", "16.3303", "16.3319", "16.3281", "24.3858", "24.3609", "22.7445", "21.3033")
 
 # ============================================================================
 # PATTERNS DE RECHERCHE
