@@ -804,7 +804,8 @@ function translateType(type) {
         'Anfrage': 'Question',
         'A.': 'Question',
         'Parlamentarische Initiative': 'Initiative parlementaire',
-        'Pa.Iv.': 'Iv.pa.',
+        'Pa.Iv.': 'Iv. pa.',
+        'Pa. Iv.': 'Iv. pa.',
         'Geschäft des Parlaments': 'Objet du Parlement'
     };
     return translations[type] || type;

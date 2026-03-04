@@ -763,7 +763,8 @@ function translateType(type) {
         'Anfrage': 'Interrogazione',
         'A.': 'Interrogazione',
         'Parlamentarische Initiative': 'Iniziativa parlamentare',
-        'Pa.Iv.': 'Iv.pa.',
+        'Pa.Iv.': 'Iv. pa.',
+        'Pa. Iv.': 'Iv. pa.',
         'Geschäft des Parlaments': 'Oggetto del Parlamento'
     };
     return translations[type] || type;
