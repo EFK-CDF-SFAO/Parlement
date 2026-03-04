@@ -499,6 +499,30 @@ function resetDebateFilters() {
     applyDebateFilters();
 }
 
+// Filtrer les débats par conseil depuis le résumé
+function filterDebatesByCouncil(councilCode) {
+    const dropdown = document.getElementById('debateCouncilDropdown');
+    if (!dropdown) return;
+    
+    // Décocher tout d'abord
+    const selectAll = dropdown.querySelector('[data-select-all]');
+    if (selectAll) selectAll.checked = false;
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+    checkboxes.forEach(cb => {
+        cb.checked = (cb.value === councilCode);
+    });
+    
+    // Mettre à jour le compteur du filtre
+    const countSpan = dropdown.querySelector('.filter-count');
+    if (countSpan) countSpan.textContent = '(1)';
+    
+    applyDebateFilters();
+    
+    // Scroller vers la section débats
+    const debatesSection = document.getElementById('debatesSection');
+    if (debatesSection) debatesSection.scrollIntoView({ behavior: 'smooth' });
+}
+
 function applyDebateFilters() {
     const yearFilters = getCheckedValues('debateYearDropdown');
     const sessionFilters = getCheckedValues('debateSessionDropdown');
@@ -700,14 +724,17 @@ function updateGlobalSummary() {
         debatesCountEl.textContent = globalFilteredDebates.length;
     }
     
-    // Sous-infos débats : répartition CN / CE
+    // Sous-infos débats : répartition CN / CE / AF
     const debatesCNEl = document.getElementById('debatesCN');
     const debatesCEEl = document.getElementById('debatesCE');
+    const debatesAFEl = document.getElementById('debatesAF');
     if (debatesCNEl && debatesCEEl && globalFilteredDebates.length > 0) {
         const cn = globalFilteredDebates.filter(d => d.council === 'N').length;
         const ce = globalFilteredDebates.filter(d => d.council === 'S').length;
+        const af = globalFilteredDebates.filter(d => d.council === 'V').length;
         debatesCNEl.textContent = cn;
         debatesCEEl.textContent = ce;
+        if (debatesAFEl) debatesAFEl.textContent = af;
     }
     
     if (periodEl) {

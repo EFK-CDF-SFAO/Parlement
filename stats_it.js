@@ -482,6 +482,27 @@ function resetDebateFilters() {
     applyDebateFilters();
 }
 
+// Filtrare i dibattiti per consiglio (dalla panoramica)
+function filterDebatesByCouncil(councilCode) {
+    const dropdown = document.getElementById('debateCouncilDropdown');
+    if (!dropdown) return;
+    
+    const selectAll = dropdown.querySelector('[data-select-all]');
+    if (selectAll) selectAll.checked = false;
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:not([data-select-all])');
+    checkboxes.forEach(cb => {
+        cb.checked = (cb.value === councilCode);
+    });
+    
+    const countSpan = dropdown.querySelector('.filter-count');
+    if (countSpan) countSpan.textContent = '(1)';
+    
+    applyDebateFilters();
+    
+    const debatesSection = document.getElementById('debatesSection');
+    if (debatesSection) debatesSection.scrollIntoView({ behavior: 'smooth' });
+}
+
 function applyDebateFilters() {
     const yearFilters = getCheckedValues('debateYearDropdown');
     const sessionFilters = getCheckedValues('debateSessionDropdown');
@@ -672,14 +693,17 @@ function updateGlobalSummary() {
         debatesCountEl.textContent = globalFilteredDebates.length;
     }
     
-    // Sous-infos débats : répartition CN / CS
+    // Sous-infos débats : répartition CN / CS / AF
     const debatesCNEl = document.getElementById('debatesCN');
     const debatesCEEl = document.getElementById('debatesCE');
+    const debatesAFEl = document.getElementById('debatesAF');
     if (debatesCNEl && debatesCEEl && globalFilteredDebates.length > 0) {
         const cn = globalFilteredDebates.filter(d => d.council === 'N').length;
         const ce = globalFilteredDebates.filter(d => d.council === 'S').length;
+        const af = globalFilteredDebates.filter(d => d.council === 'V').length;
         debatesCNEl.textContent = cn;
         debatesCEEl.textContent = ce;
+        if (debatesAFEl) debatesAFEl.textContent = af;
     }
     
     if (periodEl) {

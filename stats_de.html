@@ -53,13 +53,17 @@
                     <span class="summary-number" id="globalDebatesCount">-</span>
                     <span class="summary-label">Debatten</span>
                     <div class="mention-breakdown" id="debatesBreakdown">
-                        <span class="mention-stat" title="Nationalrat">
+                        <span class="mention-stat clickable-stat" title="Nationalrat – klicken zum Filtern" onclick="filterDebatesByCouncil('N')">
                             <span class="mention-icon">NR</span>
                             <span class="mention-pct" id="debatesCN">-</span>
                         </span>
-                        <span class="mention-stat" title="Ständerat">
+                        <span class="mention-stat clickable-stat" title="Ständerat – klicken zum Filtern" onclick="filterDebatesByCouncil('S')">
                             <span class="mention-icon">SR</span>
                             <span class="mention-pct" id="debatesCE">-</span>
+                        </span>
+                        <span class="mention-stat clickable-stat" title="Bundesversammlung – klicken zum Filtern" onclick="filterDebatesByCouncil('V')">
+                            <span class="mention-icon">BV</span>
+                            <span class="mention-pct" id="debatesAF">-</span>
                         </span>
                     </div>
                 </div>
@@ -178,7 +182,7 @@
             </div>
         </section>
         
-        <section class="stats-section">
+        <section class="stats-section" id="debatesSection">
             <h2>💬 Debatten-Statistiken</h2>
             
             <div class="stats-filters">

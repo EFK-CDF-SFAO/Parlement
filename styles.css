@@ -980,6 +980,16 @@ mark.highlight-search {
     justify-content: center;
 }
 
+.clickable-stat {
+    cursor: pointer;
+}
+
+.clickable-stat:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
 .legislature-stat {
     cursor: default;
     font-weight: 600;
