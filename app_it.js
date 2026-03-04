@@ -185,7 +185,8 @@ function translateParty(party) {
         'BDP': 'Alleanza del Centro',
         'PLR': 'PLR',
         'UDC': 'UDC',
-        'pvl': 'PVL'
+        'pvl': 'PVL',
+        'AI': 'Verdi'
     };
     return translations[party] || party;
 }
@@ -958,14 +959,15 @@ function downloadFilteredData() {
         return;
     }
     
+    const councilMap = { 'N': 'CN', 'S': 'CS', 'V': 'AF' };
     const headers = ['ID', 'Tipo', 'Titolo', 'Autore', 'Partito', 'Consiglio', 'Data', 'Stato', 'Link'];
     const rows = filteredData.map(item => [
         item.id || '',
-        item.type || '',
+        translateType(item.type) || '',
         (item.title_it || item.title || '').replace(/"/g, '""'),
-        (item.author || '').replace(/"/g, '""'),
-        getPartyIT(item.party) || '',
-        item.council || '',
+        (translateAuthor(item.author) || '').replace(/"/g, '""'),
+        translateParty(item.party) || translateParty(getPartyFromAuthor(item.author)) || '',
+        councilMap[item.council] || item.council || '',
         item.date || '',
         getStatusIT(item.status),
         (item.url_fr || '').replace('/fr/', '/it/')
