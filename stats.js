@@ -700,6 +700,17 @@ function updateGlobalSummary() {
     if (debatesCountEl) {
         debatesCountEl.textContent = globalFilteredDebates.length;
     }
+    
+    // Sous-infos débats : répartition CN / CE
+    const debatesCNEl = document.getElementById('debatesCN');
+    const debatesCEEl = document.getElementById('debatesCE');
+    if (debatesCNEl && debatesCEEl && globalFilteredDebates.length > 0) {
+        const cn = globalFilteredDebates.filter(d => d.council === 'N').length;
+        const ce = globalFilteredDebates.filter(d => d.council === 'S').length;
+        debatesCNEl.textContent = cn;
+        debatesCEEl.textContent = ce;
+    }
+    
     if (periodEl) {
         const years = new Set();
         globalFilteredObjects.forEach(item => {
@@ -720,6 +731,24 @@ function updateGlobalSummary() {
             }
         }
     }
+    
+    // Sous-infos période : législatures couvertes
+    const legislatures = new Set();
+    globalFilteredObjects.forEach(item => {
+        const leg = getLegislature(item.date);
+        if (leg) legislatures.add(leg);
+    });
+    globalFilteredDebates.forEach(item => {
+        const leg = getLegislatureFromSession(item.id_session);
+        if (leg) legislatures.add(leg);
+    });
+    ['50', '51', '52'].forEach(num => {
+        const el = document.getElementById('leg' + num);
+        if (el) {
+            const isActive = legislatures.has(num) || legislatures.size === 0;
+            el.style.opacity = isActive ? '1' : '0.3';
+        }
+    });
 }
 
 function getPartyFromAuthor(author) {

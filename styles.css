@@ -980,6 +980,12 @@ mark.highlight-search {
     justify-content: center;
 }
 
+.legislature-stat {
+    cursor: default;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
 .mention-both-note {
     font-size: 0.75rem;
     color: var(--text-secondary);
