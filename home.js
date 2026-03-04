@@ -9,9 +9,9 @@ const typeLabels = {
     'Po.': 'Po.',
     'Ip.': 'Ip.',
     'D.Ip.': 'Ip. urg.',
-    'Fra.': 'Fra.',
-    'A.': 'A.',
-    'Pa. Iv.': 'Pa. Iv.',
+    'Fra.': 'Question',
+    'A.': 'Question',
+    'Pa. Iv.': 'Iv. pa.',
     'Iv. pa.': 'Iv. pa.',
     'Iv. ct.': 'Iv. ct.',
     'BRG': 'BRG'
