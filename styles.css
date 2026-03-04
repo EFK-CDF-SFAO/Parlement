@@ -1024,7 +1024,7 @@ mark.highlight-search {
 }
 
 .mention-stat:hover .mention-pct {
-    color: white;
+    color: var(--primary);
 }
 
 .mention-icon {
