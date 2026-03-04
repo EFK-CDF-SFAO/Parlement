@@ -930,7 +930,27 @@ function getStatusIT(status) {
         'Sistiert': 'Sospeso',
         // Classé
         'Classé': 'Tolto dal ruolo',
-        'Abgeschrieben': 'Tolto dal ruolo'
+        'Abgeschrieben': 'Tolto dal ruolo',
+        // Planifié au Conseil
+        'Planifié au Conseil des Etats': 'Pianificato nel Consiglio degli Stati',
+        'In Ständerat geplant': 'Pianificato nel Consiglio degli Stati',
+        'Planifié au Conseil national': 'Pianificato nel Consiglio nazionale',
+        'Im Nationalrat geplant': 'Pianificato nel Consiglio nazionale',
+        // En commission
+        'En commission du Conseil des Etats': 'In commissione del Consiglio degli Stati',
+        'In Kommission des Ständerats': 'In commissione del Consiglio degli Stati',
+        'En commission du Conseil national': 'In commissione del Consiglio nazionale',
+        'In Kommission des Nationalrats': 'In commissione del Consiglio nazionale',
+        // Fin des discussions en commission
+        'Fin des discussions en commission du Conseil national': 'Fine delle discussioni in commissione del Consiglio nazionale',
+        'Beratung in Kommission des Nationalrates abgeschlossen': 'Fine delle discussioni in commissione del Consiglio nazionale',
+        'Fin des discussions en commission du Conseil des Etats': 'Fine delle discussioni in commissione del Consiglio degli Stati',
+        'Beratung in Kommission des Ständerates abgeschlossen': 'Fine delle discussioni in commissione del Consiglio degli Stati',
+        // Rapport disponible
+        "Rapport en réponse de l'intervention est disponible": "Il rapporto in risposta all'intervento è disponibile",
+        'Bericht in Erfüllung des Vorstosses liegt vor': "Il rapporto in risposta all'intervento è disponibile",
+        "Rapport sur l'état d'avancement est disponible": 'Il rapporto sullo stato di avanzamento è disponibile',
+        'Berichterstattung zum Umsetzungsstand des Vorstosses liegt vor': 'Il rapporto sullo stato di avanzamento è disponibile'
     };
     
     if (status.includes('/')) {
