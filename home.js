@@ -527,8 +527,8 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     // Trier par shortId décroissant (plus récents en premier)
     sessionObjects.sort((a, b) => b.shortId.localeCompare(a.shortId, undefined, { numeric: true }));
     
-    // Limiter à 5 objets maximum
-    const objectsToShow = sessionObjects.slice(0, 5);
+    // Limiter à 3 objets maximum
+    const objectsToShow = sessionObjects.slice(0, 3);
     
     // Bande verte uniquement si déposé dans les 4 derniers jours
     const now = new Date();
