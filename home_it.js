@@ -627,10 +627,10 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
             displayTitle = item.title_it;
         } else if (!frMissing) {
             displayTitle = item.title;
-            langWarning = '<span class="lang-warning">🇫🇷</span>';
+            langWarning = '<span class="lang-warning">🇫🇷 Solo in francese</span>';
         } else if (item.title_de) {
             displayTitle = item.title_de;
-            langWarning = '<span class="lang-warning">🇩🇪</span>';
+            langWarning = '<span class="lang-warning">🇩🇪 Solo in tedesco</span>';
         }
         
         // Bande verte si déposé il y a moins de 4 jours
