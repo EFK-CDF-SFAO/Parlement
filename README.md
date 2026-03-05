@@ -124,7 +124,7 @@ Data is automatically updated via **GitHub Actions**:
 ## 📚 APIs Used
 
 - [Swiss Parliament Open Data API](https://ws.parlament.ch/)
-- [swissparl R package](https://github.com/zumbov2/swissparl)
+- [swissparl R package](https://github.com/zumbov2/swissparl) by zumbov2 (David Zumbach)
 
 ---
 
