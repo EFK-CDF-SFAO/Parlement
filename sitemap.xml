@@ -1,92 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/</loc>
-    <lastmod>2026-03-04</lastmod>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/home.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/home.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/home_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/home_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/home_de.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/home.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/home_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/home_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/home_it.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/home.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/home_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/home_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/objects.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/objects.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/objects_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/objects_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/objects_de.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/objects.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/objects_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/objects_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/objects_it.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/objects.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/objects_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/objects_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/debates.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/debates.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/debates_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/debates_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/debates_de.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/debates.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/debates_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/debates_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/debates_it.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/debates.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/debates_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/debates_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/stats.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/stats.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/stats_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/stats_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/stats_de.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/stats.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/stats_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/stats_it.html"/>
-  </url>
-  <url>
-    <loc>https://efk-cdf-sfao.github.io/Parlement/stats_it.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://efk-cdf-sfao.github.io/Parlement/stats.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://efk-cdf-sfao.github.io/Parlement/stats_de.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://efk-cdf-sfao.github.io/Parlement/stats_it.html"/>
-  </url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/home.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/debates.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/stats.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/home_de.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/home_it.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects_de.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects_it.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/debates_de.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/debates_it.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/stats_de.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/stats_it.html</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects.html?filter_mention=elu</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects.html?filter_mention=cf</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects_de.html?filter_mention=elu</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects_de.html?filter_mention=cf</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects_it.html?filter_mention=elu</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://efk-cdf-sfao.github.io/Parlement/objects_it.html?filter_mention=cf</loc>
+  <lastmod>2026-03-05T13:19:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
 </urlset>
