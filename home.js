@@ -661,8 +661,9 @@ function displayDebatesSummary(debatesData, currentSession) {
             return (b.sort_order || 0) - (a.sort_order || 0);
         });
         
-        // Afficher les 5 derniers débats en format carte
-        const latestDebates = sessionDebates.slice(0, 5);
+        // Afficher 6 débats (desktop) ou 3 débats (mobile)
+        const maxDebates = window.innerWidth <= 768 ? 3 : 6;
+        const latestDebates = sessionDebates.slice(0, maxDebates);
         const newDebateIds = debatesData.new_ids || [];
         
         // Garder la bande verte pendant 4 jours
