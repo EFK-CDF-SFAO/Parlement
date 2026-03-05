@@ -39,6 +39,13 @@ function translateParty(party) {
     return translations[party] || party;
 }
 
+// Verificare se il titolo manca
+function isTitleMissing(title) {
+    if (!title) return true;
+    const missing = ['titre suit', 'titel folgt', 'titolo segue', ''];
+    return missing.includes(title.toLowerCase().trim());
+}
+
 // Nomi delle sessioni in italiano
 const sessionNames = {
     'printemps': 'sessione primaverile',
@@ -610,8 +617,21 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         const partyColor = partyColors[party] || '#6B7280';
         const mentionData = getMentionEmojis(item.mention);
         const url = item.url_fr.replace('/fr/', '/it/');
-        const title = (item.title_it && item.title_it.trim() && item.title_it.toLowerCase() !== 'titre suit') 
-            ? item.title_it : item.title;
+        
+        // Gestion titre manquant - priorité: IT > FR > DE
+        const itMissing = isTitleMissing(item.title_it);
+        const frMissing = isTitleMissing(item.title);
+        let displayTitle = '';
+        let langWarning = '';
+        if (!itMissing) {
+            displayTitle = item.title_it;
+        } else if (!frMissing) {
+            displayTitle = item.title;
+            langWarning = '<span class="lang-warning">🇫🇷</span>';
+        } else if (item.title_de) {
+            displayTitle = item.title_de;
+            langWarning = '<span class="lang-warning">🇩🇪</span>';
+        }
         
         // Bande verte si déposé il y a moins de 4 jours
         const itemDate = new Date(item.date + 'T12:00:00');
@@ -623,7 +643,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
                     <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${item.shortId}</span>
                 </div>
-                <div class="card-title">${title}</div>
+                <div class="card-title">${langWarning}${displayTitle}</div>
                 <div class="card-footer">
                     <span class="card-author">${item.author}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>

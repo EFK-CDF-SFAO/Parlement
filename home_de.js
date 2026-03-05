@@ -45,6 +45,13 @@ function translateParty(party) {
     return translations[party] || party;
 }
 
+// Prüfen ob Titel fehlt
+function isTitleMissing(title) {
+    if (!title) return true;
+    const missing = ['titre suit', 'titel folgt', 'titolo segue', ''];
+    return missing.includes(title.toLowerCase().trim());
+}
+
 // Couleurs par type d'objet
 const typeColors = {
     'Mo.': '#3B82F6',
@@ -573,6 +580,11 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         const partyColor = partyColors[party] || '#6B7280';
         const mentionData = getMentionEmojis(item.mention);
         
+        // Gestion titre manquant
+        const deMissing = isTitleMissing(item.title_de);
+        const displayTitle = deMissing && item.title ? item.title : (item.title_de || item.title || '');
+        const langWarning = deMissing && item.title ? '<span class="lang-warning">🇫🇷</span>' : '';
+        
         // Bande verte si déposé il y a moins de 4 jours
         const itemDate = new Date(item.date + 'T12:00:00');
         const isNew = itemDate >= fourDaysAgo;
@@ -583,7 +595,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
                     <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${item.shortId}</span>
                 </div>
-                <div class="card-title">${item.title_de || item.title}</div>
+                <div class="card-title">${langWarning}${displayTitle}</div>
                 <div class="card-footer">
                     <span class="card-author">${item.author}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>
