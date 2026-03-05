@@ -989,17 +989,21 @@ function downloadFilteredData() {
     
     const councilMap = { 'N': 'CN', 'S': 'CE', 'V': 'AF' };
     const headers = ['ID', 'Type', 'Titre', 'Auteur', 'Parti', 'Conseil', 'Date', 'Statut', 'Lien'];
-    const rows = filteredData.map(item => [
+    const rows = filteredData.map(item => {
+        // Gestion titre manquant pour export
+        const frMissing = isTitleMissing(item.title);
+        const exportTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de || '');
+        return [
         item.id || '',
         translateType(item.type) || '',
-        (item.title || '').replace(/"/g, '""'),
+        exportTitle.replace(/"/g, '""'),
         (translateAuthor(item.author) || '').replace(/"/g, '""'),
         translateParty(item.party) || getPartyFromAuthor(item.author) || '',
         councilMap[item.council] || item.council || '',
         item.date || '',
         getStatusFR(item.status),
         item.url_fr || ''
-    ]);
+    ];});
     
     const csvContent = [
         headers.join(';'),

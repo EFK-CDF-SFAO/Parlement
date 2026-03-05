@@ -963,17 +963,21 @@ function downloadFilteredData() {
     
     const councilMap = { 'N': 'NR', 'S': 'SR', 'V': 'BV' };
     const headers = ['ID', 'Typ', 'Titel', 'Autor', 'Partei', 'Rat', 'Datum', 'Status', 'Link'];
-    const rows = filteredData.map(item => [
+    const rows = filteredData.map(item => {
+        // Gestion titre manquant pour export
+        const deMissing = isTitleMissing(item.title_de);
+        const exportTitle = deMissing && item.title ? item.title : (item.title_de || item.title || '');
+        return [
         item.id || '',
         translateType(item.type) || '',
-        (item.title_de || item.title || '').replace(/"/g, '""'),
+        exportTitle.replace(/"/g, '""'),
         (translateAuthor(item.author) || '').replace(/"/g, '""'),
         translateParty(item.party) || translateParty(getPartyFromAuthor(item.author)) || '',
         councilMap[item.council] || item.council || '',
         item.date || '',
         getStatusDE(item.status),
         item.url_de || ''
-    ]);
+    ];});
     
     const csvContent = [
         headers.join(';'),
