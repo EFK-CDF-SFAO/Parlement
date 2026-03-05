@@ -818,7 +818,7 @@ function translateType(type) {
 
 function isTitleMissing(title) {
     if (!title) return true;
-    const missing = ['titre suit', 'titel folgt', ''];
+    const missing = ['titre suit', 'titel folgt', 'titolo segue', ''];
     return missing.includes(title.toLowerCase().trim());
 }
 
