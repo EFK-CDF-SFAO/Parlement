@@ -987,17 +987,29 @@ function downloadFilteredData() {
     
     const councilMap = { 'N': 'CN', 'S': 'CS', 'V': 'AF' };
     const headers = ['ID', 'Tipo', 'Titolo', 'Autore', 'Partito', 'Consiglio', 'Data', 'Stato', 'Link'];
-    const rows = filteredData.map(item => [
+    const rows = filteredData.map(item => {
+        // Gestion titre manquant pour export - priorité: IT > FR > DE
+        const itMissing = isTitleMissing(item.title_it);
+        const frMissing = isTitleMissing(item.title);
+        let exportTitle = '';
+        if (!itMissing) {
+            exportTitle = item.title_it;
+        } else if (!frMissing) {
+            exportTitle = item.title;
+        } else if (item.title_de) {
+            exportTitle = item.title_de;
+        }
+        return [
         item.id || '',
         translateType(item.type) || '',
-        (item.title_it || item.title || '').replace(/"/g, '""'),
+        exportTitle.replace(/"/g, '""'),
         (translateAuthor(item.author) || '').replace(/"/g, '""'),
         translateParty(item.party) || translateParty(getPartyFromAuthor(item.author)) || '',
         councilMap[item.council] || item.council || '',
         item.date || '',
         getStatusIT(item.status),
         (item.url_fr || '').replace('/fr/', '/it/')
-    ]);
+    ];});
     
     const csvContent = [
         headers.join(';'),
