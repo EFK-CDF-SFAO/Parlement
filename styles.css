@@ -1096,7 +1096,7 @@ mark.highlight-search {
 
 .chart-screenshot-btn {
     position: absolute;
-    bottom: -5px;
+    top: -5px;
     right: -20px;
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid #ddd;
@@ -1992,6 +1992,41 @@ a.author-row {
 .card-mention {
     font-size: 0.85rem;
     cursor: help;
+}
+
+/* Badge rapport CDF */
+.card-rapport-row {
+    margin-top: 0.5rem;
+}
+
+.card-rapport {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0.4rem;
+    background: #EA5A4F;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.card-rapport:hover {
+    background: #d14a40;
+    color: white;
+}
+
+/* Badge dans les cartes de la home (intervention-card) */
+.intervention-card .card-rapport-row {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.intervention-card .card-rapport {
+    position: relative;
+    z-index: 2;
 }
 
 /* Mobile responsive */
