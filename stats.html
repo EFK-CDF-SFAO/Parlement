@@ -144,28 +144,25 @@
             
             <div class="stats-row">
                 <div class="stat-card">
-                    <h3>Interventions par parti</h3>
+                    <h3>Interventions par parti <button class="chart-screenshot-btn" onclick="downloadChart('partyChart', 'objets-par-parti')" title="Télécharger l'image">📷</button></h3>
                     <div class="chart-container">
                         <canvas id="partyChart"></canvas>
-                        <button class="chart-screenshot-btn" onclick="downloadChart('partyChart', 'objets-par-parti')" title="Télécharger l'image">📷</button>
                     </div>
                 </div>
                 
                 <div class="stat-card">
-                    <h3>Interventions par type</h3>
+                    <h3>Interventions par type <button class="chart-screenshot-btn" onclick="downloadChart('typeChart', 'objets-par-type')" title="Télécharger l'image">📷</button></h3>
                     <div class="chart-container">
                         <canvas id="typeChart"></canvas>
-                        <button class="chart-screenshot-btn" onclick="downloadChart('typeChart', 'objets-par-type')" title="Télécharger l'image">📷</button>
                     </div>
                 </div>
             </div>
             
             <div class="stats-row">
                 <div class="stat-card">
-                    <h3>📈 Évolution par année</h3>
+                    <h3>📈 Évolution par année <button class="chart-screenshot-btn" onclick="downloadChart('yearChart', 'objets-par-annee')" title="Télécharger l'image">📷</button></h3>
                     <div class="chart-container-wide">
                         <canvas id="yearChart"></canvas>
-                        <button class="chart-screenshot-btn" onclick="downloadChart('yearChart', 'objets-par-annee')" title="Télécharger l'image">📷</button>
                     </div>
                     <div id="sessionDetail" class="session-detail" style="display: none;">
                         <h4 id="sessionDetailTitle"></h4>
@@ -237,18 +234,16 @@
             
             <div class="stats-row">
                 <div class="stat-card">
-                    <h3>Interventions par acteur</h3>
+                    <h3>Interventions par acteur <button class="chart-screenshot-btn" onclick="downloadChart('debatePartyChart', 'debats-par-acteur')" title="Télécharger l'image">📷</button></h3>
                     <div class="chart-container">
                         <canvas id="debatePartyChart"></canvas>
-                        <button class="chart-screenshot-btn" onclick="downloadChart('debatePartyChart', 'debats-par-acteur')" title="Télécharger l'image">📷</button>
                     </div>
                 </div>
                 
                 <div class="stat-card">
-                    <h3>Interventions par conseil</h3>
+                    <h3>Interventions par conseil <button class="chart-screenshot-btn" onclick="downloadChart('debateCouncilChart', 'debats-par-conseil')" title="Télécharger l'image">📷</button></h3>
                     <div class="chart-container">
                         <canvas id="debateCouncilChart"></canvas>
-                        <button class="chart-screenshot-btn" onclick="downloadChart('debateCouncilChart', 'debats-par-conseil')" title="Télécharger l'image">📷</button>
                     </div>
                 </div>
             </div>
