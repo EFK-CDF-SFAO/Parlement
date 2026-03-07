@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-03-07T12:48:29",
+    "updated": "2026-03-07T21:36:02",
     "total_count": 322,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -6786,6 +6786,26 @@
       "tags_it": "Ambiente|Agricoltura"
     },
     {
+      "shortId": "25.7863",
+      "title": "Débâcle fiscale vaudoise. Conséquences sur la péréquation financière ?",
+      "title_de": "Steuerdebakel Waadt: Finanzausgleich betroffen?",
+      "author": "Gugger Niklaus-Samuel",
+      "party": "PEV",
+      "type": "Fra.",
+      "status": "Erledigt / Liquidé",
+      "council": "NR",
+      "department": "EFD",
+      "date": "2025-09-17",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
+      "mention": "Conseil fédéral",
+      "text": "<p>Des rapports datant du printemps critiquent le calcul erroné de l’impôt sur la fortune dans le canton de Vaud qui a engendré une perte pouvant se chiffrer en millions de francs. Le canton de Vaud bénéficiant de la péréquation financière nationale, les erreurs pourraient avoir des répercussions sur les autres cantons et la Confédération.<br>- Est-ce que le Conseil fédéral partage cette analyse&nbsp;?<br>- Les paiements compensatoires déjà effectués peuvent-ils être corrigés&nbsp;?<br>- Quelles mesures entend prendre le Conseil fédéral pour éviter, à l’avenir, de telles erreurs&nbsp;?<\/p>",
+      "text_de": "<p>Berichte aus dem Frühjahr kritisieren die fehlerhafte Vermögenssteuerberechnung im Kanton Waadt, die ihm mutmasslich mehrere Millionen Franken kostete. Da Waadt Nehmerkanton im nationalen Finanzausgleich ist, könnten die Fehler auch andere Kantone und den Bund betreffen.<br>- Teilt der Bundesrat diese Einschätzung?<br>- Können bereits geleistete Ausgleichszahlungen korrigiert werden?<br>- Welche Massnahmen plant er, um solche Fehler künftig zu verhindern?<\/p>",
+      "tags": "Politique d'Etat|Fiscalité",
+      "tags_de": "Staatspolitik|Steuer",
+      "tags_it": "Politica nazionale|Imposte"
+    },
+    {
       "shortId": "25.4024",
       "title": "Le DDPS confie de grands projets à des externes. Quel est l'objectif stratégique ?",
       "title_de": "Grossprojekte im VBS an externe Dienstleister. Was für eine Strategie wird verfolgt?",
@@ -6805,26 +6825,6 @@
       "tags": "Politique d'Etat|Politique de sécurité",
       "tags_de": "Staatspolitik|Sicherheitspolitik",
       "tags_it": "Politica nazionale|Politica di sicurezza"
-    },
-    {
-      "shortId": "25.7863",
-      "title": "Débâcle fiscale vaudoise. Conséquences sur la péréquation financière ?",
-      "title_de": "Steuerdebakel Waadt: Finanzausgleich betroffen?",
-      "author": "Gugger Niklaus-Samuel",
-      "party": "PEV",
-      "type": "Fra.",
-      "status": "Erledigt / Liquidé",
-      "council": "NR",
-      "department": "EFD",
-      "date": "2025-09-17",
-      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20257863",
-      "mention": "Conseil fédéral",
-      "text": "<p>Des rapports datant du printemps critiquent le calcul erroné de l’impôt sur la fortune dans le canton de Vaud qui a engendré une perte pouvant se chiffrer en millions de francs. Le canton de Vaud bénéficiant de la péréquation financière nationale, les erreurs pourraient avoir des répercussions sur les autres cantons et la Confédération.<br>- Est-ce que le Conseil fédéral partage cette analyse&nbsp;?<br>- Les paiements compensatoires déjà effectués peuvent-ils être corrigés&nbsp;?<br>- Quelles mesures entend prendre le Conseil fédéral pour éviter, à l’avenir, de telles erreurs&nbsp;?<\/p>",
-      "text_de": "<p>Berichte aus dem Frühjahr kritisieren die fehlerhafte Vermögenssteuerberechnung im Kanton Waadt, die ihm mutmasslich mehrere Millionen Franken kostete. Da Waadt Nehmerkanton im nationalen Finanzausgleich ist, könnten die Fehler auch andere Kantone und den Bund betreffen.<br>- Teilt der Bundesrat diese Einschätzung?<br>- Können bereits geleistete Ausgleichszahlungen korrigiert werden?<br>- Welche Massnahmen plant er, um solche Fehler künftig zu verhindern?<\/p>",
-      "tags": "Politique d'Etat|Fiscalité",
-      "tags_de": "Staatspolitik|Steuer",
-      "tags_it": "Politica nazionale|Imposte"
     },
     {
       "shortId": "25.7888",
@@ -6887,26 +6887,6 @@
       "tags_it": "Economia|Imposte"
     },
     {
-      "shortId": "25.3984",
-      "title": "Optimiser l'examen des subventions pour garantir la santé des finances fédérales",
-      "title_de": "Für gesunde Bundesfinanzen. Subventionsüberprüfung optimieren",
-      "title_it": "Per finanze federali sane. Ottimizzare l'esame dei sussidi",
-      "author": "FDP-Liberale Fraktion",
-      "type": "Mo.",
-      "status": "In Ständerat geplant / Planifié au Conseil des Etats",
-      "council": "NR",
-      "department": "EFD",
-      "date": "2025-09-10",
-      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
-      "mention": "Conseil fédéral",
-      "text": "<p>Le Conseil fédéral est chargé d’adapter l’examen des subventions tel qu’il est réglé dans la loi sur les subventions (LSu) de manière à mettre en place un ensemble de mesures permettant de réduire les subventions nuisibles.<\/p>",
-      "text_de": "<p>Der Bundesrat wird beauftragt, die Subventionsprüfung gemäss Subventionsgesetz (SuG) so anzupassen, dass daraus ein Paket für einen Abbau von schädlichen Subventionen hervorgeht.<\/p>",
-      "tags": "Politique d'Etat|Économie|Finances",
-      "tags_de": "Staatspolitik|Wirtschaft|Finanzwesen",
-      "tags_it": "Politica nazionale|Economia|Finanze"
-    },
-    {
       "shortId": "25.7663",
       "title": "RUAG : des millions pour des avocats au lieu de munition pour notre armée ?",
       "title_de": "Ruag: Anwaltskosten in Millionenhöhe statt Munition für unsere Armee?",
@@ -6945,6 +6925,26 @@
       "tags": "Politique d'Etat|Politique de sécurité|Finances",
       "tags_de": "Staatspolitik|Sicherheitspolitik|Finanzwesen",
       "tags_it": "Politica nazionale|Politica di sicurezza|Finanze"
+    },
+    {
+      "shortId": "25.3984",
+      "title": "Optimiser l'examen des subventions pour garantir la santé des finances fédérales",
+      "title_de": "Für gesunde Bundesfinanzen. Subventionsüberprüfung optimieren",
+      "title_it": "Per finanze federali sane. Ottimizzare l'esame dei sussidi",
+      "author": "FDP-Liberale Fraktion",
+      "type": "Mo.",
+      "status": "In Ständerat geplant / Planifié au Conseil des Etats",
+      "council": "NR",
+      "department": "EFD",
+      "date": "2025-09-10",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
+      "mention": "Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé d’adapter l’examen des subventions tel qu’il est réglé dans la loi sur les subventions (LSu) de manière à mettre en place un ensemble de mesures permettant de réduire les subventions nuisibles.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, die Subventionsprüfung gemäss Subventionsgesetz (SuG) so anzupassen, dass daraus ein Paket für einen Abbau von schädlichen Subventionen hervorgeht.<\/p>",
+      "tags": "Politique d'Etat|Économie|Finances",
+      "tags_de": "Staatspolitik|Wirtschaft|Finanzwesen",
+      "tags_it": "Politica nazionale|Economia|Finanze"
     },
     {
       "shortId": "25.3971",
