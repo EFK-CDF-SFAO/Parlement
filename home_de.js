@@ -583,7 +583,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         // Gestion titre manquant
         const deMissing = isTitleMissing(item.title_de);
         const displayTitle = deMissing && item.title ? item.title : (item.title_de || item.title || '');
-        const langWarning = deMissing && item.title ? '<span class="lang-warning">🇫🇷 Derzeit nur auf Französisch verfügbar</span>' : '';
+        const langWarning = deMissing && item.title ? '<span class="lang-warning">🇫🇷 (FR) Derzeit nur auf Französisch verfügbar</span>' : '';
         
         // Bande verte si déposé il y a moins de 4 jours
         const itemDate = new Date(item.date + 'T12:00:00');
@@ -595,7 +595,8 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
                     <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${item.shortId}</span>
                 </div>
-                <div class="card-title">${langWarning}${displayTitle}</div>
+                <div class="card-title">${displayTitle}</div>
+                ${langWarning}
                 <div class="card-footer">
                     <span class="card-author">${item.author}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>

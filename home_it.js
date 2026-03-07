@@ -627,10 +627,10 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
             displayTitle = item.title_it;
         } else if (!frMissing) {
             displayTitle = item.title;
-            langWarning = '<span class="lang-warning">🇫🇷 Solo in francese</span>';
+            langWarning = '<span class="lang-warning">🇫🇷 (FR) Solo in francese</span>';
         } else if (item.title_de) {
             displayTitle = item.title_de;
-            langWarning = '<span class="lang-warning">🇩🇪 Solo in tedesco</span>';
+            langWarning = '<span class="lang-warning">🇩🇪 (DE) Solo in tedesco</span>';
         }
         
         // Bande verte si déposé il y a moins de 4 jours
@@ -643,7 +643,8 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
                     <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${item.shortId}</span>
                 </div>
-                <div class="card-title">${langWarning}${displayTitle}</div>
+                <div class="card-title">${displayTitle}</div>
+                ${langWarning}
                 <div class="card-footer">
                     <span class="card-author">${item.author}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>
