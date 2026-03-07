@@ -170,6 +170,7 @@ async function init() {
         const filterYear = urlParams.get('filter_year');
         const filterSession = urlParams.get('filter_session');
         const filterDept = urlParams.get('filter_dept');
+        const filterTags = urlParams.get('filter_tags');
         const filterLegislature = urlParams.get('filter_legislature');
         const searchParam = urlParams.get('search');
         
@@ -187,6 +188,9 @@ async function init() {
         }
         if (filterDept) {
             applyUrlFilter('departmentMenu', filterDept);
+        }
+        if (filterTags) {
+            applyUrlFilter('tagsMenu', filterTags);
         }
         if (filterLegislature) {
             applyUrlFilter('legislatureMenu', filterLegislature);
