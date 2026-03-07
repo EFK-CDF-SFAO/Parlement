@@ -3,6 +3,7 @@ let filteredData = [];
 let debatesData = [];
 let filteredDebatesData = [];
 let sessionsData = [];
+let debateTagsMapping = {}; // Mapping business_number -> tags pour les débats
 let partyChartInstance = null;
 let typeChartInstance = null;
 let yearChartInstance = null;
@@ -116,11 +117,29 @@ async function init() {
         const sessionsJson = await sessionsResponse.json();
         sessionsData = sessionsJson.sessions || [];
         
-        // Charger les données des objets parlementaires
-        const response = await fetch('cdf_efk_data.json');
+        // Charger les données des objets parlementaires et tags manquants
+        const [response, missingTagsResponse] = await Promise.all([
+            fetch('cdf_efk_data.json'),
+            fetch('missing_objects_tags.json').catch(() => ({ json: () => ({ items: [] }) }))
+        ]);
         const data = await response.json();
+        const missingTagsJson = await missingTagsResponse.json();
         allData = data.items || [];
         filteredData = [...allData];
+        
+        // Créer le mapping des tags pour les débats
+        allData.forEach(item => {
+            if (item.shortId && item.tags) {
+                debateTagsMapping[item.shortId] = item.tags;
+            }
+        });
+        if (missingTagsJson.items) {
+            missingTagsJson.items.forEach(item => {
+                if (item.business_number && item.tags && !debateTagsMapping[item.business_number]) {
+                    debateTagsMapping[item.business_number] = item.tags;
+                }
+            });
+        }
         
         populateObjectFilters();
         setupObjectFilterListeners();
@@ -468,17 +487,38 @@ function populateDebateFilters() {
         });
     }
     
+    // Populer filtre thématiques
+    const tagsMenu = document.getElementById('debateTagsMenu');
+    if (tagsMenu) {
+        const allTags = new Set();
+        debatesData.forEach(item => {
+            const tags = debateTagsMapping[item.business_number];
+            if (tags) {
+                tags.split('|').forEach(tag => {
+                    if (tag.trim()) allTags.add(tag.trim());
+                });
+            }
+        });
+        const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'fr'));
+        tagsArray.forEach(tag => {
+            const label = document.createElement('label');
+            label.innerHTML = `<input type="checkbox" value="${tag}"> ${tag}`;
+            tagsMenu.appendChild(label);
+        });
+    }
+    
     // Setup dropdowns
     setupDropdown('debateYearDropdown');
     setupDropdown('debateSessionDropdown');
     setupDropdown('debateCouncilDropdown');
     setupDropdown('debatePartyDropdown');
     setupDropdown('debateDeptDropdown');
+    setupDropdown('debateTagsDropdown');
     setupDropdown('debateLegislatureDropdown');
 }
 
 function setupDebateFilterListeners() {
-    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown', 'debateDeptDropdown', 'debateLegislatureDropdown'].forEach(id => {
+    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown', 'debateDeptDropdown', 'debateTagsDropdown', 'debateLegislatureDropdown'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.addEventListener('change', applyDebateFilters);
     });
@@ -486,7 +526,7 @@ function setupDebateFilterListeners() {
 }
 
 function resetDebateFilters() {
-    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown', 'debateDeptDropdown', 'debateLegislatureDropdown'].forEach(id => {
+    ['debateYearDropdown', 'debateSessionDropdown', 'debateCouncilDropdown', 'debatePartyDropdown', 'debateDeptDropdown', 'debateTagsDropdown', 'debateLegislatureDropdown'].forEach(id => {
         const dropdown = document.getElementById(id);
         if (!dropdown) return;
         const selectAll = dropdown.querySelector('[data-select-all]');
@@ -559,6 +599,7 @@ function applyDebateFilters() {
     const councilFilters = getCheckedValues('debateCouncilDropdown');
     const partyFilters = getCheckedValues('debatePartyDropdown');
     const deptFilters = getCheckedValues('debateDeptDropdown');
+    const tagsFilters = getCheckedValues('debateTagsDropdown');
     const legislatureFilters = getCheckedValues('debateLegislatureDropdown');
     
     filteredDebatesData = debatesData.filter(item => {
@@ -584,6 +625,14 @@ function applyDebateFilters() {
             const itemDept = item.department || 'none';
             if (!deptFilters.includes(itemDept)) return false;
         }
+        // Filtre thématiques
+        if (tagsFilters.length > 0) {
+            const itemTags = debateTagsMapping[item.business_number];
+            if (!itemTags) return false;
+            const itemTagsArray = itemTags.split('|').map(t => t.trim());
+            const hasMatchingTag = tagsFilters.some(tag => itemTagsArray.includes(tag));
+            if (!hasMatchingTag) return false;
+        }
         // Filtre législature
         if (legislatureFilters.length > 0) {
             const itemLegislature = getLegislatureFromSession(item.id_session);
@@ -607,6 +656,7 @@ function buildDebatesUrl(additionalFilter = {}) {
     const councilFilters = getCheckedValues('debateCouncilDropdown');
     const partyFilters = getCheckedValues('debatePartyDropdown');
     const deptFilters = getCheckedValues('debateDeptDropdown');
+    const tagsFilters = getCheckedValues('debateTagsDropdown');
     const legislatureFilters = getCheckedValues('debateLegislatureDropdown');
     
     // Ajouter les filtres existants
@@ -615,6 +665,7 @@ function buildDebatesUrl(additionalFilter = {}) {
     if (councilFilters.length > 0) params.set('filter_council', councilFilters.join(','));
     if (partyFilters.length > 0) params.set('filter_party', partyFilters.join(','));
     if (deptFilters.length > 0) params.set('filter_dept', deptFilters.join(','));
+    if (tagsFilters.length > 0) params.set('filter_tags', tagsFilters.join(','));
     if (legislatureFilters.length > 0) params.set('filter_legislature', legislatureFilters.join(','));
     
     // Ajouter le filtre additionnel (celui sur lequel on a cliqué)
