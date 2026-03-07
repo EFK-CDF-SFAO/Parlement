@@ -2,807 +2,1209 @@
   "items": [
     {
       "business_number": "14.088",
-      "tags": "Questions sociales|Protection sociale"
+      "tags": "Questions sociales|Protection sociale",
+      "tags_de": "Soziale Fragen|Sozialer Schutz",
+      "tags_it": "Questioni sociali|Protezione sociale"
     },
     {
       "business_number": "15.017",
-      "tags": "Politique de sécurité"
+      "tags": "Politique de sécurité",
+      "tags_de": "Sicherheitspolitik",
+      "tags_it": "Politica di sicurezza"
     },
     {
       "business_number": "15.033",
-      "tags": "Droit civil"
+      "tags": "Droit civil",
+      "tags_de": "Zivilrecht",
+      "tags_it": "Diritto civile"
     },
     {
       "business_number": "15.036",
-      "tags": "Politique internationale|Finances|Aménagement du territoire et logement"
+      "tags": "Politique internationale|Finances|Aménagement du territoire et logement",
+      "tags_de": "Internationale Politik|Finanzwesen|Raumplanung und Wohnungswesen",
+      "tags_it": "Politica internazionale|Finanze|Pianificazione territoriale e alloggi"
     },
     {
       "business_number": "15.041",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "15.053",
-      "tags": "Politique d'Etat|Médias et communication"
+      "tags": "Politique d'Etat|Médias et communication",
+      "tags_de": "Staatspolitik|Medien und Kommunikation",
+      "tags_it": "Politica nazionale|Media e comunicazione"
     },
     {
       "business_number": "15.062",
-      "tags": "Politique d'Etat|Finances|Médias et communication"
+      "tags": "Politique d'Etat|Finances|Médias et communication",
+      "tags_de": "Staatspolitik|Finanzwesen|Medien und Kommunikation",
+      "tags_it": "Politica nazionale|Finanze|Media e comunicazione"
     },
     {
       "business_number": "15.069",
-      "tags": "Économie|Santé"
+      "tags": "Économie|Santé",
+      "tags_de": "Wirtschaft|Gesundheit",
+      "tags_it": "Economia|Salute"
     },
     {
       "business_number": "15.080",
-      "tags": "Économie|Science et recherche"
+      "tags": "Économie|Science et recherche",
+      "tags_de": "Wirtschaft|Wissenschaft und Forschung",
+      "tags_it": "Economia|Scienza e ricerca"
     },
     {
       "business_number": "15.087",
-      "tags": "Politique d'Etat|Protection sociale"
+      "tags": "Politique d'Etat|Protection sociale",
+      "tags_de": "Staatspolitik|Sozialer Schutz",
+      "tags_it": "Politica nazionale|Protezione sociale"
     },
     {
       "business_number": "15.088",
-      "tags": "Emploi et travail"
+      "tags": "Emploi et travail",
+      "tags_de": "Beschäftigung und Arbeit",
+      "tags_it": "Occupazione e lavoro"
     },
     {
       "business_number": "15.3117",
-      "tags": "Économie"
+      "tags": "Économie",
+      "tags_de": "Wirtschaft",
+      "tags_it": "Economia"
     },
     {
       "business_number": "15.3400",
-      "tags": "Politique d'Etat|Économie"
+      "tags": "Politique d'Etat|Économie",
+      "tags_de": "Staatspolitik|Wirtschaft",
+      "tags_it": "Politica nazionale|Economia"
     },
     {
       "business_number": "15.3558",
-      "tags": "Finances|Médias et communication"
+      "tags": "Finances|Médias et communication",
+      "tags_de": "Finanzwesen|Medien und Kommunikation",
+      "tags_it": "Finanze|Media e comunicazione"
     },
     {
       "business_number": "15.3662",
-      "tags": "Finances|Environnement|Énergie"
+      "tags": "Finances|Environnement|Énergie",
+      "tags_de": "Finanzwesen|Umwelt|Energie",
+      "tags_it": "Finanze|Ambiente|Energia"
     },
     {
       "business_number": "15.3828",
-      "tags": "Politique d'Etat|Finances|Parlement|Protection sociale"
+      "tags": "Politique d'Etat|Finances|Parlement|Protection sociale",
+      "tags_de": "Staatspolitik|Finanzwesen|Parlament|Sozialer Schutz",
+      "tags_it": "Politica nazionale|Finanze|Parlamento|Protezione sociale"
     },
     {
       "business_number": "15.3901",
-      "tags": "Politique d'Etat|Politique de sécurité"
+      "tags": "Politique d'Etat|Politique de sécurité",
+      "tags_de": "Staatspolitik|Sicherheitspolitik",
+      "tags_it": "Politica nazionale|Politica di sicurezza"
     },
     {
       "business_number": "15.4096",
-      "tags": "Fiscalité"
+      "tags": "Fiscalité",
+      "tags_de": "Steuer",
+      "tags_it": "Imposte"
     },
     {
       "business_number": "15.4103",
-      "tags": "Finances|Médias et communication|Culture"
+      "tags": "Finances|Médias et communication|Culture",
+      "tags_de": "Finanzwesen|Medien und Kommunikation|Kultur",
+      "tags_it": "Finanze|Media e comunicazione|Cultura"
     },
     {
       "business_number": "16.001",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "16.003",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "16.004",
-      "tags": "Politique d'Etat|Parlement"
+      "tags": "Politique d'Etat|Parlement",
+      "tags_de": "Staatspolitik|Parlament",
+      "tags_it": "Politica nazionale|Parlamento"
     },
     {
       "business_number": "16.005",
-      "tags": "Transports"
+      "tags": "Transports",
+      "tags_de": "Verkehr",
+      "tags_it": "Trasporti"
     },
     {
       "business_number": "16.036",
-      "tags": "Politique internationale|Finances"
+      "tags": "Politique internationale|Finances",
+      "tags_de": "Internationale Politik|Finanzwesen",
+      "tags_it": "Politica internazionale|Finanze"
     },
     {
       "business_number": "16.041",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "16.043",
-      "tags": "Médias et communication"
+      "tags": "Médias et communication",
+      "tags_de": "Medien und Kommunikation",
+      "tags_it": "Media e comunicazione"
     },
     {
       "business_number": "16.045",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "16.064",
-      "tags": "Politique d'Etat|Finances"
+      "tags": "Politique d'Etat|Finances",
+      "tags_de": "Staatspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Finanze"
     },
     {
       "business_number": "16.065",
-      "tags": "Protection sociale"
+      "tags": "Protection sociale",
+      "tags_de": "Sozialer Schutz",
+      "tags_it": "Protezione sociale"
     },
     {
       "business_number": "16.071",
-      "tags": "Médias et communication|Fiscalité"
+      "tags": "Médias et communication|Fiscalité",
+      "tags_de": "Medien und Kommunikation|Steuer",
+      "tags_it": "Media e comunicazione|Imposte"
     },
     {
       "business_number": "16.3749",
-      "tags": "Environnement|Énergie"
+      "tags": "Environnement|Énergie",
+      "tags_de": "Umwelt|Energie",
+      "tags_it": "Ambiente|Energia"
     },
     {
       "business_number": "16.3972",
-      "tags": "Politique d'Etat|Finances"
+      "tags": "Politique d'Etat|Finances",
+      "tags_de": "Staatspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Finanze"
     },
     {
       "business_number": "16.3992",
-      "tags": "Politique d'Etat|Économie"
+      "tags": "Politique d'Etat|Économie",
+      "tags_de": "Staatspolitik|Wirtschaft",
+      "tags_it": "Politica nazionale|Economia"
     },
     {
       "business_number": "16.4126",
-      "tags": "Politique d'Etat|Politique de sécurité|Économie"
+      "tags": "Politique d'Etat|Politique de sécurité|Économie",
+      "tags_de": "Staatspolitik|Sicherheitspolitik|Wirtschaft",
+      "tags_it": "Politica nazionale|Politica di sicurezza|Economia"
     },
     {
       "business_number": "16.5454",
-      "tags": "Politique internationale|Finances"
+      "tags": "Politique internationale|Finances",
+      "tags_de": "Internationale Politik|Finanzwesen",
+      "tags_it": "Politica internazionale|Finanze"
     },
     {
       "business_number": "17.001",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "17.003",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "17.004",
-      "tags": "Finances|Parlement"
+      "tags": "Finances|Parlement",
+      "tags_de": "Finanzwesen|Parlament",
+      "tags_it": "Finanze|Parlamento"
     },
     {
       "business_number": "17.005",
-      "tags": "Finances|Transports"
+      "tags": "Finances|Transports",
+      "tags_de": "Finanzwesen|Verkehr",
+      "tags_it": "Finanze|Trasporti"
     },
     {
       "business_number": "17.007",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "17.019",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "17.021",
-      "tags": "Politique d'Etat|Médias et communication"
+      "tags": "Politique d'Etat|Médias et communication",
+      "tags_de": "Staatspolitik|Medien und Kommunikation",
+      "tags_it": "Politica nazionale|Media e comunicazione"
     },
     {
       "business_number": "17.022",
-      "tags": "Protection sociale"
+      "tags": "Protection sociale",
+      "tags_de": "Sozialer Schutz",
+      "tags_it": "Protezione sociale"
     },
     {
       "business_number": "17.028",
-      "tags": "Politique de sécurité|Médias et communication"
+      "tags": "Politique de sécurité|Médias et communication",
+      "tags_de": "Sicherheitspolitik|Medien und Kommunikation",
+      "tags_it": "Politica di sicurezza|Media e comunicazione"
     },
     {
       "business_number": "17.041",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "17.047",
-      "tags": "Questions sociales|Emploi et travail|Droits de l'homme"
+      "tags": "Questions sociales|Emploi et travail|Droits de l'homme",
+      "tags_de": "Soziale Fragen|Beschäftigung und Arbeit|Menschenrechte",
+      "tags_it": "Questioni sociali|Occupazione e lavoro|Diritti umani"
     },
     {
       "business_number": "17.059",
-      "tags": "Droits de l'homme"
+      "tags": "Droits de l'homme",
+      "tags_de": "Menschenrechte",
+      "tags_it": "Diritti umani"
     },
     {
       "business_number": "17.071",
-      "tags": "Politique internationale|Environnement"
+      "tags": "Politique internationale|Environnement",
+      "tags_de": "Internationale Politik|Umwelt",
+      "tags_it": "Politica internazionale|Ambiente"
     },
     {
       "business_number": "17.073",
-      "tags": "Politique internationale|Environnement"
+      "tags": "Politique internationale|Environnement",
+      "tags_de": "Internationale Politik|Umwelt",
+      "tags_it": "Politica internazionale|Ambiente"
     },
     {
       "business_number": "17.074",
-      "tags": "Politique de sécurité"
+      "tags": "Politique de sécurité",
+      "tags_de": "Sicherheitspolitik",
+      "tags_it": "Politica di sicurezza"
     },
     {
       "business_number": "17.3571",
-      "tags": "Politique d'Etat|Économie"
+      "tags": "Politique d'Etat|Économie",
+      "tags_de": "Staatspolitik|Wirtschaft",
+      "tags_it": "Politica nazionale|Economia"
     },
     {
       "business_number": "17.401",
-      "tags": "Santé"
+      "tags": "Santé",
+      "tags_de": "Gesundheit",
+      "tags_it": "Salute"
     },
     {
       "business_number": "17.4097",
-      "tags": "Politique d'Etat|Économie"
+      "tags": "Politique d'Etat|Économie",
+      "tags_de": "Staatspolitik|Wirtschaft",
+      "tags_it": "Politica nazionale|Economia"
     },
     {
       "business_number": "18.001",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "18.003",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "18.004",
-      "tags": "Parlement"
+      "tags": "Parlement",
+      "tags_de": "Parlament",
+      "tags_it": "Parlamento"
     },
     {
       "business_number": "18.035",
-      "tags": "Finances|Aménagement du territoire et logement"
+      "tags": "Finances|Aménagement du territoire et logement",
+      "tags_de": "Finanzwesen|Raumplanung und Wohnungswesen",
+      "tags_it": "Finanze|Pianificazione territoriale e alloggi"
     },
     {
       "business_number": "18.041",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "18.072",
-      "tags": "Politique de sécurité|Économie|Finances"
+      "tags": "Politique de sécurité|Économie|Finances",
+      "tags_de": "Sicherheitspolitik|Wirtschaft|Finanzwesen",
+      "tags_it": "Politica di sicurezza|Economia|Finanze"
     },
     {
       "business_number": "18.082",
-      "tags": "Politique internationale|Économie|Fiscalité"
+      "tags": "Politique internationale|Économie|Fiscalité",
+      "tags_de": "Internationale Politik|Wirtschaft|Steuer",
+      "tags_it": "Politica internazionale|Economia|Imposte"
     },
     {
       "business_number": "18.094",
-      "tags": "Politique internationale|Politique de sécurité|Finances"
+      "tags": "Politique internationale|Politique de sécurité|Finances",
+      "tags_de": "Internationale Politik|Sicherheitspolitik|Finanzwesen",
+      "tags_it": "Politica internazionale|Politica di sicurezza|Finanze"
     },
     {
       "business_number": "18.097",
-      "tags": "Finances|Environnement|Aménagement du territoire et logement"
+      "tags": "Finances|Environnement|Aménagement du territoire et logement",
+      "tags_de": "Finanzwesen|Umwelt|Raumplanung und Wohnungswesen",
+      "tags_it": "Finanze|Ambiente|Pianificazione territoriale e alloggi"
     },
     {
       "business_number": "18.3241",
-      "tags": "Politique d'Etat|Finances|Science et recherche|Agriculture"
+      "tags": "Politique d'Etat|Finances|Science et recherche|Agriculture",
+      "tags_de": "Staatspolitik|Finanzwesen|Wissenschaft und Forschung|Landwirtschaft",
+      "tags_it": "Politica nazionale|Finanze|Scienza e ricerca|Agricoltura"
     },
     {
       "business_number": "18.3390",
-      "tags": "Politique d'Etat|Science et recherche|Agriculture"
+      "tags": "Politique d'Etat|Science et recherche|Agriculture",
+      "tags_de": "Staatspolitik|Wissenschaft und Forschung|Landwirtschaft",
+      "tags_it": "Politica nazionale|Scienza e ricerca|Agricoltura"
     },
     {
       "business_number": "18.3394",
-      "tags": "Politique de sécurité|Économie"
+      "tags": "Politique de sécurité|Économie",
+      "tags_de": "Sicherheitspolitik|Wirtschaft",
+      "tags_it": "Politica di sicurezza|Economia"
     },
     {
       "business_number": "18.4087",
-      "tags": "Politique d'Etat|Science et recherche|Agriculture"
+      "tags": "Politique d'Etat|Science et recherche|Agriculture",
+      "tags_de": "Staatspolitik|Wissenschaft und Forschung|Landwirtschaft",
+      "tags_it": "Politica nazionale|Scienza e ricerca|Agricoltura"
     },
     {
       "business_number": "18.418",
-      "tags": "Politique d'Etat|Médias et communication|Parlement"
+      "tags": "Politique d'Etat|Médias et communication|Parlement",
+      "tags_de": "Staatspolitik|Medien und Kommunikation|Parlament",
+      "tags_it": "Politica nazionale|Media e comunicazione|Parlamento"
     },
     {
       "business_number": "18.5538",
-      "tags": "Fiscalité"
+      "tags": "Fiscalité",
+      "tags_de": "Steuer",
+      "tags_it": "Imposte"
     },
     {
       "business_number": "18.9006",
-      "tags": ""
+      "tags": "",
+      "tags_de": "",
+      "tags_it": ""
     },
     {
       "business_number": "18.9007",
-      "tags": ""
+      "tags": "",
+      "tags_de": "",
+      "tags_it": ""
     },
     {
       "business_number": "19.001",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "19.003",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "19.004",
-      "tags": "Parlement"
+      "tags": "Parlement",
+      "tags_de": "Parlament",
+      "tags_it": "Parlamento"
     },
     {
       "business_number": "19.016",
-      "tags": "Économie|Finances"
+      "tags": "Économie|Finances",
+      "tags_de": "Wirtschaft|Finanzwesen",
+      "tags_it": "Economia|Finanze"
     },
     {
       "business_number": "19.019",
-      "tags": "Politique internationale|Finances"
+      "tags": "Politique internationale|Finances",
+      "tags_de": "Internationale Politik|Finanzwesen",
+      "tags_it": "Politica internazionale|Finanze"
     },
     {
       "business_number": "19.035",
-      "tags": "Protection sociale"
+      "tags": "Protection sociale",
+      "tags_de": "Sozialer Schutz",
+      "tags_it": "Protezione sociale"
     },
     {
       "business_number": "19.039",
-      "tags": "Politique d'Etat|Politique de sécurité|Transports"
+      "tags": "Politique d'Etat|Politique de sécurité|Transports",
+      "tags_de": "Staatspolitik|Sicherheitspolitik|Verkehr",
+      "tags_it": "Politica nazionale|Politica di sicurezza|Trasporti"
     },
     {
       "business_number": "19.041",
-      "tags": "Politique d'Etat|Finances"
+      "tags": "Politique d'Etat|Finances",
+      "tags_de": "Staatspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Finanze"
     },
     {
       "business_number": "19.044",
-      "tags": "Politique internationale|Politique de sécurité|Finances|Droit civil|Droit pénal"
+      "tags": "Politique internationale|Politique de sécurité|Finances|Droit civil|Droit pénal",
+      "tags_de": "Internationale Politik|Sicherheitspolitik|Finanzwesen|Zivilrecht|Strafrecht",
+      "tags_it": "Politica internazionale|Politica di sicurezza|Finanze|Diritto civile|Diritto penale"
     },
     {
       "business_number": "19.046",
-      "tags": "Santé"
+      "tags": "Santé",
+      "tags_de": "Gesundheit",
+      "tags_it": "Salute"
     },
     {
       "business_number": "19.051",
-      "tags": "Questions sociales|Emploi et travail|Protection sociale"
+      "tags": "Questions sociales|Emploi et travail|Protection sociale",
+      "tags_de": "Soziale Fragen|Beschäftigung und Arbeit|Sozialer Schutz",
+      "tags_it": "Questioni sociali|Occupazione e lavoro|Protezione sociale"
     },
     {
       "business_number": "19.057",
-      "tags": "Politique d'Etat|Droits de l'homme|Protection sociale"
+      "tags": "Politique d'Etat|Droits de l'homme|Protection sociale",
+      "tags_de": "Staatspolitik|Menschenrechte|Sozialer Schutz",
+      "tags_it": "Politica nazionale|Diritti umani|Protezione sociale"
     },
     {
       "business_number": "19.065",
-      "tags": "Éducation|Science et recherche"
+      "tags": "Éducation|Science et recherche",
+      "tags_de": "Bildung|Wissenschaft und Forschung",
+      "tags_it": "Formazione|Scienza e ricerca"
     },
     {
       "business_number": "19.071",
-      "tags": "Politique d'Etat|Finances"
+      "tags": "Politique d'Etat|Finances",
+      "tags_de": "Staatspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Finanze"
     },
     {
       "business_number": "19.079",
-      "tags": "Politique d'Etat|Politique de sécurité|Finances"
+      "tags": "Politique d'Etat|Politique de sécurité|Finances",
+      "tags_de": "Staatspolitik|Sicherheitspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Politica di sicurezza|Finanze"
     },
     {
       "business_number": "19.080",
-      "tags": "Protection sociale"
+      "tags": "Protection sociale",
+      "tags_de": "Sozialer Schutz",
+      "tags_it": "Protezione sociale"
     },
     {
       "business_number": "19.3154",
-      "tags": "Politique d'Etat|Politique de sécurité|Économie"
+      "tags": "Politique d'Etat|Politique de sécurité|Économie",
+      "tags_de": "Staatspolitik|Sicherheitspolitik|Wirtschaft",
+      "tags_it": "Politica nazionale|Politica di sicurezza|Economia"
     },
     {
       "business_number": "19.3600",
-      "tags": "Politique d'Etat|Parlement|Protection sociale"
+      "tags": "Politique d'Etat|Parlement|Protection sociale",
+      "tags_de": "Staatspolitik|Parlament|Sozialer Schutz",
+      "tags_it": "Politica nazionale|Parlamento|Protezione sociale"
     },
     {
       "business_number": "19.400",
-      "tags": "Politique d'Etat|Parlement"
+      "tags": "Politique d'Etat|Parlement",
+      "tags_de": "Staatspolitik|Parlament",
+      "tags_it": "Politica nazionale|Parlamento"
     },
     {
       "business_number": "19.4016",
-      "tags": "Politique d'Etat|Questions sociales|Médias et communication|Droit pénal|Droit international"
+      "tags": "Politique d'Etat|Questions sociales|Médias et communication|Droit pénal|Droit international",
+      "tags_de": "Staatspolitik|Soziale Fragen|Medien und Kommunikation|Strafrecht|Internationales Recht",
+      "tags_it": "Politica nazionale|Questioni sociali|Media e comunicazione|Diritto penale|Diritto internazionale"
     },
     {
       "business_number": "19.4165",
-      "tags": "Économie|Emploi et travail|Droits de l'homme"
+      "tags": "Économie|Emploi et travail|Droits de l'homme",
+      "tags_de": "Wirtschaft|Beschäftigung und Arbeit|Menschenrechte",
+      "tags_it": "Economia|Occupazione e lavoro|Diritti umani"
     },
     {
       "business_number": "19.500",
-      "tags": "Économie|Finances|Transports|Parlement"
+      "tags": "Économie|Finances|Transports|Parlement",
+      "tags_de": "Wirtschaft|Finanzwesen|Verkehr|Parlament",
+      "tags_it": "Economia|Finanze|Trasporti|Parlamento"
     },
     {
       "business_number": "19.5365",
-      "tags": "Politique d'Etat|Finances|Culture"
+      "tags": "Politique d'Etat|Finances|Culture",
+      "tags_de": "Staatspolitik|Finanzwesen|Kultur",
+      "tags_it": "Politica nazionale|Finanze|Cultura"
     },
     {
       "business_number": "20.001",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "20.004",
-      "tags": "Politique d'Etat|Parlement"
+      "tags": "Politique d'Etat|Parlement",
+      "tags_de": "Staatspolitik|Parlament",
+      "tags_it": "Politica nazionale|Parlamento"
     },
     {
       "business_number": "20.007",
-      "tags": "Économie|Finances|Santé"
+      "tags": "Économie|Finances|Santé",
+      "tags_de": "Wirtschaft|Finanzwesen|Gesundheit",
+      "tags_it": "Economia|Finanze|Salute"
     },
     {
       "business_number": "20.030",
-      "tags": "Finances|Culture"
+      "tags": "Finances|Culture",
+      "tags_de": "Finanzwesen|Kultur",
+      "tags_it": "Finanze|Cultura"
     },
     {
       "business_number": "20.031",
-      "tags": "Politique de sécurité|Finances"
+      "tags": "Politique de sécurité|Finances",
+      "tags_de": "Sicherheitspolitik|Finanzwesen",
+      "tags_it": "Politica di sicurezza|Finanze"
     },
     {
       "business_number": "20.033",
-      "tags": "Politique internationale"
+      "tags": "Politique internationale",
+      "tags_de": "Internationale Politik",
+      "tags_it": "Politica internazionale"
     },
     {
       "business_number": "20.041",
-      "tags": "Politique d'Etat|Finances"
+      "tags": "Politique d'Etat|Finances",
+      "tags_de": "Staatspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Finanze"
     },
     {
       "business_number": "20.042",
-      "tags": "Finances|Protection sociale|Santé"
+      "tags": "Finances|Protection sociale|Santé",
+      "tags_de": "Finanzwesen|Sozialer Schutz|Gesundheit",
+      "tags_it": "Finanze|Protezione sociale|Salute"
     },
     {
       "business_number": "20.053",
-      "tags": "Finances|Transports"
+      "tags": "Finances|Transports",
+      "tags_de": "Finanzwesen|Verkehr",
+      "tags_it": "Finanze|Trasporti"
     },
     {
       "business_number": "20.075",
-      "tags": "Économie|Finances|Santé"
+      "tags": "Économie|Finances|Santé",
+      "tags_de": "Wirtschaft|Finanzwesen|Gesundheit",
+      "tags_it": "Economia|Finanze|Salute"
     },
     {
       "business_number": "20.084",
-      "tags": "Économie|Emploi et travail|Protection sociale|Santé"
+      "tags": "Économie|Emploi et travail|Protection sociale|Santé",
+      "tags_de": "Wirtschaft|Beschäftigung und Arbeit|Sozialer Schutz|Gesundheit",
+      "tags_it": "Economia|Occupazione e lavoro|Protezione sociale|Salute"
     },
     {
       "business_number": "20.091",
-      "tags": "Politique internationale|Politique de sécurité|Finances"
+      "tags": "Politique internationale|Politique de sécurité|Finances",
+      "tags_de": "Internationale Politik|Sicherheitspolitik|Finanzwesen",
+      "tags_it": "Politica internazionale|Politica di sicurezza|Finanze"
     },
     {
       "business_number": "20.3067",
-      "tags": "Économie|Droit civil|Fiscalité"
+      "tags": "Économie|Droit civil|Fiscalité",
+      "tags_de": "Wirtschaft|Zivilrecht|Steuer",
+      "tags_it": "Economia|Diritto civile|Imposte"
     },
     {
       "business_number": "20.3251",
-      "tags": "Politique d'Etat|Économie"
+      "tags": "Politique d'Etat|Économie",
+      "tags_de": "Staatspolitik|Wirtschaft",
+      "tags_it": "Politica nazionale|Economia"
     },
     {
       "business_number": "20.3794",
-      "tags": "Politique d'Etat|Médias et communication|Parlement"
+      "tags": "Politique d'Etat|Médias et communication|Parlement",
+      "tags_de": "Staatspolitik|Medien und Kommunikation|Parlament",
+      "tags_it": "Politica nazionale|Media e comunicazione|Parlamento"
     },
     {
       "business_number": "20.4162",
-      "tags": "Politique d'Etat|Droit|Droit civil|Fiscalité"
+      "tags": "Politique d'Etat|Droit|Droit civil|Fiscalité",
+      "tags_de": "Staatspolitik|Recht Allgemein|Zivilrecht|Steuer",
+      "tags_it": "Politica nazionale|Diritto generale|Diritto civile|Imposte"
     },
     {
       "business_number": "20.4169",
-      "tags": "Économie|Emploi et travail|Protection sociale|Santé"
+      "tags": "Économie|Emploi et travail|Protection sociale|Santé",
+      "tags_de": "Wirtschaft|Beschäftigung und Arbeit|Sozialer Schutz|Gesundheit",
+      "tags_it": "Economia|Occupazione e lavoro|Protezione sociale|Salute"
     },
     {
       "business_number": "20.4328",
-      "tags": "Politique d'Etat|Économie|Médias et communication|Transports"
+      "tags": "Politique d'Etat|Économie|Médias et communication|Transports",
+      "tags_de": "Staatspolitik|Wirtschaft|Medien und Kommunikation|Verkehr",
+      "tags_it": "Politica nazionale|Economia|Media e comunicazione|Trasporti"
     },
     {
       "business_number": "20.442",
-      "tags": "Médias et communication|Parlement"
+      "tags": "Médias et communication|Parlement",
+      "tags_de": "Medien und Kommunikation|Parlament",
+      "tags_it": "Media e comunicazione|Parlamento"
     },
     {
       "business_number": "20.4559",
-      "tags": "Politique internationale|Finances|Droits de l'homme"
+      "tags": "Politique internationale|Finances|Droits de l'homme",
+      "tags_de": "Internationale Politik|Finanzwesen|Menschenrechte",
+      "tags_it": "Politica internazionale|Finanze|Diritti umani"
     },
     {
       "business_number": "20.9006",
-      "tags": ""
+      "tags": "",
+      "tags_de": "",
+      "tags_it": ""
     },
     {
       "business_number": "21.007",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "21.021",
-      "tags": "Politique de sécurité|Économie"
+      "tags": "Politique de sécurité|Économie",
+      "tags_de": "Sicherheitspolitik|Wirtschaft",
+      "tags_it": "Politica di sicurezza|Economia"
     },
     {
       "business_number": "21.035",
-      "tags": "Finances|Transports"
+      "tags": "Finances|Transports",
+      "tags_de": "Finanzwesen|Verkehr",
+      "tags_it": "Finanze|Trasporti"
     },
     {
       "business_number": "21.041",
-      "tags": "Politique d'Etat|Finances|Transports"
+      "tags": "Politique d'Etat|Finances|Transports",
+      "tags_de": "Staatspolitik|Finanzwesen|Verkehr",
+      "tags_it": "Politica nazionale|Finanze|Trasporti"
     },
     {
       "business_number": "21.062",
-      "tags": "Politique d'Etat|Finances|Médias et communication"
+      "tags": "Politique d'Etat|Finances|Médias et communication",
+      "tags_de": "Staatspolitik|Finanzwesen|Medien und Kommunikation",
+      "tags_it": "Politica nazionale|Finanze|Media e comunicazione"
     },
     {
       "business_number": "21.066",
-      "tags": "Économie|Santé"
+      "tags": "Économie|Santé",
+      "tags_de": "Wirtschaft|Gesundheit",
+      "tags_it": "Economia|Salute"
     },
     {
       "business_number": "21.067",
-      "tags": "Santé"
+      "tags": "Santé",
+      "tags_de": "Gesundheit",
+      "tags_it": "Salute"
     },
     {
       "business_number": "21.070",
-      "tags": "Politique de sécurité"
+      "tags": "Politique de sécurité",
+      "tags_de": "Sicherheitspolitik",
+      "tags_it": "Politica di sicurezza"
     },
     {
       "business_number": "21.072",
-      "tags": "Économie|Finances|Énergie"
+      "tags": "Économie|Finances|Énergie",
+      "tags_de": "Wirtschaft|Finanzwesen|Energie",
+      "tags_it": "Economia|Finanze|Energia"
     },
     {
       "business_number": "21.4337",
-      "tags": "Économie|Finances|Questions sociales"
+      "tags": "Économie|Finances|Questions sociales",
+      "tags_de": "Wirtschaft|Finanzwesen|Soziale Fragen",
+      "tags_it": "Economia|Finanze|Questioni sociali"
     },
     {
       "business_number": "21.443",
-      "tags": "Politique d'Etat|Emploi et travail|Droits de l'homme"
+      "tags": "Politique d'Etat|Emploi et travail|Droits de l'homme",
+      "tags_de": "Staatspolitik|Beschäftigung und Arbeit|Menschenrechte",
+      "tags_it": "Politica nazionale|Occupazione e lavoro|Diritti umani"
     },
     {
       "business_number": "21.4572",
-      "tags": "Économie|Protection sociale"
+      "tags": "Économie|Protection sociale",
+      "tags_de": "Wirtschaft|Sozialer Schutz",
+      "tags_it": "Economia|Protezione sociale"
     },
     {
       "business_number": "21.508",
-      "tags": "Politique internationale|Économie|Droit pénal"
+      "tags": "Politique internationale|Économie|Droit pénal",
+      "tags_de": "Internationale Politik|Wirtschaft|Strafrecht",
+      "tags_it": "Politica internazionale|Economia|Diritto penale"
     },
     {
       "business_number": "22.003",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "22.004",
-      "tags": null
+      "tags": null,
+      "tags_de": null,
+      "tags_it": null
     },
     {
       "business_number": "22.005",
-      "tags": "Politique de sécurité"
+      "tags": "Politique de sécurité",
+      "tags_de": "Sicherheitspolitik",
+      "tags_it": "Politica di sicurezza"
     },
     {
       "business_number": "22.007",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "22.016",
-      "tags": null
+      "tags": null,
+      "tags_de": null,
+      "tags_it": null
     },
     {
       "business_number": "22.018",
-      "tags": "Questions sociales|Agriculture|Protection sociale"
+      "tags": "Questions sociales|Agriculture|Protection sociale",
+      "tags_de": "Soziale Fragen|Landwirtschaft|Sozialer Schutz",
+      "tags_it": "Questioni sociali|Agricoltura|Protezione sociale"
     },
     {
       "business_number": "22.029",
-      "tags": null
+      "tags": null,
+      "tags_de": null,
+      "tags_it": null
     },
     {
       "business_number": "22.031",
-      "tags": "Finances|Énergie"
+      "tags": "Finances|Énergie",
+      "tags_de": "Finanzwesen|Energie",
+      "tags_it": "Finanze|Energia"
     },
     {
       "business_number": "22.041",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "22.058",
-      "tags": "Politique d'Etat|Politique internationale|Politique de sécurité|Économie|Finances|Médias et communication|Fiscalité|Politique migratoire"
+      "tags": "Politique d'Etat|Politique internationale|Politique de sécurité|Économie|Finances|Médias et communication|Fiscalité|Politique migratoire",
+      "tags_de": "Staatspolitik|Internationale Politik|Sicherheitspolitik|Wirtschaft|Finanzwesen|Medien und Kommunikation|Steuer|Migration",
+      "tags_it": "Politica nazionale|Politica internazionale|Politica di sicurezza|Economia|Finanze|Media e comunicazione|Imposte|Migrazione"
     },
     {
       "business_number": "22.061",
-      "tags": "Environnement|Énergie|Fiscalité"
+      "tags": "Environnement|Énergie|Fiscalité",
+      "tags_de": "Umwelt|Energie|Steuer",
+      "tags_it": "Ambiente|Energia|Imposte"
     },
     {
       "business_number": "22.062",
-      "tags": "Santé"
+      "tags": "Santé",
+      "tags_de": "Gesundheit",
+      "tags_it": "Salute"
     },
     {
       "business_number": "22.064",
-      "tags": "Transports"
+      "tags": "Transports",
+      "tags_de": "Verkehr",
+      "tags_it": "Trasporti"
     },
     {
       "business_number": "22.074",
-      "tags": "Politique de sécurité|Finances|Environnement|Aménagement du territoire et logement"
+      "tags": "Politique de sécurité|Finances|Environnement|Aménagement du territoire et logement",
+      "tags_de": "Sicherheitspolitik|Finanzwesen|Umwelt|Raumplanung und Wohnungswesen",
+      "tags_it": "Politica di sicurezza|Finanze|Ambiente|Pianificazione territoriale e alloggi"
     },
     {
       "business_number": "22.082",
-      "tags": "Politique d'Etat|Droit|Économie|Médias et communication"
+      "tags": "Politique d'Etat|Droit|Économie|Médias et communication",
+      "tags_de": "Staatspolitik|Recht Allgemein|Wirtschaft|Medien und Kommunikation",
+      "tags_it": "Politica nazionale|Diritto generale|Economia|Media e comunicazione"
     },
     {
       "business_number": "22.084",
-      "tags": "Politique internationale|Économie|Finances|Environnement"
+      "tags": "Politique internationale|Économie|Finances|Environnement",
+      "tags_de": "Internationale Politik|Wirtschaft|Finanzwesen|Umwelt",
+      "tags_it": "Politica internazionale|Economia|Finanze|Ambiente"
     },
     {
       "business_number": "22.202",
-      "tags": null
+      "tags": null,
+      "tags_de": null,
+      "tags_it": null
     },
     {
       "business_number": "22.3066",
-      "tags": "Politique internationale|Politique de sécurité"
+      "tags": "Politique internationale|Politique de sécurité",
+      "tags_de": "Internationale Politik|Sicherheitspolitik",
+      "tags_it": "Politica internazionale|Politica di sicurezza"
     },
     {
       "business_number": "22.4296",
-      "tags": "Économie|Questions sociales|Médias et communication|Santé"
+      "tags": "Économie|Questions sociales|Médias et communication|Santé",
+      "tags_de": "Wirtschaft|Soziale Fragen|Medien und Kommunikation|Gesundheit",
+      "tags_it": "Economia|Questioni sociali|Media e comunicazione|Salute"
     },
     {
       "business_number": "22.436",
-      "tags": "Économie|Transports|Environnement"
+      "tags": "Économie|Transports|Environnement",
+      "tags_de": "Wirtschaft|Verkehr|Umwelt",
+      "tags_it": "Economia|Trasporti|Ambiente"
     },
     {
       "business_number": "22.4434",
-      "tags": "Santé"
+      "tags": "Santé",
+      "tags_de": "Gesundheit",
+      "tags_it": "Salute"
     },
     {
       "business_number": "22.7780",
-      "tags": "Politique d'Etat|Finances|Transports"
+      "tags": "Politique d'Etat|Finances|Transports",
+      "tags_de": "Staatspolitik|Finanzwesen|Verkehr",
+      "tags_it": "Politica nazionale|Finanze|Trasporti"
     },
     {
       "business_number": "23.003",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "23.025",
-      "tags": "Politique de sécurité|Finances|Médias et communication"
+      "tags": "Politique de sécurité|Finances|Médias et communication",
+      "tags_de": "Sicherheitspolitik|Finanzwesen|Medien und Kommunikation",
+      "tags_it": "Politica di sicurezza|Finanze|Media e comunicazione"
     },
     {
       "business_number": "23.028",
-      "tags": "Économie|Finances|Emploi et travail|Environnement"
+      "tags": "Économie|Finances|Emploi et travail|Environnement",
+      "tags_de": "Wirtschaft|Finanzwesen|Beschäftigung und Arbeit|Umwelt",
+      "tags_it": "Economia|Finanze|Occupazione e lavoro|Ambiente"
     },
     {
       "business_number": "23.039",
-      "tags": "Politique d'Etat|Médias et communication|Droits de l'homme"
+      "tags": "Politique d'Etat|Médias et communication|Droits de l'homme",
+      "tags_de": "Staatspolitik|Medien und Kommunikation|Menschenrechte",
+      "tags_it": "Politica nazionale|Media e comunicazione|Diritti umani"
     },
     {
       "business_number": "23.041",
-      "tags": "Politique d'Etat|Finances"
+      "tags": "Politique d'Etat|Finances",
+      "tags_de": "Staatspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Finanze"
     },
     {
       "business_number": "23.059",
-      "tags": "Politique internationale|Politique européenne|Finances|Politique migratoire"
+      "tags": "Politique internationale|Politique européenne|Finances|Politique migratoire",
+      "tags_de": "Internationale Politik|Europapolitik|Finanzwesen|Migration",
+      "tags_it": "Politica internazionale|Politica europea|Finanze|Migrazione"
     },
     {
       "business_number": "23.072",
-      "tags": "Politique d'Etat|Éducation"
+      "tags": "Politique d'Etat|Éducation",
+      "tags_de": "Staatspolitik|Bildung",
+      "tags_it": "Politica nazionale|Formazione"
     },
     {
       "business_number": "23.076",
-      "tags": "Médias et communication|Droits de l'homme|Santé"
+      "tags": "Médias et communication|Droits de l'homme|Santé",
+      "tags_de": "Medien und Kommunikation|Menschenrechte|Gesundheit",
+      "tags_it": "Media e comunicazione|Diritti umani|Salute"
     },
     {
       "business_number": "23.082",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "23.3585",
-      "tags": "Politique de sécurité|Économie"
+      "tags": "Politique de sécurité|Économie",
+      "tags_de": "Sicherheitspolitik|Wirtschaft",
+      "tags_it": "Politica di sicurezza|Economia"
     },
     {
       "business_number": "23.4182",
-      "tags": "Politique d'Etat|Politique de sécurité|Éducation|Médias et communication|Protection sociale|Santé|Aménagement du territoire et logement"
+      "tags": "Politique d'Etat|Politique de sécurité|Éducation|Médias et communication|Protection sociale|Santé|Aménagement du territoire et logement",
+      "tags_de": "Staatspolitik|Sicherheitspolitik|Bildung|Medien und Kommunikation|Sozialer Schutz|Gesundheit|Raumplanung und Wohnungswesen",
+      "tags_it": "Politica nazionale|Politica di sicurezza|Formazione|Media e comunicazione|Protezione sociale|Salute|Pianificazione territoriale e alloggi"
     },
     {
       "business_number": "23.4314",
-      "tags": "Politique de sécurité|Santé"
+      "tags": "Politique de sécurité|Santé",
+      "tags_de": "Sicherheitspolitik|Gesundheit",
+      "tags_it": "Politica di sicurezza|Salute"
     },
     {
       "business_number": "23.7014",
-      "tags": "Transports|Aménagement du territoire et logement"
+      "tags": "Transports|Aménagement du territoire et logement",
+      "tags_de": "Verkehr|Raumplanung und Wohnungswesen",
+      "tags_it": "Trasporti|Pianificazione territoriale e alloggi"
     },
     {
       "business_number": "23.7252",
-      "tags": "Santé"
+      "tags": "Santé",
+      "tags_de": "Gesundheit",
+      "tags_it": "Salute"
     },
     {
       "business_number": "23.7626",
-      "tags": "Politique d'Etat|Politique de sécurité|Économie"
+      "tags": "Politique d'Etat|Politique de sécurité|Économie",
+      "tags_de": "Staatspolitik|Sicherheitspolitik|Wirtschaft",
+      "tags_it": "Politica nazionale|Politica di sicurezza|Economia"
     },
     {
       "business_number": "24.001",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "24.002",
-      "tags": "Justice"
+      "tags": "Justice",
+      "tags_de": "Gerichtswesen",
+      "tags_it": "Giustizia"
     },
     {
       "business_number": "24.003",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "24.004",
-      "tags": "Parlement"
+      "tags": "Parlement",
+      "tags_de": "Parlament",
+      "tags_it": "Parlamento"
     },
     {
       "business_number": "24.018",
-      "tags": "Politique d'Etat|Finances|Médias et communication"
+      "tags": "Politique d'Etat|Finances|Médias et communication",
+      "tags_de": "Staatspolitik|Finanzwesen|Medien und Kommunikation",
+      "tags_it": "Politica nazionale|Finanze|Media e comunicazione"
     },
     {
       "business_number": "24.025",
-      "tags": "Politique de sécurité|Finances"
+      "tags": "Politique de sécurité|Finances",
+      "tags_de": "Sicherheitspolitik|Finanzwesen",
+      "tags_it": "Politica di sicurezza|Finanze"
     },
     {
       "business_number": "24.041",
-      "tags": "Politique d'Etat|Finances"
+      "tags": "Politique d'Etat|Finances",
+      "tags_de": "Staatspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Finanze"
     },
     {
       "business_number": "24.043",
-      "tags": "Politique de sécurité"
+      "tags": "Politique de sécurité",
+      "tags_de": "Sicherheitspolitik",
+      "tags_it": "Politica di sicurezza"
     },
     {
       "business_number": "24.046",
-      "tags": "Économie|Finances|Droit civil"
+      "tags": "Économie|Finances|Droit civil",
+      "tags_de": "Wirtschaft|Finanzwesen|Zivilrecht",
+      "tags_it": "Economia|Finanze|Diritto civile"
     },
     {
       "business_number": "24.054",
-      "tags": "Questions sociales|Environnement|Parlement|Justice|Droit international"
+      "tags": "Questions sociales|Environnement|Parlement|Justice|Droit international",
+      "tags_de": "Soziale Fragen|Umwelt|Parlament|Gerichtswesen|Internationales Recht",
+      "tags_it": "Questioni sociali|Ambiente|Parlamento|Giustizia|Diritto internazionale"
     },
     {
       "business_number": "24.097",
-      "tags": "Politique d'Etat|Finances|Emploi et travail|Droit civil"
+      "tags": "Politique d'Etat|Finances|Emploi et travail|Droit civil",
+      "tags_de": "Staatspolitik|Finanzwesen|Beschäftigung und Arbeit|Zivilrecht",
+      "tags_it": "Politica nazionale|Finanze|Occupazione e lavoro|Diritto civile"
     },
     {
       "business_number": "24.3282",
-      "tags": "Finances|Fiscalité"
+      "tags": "Finances|Fiscalité",
+      "tags_de": "Finanzwesen|Steuer",
+      "tags_it": "Finanze|Imposte"
     },
     {
       "business_number": "24.3477",
-      "tags": "Politique de sécurité|Économie|Science et recherche"
+      "tags": "Politique de sécurité|Économie|Science et recherche",
+      "tags_de": "Sicherheitspolitik|Wirtschaft|Wissenschaft und Forschung",
+      "tags_it": "Politica di sicurezza|Economia|Scienza e ricerca"
     },
     {
       "business_number": "24.3645",
-      "tags": "Politique d'Etat|Économie|Médias et communication"
+      "tags": "Politique d'Etat|Économie|Médias et communication",
+      "tags_de": "Staatspolitik|Wirtschaft|Medien und Kommunikation",
+      "tags_it": "Politica nazionale|Economia|Media e comunicazione"
     },
     {
       "business_number": "24.460",
-      "tags": "Finances|Fiscalité"
+      "tags": "Finances|Fiscalité",
+      "tags_de": "Finanzwesen|Steuer",
+      "tags_it": "Finanze|Imposte"
     },
     {
       "business_number": "24.7332",
-      "tags": "Politique d'Etat|Santé"
+      "tags": "Politique d'Etat|Santé",
+      "tags_de": "Staatspolitik|Gesundheit",
+      "tags_it": "Politica nazionale|Salute"
     },
     {
       "business_number": "24.7704",
-      "tags": "Politique d'Etat|Finances|Protection sociale"
+      "tags": "Politique d'Etat|Finances|Protection sociale",
+      "tags_de": "Staatspolitik|Finanzwesen|Sozialer Schutz",
+      "tags_it": "Politica nazionale|Finanze|Protezione sociale"
     },
     {
       "business_number": "24.8020",
-      "tags": "Économie|Environnement|Fiscalité"
+      "tags": "Économie|Environnement|Fiscalité",
+      "tags_de": "Wirtschaft|Umwelt|Steuer",
+      "tags_it": "Economia|Ambiente|Imposte"
     },
     {
       "business_number": "25.001",
-      "tags": "Politique d'Etat"
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "business_number": "25.003",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "25.004",
-      "tags": "Parlement"
+      "tags": "Parlement",
+      "tags_de": "Parlament",
+      "tags_it": "Parlamento"
     },
     {
       "business_number": "25.007",
-      "tags": "Politique européenne|Finances|Science et recherche"
+      "tags": "Politique européenne|Finances|Science et recherche",
+      "tags_de": "Europapolitik|Finanzwesen|Wissenschaft und Forschung",
+      "tags_it": "Politica europea|Finanze|Scienza e ricerca"
     },
     {
       "business_number": "25.041",
-      "tags": "Finances"
+      "tags": "Finances",
+      "tags_de": "Finanzwesen",
+      "tags_it": "Finanze"
     },
     {
       "business_number": "25.063",
-      "tags": "Politique d'Etat|Finances"
+      "tags": "Politique d'Etat|Finances",
+      "tags_de": "Staatspolitik|Finanzwesen",
+      "tags_it": "Politica nazionale|Finanze"
     },
     {
       "business_number": "25.076",
-      "tags": "Médias et communication|Protection sociale"
+      "tags": "Médias et communication|Protection sociale",
+      "tags_de": "Medien und Kommunikation|Sozialer Schutz",
+      "tags_it": "Media e comunicazione|Protezione sociale"
     },
     {
       "business_number": "25.3012",
-      "tags": "Politique de sécurité|Économie|Finances"
+      "tags": "Politique de sécurité|Économie|Finances",
+      "tags_de": "Sicherheitspolitik|Wirtschaft|Finanzwesen",
+      "tags_it": "Politica di sicurezza|Economia|Finanze"
     },
     {
       "business_number": "25.407",
-      "tags": "Politique d'Etat|Politique de sécurité|Économie|Parlement"
+      "tags": "Politique d'Etat|Politique de sécurité|Économie|Parlement",
+      "tags_de": "Staatspolitik|Sicherheitspolitik|Wirtschaft|Parlament",
+      "tags_it": "Politica nazionale|Politica di sicurezza|Economia|Parlamento"
     },
     {
       "business_number": "25.4408",
-      "tags": "Politique d'Etat|Médias et communication|Droits de l'homme"
+      "tags": "Politique d'Etat|Médias et communication|Droits de l'homme",
+      "tags_de": "Staatspolitik|Medien und Kommunikation|Menschenrechte",
+      "tags_it": "Politica nazionale|Media e comunicazione|Diritti umani"
     },
     {
       "business_number": "25.7211",
-      "tags": "Transports|Environnement"
+      "tags": "Transports|Environnement",
+      "tags_de": "Verkehr|Umwelt",
+      "tags_it": "Trasporti|Ambiente"
     },
     {
       "business_number": "25.7738",
-      "tags": "Environnement|Santé"
+      "tags": "Environnement|Santé",
+      "tags_de": "Umwelt|Gesundheit",
+      "tags_it": "Ambiente|Salute"
     },
     {
       "business_number": "25.7945",
-      "tags": "Politique d'Etat|Finances|Fiscalité"
+      "tags": "Politique d'Etat|Finances|Fiscalité",
+      "tags_de": "Staatspolitik|Finanzwesen|Steuer",
+      "tags_it": "Politica nazionale|Finanze|Imposte"
     },
     {
       "business_number": "25.9010",
-      "tags": ""
+      "tags": "",
+      "tags_de": "",
+      "tags_it": ""
     },
     {
       "business_number": "25.9011",
-      "tags": ""
+      "tags": "",
+      "tags_de": "",
+      "tags_it": ""
     },
     {
       "business_number": "25.9016",
-      "tags": null
+      "tags": null,
+      "tags_de": null,
+      "tags_it": null
     },
     {
       "business_number": "25.9020",
-      "tags": null
+      "tags": null,
+      "tags_de": null,
+      "tags_it": null
     },
     {
       "business_number": "25.9021",
-      "tags": null
+      "tags": null,
+      "tags_de": null,
+      "tags_it": null
     },
     {
       "business_number": "25.9024",
-      "tags": null
+      "tags": null,
+      "tags_de": null,
+      "tags_it": null
     }
   ]
 }

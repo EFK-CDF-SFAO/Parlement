@@ -111,8 +111,9 @@ async function init() {
         // Aggiungere i tag degli oggetti mancanti (non presenti in cdf_efk_data.json)
         if (missingTagsJson.items) {
             missingTagsJson.items.forEach(item => {
-                if (item.business_number && item.tags && !objectsData[item.business_number]) {
-                    objectsData[item.business_number] = item.tags;
+                if (item.business_number && !objectsData[item.business_number]) {
+                    // Utiliser tags_it, ou tags FR en fallback
+                    objectsData[item.business_number] = item.tags_it || item.tags || '';
                 }
             });
         }
