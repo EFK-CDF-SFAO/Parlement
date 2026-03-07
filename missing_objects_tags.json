@@ -1,0 +1,808 @@
+{
+  "items": [
+    {
+      "business_number": "14.088",
+      "tags": "Questions sociales|Protection sociale"
+    },
+    {
+      "business_number": "15.017",
+      "tags": "Politique de sécurité"
+    },
+    {
+      "business_number": "15.033",
+      "tags": "Droit civil"
+    },
+    {
+      "business_number": "15.036",
+      "tags": "Politique internationale|Finances|Aménagement du territoire et logement"
+    },
+    {
+      "business_number": "15.041",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "15.053",
+      "tags": "Politique d'Etat|Médias et communication"
+    },
+    {
+      "business_number": "15.062",
+      "tags": "Politique d'Etat|Finances|Médias et communication"
+    },
+    {
+      "business_number": "15.069",
+      "tags": "Économie|Santé"
+    },
+    {
+      "business_number": "15.080",
+      "tags": "Économie|Science et recherche"
+    },
+    {
+      "business_number": "15.087",
+      "tags": "Politique d'Etat|Protection sociale"
+    },
+    {
+      "business_number": "15.088",
+      "tags": "Emploi et travail"
+    },
+    {
+      "business_number": "15.3117",
+      "tags": "Économie"
+    },
+    {
+      "business_number": "15.3400",
+      "tags": "Politique d'Etat|Économie"
+    },
+    {
+      "business_number": "15.3558",
+      "tags": "Finances|Médias et communication"
+    },
+    {
+      "business_number": "15.3662",
+      "tags": "Finances|Environnement|Énergie"
+    },
+    {
+      "business_number": "15.3828",
+      "tags": "Politique d'Etat|Finances|Parlement|Protection sociale"
+    },
+    {
+      "business_number": "15.3901",
+      "tags": "Politique d'Etat|Politique de sécurité"
+    },
+    {
+      "business_number": "15.4096",
+      "tags": "Fiscalité"
+    },
+    {
+      "business_number": "15.4103",
+      "tags": "Finances|Médias et communication|Culture"
+    },
+    {
+      "business_number": "16.001",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "16.003",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "16.004",
+      "tags": "Politique d'Etat|Parlement"
+    },
+    {
+      "business_number": "16.005",
+      "tags": "Transports"
+    },
+    {
+      "business_number": "16.036",
+      "tags": "Politique internationale|Finances"
+    },
+    {
+      "business_number": "16.041",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "16.043",
+      "tags": "Médias et communication"
+    },
+    {
+      "business_number": "16.045",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "16.064",
+      "tags": "Politique d'Etat|Finances"
+    },
+    {
+      "business_number": "16.065",
+      "tags": "Protection sociale"
+    },
+    {
+      "business_number": "16.071",
+      "tags": "Médias et communication|Fiscalité"
+    },
+    {
+      "business_number": "16.3749",
+      "tags": "Environnement|Énergie"
+    },
+    {
+      "business_number": "16.3972",
+      "tags": "Politique d'Etat|Finances"
+    },
+    {
+      "business_number": "16.3992",
+      "tags": "Politique d'Etat|Économie"
+    },
+    {
+      "business_number": "16.4126",
+      "tags": "Politique d'Etat|Politique de sécurité|Économie"
+    },
+    {
+      "business_number": "16.5454",
+      "tags": "Politique internationale|Finances"
+    },
+    {
+      "business_number": "17.001",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "17.003",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "17.004",
+      "tags": "Finances|Parlement"
+    },
+    {
+      "business_number": "17.005",
+      "tags": "Finances|Transports"
+    },
+    {
+      "business_number": "17.007",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "17.019",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "17.021",
+      "tags": "Politique d'Etat|Médias et communication"
+    },
+    {
+      "business_number": "17.022",
+      "tags": "Protection sociale"
+    },
+    {
+      "business_number": "17.028",
+      "tags": "Politique de sécurité|Médias et communication"
+    },
+    {
+      "business_number": "17.041",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "17.047",
+      "tags": "Questions sociales|Emploi et travail|Droits de l'homme"
+    },
+    {
+      "business_number": "17.059",
+      "tags": "Droits de l'homme"
+    },
+    {
+      "business_number": "17.071",
+      "tags": "Politique internationale|Environnement"
+    },
+    {
+      "business_number": "17.073",
+      "tags": "Politique internationale|Environnement"
+    },
+    {
+      "business_number": "17.074",
+      "tags": "Politique de sécurité"
+    },
+    {
+      "business_number": "17.3571",
+      "tags": "Politique d'Etat|Économie"
+    },
+    {
+      "business_number": "17.401",
+      "tags": "Santé"
+    },
+    {
+      "business_number": "17.4097",
+      "tags": "Politique d'Etat|Économie"
+    },
+    {
+      "business_number": "18.001",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "18.003",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "18.004",
+      "tags": "Parlement"
+    },
+    {
+      "business_number": "18.035",
+      "tags": "Finances|Aménagement du territoire et logement"
+    },
+    {
+      "business_number": "18.041",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "18.072",
+      "tags": "Politique de sécurité|Économie|Finances"
+    },
+    {
+      "business_number": "18.082",
+      "tags": "Politique internationale|Économie|Fiscalité"
+    },
+    {
+      "business_number": "18.094",
+      "tags": "Politique internationale|Politique de sécurité|Finances"
+    },
+    {
+      "business_number": "18.097",
+      "tags": "Finances|Environnement|Aménagement du territoire et logement"
+    },
+    {
+      "business_number": "18.3241",
+      "tags": "Politique d'Etat|Finances|Science et recherche|Agriculture"
+    },
+    {
+      "business_number": "18.3390",
+      "tags": "Politique d'Etat|Science et recherche|Agriculture"
+    },
+    {
+      "business_number": "18.3394",
+      "tags": "Politique de sécurité|Économie"
+    },
+    {
+      "business_number": "18.4087",
+      "tags": "Politique d'Etat|Science et recherche|Agriculture"
+    },
+    {
+      "business_number": "18.418",
+      "tags": "Politique d'Etat|Médias et communication|Parlement"
+    },
+    {
+      "business_number": "18.5538",
+      "tags": "Fiscalité"
+    },
+    {
+      "business_number": "18.9006",
+      "tags": ""
+    },
+    {
+      "business_number": "18.9007",
+      "tags": ""
+    },
+    {
+      "business_number": "19.001",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "19.003",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "19.004",
+      "tags": "Parlement"
+    },
+    {
+      "business_number": "19.016",
+      "tags": "Économie|Finances"
+    },
+    {
+      "business_number": "19.019",
+      "tags": "Politique internationale|Finances"
+    },
+    {
+      "business_number": "19.035",
+      "tags": "Protection sociale"
+    },
+    {
+      "business_number": "19.039",
+      "tags": "Politique d'Etat|Politique de sécurité|Transports"
+    },
+    {
+      "business_number": "19.041",
+      "tags": "Politique d'Etat|Finances"
+    },
+    {
+      "business_number": "19.044",
+      "tags": "Politique internationale|Politique de sécurité|Finances|Droit civil|Droit pénal"
+    },
+    {
+      "business_number": "19.046",
+      "tags": "Santé"
+    },
+    {
+      "business_number": "19.051",
+      "tags": "Questions sociales|Emploi et travail|Protection sociale"
+    },
+    {
+      "business_number": "19.057",
+      "tags": "Politique d'Etat|Droits de l'homme|Protection sociale"
+    },
+    {
+      "business_number": "19.065",
+      "tags": "Éducation|Science et recherche"
+    },
+    {
+      "business_number": "19.071",
+      "tags": "Politique d'Etat|Finances"
+    },
+    {
+      "business_number": "19.079",
+      "tags": "Politique d'Etat|Politique de sécurité|Finances"
+    },
+    {
+      "business_number": "19.080",
+      "tags": "Protection sociale"
+    },
+    {
+      "business_number": "19.3154",
+      "tags": "Politique d'Etat|Politique de sécurité|Économie"
+    },
+    {
+      "business_number": "19.3600",
+      "tags": "Politique d'Etat|Parlement|Protection sociale"
+    },
+    {
+      "business_number": "19.400",
+      "tags": "Politique d'Etat|Parlement"
+    },
+    {
+      "business_number": "19.4016",
+      "tags": "Politique d'Etat|Questions sociales|Médias et communication|Droit pénal|Droit international"
+    },
+    {
+      "business_number": "19.4165",
+      "tags": "Économie|Emploi et travail|Droits de l'homme"
+    },
+    {
+      "business_number": "19.500",
+      "tags": "Économie|Finances|Transports|Parlement"
+    },
+    {
+      "business_number": "19.5365",
+      "tags": "Politique d'Etat|Finances|Culture"
+    },
+    {
+      "business_number": "20.001",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "20.004",
+      "tags": "Politique d'Etat|Parlement"
+    },
+    {
+      "business_number": "20.007",
+      "tags": "Économie|Finances|Santé"
+    },
+    {
+      "business_number": "20.030",
+      "tags": "Finances|Culture"
+    },
+    {
+      "business_number": "20.031",
+      "tags": "Politique de sécurité|Finances"
+    },
+    {
+      "business_number": "20.033",
+      "tags": "Politique internationale"
+    },
+    {
+      "business_number": "20.041",
+      "tags": "Politique d'Etat|Finances"
+    },
+    {
+      "business_number": "20.042",
+      "tags": "Finances|Protection sociale|Santé"
+    },
+    {
+      "business_number": "20.053",
+      "tags": "Finances|Transports"
+    },
+    {
+      "business_number": "20.075",
+      "tags": "Économie|Finances|Santé"
+    },
+    {
+      "business_number": "20.084",
+      "tags": "Économie|Emploi et travail|Protection sociale|Santé"
+    },
+    {
+      "business_number": "20.091",
+      "tags": "Politique internationale|Politique de sécurité|Finances"
+    },
+    {
+      "business_number": "20.3067",
+      "tags": "Économie|Droit civil|Fiscalité"
+    },
+    {
+      "business_number": "20.3251",
+      "tags": "Politique d'Etat|Économie"
+    },
+    {
+      "business_number": "20.3794",
+      "tags": "Politique d'Etat|Médias et communication|Parlement"
+    },
+    {
+      "business_number": "20.4162",
+      "tags": "Politique d'Etat|Droit|Droit civil|Fiscalité"
+    },
+    {
+      "business_number": "20.4169",
+      "tags": "Économie|Emploi et travail|Protection sociale|Santé"
+    },
+    {
+      "business_number": "20.4328",
+      "tags": "Politique d'Etat|Économie|Médias et communication|Transports"
+    },
+    {
+      "business_number": "20.442",
+      "tags": "Médias et communication|Parlement"
+    },
+    {
+      "business_number": "20.4559",
+      "tags": "Politique internationale|Finances|Droits de l'homme"
+    },
+    {
+      "business_number": "20.9006",
+      "tags": ""
+    },
+    {
+      "business_number": "21.007",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "21.021",
+      "tags": "Politique de sécurité|Économie"
+    },
+    {
+      "business_number": "21.035",
+      "tags": "Finances|Transports"
+    },
+    {
+      "business_number": "21.041",
+      "tags": "Politique d'Etat|Finances|Transports"
+    },
+    {
+      "business_number": "21.062",
+      "tags": "Politique d'Etat|Finances|Médias et communication"
+    },
+    {
+      "business_number": "21.066",
+      "tags": "Économie|Santé"
+    },
+    {
+      "business_number": "21.067",
+      "tags": "Santé"
+    },
+    {
+      "business_number": "21.070",
+      "tags": "Politique de sécurité"
+    },
+    {
+      "business_number": "21.072",
+      "tags": "Économie|Finances|Énergie"
+    },
+    {
+      "business_number": "21.4337",
+      "tags": "Économie|Finances|Questions sociales"
+    },
+    {
+      "business_number": "21.443",
+      "tags": "Politique d'Etat|Emploi et travail|Droits de l'homme"
+    },
+    {
+      "business_number": "21.4572",
+      "tags": "Économie|Protection sociale"
+    },
+    {
+      "business_number": "21.508",
+      "tags": "Politique internationale|Économie|Droit pénal"
+    },
+    {
+      "business_number": "22.003",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "22.004",
+      "tags": null
+    },
+    {
+      "business_number": "22.005",
+      "tags": "Politique de sécurité"
+    },
+    {
+      "business_number": "22.007",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "22.016",
+      "tags": null
+    },
+    {
+      "business_number": "22.018",
+      "tags": "Questions sociales|Agriculture|Protection sociale"
+    },
+    {
+      "business_number": "22.029",
+      "tags": null
+    },
+    {
+      "business_number": "22.031",
+      "tags": "Finances|Énergie"
+    },
+    {
+      "business_number": "22.041",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "22.058",
+      "tags": "Politique d'Etat|Politique internationale|Politique de sécurité|Économie|Finances|Médias et communication|Fiscalité|Politique migratoire"
+    },
+    {
+      "business_number": "22.061",
+      "tags": "Environnement|Énergie|Fiscalité"
+    },
+    {
+      "business_number": "22.062",
+      "tags": "Santé"
+    },
+    {
+      "business_number": "22.064",
+      "tags": "Transports"
+    },
+    {
+      "business_number": "22.074",
+      "tags": "Politique de sécurité|Finances|Environnement|Aménagement du territoire et logement"
+    },
+    {
+      "business_number": "22.082",
+      "tags": "Politique d'Etat|Droit|Économie|Médias et communication"
+    },
+    {
+      "business_number": "22.084",
+      "tags": "Politique internationale|Économie|Finances|Environnement"
+    },
+    {
+      "business_number": "22.202",
+      "tags": null
+    },
+    {
+      "business_number": "22.3066",
+      "tags": "Politique internationale|Politique de sécurité"
+    },
+    {
+      "business_number": "22.4296",
+      "tags": "Économie|Questions sociales|Médias et communication|Santé"
+    },
+    {
+      "business_number": "22.436",
+      "tags": "Économie|Transports|Environnement"
+    },
+    {
+      "business_number": "22.4434",
+      "tags": "Santé"
+    },
+    {
+      "business_number": "22.7780",
+      "tags": "Politique d'Etat|Finances|Transports"
+    },
+    {
+      "business_number": "23.003",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "23.025",
+      "tags": "Politique de sécurité|Finances|Médias et communication"
+    },
+    {
+      "business_number": "23.028",
+      "tags": "Économie|Finances|Emploi et travail|Environnement"
+    },
+    {
+      "business_number": "23.039",
+      "tags": "Politique d'Etat|Médias et communication|Droits de l'homme"
+    },
+    {
+      "business_number": "23.041",
+      "tags": "Politique d'Etat|Finances"
+    },
+    {
+      "business_number": "23.059",
+      "tags": "Politique internationale|Politique européenne|Finances|Politique migratoire"
+    },
+    {
+      "business_number": "23.072",
+      "tags": "Politique d'Etat|Éducation"
+    },
+    {
+      "business_number": "23.076",
+      "tags": "Médias et communication|Droits de l'homme|Santé"
+    },
+    {
+      "business_number": "23.082",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "23.3585",
+      "tags": "Politique de sécurité|Économie"
+    },
+    {
+      "business_number": "23.4182",
+      "tags": "Politique d'Etat|Politique de sécurité|Éducation|Médias et communication|Protection sociale|Santé|Aménagement du territoire et logement"
+    },
+    {
+      "business_number": "23.4314",
+      "tags": "Politique de sécurité|Santé"
+    },
+    {
+      "business_number": "23.7014",
+      "tags": "Transports|Aménagement du territoire et logement"
+    },
+    {
+      "business_number": "23.7252",
+      "tags": "Santé"
+    },
+    {
+      "business_number": "23.7626",
+      "tags": "Politique d'Etat|Politique de sécurité|Économie"
+    },
+    {
+      "business_number": "24.001",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "24.002",
+      "tags": "Justice"
+    },
+    {
+      "business_number": "24.003",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "24.004",
+      "tags": "Parlement"
+    },
+    {
+      "business_number": "24.018",
+      "tags": "Politique d'Etat|Finances|Médias et communication"
+    },
+    {
+      "business_number": "24.025",
+      "tags": "Politique de sécurité|Finances"
+    },
+    {
+      "business_number": "24.041",
+      "tags": "Politique d'Etat|Finances"
+    },
+    {
+      "business_number": "24.043",
+      "tags": "Politique de sécurité"
+    },
+    {
+      "business_number": "24.046",
+      "tags": "Économie|Finances|Droit civil"
+    },
+    {
+      "business_number": "24.054",
+      "tags": "Questions sociales|Environnement|Parlement|Justice|Droit international"
+    },
+    {
+      "business_number": "24.097",
+      "tags": "Politique d'Etat|Finances|Emploi et travail|Droit civil"
+    },
+    {
+      "business_number": "24.3282",
+      "tags": "Finances|Fiscalité"
+    },
+    {
+      "business_number": "24.3477",
+      "tags": "Politique de sécurité|Économie|Science et recherche"
+    },
+    {
+      "business_number": "24.3645",
+      "tags": "Politique d'Etat|Économie|Médias et communication"
+    },
+    {
+      "business_number": "24.460",
+      "tags": "Finances|Fiscalité"
+    },
+    {
+      "business_number": "24.7332",
+      "tags": "Politique d'Etat|Santé"
+    },
+    {
+      "business_number": "24.7704",
+      "tags": "Politique d'Etat|Finances|Protection sociale"
+    },
+    {
+      "business_number": "24.8020",
+      "tags": "Économie|Environnement|Fiscalité"
+    },
+    {
+      "business_number": "25.001",
+      "tags": "Politique d'Etat"
+    },
+    {
+      "business_number": "25.003",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "25.004",
+      "tags": "Parlement"
+    },
+    {
+      "business_number": "25.007",
+      "tags": "Politique européenne|Finances|Science et recherche"
+    },
+    {
+      "business_number": "25.041",
+      "tags": "Finances"
+    },
+    {
+      "business_number": "25.063",
+      "tags": "Politique d'Etat|Finances"
+    },
+    {
+      "business_number": "25.076",
+      "tags": "Médias et communication|Protection sociale"
+    },
+    {
+      "business_number": "25.3012",
+      "tags": "Politique de sécurité|Économie|Finances"
+    },
+    {
+      "business_number": "25.407",
+      "tags": "Politique d'Etat|Politique de sécurité|Économie|Parlement"
+    },
+    {
+      "business_number": "25.4408",
+      "tags": "Politique d'Etat|Médias et communication|Droits de l'homme"
+    },
+    {
+      "business_number": "25.7211",
+      "tags": "Transports|Environnement"
+    },
+    {
+      "business_number": "25.7738",
+      "tags": "Environnement|Santé"
+    },
+    {
+      "business_number": "25.7945",
+      "tags": "Politique d'Etat|Finances|Fiscalité"
+    },
+    {
+      "business_number": "25.9010",
+      "tags": ""
+    },
+    {
+      "business_number": "25.9011",
+      "tags": ""
+    },
+    {
+      "business_number": "25.9016",
+      "tags": null
+    },
+    {
+      "business_number": "25.9020",
+      "tags": null
+    },
+    {
+      "business_number": "25.9021",
+      "tags": null
+    },
+    {
+      "business_number": "25.9024",
+      "tags": null
+    }
+  ]
+}

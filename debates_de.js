@@ -108,14 +108,16 @@ function getPartyDisplay(item) {
 
 async function init() {
     try {
-        // Debatten und Objekte parallel laden
-        const [debatesResponse, objectsResponse] = await Promise.all([
+        // Debatten, Objekte und fehlende Tags parallel laden
+        const [debatesResponse, objectsResponse, missingTagsResponse] = await Promise.all([
             fetch('debates_data.json'),
-            fetch('cdf_efk_data.json')
+            fetch('cdf_efk_data.json'),
+            fetch('missing_objects_tags.json').catch(() => ({ json: () => ({ items: [] }) }))
         ]);
         
         const data = await debatesResponse.json();
         const objectsJson = await objectsResponse.json();
+        const missingTagsJson = await missingTagsResponse.json();
         
         allData = data.items || [];
         newIds = data.new_ids || [];
@@ -125,6 +127,15 @@ async function init() {
             objectsJson.items.forEach(item => {
                 if (item.shortId && item.tags_de) {
                     objectsData[item.shortId] = item.tags_de;
+                }
+            });
+        }
+        
+        // Tags der fehlenden Objekte hinzufügen (nicht in cdf_efk_data.json)
+        if (missingTagsJson.items) {
+            missingTagsJson.items.forEach(item => {
+                if (item.business_number && item.tags && !objectsData[item.business_number]) {
+                    objectsData[item.business_number] = item.tags;
                 }
             });
         }

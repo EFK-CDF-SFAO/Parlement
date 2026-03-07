@@ -1,11 +1,15 @@
 const INITIAL_ITEMS = 5;
 const ITEMS_PER_LOAD = 5;
+const RAPPORTS_MATCHES_URL = 'rapports_matches.json';
+const RAPPORTS_CDF_URL = 'rapports_cdf.json';
+const RAPPORTS_MANUELS_URL = 'rapports_manuels.json';
 
 let allData = [];
 let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // IDs des nouveaux débats (< 4 jours)
 let objectsData = {}; // Mapping business_number -> tags pour le filtre thématique
+let businessRapportsMap = {}; // Index rapports CDF par business_number (cohérence par objet)
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -108,14 +112,19 @@ function getPartyDisplay(item) {
 
 async function init() {
     try {
-        // Charger les débats et les objets en parallèle
-        const [debatesResponse, objectsResponse] = await Promise.all([
+        // Charger les rapports CDF d'abord
+        await loadRapportsData();
+        
+        // Charger les débats, les objets et les tags manquants en parallèle
+        const [debatesResponse, objectsResponse, missingTagsResponse] = await Promise.all([
             fetch('debates_data.json'),
-            fetch('cdf_efk_data.json')
+            fetch('cdf_efk_data.json'),
+            fetch('missing_objects_tags.json').catch(() => ({ json: () => ({ items: [] }) }))
         ]);
         
         const data = await debatesResponse.json();
         const objectsJson = await objectsResponse.json();
+        const missingTagsJson = await missingTagsResponse.json();
         
         allData = data.items || [];
         newIds = data.new_ids || [];
@@ -125,6 +134,15 @@ async function init() {
             objectsJson.items.forEach(item => {
                 if (item.shortId && item.tags) {
                     objectsData[item.shortId] = item.tags;
+                }
+            });
+        }
+        
+        // Ajouter les tags des objets manquants (non présents dans cdf_efk_data.json)
+        if (missingTagsJson.items) {
+            missingTagsJson.items.forEach(item => {
+                if (item.business_number && item.tags && !objectsData[item.business_number]) {
+                    objectsData[item.business_number] = item.tags;
                 }
             });
         }
@@ -780,6 +798,7 @@ function createCard(item, searchTerm = '') {
             </div>
         </div>
         <h3 class="card-title">${businessTitleLink}</h3>
+        ${getRapportBadgeHtml(item.business_number) ? `<div class="card-rapport-row">${getRapportBadgeHtml(item.business_number)}</div>` : ''}
         <div class="card-meta">
             <span>💬 ${speakerText}</span>
             <span>📅 ${formatDate(item.date)}</span>
@@ -849,3 +868,66 @@ function renderResults(loadMore = false) {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// Charger les données des rapports CDF et créer l'index par business_number
+async function loadRapportsData() {
+    try {
+        const [matchesResp, rapportsResp, manuelsResp] = await Promise.all([
+            fetch(RAPPORTS_MATCHES_URL),
+            fetch(RAPPORTS_CDF_URL),
+            fetch(RAPPORTS_MANUELS_URL)
+        ]);
+        
+        const rapportsMatchesData = await matchesResp.json();
+        const rapportsCdfData = await rapportsResp.json();
+        const rapportsManuels = await manuelsResp.json();
+        
+        // 1. Charger les mappings manuels en priorité (par business_number = shortId)
+        if (rapportsManuels?.mappings?.by_object) {
+            for (const [shortId, rapport] of Object.entries(rapportsManuels.mappings.by_object)) {
+                businessRapportsMap[shortId] = {
+                    pa: rapport.pa,
+                    title: rapport.title,
+                    url: rapport.url,
+                    match_type: 'manual'
+                };
+            }
+        }
+        
+        // 2. Index automatique pour les débats par business_number (PA number match)
+        if (rapportsMatchesData?.by_pa_number?.debates) {
+            for (const match of rapportsMatchesData.by_pa_number.debates) {
+                const businessNum = match.business_number;
+                if (!businessNum || businessRapportsMap[businessNum]) continue; // Skip si mapping manuel
+                for (const pa of match.pa_numbers) {
+                    const rapport = rapportsCdfData.items.find(r => r.pa_numbers?.includes(pa));
+                    if (rapport) {
+                        businessRapportsMap[businessNum] = {
+                            pa: pa,
+                            title: rapport.title_fr || rapport.title_de,
+                            url: rapport.url,
+                            match_type: 'pa_number'
+                        };
+                        break;
+                    }
+                }
+            }
+        }
+        
+        console.log(`Rapports CDF chargés: ${Object.keys(businessRapportsMap).length} objets avec rapports`);
+    } catch (e) {
+        console.warn('Impossible de charger les rapports CDF:', e);
+    }
+}
+
+// Générer le HTML pour afficher le badge rapport CDF (par business_number)
+function getRapportBadgeHtml(businessNumber) {
+    if (!businessNumber) return '';
+    const rapport = businessRapportsMap[businessNumber];
+    if (!rapport) return '';
+    
+    const pa = rapport.pa ? `PA ${rapport.pa}` : 'Rapport CDF';
+    const tooltip = rapport.title || 'Rapport du CDF lié';
+    
+    return `<a href="${rapport.url}" target="_blank" class="card-rapport" title="${tooltip}" onclick="event.stopPropagation();">📄 ${pa}</a>`;
+}
