@@ -9,6 +9,7 @@ let allData = [];
 let filteredData = [];
 let displayedCount = 0;
 let newIds = [];
+let sortDescending = true; // true = recenti prima, false = vecchi prima
 let sessionsData = []; // Dati delle sessioni
 
 // DOM Elements
@@ -250,6 +251,12 @@ function setupEventListeners() {
     
     if (downloadBtn) {
         downloadBtn.addEventListener('click', downloadFilteredData);
+    }
+    
+    // Sort order button
+    const sortOrderBtn = document.getElementById('sortOrderBtn');
+    if (sortOrderBtn) {
+        sortOrderBtn.addEventListener('click', toggleSortOrder);
     }
     
     updateLangSwitcherLinks();
@@ -634,14 +641,14 @@ function applyFilters() {
         const dateA = a.date || '';
         const dateB = b.date || '';
         if (dateA !== dateB) {
-            return dateB.localeCompare(dateA);
+            return sortDescending ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
         }
         const majA = a.date_maj || '';
         const majB = b.date_maj || '';
         if (majA !== majB) {
-            return majB.localeCompare(majA);
+            return sortDescending ? majB.localeCompare(majA) : majA.localeCompare(majB);
         }
-        return (b.shortId || '').localeCompare(a.shortId || '');
+        return sortDescending ? (b.shortId || '').localeCompare(a.shortId || '') : (a.shortId || '').localeCompare(b.shortId || '');
     });
     
     currentPage = 1;
@@ -696,6 +703,15 @@ function updateURL() {
 function clearSearch() {
     searchInput.value = '';
     searchInput.focus();
+    applyFilters();
+}
+
+function toggleSortOrder() {
+    sortDescending = !sortDescending;
+    const btn = document.getElementById('sortOrderBtn');
+    if (btn) {
+        btn.textContent = sortDescending ? '↓ Recenti' : '↑ Vecchi';
+    }
     applyFilters();
 }
 

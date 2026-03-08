@@ -6,6 +6,7 @@ let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // IDs der neuen Debatten (< 4 Tage)
 let objectsData = {}; // Mapping business_number -> tags für Themenfilter
+let sortDescending = true; // true = neueste zuerst, false = älteste zuerst
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -510,6 +511,21 @@ function setupEventListeners() {
     if (showNewUpdatesBtn) {
         showNewUpdatesBtn.addEventListener('click', toggleNewUpdatesFilter);
     }
+    
+    // Sort order button
+    const sortOrderBtn = document.getElementById('sortOrderBtn');
+    if (sortOrderBtn) {
+        sortOrderBtn.addEventListener('click', toggleSortOrder);
+    }
+}
+
+function toggleSortOrder() {
+    sortDescending = !sortDescending;
+    const btn = document.getElementById('sortOrderBtn');
+    if (btn) {
+        btn.textContent = sortDescending ? '↓ Neueste' : '↑ Älteste';
+    }
+    applyFilters();
 }
 
 function toggleNewUpdatesFilter() {
@@ -638,8 +654,12 @@ function applyFilters() {
         return true;
     });
     
-    // Sortieren vom neuesten zum ältesten
-    filteredData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    // Sortieren nach gewählter Reihenfolge
+    filteredData.sort((a, b) => {
+        const dateA = a.date || '';
+        const dateB = b.date || '';
+        return sortDescending ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
+    });
     
     renderResults();
     updateURL();

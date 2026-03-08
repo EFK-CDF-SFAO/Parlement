@@ -10,6 +10,7 @@ let displayedCount = 0;
 let newIds = []; // IDs des nouveaux débats (< 4 jours)
 let objectsData = {}; // Mapping business_number -> tags pour le filtre thématique
 let businessRapportsMap = {}; // Index rapports CDF par business_number (cohérence par objet)
+let sortDescending = true; // true = récent en premier, false = ancien en premier
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -536,6 +537,21 @@ function setupEventListeners() {
     if (showNewUpdatesBtn) {
         showNewUpdatesBtn.addEventListener('click', toggleNewUpdatesFilter);
     }
+    
+    // Sort order button
+    const sortOrderBtn = document.getElementById('sortOrderBtn');
+    if (sortOrderBtn) {
+        sortOrderBtn.addEventListener('click', toggleSortOrder);
+    }
+}
+
+function toggleSortOrder() {
+    sortDescending = !sortDescending;
+    const btn = document.getElementById('sortOrderBtn');
+    if (btn) {
+        btn.textContent = sortDescending ? '↓ Récent' : '↑ Ancien';
+    }
+    applyFilters();
 }
 
 function toggleNewUpdatesFilter() {
@@ -664,8 +680,12 @@ function applyFilters() {
         return true;
     });
     
-    // Trier du plus récent au plus vieux
-    filteredData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    // Trier selon l'ordre choisi
+    filteredData.sort((a, b) => {
+        const dateA = a.date || '';
+        const dateB = b.date || '';
+        return sortDescending ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
+    });
     
     renderResults();
     updateURL();

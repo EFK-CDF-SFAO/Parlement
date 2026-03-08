@@ -10,6 +10,7 @@ let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // IDs der echten neuen Objekte
 let sessionsData = []; // Sessionsdaten
+let sortDescending = true; // true = neueste zuerst, false = älteste zuerst
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -264,6 +265,12 @@ function setupEventListeners() {
     // Download Excel button
     if (downloadBtn) {
         downloadBtn.addEventListener('click', downloadFilteredData);
+    }
+    
+    // Sort order button
+    const sortOrderBtn = document.getElementById('sortOrderBtn');
+    if (sortOrderBtn) {
+        sortOrderBtn.addEventListener('click', toggleSortOrder);
     }
     
     // Update lang switcher on load
@@ -640,21 +647,19 @@ function applyFilters() {
         return true;
     });
     
-    // Sortieren nach Datum (absteigend), dann nach date_maj (Aktualisierte zuerst), dann nach Nummer
+    // Sortieren nach Datum, dann nach date_maj, dann nach Nummer
     filteredData.sort((a, b) => {
         const dateA = a.date || '';
         const dateB = b.date || '';
         if (dateA !== dateB) {
-            return dateB.localeCompare(dateA); // Datum absteigend
+            return sortDescending ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
         }
-        // Gleiches Datum: Aktualisierte zuerst
         const majA = a.date_maj || '';
         const majB = b.date_maj || '';
         if (majA !== majB) {
-            return majB.localeCompare(majA);
+            return sortDescending ? majB.localeCompare(majA) : majA.localeCompare(majB);
         }
-        // Gleiches Datum und MAJ: nach Nummer absteigend sortieren
-        return (b.shortId || '').localeCompare(a.shortId || '');
+        return sortDescending ? (b.shortId || '').localeCompare(a.shortId || '') : (a.shortId || '').localeCompare(b.shortId || '');
     });
     
     currentPage = 1;
@@ -713,6 +718,15 @@ function clearSearch() {
     yearFilter.value = '';
     partyFilter.value = '';
     searchInput.focus();
+    applyFilters();
+}
+
+function toggleSortOrder() {
+    sortDescending = !sortDescending;
+    const btn = document.getElementById('sortOrderBtn');
+    if (btn) {
+        btn.textContent = sortDescending ? '↓ Neueste' : '↑ Älteste';
+    }
     applyFilters();
 }
 

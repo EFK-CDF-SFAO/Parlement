@@ -6,6 +6,7 @@ let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // ID dei nuovi dibattiti (< 4 giorni)
 let objectsData = {}; // Mapping business_number -> tags per filtro tematico
+let sortDescending = true; // true = recenti prima, false = vecchi prima
 
 const searchInput = document.getElementById('searchInput');
 const clearSearch = document.getElementById('clearSearch');
@@ -500,6 +501,21 @@ function setupEventListeners() {
     if (showNewUpdatesBtn) {
         showNewUpdatesBtn.addEventListener('click', toggleNewUpdatesFilter);
     }
+    
+    // Sort order button
+    const sortOrderBtn = document.getElementById('sortOrderBtn');
+    if (sortOrderBtn) {
+        sortOrderBtn.addEventListener('click', toggleSortOrder);
+    }
+}
+
+function toggleSortOrder() {
+    sortDescending = !sortDescending;
+    const btn = document.getElementById('sortOrderBtn');
+    if (btn) {
+        btn.textContent = sortDescending ? '↓ Recenti' : '↑ Vecchi';
+    }
+    applyFilters();
 }
 
 function toggleNewUpdatesFilter() {
@@ -625,8 +641,12 @@ function applyFilters() {
         return true;
     });
     
-    // Ordinare dal più recente al più vecchio
-    filteredData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    // Ordinare secondo l'ordine scelto
+    filteredData.sort((a, b) => {
+        const dateA = a.date || '';
+        const dateB = b.date || '';
+        return sortDescending ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
+    });
     
     renderResults();
     updateURL();
