@@ -899,6 +899,39 @@ mark.highlight-search {
         width: 100%;
     }
     
+    .results-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    #resultsCount {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+    
+    #lastUpdate {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: left;
+    }
+    
+    .btn-download, .btn-sort {
+        grid-column: 2;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .btn-download {
+        grid-row: 2;
+    }
+    
+    .btn-sort {
+        grid-row: 3;
+    }
+    
     .card-header {
         flex-direction: column-reverse;
         align-items: flex-start;
