@@ -690,16 +690,20 @@ footer a:hover {
     font-size: 0.9rem;
 }
 
-.btn-download {
+.btn-download, .btn-sort {
     padding: 0.5rem 1rem;
-    background: var(--success);
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 500;
+    line-height: 1.2;
     transition: background 0.2s;
+}
+
+.btn-download {
+    background: var(--success);
 }
 
 .btn-download:hover {
@@ -707,15 +711,7 @@ footer a:hover {
 }
 
 .btn-sort {
-    padding: 0.5rem 1rem;
     background: var(--secondary);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: background 0.2s;
 }
 
 .btn-sort:hover {
