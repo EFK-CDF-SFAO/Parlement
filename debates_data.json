@@ -1,10 +1,10 @@
 {
   "meta": {
     "sessions": "5212",
-    "count": 738,
-    "updated": "2026-03-09 13:22:09.496842"
+    "count": 739,
+    "updated": "2026-03-09 21:34:31.878688"
   },
-  "new_ids": [],
+  "new_ids": "370284",
   "items": [
     {
       "id": "191252",
@@ -14557,7 +14557,26 @@
       "business_title_de": "E-ID. Evaluierung der Umsetzung nach zwei Jahren",
       "business_title_it": "Id-e. Valutazione dell'attuazione dopo due anni",
       "department": "EJPD",
-      "text": "Après avoir trouvé une extrêmement large majorité dans notre conseil, la loi sur l'e-ID n'a été acceptée qu'avec un peu moins de 50,4 pour cent des voix en septembre dernier. Du reste, comme des recours sont encore pendants, la loi n'est même pas définitivement en vigueur à ce jour.\nLa campagne de votation avait été marquée par de nombreuses expressions d'une certaine défiance sur l'interprétation du texte de loi, sur les engagements du Conseil fédéral et sur la manière dont le projet allait réellement être mis en oeuvre. Je cite quelques-uns des domaines controversés : le caractère facultatif de l'e-ID allait-il être respecté ? Le code source serait-il réellement publié, comme le prévoit la loi ? Les demandes excessives d'informations de prestataires privés pourraient-elles être évitées, comme nous l'avons défendu du côté du oui dans la campagne de votation ? Et puis, inévitablement, le cadre financier annoncé serait-il respecté ?\nDepuis la campagne de votation, deux nouveaux événements se sont produits. D'une part, le financement pour la mise en oeuvre de l'e-ID a été réduit dans le cadre des discussions sur le budget 2026 - je l'ai regretté à titre personnel, mais c'était une décision du conseil. D'autre part, le Contrôle fédéral des finances a émis un certain nombre de critiques sur la manière dont le projet était mené. La réduction budgétaire en particulier va probablement modifier la manière dont ce projet pourra être concrètement mis en oeuvre. Cela ne donne que davantage de poids au postulat qui vous est proposé par l'unanimité de la Commission des affaires juridiques de notre conseil.\nIl faut prendre au sérieux les doutes d'une partie de la population sur la numérisation qui se sont exprimées, lors de cette campagne de votation, en général face à un projet de numérisation, et en particulier sur les points que j'ai listés tout à l'heure. À notre avis - et, encore une fois, nous étions unanimes en commission -, la meilleure manière de prendre au sérieux ces doutes, c'est de procéder, 18 mois après son introduction, à une évaluation rigoureuse de la mise en place de l'identité électronique. C'est ce que vous propose ce postulat de commission.\nJe vous invite à l'accepter, ce qui ne devrait pas être très difficile dans la mesure où aucune autre proposition n'a été formulée.\n",
+      "text": "Après avoir trouvé une extrêmement large majorité dans notre conseil, la loi sur l'e-ID n'a été acceptée qu'avec un peu moins de 50,4 pour cent des voix en septembre dernier. Du reste, comme des recours sont encore pendants, la loi n'est même pas définitivement en vigueur à ce jour.\nLa campagne de votation avait été marquée par de nombreuses expressions d'une certaine défiance sur l'interprétation du texte de loi, sur les engagements du Conseil fédéral et sur la manière dont le projet allait réellement être mis en oeuvre. Je cite quelques-uns des domaines controversés[NB]: le caractère facultatif de l'e-ID allait-il être respecté[NB]? Le code source serait-il réellement publié, comme le prévoit la loi[NB]? Les demandes excessives d'informations de prestataires privés pourraient-elles être évitées, comme nous l'avons défendu du côté du oui dans la campagne de votation[NB]? Et puis, inévitablement, le cadre financier annoncé serait-il respecté[NB]?\nDepuis la campagne de votation, deux nouveaux événements se sont produits. D'une part, le financement pour la mise en oeuvre de l'e-ID a été réduit dans le cadre des discussions sur le budget 2026 - je l'ai regretté à titre personnel, mais c'était une décision du conseil. D'autre part, le Contrôle fédéral des finances a émis un certain nombre de critiques sur la manière dont le projet était mené. La réduction budgétaire en particulier va probablement modifier la manière dont ce projet pourra être concrètement mis en oeuvre. Cela ne donne que davantage de poids au postulat qui vous est proposé par l'unanimité de la Commission des affaires juridiques de notre conseil.\nIl faut prendre au sérieux les doutes d'une partie de la population sur la numérisation qui se sont exprimés, lors de cette campagne de votation, en général face à un projet de numérisation et en particulier sur les points que j'ai listés tout à l'heure. À notre avis et, encore une fois, nous étions unanimes en commission, la meilleure manière de prendre au sérieux ces doutes, c'est de procéder, 18 mois après son introduction, à une évaluation rigoureuse de la mise en place de l'identité électronique. C'est ce que vous propose ce postulat de commission.\nJe vous invite à l'accepter, ce qui ne devrait pas être très difficile dans la mesure où aucune autre proposition n'a été formulée.\n",
+      "language": "FR"
+    },
+    {
+      "id": "370284",
+      "id_subject": "70531",
+      "id_session": "5212",
+      "sort_order": 1,
+      "date": "20260309",
+      "council": "N",
+      "speaker": "Parmelin Guy",
+      "function_speaker": "BPR-M",
+      "canton": "VD",
+      "affair_id": "20267128",
+      "business_number": "26.7128",
+      "business_title_fr": "Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage",
+      "business_title_de": "ASAL 2.0: Der absehbare Skandal um die Verzögerungen bei der Auszahlung der Arbeitslosenentschädigungen",
+      "business_title_it": "Heure des questions.\nQuestion Amoos Emmanuel.\nSipac 2.0, le scandale annoncé\ndes retards dans le versement\ndes allocations chômage",
+      "department": "WBF",
+      "text": "Monsieur le conseiller national Amoos, Sipacfutur est un projet clé de la Confédération. À ce titre, il a été accompagné par le Contrôle fédéral des finances, qui a publié six rapports à son propos. Les recommandations des cinq premiers rapports ont été mises en oeuvre, ce qui a été attesté dans le sixième et dernier rapport. Ce dernier attirait encore l'attention sur la phase de migration entre l'ancien et le nouveau système. La migration a donc fait l'objet d'une attention particulière et a été effectuée sans problèmes notables. Des dysfonctionnements importants sont apparus par la suite et ont causé du retard dans certains paiements, ce qui est regrettable. Depuis février, le système est nettement plus stable. Actuellement, on travaille à la résorption du retard et à l'amélioration de la performance du système - voir aussi les questions 26.7131 et 26.7133 Mahaim.\n",
       "language": "FR"
     }
   ]
