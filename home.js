@@ -28,6 +28,7 @@ const typeLabels = {
 
 // Traduction des partis
 function translateParty(party) {
+    if (!party || party === 'None' || party === 'null') return 'Conseil fédéral';
     const translations = {
         'V': 'UDC',
         'S': 'PS',

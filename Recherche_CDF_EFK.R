@@ -694,7 +694,8 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
     if (length(IDs_Statut_Change) > 0) {
       Resultats <- Resultats |>
         mutate(
-          Statut_Change_Date = if_else(ID %in% IDs_Statut_Change, as.character(Sys.Date()), NA_character_)
+          Statut_Change_Date = if_else(ID %in% IDs_Statut_Change, as.character(Sys.Date()), NA_character_),
+          Date_MAJ = if_else(ID %in% IDs_Statut_Change, as.character(Sys.Date()), Date_MAJ)
         )
     }
   }
