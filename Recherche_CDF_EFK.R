@@ -191,6 +191,21 @@ if (file.exists(FICHIER_EXCEL)) {
     cat("  -> Exclusion de", n_avant - nrow(Donnees_Existantes), "faux positifs\n")
   }
   
+  # Nettoyer les Date_MAJ incorrectes (import initial février 2026 pour objets anciens)
+  if ("Date_MAJ" %in% names(Donnees_Existantes)) {
+    n_maj_incorrectes <- sum(Donnees_Existantes$Date_MAJ == "2026-02-21" & 
+                             Donnees_Existantes$Date_dépôt < "2025-01-01", na.rm = TRUE)
+    if (n_maj_incorrectes > 0) {
+      Donnees_Existantes <- Donnees_Existantes |>
+        mutate(Date_MAJ = if_else(
+          Date_MAJ == "2026-02-21" & Date_dépôt < "2025-01-01",
+          NA_character_,
+          Date_MAJ
+        ))
+      cat("  -> Nettoyage de", n_maj_incorrectes, "Date_MAJ incorrectes (import initial)\n")
+    }
+  }
+  
   IDs_Existants <- Donnees_Existantes$ID
   cat("  ->", nrow(Donnees_Existantes), "interventions existantes\n\n")
 } else {
