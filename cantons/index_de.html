@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die EFK in den kantonalen und kommunalen Parlamenten</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #EA5A4F;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #001a4d);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .filters {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .filters-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            height: 46px;
+            box-sizing: border-box;
+        }
+
+        .multi-select {
+            position: relative;
+        }
+
+        .multi-select-header {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            height: 46px;
+            box-sizing: border-box;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .multi-select-header:hover {
+            border-color: #999;
+        }
+
+        .multi-select-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .multi-select-dropdown.open {
+            display: block;
+        }
+
+        .multi-select-option {
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .multi-select-option:hover {
+            background: #f0f0f0;
+        }
+
+        .multi-select-option input {
+            width: auto;
+            height: auto;
+            margin: 0;
+        }
+
+        .arrow {
+            font-size: 0.7rem;
+            color: #666;
+        }
+
+        .lang-switcher {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lang-switcher a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .lang-switcher a:hover {
+            color: white;
+        }
+
+        .lang-switcher a.active {
+            color: white;
+            font-weight: 700;
+        }
+
+        .lang-switcher span {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .results-count {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .affairs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .affair-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .affair-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .affair-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .affair-meta {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .canton-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .type-badge {
+            background: #e0e0e0;
+            color: #333;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .affair-date {
+            color: #666;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .affair-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .affair-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .affair-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .affair-author {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .documents-section {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .documents-label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: #f0f0f0;
+            color: var(--primary-color);
+            padding: 0.35rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .doc-link:hover {
+            background: #e0e0e0;
+        }
+
+        .doc-link.efk-doc {
+            background: rgba(0, 51, 153, 0.15);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .doc-link.efk-doc:hover {
+            background: rgba(0, 51, 153, 0.25);
+        }
+
+        .efk-excerpt {
+            background: #f8f8f8;
+            border-left: 3px solid var(--primary-color);
+            padding: 0.75rem 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: #555;
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .efk-excerpt-label {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-style: normal;
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight {
+            background: rgba(234, 90, 79, 0.2);
+            padding: 0.1rem 0.2rem;
+            border-radius: 2px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .affair-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="lang-switcher">
+            <a href="index.html">FR</a>
+            <span>|</span>
+            <a href="index_de.html" class="active">DE</a>
+            <span>|</span>
+            <a href="index_it.html">IT</a>
+        </div>
+        <h1>🏛️ Die EFK in den kantonalen und kommunalen Parlamenten</h1>
+    </header>
+
+    <div class="container">
+        <div class="filters">
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label for="searchInput">🔍 Suche</label>
+                    <input type="text" id="searchInput" placeholder="Suchen...">
+                </div>
+                <div class="filter-group">
+                    <label for="cantonFilter">🏔️ Parlament</label>
+                    <select id="cantonFilter">
+                        <option value="">Alle Parlamente</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>📅 Jahre</label>
+                    <div class="multi-select" id="yearFilter">
+                        <div class="multi-select-header" onclick="toggleDropdown('yearDropdown')">
+                            <span id="yearFilterText">Alle Jahre</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="multi-select-dropdown" id="yearDropdown">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-count" id="resultsCount"></div>
+
+        <div class="affairs-list" id="affairsList">
+            <!-- Affairs loaded dynamically -->
+        </div>
+    </div>
+
+    <footer>
+        <p>Daten: <a href="https://api.openparldata.ch" target="_blank">OpenParlData.ch API</a> | 
+           Fork von <a href="https://efk-cdf-sfao.github.io/Parlement/" target="_blank">SFAO Parliament Monitor</a></p>
+        <p>Quelle: Eidgenössische Finanzkontrolle (EFK/CDF)</p>
+    </footer>
+
+    <script>
+        let allAffairs = [];
+        let cantons = new Set();
+        let years = new Set();
+
+        // German canton names
+        const CANTON_NAMES_DE = {
+            "Argovie": "Aargau",
+            "Appenzell Rhodes-Intérieures": "Appenzell Innerrhoden",
+            "Appenzell Rhodes-Extérieures": "Appenzell Ausserrhoden",
+            "Berne": "Bern",
+            "Bâle-Campagne": "Basel-Landschaft",
+            "Bâle-Ville": "Basel-Stadt",
+            "Fribourg": "Freiburg",
+            "Genève": "Genf",
+            "Glaris": "Glarus",
+            "Grisons": "Graubünden",
+            "Jura": "Jura",
+            "Lucerne": "Luzern",
+            "Neuchâtel": "Neuenburg",
+            "Nidwald": "Nidwalden",
+            "Obwald": "Obwalden",
+            "Saint-Gall": "St. Gallen",
+            "Schaffhouse": "Schaffhausen",
+            "Soleure": "Solothurn",
+            "Schwytz": "Schwyz",
+            "Thurgovie": "Thurgau",
+            "Tessin": "Tessin",
+            "Uri": "Uri",
+            "Vaud": "Waadt",
+            "Valais": "Wallis",
+            "Zoug": "Zug",
+            "Zurich": "Zürich",
+            "Zurich (Ville)": "Zürich (Stadt)",
+            "Berne (Ville)": "Bern (Stadt)",
+        };
+
+        function translateCantonToDE(name) {
+            return CANTON_NAMES_DE[name] || name;
+        }
+
+        async function loadData() {
+            try {
+                const response = await fetch('cantonal_efk_mentions.json');
+                const json = await response.json();
+                allAffairs = json.data;
+                
+                // Extract unique cantons and years
+                allAffairs.forEach(affair => {
+                    if (affair.body_name) cantons.add(affair.body_name);
+                    if (affair.begin_date) {
+                        const year = new Date(affair.begin_date).getFullYear();
+                        years.add(year);
+                    }
+                });
+
+                populateFilters();
+                renderAffairs(allAffairs);
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('affairsList').innerHTML = `
+                    <div class="no-results">
+                        <p>❌ Fehler beim Laden der Daten</p>
+                        <p>Führen Sie zuerst aus: <code>python3 fetch_cantonal_mentions.py</code></p>
+                    </div>
+                `;
+            }
+        }
+
+        let selectedYears = new Set();
+
+        function populateFilters() {
+            const cantonSelect = document.getElementById('cantonFilter');
+            const yearDropdown = document.getElementById('yearDropdown');
+
+            [...cantons].sort().forEach(canton => {
+                const option = document.createElement('option');
+                option.value = canton;
+                option.textContent = translateCantonToDE(canton);
+                cantonSelect.appendChild(option);
+            });
+
+            // Add "Select all" option
+            const selectAllDiv = document.createElement('div');
+            selectAllDiv.className = 'multi-select-option';
+            selectAllDiv.innerHTML = `<input type="checkbox" id="yearSelectAll" checked><label for="yearSelectAll"><strong>Alle</strong></label>`;
+            selectAllDiv.querySelector('input').addEventListener('change', (e) => {
+                const checkboxes = yearDropdown.querySelectorAll('input[type="checkbox"]:not(#yearSelectAll)');
+                if (e.target.checked) {
+                    selectedYears.clear();
+                    checkboxes.forEach(cb => cb.checked = false);
+                } else {
+                    checkboxes.forEach(cb => {
+                        cb.checked = true;
+                        selectedYears.add(cb.value);
+                    });
+                }
+                updateYearFilterText();
+                filterAffairs();
+            });
+            yearDropdown.appendChild(selectAllDiv);
+
+            [...years].sort((a, b) => b - a).forEach(year => {
+                const div = document.createElement('div');
+                div.className = 'multi-select-option';
+                div.innerHTML = `<input type="checkbox" value="${year}" id="year_${year}"><label for="year_${year}">${year}</label>`;
+                div.querySelector('input').addEventListener('change', (e) => {
+                    const selectAll = document.getElementById('yearSelectAll');
+                    if (e.target.checked) {
+                        selectedYears.add(e.target.value);
+                        selectAll.checked = false;
+                    } else {
+                        selectedYears.delete(e.target.value);
+                        if (selectedYears.size === 0) {
+                            selectAll.checked = true;
+                        }
+                    }
+                    updateYearFilterText();
+                    filterAffairs();
+                });
+                yearDropdown.appendChild(div);
+            });
+        }
+
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            dropdown.classList.toggle('open');
+        }
+
+        function updateYearFilterText() {
+            const text = document.getElementById('yearFilterText');
+            if (selectedYears.size === 0) {
+                text.textContent = 'Alle Jahre';
+            } else if (selectedYears.size === 1) {
+                text.textContent = [...selectedYears][0];
+            } else {
+                text.textContent = `${selectedYears.size} Jahre`;
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.multi-select')) {
+                document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('open'));
+            }
+        });
+
+        function translateType(type) {
+            // Keep German types as-is, translate French to German
+            const translations = {
+                'Motion': 'Motion',
+                'Postulat': 'Postulat',
+                'Interpellation': 'Interpellation',
+                'Question': 'Anfrage',
+                'Petite question': 'Kleine Anfrage',
+                'Grande question': 'Grosse Anfrage',
+                'Question écrite': 'Schriftliche Anfrage',
+                'Question urgente': 'Dringliche Anfrage',
+                'Interpellation urgente': 'Dringliche Interpellation',
+                'Initiative': 'Initiative',
+                'Initiative parlementaire': 'Parlamentarische Initiative',
+                'Initiative cantonale': 'Standesinitiative',
+                'Initiative populaire': 'Volksinitiative',
+                'Résolution': 'Resolution',
+                'Pétition': 'Petition',
+                'Rapport': 'Bericht',
+                'Message': 'Botschaft',
+                'Intervention': 'Vorstoss',
+                'Projet': 'Vorlage',
+                'Loi': 'Gesetz',
+                'Décret': 'Dekret',
+                'Arrêté': 'Beschluss',
+                'Arrêté du Grand Conseil': 'Kantonsratsbeschluss',
+                "Arrêté du Conseil d'État": 'Regierungsratsbeschluss',
+                'Heure des questions': 'Fragestunde',
+                'Comptes': 'Rechnung',
+                'Budget': 'Budget',
+                'Rapport de gestion': 'Geschäftsbericht',
+                'Rapport annuel': 'Jahresbericht',
+            };
+            return translations[type] || type;
+        }
+
+        function highlightText(text, search) {
+            if (!search) return text;
+            const regex = new RegExp(`(${search})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function renderAffairs(affairs) {
+            const container = document.getElementById('affairsList');
+            const resultsCount = document.getElementById('resultsCount');
+            
+            resultsCount.textContent = `${affairs.length} Ergebnis${affairs.length !== 1 ? 'se' : ''}`;
+
+            if (affairs.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <p>Keine Ergebnisse gefunden</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const search = document.getElementById('searchInput').value;
+
+            container.innerHTML = affairs.map(affair => {
+                // Prefer German title for German page
+                const title = affair.title_de || affair.title_fr || affair.title_it || 'Ohne Titel';
+                const date = affair.begin_date ? new Date(affair.begin_date).toLocaleDateString('de-CH') : '';
+                const url = affair.url_external_de || affair.url_external_fr || affair.url_external_it || '#';
+                const typeRaw = affair.type_harmonized_de || affair.type_name_de || affair.type_harmonized_fr || '';
+                const type = translateType(typeRaw);
+                const body = translateCantonToDE(affair.body_name || affair.body_key);
+                
+                // Build excerpts section (prefer DE for German page)
+                let excerptHtml = '';
+                const excerptsDe = affair.efk_excerpts_de || [];
+                const excerptsFr = affair.efk_excerpts_fr || [];
+                const excerpts = excerptsDe.length > 0 ? excerptsDe : excerptsFr;
+                if (excerpts.length > 0) {
+                    const excerpt = excerpts[0];
+                    excerptHtml = `
+                        <div class="efk-excerpt">
+                            <div class="efk-excerpt-label">📜 Auszug mit EFK-Erwähnung:</div>
+                            "${excerpt.text}..."
+                        </div>
+                    `;
+                }
+                
+                // Build documents section (prefer DE documents)
+                let docsHtml = '';
+                const efkDocsDe = affair.efk_documents_de || [];
+                const efkDocsFr = affair.efk_documents || [];
+                const efkDocs = efkDocsDe.length > 0 ? efkDocsDe : efkDocsFr;
+                
+                if (efkDocs.length > 0) {
+                    docsHtml = '<div class="documents-section">';
+                    efkDocs.forEach((doc, index) => {
+                        if (doc.url) {
+                            const label = efkDocs.length > 1 ? `Dokument ${index + 1}` : 'Dokument';
+                            docsHtml += `<a href="${doc.url}" target="_blank" class="doc-link efk-doc" title="${doc.name || 'Dokument'}">📄 ${label}</a>`;
+                        }
+                    });
+                    docsHtml += '</div>';
+                }
+
+                return `
+                    <div class="affair-card">
+                        <div class="affair-header">
+                            <div class="affair-meta">
+                                <span class="canton-badge">${body}</span>
+                                ${type ? `<span class="type-badge">${type}</span>` : ''}
+                            </div>
+                            <span class="affair-date">${date}</span>
+                        </div>
+                        <h3 class="affair-title">
+                            <a href="${url}" target="_blank">${highlightText(title, search)}</a>
+                        </h3>
+                        <div class="affair-author">${affair.author_display_de || affair.author_display || ''}</div>
+                        ${excerptHtml}
+                        ${docsHtml}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterAffairs() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const canton = document.getElementById('cantonFilter').value;
+
+            const filtered = allAffairs.filter(affair => {
+                const title = (affair.title_de || affair.title_fr || affair.title_it || '').toLowerCase();
+                const titleLong = (affair.title_long_de || affair.title_long_fr || '').toLowerCase();
+                const body = affair.body_name || affair.body_key;
+                const affairYear = affair.begin_date ? new Date(affair.begin_date).getFullYear().toString() : '';
+
+                const matchesSearch = !search || title.includes(search) || titleLong.includes(search);
+                const matchesCanton = !canton || body === canton;
+                const matchesYear = selectedYears.size === 0 || selectedYears.has(affairYear);
+
+                return matchesSearch && matchesCanton && matchesYear;
+            });
+
+            renderAffairs(filtered);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterAffairs);
+        document.getElementById('cantonFilter').addEventListener('change', filterAffairs);
+        document.getElementById('yearFilter').addEventListener('change', filterAffairs);
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>

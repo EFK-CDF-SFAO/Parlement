@@ -1,0 +1,1881 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-10T20:59:30.968416",
+    "total_records": 19,
+    "source": "OpenParlData.ch API",
+    "description": "Cantonal parliament mentions of the Swiss Federal Audit Office (EFK/CDF)"
+  },
+  "data": [
+    {
+      "id": 271581,
+      "url_api": "https://api.openparldata.ch/v1/affairs/271581",
+      "body_key": "VS",
+      "external_id": "267598",
+      "number": "2025-039-040",
+      "body_id": 273,
+      "title_de": "Budget 2026 des Staates Wallis; Budget 2026 des Fonds FIGI; Integrierte Mehrjahresplanung 2026-2029 des Staates Wallis; Finanzplanung 2026-2029 des Fonds FIGI",
+      "title_fr": "Budget 2026 de l'Etat du Valais; budget 2026 du fonds FIGI; planification intégrée pluriannuelle 2026-20296 de l’Etat du Valais; planification financière 2026-2029 du fonds FIGI",
+      "title_long_de": "Eintretensdebatte: Budget 2026 des Staates Wallis; Budget 2026 des Fonds FIGI; Integrierte Mehrjahresplanung 2026-2029 des Staates Wallis; Finanzplanung 2026-2029 des Fonds FIGI",
+      "title_long_fr": "Entrée en matière:  Budget 2026 de l'Etat du Valais; budget 2026 du fonds FIGI; planification intégrée pluriannuelle 2026-20296 de l’Etat du Valais; planification financière 2026-2029 du fonds FIGI",
+      "type_name_de": "Kredit",
+      "begin_date": "2025-10-16T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/267598",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-10-17T08:36:46",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "war insbesondere Gegenstand einer \n\nPrüfung (Umgang mit den Altlasten der alten Deponie Gamsenried, eidgenössische Finanzkontrolle, \n\nhttps://parlement.vs.ch/app/de/document/201298\nhttps://parlement.vs.ch/app/de/document/201298\nhttps://www.efk.admin.ch/prufung/umgang-mit-den-altlasten-der-alten-depo",
+            "source_id": 606226,
+            "source_name": "2025.11_Politische Leistungsaufträge 2026_BER_KOM",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/271581/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/271581/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/271581/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/271581/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/271581/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/271581/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/271581/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/271581/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/271581/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/271581/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "war insbesondere Gegenstand einer Prüfung (Umgang mit den Altlasten der alten Deponie Gamsenried, eidgenössische Finanzkontrolle, https://parlement.vs.ch/app/de/document/201298 https://parlement.vs.ch/app/de/document/201298 https://www.efk.admin.ch/prufung/umgang-mit-den-altlasten-der-alten-depo",
+          "source": "2025.11_Politische Leistungsaufträge 2026_BER_KOM"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 606307,
+          "name": "2025.11_Politische Leistungsaufträge 2026_BER_KOM",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBK3RhQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--eba0f132be7d154c3636102d2064138060d7397f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEExUVZCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--f6919d10f9e69689eb7b09109de962913628512b/2025.11_Mandats%20de%20prestations%20politiques%202026_RAPP_COM.pdf",
+          "mime_type": null
+        },
+        {
+          "id": 606295,
+          "name": "2025.11_Politische Leistungsaufträge 2026",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMTlhQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b17ce4fb53d2130a706dfb92f1c25205fee8b743/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEExVVZCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--0cdc13af070a9655a969372e2436b9ccc29140c5/2025.11_Mandats%20de%20prestations%202026.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 606307,
+          "name": "2025.11_Politische Leistungsaufträge 2026_BER_KOM",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBK3RhQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--eba0f132be7d154c3636102d2064138060d7397f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEExUVZCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--f6919d10f9e69689eb7b09109de962913628512b/2025.11_Mandats%20de%20prestations%20politiques%202026_RAPP_COM.pdf",
+          "mime_type": null
+        },
+        {
+          "id": 606295,
+          "name": "2025.11_Politische Leistungsaufträge 2026",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMTlhQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b17ce4fb53d2130a706dfb92f1c25205fee8b743/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEExVVZCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--0cdc13af070a9655a969372e2436b9ccc29140c5/2025.11_Mandats%20de%20prestations%202026.pdf",
+          "mime_type": null
+        }
+      ],
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/267598",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/267598"
+    },
+    {
+      "id": 251630,
+      "url_api": "https://api.openparldata.ch/v1/affairs/251630",
+      "body_key": "VS",
+      "external_id": "266275",
+      "number": "2025.09.331",
+      "body_id": 273,
+      "title_de": "Dritte Rhonekorrektion als Ursache der Benzidinbelastung",
+      "title_fr": "Responsabilité de Rhône 3 pour la pollution à la benzidine",
+      "title_long_de": "Dringliche Interpellation UDC, durch Blaise Melly: Dritte Rhonekorrektion als Ursache der Benzidinbelastung 2025.09.331",
+      "title_long_fr": "Responsabilité de Rhône 3 pour la pollution à la benzidine",
+      "type_name_de": "Dringliche Interpellation",
+      "type_harmonized_de": "Interpellation",
+      "type_harmonized_fr": "Interpellation",
+      "type_harmonized_it": "interpellanza",
+      "type_harmonized_rm": "interpellaziun",
+      "type_harmonized_en": "Interpellation",
+      "type_harmonized_id": 8,
+      "type_harmonized_wikidata_id": "Q1505023",
+      "state_name_de": "Archivierung",
+      "state_name_fr": "Archivage",
+      "state_external_id": "archive",
+      "begin_date": "2025-09-09T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/266275",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-09-13T10:51:03",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "\nDRINGLICHE INTERPELLATION\n \n\n \n\nUrheber UDC, durch Blaise Melly\n\nGegenstand Dritte Rhonekorrektion als Ursache der Benzidinbelastung\n\nDatum 09/09/2025\n\nNummer 2025.09.331\n\n \n\nAktualität des Ereignisses\n\nDie kürzliche Veröffentlichung eines Berichts der Eidgenössischen Finanzkontrolle, ergänzt durch",
+            "source_id": 555214,
+            "source_name": "INT_2025.09.331_Dritte Rhonekorrektion als Ursache der Benzidinbelastung",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/251630/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/251630/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/251630/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/251630/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/251630/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/251630/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/251630/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/251630/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/251630/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/251630/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "DRINGLICHE INTERPELLATION Urheber UDC, durch Blaise Melly Gegenstand Dritte Rhonekorrektion als Ursache der Benzidinbelastung Datum 09/09/2025 Nummer 2025.09.331 Aktualität des Ereignisses Die kürzliche Veröffentlichung eines Berichts der Eidgenössischen Finanzkontrolle, ergänzt durch",
+          "source": "INT_2025.09.331_Dritte Rhonekorrektion als Ursache der Benzidinbelastung"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 555261,
+          "name": "INT_2025.09.331_Dritte Rhonekorrektion als Ursache der Benzidinbelastung",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOHRXQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--9e40bf9821d56d2dbde2fe04f6ae65c3f803de21/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEF5WVFCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--ff517d2b17313cb3923a8ac5bd9e796644244fcb/INT_2025.09.331_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 555261,
+          "name": "INT_2025.09.331_Dritte Rhonekorrektion als Ursache der Benzidinbelastung",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOHRXQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--9e40bf9821d56d2dbde2fe04f6ae65c3f803de21/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEF5WVFCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--ff517d2b17313cb3923a8ac5bd9e796644244fcb/INT_2025.09.331_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Blaise Melly",
+          "firstname": "Blaise",
+          "lastname": "Melly",
+          "party_fr": "Le Centre",
+          "party_de": "Die Mitte",
+          "role": "author"
+        },
+        {
+          "fullname": "Blaise Melly",
+          "firstname": "Blaise",
+          "lastname": "Melly",
+          "party_fr": "Le Centre",
+          "party_de": "Die Mitte",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Blaise Melly (Le Centre)",
+      "author_display_de": "Blaise Melly (Die Mitte)",
+      "author_display": "Blaise Melly (Le Centre)",
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/266275",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/266275"
+    },
+    {
+      "id": 260403,
+      "url_api": "https://api.openparldata.ch/v1/affairs/260403",
+      "body_key": "VS",
+      "external_id": "266231",
+      "number": "2025.09.346",
+      "body_id": 273,
+      "title_de": "Deponie Gamsenried darf kein Fass ohne Boden werden",
+      "title_fr": "La décharge de Gamsenried ne doit pas se transformer en gouffre financier",
+      "title_long_de": "Dringliches Postulat Die Mitte Oberwallis, durch Andrea Amherd-Burgener, Rahel Pirovino-Indermitte, Aurel Schmid und Urs Juon: Deponie Gamsenried darf kein Fass ohne Boden werden 2025.09.346",
+      "title_long_fr": "Postulat urgent Die Mitte Oberwallis, par Andrea Amherd-Burgener, Rahel Pirovino-Indermitte, Aurel Schmid et Urs Juon : La décharge de Gamsenried ne doit pas se transformer en gouffre financier 2025.09.346",
+      "type_name_de": "Dringliches Postulat",
+      "type_harmonized_de": "Postulat",
+      "type_harmonized_fr": "Postulat",
+      "type_harmonized_it": "Postulato",
+      "type_harmonized_rm": "Moziun",
+      "type_harmonized_en": "Postulate",
+      "type_harmonized_id": 3,
+      "type_harmonized_wikidata_id": "Q2106323",
+      "state_name_de": "Vollzug",
+      "state_name_fr": "Exécution",
+      "state_external_id": "execution",
+      "begin_date": "2025-09-09T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/266231",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-10-08T17:56:20",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "Projekts, das sich über mehrere \n\nJahrzehnte erstrecken könnte, fehlt. \n\nNun schaltet sich auch die eidgenössische Finanzkontrolle ein, welche am 1. September 2025 einen Bericht \n\nveröffentlichte. Sie weist in ihrem Bericht ausdrücklich auf erhebliche Lücken hin.\n\nUnvorhersehbarkeit\n\nObwohl der Begi",
+            "source_id": 580673,
+            "source_name": "POS_2025.09.346_Deponie Gamsenried darf kein Fass ohne Boden werden",
+            "source_type": "docs"
+          },
+          {
+            "text": "Projekts, das sich über mehrere \n\nJahrzehnte erstrecken könnte, fehlt. \n\nNun schaltet sich auch die eidgenössische Finanzkontrolle ein, welche am 1. September 2025 einen Bericht \n\nveröffentlichte. Sie weist in ihrem Bericht ausdrücklich auf erhebliche Lücken hin.\n\nUnvorhersehbarkeit\n\nObwohl der Begi",
+            "source_id": 579433,
+            "source_name": "POS_2025.09.346_Deponie Gamsenried darf kein Fass ohne Boden werden",
+            "source_type": "docs"
+          },
+          {
+            "text": "Projekts, das sich über mehrere \n\nJahrzehnte erstrecken könnte, fehlt. \n\nNun schaltet sich auch die eidgenössische Finanzkontrolle ein, welche am 1. September 2025 einen Bericht \n\nveröffentlichte. Sie weist in ihrem Bericht ausdrücklich auf erhebliche Lücken hin.\n\nUnvorhersehbarkeit\n\nObwohl der Begi",
+            "source_id": 584254,
+            "source_name": "POS_2025.09.346_Deponie Gamsenried darf kein Fass ohne Boden werden",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/260403/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/260403/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/260403/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/260403/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/260403/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/260403/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/260403/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/260403/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/260403/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/260403/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "Projekts, das sich über mehrere Jahrzehnte erstrecken könnte, fehlt. Nun schaltet sich auch die eidgenössische Finanzkontrolle ein, welche am 1. September 2025 einen Bericht veröffentlichte. Sie weist in ihrem Bericht ausdrücklich auf erhebliche Lücken hin. Unvorhersehbarkeit Obwohl der Begi",
+          "source": "POS_2025.09.346_Deponie Gamsenried darf kein Fass ohne Boden werden"
+        },
+        {
+          "text": "Projekts, das sich über mehrere Jahrzehnte erstrecken könnte, fehlt. Nun schaltet sich auch die eidgenössische Finanzkontrolle ein, welche am 1. September 2025 einen Bericht veröffentlichte. Sie weist in ihrem Bericht ausdrücklich auf erhebliche Lücken hin. Unvorhersehbarkeit Obwohl der Begi",
+          "source": "POS_2025.09.346_Deponie Gamsenried darf kein Fass ohne Boden werden"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 589192,
+          "name": "POS_2025.09.346_Deponie Gamsenried darf kein Fass ohne Boden werden",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN3RXQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--cb2b10a7cbf4be1404715e0c54f757115da22dc3/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEEvb1BCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--ec154a028d8549a37e3f4cc6d57723d97ea63e79/POS_2025.09.346_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 589192,
+          "name": "POS_2025.09.346_Deponie Gamsenried darf kein Fass ohne Boden werden",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN3RXQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--cb2b10a7cbf4be1404715e0c54f757115da22dc3/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEEvb1BCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--ec154a028d8549a37e3f4cc6d57723d97ea63e79/POS_2025.09.346_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Andrea Amherd-Burgener",
+          "firstname": "Andrea",
+          "lastname": "Amherd-Burgener",
+          "party_fr": "Le Centre",
+          "party_de": "Die Mitte",
+          "role": "author"
+        },
+        {
+          "fullname": "Rahel Pirovino-Indermitte",
+          "firstname": "Rahel",
+          "lastname": "Pirovino-Indermitte",
+          "party_fr": "Le Centre",
+          "party_de": "Die Mitte",
+          "role": "author"
+        },
+        {
+          "fullname": "Aurel Schmid",
+          "firstname": "Aurel",
+          "lastname": "Schmid",
+          "party_fr": "UDC",
+          "party_de": "SVP",
+          "role": "author"
+        },
+        {
+          "fullname": "Urs Juon",
+          "firstname": "Urs",
+          "lastname": "Juon",
+          "party_fr": "UDC",
+          "party_de": "SVP",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Andrea Amherd-Burgener (Le Centre), Rahel Pirovino-Indermitte (Le Centre), Aurel Schmid (UDC), Urs Juon (UDC)",
+      "author_display_de": "Andrea Amherd-Burgener (Die Mitte), Rahel Pirovino-Indermitte (Die Mitte), Aurel Schmid (SVP), Urs Juon (SVP)",
+      "author_display": "Andrea Amherd-Burgener (Le Centre), Rahel Pirovino-Indermitte (Le Centre), Aurel Schmid (UDC), Urs Juon (UDC)",
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/266231",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/266231"
+    },
+    {
+      "id": 251627,
+      "url_api": "https://api.openparldata.ch/v1/affairs/251627",
+      "body_key": "VS",
+      "external_id": "266263",
+      "number": "2025.09.335",
+      "body_id": 273,
+      "title_de": "Sanierung Gamsenried: wie will man vorankommen, ohne Gesamtkonzept?",
+      "title_fr": "Assainissement de Gamsenried : comment avancer sans vision d'ensemble?",
+      "title_long_de": "Dringliche Interpellation Les Vert.e.s, durch Emmanuel Revaz: Sanierung Gamsenried: wie will man vorankommen, ohne Gesamtkonzept? 2025.09.335",
+      "title_long_fr": "Assainissement de Gamsenried : comment avancer sans vision d'ensemble?",
+      "type_name_de": "Dringliche Interpellation",
+      "type_harmonized_de": "Interpellation",
+      "type_harmonized_fr": "Interpellation",
+      "type_harmonized_it": "interpellanza",
+      "type_harmonized_rm": "interpellaziun",
+      "type_harmonized_en": "Interpellation",
+      "type_harmonized_id": 8,
+      "type_harmonized_wikidata_id": "Q1505023",
+      "state_name_de": "Archivierung",
+      "state_name_fr": "Archivage",
+      "state_external_id": "archive",
+      "begin_date": "2025-09-09T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/266263",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-09-13T10:51:03",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "\n\nDatum 09/09/2025\n\nNummer 2025.09.335\n\n \n\nAktualität des Ereignisses\n\nAm 1. September 2025 hat die Eidgenössische Finanzkontrolle (EFK) ihren Bericht über die Prüfung des \n\nUmgangs mit den Altlasten der alten Deponie Gamsenried veröffentlicht.\n\nUnvorhersehbarkeit\n\nWeder der Inhalt dieses Berichts n",
+            "source_id": 555184,
+            "source_name": "INT_2025.09.335_Sanierung Gamsenried: wie will man vorankommen, ohne Gesamtkonzept",
+            "source_type": "docs"
+          },
+          {
+            "text": "\n\nDatum 09/09/2025\n\nNummer 2025.09.335\n\n \n\nAktualität des Ereignisses\n\nAm 1. September 2025 hat die Eidgenössische Finanzkontrolle (EFK) ihren Bericht über die Prüfung des \n\nUmgangs mit den Altlasten der alten Deponie Gamsenried veröffentlicht.\n\nUnvorhersehbarkeit\n\nWeder der Inhalt dieses Berichts n",
+            "source_id": 555203,
+            "source_name": "INT_2025.09.335_Sanierung Gamsenried: wie will man vorankommen, ohne Gesamtkonzept",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/251627/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/251627/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/251627/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/251627/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/251627/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/251627/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/251627/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/251627/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/251627/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/251627/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "Datum 09/09/2025 Nummer 2025.09.335 Aktualität des Ereignisses Am 1. September 2025 hat die Eidgenössische Finanzkontrolle (EFK) ihren Bericht über die Prüfung des Umgangs mit den Altlasten der alten Deponie Gamsenried veröffentlicht. Unvorhersehbarkeit Weder der Inhalt dieses Berichts n",
+          "source": "INT_2025.09.335_Sanierung Gamsenried: wie will man vorankommen, ohne Gesamtkonzept"
+        },
+        {
+          "text": "Datum 09/09/2025 Nummer 2025.09.335 Aktualität des Ereignisses Am 1. September 2025 hat die Eidgenössische Finanzkontrolle (EFK) ihren Bericht über die Prüfung des Umgangs mit den Altlasten der alten Deponie Gamsenried veröffentlicht. Unvorhersehbarkeit Weder der Inhalt dieses Berichts n",
+          "source": "INT_2025.09.335_Sanierung Gamsenried: wie will man vorankommen, ohne Gesamtkonzept"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 555260,
+          "name": "INT_2025.09.335_Sanierung Gamsenried: wie will man vorankommen, ohne Gesamtkonzept",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeTVYQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--913b79a803a37a035a75d4ab268a1de05d115174/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEF4b1FCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--c7d9c030a26967766cedf4b6fe978e98b997a328/INT_2025.09.335_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 555260,
+          "name": "INT_2025.09.335_Sanierung Gamsenried: wie will man vorankommen, ohne Gesamtkonzept",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeTVYQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--913b79a803a37a035a75d4ab268a1de05d115174/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEF4b1FCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--c7d9c030a26967766cedf4b6fe978e98b997a328/INT_2025.09.335_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Emmanuel Revaz",
+          "firstname": "Emmanuel",
+          "lastname": "Revaz",
+          "party_fr": "Le Centre",
+          "party_de": "Die Mitte",
+          "role": "author"
+        },
+        {
+          "fullname": "Emmanuel Revaz",
+          "firstname": "Emmanuel",
+          "lastname": "Revaz",
+          "party_fr": "Le Centre",
+          "party_de": "Die Mitte",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Emmanuel Revaz (Le Centre)",
+      "author_display_de": "Emmanuel Revaz (Die Mitte)",
+      "author_display": "Emmanuel Revaz (Le Centre)",
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/266263",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/266263"
+    },
+    {
+      "id": 260533,
+      "url_api": "https://api.openparldata.ch/v1/affairs/260533",
+      "body_key": "VS",
+      "external_id": "266359",
+      "number": "2025.09.296",
+      "body_id": 273,
+      "title_de": "Ohne Kompass in gefährlicher See",
+      "title_fr": "Naviguer à vue dans un océan agité !",
+      "title_long_de": "Dringliches Postulat PLR/FDP, durch Sonia Tauss-Cornut und Damien Revaz: Ohne Kompass in gefährlicher See 2025.09.296",
+      "title_long_fr": "Postulat urgent PLR/FDP, par Sonia Tauss-Cornut et Damien Revaz : Naviguer à vue dans un océan agité ! 2025.09.296",
+      "type_name_de": "Dringliches Postulat",
+      "type_harmonized_de": "Postulat",
+      "type_harmonized_fr": "Postulat",
+      "type_harmonized_it": "Postulato",
+      "type_harmonized_rm": "Moziun",
+      "type_harmonized_en": "Postulate",
+      "type_harmonized_id": 3,
+      "type_harmonized_wikidata_id": "Q2106323",
+      "state_name_de": "Vollzug",
+      "state_name_fr": "Exécution",
+      "state_external_id": "execution",
+      "begin_date": "2025-09-07T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/266359",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-10-08T17:56:20",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "chen Finanzkontrolle vom 1. September 2025\n\nUnvorhersehbarkeit\n\nEs war nicht vorhersehbar, dass die Eidgenössische Finanzkontrolle in einem Bericht vor drohenden Blockaden \n\nbei der Sanierung der alten Deponie Gamsenried warnen würde.\n\nNotwendigkeit einer umgehenden Reaktion oder Massnahme\n\nDie Sani",
+            "source_id": 580230,
+            "source_name": "POS_2025.09.296_Ohne Kompass in gefährlicher See",
+            "source_type": "docs"
+          },
+          {
+            "text": "chen Finanzkontrolle vom 1. September 2025\n\nUnvorhersehbarkeit\n\nEs war nicht vorhersehbar, dass die Eidgenössische Finanzkontrolle in einem Bericht vor drohenden Blockaden \n\nbei der Sanierung der alten Deponie Gamsenried warnen würde.\n\nNotwendigkeit einer umgehenden Reaktion oder Massnahme\n\nDie Sani",
+            "source_id": 583051,
+            "source_name": "POS_2025.09.296_Ohne Kompass in gefährlicher See",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/260533/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/260533/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/260533/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/260533/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/260533/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/260533/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/260533/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/260533/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/260533/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/260533/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "chen Finanzkontrolle vom 1. September 2025 Unvorhersehbarkeit Es war nicht vorhersehbar, dass die Eidgenössische Finanzkontrolle in einem Bericht vor drohenden Blockaden bei der Sanierung der alten Deponie Gamsenried warnen würde. Notwendigkeit einer umgehenden Reaktion oder Massnahme Die Sani",
+          "source": "POS_2025.09.296_Ohne Kompass in gefährlicher See"
+        },
+        {
+          "text": "chen Finanzkontrolle vom 1. September 2025 Unvorhersehbarkeit Es war nicht vorhersehbar, dass die Eidgenössische Finanzkontrolle in einem Bericht vor drohenden Blockaden bei der Sanierung der alten Deponie Gamsenried warnen würde. Notwendigkeit einer umgehenden Reaktion oder Massnahme Die Sani",
+          "source": "POS_2025.09.296_Ohne Kompass in gefährlicher See"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 588372,
+          "name": "POS_2025.09.296_Ohne Kompass in gefährlicher See",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeVpXQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--a7e39835b189d7f38041463aeb6242bea06ca185/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEEzb1FCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--113915c86a72ff83493583b7e4bcfeab67599e41/POS_2025.09.296_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 588372,
+          "name": "POS_2025.09.296_Ohne Kompass in gefährlicher See",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeVpXQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--a7e39835b189d7f38041463aeb6242bea06ca185/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEEzb1FCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--113915c86a72ff83493583b7e4bcfeab67599e41/POS_2025.09.296_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Sonia Tauss-Cornut",
+          "firstname": "Sonia",
+          "lastname": "Tauss-Cornut",
+          "party_fr": "PS",
+          "party_de": "SP",
+          "role": "author"
+        },
+        {
+          "fullname": "Damien Revaz",
+          "firstname": "Damien",
+          "lastname": "Revaz",
+          "party_fr": "Le Centre",
+          "party_de": "Die Mitte",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Sonia Tauss-Cornut (PS), Damien Revaz (Le Centre)",
+      "author_display_de": "Sonia Tauss-Cornut (SP), Damien Revaz (Die Mitte)",
+      "author_display": "Sonia Tauss-Cornut (PS), Damien Revaz (Le Centre)",
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/266359",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/266359"
+    },
+    {
+      "id": 254033,
+      "url_api": "https://api.openparldata.ch/v1/affairs/254033",
+      "body_key": "FR",
+      "external_id": "a8ae2d1a9d54429791d61f9d838e5377",
+      "number": "2025-DEEF-17",
+      "body_id": 256,
+      "title_de": "Verlängerung des Beitragszuschlags von 50 % für energetische Sanierungen (Bericht zum Auftrag 2021-GC-209)",
+      "title_fr": "Prolongement de l'augmentation du taux de subventionnement (50 %) pour les rénovations énergétiques (Rapport sur mandat 2021-GC-209)",
+      "type_name_de": "Bericht",
+      "type_name_fr": "Rapport",
+      "state_name_de": "Zur Kenntnis genommen",
+      "state_name_fr": "Pris acte",
+      "begin_date": "2025-09-02T00:00:00",
+      "url_external_de": "http://www.fr.ch/de/parlinfo/app/business/a8ae2d1a9d54429791d61f9d838e5377",
+      "url_external_fr": "http://www.fr.ch/parlinfo/app/business/a8ae2d1a9d54429791d61f9d838e5377",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-09-30T19:59:59",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "n im Gebäudebereich, z.B. dort, wo Mitnahmeeffekte auftreten, wird jedoch \n\nunvermeidlich sein. Die Eidgenössische Finanzkontrolle führte ein Audit über das Gebäudeprogramm durch, das \n\nEinsparungsmöglichkeiten insbesondere bei den Subventionen aufzeigte, die auf ihre Wirksamkeit hin geprüft \n\nwurde",
+            "source_id": 560748,
+            "source_name": "de_RGC_2025-DEEF-17_Mandat_taux_subventionnement_rénovations",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/254033/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/254033/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/254033/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/254033/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/254033/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/254033/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/254033/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/254033/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/254033/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/254033/external_links"
+      },
+      "body_name_fr": "Fribourg",
+      "body_name_original": "Freiburg",
+      "body_name": "Fribourg",
+      "efk_excerpts_de": [
+        {
+          "text": "n im Gebäudebereich, z.B. dort, wo Mitnahmeeffekte auftreten, wird jedoch unvermeidlich sein. Die Eidgenössische Finanzkontrolle führte ein Audit über das Gebäudeprogramm durch, das Einsparungsmöglichkeiten insbesondere bei den Subventionen aufzeigte, die auf ihre Wirksamkeit hin geprüft wurde",
+          "source": "de_RGC_2025-DEEF-17_Mandat_taux_subventionnement_rénovations"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 560748,
+          "name": "de_RGC_2025-DEEF-17_Mandat_taux_subventionnement_rénovations",
+          "title": "",
+          "url": "https://api.fr.ch/public/parlinfo/assets/v1/documents/fr_RGC_2025-DEEF-17_Mandat_taux_subventionnement_rénovations.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 560748,
+          "name": "de_RGC_2025-DEEF-17_Mandat_taux_subventionnement_rénovations",
+          "title": "",
+          "url": "https://api.fr.ch/public/parlinfo/assets/v1/documents/de_RGC_2025-DEEF-17_Mandat_taux_subventionnement_rénovations.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Olivier Curty",
+          "firstname": "Olivier",
+          "lastname": "Curty",
+          "party_fr": "Le Centre",
+          "party_de": "Die Mitte",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Olivier Curty (Le Centre)",
+      "author_display_de": "Olivier Curty (Die Mitte)",
+      "author_display": "Olivier Curty (Le Centre)",
+      "url_external_it": "http://www.fr.ch/it/parlinfo/app/business/a8ae2d1a9d54429791d61f9d838e5377"
+    },
+    {
+      "id": 248325,
+      "url_api": "https://api.openparldata.ch/v1/affairs/248325",
+      "body_key": "BE",
+      "external_id": "fd31aa46669346ff90239347c03d454c",
+      "number": "2025.GRPARL.44",
+      "body_id": 253,
+      "title_de": "Bericht zu Wahlverfahren für Ratsorgane und weitere Behördenmitglieder (Art. 82 f. GRG)",
+      "title_fr": "Rapport relatif aux procédures d’élection des or-ganes du Grand Conseil et de membres d’autorités (art. 82 s. LGC)",
+      "type_name_de": "Bericht GR",
+      "type_name_fr": "Rapport GC",
+      "type_harmonized_de": "Regierungsgeschäft",
+      "type_harmonized_fr": "Affaires gouvernementales",
+      "type_harmonized_it": "Affari governativi",
+      "type_harmonized_rm": "fatschentas da la regenza",
+      "type_harmonized_en": "government affairs",
+      "type_harmonized_id": 9,
+      "state_name_de": "Kenntnisnahme",
+      "state_name_fr": "Prise de connaissance",
+      "begin_date": "2025-06-02T00:00:00",
+      "end_date": "2025-06-02T16:30:00",
+      "url_external_de": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=fd31aa46669346ff90239347c03d454c",
+      "url_external_fr": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=fd31aa46669346ff90239347c03d454c",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-18T21:41:52",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "n, so hinsichtlich des/der Generalsekretärs/-in der Bundesversammlung, des/der Direk-\n\ntors/-in der Eidgenössischen Finanzkontrolle sowie des/der Eidgenössischen Datenschutz- \n\nund Öffentlichkeitsbeauftragten.16 \n\nWas die Wahl von Ratsorganen angeht, war im Bund nach 1848 im Ständerat noch vorgese-\n",
+            "source_id": 538858,
+            "source_name": "Bericht Büro an GR zu Wahlverfahren für Ratsorgane und übrige Behördenmitglieder (d)",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/248325/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/248325/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/248325/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/248325/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/248325/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/248325/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/248325/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/248325/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/248325/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/248325/external_links"
+      },
+      "body_name_fr": "Berne",
+      "body_name_original": "Bern",
+      "body_name": "Berne",
+      "efk_excerpts_de": [
+        {
+          "text": "n, so hinsichtlich des/der Generalsekretärs/-in der Bundesversammlung, des/der Direk- tors/-in der Eidgenössischen Finanzkontrolle sowie des/der Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten.16 Was die Wahl von Ratsorganen angeht, war im Bund nach 1848 im Ständerat noch vorgese-",
+          "source": "Bericht Büro an GR zu Wahlverfahren für Ratsorgane und übrige Behördenmitglieder (d)"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 538858,
+          "name": "Bericht Büro an GR zu Wahlverfahren für Ratsorgane und übrige Behördenmitglieder (d)",
+          "title": "",
+          "url": "https://ogd.parl.apps.be.ch/pdf-upload/416a35a84ad045ce8fd71a2bde33975e-332.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 538858,
+          "name": "Bericht Büro an GR zu Wahlverfahren für Ratsorgane und übrige Behördenmitglieder (d)",
+          "title": "",
+          "url": "https://ogd.parl.apps.be.ch/pdf-upload/416a35a84ad045ce8fd71a2bde33975e-332.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Grosser Rat - Büro",
+          "firstname": null,
+          "lastname": "Grosser Rat - Büro",
+          "party_fr": "",
+          "party_de": "",
+          "role": "assigned_committee"
+        },
+        {
+          "fullname": "GR Grosser Rat",
+          "firstname": null,
+          "lastname": "GR Grosser Rat",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        },
+        {
+          "fullname": "GR",
+          "firstname": null,
+          "lastname": "GR",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        }
+      ],
+      "author_display_fr": "Grosser Rat - Büro",
+      "author_display_de": "Grosser Rat - Büro",
+      "author_display": "Grosser Rat - Büro",
+      "url_external_it": "https://www.gr.be.ch/it/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=fd31aa46669346ff90239347c03d454c"
+    },
+    {
+      "id": 260207,
+      "url_api": "https://api.openparldata.ch/v1/affairs/260207",
+      "body_key": "VS",
+      "external_id": "264488",
+      "number": "2025-011",
+      "body_id": 273,
+      "title_de": "Genehmigung diverser Programmvereinbarungen zwischen Bund und Kanton Wallis",
+      "title_fr": "Décision concernant l'approbation de diverses conventions-programmes entre la Confédération et le canton du Valais",
+      "title_long_de": "Eintretensdebatte  und Lesung: Beschluss über die Genehmigung diverser Programmvereinbarungen zwischen Bund und Kanton Wallis",
+      "title_long_fr": "Entrée en matière et lecture:   Décision concernant l'approbation de diverses conventions-programmes entre la Confédération et le canton du Valais",
+      "type_name_de": "Beschluss",
+      "begin_date": "2025-05-20T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/264488",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-10-08T17:56:20",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "erringern. Dabei sollen bevorzugt Massnahmen bei der Quelle zur Anwendung kommen. \nEine Prüfung der Eidgenössischen Finanzkontrolle aus dem Jahr 2021 mündete in verschiedene \nEmpfehlungen, wie die Wirksamkeit der Subventionierung weiter verbessert werden kann. Dazu gehört \nnamentlich die Ausrichtung",
+            "source_id": 583480,
+            "source_name": "2025.06_Genehmigung diverser Programmvereinbarungen_BOT_SR",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/260207/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/260207/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/260207/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/260207/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/260207/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/260207/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/260207/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/260207/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/260207/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/260207/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "erringern. Dabei sollen bevorzugt Massnahmen bei der Quelle zur Anwendung kommen. Eine Prüfung der Eidgenössischen Finanzkontrolle aus dem Jahr 2021 mündete in verschiedene Empfehlungen, wie die Wirksamkeit der Subventionierung weiter verbessert werden kann. Dazu gehört namentlich die Ausrichtung",
+          "source": "2025.06_Genehmigung diverser Programmvereinbarungen_BOT_SR"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 585673,
+          "name": "2025.06_Genehmigung diverser Programmvereinbarungen_BOT_SR",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBODlMQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--e433312c9ac4348d008dbe4268687eef920bb4e0/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEEwa0pCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--353d17f9a54c389bec88d0fa0665ac7337b5065f/2025.06_Approbation%20de%20diverses%20conventions-programmes_MES_CE.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 585673,
+          "name": "2025.06_Genehmigung diverser Programmvereinbarungen_BOT_SR",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBODlMQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--e433312c9ac4348d008dbe4268687eef920bb4e0/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEEwa0pCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--353d17f9a54c389bec88d0fa0665ac7337b5065f/2025.06_Approbation%20de%20diverses%20conventions-programmes_MES_CE.pdf",
+          "mime_type": null
+        }
+      ],
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/264488",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/264488"
+    },
+    {
+      "id": 68121,
+      "url_api": "https://api.openparldata.ch/v1/affairs/68121",
+      "body_key": "SG",
+      "external_id": "6387",
+      "number": "33.25.01",
+      "body_id": 265,
+      "title_de": "Kantonsratsbeschluss über die Rechnung 2024 des Kantons St.Gallen",
+      "type_name_de": "Verwaltungsgeschäft",
+      "type_external_id": "11",
+      "type_harmonized_de": "Regierungsgeschäft",
+      "type_harmonized_fr": "Affaires gouvernementales",
+      "type_harmonized_it": "Affari governativi",
+      "type_harmonized_rm": "fatschentas da la regenza",
+      "type_harmonized_en": "government affairs",
+      "type_harmonized_id": 9,
+      "state_name_de": "Geschäft abgeschlossen",
+      "state_external_id": "46",
+      "begin_date": "2025-03-20T00:00:00",
+      "url_external_de": "https://www.ratsinfo.sg.ch/geschaefte/6387",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "tellen und gemeinsame Prüfinteressen zwischen Bund und Kanton St.Gallen \ngibt, arbeiten wir mit der Eidgenössischen Finanzkontrolle (EFK) zusammen. \n \nTeilweise stützen wir uns auch auf die Arbeit anderer Prüfer. Dazu gehören kantonsinterne Auf-\nsichtsstellen, Prüfer von Bundesämtern und vom Bund be",
+            "source_id": 676754,
+            "source_name": "Bericht der Finanzkommission vom 15. Mai 2015",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/68121/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/68121/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/68121/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/68121/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/68121/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/68121/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/68121/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/68121/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/68121/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/68121/external_links"
+      },
+      "body_name_fr": "Saint-Gall",
+      "body_name_original": "St. Gallen",
+      "body_name": "Saint-Gall",
+      "efk_excerpts_de": [
+        {
+          "text": "tellen und gemeinsame Prüfinteressen zwischen Bund und Kanton St.Gallen gibt, arbeiten wir mit der Eidgenössischen Finanzkontrolle (EFK) zusammen. Teilweise stützen wir uns auch auf die Arbeit anderer Prüfer. Dazu gehören kantonsinterne Auf- sichtsstellen, Prüfer von Bundesämtern und vom Bund be",
+          "source": "Bericht der Finanzkommission vom 15. Mai 2015"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 676754,
+          "name": "Bericht der Finanzkommission vom 15. Mai 2015",
+          "title": "",
+          "url": "https://www.ratsinfo.sg.ch//media/documents/published/signed/b899455c-305b-4a73-b603-0aefe3c6a343.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 676754,
+          "name": "Bericht der Finanzkommission vom 15. Mai 2015",
+          "title": "",
+          "url": "https://www.ratsinfo.sg.ch//media/documents/published/signed/b899455c-305b-4a73-b603-0aefe3c6a343.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Finanzkommission",
+          "firstname": null,
+          "lastname": null,
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Finanzdepartement",
+          "firstname": null,
+          "lastname": "Finanzdepartement",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        }
+      ],
+      "author_display_fr": "Finanzkommission",
+      "author_display_de": "Finanzkommission",
+      "author_display": "Finanzkommission",
+      "url_external_fr": "https://www.ratsinfo.sg.ch/geschaefte/6387",
+      "url_external_it": "https://www.ratsinfo.sg.ch/geschaefte/6387"
+    },
+    {
+      "id": 130335,
+      "url_api": "https://api.openparldata.ch/v1/affairs/130335",
+      "body_key": "BE",
+      "external_id": "10546aad749249b394f00c3ea4c61b9b",
+      "number": "2022.STA.530",
+      "body_id": 253,
+      "title_de": "Gesetz über die politischen Rechte (PRG) (Änderung) (Transparenz bei der Finanzierung von Wahl- und Abstimmungskampagnen)",
+      "title_fr": "Loi sur les droits politiques (LDP) (Modification) (Transparence du financement des campagnes de votation et des campagnes électorales)",
+      "type_name_de": "Gesetz",
+      "type_name_fr": "Loi",
+      "type_harmonized_de": "Regierungsgeschäft",
+      "type_harmonized_fr": "Affaires gouvernementales",
+      "type_harmonized_it": "Affari governativi",
+      "type_harmonized_rm": "fatschentas da la regenza",
+      "type_harmonized_en": "government affairs",
+      "type_harmonized_id": 9,
+      "state_name_de": "Annahme",
+      "state_name_fr": "Adoption",
+      "begin_date": "2024-09-12T00:00:00",
+      "end_date": "2024-11-25T13:30:00",
+      "url_external_de": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=10546aad749249b394f00c3ea4c61b9b",
+      "url_external_fr": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=10546aad749249b394f00c3ea4c61b9b",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "Buchstabe b BPR vorgesehen ist. In \n\n                                                   \n23\n\n Siehe Eidgenössische Finanzkontrolle, Transparenz in der Politikfinanzierung. Fragen und Antworten (Q&A), Version 2.2 (Stand 31. Mai 2023), Ziff. \n\n4.1.8. \n24\n\n VPofi-Erläuterungen, Erläuterungen zu Art. 5 ",
+            "source_id": 22864,
+            "source_name": "Vortrag-24.04.2024-de",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/130335/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/130335/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/130335/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/130335/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/130335/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/130335/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/130335/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/130335/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/130335/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/130335/external_links"
+      },
+      "body_name_fr": "Berne",
+      "body_name_original": "Bern",
+      "body_name": "Berne",
+      "efk_excerpts_de": [
+        {
+          "text": "Buchstabe b BPR vorgesehen ist. In 23 Siehe Eidgenössische Finanzkontrolle, Transparenz in der Politikfinanzierung. Fragen und Antworten (Q&A), Version 2.2 (Stand 31. Mai 2023), Ziff. 4.1.8. 24 VPofi-Erläuterungen, Erläuterungen zu Art. 5",
+          "source": "Vortrag-24.04.2024-de"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 22864,
+          "name": "Vortrag-24.04.2024-de",
+          "title": "",
+          "url": "https://ogd.parl.apps.be.ch/pdf-upload/9dfc6ba6b8ea41da89c68c7f6bae990e-332.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 22864,
+          "name": "Vortrag-24.04.2024-de",
+          "title": "",
+          "url": "https://ogd.parl.apps.be.ch/pdf-upload/9dfc6ba6b8ea41da89c68c7f6bae990e-332.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Kommission für Staatspolitik und Aussenbeziehungen",
+          "firstname": null,
+          "lastname": "Kommission für Staatspolitik und Aussenbeziehungen",
+          "party_fr": "",
+          "party_de": "",
+          "role": "assigned_committee"
+        },
+        {
+          "fullname": "STA",
+          "firstname": null,
+          "lastname": "STA",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        },
+        {
+          "fullname": "STA Staatskanzlei",
+          "firstname": null,
+          "lastname": "STA Staatskanzlei",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        }
+      ],
+      "author_display_fr": "Kommission für Staatspolitik und Aussenbeziehungen",
+      "author_display_de": "Kommission für Staatspolitik und Aussenbeziehungen",
+      "author_display": "Kommission für Staatspolitik und Aussenbeziehungen",
+      "url_external_it": "https://www.gr.be.ch/it/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=10546aad749249b394f00c3ea4c61b9b"
+    },
+    {
+      "id": 177811,
+      "url_api": "https://api.openparldata.ch/v1/affairs/177811",
+      "body_key": "VS",
+      "external_id": "201290",
+      "number": "2024-009-010",
+      "body_id": 273,
+      "title_de": "Jahresbericht 2023 des Staatsrates; Beschluss über die Rechnung des Staates Wallis für das Jahr 2023; Beschluss über die Rechnung des Fonds FIGI für das Jahr 2023",
+      "title_fr": "Rapport annuel du Conseil d'Etat 2023; Décision concernant le compte de l'Etat du Valais pour l'année 2023; Décision concernant le compte du Fonds FIGI pour l’année 2023",
+      "title_long_de": "Eintretensdebatte: Jahresbericht 2023 des Staatsrates; Beschluss über die Rechnung des Staates Wallis für das Jahr 2023; Beschluss über die Rechnung des Fonds FIGI für das Jahr 2023",
+      "title_long_fr": "Entrée en matière:  Rapport annuel du Conseil d'Etat 2023; Décision concernant le compte de l'Etat du Valais pour l'année 2023; Décision concernant le compte du Fonds FIGI pour l’année 2023",
+      "type_name_de": "Bericht",
+      "begin_date": "2024-05-21T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/201290",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "\nRechnungen 2023\n\nRechnungen des Staates Wallis und des Fonds FIGI\n\n201296\n\n\n\n\n\n \nINHALTSVERZEICHNIS \n\n \n  \n\n \n \n\nSTAAT WALLIS  \n \n\nBILANZ UND RECHNUNGEN .......................................................  1 \n Bilanz ..............................................................................",
+            "source_id": 581776,
+            "source_name": "2024.06_Rechnungen Staat-Fonds FIGI 2023",
+            "source_type": "docs"
+          },
+          {
+            "text": "erhalb der Dienststelle für die Covid-Hilfen zuständig. Es gehen \nzahlreiche Rückfragen seitens der Eidgenössischen Finanzkontrolle ein. Dieser Aspekt ist aufwändig \nund wird sich bis 2025 auf die Arbeit der Dienststelle auswirken. Dies belastet die Dienststelle und \nbindet Ressourcen, die dann wied",
+            "source_id": 580114,
+            "source_name": "2024.06_Politische Leistungsaufträge Rechnung 2023_BER_KOM",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/177811/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/177811/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/177811/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/177811/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/177811/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/177811/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/177811/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/177811/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/177811/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/177811/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "erhalb der Dienststelle für die Covid-Hilfen zuständig. Es gehen zahlreiche Rückfragen seitens der Eidgenössischen Finanzkontrolle ein. Dieser Aspekt ist aufwändig und wird sich bis 2025 auf die Arbeit der Dienststelle auswirken. Dies belastet die Dienststelle und bindet Ressourcen, die dann wied",
+          "source": "2024.06_Politische Leistungsaufträge Rechnung 2023_BER_KOM"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 586902,
+          "name": "2024.06_Politische Leistungsaufträge Rechnung 2023_BER_KOM",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL2dqQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6d8539f3ee7cbbdccf20ce27ecb3c0b97e0232a9/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEExSVNBdz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--4c443d20b0b9f26c8ae9a8b9eb92179c656da3a8/2024.06_Mandats%20de%20prestations%20politiques%20compte%202023_RAPP_COM.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 586902,
+          "name": "2024.06_Politische Leistungsaufträge Rechnung 2023_BER_KOM",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL2dqQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6d8539f3ee7cbbdccf20ce27ecb3c0b97e0232a9/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEExSVNBdz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--4c443d20b0b9f26c8ae9a8b9eb92179c656da3a8/2024.06_Mandats%20de%20prestations%20politiques%20compte%202023_RAPP_COM.pdf",
+          "mime_type": null
+        }
+      ],
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/201290",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/201290"
+    },
+    {
+      "id": 168436,
+      "url_api": "https://api.openparldata.ch/v1/affairs/168436",
+      "body_key": "SG",
+      "external_id": "6009",
+      "number": "33.24.01",
+      "body_id": 265,
+      "title_de": "Kantonsratsbeschluss über die Rechnung 2023 des Kantons St.Gallen",
+      "type_name_de": "Verwaltungsgeschäft",
+      "type_external_id": "11",
+      "type_harmonized_de": "Regierungsgeschäft",
+      "type_harmonized_fr": "Affaires gouvernementales",
+      "type_harmonized_it": "Affari governativi",
+      "type_harmonized_rm": "fatschentas da la regenza",
+      "type_harmonized_en": "government affairs",
+      "type_harmonized_id": 9,
+      "begin_date": "2024-03-20T00:00:00",
+      "url_external_de": "https://www.ratsinfo.sg.ch/geschaefte/6009",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "\nKanton St.Gallen\n\nRechnung 2023 Teil 1\nBotschaft der Regierung \nJahresrechnung\n\n\n\n\n\n1\n\nInhaltsverzeichnis \nRechnung 2023 Teil 1 \n(vorliegend)\n\nBotschaft und Entwurf 3\n\nErfolgsrechnung Institutionelle Gliederung 107 \n\nBegründungen der Kreditüberschreitungen 167\n\nInvestitionsrechnung Objektgliederung",
+            "source_id": 532834,
+            "source_name": "Botschaft und Entwurf der Regierung vom 12. März 2024 (Teil 1)",
+            "source_type": "docs"
+          },
+          {
+            "text": "ellen und gemeinsame Prüfinteressen zwischen Bund und Kanton St.Gallen \n\ngibt, arbeiten wir mit der Eidgenössischen Finanzkontrolle (EFK) zusammen. \n\n \n\nTeilweise stützen wir uns auch auf die Arbeit anderer Prüfer. Dazu gehören kantonsinterne Auf-\n\nsichtsstellen, Prüfer von Bundesämtern und vom Bund",
+            "source_id": 421106,
+            "source_name": "Bericht der Finanzkommission über die Rechnung 2023 des Kantons St.Gallen vom 16. Mai 2024",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/168436/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/168436/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/168436/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/168436/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/168436/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/168436/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/168436/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/168436/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/168436/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/168436/external_links"
+      },
+      "body_name_fr": "Saint-Gall",
+      "body_name_original": "St. Gallen",
+      "body_name": "Saint-Gall",
+      "efk_excerpts_de": [
+        {
+          "text": "ellen und gemeinsame Prüfinteressen zwischen Bund und Kanton St.Gallen gibt, arbeiten wir mit der Eidgenössischen Finanzkontrolle (EFK) zusammen. Teilweise stützen wir uns auch auf die Arbeit anderer Prüfer. Dazu gehören kantonsinterne Auf- sichtsstellen, Prüfer von Bundesämtern und vom Bund",
+          "source": "Bericht der Finanzkommission über die Rechnung 2023 des Kantons St.Gallen vom 16. Mai 2024"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 421106,
+          "name": "Bericht der Finanzkommission über die Rechnung 2023 des Kantons St.Gallen vom 16. Mai 2024",
+          "title": "",
+          "url": "https://www.ratsinfo.sg.ch//media/documents/published/signed/dea2e1ae-cac6-4999-a7ff-d7b699fa0973.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 421106,
+          "name": "Bericht der Finanzkommission über die Rechnung 2023 des Kantons St.Gallen vom 16. Mai 2024",
+          "title": "",
+          "url": "https://www.ratsinfo.sg.ch//media/documents/published/signed/dea2e1ae-cac6-4999-a7ff-d7b699fa0973.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Finanzkommission 2020/2024",
+          "firstname": null,
+          "lastname": null,
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Finanzdepartement",
+          "firstname": null,
+          "lastname": "Finanzdepartement",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        },
+        {
+          "fullname": "Finanzkommission 2020/2024",
+          "firstname": null,
+          "lastname": null,
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Finanzkommission 2020/2024",
+      "author_display_de": "Finanzkommission 2020/2024",
+      "author_display": "Finanzkommission 2020/2024",
+      "url_external_fr": "https://www.ratsinfo.sg.ch/geschaefte/6009",
+      "url_external_it": "https://www.ratsinfo.sg.ch/geschaefte/6009"
+    },
+    {
+      "id": 14420,
+      "url_api": "https://api.openparldata.ch/v1/affairs/14420",
+      "body_key": "261",
+      "external_id": "82a867fe641c4f36b8b18b087cefaf35",
+      "number": "2024/49",
+      "body_id": 322,
+      "title_de": "Schauspielhaus Zürich, Veranstaltung mit einem Nationalratskandidaten während des Wahlkampfs, Vereinbarkeit solcher Veranstaltungen mit der kulturellen Zielsetzung des Schauspielhauses, Kosten und Offenlegungspflicht gegenüber der Eidgenössischen Finanzkontrolle, Schaffung einer rechtskonformen und rechtsgleichen Regelung für die Durchführung sowie Zustellung der Eigentümerstrategie",
+      "type_name_de": "Schriftliche Anfrage",
+      "type_harmonized_de": "Anfrage",
+      "type_harmonized_fr": "Question",
+      "type_harmonized_it": "Interrogazione",
+      "type_harmonized_rm": "Dumonda",
+      "type_harmonized_en": "Question",
+      "type_harmonized_id": 12,
+      "type_harmonized_wikidata_id": "Q2052854",
+      "state_name_de": "Abgeschlossen",
+      "begin_date": "2024-01-31T00:00:00",
+      "url_external_de": "https://www.gemeinderat-zuerich.ch/geschaefte/detail.php?gid=82a867fe641c4f36b8b18b087cefaf35",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/14420/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/14420/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/14420/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/14420/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/14420/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/14420/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/14420/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/14420/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/14420/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/14420/external_links"
+      },
+      "body_name_fr": "Zurich (Ville)",
+      "body_name_original": "Zürich (Stadt)",
+      "body_name": "Zurich (Ville)",
+      "all_documents": [
+        {
+          "id": 385758,
+          "name": "2024_0049 Antwort Stadtrat",
+          "url": "https://www.gemeinderat-zuerich.ch/dokumente/49e95af65b5441b29169ff0cefbd4d70-332?filename=2024_0049AntwortStadtrat",
+          "mime_type": null
+        },
+        {
+          "id": 232791,
+          "name": "2024_0049 Schriftliche Anfrage",
+          "url": "https://www.gemeinderat-zuerich.ch/dokumente/756612cdbc15402e9d07dbbeceb778e6-332?filename=2024_0049SchriftlicheAnfrage",
+          "mime_type": null
+        },
+        {
+          "id": 179751,
+          "name": "2024_0049 Protokollauszug Beschluss",
+          "url": "https://www.gemeinderat-zuerich.ch/dokumente/539bf9db50f54b4691fd760a3984561d-332?filename=2024_0049ProtokollauszugBeschluss",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Yasmine Bourgeois",
+          "firstname": "Yasmine",
+          "lastname": "Bourgeois",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Präsidialdepartement (PRD)",
+          "firstname": null,
+          "lastname": "Präsidialdepartement (PRD)",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        },
+        {
+          "fullname": "Flurin Capaul",
+          "firstname": "",
+          "lastname": "Flurin Capaul",
+          "party_de": "FDP",
+          "party_fr": "PLR",
+          "role": "author"
+        },
+        {
+          "fullname": "Yasmine Bourgeois",
+          "firstname": "",
+          "lastname": "Yasmine Bourgeois",
+          "party_de": "FDP",
+          "party_fr": "PLR",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Yasmine Bourgeois (PLR), Flurin Capaul (PLR)",
+      "author_display_de": "Yasmine Bourgeois (FDP), Flurin Capaul (FDP)",
+      "author_display": "Yasmine Bourgeois (PLR), Flurin Capaul (PLR)",
+      "url_external_fr": "https://www.gemeinderat-zuerich.ch/geschaefte/detail.php?gid=82a867fe641c4f36b8b18b087cefaf35",
+      "url_external_it": "https://www.gemeinderat-zuerich.ch/geschaefte/detail.php?gid=82a867fe641c4f36b8b18b087cefaf35"
+    },
+    {
+      "id": 104831,
+      "url_api": "https://api.openparldata.ch/v1/affairs/104831",
+      "body_key": "261",
+      "external_id": "e421551358f542ffbfe3b1895c0fb488",
+      "number": "2023/494",
+      "body_id": 322,
+      "title_de": "Lesung zum Thema «Wir müssen reden» im Schauspielhaus Zürich, Gründe für die Lesung während des Wahlkampfs mit einem einzigen Kandidaten, Aufwand für den Anlass, Deklaration der Kosten bei der Eidgenössischen Finanzkontrolle und Richtlinien für Veranstaltungen vor den Wahlen",
+      "type_name_de": "Schriftliche Anfrage",
+      "type_harmonized_de": "Anfrage",
+      "type_harmonized_fr": "Question",
+      "type_harmonized_it": "Interrogazione",
+      "type_harmonized_rm": "Dumonda",
+      "type_harmonized_en": "Question",
+      "type_harmonized_id": 12,
+      "type_harmonized_wikidata_id": "Q2052854",
+      "state_name_de": "Abgeschlossen",
+      "begin_date": "2023-10-25T00:00:00",
+      "url_external_de": "https://www.gemeinderat-zuerich.ch/geschaefte/detail.php?gid=e421551358f542ffbfe3b1895c0fb488",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/104831/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/104831/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/104831/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/104831/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/104831/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/104831/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/104831/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/104831/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/104831/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/104831/external_links"
+      },
+      "body_name_fr": "Zurich (Ville)",
+      "body_name_original": "Zürich (Stadt)",
+      "body_name": "Zurich (Ville)",
+      "all_documents": [
+        {
+          "id": 287283,
+          "name": "2023_0494 Protokollauszug Beschluss",
+          "url": "https://www.gemeinderat-zuerich.ch/dokumente/5704400a82014f00a7e79561df9d7cb0-332?filename=2023_0494ProtokollauszugBeschluss",
+          "mime_type": null
+        },
+        {
+          "id": 182070,
+          "name": "2023_0494 Antwort Stadtrat",
+          "url": "https://www.gemeinderat-zuerich.ch/dokumente/d2c9c4e46cfa472b8ed427e66330a6b2-332?filename=2023_0494AntwortStadtrat",
+          "mime_type": null
+        },
+        {
+          "id": 9948,
+          "name": "2023_0494 Schriftliche Anfrage",
+          "url": "https://www.gemeinderat-zuerich.ch/dokumente/46ca80e966c74746b1e111f22070099a-332?filename=2023_0494SchriftlicheAnfrage",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Präsidialdepartement (PRD)",
+          "firstname": null,
+          "lastname": "Präsidialdepartement (PRD)",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        },
+        {
+          "fullname": "Yasmine Bourgeois",
+          "firstname": "Yasmine",
+          "lastname": "Bourgeois",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Flurin Capaul",
+          "firstname": "",
+          "lastname": "Flurin Capaul",
+          "party_de": "FDP",
+          "party_fr": "PLR",
+          "role": "author"
+        },
+        {
+          "fullname": "Yasmine Bourgeois",
+          "firstname": "",
+          "lastname": "Yasmine Bourgeois",
+          "party_de": "FDP",
+          "party_fr": "PLR",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Yasmine Bourgeois (PLR), Flurin Capaul (PLR)",
+      "author_display_de": "Yasmine Bourgeois (FDP), Flurin Capaul (FDP)",
+      "author_display": "Yasmine Bourgeois (PLR), Flurin Capaul (PLR)",
+      "url_external_fr": "https://www.gemeinderat-zuerich.ch/geschaefte/detail.php?gid=e421551358f542ffbfe3b1895c0fb488",
+      "url_external_it": "https://www.gemeinderat-zuerich.ch/geschaefte/detail.php?gid=e421551358f542ffbfe3b1895c0fb488"
+    },
+    {
+      "id": 177580,
+      "url_api": "https://api.openparldata.ch/v1/affairs/177580",
+      "body_key": "VS",
+      "external_id": "189125",
+      "number": "2023.03.017",
+      "body_id": 273,
+      "title_de": "Bau der A9 im Oberwallis – Reaktion auf den EFK-Bericht",
+      "title_fr": "Construction de l'A9 dans le Haut-Valais – Réaction à la suite de l'audit du CDF",
+      "title_long_de": "Dringliche Resolution PS/GC, durch Anne-Laure Secco, Dina Studer und Florian Chappot: Bau der A9 im Oberwallis – Reaktion auf den EFK-Bericht 2023.03.017",
+      "title_long_fr": "Résolution urgente PS/GC, par Anne-Laure Secco, Dina Studer et Florian Chappot : Construction de l'A9 dans le Haut-Valais – Réaction à la suite de l'audit du CDF 2023.03.017",
+      "type_name_de": "Dringliche Resolution",
+      "state_name_de": "Archivierung",
+      "state_name_fr": "Archivage",
+      "state_external_id": "archive",
+      "begin_date": "2023-03-12T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/189125",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "03/2023\n\nNummer 2023.03.017\n\n \n\nAktualität des Ereignisses\n\nAm 22. Februar 2023 veröffentlichte die Eidgenössische Finanzkontrolle (EFK) ihren Bericht über die Prüfung \n\nder Baumängel des Abschnitts Raron–Gampel der A9, die im Frühling 2022 entdeckt worden waren.\n\nUnvorhersehbarkeit\n\nEs war nicht vo",
+            "source_id": 536982,
+            "source_name": "RES_2023.03.017_Bau der A9 im Oberwallis – Reaktion auf den EFK-Bericht",
+            "source_type": "docs"
+          },
+          {
+            "text": "03/2023\n\nNummer 2023.03.017\n\n \n\nAktualität des Ereignisses\n\nAm 22. Februar 2023 veröffentlichte die Eidgenössische Finanzkontrolle (EFK) ihren Bericht über die Prüfung \n\nder Baumängel des Abschnitts Raron–Gampel der A9, die im Frühling 2022 entdeckt worden waren.\n\nUnvorhersehbarkeit\n\nEs war nicht vo",
+            "source_id": 535917,
+            "source_name": "RES_2023.03.017_Bau der A9 im Oberwallis – Reaktion auf den EFK-Bericht",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/177580/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/177580/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/177580/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/177580/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/177580/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/177580/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/177580/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/177580/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/177580/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/177580/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "03/2023 Nummer 2023.03.017 Aktualität des Ereignisses Am 22. Februar 2023 veröffentlichte die Eidgenössische Finanzkontrolle (EFK) ihren Bericht über die Prüfung der Baumängel des Abschnitts Raron–Gampel der A9, die im Frühling 2022 entdeckt worden waren. Unvorhersehbarkeit Es war nicht vo",
+          "source": "RES_2023.03.017_Bau der A9 im Oberwallis – Reaktion auf den EFK-Bericht"
+        },
+        {
+          "text": "03/2023 Nummer 2023.03.017 Aktualität des Ereignisses Am 22. Februar 2023 veröffentlichte die Eidgenössische Finanzkontrolle (EFK) ihren Bericht über die Prüfung der Baumängel des Abschnitts Raron–Gampel der A9, die im Frühling 2022 entdeckt worden waren. Unvorhersehbarkeit Es war nicht vo",
+          "source": "RES_2023.03.017_Bau der A9 im Oberwallis – Reaktion auf den EFK-Bericht"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 537496,
+          "name": "RES_2023.03.017_Bau der A9 im Oberwallis – Reaktion auf den EFK-Bericht",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNGc4QXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--d376b451f6bf85ebe570a47d0ec8335c2aa278dd/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEE4amlBZz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--32c2040d743369ae48a2a578446e42db32a9de29/RES_2023.03.017_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 537496,
+          "name": "RES_2023.03.017_Bau der A9 im Oberwallis – Reaktion auf den EFK-Bericht",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNGc4QXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--d376b451f6bf85ebe570a47d0ec8335c2aa278dd/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEE4amlBZz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--32c2040d743369ae48a2a578446e42db32a9de29/RES_2023.03.017_DEP_Final_FR.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Anne-Laure Secco",
+          "firstname": "Anne-Laure",
+          "lastname": "Secco",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Dina Studer",
+          "firstname": "Dina",
+          "lastname": "Studer",
+          "party_fr": "Les Verts",
+          "party_de": "GPS",
+          "role": "author"
+        },
+        {
+          "fullname": "Florian Chappot",
+          "firstname": "Florian",
+          "lastname": "Chappot",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Florian Chappot",
+          "firstname": "Florian",
+          "lastname": "Chappot",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Anne-Laure Secco",
+          "firstname": "Anne-Laure",
+          "lastname": "Secco",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Dina Studer",
+          "firstname": "Dina",
+          "lastname": "Studer",
+          "party_fr": "Les Verts",
+          "party_de": "GPS",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Anne-Laure Secco (PLR), Dina Studer (Les Verts), Florian Chappot (PLR)",
+      "author_display_de": "Anne-Laure Secco (FDP), Dina Studer (GPS), Florian Chappot (FDP)",
+      "author_display": "Anne-Laure Secco (PLR), Dina Studer (Les Verts), Florian Chappot (PLR)",
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/189125",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/189125"
+    },
+    {
+      "id": 220860,
+      "url_api": "https://api.openparldata.ch/v1/affairs/220860",
+      "body_key": "ZG",
+      "external_id": "2520",
+      "number": "3526",
+      "body_id": 274,
+      "title_de": "Aufsicht über die Lebensmittelsicherheit im Kanton Zug",
+      "title_long_de": "Interpellation von Rita Hofer, Luzian Franzini, Esther Haas und Andreas Iten betreffend Aufsicht über die Lebensmittelsicherheit im Kanton Zug",
+      "type_name_de": "Interpellation",
+      "type_harmonized_de": "Interpellation",
+      "type_harmonized_fr": "Interpellation",
+      "type_harmonized_it": "interpellanza",
+      "type_harmonized_rm": "interpellaziun",
+      "type_harmonized_en": "Interpellation",
+      "type_harmonized_id": 8,
+      "type_harmonized_wikidata_id": "Q1505023",
+      "state_name_de": "Kenntnisnahme",
+      "begin_date": "2023-02-03T00:00:00",
+      "end_date": "2023-11-30T00:00:00",
+      "url_external_de": "https://kr-geschaefte.zug.ch/gast/geschaefte/2520",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "\n \n\n \n\n Vorlage Nr. 3526.1  \n\nLaufnummer 17214  \n\nInterpellation von Rita Hofer, Luzian Franzini, Esther Haas und Andreas Iten \n\nbetreffend Aufsicht über die Lebensmittelsicherheit im Kanton Zug  \n\nvom 3. Februar 2023 \n\n \n\n \n\nDie Mitglieder des Kantonsrats Rita Hofer, Hünenberg, Luzian Franzini, Zug",
+            "source_id": 379258,
+            "source_name": "Interpellationstext",
+            "source_type": "docs"
+          },
+          {
+            "text": "uswertung wurde bisher durch das BLV nicht veröffentlicht. Die \n\njetzige Auswertung wurde durch die eidgenössische Finanzkontrolle erstellt . Dabei ist zu \n\n\n\n   \n\nSeite 2/2 3526.2  - 17272  \n\n \n\n \n \n\nbeachten, dass ein Vergleich der kantonalen Zahlen aufgrund der verschiedenen Zusammen-\n\nsetzung de",
+            "source_id": 56180,
+            "source_name": "Antwort des Regierungsrats",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/220860/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/220860/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/220860/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/220860/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/220860/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/220860/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/220860/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/220860/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/220860/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/220860/external_links"
+      },
+      "body_name_fr": "Zoug",
+      "body_name_original": "Zug",
+      "body_name": "Zoug",
+      "efk_excerpts_de": [
+        {
+          "text": "uswertung wurde bisher durch das BLV nicht veröffentlicht. Die jetzige Auswertung wurde durch die eidgenössische Finanzkontrolle erstellt . Dabei ist zu Seite 2/2 3526.2 - 17272 beachten, dass ein Vergleich der kantonalen Zahlen aufgrund der verschiedenen Zusammen- setzung de",
+          "source": "Antwort des Regierungsrats"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 56180,
+          "name": "Antwort des Regierungsrats",
+          "title": "",
+          "url": "https://kr-geschaefte.zug.ch/dokumente/11450/3526-2-17272_Lebensmittelsicherheit.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 56180,
+          "name": "Antwort des Regierungsrats",
+          "title": "",
+          "url": "https://kr-geschaefte.zug.ch/dokumente/11450/3526-2-17272_Lebensmittelsicherheit.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Andreas Iten",
+          "firstname": "Andreas",
+          "lastname": "Iten",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Andreas Iten",
+          "firstname": "Andreas",
+          "lastname": "Iten",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Andreas Iten",
+          "firstname": "Andreas",
+          "lastname": "Iten",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Andreas Iten",
+          "firstname": "Andreas",
+          "lastname": "Iten",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Andreas Iten",
+          "firstname": "Andreas",
+          "lastname": "Iten",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Gesundheitsdirektion",
+          "firstname": null,
+          "lastname": "Gesundheitsdirektion",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        },
+        {
+          "fullname": "Andreas Iten",
+          "firstname": "Andreas",
+          "lastname": "Iten",
+          "party_fr": "PLR",
+          "party_de": "FDP",
+          "role": "author"
+        },
+        {
+          "fullname": "Esther Haas",
+          "firstname": "Esther",
+          "lastname": "Haas",
+          "party_fr": "Les Verts",
+          "party_de": "GPS",
+          "role": "author"
+        },
+        {
+          "fullname": "Luzian Franzini",
+          "firstname": "Luzian",
+          "lastname": "Franzini",
+          "party_fr": "ALG",
+          "party_de": "ALG",
+          "role": "author"
+        },
+        {
+          "fullname": "Rita Hofer",
+          "firstname": "Rita",
+          "lastname": "Hofer",
+          "party_fr": "PS",
+          "party_de": "SP",
+          "role": "author"
+        },
+        {
+          "fullname": "Hofer Rita",
+          "firstname": "Hofer",
+          "lastname": "Rita",
+          "party_de": "",
+          "party_fr": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Andreas Iten (PLR), Esther Haas (Les Verts), Luzian Franzini (ALG), Rita Hofer (PS), Hofer Rita",
+      "author_display_de": "Andreas Iten (FDP), Esther Haas (GPS), Luzian Franzini (ALG), Rita Hofer (SP), Hofer Rita",
+      "author_display": "Andreas Iten (PLR), Esther Haas (Les Verts), Luzian Franzini (ALG), Rita Hofer (PS), Hofer Rita",
+      "url_external_fr": "https://kr-geschaefte.zug.ch/gast/geschaefte/2520",
+      "url_external_it": "https://kr-geschaefte.zug.ch/gast/geschaefte/2520"
+    },
+    {
+      "id": 226207,
+      "url_api": "https://api.openparldata.ch/v1/affairs/226207",
+      "body_key": "VD",
+      "external_id": "22_HQU_78",
+      "number": "22_HQU_78",
+      "body_id": 272,
+      "title_fr": "Forfaits fiscaux : le Conseil d’État va-t-il écouter le Contrôle fédéral des finances ?",
+      "title_long_fr": "Question orale Hadrien Buclin - Forfaits fiscaux : le Conseil d’État va-t-il écouter le Contrôle fédéral des finances ?.",
+      "type_name_fr": "Question orale",
+      "type_harmonized_de": "Anfrage",
+      "type_harmonized_fr": "Question",
+      "type_harmonized_it": "Interrogazione",
+      "type_harmonized_rm": "Dumonda",
+      "type_harmonized_en": "Question",
+      "type_harmonized_id": 12,
+      "type_harmonized_wikidata_id": "Q2052854",
+      "state_name_fr": "Terminée",
+      "begin_date": "2022-09-06T00:00:00",
+      "url_external_fr": "https://www.vd.ch/gc/seances-du-grand-conseil/point-seance/point/f363b935-1653-4d6f-8588-d8c22c6664ae/meeting/1012632",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/226207/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/226207/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/226207/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/226207/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/226207/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/226207/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/226207/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/226207/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/226207/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/226207/external_links"
+      },
+      "body_name_fr": "Vaud",
+      "body_name_original": "Waadt",
+      "body_name": "Vaud",
+      "authors": [
+        {
+          "fullname": "Hadrien Buclin",
+          "firstname": "Hadrien",
+          "lastname": "Buclin",
+          "party_fr": "Ensemble à Gauche",
+          "party_de": "Ensemble à Gauche",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Hadrien Buclin (Ensemble à Gauche)",
+      "author_display_de": "Hadrien Buclin (Ensemble à Gauche)",
+      "author_display": "Hadrien Buclin (Ensemble à Gauche)"
+    },
+    {
+      "id": 165904,
+      "url_api": "https://api.openparldata.ch/v1/affairs/165904",
+      "body_key": "GR",
+      "external_id": "6f65cd56f68c45b0a48bdf149ef06564",
+      "number": "2498693331",
+      "body_id": 259,
+      "title_de": "Geschäftsberichte 2021 des Kantons- und Verwaltungsgerichts, der Aufsichtskommission über die Rechtsanwälte, der Notariatskommission und weitere Geschäftsberichte",
+      "title_it": "Rapporti di gestione 2021 del Tribunale cantonale e del Tribunale amministrativo, della Commissione di vigilanza sugli avvocati, della Commissione notarile e altri rapporti di gestione",
+      "title_rm": "Rapports da gestiun 2021 da la Dretgira chantunala e da la Dretgira administrativa, da la Cumissiun da surveglianza davart las advocatas ed ils advocats, da la Cumissiun da notariat sco er ulteriurs rapports da gestiun",
+      "title_long_de": "Geschäftsberichte 2021 des Kantons- und Verwaltungsgerichts, der Aufsichtskommission über die Rechtsanwälte, der Notariatskommission und weitere Geschäftsberichte",
+      "title_long_it": "Rapporti di gestione 2021 del Tribunale cantonale e del Tribunale amministrativo, della Commissione di vigilanza sugli avvocati, della Commissione notarile e altri rapporti di gestione",
+      "title_long_rm": "Rapports da gestiun 2021 da la Dretgira chantunala e da la Dretgira administrativa, da la Cumissiun da surveglianza davart las advocatas ed ils advocats, da la Cumissiun da notariat sco er ulteriurs rapports da gestiun",
+      "type_name_de": "Sachgeschäft",
+      "type_name_it": "Oggetto",
+      "type_name_rm": "Fatschenta tematica",
+      "state_name_de": "erledigt",
+      "begin_date": "2022-06-13T00:00:00",
+      "url_external_de": "https://ris.gr.ch/de/geschaefte/geschaeft/6f65cd56f68c45b0a48bdf149ef06564",
+      "url_external_it": "https://ris.gr.ch/it/geschaefte/geschaeft/6f65cd56f68c45b0a48bdf149ef06564",
+      "url_external_rm": "https://ris.gr.ch/rm/geschaefte/geschaeft/6f65cd56f68c45b0a48bdf149ef06564",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "\n \n\n  \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n  \n\n \n\n \n\n \nG R I S C H E L E C T R A  A G  \n\nC H U R  \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n43. GESCHÄFTSBERICHT \n\nVOM 01.10.2020 BIS 30.09.2021 \n\n \n\n \n\n \n\n \n\n\n\n 2 \n\nVERWALTUNGSRAT \n \n\nStefan Engler, Chur Präsident \n\nRoland Leuenberger, Wädenswil  Vizepräsident \n\nGeorg Anton ",
+            "source_id": 213964,
+            "source_name": "06_Grischelectra AG 2020-2021",
+            "source_type": "docs"
+          },
+          {
+            "text": "es \n\nDVS  Departement für Volkswirtschaft und Soziales \n\nEA Einnahmeausfälle \n\nEB Engadin Bus \n\nEFK Eidgenössische Finanzkontrolle \n\nEKUD Erziehungs-, Kultur- und Umweltschutz-  \n\ndepartement \n\neKWF elektronischer Kreditorenworkflow \n\nESTV Eidgenössische Steuerverwaltung \n\nFER Fachkommission für Emp",
+            "source_id": 159956,
+            "source_name": "14_FIKO_Externer_Tätigkeitsbericht_ 2021",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/165904/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/165904/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/165904/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/165904/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/165904/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/165904/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/165904/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/165904/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/165904/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/165904/external_links"
+      },
+      "body_name_fr": "Grisons",
+      "body_name_original": "Graubünden",
+      "body_name": "Grisons",
+      "efk_excerpts_de": [
+        {
+          "text": "es DVS Departement für Volkswirtschaft und Soziales EA Einnahmeausfälle EB Engadin Bus EFK Eidgenössische Finanzkontrolle EKUD Erziehungs-, Kultur- und Umweltschutz- departement eKWF elektronischer Kreditorenworkflow ESTV Eidgenössische Steuerverwaltung FER Fachkommission für Emp",
+          "source": "14_FIKO_Externer_Tätigkeitsbericht_ 2021"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 159956,
+          "name": "14_FIKO_Externer_Tätigkeitsbericht_ 2021",
+          "title": "",
+          "url": "https://ris.gr.ch/cdws/files/8abf0194a0a0453eb22f7bc6bb87f9e8-332/1/pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 159956,
+          "name": "14_FIKO_Externer_Tätigkeitsbericht_ 2021",
+          "title": "",
+          "url": "https://ris.gr.ch/cdws/files/8abf0194a0a0453eb22f7bc6bb87f9e8-332/1/pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Regierungsrat",
+          "firstname": null,
+          "lastname": "Regierungsrat",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Regierungsrat",
+      "author_display_de": "Regierungsrat",
+      "author_display": "Regierungsrat",
+      "url_external_fr": "https://ris.gr.ch/fr/geschaefte/geschaeft/6f65cd56f68c45b0a48bdf149ef06564"
+    },
+    {
+      "id": 88112,
+      "url_api": "https://api.openparldata.ch/v1/affairs/88112",
+      "body_key": "VS",
+      "external_id": "231238",
+      "number": "231238",
+      "body_id": 273,
+      "title_de": "Umsetzungen der Empfehlungen, die im Bericht 2016 der eidgenössischen Finanzkontrolle aufgeführt sind",
+      "title_fr": "Rapport de la commission de gestion sur la construction de l’autoroute A9 dans le Haut-Valais en lien avec la mise en œuvre des recommandations qui sont formulées dans le rapport 2016 du Contrôle fédéral des finances",
+      "title_long_de": "Umsetzungen der Empfehlungen, die im Bericht 2016 der eidgenössischen Finanzkontrolle aufgeführt sind",
+      "title_long_fr": "Rapport de la commission de gestion sur la construction de l’autoroute A9 dans le Haut-Valais en lien avec la mise en œuvre des recommandations qui sont formulées dans le rapport 2016 du Contrôle fédéral des finances",
+      "type_name_de": "Bericht",
+      "begin_date": "2018-10-18T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/231238",
+      "updated_at": "2026-03-10T05:48:44",
+      "created_at": "2025-08-14T07:44:48",
+      "_search_meta": {
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/88112/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/88112/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/88112/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/88112/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/88112/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/88112/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/88112/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/88112/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/88112/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/88112/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/231238",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/231238"
+    }
+  ]
+}

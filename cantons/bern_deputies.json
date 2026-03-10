@@ -1,0 +1,1422 @@
+{
+  "Katharina Baumann": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Peter Haudenschild": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Martin Aeschlimann": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Jean-Luc Niederhauser": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Sarah Gabi Schönenberger": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Daniel Arn": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Andrea Lüthi": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Moussia von Wattenwyl": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Stefan Costa": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Hans-Jörg Pfister": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Giovanna Battagliero": {
+    "fr": "PS",
+    "de": "SP"
+  },
+  "Daniel Klauser": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Karin Berger-Sturm": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Roland Iseli": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Werner Moser": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Annette Toggwiler-Bumann": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Barbara Josi": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Thomas Hiltpold": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Patrizio Robbiani": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Katharina Ali-Oesch": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Vinzenz Binggeli": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Manuel C. Widmer": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Ueli Frutiger": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Nils Fiechter": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Aliki Panayides": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Valentina Achermann": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Adrian Haas": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Eva Desarzens-Wunderlin": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Sandra Schneider": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Dominik Blatti": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Sandra Hess": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Ursula E. Brunner": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Martin Boss": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Hans Marti": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Pierre-Yves Grivel": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Bettina Keller": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Peter Moser": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Barbara Maurer": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Beatrix Hurni": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Fritz Ruchti": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Pierre Amstutz": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Jürg Marti": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Lea Kusano": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Urs Muntwyler": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Erich Hess": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Susanne Clauss": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Pierre Masson": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Alexander Feuz": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Romeo Arnold": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Anita Luginbühl-Bachmann": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Philipp Roth": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Anita Herren-Brauen": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Urs Buri": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Jürg Iseli": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Lydia Baumgartner": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Hans Baumberger": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Jürg Rothenbühler": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Dominique Bühler": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Tabea Bossard-Jenni": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Christine Grogg-Meyer": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Anne-Caroline Graber": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Margrit Junker Burkhard": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Tanja Bauer": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Ueli Gfeller": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Karin Fisli": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Martin Lerch": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Kurt Zimmermann": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Ruedi Fischer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Marianne Dumermuth": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Brigitte Hilty Haller": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Alice Kropf": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Ulrich Egger": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Christian Bachmann": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Bernhard Brügger": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Beat Kohler": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Sibyl Eigenmann": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Roland Benoit": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Walter Messerli": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Franziska Fuss-Oehrli": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Madeleine Deckert": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Jan Remund": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Elisabeth Dubler": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Casimir von Arx": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Philip Kohli": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Andrea de Meuron": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Madeleine Amstutz": {
+    "fr": "Sans grp.",
+    "de": "Fraktionslos"
+  },
+  "Reto Zbinden": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Marianne Schild": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Hans Rudolf Vogt": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Tom Gerber": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Anna-Magdalena Linder": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Stefan Bütikofer": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Regina Fuhrer-Wyss": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Annegret Hebeisen-Christen": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Verena Aebischer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Simone Machado Rebmann": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Mohamed Hamdaoui": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Roman Gimmel": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Andreas Hegg": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Hasim Sancar": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Matthias Matti": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Adrian Spahr": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Jakob Schwarz": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Jan Gnägi": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Luc Mentha": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Peter Flück": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Reto Jakob": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Madeleine Graf-Rudolf": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Beatrice Eichenberger": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Samuel Leuenberger": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Marianne Schenk-Anderegg": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Toni Brunner": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Peter Bohnenblust": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Kilian Baumann": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Daniel Beutler": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Mathias Müller": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Daniel Hügli": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Luca Alberucci": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Marianne Burkhard": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Samuel Krähenbühl": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Andrea Gschwend-Pieren": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Philippe Messerli": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Martin Schlup": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Käthi Wälchli": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Bruno Riem": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Fabian Zulliger": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Christine Bühler": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Hans Rösti": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Bruno Martin": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Hans Kipfer": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Sibylle Plüss-Zürcher": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Pauline Pauli": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Irene Hügli": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Maria Esther Iannino Gerber": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Christoph Grupp": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Blaise Kropf": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Marc Jost": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Anna Tanner": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Samuel Graber": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Franz Haldimann": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Christoph Ammann": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Daniel Bichsel": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Monika Gygax-Böninger": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Matthias Burkhalter": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Alfred Bärtschi": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Niklaus Gfeller": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Andreas Blank": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Andreas Michel": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Barbara Stotzer-Wyss": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Christian Hadorn": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Samira Liana Martini": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Milena Daphinoff": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Benjamin Marti": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Natalie Imboden": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Moritz Müller": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Lars Guggisberg": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Markus Aebi": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Patric Bhend": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Stefan Bänz Müller": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Fritz Reber": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Eva Baltensperger": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Hubert Klopfenstein": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Hans-Peter Kohler": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Simone Leuenberger": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Tamara Jost-Morandi": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Carlos Reinhard": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Patrick Gsteiger": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Stefan Oester": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "André Roggli": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Claudine Esseiva": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Andreas Mühlemann": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Monika Schmidiger": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Michael Adrian Aebersold": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Julien Stocker": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Marina Zuber": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Rahel Ruch": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Irma Hirschi": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Peter Sommer": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Béatrice Stucki": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Katrin Zumstein": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Carlo Schlatter": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Sabine Kronenberg": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Christian von Känel": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Barbara Mühlheim": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Virginie Heyer": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Tanja Sollberger": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Tobias Vögeli": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Roland Näf": {
+    "fr": "PS",
+    "de": "SP"
+  },
+  "Franziska Schöni-Affolter": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Beat Cattaruzza": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Stephan Lack": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Sven Heunert": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Katja Riem": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Francis Daetwyler": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Monika Stampfli": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Andreas Hofmann": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Daniel Trüssel": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Hannes Zaugg-Graf": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Nathan Güntensperger": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Christoph Grimm": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Hans Rudolf Schweizer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Raphael Lanz": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Roberto Bernasconi": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Barbara Stucki": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Gerhard Fischer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Michel Rudin": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Hervé Gullotti": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Thomas Brönnimann": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Simon Ryser": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Jakob Etter": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "David Stampfli": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Andreas Burren": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Peter Dütschler": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Seraina Patzen": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Manuela Kocher Hirt": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Markus Gerber": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Rita Haudenschild": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Karim Saïd": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Manfred Bühler": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Hans Schär": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "René Maeder": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Melanie Gasser": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Maya Weber Hadorn": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Regula Bühlmann": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Simon Buri": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Christa Ammann": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Melanie Beutler-Hohenberger": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Margreth Schär": {
+    "fr": "PS",
+    "de": "SP"
+  },
+  "Tabea Rai": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Willy Marti": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Christoph Berger": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Johann Ulrich Grädel": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Thomas Knutti": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Peter Gasser": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Thomas Gerber": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Peter Gerber": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Hans Schori": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Samantha Dunning": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Oriana Pardini": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Thierry Gagnebin": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Ueli Jost": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Etienne Klopfenstein": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Kornelia Hässig Vinzens": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Francesco Marco Rappa": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Michael Elsaesser": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Patrick Freudiger": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Thomas Fuchs": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Reto Müller": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Michael Ritter": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Maxime Ochsenbein": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Christoph Patrick Zimmerli": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Thomas Leiser": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Erich Feller": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Martin Egger": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Andrea Rüfenacht": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Ruedi Löffel-Wenger": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Alfons Bichsel": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Stephanie-Marion Gartenmann": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Peter Brand": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Priska Weber-Grunder": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Michael Köpfli": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Vreni Kipfer-Guggisberg": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Roland Lüthi": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Nadja Günthör": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Alain Pichard": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Corentin Jeanneret": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Claude Grosjean": {
+    "fr": "PVL",
+    "de": "GLP"
+  },
+  "Stefan Jordi": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Walter Schilt": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Christine Blum": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Korab Rashiti": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Katja Streiff": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Stefan Hofer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Bruno Vanoni": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Fredy Lindegger": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Urs Scheuss": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Antonio Bauen": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Samuel Kullmann": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Beat Giauque": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Philippe Müller": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Beat Bösiger": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Maurane Riesen": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Christine Gerber": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Bernhard Riem": {
+    "fr": "Le Centre",
+    "de": "Die Mitte"
+  },
+  "Peter Siegenthaler": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Ueli Abplanalp": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Anna de Quervain": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Sabina Geissbühler-Strupler": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Jann Fritz Bangerter": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Ursula Marti": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Stefan Berger": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Hugo Kummer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Tamara Funiciello": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Ueli Augstburger": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Donat Schneider": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Urs Graf": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Vania Kohli": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "René Müller": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Christine Häsler": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Anne Speiser-Niess": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Ueli Studer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Daniel André Wildhaber": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Marc Tobler": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Nora Soder": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  },
+  "Hanspeter Steiner": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Beat Schori": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Andreas Schüpbach": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Adrian Wüthrich": {
+    "fr": "PS",
+    "de": "SP"
+  },
+  "Daniel Wyrsch": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Ernst Wandfluh": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Thomas Rufener": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Ulrich Stähli": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Marianne Teuscher-Abts": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Peter Salzmann": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Daniel Schwaar": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Fritz Wyss": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Andrea Zryd": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Christine Schnegg": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Alfred Schneiter": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Barbara Streit-Stettler": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Mirjam Veglio": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Nicola von Greyerz": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Dave von Kaenel": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Ursula Zybach": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Ruedi Sutter": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Ernst Tanner": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Pierre Sauvain": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Hans-Rudolf Saxer": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Willy Schranz": {
+    "fr": "UDF",
+    "de": "EDU"
+  },
+  "Markus Wenger": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Roland Ryser": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Margret von Bergen": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Michel Seiler": {
+    "fr": "Sans grp.",
+    "de": "Fraktionslos"
+  },
+  "Edith Siegenthaler": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Kurt Wenger": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Peter Zumbrunn": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Elisabeth Schwarz-Sommer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Walter Sutter": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Belinda Nazan Walpoth": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Elisabeth Zäch": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Peter Studer": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Daniel Studer": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Daniel Steiner-Brütsch": {
+    "fr": "PEV",
+    "de": "EVP"
+  },
+  "Pierre Alain Schnegg": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Ruth Sager": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Béatrice Struchen": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Corinne Schmidhauser": {
+    "fr": "PLR",
+    "de": "FDP"
+  },
+  "Michel Ruchonnet": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Meret Schindler": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Hans Jörg Rüegsegger": {
+    "fr": "UDC",
+    "de": "SVP"
+  },
+  "Heinz Siegenthaler": {
+    "fr": "PBD",
+    "de": "BDP"
+  },
+  "Elisabeth Striffeler-Mürset": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Sandra Roulet Romy": {
+    "fr": "PS-JS",
+    "de": "SP-JUSO"
+  },
+  "Maxime Zuber": {
+    "fr": "PS-JS-PSA",
+    "de": "SP-JUSO-PSA"
+  },
+  "Daphné Rüfenacht": {
+    "fr": "Les VERT-E-S",
+    "de": "GRÜNE"
+  }
+}
