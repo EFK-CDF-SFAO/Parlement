@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-03-09T21:46:57",
-    "total_count": 322,
+    "updated": "2026-03-10T13:05:04",
+    "total_count": 323,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.7161"
   },
   "session_summary": {
     "session_id": "2025-hiver",
@@ -42,6 +42,22 @@
   },
   "items": [
     {
+      "shortId": "26.7161",
+      "title": "A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ?",
+      "title_de": "Titel folgt",
+      "author": "Roduit Benjamin",
+      "party": "Le Centre",
+      "type": "Fra.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-03-10",
+      "date_maj": "2026-03-10",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267161",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267161",
+      "mention": "Élu",
+      "text": "<p>Les mesures d’assainissement de l’hydraulique progressent. Or, selon l’OFEV et le Contrôle fédéral des finances, elles exigent des efforts conséquents. Ni le temps imparti ni les moyens financiers prévus ne seront suffisants. L’OFEV a avisé les cantons et les exploitants que ces questions cruciales ainsi que d'autres sur l'utilisation de l’énergie hydraulique seront traitées dans le rapport sur le postulat 23.3007, transmis il y a trois ans déjà.<br>Quand ce rapport sera-t-il effectivement publié ?<\/p>"
+    },
+    {
       "shortId": "26.7129",
       "title": "Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage",
       "title_de": "ASAL 2.0: Der absehbare Skandal um die Verzögerungen bei der Auszahlung der Arbeitslosenentschädigungen",
@@ -53,7 +69,6 @@
       "department": "WBF",
       "date": "2026-03-04",
       "date_maj": "2026-03-04",
-      "statut_change_date": "2026-03-09",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267129",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267129",
       "mention": "Élu",
