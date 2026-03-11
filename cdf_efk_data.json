@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-03-10T21:44:32",
-    "total_count": 323,
+    "updated": "2026-03-11T13:03:36",
+    "total_count": 324,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.7185"
   },
   "session_summary": {
     "session_id": "2025-hiver",
@@ -41,6 +41,22 @@
     }
   },
   "items": [
+    {
+      "shortId": "26.7185",
+      "title": "Titre suit",
+      "title_de": "Führt die EFK bei ausserordentlichen Kampagnenfinanzierungen automatisch eine Revision durch?",
+      "author": "Dobler Marcel",
+      "party": "PLR",
+      "type": "Fra.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-03-11",
+      "date_maj": "2026-03-11",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267185",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267185",
+      "mention": "Élu",
+      "text_de": "<p>Bei der Volksabstimmung vom 8.3.2025 SRG-Initiative hat die SP Schweiz Einnahmen mit angeblichen Rekordkleinstspenden von 1.6 Millionen deklariert. Spenden über 15'000 wurden keine offen gelegt. Kann der Bundesrat bestätigen, dass solche ausserordentlichen Rekordeinnahmen nicht automatisch zu einer Revision führen und dieser Entscheid für eine Revision im Ermessen der EFK liegt?<\/p>"
+    },
     {
       "shortId": "26.7161",
       "title": "A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ?",
