@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-03-11T13:03:36",
+    "updated": "2026-03-11T21:50:10",
     "total_count": 324,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "26.7185"
+    "new_ids": []
   },
   "session_summary": {
     "session_id": "2025-hiver",
@@ -60,7 +60,7 @@
     {
       "shortId": "26.7161",
       "title": "A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ?",
-      "title_de": "Titel folgt",
+      "title_de": "Wann gibt es Lösungsansätze für die ökologische Sanierung der Wasserkraft?",
       "author": "Roduit Benjamin",
       "party": "Le Centre",
       "type": "Fra.",
@@ -72,6 +72,7 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267161",
       "mention": "Élu",
       "text": "<p>Les mesures d’assainissement de l’hydraulique progressent. Or, selon l’OFEV et le Contrôle fédéral des finances, elles exigent des efforts conséquents. Ni le temps imparti ni les moyens financiers prévus ne seront suffisants. L’OFEV a avisé les cantons et les exploitants que ces questions cruciales ainsi que d'autres sur l'utilisation de l’énergie hydraulique seront traitées dans le rapport sur le postulat 23.3007, transmis il y a trois ans déjà.<br>Quand ce rapport sera-t-il effectivement publié ?<\/p>",
+      "text_de": "<p>Die Sanierung der Wasserkraft schreitet voran. Laut dem Bundesamt für Umwelt (BAFU) und der Eidgenössischen Finanzkontrolle sind dafür jedoch erhebliche Anstrengungen erforderlich. Weder die vorgesehene Zeit noch die vorgesehenen finanziellen Mittel werden ausreichen. Das BAFU hat die Kantone und die Betreiberinnen und Betreiber darüber informiert, dass diese und weitere zentrale Fragen zur Nutzung der Wasserkraft im Bericht zum Postulat 23.3007 behandelt werden, das bereits vor drei Jahren eingereicht wurde.<br>Wann wird dieser Bericht effektiv veröffentlicht?<\/p>",
       "tags": "Environnement|Énergie",
       "tags_de": "Umwelt|Energie",
       "tags_it": "Ambiente|Energia"
