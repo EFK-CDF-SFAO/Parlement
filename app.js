@@ -855,7 +855,7 @@ function createCard(item, searchTerm) {
     const frMissing = isTitleMissing(item.title);
     const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de);
     const title = highlightText(displayTitle, searchTerm);
-    const langWarning = frMissing && item.title_de ? '<span class="lang-warning">� DE</span>' : '';
+    const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🌐 Uniquement en allemand</span>' : '';
     
     const authorName = translateAuthor(item.author || '');
     const partyFR = translateParty(item.party || '');
