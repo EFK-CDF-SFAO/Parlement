@@ -661,7 +661,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         // Gestion titre manquant
         const frMissing = isTitleMissing(item.title);
         const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de || '');
-        const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🇩🇪 Pour le moment uniquement disponible en allemand</span>' : '';
+        const langWarning = frMissing && item.title_de ? '<span class="lang-warning">� DE</span>' : '';
         
         // Bande verte si déposé il y a moins de 4 jours
         const itemDate = new Date(item.date + 'T12:00:00');

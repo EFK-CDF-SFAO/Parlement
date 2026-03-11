@@ -808,10 +808,10 @@ function createCard(item, searchTerm) {
         displayTitle = item.title_it;
     } else if (hasFR) {
         displayTitle = item.title;
-        langWarning = '<span class="lang-warning">🇫🇷 Solo in francese</span>';
+        langWarning = '<span class="lang-warning">� FR</span>';
     } else if (hasDE) {
         displayTitle = item.title_de;
-        langWarning = '<span class="lang-warning">🇩🇪 Solo in tedesco</span>';
+        langWarning = '<span class="lang-warning">� DE</span>';
     } else {
         displayTitle = item.title || item.title_de || '';
     }

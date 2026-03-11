@@ -812,7 +812,7 @@ function createCard(item, searchTerm) {
     const deMissing = isTitleMissing(item.title_de);
     const displayTitle = deMissing && item.title ? item.title : (item.title_de || item.title);
     const title = highlightText(displayTitle, searchTerm);
-    const langWarning = deMissing && item.title ? '<span class="lang-warning">🇫🇷 Derzeit nur auf Französisch verfügbar</span>' : '';
+    const langWarning = deMissing && item.title ? '<span class="lang-warning">� FR</span>' : '';
     
     const authorName = translateAuthor(item.author || '');
     const partyDE = translateParty(item.party || '');

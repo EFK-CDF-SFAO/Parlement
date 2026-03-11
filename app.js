@@ -541,9 +541,6 @@ function applyFilterFromUrl(dropdownId, filterValue) {
     });
     
     updateFilterCount(dropdownId);
-}
-
-function getLegislature(date) {
     if (!date) return null;
     // 52ème législature: à partir de décembre 2023 (session d'hiver 2023)
     // 51ème législature: décembre 2019 - septembre 2023
@@ -858,7 +855,7 @@ function createCard(item, searchTerm) {
     const frMissing = isTitleMissing(item.title);
     const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de);
     const title = highlightText(displayTitle, searchTerm);
-    const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🇩🇪 Uniquement en allemand pour le moment</span>' : '';
+    const langWarning = frMissing && item.title_de ? '<span class="lang-warning">� DE</span>' : '';
     
     const authorName = translateAuthor(item.author || '');
     const partyFR = translateParty(item.party || '');
