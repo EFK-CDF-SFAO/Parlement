@@ -30,7 +30,7 @@ const LLM_CONFIG = {
     // Gemini config (Google) - usage local uniquement
     gemini: {
         get apiKey() { return typeof LLM_API_KEYS !== 'undefined' ? LLM_API_KEYS.gemini : ''; },
-        model: 'gemini-flash-lite-latest',
+        model: 'gemini-flash-latest',
         maxTokens: 4000
     },
     
