@@ -40,7 +40,6 @@ Generate AI-powered summaries of parliamentary debates with one click:
 - **Model**: Google Gemini Flash (via Cloudflare Worker proxy)
 - **Languages**: FR, DE, IT
 - **Content**: Context, speaker positions, consensus points, divergences
-- **Cost**: Free (up to 1500 summaries/day)
 
 ### 🏛️ Live Session Animation
 During parliamentary sessions, the homepage displays an animated pixel art Federal Palace:
