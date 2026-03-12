@@ -27,10 +27,11 @@ const LLM_CONFIG = {
         maxTokens: 1000
     },
     
-    // Gemini config (Google)
+    // Gemini config (Google) - via Cloudflare Worker proxy
     gemini: {
         get apiKey() { return typeof LLM_API_KEYS !== 'undefined' ? LLM_API_KEYS.gemini : ''; },
-        model: 'gemini-flash-latest',
+        workerUrl: 'https://gemini-proxy.cloudflare-resent579.workers.dev',
+        model: 'gemini-2.0-flash',
         maxTokens: 4000
     },
     
@@ -45,7 +46,8 @@ function isLLMAvailable() {
         return true; // Ollama n'a pas besoin de clé
     }
     if (LLM_CONFIG.provider === 'gemini') {
-        return typeof LLM_API_KEYS !== 'undefined' && LLM_API_KEYS.gemini && LLM_API_KEYS.gemini !== 'votre-cle-gemini-ici';
+        // Disponible via Worker Cloudflare OU clé locale
+        return LLM_CONFIG.gemini.workerUrl || (typeof LLM_API_KEYS !== 'undefined' && LLM_API_KEYS.gemini && LLM_API_KEYS.gemini !== 'votre-cle-gemini-ici');
     }
     if (LLM_CONFIG.provider === 'openai') {
         return typeof LLM_API_KEYS !== 'undefined' && LLM_API_KEYS.openai && LLM_API_KEYS.openai !== 'sk-proj-votre-cle-openai-ici';
@@ -268,28 +270,34 @@ async function callLLM(prompt) {
 }
 
 /**
- * Appelle l'API Gemini (Google)
+ * Appelle l'API Gemini (via Cloudflare Worker proxy ou clé locale)
  */
 async function callGemini(prompt, locale) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${LLM_CONFIG.gemini.model}:generateContent?key=${LLM_CONFIG.gemini.apiKey}`;
+    // Utiliser le Worker Cloudflare si configuré, sinon la clé locale
+    const useWorker = LLM_CONFIG.gemini.workerUrl && !LLM_CONFIG.gemini.apiKey;
+    const url = useWorker 
+        ? LLM_CONFIG.gemini.workerUrl
+        : `https://generativelanguage.googleapis.com/v1beta/models/${LLM_CONFIG.gemini.model}:generateContent?key=${LLM_CONFIG.gemini.apiKey}`;
+    
+    const requestBody = {
+        contents: [{
+            parts: [{
+                text: `${locale.systemPrompt}\n\n${prompt}`
+            }]
+        }],
+        generationConfig: {
+            temperature: LLM_CONFIG.temperature,
+            maxOutputTokens: LLM_CONFIG.gemini.maxTokens,
+            responseMimeType: 'text/plain'
+        }
+    };
     
     const response = await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            contents: [{
-                parts: [{
-                    text: `${locale.systemPrompt}\n\n${prompt}`
-                }]
-            }],
-            generationConfig: {
-                temperature: LLM_CONFIG.temperature,
-                maxOutputTokens: LLM_CONFIG.gemini.maxTokens,
-                responseMimeType: 'text/plain'
-            }
-        })
+        body: JSON.stringify(requestBody)
     });
     
     if (!response.ok) {
@@ -299,7 +307,7 @@ async function callGemini(prompt, locale) {
     
     const data = await response.json();
     
-    // Gemini 2.5 peut retourner plusieurs parts (thinking + response)
+    // Gemini peut retourner plusieurs parts (thinking + response)
     const parts = data.candidates[0].content.parts;
     // Prendre la dernière part qui contient la réponse finale
     return parts[parts.length - 1].text;
