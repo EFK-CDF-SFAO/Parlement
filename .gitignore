@@ -2,6 +2,9 @@
 new_ids_tracking.json
 new_ids_debates_tracking.json
 
+# Clés API (ne jamais commiter)
+llm_config.js
+
 # macOS
 .DS_Store
 

@@ -2189,3 +2189,278 @@ a.author-row {
         font-size: 0.7rem;
     }
 }
+
+/* ===== LLM Summary Modal ===== */
+.summary-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.summary-modal-content {
+    background: var(--surface);
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.summary-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+.summary-modal-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.summary-modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.summary-modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.summary-modal-subtitle {
+    padding: 1rem 1.5rem 0;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.summary-modal-meta {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.summary-modal-body {
+    padding: 1rem 1.5rem 1.25rem;
+    line-height: 1.5;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.summary-modal-body h2 {
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin: 0.8rem 0 0.02rem;
+    padding-bottom: 0;
+    border-bottom: none;
+    font-weight: 600;
+}
+
+.summary-modal-body h3 {
+    font-size: 0.95rem;
+    color: var(--secondary);
+    margin: 0.6rem 0 0.02rem;
+    font-weight: 600;
+}
+
+.summary-modal-body h4 {
+    font-size: 0.85rem;
+    color: var(--text);
+    margin: 0.25rem 0 0.05rem;
+    font-weight: 400;
+}
+
+.summary-modal-body p {
+    margin-bottom: 0.15rem;
+    margin-top: 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.summary-modal-body ul {
+    margin: 0.25rem 0 0.4rem 1.25rem;
+    list-style-type: disc;
+}
+
+.summary-modal-body li {
+    margin-bottom: 0.2rem;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.summary-section {
+    margin-bottom: 0.3rem;
+    padding-left: 0;
+}
+
+.summary-modal-body strong {
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* Séparer les interventions des orateurs */
+.summary-modal-body p {
+    margin-bottom: 0.5rem;
+}
+
+.summary-modal-body p.speaker {
+    margin-top: 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+}
+
+.summary-modal-body h2:first-of-type {
+    margin-top: 0;
+}
+
+.summary-modal-footer {
+    padding: 0.75rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: #f9f9f9;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.summary-disclaimer {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.btn-copy-summary {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-copy-summary:hover {
+    background: #002277;
+}
+
+.btn-copy-summary.copied {
+    background: var(--success);
+}
+
+/* Loading state */
+.summary-loading {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.summary-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.summary-loading p {
+    margin: 0.5rem 0;
+}
+
+.summary-loading-hint {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Summary button in cards */
+.btn-summary {
+    background: linear-gradient(135deg, var(--secondary) 0%, #002277 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s;
+    margin-top: 0.75rem;
+    margin-left: 0.5rem;
+}
+
+.btn-summary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 51, 153, 0.3);
+}
+
+.btn-summary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 600px) {
+    .summary-modal-content {
+        max-height: 90vh;
+        border-radius: 8px;
+    }
+    
+    .summary-modal-header {
+        padding: 1rem;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .summary-modal-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .summary-modal-body {
+        padding: 1rem;
+    }
+}
