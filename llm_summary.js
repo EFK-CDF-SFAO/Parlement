@@ -37,6 +37,22 @@ const LLM_CONFIG = {
     temperature: 0.3
 };
 
+/**
+ * Vérifie si le LLM est disponible (clé API configurée)
+ */
+function isLLMAvailable() {
+    if (LLM_CONFIG.provider === 'ollama') {
+        return true; // Ollama n'a pas besoin de clé
+    }
+    if (LLM_CONFIG.provider === 'gemini') {
+        return typeof LLM_API_KEYS !== 'undefined' && LLM_API_KEYS.gemini && LLM_API_KEYS.gemini !== 'votre-cle-gemini-ici';
+    }
+    if (LLM_CONFIG.provider === 'openai') {
+        return typeof LLM_API_KEYS !== 'undefined' && LLM_API_KEYS.openai && LLM_API_KEYS.openai !== 'sk-proj-votre-cle-openai-ici';
+    }
+    return false;
+}
+
 // Détection automatique de la langue selon la page
 function detectLanguage() {
     const path = window.location.pathname;

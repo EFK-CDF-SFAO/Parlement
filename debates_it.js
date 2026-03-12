@@ -799,6 +799,19 @@ function createCard(item, searchTerm = '') {
         card.appendChild(expandBtn);
     }
     
+    // Bouton de résumé IA (uniquement si clé API configurée localement)
+    if (item.business_number && typeof handleSummaryClick === 'function' && typeof isLLMAvailable === 'function' && isLLMAvailable()) {
+        const locale = typeof getLocale === 'function' ? getLocale() : { btnText: '🤖 Riassumi questo oggetto', btnTitle: 'Genera un riassunto IA' };
+        const summaryBtn = document.createElement('button');
+        summaryBtn.className = 'btn-summary';
+        summaryBtn.innerHTML = locale.btnText;
+        summaryBtn.title = locale.btnTitle;
+        summaryBtn.addEventListener('click', () => {
+            handleSummaryClick(item.business_number, businessTitle, allData);
+        });
+        card.appendChild(summaryBtn);
+    }
+    
     return card;
 }
 

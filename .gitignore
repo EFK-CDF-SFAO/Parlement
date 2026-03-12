@@ -2,6 +2,8 @@
 new_ids_tracking.json
 new_ids_debates_tracking.json
 
+# Clés API LLM (usage local uniquement)
+llm_config.js
 
 # macOS
 .DS_Store

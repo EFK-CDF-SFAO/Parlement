@@ -847,6 +847,18 @@ function createCard(item, searchTerm = '') {
         card.appendChild(expandBtn);
     }
     
+    // Bouton de résumé IA (uniquement si clé API configurée localement)
+    if (item.business_number && typeof handleSummaryClick === 'function' && typeof isLLMAvailable === 'function' && isLLMAvailable()) {
+        const summaryBtn = document.createElement('button');
+        summaryBtn.className = 'btn-summary';
+        summaryBtn.innerHTML = '🤖 Résumer cet objet';
+        summaryBtn.title = 'Générer un résumé IA des débats sur cet objet';
+        summaryBtn.addEventListener('click', () => {
+            handleSummaryClick(item.business_number, businessTitle, allData);
+        });
+        card.appendChild(summaryBtn);
+    }
+    
     return card;
 }
 
