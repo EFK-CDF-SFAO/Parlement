@@ -7,12 +7,12 @@
 
 // Mapping des body_key/body_name vers les IDs des cantons
 const CANTON_MAPPING = {
-    // Noms complets vers codes
-    'Zürich': 'ZH', 'Kanton Zürich': 'ZH', 'Stadt Zürich': 'ZH',
-    'Bern': 'BE', 'Bern/Berne': 'BE', 'Kanton Bern': 'BE',
-    'Luzern': 'LU', 'Kanton Luzern': 'LU',
+    // Noms utilisés dans les données cantonales
+    'Zurich (Ville)': 'ZH', 'Zürich': 'ZH', 'Kanton Zürich': 'ZH', 'Stadt Zürich': 'ZH',
+    'Berne': 'BE', 'Bern': 'BE', 'Bern/Berne': 'BE', 'Kanton Bern': 'BE',
+    'Luzern': 'LU', 'Lucerne': 'LU', 'Kanton Luzern': 'LU',
     'Uri': 'UR', 'Schwyz': 'SZ', 'Obwalden': 'OW', 'Nidwalden': 'NW',
-    'Glarus': 'GL', 'Zug': 'ZG',
+    'Glarus': 'GL', 'Zoug': 'ZG', 'Zug': 'ZG',
     'Fribourg': 'FR', 'Freiburg': 'FR', 'Fribourg/Freiburg': 'FR',
     'Solothurn': 'SO', 'Soleure': 'SO',
     'Basel-Stadt': 'BS', 'Bâle-Ville': 'BS',
@@ -93,8 +93,6 @@ async function initSwissMap(affairs, lang = 'fr') {
         // Créer le SVG à partir du GeoJSON
         createSvgMap(mapContainer);
         
-        // Créer la légende
-        createLegend();
         
     } catch (error) {
         console.error('Erreur chargement carte:', error);
