@@ -221,7 +221,7 @@ function countInterventionsByCanton(affairs) {
 }
 
 /**
- * Active/désactive le filtre par canton
+ * Active/désactive le filtre par canton (depuis la carte)
  */
 function toggleCantonFilter(cantonId) {
     const cantonSelect = document.getElementById('cantonFilter');
@@ -234,50 +234,71 @@ function toggleCantonFilter(cantonId) {
     } else {
         selectedCanton = cantonId;
         
-        // Trouver le nom du canton correspondant dans le select
-        const cantonName = findCantonNameInSelect(cantonId);
-        if (cantonName) {
-            cantonSelect.value = cantonName;
-        }
+        // Réinitialiser le select (on filtre via la carte, pas le select)
+        cantonSelect.value = '';
         
         // Highlight visuel
         document.querySelectorAll('.canton').forEach(c => c.classList.remove('active'));
         document.getElementById(cantonId)?.classList.add('active');
     }
     
-    // Déclencher le filtre
-    filterAffairs();
+    // Déclencher le filtre personnalisé
+    filterByCantonCode();
 }
 
 /**
- * Trouve le nom du canton dans le select
+ * Filtre les affaires par code canton (ZH, BE, etc.)
+ * Rassemble toutes les variantes (Canton, Ville, etc.)
  */
-function findCantonNameInSelect(cantonId) {
-    const cantonSelect = document.getElementById('cantonFilter');
-    
-    for (let option of cantonSelect.options) {
-        const value = option.value;
-        if (CANTON_MAPPING[value] === cantonId) {
-            return value;
-        }
+function filterByCantonCode() {
+    if (!selectedCanton) {
+        // Pas de filtre carte, utiliser le filtre normal
+        filterAffairs();
+        return;
     }
-    return null;
+    
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    
+    // Récupérer les années sélectionnées
+    let selectedYears = new Set();
+    document.querySelectorAll('#yearDropdown input[type="checkbox"]:checked').forEach(cb => {
+        selectedYears.add(parseInt(cb.value));
+    });
+    
+    const filtered = allAffairs.filter(affair => {
+        // Filtre recherche
+        const title = (affair.title || '').toLowerCase();
+        const body = affair.body_name || '';
+        const matchesSearch = !searchTerm || title.includes(searchTerm) || body.toLowerCase().includes(searchTerm);
+        
+        // Filtre canton via la carte - accepte toutes les variantes du canton
+        const cantonCode = CANTON_MAPPING[body] || CANTON_MAPPING[affair.body_key];
+        const matchesCanton = cantonCode === selectedCanton;
+        
+        // Filtre année
+        const affairYear = affair.begin_date ? new Date(affair.begin_date).getFullYear() : null;
+        const matchesYear = selectedYears.size === 0 || selectedYears.has(affairYear);
+        
+        return matchesSearch && matchesCanton && matchesYear;
+    });
+    
+    renderAffairs(filtered);
 }
 
 /**
  * Met à jour la sélection visuelle sur la carte depuis le select
+ * et désactive le filtre carte pour utiliser le filtre select
  */
 function updateMapFromSelect(selectValue) {
+    // Désactiver le filtre carte quand on utilise le select
+    selectedCanton = null;
     document.querySelectorAll('.canton').forEach(c => c.classList.remove('active'));
     
     if (selectValue) {
         const cantonId = CANTON_MAPPING[selectValue];
         if (cantonId) {
-            selectedCanton = cantonId;
             document.getElementById(cantonId)?.classList.add('active');
         }
-    } else {
-        selectedCanton = null;
     }
 }
 
