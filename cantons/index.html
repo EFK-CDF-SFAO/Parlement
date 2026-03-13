@@ -316,6 +316,96 @@
             border-radius: 2px;
         }
 
+        /* Carte interactive */
+        .map-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .map-section h2 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .map-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #swiss-map-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        #swiss-map-container svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .map-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .map-tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+        }
+
+        .canton.active {
+            stroke: var(--secondary-color) !important;
+            stroke-width: 3 !important;
+        }
+
+        @media (max-width: 768px) {
+            .map-container {
+                flex-direction: column;
+            }
+            
+            #swiss-map-container {
+                max-width: 100%;
+            }
+            
+            .map-legend {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
         .no-results {
             text-align: center;
             padding: 3rem;
@@ -388,6 +478,15 @@
             </div>
         </div>
 
+        <!-- Carte interactive -->
+        <div class="map-section">
+            <h2>🗺️ Interventions par canton</h2>
+            <div class="map-container">
+                <div id="swiss-map-container"></div>
+                <div id="map-legend" class="map-legend"></div>
+            </div>
+        </div>
+
         <div class="results-count" id="resultsCount"></div>
 
         <div class="affairs-list" id="affairsList">
@@ -401,6 +500,7 @@
         <p>Source: Contrôle fédéral des finances (CDF/EFK)</p>
     </footer>
 
+    <script src="swiss_map.js"></script>
     <script>
         let allAffairs = [];
         let cantons = new Set();
@@ -423,6 +523,9 @@
 
                 populateFilters();
                 renderAffairs(allAffairs);
+                
+                // Initialiser la carte interactive
+                initSwissMap(allAffairs, 'fr');
             } catch (error) {
                 console.error('Error loading data:', error);
                 document.getElementById('affairsList').innerHTML = `
@@ -676,7 +779,10 @@
 
         // Event listeners
         document.getElementById('searchInput').addEventListener('input', filterAffairs);
-        document.getElementById('cantonFilter').addEventListener('change', filterAffairs);
+        document.getElementById('cantonFilter').addEventListener('change', (e) => {
+            updateMapFromSelect(e.target.value);
+            filterAffairs();
+        });
         document.getElementById('yearFilter').addEventListener('change', filterAffairs);
 
         // Load data on page load
