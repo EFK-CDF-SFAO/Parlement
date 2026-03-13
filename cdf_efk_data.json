@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-03-12T21:47:14",
+    "updated": "2026-03-13T13:00:55",
     "total_count": 324,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -56,7 +56,10 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267185",
       "mention": "Élu",
       "text": "<p>Dans le cadre de la votation populaire du 8&nbsp;mars 2025 sur l’initiative SSR, le PS Suisse a déclaré des recettes record (selon ses dires) d’un montant de 1,6&nbsp;million. Aucune information n’a été révélée sur des dons supérieurs à 15&nbsp;000&nbsp;francs.&nbsp;<br>Le Conseil fédéral peut-il confirmer que le CDF ne révise pas systématiquement ce genre de recettes record et qu’il lui appartient de décider s’il entend procéder à une révision ou non&nbsp;?<\/p>",
-      "text_de": "<p>Bei der Volksabstimmung vom 8.3.2025 SRG-Initiative hat die SP Schweiz Einnahmen mit angeblichen Rekordkleinstspenden von 1.6 Millionen deklariert. Spenden über 15'000 wurden keine offen gelegt.&nbsp;<br>Kann der Bundesrat bestätigen, dass solche ausserordentlichen Rekordeinnahmen nicht automatisch zu einer Revision führen und dieser Entscheid für eine Revision im Ermessen der EFK liegt?<\/p>"
+      "text_de": "<p>Bei der Volksabstimmung vom 8.3.2025 SRG-Initiative hat die SP Schweiz Einnahmen mit angeblichen Rekordkleinstspenden von 1.6 Millionen deklariert. Spenden über 15'000 wurden keine offen gelegt.&nbsp;<br>Kann der Bundesrat bestätigen, dass solche ausserordentlichen Rekordeinnahmen nicht automatisch zu einer Revision führen und dieser Entscheid für eine Revision im Ermessen der EFK liegt?<\/p>",
+      "tags": "Politique d'Etat",
+      "tags_de": "Staatspolitik",
+      "tags_it": "Politica nazionale"
     },
     {
       "shortId": "26.7161",
