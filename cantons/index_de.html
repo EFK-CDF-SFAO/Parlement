@@ -810,8 +810,9 @@
                 const matchesSearch = !search || title.includes(search) || titleLong.includes(search);
                 const matchesCanton = !canton || body === canton;
                 const matchesYear = selectedYears.size === 0 || selectedYears.has(affairYear);
+                const matchesMap = matchesSelectedCanton(affair); // Kartenfilter
 
-                return matchesSearch && matchesCanton && matchesYear;
+                return matchesSearch && matchesCanton && matchesYear && matchesMap;
             });
 
             renderAffairs(filtered);
