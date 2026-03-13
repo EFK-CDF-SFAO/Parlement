@@ -760,20 +760,18 @@
                     `;
                 }
                 
-                // Build documents section (prefer DE documents)
+                // Build documents section - use external URL (document page) instead of direct PDF
                 let docsHtml = '';
                 const efkDocsDe = affair.efk_documents_de || [];
                 const efkDocsFr = affair.efk_documents || [];
                 const efkDocs = efkDocsDe.length > 0 ? efkDocsDe : efkDocsFr;
                 
                 if (efkDocs.length > 0) {
+                    // Use document page URL instead of direct PDF link
+                    const docPageUrl = affair.url_external_de || affair.url_external_fr || url;
                     docsHtml = '<div class="documents-section">';
-                    efkDocs.forEach((doc, index) => {
-                        if (doc.url) {
-                            const label = efkDocs.length > 1 ? `Dokument ${index + 1}` : 'Dokument';
-                            docsHtml += `<a href="${doc.url}" target="_blank" class="doc-link efk-doc" title="${doc.name || 'Dokument'}">📄 ${label}</a>`;
-                        }
-                    });
+                    const label = efkDocs.length > 1 ? `${efkDocs.length} Dokumente` : 'Dokument';
+                    docsHtml += `<a href="${docPageUrl}" target="_blank" class="doc-link efk-doc" title="Dokumente ansehen">📄 ${label}</a>`;
                     docsHtml += '</div>';
                 }
 
