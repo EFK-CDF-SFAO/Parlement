@@ -1,47 +1,33 @@
 /**
  * Module de carte interactive de la Suisse
+ * Utilise les données GeoJSON officielles de Swisstopo
  * Affiche les cantons colorés selon le nombre d'interventions
  * Permet de filtrer par canton en cliquant
  */
 
-// Mapping des body_key/body_name vers les IDs SVG des cantons
+// Mapping des body_key/body_name vers les IDs des cantons
 const CANTON_MAPPING = {
-    // Cantons avec leur code ISO
-    'Zürich': 'ZH',
-    'Kanton Zürich': 'ZH',
-    'Stadt Zürich': 'ZH',  // Fusionné avec le canton
-    'Bern': 'BE',
-    'Kanton Bern': 'BE',
-    'Luzern': 'LU',
-    'Kanton Luzern': 'LU',
-    'Uri': 'UR',
-    'Schwyz': 'SZ',
-    'Obwalden': 'OW',
-    'Nidwalden': 'NW',
-    'Glarus': 'GL',
-    'Zug': 'ZG',
-    'Fribourg': 'FR',
-    'Freiburg': 'FR',
-    'Solothurn': 'SO',
-    'Basel-Stadt': 'BS',
-    'Basel-Landschaft': 'BL',
-    'Schaffhausen': 'SH',
-    'Appenzell Ausserrhoden': 'AR',
-    'Appenzell Innerrhoden': 'AI',
-    'St. Gallen': 'SG',
-    'Graubünden': 'GR',
-    'Aargau': 'AG',
-    'Thurgau': 'TG',
-    'Ticino': 'TI',
-    'Tessin': 'TI',
-    'Vaud': 'VD',
-    'Waadt': 'VD',
-    'Valais': 'VS',
-    'Wallis': 'VS',
-    'Neuchâtel': 'NE',
-    'Neuenburg': 'NE',
-    'Genève': 'GE',
-    'Genf': 'GE',
+    // Noms complets vers codes
+    'Zürich': 'ZH', 'Kanton Zürich': 'ZH', 'Stadt Zürich': 'ZH',
+    'Bern': 'BE', 'Bern/Berne': 'BE', 'Kanton Bern': 'BE',
+    'Luzern': 'LU', 'Kanton Luzern': 'LU',
+    'Uri': 'UR', 'Schwyz': 'SZ', 'Obwalden': 'OW', 'Nidwalden': 'NW',
+    'Glarus': 'GL', 'Zug': 'ZG',
+    'Fribourg': 'FR', 'Freiburg': 'FR', 'Fribourg/Freiburg': 'FR',
+    'Solothurn': 'SO', 'Soleure': 'SO',
+    'Basel-Stadt': 'BS', 'Bâle-Ville': 'BS',
+    'Basel-Landschaft': 'BL', 'Bâle-Campagne': 'BL',
+    'Schaffhausen': 'SH', 'Schaffhouse': 'SH',
+    'Appenzell Ausserrhoden': 'AR', 'Appenzell Innerrhoden': 'AI',
+    'St. Gallen': 'SG', 'Saint-Gall': 'SG',
+    'Graubünden': 'GR', 'Grisons': 'GR', 'Grigioni': 'GR',
+    'Aargau': 'AG', 'Argovie': 'AG',
+    'Thurgau': 'TG', 'Thurgovie': 'TG',
+    'Ticino': 'TI', 'Tessin': 'TI',
+    'Vaud': 'VD', 'Waadt': 'VD',
+    'Valais': 'VS', 'Wallis': 'VS', 'Valais/Wallis': 'VS',
+    'Neuchâtel': 'NE', 'Neuenburg': 'NE',
+    'Genève': 'GE', 'Genf': 'GE',
     'Jura': 'JU',
     // Codes directs
     'ZH': 'ZH', 'BE': 'BE', 'LU': 'LU', 'UR': 'UR', 'SZ': 'SZ',
@@ -85,6 +71,7 @@ const BASE_COLOR = '#003399';
 let cantonCounts = {};
 let selectedCanton = null;
 let mapLang = 'fr';
+let geoData = null;
 
 /**
  * Initialise la carte avec les données
@@ -92,23 +79,19 @@ let mapLang = 'fr';
 async function initSwissMap(affairs, lang = 'fr') {
     mapLang = lang;
     
-    // Charger le SVG
     const mapContainer = document.getElementById('swiss-map-container');
     if (!mapContainer) return;
     
     try {
-        const response = await fetch('swiss_map.svg');
-        const svgText = await response.text();
-        mapContainer.innerHTML = svgText;
+        // Charger le GeoJSON
+        const response = await fetch('swiss-cantons.geojson');
+        geoData = await response.json();
         
         // Compter les interventions par canton
         countInterventionsByCanton(affairs);
         
-        // Colorier la carte
-        colorizeMap();
-        
-        // Ajouter les événements de clic
-        setupMapEvents();
+        // Créer le SVG à partir du GeoJSON
+        createSvgMap(mapContainer);
         
         // Créer la légende
         createLegend();
@@ -117,6 +100,105 @@ async function initSwissMap(affairs, lang = 'fr') {
         console.error('Erreur chargement carte:', error);
         mapContainer.innerHTML = '<p style="text-align:center;color:#666;">Carte non disponible</p>';
     }
+}
+
+/**
+ * Crée le SVG de la carte à partir du GeoJSON
+ */
+function createSvgMap(container) {
+    const width = 500;
+    const height = 340;
+    
+    // Projection pour la Suisse
+    const bounds = getBounds(geoData);
+    const scale = Math.min(
+        width / (bounds.maxX - bounds.minX),
+        height / (bounds.maxY - bounds.minY)
+    ) * 0.95;
+    
+    const centerX = (bounds.minX + bounds.maxX) / 2;
+    const centerY = (bounds.minY + bounds.maxY) / 2;
+    
+    // Créer le SVG
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    svg.setAttribute('id', 'swiss-map');
+    
+    // Dessiner chaque canton
+    geoData.features.forEach(feature => {
+        const cantonId = feature.properties.id;
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('id', cantonId);
+        path.setAttribute('class', 'canton');
+        path.setAttribute('d', geoToPath(feature.geometry, centerX, centerY, scale, width, height));
+        
+        // Colorer selon le nombre d'interventions
+        const count = cantonCounts[cantonId] || 0;
+        const maxCount = Math.max(...Object.values(cantonCounts), 1);
+        
+        if (count > 0) {
+            const intensity = 0.2 + (count / maxCount) * 0.8;
+            path.style.fill = BASE_COLOR;
+            path.style.opacity = intensity;
+        } else {
+            path.style.fill = '#e0e0e0';
+            path.style.opacity = 1;
+        }
+        
+        // Événements
+        path.addEventListener('click', () => toggleCantonFilter(cantonId));
+        path.addEventListener('mouseenter', (e) => showTooltip(e, cantonId));
+        path.addEventListener('mouseleave', hideTooltip);
+        
+        svg.appendChild(path);
+    });
+    
+    container.innerHTML = '';
+    container.appendChild(svg);
+}
+
+/**
+ * Calcule les limites du GeoJSON
+ */
+function getBounds(geojson) {
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    
+    geojson.features.forEach(feature => {
+        const coords = feature.geometry.type === 'Polygon' 
+            ? feature.geometry.coordinates 
+            : feature.geometry.coordinates.flat();
+        
+        coords.forEach(ring => {
+            ring.forEach(([x, y]) => {
+                minX = Math.min(minX, x);
+                minY = Math.min(minY, y);
+                maxX = Math.max(maxX, x);
+                maxY = Math.max(maxY, y);
+            });
+        });
+    });
+    
+    return { minX, minY, maxX, maxY };
+}
+
+/**
+ * Convertit une géométrie GeoJSON en chemin SVG
+ */
+function geoToPath(geometry, centerX, centerY, scale, width, height) {
+    const project = ([x, y]) => {
+        const px = (x - centerX) * scale + width / 2;
+        const py = (centerY - y) * scale + height / 2; // Inverser Y
+        return [px, py];
+    };
+    
+    const rings = geometry.type === 'Polygon' 
+        ? geometry.coordinates 
+        : geometry.coordinates.flat();
+    
+    return rings.map(ring => {
+        const points = ring.map(project);
+        return 'M' + points.map(p => p.join(',')).join('L') + 'Z';
+    }).join(' ');
 }
 
 /**
@@ -138,54 +220,6 @@ function countInterventionsByCanton(affairs) {
     });
     
     return cantonCounts;
-}
-
-/**
- * Colorise la carte selon le nombre d'interventions
- */
-function colorizeMap() {
-    const maxCount = Math.max(...Object.values(cantonCounts), 1);
-    
-    // Parcourir tous les cantons du SVG
-    document.querySelectorAll('.canton').forEach(canton => {
-        const cantonId = canton.id;
-        const count = cantonCounts[cantonId] || 0;
-        
-        if (count > 0) {
-            // Calculer l'opacité (0.2 à 1.0)
-            const intensity = 0.2 + (count / maxCount) * 0.8;
-            canton.style.fill = BASE_COLOR;
-            canton.style.opacity = intensity;
-        } else {
-            canton.style.fill = '#e0e0e0';
-            canton.style.opacity = 1;
-        }
-        
-        // Tooltip
-        const cantonName = CANTON_NAMES[mapLang][cantonId] || cantonId;
-        canton.setAttribute('title', `${cantonName}: ${count} intervention${count > 1 ? 's' : ''}`);
-    });
-}
-
-/**
- * Configure les événements de clic sur la carte
- */
-function setupMapEvents() {
-    document.querySelectorAll('.canton').forEach(canton => {
-        canton.addEventListener('click', (e) => {
-            const cantonId = e.target.id;
-            toggleCantonFilter(cantonId);
-        });
-        
-        // Tooltip au survol
-        canton.addEventListener('mouseenter', (e) => {
-            showTooltip(e, canton.id);
-        });
-        
-        canton.addEventListener('mouseleave', () => {
-            hideTooltip();
-        });
-    });
 }
 
 /**
