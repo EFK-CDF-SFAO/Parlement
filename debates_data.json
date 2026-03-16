@@ -1,10 +1,10 @@
 {
   "meta": {
     "sessions": "5212",
-    "count": 741,
-    "updated": "2026-03-16 13:31:38.840242"
+    "count": 742,
+    "updated": "2026-03-16 21:41:20.400375"
   },
-  "new_ids": [],
+  "new_ids": "371782",
   "items": [
     {
       "id": "191252",
@@ -14558,6 +14558,25 @@
       "business_title_it": "Preventivo 2026 con piano integrato dei compiti e delle finanze 2027-2029",
       "department": "EFD",
       "text": "Ich vertrete hier meine Minderheit II, eine starke Minderheit zur Massnahme 29, \"Aufhebung der Förderbestimmungen im Weiterbildungsgesetz\". Die Finanzkommission hat hier mit 13 zu 12 Stimmen entschieden.\nWir beantragen Ihnen, dem Entwurf des Bundesrates zu folgen. \nDas Weiterbildungsgesetz ist 2017 in Kraft getreten. Hier geht es in erster Linie um Unterstützungsbeiträge in der Erwachsenenbildung. Der Weiterbildungsmarkt ist privatwirtschaftlich organisiert und funktioniert zu weiten Teilen ohne staatliche Eingriffe. Auch ist gemäss einer Überprüfung der Eidgenössischen Finanzkontrolle aus dem Jahr 2021 unklar, für welche Leistungen die Organisationen der Weiterbildung überhaupt Beiträge erhalten und welche Wirkung diese Beiträge im gesamten Weiterbildungssystem entfalten. Es sind also sozusagen Beiträge, die gemäss Bundesrat durchaus gekürzt werden können. Natürlich ist es den Kantonen selbst überlassen, in welchem Umfang sie in Zukunft die Erwachsenenbildung fördern wollen. \nDaher unterstützen wir den Entwurf des Bundesrates, und wir empfehlen Ihnen, dies auch zu tun.\n",
+      "language": "DE"
+    },
+    {
+      "id": "371782",
+      "id_subject": "70825",
+      "id_session": "5212",
+      "sort_order": 1,
+      "date": "20260316",
+      "council": "N",
+      "speaker": "Keller-Sutter Karin",
+      "function_speaker": "BR-F",
+      "canton": "SG",
+      "affair_id": "20267185",
+      "business_number": "26.7185",
+      "business_title_fr": "Le CDF révise-t-il systématiquement les financements de campagnes extraordinaires ?",
+      "business_title_de": "Führt die EFK bei ausserordentlichen Kampagnenfinanzierungen automatisch eine Revision durch?",
+      "business_title_it": "Heure des questions.\nQuestion Dobler Marcel.\nLe CDF révise-t-il\nsystématiquement les financements\nde campagnes extraordinaires ?",
+      "department": "EFD",
+      "text": "Artikel 76e Absatz 1 BPR schreibt vor, dass die Kontrolle über die Korrektheit der Angaben und Dokumente lediglich stichprobenweise erfolgt. Die Eidgenössische Finanzkontrolle ist die zuständige Kontrollbehörde. Sie nimmt ihre Aufgaben im Rahmen der gesetzlichen Vorschriften selbstständig und unabhängig wahr. Sie wählt die Akteure, die sie prüft, risikoorientiert aus. Sie veröffentlicht die Namen der geprüften Akteure auf ihrer Website.\n",
       "language": "DE"
     },
     {
