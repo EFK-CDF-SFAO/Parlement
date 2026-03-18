@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-03-18T13:13:59",
+    "updated": "2026-03-18T21:54:37",
     "total_count": 324,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -4631,10 +4631,12 @@
       "title_it": "Per finanze federali sane. Ottimizzare l'esame dei sussidi",
       "author": "FDP-Liberale Fraktion",
       "type": "Mo.",
-      "status": "In Ständerat geplant / Planifié au Conseil des Etats",
+      "status": "Erledigt / Liquidé",
       "council": "NR",
       "department": "EFD",
       "date": "2025-09-10",
+      "date_maj": "2026-03-18",
+      "statut_change_date": "2026-03-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253984",
       "mention": "Conseil fédéral",
