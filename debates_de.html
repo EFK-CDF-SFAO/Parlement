@@ -109,6 +109,7 @@
     <button id="scrollTopBtn" class="scroll-top-btn" title="Nach oben">↑</button>
     <script src="llm_config.js"></script>
     <script src="llm_summary.js"></script>
+    <script>if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(r=>r.forEach(r=>r.unregister()));caches.keys().then(n=>n.forEach(n=>caches.delete(n)));}</script>
     <script src="debates_de.js"></script>
     <script>
         const scrollBtn = document.getElementById('scrollTopBtn');
