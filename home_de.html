@@ -125,6 +125,7 @@
     </footer>
 
     <button id="scrollTopBtn" class="scroll-top-btn" title="Nach oben">↑</button>
+    <script>if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(r=>r.forEach(r=>r.unregister()));caches.keys().then(n=>n.forEach(n=>caches.delete(n)));}</script>
     <script src="home_de.js"></script>
     <script>
         const scrollBtn = document.getElementById('scrollTopBtn');
