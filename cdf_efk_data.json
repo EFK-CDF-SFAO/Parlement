@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-03-19T13:06:32",
-    "total_count": 324,
+    "updated": "2026-03-19T21:49:03",
+    "total_count": 325,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.3281"
   },
   "session_summary": {
     "session_id": "2025-hiver",
@@ -41,6 +41,23 @@
     }
   },
   "items": [
+    {
+      "shortId": "26.3281",
+      "title": "Titre suit",
+      "title_de": "Umgang des Bundes mit problematischen Stoffen - PFAS - Kohortenstudie",
+      "title_it": "Titolo segue",
+      "author": "Weichelt Manuela",
+      "party": "VERT-E-S",
+      "type": "Ip.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-03-19",
+      "date_maj": "2026-03-19",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263281",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263281",
+      "mention": "Élu",
+      "text_de": "<p>Im Mai 2024 wurde der&nbsp;<a href=\"https://che01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.efk.admin.ch%2Fwp-content%2Fuploads%2Fpublikationen%2Fberichte%2Fsicherheit_und_umwelt%2Fverkehr_und_umwelt%2F23489%2F23489be-endgueltige-fassung-v04.pdf&amp;data=05%7C02%7Cmanuela.weichelt%40parl.ch%7C88e06422cf774e5bd1f408de85c83fa3%7C0cf3ddc638a5480885f1cae22925a1b0%7C0%7C0%7C639095292418627523%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=IeMVU%2F1hFFBihhELV7SAmFjibLMt%2Fx2qsnlGzjc2IFI%3D&amp;reserved=0\">EFK-Bericht 23489<\/a>&nbsp;zum Umgangs des Bundes mit problematischen Stoffen publiziert. Er kommt zum Schluss, dass die Grundlagen fehlen, um das Ausmass des Vorkommens von problematischen Stoffen in der Umwelt und im Menschen umfassend festzustellen. Die EFK empfiehlt deshalb dem Bund, ein Mindestmass an Beobachtungsstrukturen für problematische Stoffe in der Umwelt und in allen Lebewesen aufzubauen, um frühzeitig besorgniserregende Konzentrationen zu identifizieren. Diese Empfehlung wurde in der Antwort auf meine Frage 25.7601 erneut herausgestrichen.<\/p><p>&nbsp;<\/p><p>Trotzdem wurde im vergangenen Jahr das lange geplante und grossangelegte Humanbiomonitoring-Projekt des Bundes aufgrund der prognostizierten Kosten von CHF 10–12 Mio. jährlich aus Spargründen gestoppt.<\/p><p>&nbsp;<\/p><p>Zu den im EFK-Bericht untersuchten Stoffen gehören unter anderem die PFAS. Im&nbsp;<a href=\"https://che01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.parlament.ch%2Fde%2Fratsbetrieb%2Fsuche-curia-vista%2Fgeschaeft%3FAffairId%3D20224585&amp;data=05%7C02%7Cmanuela.weichelt%40parl.ch%7C88e06422cf774e5bd1f408de85c83fa3%7C0cf3ddc638a5480885f1cae22925a1b0%7C0%7C0%7C639095292418677476%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=z10Tv5jE3IpVBFh0o6UnY90TnVYXr2Y5Ndq3RmW5GVY%3D&amp;reserved=0\">Postulatsbericht 22.4585 Moser<\/a> werden allein die gesundheitlichen Folgekosten der PFAS-Belastung auf CHF 1-1,6 Mrd. jährlich geschätzt.<\/p><p>&nbsp;<\/p><p>Im November 2024 schrieb der Bundesrat zu meinem&nbsp;<a href=\"https://che01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.parlament.ch%2Fde%2Fratsbetrieb%2Fsuche-curia-vista%2Fgeschaeft%3FAffairId%3D20244132&amp;data=05%7C02%7Cmanuela.weichelt%40parl.ch%7C88e06422cf774e5bd1f408de85c83fa3%7C0cf3ddc638a5480885f1cae22925a1b0%7C0%7C0%7C639095292418722671%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=UBwnsioRhMw7aHxnliPc1mu3WpgRQV%2BO6IvjZOdi1ks%3D&amp;reserved=0\">Po. 24.4132<\/a>, dass die Empfehlungen aus dem&nbsp;<a href=\"https://che01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.efk.admin.ch%2Fwp-content%2Fuploads%2Fpublikationen%2Fberichte%2Fsicherheit_und_umwelt%2Fverkehr_und_umwelt%2F23489%2F23489be-endgueltige-fassung-v04.pdf&amp;data=05%7C02%7Cmanuela.weichelt%40parl.ch%7C88e06422cf774e5bd1f408de85c83fa3%7C0cf3ddc638a5480885f1cae22925a1b0%7C0%7C0%7C639095292418760862%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=EgVyMNJbnjFXdus606rdIuOs7%2BpoM3PkpcFpJ3reOmA%3D&amp;reserved=0\">EFK-Bericht 23489<\/a> von den Bundesämtern vertieft geprüft und priorisiert würden, speziell vor dem Hintergrund der limitierten Ressourcen.<\/p><p>&nbsp;<\/p><p>Ich ersuche den Bundesrat um die Beantwortung folgender Fragen:<\/p><p>1. Ist er auch der Meinung, dass die von der EFK empfohlenen Massnahmen rasch geprüft und umgesetzt werden sollen, um hohen Folgekosten durch problematische Stoffe zu vermeiden, insbesondere zu PFAS? Falls nein, warum? Falls ja, wann ist der Prozess abgeschlossen?<br>2.&nbsp;Wo stehen die Bundesämter konkret, fast zwei Jahre nach Veröffentlichung des Berichts und bezüglich der Prüfung, Priorisierung und Umsetzung&nbsp;der Empfehlungen?<br>3.&nbsp;Was ist unter einem «Mindestmass an Beobachtungsstrukturen für problematische Stoffe» zu verstehen? Welche Fortschritte wurden seit Publikation des Berichts erzielt?<br>4.&nbsp;Teilt er die Ansicht, dass ein HBM, wie es umliegende Länder seit Jahren kennen, Klarheit in die PFAS-Belastung der Bevölkerungsgruppen bringen und so fundiertere Entscheidungen hätte ermöglichen können?<br>5.&nbsp;Hätte dies helfen können, die Folgekosten von PFAS zu senken und die Wirksamkeit von Massnahmen besser beurteilen zu können? Falls ja, wie ordnet er die Kosten der Gesundheitsstudie im Verhältnis zu den milliardenschweren Gesundheitskosten von PFAS ein?&nbsp;Falls nein, warum nicht?<\/p>"
+    },
     {
       "shortId": "25.3984",
       "title": "Optimiser l'examen des subventions pour garantir la santé des finances fédérales",
@@ -4302,10 +4319,12 @@
       "author": "Gmür-Schönenberger Andrea",
       "party": "Le Centre",
       "type": "Ip.",
-      "status": "In Ständerat geplant / Planifié au Conseil des Etats",
+      "status": "Erledigt / Liquidé",
       "council": "SR",
       "department": "EDI",
       "date": "2025-12-17",
+      "date_maj": "2026-03-19",
+      "statut_change_date": "2026-03-19",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254594",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254594",
       "mention": "Conseil fédéral",
