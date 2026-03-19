@@ -2,8 +2,8 @@
   "name": "CDF/EFK - Le CDF aux Chambres fédérales",
   "short_name": "CDF Parlement",
   "description": "Suivez les objets parlementaires et débats concernant le Contrôle fédéral des finances",
-  "start_url": "/home.html",
-  "scope": "/",
+  "start_url": "./home.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#EA5A4F",
@@ -40,19 +40,19 @@
     {
       "name": "Objets parlementaires",
       "short_name": "Objets",
-      "url": "/objects.html",
+      "url": "./objects.html",
       "icons": [{"src": "icons/icon-72x72.svg", "sizes": "72x72"}]
     },
     {
       "name": "Débats",
       "short_name": "Débats",
-      "url": "/debates.html",
+      "url": "./debates.html",
       "icons": [{"src": "icons/icon-72x72.svg", "sizes": "72x72"}]
     },
     {
       "name": "Statistiques",
       "short_name": "Stats",
-      "url": "/stats.html",
+      "url": "./stats.html",
       "icons": [{"src": "icons/icon-72x72.svg", "sizes": "72x72"}]
     }
   ]

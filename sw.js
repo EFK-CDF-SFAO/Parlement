@@ -1,49 +1,52 @@
-const CACHE_NAME = 'cdf-parlement-v1';
-const STATIC_CACHE = 'cdf-static-v1';
-const DATA_CACHE = 'cdf-data-v1';
+const CACHE_NAME = 'cdf-parlement-v2';
+const STATIC_CACHE = 'cdf-static-v2';
+const DATA_CACHE = 'cdf-data-v2';
 
-const STATIC_ASSETS = [
-  '/',
-  '/home.html',
-  '/home_de.html',
-  '/home_it.html',
-  '/objects.html',
-  '/objects_de.html',
-  '/objects_it.html',
-  '/debates.html',
-  '/debates_de.html',
-  '/debates_it.html',
-  '/stats.html',
-  '/stats_de.html',
-  '/stats_it.html',
-  '/styles.css',
-  '/session-animation.css',
-  '/home.js',
-  '/home_de.js',
-  '/home_it.js',
-  '/app.js',
-  '/app_de.js',
-  '/app_it.js',
-  '/debates.js',
-  '/debates_de.js',
-  '/debates_it.js',
-  '/stats.js',
-  '/stats_de.js',
-  '/stats_it.js',
-  '/favicon.svg',
-  '/manifest.json',
-  '/assets/css/main.css',
-  '/assets/js/jquery.min.js',
-  '/assets/js/main.js'
+// Base path - adapts to GitHub Pages subdirectory
+const BASE_PATH = self.registration.scope;
+
+const STATIC_FILES = [
+  '',
+  'home.html',
+  'home_de.html',
+  'home_it.html',
+  'objects.html',
+  'objects_de.html',
+  'objects_it.html',
+  'debates.html',
+  'debates_de.html',
+  'debates_it.html',
+  'stats.html',
+  'stats_de.html',
+  'stats_it.html',
+  'styles.css',
+  'session-animation.css',
+  'home.js',
+  'home_de.js',
+  'home_it.js',
+  'app.js',
+  'app_de.js',
+  'app_it.js',
+  'debates.js',
+  'debates_de.js',
+  'debates_it.js',
+  'stats.js',
+  'stats_de.js',
+  'stats_it.js',
+  'favicon.svg',
+  'manifest.json'
 ];
 
-const DATA_URLS = [
-  '/cdf_efk_data.json',
-  '/debates_data.json',
-  '/sessions.json',
-  '/rapports_cdf.json',
-  '/rapports_matches.json'
+const DATA_FILES = [
+  'cdf_efk_data.json',
+  'debates_data.json',
+  'sessions.json',
+  'rapports_cdf.json',
+  'rapports_matches.json'
 ];
+
+const STATIC_ASSETS = STATIC_FILES.map(f => BASE_PATH + f);
+const DATA_URLS = DATA_FILES.map(f => BASE_PATH + f);
 
 self.addEventListener('install', (event) => {
   console.log('[SW] Installation...');
