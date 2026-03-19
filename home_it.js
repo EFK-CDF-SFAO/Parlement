@@ -77,7 +77,7 @@ const partyColors = {
 
 // Emojis per le citazioni CDF
 function getMentionEmojis(mention) {
-    if (!mention) return { emojis: '🧑', tooltip: "L'autore cita il CDF" };
+    if (!mention) return { emojis: '', tooltip: '' };
     const hasElu = mention.includes('Élu');
     const hasCF = mention.includes('Conseil fédéral');
     
@@ -85,8 +85,10 @@ function getMentionEmojis(mention) {
         return { emojis: '🧑 🏛️', tooltip: "L'autore e il Consiglio federale citano il CDF" };
     } else if (hasCF) {
         return { emojis: '🏛️', tooltip: "Il Consiglio federale cita il CDF" };
-    } else {
+    } else if (hasElu) {
         return { emojis: '🧑', tooltip: "L'autore cita il CDF" };
+    } else {
+        return { emojis: '', tooltip: '' };
     }
 }
 

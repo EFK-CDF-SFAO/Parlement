@@ -75,7 +75,7 @@ const partyColors = {
 
 // Emojis pour les mentions CDF
 function getMentionEmojis(mention) {
-    if (!mention) return { emojis: '🧑', tooltip: "L'auteur cite le CDF" };
+    if (!mention) return { emojis: '', tooltip: '' };
     const hasElu = mention.includes('Élu');
     const hasCF = mention.includes('Conseil fédéral');
     
@@ -83,8 +83,10 @@ function getMentionEmojis(mention) {
         return { emojis: '🧑 🏛️', tooltip: "L'auteur et le Conseil fédéral citent le CDF" };
     } else if (hasCF) {
         return { emojis: '🏛️', tooltip: "Le Conseil fédéral cite le CDF" };
-    } else {
+    } else if (hasElu) {
         return { emojis: '🧑', tooltip: "L'auteur cite le CDF" };
+    } else {
+        return { emojis: '', tooltip: '' };
     }
 }
 
@@ -188,7 +190,7 @@ function getRapportBadgeHtml(id, isDebate = false) {
     const pa = rapport.pa ? `PA ${rapport.pa}` : 'Rapport CDF';
     const tooltip = rapport.title || 'Rapport du CDF lié';
     
-    return `<a href="${rapport.url}" target="_blank" class="card-rapport" title="${tooltip}" onclick="event.stopPropagation();">📄 ${pa}</a>`;
+    return `<span class="card-rapport" title="${tooltip}" data-url="${rapport.url}" onclick="event.preventDefault(); event.stopPropagation(); window.open(this.dataset.url, '_blank');" role="link" tabindex="0">📄 ${pa}</span>`;
 }
 
 // Initialize

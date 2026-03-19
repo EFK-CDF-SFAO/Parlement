@@ -61,6 +61,33 @@ During parliamentary sessions, the homepage displays an animated pixel art Feder
 
 ---
 
+## 📱 Install as App (PWA)
+
+This website is available as a **Progressive Web App** — install it on your phone for a native app-like experience with offline support.
+
+### iOS (Safari)
+1. Open [efk-cdf-sfao.github.io/Parlement](https://efk-cdf-sfao.github.io/Parlement/) in **Safari**
+2. Tap the **Share** button (square with arrow)
+3. Scroll down and tap **"Add to Home Screen"**
+4. Tap **"Add"** in the top-right corner
+5. The app icon appears on your home screen
+
+### Android (Chrome)
+1. Open [efk-cdf-sfao.github.io/Parlement](https://efk-cdf-sfao.github.io/Parlement/) in **Chrome**
+2. Tap the **three-dot menu** (⋮) in the top-right
+3. Tap **"Add to Home screen"** or **"Install app"**
+4. Confirm by tapping **"Install"**
+5. The app icon appears on your home screen
+
+### Desktop (Chrome / Edge)
+1. Open the website in Chrome or Edge
+2. Click the **install icon** (⊕) in the address bar
+3. Click **"Install"**
+
+> Once installed, the app works offline and loads faster. Data is refreshed automatically when you're back online.
+
+---
+
 ## ️ Coverage
 
 | Legislature | Period | Sessions |

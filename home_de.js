@@ -75,7 +75,7 @@ const partyColors = {
 
 // Emojis pour les mentions EFK
 function getMentionEmojis(mention) {
-    if (!mention) return { emojis: '🧑', tooltip: "Der Autor zitiert die EFK" };
+    if (!mention) return { emojis: '', tooltip: '' };
     const hasElu = mention.includes('Élu');
     const hasCF = mention.includes('Conseil fédéral');
     
@@ -83,8 +83,10 @@ function getMentionEmojis(mention) {
         return { emojis: '🧑 🏛️', tooltip: "Der Autor und der Bundesrat zitieren die EFK" };
     } else if (hasCF) {
         return { emojis: '🏛️', tooltip: "Der Bundesrat zitiert die EFK" };
-    } else {
+    } else if (hasElu) {
         return { emojis: '🧑', tooltip: "Der Autor zitiert die EFK" };
+    } else {
+        return { emojis: '', tooltip: '' };
     }
 }
 
