@@ -1045,14 +1045,14 @@ function downloadFilteredData() {
 async function loadRapportsData() {
     try {
         const [matchesResp, rapportsResp, manuelsResp] = await Promise.all([
-            fetch(RAPPORTS_MATCHES_URL),
-            fetch(RAPPORTS_CDF_URL),
-            fetch(RAPPORTS_MANUELS_URL)
+            fetch(RAPPORTS_MATCHES_URL).catch(() => null),
+            fetch(RAPPORTS_CDF_URL).catch(() => null),
+            fetch(RAPPORTS_MANUELS_URL).catch(() => null)
         ]);
         
-        const rapportsMatchesData = await matchesResp.json();
-        const rapportsCdfData = await rapportsResp.json();
-        const rapportsManuels = await manuelsResp.json();
+        const rapportsMatchesData = matchesResp?.ok ? await matchesResp.json() : null;
+        const rapportsCdfData = rapportsResp?.ok ? await rapportsResp.json() : null;
+        const rapportsManuels = manuelsResp?.ok ? await manuelsResp.json() : null;
         
         // 1. Charger les mappings manuels en priorité
         if (rapportsManuels?.mappings?.by_object) {
