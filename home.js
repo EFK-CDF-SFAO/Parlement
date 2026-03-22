@@ -2,16 +2,6 @@
 const DATA_URL = 'cdf_efk_data.json';
 const DEBATES_URL = 'debates_data.json';
 const SESSIONS_URL = 'sessions.json';
-const RAPPORTS_MATCHES_URL = 'rapports_matches.json';
-const RAPPORTS_CDF_URL = 'rapports_cdf.json';
-const RAPPORTS_MANUELS_URL = 'rapports_manuels.json';
-
-// Variables globales pour les rapports CDF
-let rapportsMatchesData = null;
-let rapportsCdfData = null;
-let objectRapportsMap = {};
-let businessRapportsMap = {}; // Index par business_number pour cohérence
-
 // Traduction des types d'objets
 const typeLabels = {
     'Mo.': 'Mo.',
@@ -88,117 +78,11 @@ function getMentionEmojis(mention) {
     }
 }
 
-// Charger les données des rapports CDF et créer les index de matching
-async function loadRapportsData() {
-    try {
-        const [matchesResp, rapportsResp, manuelsResp] = await Promise.all([
-            fetch(RAPPORTS_MATCHES_URL),
-            fetch(RAPPORTS_CDF_URL),
-            fetch(RAPPORTS_MANUELS_URL)
-        ]);
-        
-        rapportsMatchesData = await matchesResp.json();
-        rapportsCdfData = await rapportsResp.json();
-        const rapportsManuels = await manuelsResp.json();
-        
-        // 1. Charger les mappings manuels en priorité (par objet)
-        if (rapportsManuels?.mappings?.by_object) {
-            for (const [shortId, rapport] of Object.entries(rapportsManuels.mappings.by_object)) {
-                objectRapportsMap[shortId] = [{
-                    pa: rapport.pa,
-                    title: rapport.title,
-                    url: rapport.url,
-                    match_type: 'manual'
-                }];
-            }
-        }
-        
-        // 2. Index automatique pour les objets (par shortId -> rapport(s))
-        if (rapportsMatchesData?.by_pa_number?.objects) {
-            for (const match of rapportsMatchesData.by_pa_number.objects) {
-                const shortId = match.object_id;
-                if (objectRapportsMap[shortId]) continue; // Skip si déjà un mapping manuel
-                objectRapportsMap[shortId] = [];
-                for (const pa of match.pa_numbers) {
-                    const rapport = rapportsCdfData.items.find(r => r.pa_numbers?.includes(pa));
-                    if (rapport) {
-                        objectRapportsMap[shortId].push({
-                            pa: pa,
-                            title: rapport.title_fr || rapport.title_de,
-                            url: rapport.url,
-                            match_type: 'pa_number'
-                        });
-                    }
-                }
-            }
-        }
-        
-        // 3. Index pour les débats par business_number (cohérence par objet)
-        if (rapportsMatchesData?.by_pa_number?.debates) {
-            for (const match of rapportsMatchesData.by_pa_number.debates) {
-                const businessNum = match.business_number;
-                if (!businessNum || businessRapportsMap[businessNum]) continue;
-                for (const pa of match.pa_numbers) {
-                    const rapport = rapportsCdfData.items.find(r => r.pa_numbers?.includes(pa));
-                    if (rapport) {
-                        businessRapportsMap[businessNum] = {
-                            pa: pa,
-                            title: rapport.title_fr || rapport.title_de,
-                            url: rapport.url,
-                            match_type: 'pa_number'
-                        };
-                        break;
-                    }
-                }
-            }
-        }
-        
-        // 4. Ajouter les mappings manuels aux débats (par business_number = shortId de l'objet)
-        if (rapportsManuels?.mappings?.by_object) {
-            for (const [shortId, rapport] of Object.entries(rapportsManuels.mappings.by_object)) {
-                if (!businessRapportsMap[shortId]) {
-                    businessRapportsMap[shortId] = {
-                        pa: rapport.pa,
-                        title: rapport.title,
-                        url: rapport.url,
-                        match_type: 'manual'
-                    };
-                }
-            }
-        }
-        
-        console.log(`Rapports CDF chargés: ${rapportsCdfData?.items?.length || 0} rapports`);
-        console.log(`Matches objets: ${Object.keys(objectRapportsMap).length}, débats: ${Object.keys(businessRapportsMap).length}`);
-    } catch (e) {
-        console.warn('Impossible de charger les rapports CDF:', e);
-    }
-}
-
-// Générer le HTML pour afficher le badge rapport CDF
-function getRapportBadgeHtml(id, isDebate = false) {
-    let rapport;
-    if (isDebate) {
-        rapport = businessRapportsMap[id]; // id = business_number
-    } else {
-        const rapports = objectRapportsMap[id]; // id = shortId
-        rapport = rapports?.[0];
-    }
-    if (!rapport) return '';
-    
-    const pa = rapport.pa ? `PA ${rapport.pa}` : 'Rapport CDF';
-    const tooltip = rapport.title || 'Rapport du CDF lié';
-    
-    return `<a href="${rapport.url}" target="_blank" class="card-rapport" title="${tooltip}" onclick="event.stopPropagation();">📄 ${pa}</a>`;
-}
-
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
     try {
-        // Load rapports CDF data (en parallèle avec le reste)
-        await loadRapportsData();
-        
         // Load sessions data
         const sessionsResponse = await fetch(SESSIONS_URL);
         const sessionsJson = await sessionsResponse.json();
@@ -666,9 +550,6 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         const itemDate = new Date(item.date + 'T12:00:00');
         const isNew = itemDate >= fourDaysAgo;
         
-        // Badge rapport CDF si disponible
-        const rapportBadge = getRapportBadgeHtml(item.shortId, false);
-        
         html += `
             <a href="${item.url_fr}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
                 <div class="card-header">
@@ -677,7 +558,6 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
                 </div>
                 <div class="card-title">${displayTitle}</div>
                 ${langWarning}
-                ${rapportBadge ? `<div class="card-rapport-row">${rapportBadge}</div>` : ''}
                 <div class="card-footer">
                     <span class="card-author">${item.author}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>
@@ -737,9 +617,6 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
         const displayTitle = frMissing && !isTitleMissing(deTitle) ? deTitle : (frTitle || deTitle || '');
         const langWarning = frMissing && !isTitleMissing(deTitle) ? '<span class="lang-warning">🌐 Uniquement en allemand</span>' : '';
         
-        // Badge rapport CDF si disponible
-        const rapportBadge = getRapportBadgeHtml(shortId, false);
-        
         html += `
             <a href="${interventions.url_fr[i]}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
                 <div class="card-header">
@@ -748,7 +625,6 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
                 </div>
                 <div class="card-title">${displayTitle}</div>
                 ${langWarning}
-                ${rapportBadge ? `<div class="card-rapport-row">${rapportBadge}</div>` : ''}
                 <div class="card-footer">
                     <span class="card-author">${interventions.author[i]}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>
@@ -815,9 +691,6 @@ function displayDebatesSummary(debatesData, currentSession) {
             const debateDate = new Date(`${String(debate.date).substring(0,4)}-${String(debate.date).substring(4,6)}-${String(debate.date).substring(6,8)}`);
             const isNew = debateDate >= fourDaysAgo;
             
-            // Badge rapport CDF si disponible (par business_number)
-            const rapportBadge = getRapportBadgeHtml(debate.business_number, true);
-            
             html += `
                 <a href="${debateUrl}" class="intervention-card${isNew ? ' card-new' : ''}">
                     <div class="card-header">
@@ -825,7 +698,6 @@ function displayDebatesSummary(debatesData, currentSession) {
                         <span class="card-id">${businessNumber}</span>
                     </div>
                     <div class="card-title">${title}</div>
-                    ${rapportBadge ? `<div class="card-rapport-row">${rapportBadge}</div>` : ''}
                     <div class="card-footer">
                         <span class="card-author">${debate.speaker}</span>
                         <span class="card-party" style="background: ${partyColor};">${party}</span>

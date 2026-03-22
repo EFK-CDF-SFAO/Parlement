@@ -1,9 +1,6 @@
 // Configuration
 const DATA_URL = 'cdf_efk_data.json';
 const EXCEL_URL = 'Objets_parlementaires_CDF_EFK.xlsx';
-const RAPPORTS_MATCHES_URL = 'rapports_matches.json';
-const RAPPORTS_CDF_URL = 'rapports_cdf.json';
-const RAPPORTS_MANUELS_URL = 'rapports_manuels.json';
 const INITIAL_ITEMS = 10;
 const ITEMS_PER_LOAD = 10;
 
@@ -13,7 +10,6 @@ let filteredData = [];
 let displayedCount = 0;
 let newIds = []; // IDs des vrais nouveaux objets
 let sessionsData = []; // Données des sessions parlementaires
-let objectRapportsMap = {}; // Index rapports CDF par shortId
 let sortDescending = true; // true = récent en premier, false = ancien en premier
 
 // DOM Elements
@@ -32,9 +28,6 @@ document.addEventListener('DOMContentLoaded', init);
 async function init() {
     showLoading();
     try {
-        // Charger les rapports CDF d'abord
-        await loadRapportsData();
-        
         // Charger les données des sessions
         const sessionsResponse = await fetch('sessions.json');
         const sessionsJson = await sessionsResponse.json();
@@ -889,7 +882,6 @@ function createCard(item, searchTerm) {
                 <a href="${url}" target="_blank" rel="noopener">${title}</a>
             </h3>
             ${langWarning}
-            ${getRapportBadgeHtml(item.shortId) ? `<div class="card-rapport-row">${getRapportBadgeHtml(item.shortId)}</div>` : ''}
             <div class="card-meta">
                 <span>👤 ${author}</span>
                 <span>📅 ${date}${showDateMaj ? ` · 🔄 ${dateMaj}` : ''}</span>
@@ -1033,65 +1025,3 @@ function downloadFilteredData() {
     URL.revokeObjectURL(url);
 }
 
-// Charger les données des rapports CDF et créer l'index
-async function loadRapportsData() {
-    try {
-        const [matchesResp, rapportsResp, manuelsResp] = await Promise.all([
-            fetch(RAPPORTS_MATCHES_URL),
-            fetch(RAPPORTS_CDF_URL),
-            fetch(RAPPORTS_MANUELS_URL)
-        ]);
-        
-        const rapportsMatchesData = await matchesResp.json();
-        const rapportsCdfData = await rapportsResp.json();
-        const rapportsManuels = await manuelsResp.json();
-        
-        // 1. Charger les mappings manuels en priorité
-        if (rapportsManuels?.mappings?.by_object) {
-            for (const [shortId, rapport] of Object.entries(rapportsManuels.mappings.by_object)) {
-                objectRapportsMap[shortId] = [{
-                    pa: rapport.pa,
-                    title: rapport.title,
-                    url: rapport.url,
-                    match_type: 'manual'
-                }];
-            }
-        }
-        
-        // 2. Index automatique pour les objets (par shortId -> rapport(s))
-        if (rapportsMatchesData?.by_pa_number?.objects) {
-            for (const match of rapportsMatchesData.by_pa_number.objects) {
-                const shortId = match.object_id;
-                if (objectRapportsMap[shortId]) continue; // Skip si mapping manuel existe
-                objectRapportsMap[shortId] = [];
-                for (const pa of match.pa_numbers) {
-                    const rapport = rapportsCdfData.items.find(r => r.pa_numbers?.includes(pa));
-                    if (rapport) {
-                        objectRapportsMap[shortId].push({
-                            pa: pa,
-                            title: rapport.title_fr || rapport.title_de,
-                            url: rapport.url,
-                            match_type: 'pa_number'
-                        });
-                    }
-                }
-            }
-        }
-        
-        console.log(`Rapports CDF chargés: ${Object.keys(objectRapportsMap).length} objets avec rapports`);
-    } catch (e) {
-        console.warn('Impossible de charger les rapports CDF:', e);
-    }
-}
-
-// Générer le HTML pour afficher le badge rapport CDF
-function getRapportBadgeHtml(shortId) {
-    const rapports = objectRapportsMap[shortId];
-    if (!rapports || rapports.length === 0) return '';
-    
-    const rapport = rapports[0];
-    const pa = rapport.pa ? `PA ${rapport.pa}` : 'Rapport CDF';
-    const tooltip = rapport.title || 'Rapport du CDF lié';
-    
-    return `<a href="${rapport.url}" target="_blank" class="card-rapport" title="${tooltip}" onclick="event.stopPropagation();">📄 ${pa}</a>`;
-}
