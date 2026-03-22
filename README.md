@@ -61,6 +61,31 @@ During parliamentary sessions, the homepage displays an animated pixel art Feder
 
 ---
 
+## 📱 Progressive Web App (PWA)
+
+The site can be installed as a **standalone app** on any device — no app store required.
+
+### How to install
+
+| Platform | Steps |
+|:--------:|:------|
+| **Chrome / Edge (desktop)** | Click the install icon (⊕) in the address bar → *Install* |
+| **Android (Chrome)** | Tap the browser menu → *Add to Home screen* |
+| **iPhone / iPad (Safari)** | Tap the Share icon → *Add to Home Screen* |
+
+Once installed, the app:
+- Opens in **standalone mode** (no browser UI)
+- Is accessible via **home screen / dock shortcuts**
+- Includes **quick shortcuts** to Objects, Debates and Statistics
+- Uses a **network-first** service worker — always loads fresh data when online, falls back to cache when offline
+
+### Technical details
+- [`manifest.json`](manifest.json) — app metadata, theme color, icons
+- [`sw.js`](sw.js) — service worker (network-first strategy, no pre-caching)
+- Icons available in SVG (192×192 and 512×512, maskable)
+
+---
+
 ## ️ Coverage
 
 | Legislature | Period | Sessions |

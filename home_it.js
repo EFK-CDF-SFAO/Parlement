@@ -130,12 +130,10 @@ async function init() {
             displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
         }
         
-        // Load debates data (uniquement pendant session active)
-        if (activeSession) {
-            const debatesResponse = await fetch(DEBATES_URL);
-            const debatesJson = await debatesResponse.json();
-            displayDebatesSummary(debatesJson, activeSession);
-        }
+        // Load debates data (session active et hors session)
+        const debatesResponse = await fetch(DEBATES_URL);
+        const debatesJson = await debatesResponse.json();
+        displayDebatesSummary(debatesJson, currentSession);
         
     } catch (error) {
         console.error('Error loading data:', error);
@@ -476,6 +474,7 @@ function displaySessionSummary(summary, currentSession) {
         if (types['Mo.']) typesText.push(`${types['Mo.']} mozion${types['Mo.'] > 1 ? 'i' : 'e'}`);
         if (types['Po.']) typesText.push(`${types['Po.']} postulat${types['Po.'] > 1 ? 'i' : 'o'}`);
         if (types['Ip.']) typesText.push(`${types['Ip.']} interpellanz${types['Ip.'] > 1 ? 'e' : 'a'}`);
+        if (types['D.Ip.']) typesText.push(`${types['D.Ip.']} interpellanz${types['D.Ip.'] > 1 ? 'e' : 'a'} urgent${types['D.Ip.'] > 1 ? 'i' : 'e'}`);
         if (types['Fra.']) typesText.push(`${types['Fra.']} interrogazion${types['Fra.'] > 1 ? 'i' : 'e'}`);
         
         const cn = summary.by_council?.CN || 0;
@@ -555,12 +554,24 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
         
         // URL italiano
         const url = interventions.url_fr[i].replace('/fr/', '/it/');
-        // Titre: priorité IT > FR
-        const titleIT = interventions.title_it ? interventions.title_it[i] : null;
-        const titleFR = interventions.title[i];
-        const title = (titleIT && titleIT.trim() && titleIT.toLowerCase() !== 'titre suit') 
-            ? titleIT 
-            : titleFR;
+        
+        // Gestion titre manquant - priorité: IT > FR > DE
+        const itTitle = (interventions.title_it ? interventions.title_it[i] : null) || itemData?.title_it || '';
+        const frTitle = interventions.title[i] || itemData?.title || '';
+        const deTitle = itemData?.title_de || '';
+        let displayTitle = '';
+        let langWarning = '';
+        if (!isTitleMissing(itTitle)) {
+            displayTitle = itTitle;
+        } else if (!isTitleMissing(frTitle)) {
+            displayTitle = frTitle;
+            langWarning = '<span class="lang-warning">🌐 Solo in francese</span>';
+        } else if (!isTitleMissing(deTitle)) {
+            displayTitle = deTitle;
+            langWarning = '<span class="lang-warning">🌐 Solo in tedesco</span>';
+        } else {
+            displayTitle = frTitle || deTitle || '';
+        }
         
         html += `
             <a href="${url}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
@@ -568,7 +579,8 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
                     <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${shortId}</span>
                 </div>
-                <div class="card-title">${title}</div>
+                <div class="card-title">${displayTitle}</div>
+                ${langWarning}
                 <div class="card-footer">
                     <span class="card-author">${interventions.author[i]}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>
