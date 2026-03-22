@@ -128,12 +128,10 @@ async function init() {
             displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
         }
         
-        // Load debates data (uniquement pendant session active)
-        if (activeSession) {
-            const debatesResponse = await fetch(DEBATES_URL);
-            const debatesJson = await debatesResponse.json();
-            displayDebatesSummary(debatesJson, activeSession);
-        }
+        // Load debates data (session active et hors session)
+        const debatesResponse = await fetch(DEBATES_URL);
+        const debatesJson = await debatesResponse.json();
+        displayDebatesSummary(debatesJson, currentSession);
         
     } catch (error) {
         console.error('Error loading data:', error);
@@ -450,6 +448,7 @@ function displaySessionSummary(summary, currentSession) {
         
         let typesText = [];
         if (types['Ip.']) typesText.push(`${types['Ip.']} Interpellation${types['Ip.'] > 1 ? 'en' : ''}`);
+        if (types['D.Ip.']) typesText.push(`${types['D.Ip.']} Dringliche Interpellation${types['D.Ip.'] > 1 ? 'en' : ''}`);
         if (types['Mo.']) typesText.push(`${types['Mo.']} Motion${types['Mo.'] > 1 ? 'en' : ''}`);
         if (types['Fra.']) typesText.push(`${types['Fra.']} Anfrage${types['Fra.'] > 1 ? 'n' : ''}`);
         if (types['Po.']) typesText.push(`${types['Po.']} Postulat${types['Po.'] > 1 ? 'e' : ''}`);
@@ -525,13 +524,21 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
         // Récupérer la mention depuis les items
         const mentionData = getMentionEmojis(itemData?.mention);
         
+        // Gestion titre manquant
+        const deTitle = itemData?.title_de || interventions.title_de[i];
+        const frTitle = itemData?.title || '';
+        const deMissing = isTitleMissing(deTitle);
+        const displayTitle = deMissing && !isTitleMissing(frTitle) ? frTitle : (deTitle || frTitle || '');
+        const langWarning = deMissing && !isTitleMissing(frTitle) ? '<span class="lang-warning">🌐 Derzeit nur auf Französisch</span>' : '';
+        
         html += `
             <a href="${interventions.url_de[i]}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
                 <div class="card-header">
                     <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${shortId}</span>
                 </div>
-                <div class="card-title">${interventions.title_de[i]}</div>
+                <div class="card-title">${displayTitle}</div>
+                ${langWarning}
                 <div class="card-footer">
                     <span class="card-author">${interventions.author[i]}</span>
                     <span class="card-party" style="background: ${partyColor};">${party}</span>

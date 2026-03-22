@@ -1,0 +1,37 @@
+{
+  "mappings": {
+    "by_keyword": [
+      {
+        "keywords": ["fedpol"],
+        "rapport": {
+          "pa": "25220",
+          "title": "Ressourcensituation fedpol",
+          "url": "https://www.efk.admin.ch/prufung/ressourcensituation/"
+        }
+      },
+      {
+        "keywords": ["e-id", "identité électronique", "elektronische identität", "identità elettronica", "E-ID"],
+        "rapport": {
+          "pa": "25277",
+          "title": "Projet clé e-ID",
+          "url": "https://www.efk.admin.ch/prufung/schluesselprojekt-e-id/"
+        }
+      },
+      {
+        "keywords": ["sipac", "asal"],
+        "rapport": {
+          "pa": "25603",
+          "title": "Projet clé ASALfutur",
+          "url": "https://www.efk.admin.ch/prufung/schluesselprojekt-asalfutur-schwerpunkt-betriebsuebergabe/"
+        }
+      }
+    ],
+    "by_object": {
+      "25.3213": { "pa": "25220", "title": "Ressourcensituation fedpol", "url": "https://www.efk.admin.ch/prufung/ressourcensituation/" },
+      "25.3941": { "pa": "25220", "title": "Ressourcensituation fedpol", "url": "https://www.efk.admin.ch/prufung/ressourcensituation/" },
+      "25.4408": { "pa": "25277", "title": "Projet clé e-ID", "url": "https://www.efk.admin.ch/prufung/schluesselprojekt-e-id/" },
+      "26.7129": { "pa": "25603", "title": "Projet clé ASALfutur", "url": "https://www.efk.admin.ch/prufung/schluesselprojekt-asalfutur-schwerpunkt-betriebsuebergabe/" },
+      "26.3028": { "pa": "25603", "title": "Projet clé ASALfutur", "url": "https://www.efk.admin.ch/prufung/schluesselprojekt-asalfutur-schwerpunkt-betriebsuebergabe/" }
+    }
+  }
+}

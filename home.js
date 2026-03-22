@@ -239,12 +239,10 @@ async function init() {
             displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
         }
         
-        // Load debates data (uniquement pendant session active)
-        if (activeSession) {
-            const debatesResponse = await fetch(DEBATES_URL);
-            const debatesJson = await debatesResponse.json();
-            displayDebatesSummary(debatesJson, activeSession);
-        }
+        // Load debates data (session active et hors session)
+        const debatesResponse = await fetch(DEBATES_URL);
+        const debatesJson = await debatesResponse.json();
+        displayDebatesSummary(debatesJson, currentSession);
         
     } catch (error) {
         console.error('Error loading data:', error);
@@ -585,6 +583,7 @@ function displaySessionSummary(summary, currentSession) {
         
         let typesText = [];
         if (types['Ip.']) typesText.push(`${types['Ip.']} interpellation${types['Ip.'] > 1 ? 's' : ''}`);
+        if (types['D.Ip.']) typesText.push(`${types['D.Ip.']} interpellation${types['D.Ip.'] > 1 ? 's' : ''} urgente${types['D.Ip.'] > 1 ? 's' : ''}`);
         if (types['Mo.']) typesText.push(`${types['Mo.']} motion${types['Mo.'] > 1 ? 's' : ''}`);
         if (types['Fra.']) typesText.push(`${types['Fra.']} question${types['Fra.'] > 1 ? 's' : ''}`);
         if (types['Po.']) typesText.push(`${types['Po.']} postulat${types['Po.'] > 1 ? 's' : ''}`);
@@ -731,6 +730,13 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
         // Récupérer la mention depuis les items
         const mentionData = getMentionEmojis(itemData?.mention);
         
+        // Gestion titre manquant
+        const frTitle = itemData?.title || interventions.title[i];
+        const deTitle = itemData?.title_de || '';
+        const frMissing = isTitleMissing(frTitle);
+        const displayTitle = frMissing && !isTitleMissing(deTitle) ? deTitle : (frTitle || deTitle || '');
+        const langWarning = frMissing && !isTitleMissing(deTitle) ? '<span class="lang-warning">🌐 Uniquement en allemand</span>' : '';
+        
         // Badge rapport CDF si disponible
         const rapportBadge = getRapportBadgeHtml(shortId, false);
         
@@ -740,7 +746,8 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
                     <span class="card-type">${typeLabels[type] || type}</span>
                     <span class="card-id">${shortId}</span>
                 </div>
-                <div class="card-title">${interventions.title[i]}</div>
+                <div class="card-title">${displayTitle}</div>
+                ${langWarning}
                 ${rapportBadge ? `<div class="card-rapport-row">${rapportBadge}</div>` : ''}
                 <div class="card-footer">
                     <span class="card-author">${interventions.author[i]}</span>
