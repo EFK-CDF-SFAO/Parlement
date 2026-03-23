@@ -1872,6 +1872,16 @@ a.author-row {
     line-height: 1.4;
 }
 
+/* LLM Summary Disclaimer */
+.llm-disclaimer {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: #6B7280;
+    font-style: italic;
+    opacity: 0.85;
+}
+
 .hero-stats {
     display: flex;
     justify-content: center;
