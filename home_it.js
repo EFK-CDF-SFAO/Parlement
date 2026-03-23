@@ -2,6 +2,7 @@
 const DATA_URL = 'cdf_efk_data.json';
 const DEBATES_URL = 'debates_data.json';
 const SESSIONS_URL = 'sessions.json';
+const LLM_SUMMARIES_URL = 'session_llm_summaries.json';
 
 // Traduzione dei tipi di oggetti
 const typeLabels = {
@@ -436,7 +437,7 @@ function getSessionNameIT(sessionId) {
     return sessionNames[parts[1]] || '';
 }
 
-function displaySessionSummary(summary, currentSession) {
+async function displaySessionSummary(summary, currentSession) {
     if (!summary) return;
     
     const titleEl = document.getElementById('summaryTitle');
@@ -465,50 +466,69 @@ function displaySessionSummary(summary, currentSession) {
         titleEl.textContent = `Riassunto della ${sessionName} (${startDate} - ${endDate})`;
     }
     
-    // Texte traduit en italien
-    if (textEl && summary.text_fr) {
-        const count = summary.count || 0;
-        const types = summary.by_type || {};
-        
-        let typesText = [];
-        if (types['Mo.']) typesText.push(`${types['Mo.']} mozion${types['Mo.'] > 1 ? 'i' : 'e'}`);
-        if (types['Po.']) typesText.push(`${types['Po.']} postulat${types['Po.'] > 1 ? 'i' : 'o'}`);
-        if (types['Ip.']) typesText.push(`${types['Ip.']} interpellanz${types['Ip.'] > 1 ? 'e' : 'a'}`);
-        if (types['D.Ip.']) typesText.push(`${types['D.Ip.']} interpellanz${types['D.Ip.'] > 1 ? 'e' : 'a'} urgent${types['D.Ip.'] > 1 ? 'i' : 'e'}`);
-        if (types['Fra.']) typesText.push(`${types['Fra.']} interrogazion${types['Fra.'] > 1 ? 'i' : 'e'}`);
-        
-        const cn = summary.by_council?.CN || 0;
-        const ce = summary.by_council?.CE || 0;
-        
-        let text = `Durante la ${sessionName}, sono stati presentati ${count} interventi relativi al CDF o che hanno ricevuto una risposta del Consiglio federale che cita il CDF: ${typesText.join(', ')}. `;
-        if (cn > 0 && ce > 0) {
-            text += `${cn} al Consiglio nazionale e ${ce} al Consiglio degli Stati. `;
-        } else if (cn > 0) {
-            text += `Tutti al Consiglio nazionale. `;
-        } else if (ce > 0) {
-            text += `Tutti al Consiglio degli Stati. `;
-        }
-        
-        // Ajouter les partis les plus actifs
-        if (summary.interventions && summary.interventions.party) {
-            const partyCounts = {};
-            summary.interventions.party.forEach(p => {
-                const translated = translateParty(p);
-                partyCounts[translated] = (partyCounts[translated] || 0) + 1;
-            });
-            const sorted = Object.entries(partyCounts)
-                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-            // Prendre tous les partis avec le même nombre max d'interventions
-            const maxCount = sorted[0]?.[1] || 0;
-            const sortedParties = sorted
-                .filter(([_, count]) => count === maxCount)
-                .map(([p]) => p);
-            if (sortedParties.length > 0) {
-                text += `I partiti più attivi: ${sortedParties.join(', ')}.`;
+    // Essayer de charger le résumé LLM
+    let llmSummary = null;
+    try {
+        const llmResponse = await fetch(LLM_SUMMARIES_URL);
+        if (llmResponse.ok) {
+            const llmData = await llmResponse.json();
+            if (llmData.sessions && llmData.sessions[sessionId]) {
+                llmSummary = llmData.sessions[sessionId].it;
             }
         }
-        
-        textEl.textContent = text;
+    } catch (e) {
+        console.log('Nessun riassunto LLM disponibile');
+    }
+    
+    if (textEl) {
+        if (llmSummary) {
+            // Afficher le résumé LLM avec disclaimer
+            textEl.innerHTML = `${llmSummary}<br><span class="llm-disclaimer">— Riassunto generato automaticamente da Gemini</span>`;
+        } else if (summary.text_fr) {
+            // Fallback: Texte traduit en italien
+            const count = summary.count || 0;
+            const types = summary.by_type || {};
+            
+            let typesText = [];
+            if (types['Mo.']) typesText.push(`${types['Mo.']} mozion${types['Mo.'] > 1 ? 'i' : 'e'}`);
+            if (types['Po.']) typesText.push(`${types['Po.']} postulat${types['Po.'] > 1 ? 'i' : 'o'}`);
+            if (types['Ip.']) typesText.push(`${types['Ip.']} interpellanz${types['Ip.'] > 1 ? 'e' : 'a'}`);
+            if (types['D.Ip.']) typesText.push(`${types['D.Ip.']} interpellanz${types['D.Ip.'] > 1 ? 'e' : 'a'} urgent${types['D.Ip.'] > 1 ? 'i' : 'e'}`);
+            if (types['Fra.']) typesText.push(`${types['Fra.']} interrogazion${types['Fra.'] > 1 ? 'i' : 'e'}`);
+            
+            const cn = summary.by_council?.CN || 0;
+            const ce = summary.by_council?.CE || 0;
+            
+            let text = `Durante la ${sessionName}, sono stati presentati ${count} interventi relativi al CDF o che hanno ricevuto una risposta del Consiglio federale che cita il CDF: ${typesText.join(', ')}. `;
+            if (cn > 0 && ce > 0) {
+                text += `${cn} al Consiglio nazionale e ${ce} al Consiglio degli Stati. `;
+            } else if (cn > 0) {
+                text += `Tutti al Consiglio nazionale. `;
+            } else if (ce > 0) {
+                text += `Tutti al Consiglio degli Stati. `;
+            }
+            
+            // Ajouter les partis les plus actifs
+            if (summary.interventions && summary.interventions.party) {
+                const partyCounts = {};
+                summary.interventions.party.forEach(p => {
+                    const translated = translateParty(p);
+                    partyCounts[translated] = (partyCounts[translated] || 0) + 1;
+                });
+                const sorted = Object.entries(partyCounts)
+                    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+                // Prendre tous les partis avec le même nombre max d'interventions
+                const maxCount = sorted[0]?.[1] || 0;
+                const sortedParties = sorted
+                    .filter(([_, count]) => count === maxCount)
+                    .map(([p]) => p);
+                if (sortedParties.length > 0) {
+                    text += `I partiti più attivi: ${sortedParties.join(', ')}.`;
+                }
+            }
+            
+            textEl.textContent = text;
+        }
     }
 }
 
