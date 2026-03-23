@@ -483,7 +483,7 @@ async function displaySessionSummary(summary, currentSession) {
     if (textEl) {
         if (llmSummary) {
             // Afficher le résumé LLM avec disclaimer
-            textEl.innerHTML = `${llmSummary}<br><span class="llm-disclaimer">— Riassunto generato automaticamente da Gemini</span>`;
+            textEl.innerHTML = `${llmSummary}<br><span class="llm-disclaimer">🤖 Riassunto generato automaticamente da Gemini</span>`;
         } else if (summary.text_fr) {
             // Fallback: Texte traduit en italien
             const count = summary.count || 0;
