@@ -482,58 +482,6 @@
         "match_type": "title"
       },
       {
-        "debate_id": "367081",
-        "speaker": "Hegglin Peter",
-        "business_number": "25.3941",
-        "debate_date": "20251211",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "sicherheit",
-          "deutlich",
-          "erachtet",
-          "seinem",
-          "strategie",
-          "bundesanwaltschaft",
-          "ermittlungsfälle",
-          "aufbau",
-          "auftrag",
-          "zudem",
-          "verzögert",
-          "bedarf",
-          "wesentliche",
-          "sollte",
-          "gesetzlichen",
-          "bundeskriminalpolizei",
-          "innere",
-          "parlamentarischen",
-          "zunehmend",
-          "sicherheitspolitische",
-          "eröffnet",
-          "zusätzlichen",
-          "personalbestand",
-          "erfüllen",
-          "optimierungsmöglichkeiten",
-          "sicherheitspolitischen",
-          "ausreichend",
-          "sécurité",
-          "komplexer",
-          "ermittlungstätigkeiten",
-          "verfahren",
-          "fedpol"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 45,
-        "match_type": "office"
-      },
-      {
         "debate_id": "357722",
         "speaker": "Sommaruga Carlo",
         "business_number": "25.001",
@@ -648,98 +596,6 @@
         "office_in_text": false,
         "score": 44,
         "match_type": "title"
-      },
-      {
-        "debate_id": "362379",
-        "speaker": "De Ventura Linda",
-        "business_number": "25.3941",
-        "debate_date": "20250916",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "innere",
-          "polizei",
-          "zunehmend",
-          "sicherheit",
-          "erfolgt",
-          "seinem",
-          "ermittlungsabteilungen",
-          "personalbestand",
-          "strategie",
-          "bundesanwaltschaft",
-          "befürwortet",
-          "bundesamt",
-          "empfiehlt",
-          "auftrag",
-          "ausbau",
-          "ermittlungen",
-          "erfüllen",
-          "bundesrates",
-          "sicherheitspolitischen",
-          "ausreichend",
-          "sécurité",
-          "komplexer",
-          "verfahren",
-          "fedpol",
-          "bundeskriminalpolizei",
-          "ressourcensituation"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 42,
-        "match_type": "office"
-      },
-      {
-        "debate_id": "362284",
-        "speaker": "de Quattro Jacqueline",
-        "business_number": "25.3941",
-        "debate_date": "20250916",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "contexte",
-          "demande",
-          "sicherheit",
-          "matière",
-          "public",
-          "travail",
-          "supplémentaires",
-          "procédures",
-          "personnel",
-          "ministère",
-          "ressources",
-          "dernières",
-          "mesure",
-          "enquêtes",
-          "enquêteurs",
-          "évaluer",
-          "répondre",
-          "conséquence",
-          "estime",
-          "sécurité",
-          "complexes",
-          "politique",
-          "police",
-          "stratégie",
-          "investigation",
-          "fedpol"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 42,
-        "match_type": "office"
       },
       {
         "debate_id": "344561",
@@ -1282,40 +1138,6 @@
         "match_type": "title"
       },
       {
-        "debate_id": "367096",
-        "speaker": "Sommaruga Carlo",
-        "business_number": "25.3941",
-        "debate_date": "20251211",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "sicherheit",
-          "gestion",
-          "intérieure",
-          "procédures",
-          "personnel",
-          "ressources",
-          "compte",
-          "cadre",
-          "ouvertes",
-          "mises",
-          "sécurité",
-          "complexes",
-          "examiner",
-          "fedpol"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 33,
-        "match_type": "title"
-      },
-      {
         "debate_id": "363640",
         "speaker": "Sommaruga Carlo",
         "business_number": "24.097",
@@ -1759,42 +1581,6 @@
         "match_type": "office"
       },
       {
-        "debate_id": "367106",
-        "speaker": "Dittli Josef",
-        "business_number": "25.3941",
-        "debate_date": "20251211",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "sicherheit",
-          "deutlich",
-          "erachtet",
-          "zusammen",
-          "eröffnet",
-          "personalbestand",
-          "konsequenz",
-          "auftrag",
-          "ermittlungen",
-          "verzögert",
-          "ausreichend",
-          "wesentliche",
-          "sécurité",
-          "verfahren",
-          "fedpol",
-          "bundeskriminalpolizei"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 29,
-        "match_type": "office"
-      },
-      {
         "debate_id": "296191",
         "speaker": "Nantermod Philippe",
         "business_number": "20.3067",
@@ -1827,41 +1613,6 @@
         "office_in_text": false,
         "score": 28,
         "match_type": "title"
-      },
-      {
-        "debate_id": "367087",
-        "speaker": "Jans Beat",
-        "business_number": "25.3941",
-        "debate_date": "20251211",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "empfiehlt",
-          "innere",
-          "verschärft",
-          "aufbau",
-          "sicherheit",
-          "ermittlerinnen",
-          "bundeskriminalpolizei",
-          "bedarf",
-          "ermittlern",
-          "sécurité",
-          "sollte",
-          "zusätzlichen",
-          "fedpol",
-          "strategie",
-          "erfüllen"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 28,
-        "match_type": "office"
       },
       {
         "debate_id": "297035",
@@ -2007,68 +1758,6 @@
           "laufende"
         ],
         "same_department": false,
-        "office_in_text": true,
-        "score": 27,
-        "match_type": "office"
-      },
-      {
-        "debate_id": "367062",
-        "speaker": "Juillard Charles",
-        "business_number": "25.3941",
-        "debate_date": "20251211",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "besoins",
-          "possible",
-          "sicherheit",
-          "gestion",
-          "public",
-          "supplémentaires",
-          "sécurité",
-          "politique",
-          "ministère",
-          "enquêteurs",
-          "fedpol"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 27,
-        "match_type": "office"
-      },
-      {
-        "debate_id": "362282",
-        "speaker": "Jans Beat",
-        "business_number": "25.3941",
-        "debate_date": "20250916",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "empfiehlt",
-          "innere",
-          "sicherheit",
-          "bundesrates",
-          "sécurité",
-          "bundesanwaltschaft",
-          "gesetzlichen",
-          "fedpol",
-          "personalbestand",
-          "bundeskriminalpolizei",
-          "ressourcensituation"
-        ],
-        "same_department": true,
         "office_in_text": true,
         "score": 27,
         "match_type": "office"
@@ -2424,38 +2113,6 @@
           "jedoch"
         ],
         "same_department": false,
-        "office_in_text": true,
-        "score": 25,
-        "match_type": "office"
-      },
-      {
-        "debate_id": "367075",
-        "speaker": "Gmür-Schönenberger Andrea",
-        "business_number": "25.3941",
-        "debate_date": "20251211",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "auftrag",
-          "sicherheit",
-          "ermittlerinnen",
-          "ermittlungen",
-          "ausreichend",
-          "sécurité",
-          "komplexer",
-          "zusätzlichen",
-          "personalbestand",
-          "fedpol",
-          "bundeskriminalpolizei",
-          "bundesrates"
-        ],
-        "same_department": true,
         "office_in_text": true,
         "score": 25,
         "match_type": "office"
@@ -4797,31 +4454,6 @@
         "match_type": "title"
       },
       {
-        "debate_id": "362304",
-        "speaker": "Pahud Yvan",
-        "business_number": "25.3941",
-        "debate_date": "20250916",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "évidence",
-          "personnel",
-          "sicherheit",
-          "fedpol",
-          "sécurité"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 18,
-        "match_type": "office"
-      },
-      {
         "debate_id": "259235",
         "speaker": "Français Olivier",
         "business_number": "19.4383",
@@ -5786,52 +5418,6 @@
         "match_type": "office"
       },
       {
-        "debate_id": "362260",
-        "speaker": "Jans Beat",
-        "business_number": "25.3941",
-        "debate_date": "20250916",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "fedpol",
-          "sicherheit",
-          "sécurité"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 16,
-        "match_type": "office"
-      },
-      {
-        "debate_id": "362369",
-        "speaker": "Hurter Thomas",
-        "business_number": "25.3941",
-        "debate_date": "20250916",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "fedpol",
-          "sicherheit",
-          "sécurité"
-        ],
-        "same_department": true,
-        "office_in_text": true,
-        "score": 16,
-        "match_type": "office"
-      },
-      {
         "debate_id": "361644",
         "speaker": "Rösti Albert",
         "business_number": "25.7738",
@@ -5855,29 +5441,6 @@
           "aucun"
         ],
         "same_department": false,
-        "office_in_text": true,
-        "score": 16,
-        "match_type": "office"
-      },
-      {
-        "debate_id": "362296",
-        "speaker": "Hurter Thomas",
-        "business_number": "25.3941",
-        "debate_date": "20250916",
-        "debate_dept": "EJPD",
-        "rapport_id": 40248,
-        "rapport_title": "Ressourcensituation",
-        "rapport_date": "20250910",
-        "rapport_office": "fedpol",
-        "rapport_pa": [
-          "25220"
-        ],
-        "common_keywords": [
-          "fedpol",
-          "sicherheit",
-          "sécurité"
-        ],
-        "same_department": true,
         "office_in_text": true,
         "score": 16,
         "match_type": "office"
