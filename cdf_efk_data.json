@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-03-31T13:14:12",
+    "updated": "2026-03-31T21:46:30",
     "total_count": 328,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -33,7 +33,7 @@
       "shortId": ["26.3398", "26.3485", "26.3487", "26.3028", "26.3281", "26.7185", "26.7161", "26.7129"],
       "title": ["Titre suit", "Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie", "Titre suit", "Bug informatique au SECO. Responsabilités et défaillance grave de l'État ", "Titre suit", "Le CDF révise-t-il systématiquement les financements de campagnes extraordinaires ?", "A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ?", "Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage"],
       "title_de": ["Einführung eines öffentlichen Registers der Subventionsempfänger", "Titel folgt", "Versucht das Pro-Komitee der SVP-Nachhaltigkeitsinitiative die Transparenzvorschriften zu umgehen?", "IT-Bug beim SECO. Verantwortlichkeiten und schwerwiegendes Versagen des Bundes ", "Umgang des Bundes mit problematischen Stoffen - PFAS - Kohortenstudie", "Führt die EFK bei ausserordentlichen Kampagnenfinanzierungen automatisch eine Revision durch?", "Wann gibt es Lösungsansätze für die ökologische Sanierung der Wasserkraft?", "ASAL 2.0: Der absehbare Skandal um die Verzögerungen bei der Auszahlung der Arbeitslosenentschädigungen"],
-      "title_it": ["Titolo segue", "Titolo segue", "Titolo segue", "Bug informatico alla SECO. Responsabilità e grave inadempienza dello Stato ", "Titolo segue", null, null, null],
+      "title_it": ["Titolo segue", "Una verifica esterna dell’UDSC per ristabilire la fiducia tra il personale e il mondo economico", "Titolo segue", "Bug informatico alla SECO. Responsabilità e grave inadempienza dello Stato ", "Titolo segue", null, null, null],
       "author": ["Gredig Corina", "Addor Jean-Luc", "Wermuth Cédric", "Sormanni Daniel", "Weichelt Manuela", "Dobler Marcel", "Roduit Benjamin", "Amoos Emmanuel"],
       "party": ["pvl", "UDC", "PS", "MCG", "VERT-E-S", "PLR", "Le Centre", "PS"],
       "type": ["Mo.", "Po.", "Ip.", "D.Ip.", "Ip.", "Fra.", "Fra.", "Fra."],
@@ -66,7 +66,7 @@
       "shortId": "26.3485",
       "title": "Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie",
       "title_de": "Titel folgt",
-      "title_it": "Titolo segue",
+      "title_it": "Una verifica esterna dell’UDSC per ristabilire la fiducia tra il personale e il mondo economico",
       "author": "Addor Jean-Luc",
       "party": "UDC",
       "type": "Po.",
