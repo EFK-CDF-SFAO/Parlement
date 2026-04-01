@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-03-31T21:46:30",
+    "updated": "2026-04-01T13:22:38",
     "total_count": 328,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -4360,7 +4360,7 @@
     {
       "shortId": "25.4836",
       "title": "Les facturations provisoires de l’impôt manquantes permettent-elles aux cantons d'optimiser la RPT ?",
-      "title_de": "Ermöglichen fehlende provisorische Steuerrechnungen NFA Optimierungen durch die Kantone?",
+      "title_de": "Ermöglichen fehlende provisorische Steuerrechnungen NFA-Optimierungen durch die Kantone?",
       "title_it": "L’assenza di fatture fiscali provvisorie permette ai Cantoni di effettuare ottimizzazioni nella perequazione finanziaria nazionale?",
       "author": "Bertschy Kathrin",
       "party": "pvl",
