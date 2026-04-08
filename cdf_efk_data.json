@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-04-07T21:48:22",
+    "updated": "2026-04-08T13:21:28",
     "total_count": 328,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -12,7 +12,7 @@
     "title_de": "Zusammenfassung der Frühjahrssession 2026",
     "text_fr": "Durant la Session de printemps 2026 (02.03 - 20.03.2026), 8 interventions mentionnant le CDF ont été déposées ou ont fait l'objet d'une réponse du Conseil fédéral qui cite le CDF : 3 questions, 2 interpellations, 1 D.Ip., 1 motion, 1 postulat. Toutes au Conseil national. Les partis les plus actifs : PS, Le Centre, MCG.",
     "text_de": "Während der Frühjahrssession 2026 (02.03 - 20.03.2026) wurden 8 Vorstösse mit Bezug zur EFK eingereicht oder mit einer Antwort des Bundesrates versehen, die die EFK erwähnt: 3 Anfragen, 2 Interpellationen, 1 D.Ip., 1 Motion, 1 Postulat. Alle im Nationalrat. Die aktivsten Parteien: SP, Die Mitte, MCG.",
-    "themes_fr": "Titre suit (Gredig, pvl) ; Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie (Addor, UDC) ; Titre suit (Wermuth, PS) ; Bug informatique au SECO. Responsabilités et défaillance grave de l'État  (Sormanni, MCG) ; Titre suit (Weichelt, VERT-E-S) ; Le CDF révise-t-il systématiquement les financements de campagnes extraordinaires ? (Dobler, PLR) ; A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ? (Roduit, Le Centre) ; Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage (Amoos, PS)",
+    "themes_fr": "Créer un registre public des bénéficiaires de subventions (Gredig, pvl) ; Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie (Addor, UDC) ; Titre suit (Wermuth, PS) ; Bug informatique au SECO. Responsabilités et défaillance grave de l'État  (Sormanni, MCG) ; Titre suit (Weichelt, VERT-E-S) ; Le CDF révise-t-il systématiquement les financements de campagnes extraordinaires ? (Dobler, PLR) ; A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ? (Roduit, Le Centre) ; Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage (Amoos, PS)",
     "themes_de": "Einführung eines öffentlichen Registers der Subventionsempfänger (Gredig, GLP) ; Titel folgt (Addor, SVP) ; Versucht das Pro-Komitee der SVP-Nachhaltigkeitsinitiative die Transparenzvorschriften zu umgehen? (Wermuth, SP) ; IT-Bug beim SECO. Verantwortlichkeiten und schwerwiegendes Versagen des Bundes  (Sormanni, MCG) ; Umgang des Bundes mit problematischen Stoffen - PFAS - Kohortenstudie (Weichelt, GRÜNE) ; Führt die EFK bei ausserordentlichen Kampagnenfinanzierungen automatisch eine Revision durch? (Dobler, FDP) ; Wann gibt es Lösungsansätze für die ökologische Sanierung der Wasserkraft? (Roduit, Die Mitte) ; ASAL 2.0: Der absehbare Skandal um die Verzögerungen bei der Auszahlung der Arbeitslosenentschädigungen (Amoos, SP)",
     "session_start": "2026-03-02",
     "session_end": "2026-03-20",
@@ -31,7 +31,7 @@
     },
     "interventions": {
       "shortId": ["26.3398", "26.3485", "26.3487", "26.3028", "26.3281", "26.7185", "26.7161", "26.7129"],
-      "title": ["Titre suit", "Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie", "Titre suit", "Bug informatique au SECO. Responsabilités et défaillance grave de l'État ", "Titre suit", "Le CDF révise-t-il systématiquement les financements de campagnes extraordinaires ?", "A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ?", "Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage"],
+      "title": ["Créer un registre public des bénéficiaires de subventions", "Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie", "Titre suit", "Bug informatique au SECO. Responsabilités et défaillance grave de l'État ", "Titre suit", "Le CDF révise-t-il systématiquement les financements de campagnes extraordinaires ?", "A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ?", "Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage"],
       "title_de": ["Einführung eines öffentlichen Registers der Subventionsempfänger", "Titel folgt", "Versucht das Pro-Komitee der SVP-Nachhaltigkeitsinitiative die Transparenzvorschriften zu umgehen?", "IT-Bug beim SECO. Verantwortlichkeiten und schwerwiegendes Versagen des Bundes ", "Umgang des Bundes mit problematischen Stoffen - PFAS - Kohortenstudie", "Führt die EFK bei ausserordentlichen Kampagnenfinanzierungen automatisch eine Revision durch?", "Wann gibt es Lösungsansätze für die ökologische Sanierung der Wasserkraft?", "ASAL 2.0: Der absehbare Skandal um die Verzögerungen bei der Auszahlung der Arbeitslosenentschädigungen"],
       "title_it": ["Introduzione di un registro pubblico dei beneficiari di sussidi", "Una verifica esterna dell’UDSC per ristabilire la fiducia tra il personale e il mondo economico", "Iniziativa per la sostenibilità dell’UDC: il comitato promotore tenta di eludere le disposizioni in materia di trasparenza?", "Bug informatico alla SECO. Responsabilità e grave inadempienza dello Stato ", "Titolo segue", null, null, null],
       "author": ["Gredig Corina", "Addor Jean-Luc", "Wermuth Cédric", "Sormanni Daniel", "Weichelt Manuela", "Dobler Marcel", "Roduit Benjamin", "Amoos Emmanuel"],
@@ -44,7 +44,7 @@
   "items": [
     {
       "shortId": "26.3398",
-      "title": "Titre suit",
+      "title": "Créer un registre public des bénéficiaires de subventions",
       "title_de": "Einführung eines öffentlichen Registers der Subventionsempfänger",
       "title_it": "Introduzione di un registro pubblico dei beneficiari di sussidi",
       "author": "Gredig Corina",
@@ -58,6 +58,7 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263398",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263398",
       "mention": "Élu",
+      "text": "<p>Le Conseil fédéral est chargé de créer un registre central public des bénéficiaires de subventions fédérales. Ce registre sera conçu pour compléter la banque de données sur les subventions et sa tenue sera confiée à la Confédération ou au Contrôle fédéral des finances. Il indiquera au minimum le nom du bénéficiaire ou son type, la nature et l’objet de la subvention, le montant annuel versé et l’office fédéral compétent et utilisera les données dont disposent les offices fédéraux.&nbsp;<br>Les restrictions dictées par la protection des données et par la sécurité seront réservées.<\/p>",
       "text_de": "<p>Der Bundesrat wird beauftragt, ein öffentlich einsehbares, zentrales Register der &nbsp;Empfängerinnen und Empfänger von Bundessubventionen einzuführen. Das Register soll als Ergänzung zur bestehenden Subventionsdatenbank ausgestaltet und durch Bund oder EFK geführt werden. Es hat mindestens den Namen oder Empfängertyp, Art und Zweck der Subvention, den jährlich ausbezahlten Betrag sowie das zuständige Bundesamt auszuweisen. Es soll bestehenden Daten der Bundesämter nutzen.&nbsp;<br>Datenschutz- und sicherheitsrelevante Einschränkungen bleiben vorbehalten.<\/p>",
       "tags": "Politique d'Etat|Finances",
       "tags_de": "Staatspolitik|Finanzwesen",
