@@ -8,6 +8,7 @@
  */
 
 const ALLOWED_ORIGINS = [
+  'https://efk-cdf-sfao.github.io',
   'https://arnaudbon20.github.io',
   'http://localhost',
   'http://127.0.0.1'
