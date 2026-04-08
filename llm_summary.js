@@ -10,8 +10,8 @@
  * Les clés API sont chargées depuis llm_config.js (non commité)
  */
 const LLM_CONFIG = {
-    // Provider actif: 'openai', 'ollama' ou 'gemini'
-    provider: 'gemini',
+    // Provider actif: 'openai', 'ollama', 'gemini' ou 'claude'
+    provider: 'claude',
     
     // OpenAI config
     openai: {
@@ -35,6 +35,13 @@ const LLM_CONFIG = {
         maxTokens: 4000
     },
     
+    // Claude config (Anthropic) - via Cloudflare Worker
+    claude: {
+        workerUrl: 'https://claude-proxy.cloudflare-resent579.workers.dev',
+        model: 'claude-sonnet-4-20250514',
+        maxTokens: 4000
+    },
+    
     temperature: 0.3
 };
 
@@ -48,6 +55,9 @@ function isLLMAvailable() {
     if (LLM_CONFIG.provider === 'gemini') {
         // Disponible via Worker Cloudflare OU clé locale
         return LLM_CONFIG.gemini.workerUrl || (typeof LLM_API_KEYS !== 'undefined' && LLM_API_KEYS.gemini && LLM_API_KEYS.gemini !== 'votre-cle-gemini-ici');
+    }
+    if (LLM_CONFIG.provider === 'claude') {
+        return !!LLM_CONFIG.claude.workerUrl;
     }
     if (LLM_CONFIG.provider === 'openai') {
         return typeof LLM_API_KEYS !== 'undefined' && LLM_API_KEYS.openai && LLM_API_KEYS.openai !== 'sk-proj-votre-cle-openai-ici';
@@ -84,6 +94,7 @@ const LOCALES = {
         disclaimerOpenAI: '⚠️ Résumé généré par IA (GPT-4o-mini) - À vérifier',
         disclaimerOllama: '⚠️ Résumé généré par IA (Mistral local) - À vérifier',
         disclaimerGemini: '⚠️ Résumé généré par IA (Gemini Flash) - À vérifier',
+        disclaimerClaude: '⚠️ Résumé généré par IA (Claude Sonnet) - À vérifier',
         loading: 'Génération du résumé pour',
         loadingHint: 'Cela peut prendre quelques secondes',
         btnText: '🤖 Résumer cet objet',
@@ -111,6 +122,7 @@ const LOCALES = {
         disclaimerOpenAI: '⚠️ Von KI generierte Zusammenfassung (GPT-4o-mini) - Zu überprüfen',
         disclaimerOllama: '⚠️ Von KI generierte Zusammenfassung (Mistral lokal) - Zu überprüfen',
         disclaimerGemini: '⚠️ Von KI generierte Zusammenfassung (Gemini Flash) - Zu überprüfen',
+        disclaimerClaude: '⚠️ Von KI generierte Zusammenfassung (Claude Sonnet) - Zu überprüfen',
         loading: 'Zusammenfassung wird erstellt für',
         loadingHint: 'Dies kann einige Sekunden dauern',
         btnText: '🤖 Geschäft zusammenfassen',
@@ -138,6 +150,7 @@ const LOCALES = {
         disclaimerOpenAI: '⚠️ Riassunto generato da IA (GPT-4o-mini) - Da verificare',
         disclaimerOllama: '⚠️ Riassunto generato da IA (Mistral locale) - Da verificare',
         disclaimerGemini: '⚠️ Riassunto generato da IA (Gemini Flash) - Da verificare',
+        disclaimerClaude: '⚠️ Riassunto generato da IA (Claude Sonnet) - Da verificare',
         loading: 'Generazione del riassunto per',
         loadingHint: 'Questo può richiedere alcuni secondi',
         btnText: '🤖 Riassumi questo oggetto',
@@ -260,13 +273,54 @@ ${locale.instructions}
 async function callLLM(prompt) {
     const locale = getLocale();
     
-    if (LLM_CONFIG.provider === 'ollama') {
+    if (LLM_CONFIG.provider === 'claude') {
+        return await callClaude(prompt, locale);
+    } else if (LLM_CONFIG.provider === 'ollama') {
         return await callOllama(prompt, locale);
     } else if (LLM_CONFIG.provider === 'gemini') {
         return await callGemini(prompt, locale);
     } else {
         return await callOpenAI(prompt, locale);
     }
+}
+
+/**
+ * Appelle l'API Claude (via Cloudflare Worker)
+ */
+async function callClaude(prompt, locale) {
+    const url = LLM_CONFIG.claude.workerUrl;
+    
+    const requestBody = {
+        model: LLM_CONFIG.claude.model,
+        max_tokens: LLM_CONFIG.claude.maxTokens,
+        system: locale.systemPrompt,
+        messages: [{
+            role: 'user',
+            content: prompt
+        }],
+        temperature: LLM_CONFIG.temperature
+    };
+    
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    });
+    
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error?.message || `Erreur API Claude: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (!data.content || !data.content.length) {
+        throw new Error('Réponse Claude invalide ou vide');
+    }
+    
+    return data.content[0].text;
 }
 
 /**
@@ -419,7 +473,7 @@ function showSummaryModal(businessNumber, title, summary, debateCount) {
             <div class="summary-modal-meta">${debateCount} ${locale.interventionsAnalyzed}</div>
             <div class="summary-modal-body">${formatSummaryAsHTML(summary)}</div>
             <div class="summary-modal-footer">
-                <span class="summary-disclaimer">${LLM_CONFIG.provider === 'gemini' ? locale.disclaimerGemini : (LLM_CONFIG.provider === 'ollama' ? locale.disclaimerOllama : locale.disclaimerOpenAI)}</span>
+                <span class="summary-disclaimer">${LLM_CONFIG.provider === 'claude' ? locale.disclaimerClaude : (LLM_CONFIG.provider === 'gemini' ? locale.disclaimerGemini : (LLM_CONFIG.provider === 'ollama' ? locale.disclaimerOllama : locale.disclaimerOpenAI))}</span>
                 <button class="btn-copy-summary" onclick="copySummaryToClipboard()">📋 ${locale.copy}</button>
             </div>
         </div>

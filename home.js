@@ -478,7 +478,7 @@ async function displaySessionSummary(summary, currentSession) {
     if (textEl) {
         if (llmSummary) {
             // Afficher le résumé LLM avec disclaimer
-            textEl.innerHTML = `${llmSummary}<br><span class="llm-disclaimer">🤖 Résumé généré automatiquement par Gemini</span>`;
+            textEl.innerHTML = `${llmSummary}<br><span class="llm-disclaimer">🤖 Résumé généré automatiquement par Claude</span>`;
         } else {
             // Fallback: générer le texte basique
             const count = summary.count || 0;

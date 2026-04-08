@@ -1,0 +1,6 @@
+name = "claude-proxy"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# The CLAUDE_API_KEY must be added as a secret:
+#   wrangler secret put CLAUDE_API_KEY
