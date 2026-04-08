@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-04-08T13:21:28",
+    "updated": "2026-04-08T21:56:41",
     "total_count": 328,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -1848,7 +1848,6 @@
       "title_de": "Ist eine Kaufkraft-Demo eine Wahlveranstaltung oder nicht?",
       "title_it": "Una manifestazione a favore del potere d'acquisto è una manifestazione elettorale o no? ",
       "author": "Aeschi Thomas",
-      "party": "UDC",
       "type": "Ip.",
       "status": "Erledigt / Liquidé",
       "council": "NR",
