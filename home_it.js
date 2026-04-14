@@ -103,7 +103,11 @@ async function init() {
         // Vérifier si une session est active
         const activeSession = getActiveSession(sessionsJson.sessions);
         
-        if (activeSession) {
+        if (isNationalDay()) {
+            showNationalDayBanner('Buona festa nazionale!', '1° agosto ' + new Date().getFullYear());
+            document.getElementById('sessionAnimation').style.display = 'none';
+            document.getElementById('heroBanner').style.display = 'none';
+        } else if (activeSession) {
             showSessionAnimation(activeSession);
         } else {
             document.getElementById('heroBanner').style.display = 'block';
@@ -760,4 +764,35 @@ function displayDebatesSummary(debatesData, currentSession) {
     }
     
     container.innerHTML = html;
+}
+
+// Verificare se oggi è il 1° agosto (festa nazionale svizzera)
+function isNationalDay() {
+    const now = new Date();
+    return now.getMonth() === 7 && now.getDate() === 1;
+}
+
+// Mostrare il banner della festa nazionale con le bandiere cantonali
+function showNationalDayBanner(title, dateText) {
+    const banner = document.getElementById('nationalDayBanner');
+    if (!banner) return;
+
+    const cantonsLeft = ['zh','be','lu','ur','sz','ow','nw','gl','zg','fr','so','bs','bl'];
+    const cantonsRight = ['sh','ar','ai','sg','gr','ag','tg','ti','vd','vs','ne','ge','ju'];
+    const basePath = 'assets/Logos Cantons/';
+
+    let flagsHTML = '';
+    cantonsLeft.forEach(c => {
+        flagsHTML += `<img src="${basePath}${c}.svg" class="canton-flag" alt="${c.toUpperCase()}" title="${c.toUpperCase()}">`;
+    });
+    flagsHTML += `<img src="${basePath}ch.svg" class="swiss-flag" alt="Svizzera" title="Svizzera">`;
+    cantonsRight.forEach(c => {
+        flagsHTML += `<img src="${basePath}${c}.svg" class="canton-flag" alt="${c.toUpperCase()}" title="${c.toUpperCase()}">`;
+    });
+
+    banner.innerHTML = `
+        <div class="national-day-title">${title}</div>
+        <div class="national-day-flags">${flagsHTML}</div>
+    `;
+    banner.style.display = 'flex';
 }
