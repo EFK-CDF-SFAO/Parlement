@@ -1,11 +1,140 @@
 {
   "metadata": {
-    "generated_at": "2026-03-16T14:59:47.808557",
-    "total_records": 4,
+    "generated_at": "2026-04-15T07:45:23.088955",
+    "total_records": 5,
     "source": "OpenParlData.ch API",
     "description": "Cantonal parliament mentions of the Swiss Federal Audit Office (EFK/CDF)"
   },
   "data": [
+    {
+      "id": 298499,
+      "url_api": "https://api.openparldata.ch/v1/affairs/298499",
+      "body_key": "351",
+      "external_id": "a20e8cfd05144d77a3fb5039a91c24e3",
+      "number": "2026.SR.0126",
+      "body_id": 353,
+      "title_de": "Alexander Feuz, SVP, Bernhard Hess, Thomas Glauser (SVP); Nebenbeschäftigung",
+      "title_long_de": "Kleine Anfrage: Alexander Feuz, SVP, Bernhard Hess, Thomas Glauser (SVP); Nebenbeschäftigung",
+      "type_name_de": "Kleine Anfrage",
+      "type_external_id": "6be4e54e1fc944f7a1c7617795c850d2",
+      "type_harmonized_de": "Anfrage",
+      "type_harmonized_fr": "Question",
+      "type_harmonized_it": "Interrogazione",
+      "type_harmonized_rm": "Dumonda",
+      "type_harmonized_en": "Question",
+      "type_harmonized_id": 12,
+      "type_harmonized_wikidata_id": "Q2052854",
+      "state_name_de": "Eingereicht",
+      "begin_date": "2026-03-26T00:00:00",
+      "url_external_de": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=a20e8cfd05144d77a3fb5039a91c24e3",
+      "updated_at": "2026-04-03T10:39:51",
+      "created_at": "2026-03-27T21:52:57",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "ws/schweiz/finanzkontrolle-sieht-luecken-kritik-am-umgang-mit-nebenjobs-\nvon-bundesangestellten\nDie Eidgenössische Finanzkontrolle (EFK) hat geprüft, wie die Bundesverwaltung mit Nebenbe-\nschäftigungen ihrer Mitarbeitenden umgeht.\nDie Prüfung zeigt: Die Verwaltung nimmt das Thema ernst – doch sieht ",
+            "source_id": 692787,
+            "source_name": "Kleine Anfrage: Alexander Feuz, SVP, Bernhard Hess, Thomas Glauser (SVP); Nebenbeschäftigung",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/298499/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/298499/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/298499/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/298499/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/298499/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/298499/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/298499/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/298499/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/298499/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/298499/external_links"
+      },
+      "body_name_fr": "Berne (Ville)",
+      "body_name_original": "Bern (Stadt)",
+      "body_name": "Berne (Ville)",
+      "efk_excerpts_de": [
+        {
+          "text": "ws/schweiz/finanzkontrolle-sieht-luecken-kritik-am-umgang-mit-nebenjobs- von-bundesangestellten Die Eidgenössische Finanzkontrolle (EFK) hat geprüft, wie die Bundesverwaltung mit Nebenbe- schäftigungen ihrer Mitarbeitenden umgeht. Die Prüfung zeigt: Die Verwaltung nimmt das Thema ernst – doch sieht",
+          "source": "Kleine Anfrage: Alexander Feuz, SVP, Bernhard Hess, Thomas Glauser (SVP); Nebenbeschäftigung"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 692787,
+          "name": "Kleine Anfrage: Alexander Feuz, SVP, Bernhard Hess, Thomas Glauser (SVP); Nebenbeschäftigung",
+          "title": "",
+          "url": "https://stadtrat.bern.ch/de/dokumente/353e9b1cca164617b685565ece89cc05-332",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 692787,
+          "name": "Kleine Anfrage: Alexander Feuz, SVP, Bernhard Hess, Thomas Glauser (SVP); Nebenbeschäftigung",
+          "title": "",
+          "url": "https://stadtrat.bern.ch/de/dokumente/353e9b1cca164617b685565ece89cc05-332",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Direktion für Finanzen, Personal und Informatik",
+          "firstname": null,
+          "lastname": "Direktion für Finanzen, Personal und Informatik",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        },
+        {
+          "fullname": "Thomas Glauser",
+          "firstname": "Thomas",
+          "lastname": "Glauser",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Bernhard Hess",
+          "firstname": "Bernhard",
+          "lastname": "Hess",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Alexander Feuz",
+          "firstname": "Alexander",
+          "lastname": "Feuz",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Ueli Jaisli",
+          "firstname": "Ueli",
+          "lastname": "Jaisli",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Alexander Feuz, SVP",
+          "firstname": "Alexander",
+          "lastname": "SVP",
+          "party_de": "",
+          "party_fr": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Thomas Glauser, Bernhard Hess, Alexander Feuz, Ueli Jaisli, Alexander Feuz, SVP",
+      "author_display_de": "Thomas Glauser, Bernhard Hess, Alexander Feuz, Ueli Jaisli, Alexander Feuz, SVP",
+      "author_display": "Thomas Glauser, Bernhard Hess, Alexander Feuz, Ueli Jaisli, Alexander Feuz, SVP",
+      "url_external_fr": "https://stadtrat.bern.ch/fr/geschaefte/detail.php?gid=a20e8cfd05144d77a3fb5039a91c24e3",
+      "url_external_it": "https://stadtrat.bern.ch/it/geschaefte/detail.php?gid=a20e8cfd05144d77a3fb5039a91c24e3"
+    },
     {
       "id": 251627,
       "url_api": "https://api.openparldata.ch/v1/affairs/251627",
