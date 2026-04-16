@@ -546,6 +546,16 @@ main {
     text-transform: none;
 }
 
+.badge-theme {
+    background: transparent;
+    font-weight: 600;
+}
+
+.badge-theme-tpf {
+    color: #0D7377;
+    border: 1.5px solid #0D7377;
+}
+
 .card-title {
     font-size: 1rem;
     font-weight: 500;
@@ -1999,6 +2009,7 @@ a.author-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.4rem;
 }
 
 .card-type {
@@ -2009,6 +2020,14 @@ a.author-row {
     border: 1.5px solid #D1D5DB;
     font-size: 0.75rem;
     font-weight: 500;
+}
+
+.intervention-card .badge-theme {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .card-id {
