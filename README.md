@@ -29,6 +29,13 @@
 | Full-text search | Speaker and party filters | Interactive charts |
 | Advanced filters (themes, department, session) | Full intervention text | Export options |
 
+### 🏷️ Thematic Labels
+- **TPF** (Transparency of Political Financing): automatic detection of items related to campaign financing, party funding, and political transparency
+- Keyword-based regex matching on titles and texts (FR/DE/IT)
+- Displayed as badges on object and debate cards (homepage, objects, debates)
+- Available as a filter in the tags dropdown
+- Only applies to items from 2020 onwards
+
 ### 🔍 Advanced Search
 - **Full-text search** in titles and submitted texts
 - **Multiple filters**: type, council, year, party, department, themes, legislature, session

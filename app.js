@@ -1,5 +1,24 @@
 // Configuration
 const DATA_URL = 'cdf_efk_data.json';
+
+// --- TPF (Transparence du financement de la vie politique) ---
+const TPF_THEME_PATTERN = /financement\s+(de(s)?\s+(la\s+vie\s+politique|parti|campagne)|politique|électoral)|transparence\s+(du\s+financement|de\s+la\s+vie\s+politique)|politikfinanzierung|parteienfinanzierung|kampagnenfinanzierung|transparenzvorschrift|financement.*campagne.*extraordinaire/i;
+
+function detectTPF(item) {
+    if (!item.date) return false;
+    const year = parseInt(item.date.substring(0, 4), 10);
+    if (year < 2020) return false;
+    const textToSearch = [
+        item.title || '', item.title_de || '', item.title_it || '',
+        item.text || '', item.text_de || ''
+    ].join(' ');
+    return TPF_THEME_PATTERN.test(textToSearch);
+}
+
+function getTPFBadge(item) {
+    if (!detectTPF(item)) return '';
+    return '<span class="badge badge-theme badge-theme-tpf">TPF</span>';
+}
 const EXCEL_URL = 'Objets_parlementaires_CDF_EFK.xlsx';
 const INITIAL_ITEMS = 10;
 const ITEMS_PER_LOAD = 10;
@@ -365,6 +384,8 @@ function populateTagsFilter() {
                 if (tag.trim()) allTags.add(tag.trim());
             });
         }
+        // Ajouter le tag TPF si détecté
+        if (detectTPF(item)) allTags.add('TPF');
     });
     
     const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'fr'));
@@ -623,6 +644,8 @@ function applyFilters() {
         // Tags filter (multiple) - un objet passe si au moins un de ses tags est sélectionné
         if (tagsValues.length > 0) {
             const itemTags = item.tags ? item.tags.split('|').map(t => t.trim()) : [];
+            // Ajouter le tag TPF dynamiquement si détecté
+            if (detectTPF(item)) itemTags.push('TPF');
             const hasMatchingTag = itemTags.some(tag => tagsValues.includes(tag));
             if (!hasMatchingTag) {
                 return false;
@@ -876,6 +899,7 @@ function createCard(item, searchTerm) {
                     <span class="badge badge-type">${translateType(item.type)}</span>
                     <span class="badge badge-council">${item.council === 'NR' ? 'CN' : 'CE'}</span>
                     <span class="badge badge-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
+                    ${getTPFBadge(item)}
                 </div>
             </div>
             <h3 class="card-title">

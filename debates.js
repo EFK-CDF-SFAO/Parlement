@@ -1,6 +1,26 @@
 const INITIAL_ITEMS = 5;
 const ITEMS_PER_LOAD = 5;
 const RAPPORTS_MATCHES_URL = 'rapports_matches.json';
+
+// --- TPF (Transparence du financement de la vie politique) ---
+const TPF_THEME_PATTERN_DEBATE = /financement\s+(de(s)?\s+(la\s+vie\s+politique|parti|campagne)|politique|électoral)|transparence\s+(du\s+financement|de\s+la\s+vie\s+politique)|politikfinanzierung|parteienfinanzierung|kampagnenfinanzierung|transparenzvorschrift|financement.*campagne.*extraordinaire/i;
+
+function detectTPFDebate(item) {
+    if (!item.date) return false;
+    const year = parseInt(String(item.date).substring(0, 4), 10);
+    if (year < 2020) return false;
+    const textToSearch = [
+        item.text || '',
+        item.business_title_fr || '',
+        item.business_title_de || ''
+    ].join(' ');
+    return TPF_THEME_PATTERN_DEBATE.test(textToSearch);
+}
+
+function getTPFBadgeDebate(item) {
+    if (!detectTPFDebate(item)) return '';
+    return '<span class="badge badge-theme badge-theme-tpf">TPF</span>';
+}
 const RAPPORTS_CDF_URL = 'rapports_cdf.json';
 const RAPPORTS_MANUELS_URL = 'rapports_manuels.json';
 
@@ -408,6 +428,8 @@ function populateTagsFilter() {
     allData.forEach(item => {
         const tags = getDebateTags(item);
         tags.forEach(tag => allTags.add(tag));
+        // Ajouter le tag TPF si détecté
+        if (detectTPFDebate(item)) allTags.add('TPF');
     });
     
     const tagsArray = [...allTags].sort((a, b) => a.localeCompare(b, 'fr'));
@@ -671,6 +693,8 @@ function applyFilters() {
         // Filtre thématique (via les tags de l'objet associé)
         if (tagsValues) {
             const itemTags = getDebateTags(item);
+            // Ajouter le tag TPF dynamiquement si détecté
+            if (detectTPFDebate(item)) itemTags.push('TPF');
             const hasMatchingTag = tagsValues.some(tag => itemTags.includes(tag));
             if (!hasMatchingTag) {
                 return false;
@@ -819,6 +843,7 @@ function createCard(item, searchTerm = '') {
             ${businessNumberLink}
             <div class="card-badges">
                 <span class="badge badge-council">${councilDisplay}</span>
+                ${getTPFBadgeDebate(item)}
             </div>
         </div>
         <h3 class="card-title">${businessTitleLink}</h3>

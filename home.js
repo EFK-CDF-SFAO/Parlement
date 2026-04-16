@@ -1,5 +1,41 @@
 // Configuration
 const DATA_URL = 'cdf_efk_data.json';
+
+// --- TPF (Transparence du financement de la vie politique) ---
+const TPF_THEME_PATTERN_HOME = /financement\s+(de(s)?\s+(la\s+vie\s+politique|parti|campagne)|politique|électoral)|transparence\s+(du\s+financement|de\s+la\s+vie\s+politique)|politikfinanzierung|parteienfinanzierung|kampagnenfinanzierung|transparenzvorschrift|financement.*campagne.*extraordinaire/i;
+
+function detectTPFHome(item) {
+    const dateStr = item.date || '';
+    const year = parseInt(dateStr.substring(0, 4), 10);
+    if (year < 2020) return false;
+    const textToSearch = [
+        item.title || '', item.title_de || '', item.title_it || '',
+        item.text || '', item.text_de || ''
+    ].join(' ');
+    return TPF_THEME_PATTERN_HOME.test(textToSearch);
+}
+
+function detectTPFDebateHome(debate) {
+    const dateStr = String(debate.date || '');
+    const year = parseInt(dateStr.substring(0, 4), 10);
+    if (year < 2020) return false;
+    const textToSearch = [
+        debate.business_title_fr || '',
+        debate.business_title_de || '',
+        debate.text || ''
+    ].join(' ');
+    return TPF_THEME_PATTERN_HOME.test(textToSearch);
+}
+
+function getTPFBadgeHome(item) {
+    if (!detectTPFHome(item)) return '';
+    return '<span class="badge badge-theme badge-theme-tpf">TPF</span>';
+}
+
+function getTPFBadgeDebateHome(debate) {
+    if (!detectTPFDebateHome(debate)) return '';
+    return '<span class="badge badge-theme badge-theme-tpf">TPF</span>';
+}
 const DEBATES_URL = 'debates_data.json';
 const SESSIONS_URL = 'sessions.json';
 const LLM_SUMMARIES_URL = 'session_llm_summaries.json';
@@ -578,6 +614,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
             <a href="${item.url_fr}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
                 <div class="card-header">
                     <span class="card-type">${typeLabels[type] || type}</span>
+                    ${getTPFBadgeHome(item)}
                     <span class="card-id">${item.shortId}</span>
                 </div>
                 <div class="card-title">${displayTitle}</div>
@@ -645,6 +682,7 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
             <a href="${interventions.url_fr[i]}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
                 <div class="card-header">
                     <span class="card-type">${typeLabels[type] || type}</span>
+                    ${getTPFBadgeHome(itemData || {date: '', title: interventions.title[i], title_de: interventions.title_de?.[i] || ''})}
                     <span class="card-id">${shortId}</span>
                 </div>
                 <div class="card-title">${displayTitle}</div>
@@ -719,6 +757,7 @@ function displayDebatesSummary(debatesData, currentSession) {
                 <a href="${debateUrl}" class="intervention-card${isNew ? ' card-new' : ''}">
                     <div class="card-header">
                         <span class="card-type">${councilLabel}</span>
+                        ${getTPFBadgeDebateHome(debate)}
                         <span class="card-id">${businessNumber}</span>
                     </div>
                     <div class="card-title">${title}</div>
