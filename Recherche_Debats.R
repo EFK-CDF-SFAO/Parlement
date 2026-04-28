@@ -482,5 +482,15 @@ if (!is.null(Debats_Tous) && nrow(Debats_Tous) > 0) {
   cat("\n⚠️  N'oubliez pas de commit/push sur GitHub!\n")
   
 } else {
-  cat("Aucun débat trouvé.\n")
+  cat("Aucun nouveau débat trouvé pour les sessions scannées.\n")
+  
+  # En mode CI: mettre à jour meta.updated même sans nouveaux débats
+  if (Sys.getenv("CI") == "true" && file.exists(FICHIER_DEBATS_JSON)) {
+    cat("Mise à jour de meta.updated...\n")
+    ancien_json <- jsonlite::fromJSON(FICHIER_DEBATS_JSON, simplifyVector = FALSE)
+    ancien_json$meta$sessions <- paste(SESSIONS_DEBATS, collapse = ", ")
+    ancien_json$meta$updated <- as.character(Sys.time())
+    jsonlite::write_json(ancien_json, FICHIER_DEBATS_JSON, auto_unbox = TRUE, pretty = TRUE)
+    cat("  -> meta.updated mis à jour dans", FICHIER_DEBATS_JSON, "\n")
+  }
 }
