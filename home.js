@@ -423,7 +423,6 @@ function getCurrentSession(sessions) {
     
     // Trier les sessions par date de début
     const sortedSessions = sessions
-        .filter(s => s.type === 'ordinaire')
         .sort((a, b) => new Date(a.start) - new Date(b.start));
     
     // Trouver la dernière session terminée
@@ -476,7 +475,8 @@ function getSessionName(sessionId) {
         'printemps': 'session de printemps',
         'ete': 'session d\'été',
         'automne': 'session d\'automne',
-        'hiver': 'session d\'hiver'
+        'hiver': 'session d\'hiver',
+        'speciale': 'session spéciale'
     };
     return seasonMap[parts[1]] || '';
 }

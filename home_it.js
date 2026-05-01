@@ -53,7 +53,8 @@ const sessionNames = {
     'printemps': 'sessione primaverile',
     'ete': 'sessione estiva',
     'automne': 'sessione autunnale',
-    'hiver': 'sessione invernale'
+    'hiver': 'sessione invernale',
+    'speciale': 'sessione speciale'
 };
 
 // Couleurs par type d'objet
@@ -393,7 +394,6 @@ function getCurrentSession(sessions) {
     const now = new Date();
     
     const sortedSessions = sessions
-        .filter(s => s.type === 'ordinaire')
         .sort((a, b) => new Date(a.start) - new Date(b.start));
     
     let lastEndedSession = null;
