@@ -160,8 +160,18 @@ async function init() {
             if (legendHint) legendHint.style.display = 'none';
         } else {
             // Hors session: affichage normal
-            displaySessionSummary(objectsJson.session_summary, currentSession);
-            displayObjectsList(objectsJson.session_summary, newIds, objectsJson.items);
+            const summary = objectsJson.session_summary;
+            const summaryMatchesSession = !currentSession || !summary || 
+                currentSession.id === summary.session_id;
+            
+            if (summaryMatchesSession) {
+                displaySessionSummary(summary, currentSession);
+                displayObjectsList(summary, newIds, objectsJson.items);
+            } else {
+                // Session actuelle (ex: spéciale) sans résumé pré-calculé
+                displaySessionSummaryEmpty(currentSession);
+                displayNewObjectsDuringSession(objectsJson.items, newIds, currentSession);
+            }
         }
         
         // Load debates data (session active et hors session)
@@ -479,6 +489,20 @@ function getSessionName(sessionId) {
         'speciale': 'session spéciale'
     };
     return seasonMap[parts[1]] || '';
+}
+
+function displaySessionSummaryEmpty(session) {
+    const titleEl = document.getElementById('summaryTitle');
+    const textEl = document.getElementById('summaryText');
+    const startDate = formatDate(session.start);
+    const endDate = formatDate(session.end);
+    const sessionName = session.name_fr || getSessionName(session.id);
+    if (titleEl) {
+        titleEl.textContent = `Résumé de la ${sessionName} (${startDate} - ${endDate})`;
+    }
+    if (textEl) {
+        textEl.textContent = `Aucune intervention mentionnant le CDF n'a été déposée durant la ${sessionName}.`;
+    }
 }
 
 async function displaySessionSummary(summary, currentSession) {
