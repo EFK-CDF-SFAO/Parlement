@@ -1,46 +1,12 @@
 {
   "meta": {
-    "updated": "2026-05-01T21:54:57",
+    "updated": "2026-05-02T13:06:28",
     "total_count": 328,
     "source": "Swiss Parliament API",
     "legislature": 52,
     "new_ids": []
   },
-  "session_summary": {
-    "session_id": "2026-printemps",
-    "title_fr": "Résumé de la session de printemps 2026",
-    "title_de": "Zusammenfassung der Frühjahrssession 2026",
-    "text_fr": "Durant la Session de printemps 2026 (02.03 - 20.03.2026), 8 interventions mentionnant le CDF ont été déposées ou ont fait l'objet d'une réponse du Conseil fédéral qui cite le CDF : 3 questions, 2 interpellations, 1 D.Ip., 1 motion, 1 postulat. Toutes au Conseil national. Les partis les plus actifs : PS, Le Centre, MCG.",
-    "text_de": "Während der Frühjahrssession 2026 (02.03 - 20.03.2026) wurden 8 Vorstösse mit Bezug zur EFK eingereicht oder mit einer Antwort des Bundesrates versehen, die die EFK erwähnt: 3 Anfragen, 2 Interpellationen, 1 D.Ip., 1 Motion, 1 Postulat. Alle im Nationalrat. Die aktivsten Parteien: SP, Die Mitte, MCG.",
-    "themes_fr": "Créer un registre public des bénéficiaires de subventions (Gredig, pvl) ; Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie (Addor, UDC) ; Le comité en faveur de l'initiative de l'UDC pour la durabilité tente-t-il de contourner les règles de transparence ? (Wermuth, PS) ; Bug informatique au SECO. Responsabilités et défaillance grave de l'État  (Sormanni, MCG) ; Gestion des substances problématiques par la Confédération. PFAS. Étude de cohorte (Weichelt, VERT-E-S) ; Le CDF révise-t-il systématiquement les financements de campagnes extraordinaires ? (Dobler, PLR) ; A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ? (Roduit, Le Centre) ; Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage (Amoos, PS)",
-    "themes_de": "Einführung eines öffentlichen Registers der Subventionsempfänger (Gredig, GLP) ; Externes Audit des Bundesamts für Zoll und Grenzsicherheit zur Wiederherstellung des Vertrauens des Personals und der Wirtschaft (Addor, SVP) ; Versucht das Pro-Komitee der SVP-Nachhaltigkeitsinitiative die Transparenzvorschriften zu umgehen? (Wermuth, SP) ; IT-Bug beim SECO. Verantwortlichkeiten und schwerwiegendes Versagen des Bundes  (Sormanni, MCG) ; Umgang des Bundes mit problematischen Stoffen. PFAS. Kohortenstudie (Weichelt, GRÜNE) ; Führt die EFK bei ausserordentlichen Kampagnenfinanzierungen automatisch eine Revision durch? (Dobler, FDP) ; Wann gibt es Lösungsansätze für die ökologische Sanierung der Wasserkraft? (Roduit, Die Mitte) ; ASAL 2.0: Der absehbare Skandal um die Verzögerungen bei der Auszahlung der Arbeitslosenentschädigungen (Amoos, SP)",
-    "session_start": "2026-03-02",
-    "session_end": "2026-03-20",
-    "display_until": "2026-06-01",
-    "count": 8,
-    "by_type": {
-      "Fra.": 3,
-      "Ip.": 2,
-      "D.Ip.": 1,
-      "Mo.": 1,
-      "Po.": 1
-    },
-    "by_council": {
-      "CN": 8,
-      "CE": 0
-    },
-    "interventions": {
-      "shortId": ["26.3398", "26.3485", "26.3487", "26.3028", "26.3281", "26.7185", "26.7161", "26.7129"],
-      "title": ["Créer un registre public des bénéficiaires de subventions", "Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie", "Le comité en faveur de l'initiative de l'UDC pour la durabilité tente-t-il de contourner les règles de transparence ?", "Bug informatique au SECO. Responsabilités et défaillance grave de l'État ", "Gestion des substances problématiques par la Confédération. PFAS. Étude de cohorte", "Le CDF révise-t-il systématiquement les financements de campagnes extraordinaires ?", "A quand des pistes de solution pour l’assainissement écologique de l’hydraulique ?", "Sipac 2.0, le scandale annoncé des retards dans le versement des allocations chômage"],
-      "title_de": ["Einführung eines öffentlichen Registers der Subventionsempfänger", "Externes Audit des Bundesamts für Zoll und Grenzsicherheit zur Wiederherstellung des Vertrauens des Personals und der Wirtschaft", "Versucht das Pro-Komitee der SVP-Nachhaltigkeitsinitiative die Transparenzvorschriften zu umgehen?", "IT-Bug beim SECO. Verantwortlichkeiten und schwerwiegendes Versagen des Bundes ", "Umgang des Bundes mit problematischen Stoffen. PFAS. Kohortenstudie", "Führt die EFK bei ausserordentlichen Kampagnenfinanzierungen automatisch eine Revision durch?", "Wann gibt es Lösungsansätze für die ökologische Sanierung der Wasserkraft?", "ASAL 2.0: Der absehbare Skandal um die Verzögerungen bei der Auszahlung der Arbeitslosenentschädigungen"],
-      "title_it": ["Introduzione di un registro pubblico dei beneficiari di sussidi", "Una verifica esterna dell'UDSC per ristabilire la fiducia tra il personale e il mondo economico", "Iniziativa per la sostenibilità dell'UDC: Il comitato promotore tenta di eludere le disposizioni in materia di trasparenza?", "Bug informatico alla SECO. Responsabilità e grave inadempienza dello Stato ", "Gestione di sostanze problematiche da parte della Confederazione, PFAS, studio di coorte", null, null, null],
-      "author": ["Gredig Corina", "Addor Jean-Luc", "Wermuth Cédric", "Sormanni Daniel", "Weichelt Manuela", "Dobler Marcel", "Roduit Benjamin", "Amoos Emmanuel"],
-      "party": ["pvl", "UDC", "PS", "MCG", "VERT-E-S", "PLR", "Le Centre", "PS"],
-      "type": ["Mo.", "Po.", "Ip.", "D.Ip.", "Ip.", "Fra.", "Fra.", "Fra."],
-      "url_fr": ["https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263398", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263485", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263487", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263028", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263281", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267185", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267161", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267129"],
-      "url_de": ["https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263398", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263485", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263487", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263028", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263281", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267185", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267161", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267129"]
-    }
-  },
+  "session_summary": {},
   "items": [
     {
       "shortId": "26.3398",
