@@ -44,7 +44,7 @@
 
 ### 🤖 AI Summary (Debates)
 Generate AI-powered summaries of parliamentary debates with one click:
-- **Model**: Google Gemini Flash (via Cloudflare Worker proxy)
+- **Model**: Claude
 - **Languages**: FR, DE, IT
 - **Content**: Context, speaker positions, consensus points, divergences
 
