@@ -1,13 +1,35 @@
 {
   "meta": {
-    "updated": "2026-05-05T22:04:42",
-    "total_count": 328,
+    "updated": "2026-05-06T13:26:59",
+    "total_count": 329,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.3248"
   },
   "session_summary": {},
   "items": [
+    {
+      "shortId": "26.3248",
+      "title": "Efficacité et rentabilité de la plateforme d'aide au sevrage tabagique \"stop-tabac.ch\"",
+      "title_de": "Wirksamkeit und Kosteneffizienz der Rauchstopp-Plattform \"stopsmoking.ch\"",
+      "title_it": "Efficacia ed efficienza in termini di costi della piattaforma per la disassuefazione dal fumo \"stop-tabacco.ch\"",
+      "author": "Balmer Bettina",
+      "party": "PLR",
+      "type": "Ip.",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
+      "council": "NR",
+      "department": "EDI",
+      "date": "2026-03-19",
+      "date_maj": "2026-05-06",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263248",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263248",
+      "mention": "Conseil fédéral",
+      "text": "<p>Depuis 2021, le Fonds de prévention du tabagisme (FPT) a investi environ quatre millions de francs dans la refonte de la plateforme d’aide au sevrage « stop-tabac.ch ». Malgré cela, son audience et son utilisation sont en net recul : selon un article de 24 heures du 28 novembre 2025, le site n’enregistre plus que quelque 150 000 vues par année. En 2024, il n’a donné lieu qu’à environ 3 600 séances d’accompagnement. Pour des coûts d’exploitation annuels de quelque 1,5 million de francs, la consultation revient à plus de 400 francs. De plus, il est difficile de savoir combien d’utilisateurs ont réellement arrêté de fumer de manière durable grâce à cet accompagnement.<\/p><p>Le FPT dispose d’environ 12 millions de francs par an provenant des taxes sur les produits du tabac pour financer des mesures de prévention. On peut se demander si les fonds alloués aux offres numériques d’aide au sevrage tabagique sont utilisés de manière efficace, efficiente et ciblée, d’autant plus qu’il existe désormais de nombreuses applications privées largement utilisées.<\/p>",
+      "text_de": "<p>Der Tabakpräventionsfonds (TPF) hat seit 2021 rund vier Millionen Franken in die Neugestaltung der Rauchstopp-Plattform «stopsmoking.ch» investiert. Dennoch sind Reichweite und Nutzung deutlich zurückgegangen: Gemäss einem Bericht der Zeitung 24 heures vom 28.11.2025 verzeichnet die Plattform heute nur noch rund 150’000 Seitenaufrufe pro Jahr. 2024 wurden über die Website lediglich etwa 3’600 Coachings durchgeführt. Bei jährlichen Betriebskosten von rund 1,5&nbsp;Millionen Franken entspricht dies über 400 Franken pro Beratung. Zudem ist unklar, wie viele Nutzerinnen und Nutzer dank der Beratung tatsächlich dauerhaft mit dem Rauchen aufhören.<\/p><p>Der TPF verfügt jährlich über rund 12 Millionen Franken aus Abgaben auf Tabakprodukten für Präventionsmassnahmen. Vor diesem Hintergrund stellt sich die Frage, ob die eingesetzten Mittel im Bereich der digitalen Rauchstopp-Angebote wirksam, effizient und zielgerichtet verwendet werden, zumal inzwischen zahlreiche gut genutzte private Apps existieren.<\/p>",
+      "tags": "Médias et communication|Santé",
+      "tags_de": "Medien und Kommunikation|Gesundheit",
+      "tags_it": "Media e comunicazione|Salute"
+    },
     {
       "shortId": "26.3398",
       "title": "Créer un registre public des bénéficiaires de subventions",
@@ -170,11 +192,12 @@
       "author": "Weichelt Manuela",
       "party": "VERT-E-S",
       "type": "Ip.",
-      "status": "Eingereicht / Déposé",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "department": "UVEK",
       "date": "2026-03-19",
-      "date_maj": "2026-03-19",
+      "date_maj": "2026-05-06",
+      "statut_change_date": "2026-05-06",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263281",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263281",
       "mention": "Élu",
