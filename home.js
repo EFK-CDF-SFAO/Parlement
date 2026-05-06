@@ -164,13 +164,13 @@ async function init() {
             const summaryMatchesSession = !currentSession || !summary || 
                 currentSession.id === summary.session_id;
             
-            if (summaryMatchesSession) {
+            if (summaryMatchesSession && summary && summary.interventions) {
                 displaySessionSummary(summary, currentSession);
                 displayObjectsList(summary, newIds, objectsJson.items);
             } else {
-                // Session actuelle (ex: spéciale) sans résumé pré-calculé
-                displaySessionSummaryEmpty(currentSession);
-                displayNewObjectsDuringSession(objectsJson.items, newIds, currentSession);
+                // Pas de résumé valide: afficher les derniers objets mis à jour
+                displayLatestUpdatedTitle();
+                displayLatestUpdatedObjects(objectsJson.items);
             }
         }
         
@@ -503,6 +503,73 @@ function displaySessionSummaryEmpty(session) {
     if (textEl) {
         textEl.textContent = `Aucune intervention mentionnant le CDF n'a été déposée durant la ${sessionName}.`;
     }
+}
+
+function displayLatestUpdatedTitle() {
+    const titleEl = document.getElementById('summaryTitle');
+    const textEl = document.getElementById('summaryText');
+    if (titleEl) {
+        titleEl.textContent = 'Dernières mises à jour';
+    }
+    if (textEl) {
+        textEl.style.display = 'none';
+    }
+}
+
+function displayLatestUpdatedObjects(allItems) {
+    const container = document.getElementById('objectsList');
+    if (!container || !allItems || allItems.length === 0) return;
+    
+    // Trier par date_maj décroissante (plus récents en premier)
+    const sorted = [...allItems].sort((a, b) => {
+        const dateA = a.date_maj || a.date || '';
+        const dateB = b.date_maj || b.date || '';
+        return dateB.localeCompare(dateA);
+    });
+    
+    // Limiter à 3 objets maximum
+    const objectsToShow = sorted.slice(0, 3);
+    
+    // Bande verte si mis à jour dans les 4 derniers jours
+    const now = new Date();
+    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+    
+    let html = '';
+    for (const item of objectsToShow) {
+        const party = translateParty(item.party);
+        const type = item.type;
+        const partyColor = partyColors[party] || partyColors[item.party] || '#6B7280';
+        const mentionData = getMentionEmojis(item.mention);
+        
+        // Gestion titre manquant
+        const frMissing = isTitleMissing(item.title);
+        const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de || '');
+        const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🌐 Uniquement en allemand</span>' : '';
+        
+        // Bande verte si mis à jour il y a moins de 4 jours
+        const itemDateStr = item.date_maj || item.date || '';
+        const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+        const isNew = itemDate ? itemDate >= fourDaysAgo : false;
+        
+        html += `
+            <a href="${item.url_fr}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
+                <div class="card-header">
+                    <span class="card-type">${typeLabels[type] || type}</span>
+                    ${getTPFBadgeHome(item)}
+                    <span class="card-id">${item.shortId}</span>
+                </div>
+                <div class="card-title">${displayTitle}</div>
+                ${langWarning}
+                <div class="card-footer">
+                    <span class="card-author">${item.author}</span>
+                    <span class="card-party" style="background: ${partyColor};">${party}</span>
+                    <span class="card-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
+                </div>
+            </a>
+        `;
+    }
+    
+    container.innerHTML = html;
 }
 
 async function displaySessionSummary(summary, currentSession) {
