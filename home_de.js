@@ -500,7 +500,6 @@ function displayLatestUpdatedObjects(allItems) {
             <a href="${item.url_de}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
                 <div class="card-header">
                     <span class="card-type">${typeLabels[type] || type}</span>
-                    ${getTPFBadgeHome(item)}
                     <span class="card-id">${item.shortId}</span>
                 </div>
                 <div class="card-title">${displayTitle}</div>
