@@ -44,7 +44,7 @@
 
 ### 🤖 AI Summary (Debates)
 Generate AI-powered summaries of parliamentary debates with one click:
-- **Model**: Claude
+- **Model**: Anthropic Claude (via Cloudflare Worker proxy)
 - **Languages**: FR, DE, IT
 - **Content**: Context, speaker positions, consensus points, divergences
 

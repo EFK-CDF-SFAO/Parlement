@@ -136,12 +136,13 @@ async function init() {
             const summaryMatchesSession = !currentSession || !summary || 
                 currentSession.id === summary.session_id;
             
-            if (summaryMatchesSession) {
+            if (summaryMatchesSession && summary && summary.interventions) {
                 displaySessionSummary(summary, currentSession);
                 displayObjectsList(summary, newIds, objectsJson.items);
             } else {
-                displaySessionSummaryEmpty(currentSession);
-                displayNewObjectsDuringSession(objectsJson.items, newIds, currentSession);
+                // Nessun riassunto valido: mostrare gli ultimi interventi aggiornati
+                displayLatestUpdatedTitle();
+                displayLatestUpdatedObjects(objectsJson.items);
             }
         }
         
@@ -462,6 +463,83 @@ function displaySessionSummaryEmpty(session) {
     if (textEl) {
         textEl.textContent = `Nessun intervento riguardante il CDF è stato depositato durante la ${sessionName}.`;
     }
+}
+
+function displayLatestUpdatedTitle() {
+    const titleEl = document.getElementById('summaryTitle');
+    const textEl = document.getElementById('summaryText');
+    if (titleEl) {
+        titleEl.textContent = 'Ultimi aggiornamenti';
+    }
+    if (textEl) {
+        textEl.style.display = 'none';
+    }
+}
+
+function displayLatestUpdatedObjects(allItems) {
+    const container = document.getElementById('objectsList');
+    if (!container || !allItems || allItems.length === 0) return;
+    
+    // Ordinare per date_maj decrescente
+    const sorted = [...allItems].sort((a, b) => {
+        const dateA = a.date_maj || a.date || '';
+        const dateB = b.date_maj || b.date || '';
+        return dateB.localeCompare(dateA);
+    });
+    
+    // Massimo 3 oggetti
+    const objectsToShow = sorted.slice(0, 3);
+    
+    // Banda verde se aggiornamento < 4 giorni
+    const now = new Date();
+    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
+    
+    let html = '';
+    for (const item of objectsToShow) {
+        const party = translateParty(item.party);
+        const type = item.type;
+        const partyColor = partyColors[party] || partyColors[item.party] || '#6B7280';
+        const mentionData = getMentionEmojis(item.mention);
+        const url = item.url_fr ? item.url_fr.replace('/fr/', '/it/') : '#';
+        
+        // Gestion titre - priorité: IT > FR > DE
+        const itMissing = isTitleMissing(item.title_it);
+        const frMissing = isTitleMissing(item.title);
+        let displayTitle = '';
+        let langWarning = '';
+        if (!itMissing) {
+            displayTitle = item.title_it;
+        } else if (!frMissing) {
+            displayTitle = item.title;
+            langWarning = '<span class="lang-warning">🌐 Solo in francese</span>';
+        } else if (item.title_de) {
+            displayTitle = item.title_de;
+            langWarning = '<span class="lang-warning">🌐 Solo in tedesco</span>';
+        }
+        
+        // Banda verde se < 4 giorni
+        const itemDateStr = item.date_maj || item.date || '';
+        const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+        const isNew = itemDate ? itemDate >= fourDaysAgo : false;
+        
+        html += `
+            <a href="${url}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
+                <div class="card-header">
+                    <span class="card-type">${typeLabels[type] || type}</span>
+                    <span class="card-id">${item.shortId}</span>
+                </div>
+                <div class="card-title">${displayTitle}</div>
+                ${langWarning}
+                <div class="card-footer">
+                    <span class="card-author">${item.author}</span>
+                    <span class="card-party" style="background: ${partyColor};">${party}</span>
+                    <span class="card-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
+                </div>
+            </a>
+        `;
+    }
+    
+    container.innerHTML = html;
 }
 
 async function displaySessionSummary(summary, currentSession) {
