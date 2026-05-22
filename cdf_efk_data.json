@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-05-21T22:21:09",
+    "updated": "2026-05-22T14:35:43",
     "total_count": 337,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -490,7 +490,7 @@
     },
     {
       "shortId": "25.1063",
-      "title": "Pratique administrative relative aux autorisations Fintech",
+      "title": "Pratique administrative relative aux autorisations fintech",
       "title_de": "Verwaltungspraxis bei Fintech-Lizenzen",
       "title_it": "Prassi amministrativa per le licenze fintech",
       "author": "Pamini Paolo",
