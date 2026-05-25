@@ -492,7 +492,8 @@
       "name_de": "Sommersession 2026",
       "start": "2026-06-01",
       "end": "2026-06-19",
-      "type": "ordinaire"
+      "type": "ordinaire",
+      "code": "5214"
     },
     {
       "id": "2026-automne",
