@@ -1,13 +1,35 @@
 {
   "meta": {
-    "updated": "2026-05-26T22:21:01",
-    "total_count": 334,
+    "updated": "2026-05-27T15:34:01",
+    "total_count": 335,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.3332"
   },
   "session_summary": {},
   "items": [
+    {
+      "shortId": "26.3332",
+      "title": "Protéger la formation de l'opinion politique en Suisse contre les activités d'influence étrangères",
+      "title_de": "Schutz der politischen Willensbildung in der Schweiz vor ausländischen Beeinflussungsaktivitäten",
+      "title_it": "Protezione della formazione della volontà politica in Svizzera da attività di influenza estere",
+      "author": "Molina Fabian",
+      "party": "PS",
+      "type": "Mo.",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
+      "council": "NR",
+      "department": "VBS",
+      "date": "2026-03-19",
+      "date_maj": "2026-05-27",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263332",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263332",
+      "mention": "Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé de vérifier dans quelle mesure des acteurs gouvernementaux et non gouvernementaux étrangers exercent une influence sur des acteurs politiques suisses. Il précisera si les activités de ce type sont compatibles avec l’interdiction des libéralités monétaires et non monétaires anonymes et provenant de l’étranger visées à l’art.&nbsp;76h de la loi fédérale du 17&nbsp;décembre 1976 sur les droits politiques, et si non, comment elles contournent cette interdiction. En fonction des résultats de cette vérification, il élaborera des mesures permettant d’identifier et de faire cesser efficacement toute influence étrangère d’ordre financier, organisationnel ou numérique, en améliorant la traçabilité des prestations politiques et en renforçant la surveillance exercée sur les campagnes numériques.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, zu prüfen, inwiefern staatliche und nichtstaatliche Akteure aus dem Ausland politische Akteure in der Schweiz beeinflussen, wie solche Aktivitäten mit dem in Art. 76h BPR verankerten Verbot anonymer und ausländischer monetärer und nichtmonetärer Zuwendungen vereinbar sind oder dieses umgehen. Basierend darauf wird der Bundesrat beauftragt, Massnahmen auszuarbeiten, welche ausländische finanzielle, organisatorische und digitale Einflussnahmen durch verbesserte Rückverfolgbarkeit politischer Leistungen und verstärkte Aufsicht über digitale Kampagnen wirksam erkennen und unterbinden.<\/p>",
+      "tags": "Politique d'Etat|Politique internationale|Politique de sécurité|Médias et communication",
+      "tags_de": "Staatspolitik|Internationale Politik|Sicherheitspolitik|Medien und Kommunikation",
+      "tags_it": "Politica nazionale|Politica internazionale|Politica di sicurezza|Media e comunicazione"
+    },
     {
       "shortId": "26.3254",
       "title": "Évaluation de l'impact et de l'efficacité des projets liés à la reconstruction de Ukraine financés par la coopération internationale suisse (SECO)",
