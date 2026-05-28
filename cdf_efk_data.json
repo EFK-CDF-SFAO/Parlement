@@ -1,13 +1,35 @@
 {
   "meta": {
-    "updated": "2026-05-27T22:46:28",
-    "total_count": 335,
+    "updated": "2026-05-28T15:45:47",
+    "total_count": 336,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.3335"
   },
   "session_summary": {},
   "items": [
+    {
+      "shortId": "26.3335",
+      "title": "Transparence sur le recouvrement des prêts COVID",
+      "title_de": "Transparenz bei der Eintreibung von Covid-Krediten",
+      "title_it": "Trasparenza sul recupero dei crediti COVID",
+      "author": "Dandrès Christian",
+      "party": "PS",
+      "type": "Ip.",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
+      "council": "NR",
+      "department": "WBF",
+      "date": "2026-03-19",
+      "date_maj": "2026-05-28",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263335",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263335",
+      "mention": "Conseil fédéral",
+      "text": "<p>Les organisations de cautionnement (ci-après organisations) sont chargées du recouvrement des prêts COVID en souffrance. Ils ont délégué ce travail d’une ampleur inédite à Intrum SA et à l’Etude d’avocats de Kellerhals Carrard. Vu l’importance des montants et le nombre d’entreprises concernées, ce recouvrement revêt un enjeu national d’un point de vue économique, démocratique et social. Ces mandats constituent également la privatisation d’une tâche publique et une forme de délégation de compétences dans un domaine économique important.<\/p><p>&nbsp;<\/p><p>Voici mes questions :<\/p><ol><li>Pourquoi le choix de ces mandataires Intrum SA et Kellerhals Carrard&nbsp;? Sur quel fondement (mandats mis au concours, de gré à gré, autre)&nbsp;et selon quels critères ?<\/li><li>Comment les organisations ont évalué les pratiques décriées d’Intrum SA dans le choix de faire appel à cette société&nbsp;?<\/li><li>Les organisations ont-elles recours à d’autres mandataires externes&nbsp;? Le cas échéant lesquels ?<\/li><li>Quel sont les contenus des contrats passés avec ces 2 mandataires&nbsp;Intrum SA et Kellerhals Carrard ? Le CF peut-il en publier le contenu, respectivement inviter les organismes de cautionnement à le faire&nbsp;?<\/li><li>Quel système de rémunération est prévu dans ces 2 mandats (à l’heure, forfait par cas, autre)&nbsp;et le montant convenu (prix à l'heure, prix du forfait, intéressement au résultat du recouvrement, autre) ?<\/li><li>Quel est le montant des honoraires déjà payés pour chaque mandataire&nbsp;? S’il s’agit d’une rémunération à l’heure, combien d’heures ont été facturées par chacun des mandataires&nbsp;?<\/li><li>Qui supporte in fine ces honoraires, les débiteurs où les organismes de cautionnement&nbsp;?<\/li><li>Pour combien de cas les organismes de cautionnement ont été sollicités par les banques prêteuses&nbsp;?<\/li><li>Quel est le pourcentage de prêts non encore remboursés par rapport au volume global des prêts octroyés&nbsp;?<\/li><li>Combien de plaintes pénales ont été déposées&nbsp;?<\/li><li>Quelles instructions, respectivement quel degré d’autonomie sont données respectivement laissée à ces 2 mandataires en particulier pour l’échelonnement des paiement, la mise en faillite&nbsp;ou le dépôt de plainte pénale ?&nbsp;<\/li><li>Sous quel contrôle le travail des 2 mandataires est effectué? Qui valide les accords passés avec les débiteurs ou les mises en faillites ou les dépôts de plainte pénale&nbsp;?<\/li><li>Des clauses de confidentialité sont négociées avec les débiteurs en cas d'accord&nbsp;? Si oui, combien de conventions assorties de telles clauses ont été passées&nbsp;?<\/li><\/ol>",
+      "text_de": "<p>Die Bürgschaftsorganisationen (im Folgenden „Organisationen“) sind für die Eintreibung der ausstehenden COVID-Kredite zuständig. Sie haben diese Aufgabe von beispiellosem Umfang der Intrum AG und der Anwaltskanzlei Kellerhals Carrard übertragen. Angesichts der Höhe der Beträge und der Anzahl der betroffenen Unternehmen ist diese Eintreibung aus wirtschaftlicher, demokratischer und gesellschaftlicher Sicht von nationaler Bedeutung. Mit diesen Aufträgen werden überdies eine öffentliche Aufgabe privatisiert und Kompetenzen in einem wichtigen Wirtschaftsbereich übertragen.<\/p><p>&nbsp;<\/p><p>Ich frage den Bundesrat:<\/p><ol><li>Warum fiel die Wahl auf die Intrum AG und Kellerhals Carrard? Auf welcher Grundlage (Ausschreibung, freihändige Vergabe, Sonstiges) und nach welchen Kriterien?<\/li><li>Die Intrum AG stand für gewisse Praktiken in der Kritik. Wie haben die Organisationen diese Kritik bei der Entscheidung, dieses Unternehmen zu beauftragen, beurteilt?<\/li><li>Nutzen die Organisationen weitere externe Beauftragte? Wenn ja, welche?<\/li><li>Welchen Inhalts sind die Verträge, die mit der Intrum AG und mit Kellerhals Carrard geschlossen wurden? Kann der Bundesrat den Inhalt veröffentlichen bzw. die Bürgschaftsorganisationen dazu auffordern, dies zu tun?<\/li><li>Welches Vergütungssystem ist für diese beiden Mandate vorgesehen (Stundenlohn, Fallpauschale, Sonstiges) und wie hoch ist der vereinbarte Betrag (Stundenansatz, Pauschalpreis, Erfolgsbeteiligung an den Inkassoeinnahmen, Sonstiges)?<\/li><li>Wie hoch sind die Honorare je beauftragte Person, die bereits bezahlt wurden ? Wenn es sich um eine Stundenvergütung handelt, wie viele Stunden haben die beiden Beauftragten je in Rechnung gestellt?<\/li><li>Wer kommt letztlich für diese Honorare auf – die Schuldner oder die Bürgschaftsorganisationen?<\/li><li>In wie vielen Fällen wurden die Bürgschaftsorganisationen von den kreditgebenden Banken zur Kasse gebeten?<\/li><li>Wie hoch ist der Anteil der noch nicht zurückbezahlten Kredite am Gesamtvolumen der vergebenen Kredite?<\/li><li>Wie viele Strafanzeigen sind ergangen?<\/li><li>Welche Anweisungen bzw. welchen Ermessensspielraum erhalten bzw. haben diese beiden Beauftragten erhalten insbesondere hinsichtlich der Ratenzahlung, der Einleitung eines Insolvenzverfahrens oder der Einreichung einer Strafanzeige?&nbsp;<\/li><li>Unter welcher Aufsicht wird die Arbeit der beiden Beauftragten ausgeführt? Wer genehmigt die mit den Schuldnern getroffenen Vereinbarungen, die Insolvenzerklärungen oder die Einreichung von Strafanzeigen?<\/li><li>Werden im Falle einer Einigung Vertraulichkeitsklauseln mit den Schuldnern ausgehandelt? Falls ja, wie viele Verträge mit solchen Klauseln wurden abgeschlossen?<\/li><\/ol>",
+      "tags": "Économie|Finances",
+      "tags_de": "Wirtschaft|Finanzwesen",
+      "tags_it": "Economia|Finanze"
+    },
     {
       "shortId": "26.3332",
       "title": "Protéger la formation de l'opinion politique en Suisse contre les activités d'influence étrangères",
