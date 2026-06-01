@@ -1,11 +1,209 @@
 {
   "metadata": {
-    "generated_at": "2026-05-15T08:47:55.112607",
-    "total_records": 4,
+    "generated_at": "2026-06-01T11:30:39.541958",
+    "total_records": 6,
     "source": "OpenParlData.ch API",
     "description": "Cantonal parliament mentions of the Swiss Federal Audit Office (EFK/CDF)"
   },
   "data": [
+    {
+      "id": 329604,
+      "url_api": "https://api.openparldata.ch/v1/affairs/329604",
+      "body_key": "ZH",
+      "external_id": "42789c920e464913bb431de66a4dff1b",
+      "number": "201/2026",
+      "body_id": 275,
+      "title_de": "IT-Debakel bei der Arbeitslosenversicherung: Auswirkungen auf die Versi-cherten der Arbeitslosenkasse des Kantons Zürich",
+      "type_name_de": "Anfrage",
+      "type_harmonized_de": "Anfrage",
+      "type_harmonized_fr": "Question",
+      "type_harmonized_it": "Interrogazione",
+      "type_harmonized_rm": "Dumonda",
+      "type_harmonized_en": "Question",
+      "type_harmonized_id": 12,
+      "type_harmonized_wikidata_id": "Q2052854",
+      "state_name_de": "Regierungsrat",
+      "begin_date": "2026-05-18T00:00:00",
+      "url_external_de": "https://www.kantonsrat.zh.ch/geschaefte/geschaeft/?id=42789c920e464913bb431de66a4dff1b",
+      "updated_at": "2026-05-24T08:23:55",
+      "created_at": "2026-05-20T18:57:29",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "nen betroffen, gemäss Staatssekretariat für Wirtschaft insbesondere neu angemeldete Per-\nsonen. Die Eidgenössische Finanzkontrolle hat in ihrem Prüfbericht vom August 2025 aus-\ndrücklich vor diesen Schwierigkeiten gewarnt. \n \nIm Kanton Zürich ist die Arbeitslosenkasse des Kantons Zürich (ALK ZH) ein",
+            "source_id": 877343,
+            "source_name": "Anfrage_201-2026_IT-Debakel_bei_der_Arbeitslosenversicherung_Auswirkungen_auf_die_Versi-cherten_der_Arbeitslosenkasse_des_Kantons_Zuerich",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/329604/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/329604/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/329604/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/329604/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/329604/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/329604/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/329604/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/329604/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/329604/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/329604/external_links"
+      },
+      "body_name_fr": "Zurich",
+      "body_name_original": "Zürich",
+      "body_name": "Zurich",
+      "efk_excerpts_de": [
+        {
+          "text": "nen betroffen, gemäss Staatssekretariat für Wirtschaft insbesondere neu angemeldete Per- sonen. Die Eidgenössische Finanzkontrolle hat in ihrem Prüfbericht vom August 2025 aus- drücklich vor diesen Schwierigkeiten gewarnt. Im Kanton Zürich ist die Arbeitslosenkasse des Kantons Zürich (ALK ZH) ein",
+          "source": "Anfrage_201-2026_IT-Debakel_bei_der_Arbeitslosenversicherung_Auswirkungen_auf_die_Versi-cherten_der_Arbeitslosenkasse_des_Kantons_Zuerich"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 877343,
+          "name": "Anfrage_201-2026_IT-Debakel_bei_der_Arbeitslosenversicherung_Auswirkungen_auf_die_Versi-cherten_der_Arbeitslosenkasse_des_Kantons_Zuerich",
+          "title": "",
+          "url": "https://parlzhcdws.cmicloud.ch/parlzh5/cdws/Files/01d65502170b4e84bb6842c8b7ba1ac8-332/1/pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 877343,
+          "name": "Anfrage_201-2026_IT-Debakel_bei_der_Arbeitslosenversicherung_Auswirkungen_auf_die_Versi-cherten_der_Arbeitslosenkasse_des_Kantons_Zuerich",
+          "title": "",
+          "url": "https://parlzhcdws.cmicloud.ch/parlzh5/cdws/Files/01d65502170b4e84bb6842c8b7ba1ac8-332/1/pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Jasmin Pokerschnig",
+          "firstname": "Jasmin",
+          "lastname": "Pokerschnig",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Edith Häusler",
+          "firstname": "Edith",
+          "lastname": "Häusler",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Karin Fehr Thoma",
+          "firstname": "Karin",
+          "lastname": "Fehr Thoma",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Jasmin Pokerschnig, Edith Häusler, Karin Fehr Thoma",
+      "author_display_de": "Jasmin Pokerschnig, Edith Häusler, Karin Fehr Thoma",
+      "author_display": "Jasmin Pokerschnig, Edith Häusler, Karin Fehr Thoma",
+      "url_external_fr": "https://www.kantonsrat.zh.ch/geschaefte/geschaeft/?id=42789c920e464913bb431de66a4dff1b",
+      "url_external_it": "https://www.kantonsrat.zh.ch/geschaefte/geschaeft/?id=42789c920e464913bb431de66a4dff1b"
+    },
+    {
+      "id": 327635,
+      "url_api": "https://api.openparldata.ch/v1/affairs/327635",
+      "body_key": "BL",
+      "external_id": "e095f059cef84ea598e50f16973a8ce8",
+      "number": "2026/5440",
+      "body_id": 254,
+      "title_de": "Auszahlungsprobleme bei der Arbeitslosenkasse?",
+      "type_name_de": "Interpellation",
+      "type_harmonized_de": "Interpellation",
+      "type_harmonized_fr": "Interpellation",
+      "type_harmonized_it": "interpellanza",
+      "type_harmonized_rm": "interpellaziun",
+      "type_harmonized_en": "Interpellation",
+      "type_harmonized_id": 8,
+      "type_harmonized_wikidata_id": "Q1505023",
+      "state_name_de": "In Bearbeitung",
+      "begin_date": "2026-05-07T00:00:00",
+      "url_external_de": "https://baselland.talus.ch/de/politik/cdws/geschaeft.php?gid=e095f059cef84ea598e50f16973a8ce8",
+      "updated_at": "2026-05-24T08:23:55",
+      "created_at": "2026-05-10T19:29:32",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "\nauf ihre Taggelder. Die Probleme des 200-Millionen-Franken-Projekts kamen nicht überraschend. \nDie Eidgenössische Finanzkontrolle warnte in insgesamt sechs Berichten vor technischen Proble-\nmen bei Inbetriebnahme. Nun zeigt sich aber anscheinend, dass das neue System des SECO \nauch einen deutlich h",
+            "source_id": 865601,
+            "source_name": "Text Interpellation",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/327635/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/327635/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/327635/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/327635/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/327635/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/327635/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/327635/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/327635/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/327635/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/327635/external_links"
+      },
+      "body_name_fr": "Bâle-Campagne",
+      "body_name_original": "Basel-Landschaft",
+      "body_name": "Bâle-Campagne",
+      "efk_excerpts_de": [
+        {
+          "text": "auf ihre Taggelder. Die Probleme des 200-Millionen-Franken-Projekts kamen nicht überraschend. Die Eidgenössische Finanzkontrolle warnte in insgesamt sechs Berichten vor technischen Proble- men bei Inbetriebnahme. Nun zeigt sich aber anscheinend, dass das neue System des SECO auch einen deutlich h",
+          "source": "Text Interpellation"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 865601,
+          "name": "Text Interpellation",
+          "title": "",
+          "url": "https://baselland.talus.ch/de/dokumente/geschaeft/00ff10e6dc67495fa7b4b40c573832ac-332",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 865601,
+          "name": "Text Interpellation",
+          "title": "",
+          "url": "https://baselland.talus.ch/de/dokumente/geschaeft/00ff10e6dc67495fa7b4b40c573832ac-332",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Volkswirtschafts- und Gesundheitsdirektion",
+          "firstname": null,
+          "lastname": "Volkswirtschafts- und Gesundheitsdirektion",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        },
+        {
+          "fullname": "Urs Roth",
+          "firstname": "Urs",
+          "lastname": "Roth",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Urs Roth",
+      "author_display_de": "Urs Roth",
+      "author_display": "Urs Roth",
+      "url_external_fr": "https://baselland.talus.ch/fr/politik/cdws/geschaeft.php?gid=e095f059cef84ea598e50f16973a8ce8",
+      "url_external_it": "https://baselland.talus.ch/it/politik/cdws/geschaeft.php?gid=e095f059cef84ea598e50f16973a8ce8"
+    },
     {
       "id": 251627,
       "url_api": "https://api.openparldata.ch/v1/affairs/251627",
