@@ -1,13 +1,29 @@
 {
   "meta": {
-    "updated": "2026-05-31T22:01:49",
-    "total_count": 336,
+    "updated": "2026-06-01T17:35:28",
+    "total_count": 337,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.7321"
   },
   "session_summary": {},
   "items": [
+    {
+      "shortId": "26.7321",
+      "title": "Géorgiens : des coûts médicaux supérieurs à la moyenne ",
+      "title_de": "Titel folgt",
+      "author": "de Quattro Jacqueline",
+      "party": "PLR",
+      "type": "Fra.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-06-01",
+      "date_maj": "2026-06-01",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
+      "mention": "Élu",
+      "text": "<p>Un audit du Contrôle fédéral des finances confirme des coûts médicaux très supérieurs à la moyenne pour les requérants géorgiens, soit 44,40&nbsp;fr par jour et par personne. Entre 2022 et 2025, 26 d’entre eux ont été pris en charge par le SEM pour des traitements lourds. Parmi eux, 17 cas ont bénéficié d’un soutien financier total ou partiel du SEM pour 2,5&nbsp;millions. Avec un cas allant jusqu’à 1,37&nbsp;million. Quand et comment le Conseil fédéral va-t-il enrayer ce tourisme médical ?<\/p>"
+    },
     {
       "shortId": "26.3335",
       "title": "Transparence sur le recouvrement des prêts COVID",
