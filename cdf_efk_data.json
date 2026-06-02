@@ -1,13 +1,30 @@
 {
   "meta": {
-    "updated": "2026-06-01T23:05:01",
-    "total_count": 337,
+    "updated": "2026-06-02T16:21:11",
+    "total_count": 338,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.3550"
   },
   "session_summary": {},
   "items": [
+    {
+      "shortId": "26.3550",
+      "title": "Titre suit",
+      "title_de": "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen",
+      "title_it": "Titolo segue",
+      "author": "Salzmann Werner",
+      "party": "UDC",
+      "type": "Ip.",
+      "status": "Eingereicht / Déposé",
+      "council": "SR",
+      "date": "2026-06-02",
+      "date_maj": "2026-06-02",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
+      "mention": "Élu",
+      "text_de": "<p>Prüfungen der Eidg. Finanzkontrolle weisen regelmässig auf Schwachstellen in grossen IKT-Vorhaben der Bundesverwaltung hin. Ein wesentlicher Teil dieser Feststellungen deutet darauf hin, dass grundlegende Voraussetzungen bereits in der Projektinitialisierung unzureichend geklärt oder vorbereitet wurden.&nbsp;<\/p><p>&nbsp;<\/p><p>Insbesondere folgende Punkte legen Ursachen in einer ungenügenden Initialisierungsphase nahe:<\/p><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Unklare oder wenig konkretisierte Ziele<br>Zielbilder und Projektziele sind häufig zu allgemein formuliert und nicht messbar. Damit fehlt bereits zu Projektbeginn eine belastbare Grundlage für Steuerung und Erfolgskontrolle.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Unzureichend definierter Nutzen<br>Nutzenversprechen bleiben häufig vage und sind nicht mit konkreten Kennzahlen oder Methoden zur Wirkungsmessung hinterlegt. Dadurch wird die Steuerbarkeit des Vorhabens von Beginn an eingeschränkt.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Fehlende oder unklare Architektur<br>Wichtige Architekturartefakte (z. B. Soll- oder Transitionsarchitektur) fehlen teilweise. Der Weg von der Ist- zur Zielarchitektur bleibt dadurch unklar und spätere Integrationsprobleme werden begünstigt.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Unzureichendes Stakeholdermanagement<br>Eine Analyse von Einfluss, Interessen und Risiken der relevanten Stakeholder fehlt häufig; ebenso deren klare Priorisierung und Einbindung. Anforderungen und Abhängigkeiten werden dadurch oft erst spät erkannt.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Unzureichende Einbettung in ein übergeordnetes Portfolio<br>Abhängigkeiten zu anderen Vorhaben sowie Prioritäten und Ressourcen werden nicht ausreichend abgestimmt. Dies kann zu Verzögerungen und ineffizientem Ressourceneinsatz führen.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Rahmenbedingungen werden zu spät geklärt<br>Strategische, organisatorische oder rechtliche Voraussetzungen werden teilweise erst während der Umsetzung adressiert, was Verzögerungen und Zusatzaufwände verursacht.<\/li><\/ul><p>&nbsp;<\/p><p>Besorgniserregend ist, dass diese Problemfelder seit Jahren wiederholt festgestellt werden. Es stellt sich daher die Frage, ob der Verwaltung geeignete Instrumente fehlen oder ob die bestehenden Instrumente nicht konsequent und wirksam eingesetzt werden.<\/p><p>&nbsp;<\/p><p>Vor diesem Hintergrund wird der Bundesrat um die Beantwortung folgender Fragen gebeten:<\/p><p>&nbsp;<\/p><p>1. Die Bundesverwaltung verfügt bei der Bundeskanzlei über einen zentralen Pool an Projektleitern für Schlüsselprojekte. Wie beurteilt der Bundesrat, dass es trotz dieses Expertenpools weiterhin zu den aufgezeigten Versäumnissen in der Initialisierungsphase kommt?<\/p><p>&nbsp;<\/p><p>2. Die Weisungen zu den Vorhaben und zum Portfolio der Bundesverwaltung im Bereich Digitalisierung und IKT sehen vor, dass die Bundeskanzlei bei Grossprojekten mit Gesamtkosten von mehr als 5 Millionen Franken (bzw. 10 Millionen Franken im Rüstungsbereich) in der Initialisierungsphase vor Projektfreigabe ein Projekt-Assessment durchführt und Empfehlungen zuhanden der freigebenden Instanz abgibt.<\/p><ul style=\"list-style-type:disc;\"><li>Bei welchen Projekten hat die Bundeskanzlei in den letzten zwei Jahren diese Assessments durchgeführt?<\/li><li>Zu welchen Ergebnissen bzw. Empfehlungen kamen diese Assessments?<\/li><li>Wie gingen die freigebenden Stellen jeweils mit diesen Empfehlungen um?<\/li><\/ul><p>&nbsp;<\/p><p>3. Wie beurteilt der Bundesrat die Einführung einer obligatorischen Begleitung oder Beratung der Projektteams während der Initialisierungsphase durch unabhängige Experten? Wurden entsprechende Modelle geprüft oder pilotiert?<\/p>"
+    },
     {
       "shortId": "26.7321",
       "title": "Géorgiens : des coûts médicaux supérieurs à la moyenne ",
@@ -22,7 +39,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
       "mention": "Élu",
-      "text": "<p>Un audit du Contrôle fédéral des finances confirme des coûts médicaux très supérieurs à la moyenne pour les requérants géorgiens, soit 44,40&nbsp;fr par jour et par personne. Entre 2022 et 2025, 26 d’entre eux ont été pris en charge par le SEM pour des traitements lourds. Parmi eux, 17 cas ont bénéficié d’un soutien financier total ou partiel du SEM pour 2,5&nbsp;millions. Avec un cas allant jusqu’à 1,37&nbsp;million. Quand et comment le Conseil fédéral va-t-il enrayer ce tourisme médical ?<\/p>"
+      "text": "<p>Un audit du Contrôle fédéral des finances confirme des coûts médicaux très supérieurs à la moyenne pour les requérants géorgiens, soit 44,40&nbsp;fr par jour et par personne. Entre 2022 et 2025, 26 d’entre eux ont été pris en charge par le SEM pour des traitements lourds. Parmi eux, 17 cas ont bénéficié d’un soutien financier total ou partiel du SEM pour 2,5&nbsp;millions. Avec un cas allant jusqu’à 1,37&nbsp;million. Quand et comment le Conseil fédéral va-t-il enrayer ce tourisme médical ?<\/p>",
+      "tags": "Finances|Politique migratoire|Santé",
+      "tags_de": "Finanzwesen|Migration|Gesundheit",
+      "tags_it": "Finanze|Migrazione|Salute"
     },
     {
       "shortId": "26.3335",
@@ -115,7 +135,7 @@
     {
       "shortId": "26.3167",
       "title": "Explications du Conseil fédéral sur l'imposition individuelle. Pourquoi cette simplification excessive et dépourvue de nuances ?",
-      "title_de": "Bundesrats-Erläuterungen zur Individualbesteuerung. Weshalb so stark vereinfachend nicht differenziert?",
+      "title_de": "Bundesrats-Erläuterungen zur Individualbesteuerung. Weshalb so stark vereinfachend und undifferenziert?",
       "title_it": "Spiegazioni del Consiglio federale sull'imposizione individuale. Perché semplificare in modo grossolano, senza distinzioni?",
       "author": "Stark Jakob",
       "party": "UDC",
@@ -130,9 +150,9 @@
       "mention": "Conseil fédéral",
       "text": "<p>Les explications du Conseil fédéral sur les objets des votations fédérales sont lues attentivement par les électeurs&nbsp;; elles constituent une base importante dans leur prise de décision. Il est d’autant plus essentiel que le Conseil fédéral les rédige de façon exhaustive et nuancée, sans tenter d’influencer qui que ce soit, autrement dit&nbsp;: «&nbsp;sine ira et studio&nbsp;».&nbsp;<\/p><p>Le gouvernement a dérogé à cette règle vertueuse dans les explications sur l’imposition individuelle. Par exemple, il déclare dans le passage sur la recommandation de voter <u>oui<\/u>, page 15&nbsp;: <strong>«&nbsp;La loi fédérale sur l’imposition individuelle instaure l’égalité de traitement entre les couples mariés et les couples non mariés. Elle abolit tant la pénalisation que le bonus du mariage.&nbsp;»<\/strong> Il ne dit pas un mot, dans cette recommandation largement consultée de voter <u>oui<\/u>, sur le fait que la pénalisation du mariage a déjà été totalement ou partiellement abolie dans les cantons, les villes et les communes et que ses déclarations ne concernent que l’impôt fédéral, dont le volume est nettement inférieur à celui des impôts des cantons, des villes et des communes.&nbsp;<\/p>",
       "text_de": "<p>Die Erläuterungen des Bundesrats zu den eidgenössischen Vorlagen werden von den Stimmberechtigten stark beachtet und sind eine wichtige Entscheidungsgrundlage. Umsomehr ist es wichtig, dass der Bundesrat diese Erläuterungen umfassend und differenziert verfasst ohne irgendwelche Beeinflussungsabsichten,\"sine ira et studio.\"&nbsp;<\/p><p>Diesen Pfad der Tugend hat der Bundesrat in den Erläuterungen zur Individualbesteuerung verlassen. Pauschal heisst es da beispielsweise bei der <u>Ja-Empfehlung<\/u> auf S.15: <strong>\"Das Gesetz über die Individualbesteuerung sorgt dafür, dass Verheiratete und Unverheiratete steuerlich gleichbehandelt werden. Damit schafft es die Heiratsstrafe und den Heiratsbonus bei den Steuern ab.\"<\/strong> Mit keiner Silbe erwähnt wird in dieser viel beachteten <u>Ja-Empfehlung<\/u>, dass die Heiratsstrafe in den Kantonen, Städten und Gemeinden bereits ganz oder teilweise abgeschafft ist und die Aussagen damit nur die Bundessteuern betreffen, deren Volumen viel tiefer ist als jenes der Kantons-, Stadt- und Gemeindesteuern.&nbsp;<\/p>",
-      "tags": "Questions sociales|Fiscalité",
-      "tags_de": "Soziale Fragen|Steuer",
-      "tags_it": "Questioni sociali|Imposte"
+      "tags": "Politique d'Etat|Questions sociales|Fiscalité",
+      "tags_de": "Staatspolitik|Soziale Fragen|Steuer",
+      "tags_it": "Politica nazionale|Questioni sociali|Imposte"
     },
     {
       "shortId": "26.3398",
