@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-06-04T22:23:56",
+    "updated": "2026-06-05T14:47:21",
     "total_count": 338,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -31,18 +31,20 @@
     {
       "shortId": "26.7321",
       "title": "Géorgiens : des coûts médicaux supérieurs à la moyenne ",
-      "title_de": "Titel folgt",
+      "title_de": "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ",
       "author": "de Quattro Jacqueline",
       "party": "PLR",
       "type": "Fra.",
       "status": "Eingereicht / Déposé",
       "council": "NR",
+      "department": "EJPD",
       "date": "2026-06-01",
       "date_maj": "2026-06-01",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
       "mention": "Élu",
       "text": "<p>Un audit du Contrôle fédéral des finances confirme des coûts médicaux très supérieurs à la moyenne pour les requérants géorgiens, soit 44,40&nbsp;fr par jour et par personne. Entre 2022 et 2025, 26 d’entre eux ont été pris en charge par le SEM pour des traitements lourds. Parmi eux, 17 cas ont bénéficié d’un soutien financier total ou partiel du SEM pour 2,5&nbsp;millions. Avec un cas allant jusqu’à 1,37&nbsp;million. Quand et comment le Conseil fédéral va-t-il enrayer ce tourisme médical ?<\/p>",
+      "text_de": "<p>Eine Prüfung der Eidgenössischen Finanzkontrolle zeigt, dass die medizinischen Kosten für georgische Asylsuchende mit Fr.&nbsp;44.40 pro Tag und Person deutlich über dem Durchschnitt liegen. Zwischen 2022 und 2025 benötigten 26&nbsp;Asylsuchende Kostengutsprachen des Staatssekretariats für Migration&nbsp;(SEM) für aufwändige Behandlungen. 17 von ihnen erhielten eine vollständige oder teilweise finanzielle Unterstützung durch das SEM im Gesamtumfang von 2,5&nbsp;Millionen&nbsp;Franken. In einem Fall lagen die Kosten bei bis zu 1,37&nbsp;Millionen&nbsp;Franken. Wann und wie wird der Bundesrat diesem Medizintourismus Einhalt gebieten?<\/p>",
       "tags": "Finances|Politique migratoire|Santé",
       "tags_de": "Finanzwesen|Migration|Gesundheit",
       "tags_it": "Finanze|Migrazione|Salute"
