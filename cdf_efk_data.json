@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-06-08T15:47:17",
+    "updated": "2026-06-08T22:28:45",
     "total_count": 341,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": ["26.7423", "26.7336", "26.7324"]
+    "new_ids": []
   },
   "session_summary": {},
   "items": [
@@ -51,6 +51,27 @@
       "tags_it": "Politica nazionale|Media e comunicazione|Protezione sociale"
     },
     {
+      "shortId": "26.7321",
+      "title": "Géorgiens : des coûts médicaux supérieurs à la moyenne ",
+      "title_de": "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ",
+      "author": "de Quattro Jacqueline",
+      "party": "PLR",
+      "type": "Fra.",
+      "status": "Erledigt / Liquidé",
+      "council": "NR",
+      "department": "EJPD",
+      "date": "2026-06-01",
+      "date_maj": "2026-06-08",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
+      "mention": "Élu & Conseil fédéral",
+      "text": "<p>Un audit du Contrôle fédéral des finances confirme des coûts médicaux très supérieurs à la moyenne pour les requérants géorgiens, soit 44,40&nbsp;fr par jour et par personne. Entre 2022 et 2025, 26 d’entre eux ont été pris en charge par le SEM pour des traitements lourds. Parmi eux, 17 cas ont bénéficié d’un soutien financier total ou partiel du SEM pour 2,5&nbsp;millions. Avec un cas allant jusqu’à 1,37&nbsp;million. Quand et comment le Conseil fédéral va-t-il enrayer ce tourisme médical ?<\/p>",
+      "text_de": "<p>Eine Prüfung der Eidgenössischen Finanzkontrolle zeigt, dass die medizinischen Kosten für georgische Asylsuchende mit Fr.&nbsp;44.40 pro Tag und Person deutlich über dem Durchschnitt liegen. Zwischen 2022 und 2025 benötigten 26&nbsp;Asylsuchende Kostengutsprachen des Staatssekretariats für Migration&nbsp;(SEM) für aufwändige Behandlungen. 17 von ihnen erhielten eine vollständige oder teilweise finanzielle Unterstützung durch das SEM im Gesamtumfang von 2,5&nbsp;Millionen&nbsp;Franken. In einem Fall lagen die Kosten bei bis zu 1,37&nbsp;Millionen&nbsp;Franken. Wann und wie wird der Bundesrat diesem Medizintourismus Einhalt gebieten?<\/p>",
+      "tags": "Finances|Politique migratoire|Santé",
+      "tags_de": "Finanzwesen|Migration|Gesundheit",
+      "tags_it": "Finanze|Migrazione|Salute"
+    },
+    {
       "shortId": "26.7324",
       "title": "Dysfonctionnement au Secrétariat d’Etat aux migrations ",
       "title_de": "Schwachstellen im Staatssekretariat für Migration ",
@@ -90,28 +111,6 @@
       "tags": "Politique d'Etat|Finances|Médias et communication",
       "tags_de": "Staatspolitik|Finanzwesen|Medien und Kommunikation",
       "tags_it": "Politica nazionale|Finanze|Media e comunicazione"
-    },
-    {
-      "shortId": "26.7321",
-      "title": "Géorgiens : des coûts médicaux supérieurs à la moyenne ",
-      "title_de": "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ",
-      "author": "de Quattro Jacqueline",
-      "party": "PLR",
-      "type": "Fra.",
-      "status": "Erledigt / Liquidé",
-      "council": "NR",
-      "department": "EJPD",
-      "date": "2026-06-01",
-      "date_maj": "2026-06-08",
-      "statut_change_date": "2026-06-08",
-      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321",
-      "mention": "Élu & Conseil fédéral",
-      "text": "<p>Un audit du Contrôle fédéral des finances confirme des coûts médicaux très supérieurs à la moyenne pour les requérants géorgiens, soit 44,40&nbsp;fr par jour et par personne. Entre 2022 et 2025, 26 d’entre eux ont été pris en charge par le SEM pour des traitements lourds. Parmi eux, 17 cas ont bénéficié d’un soutien financier total ou partiel du SEM pour 2,5&nbsp;millions. Avec un cas allant jusqu’à 1,37&nbsp;million. Quand et comment le Conseil fédéral va-t-il enrayer ce tourisme médical ?<\/p>",
-      "text_de": "<p>Eine Prüfung der Eidgenössischen Finanzkontrolle zeigt, dass die medizinischen Kosten für georgische Asylsuchende mit Fr.&nbsp;44.40 pro Tag und Person deutlich über dem Durchschnitt liegen. Zwischen 2022 und 2025 benötigten 26&nbsp;Asylsuchende Kostengutsprachen des Staatssekretariats für Migration&nbsp;(SEM) für aufwändige Behandlungen. 17 von ihnen erhielten eine vollständige oder teilweise finanzielle Unterstützung durch das SEM im Gesamtumfang von 2,5&nbsp;Millionen&nbsp;Franken. In einem Fall lagen die Kosten bei bis zu 1,37&nbsp;Millionen&nbsp;Franken. Wann und wie wird der Bundesrat diesem Medizintourismus Einhalt gebieten?<\/p>",
-      "tags": "Finances|Politique migratoire|Santé",
-      "tags_de": "Finanzwesen|Migration|Gesundheit",
-      "tags_it": "Finanze|Migrazione|Salute"
     },
     {
       "shortId": "26.3335",
