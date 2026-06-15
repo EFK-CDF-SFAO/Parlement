@@ -1,11 +1,208 @@
 {
   "metadata": {
-    "generated_at": "2026-06-01T11:30:39.541958",
-    "total_records": 6,
+    "generated_at": "2026-06-15T12:11:35.828317",
+    "total_records": 8,
     "source": "OpenParlData.ch API",
     "description": "Cantonal parliament mentions of the Swiss Federal Audit Office (EFK/CDF)"
   },
   "data": [
+    {
+      "id": 333988,
+      "url_api": "https://api.openparldata.ch/v1/affairs/333988",
+      "body_key": "BS",
+      "external_id": "200114570",
+      "number": "26.5244",
+      "body_id": 255,
+      "title_de": "Einreichung einer Standesinitiative betreffend Einführung einer kostendeckenden Abgabe an der Quelle",
+      "type_name_de": "Antrag",
+      "type_harmonized_de": "Ergänzungsantrag",
+      "type_harmonized_fr": "Amendement",
+      "type_harmonized_it": "Emendamento",
+      "type_harmonized_en": "Amendment",
+      "type_harmonized_id": 13,
+      "state_name_de": "In Bearbeitung",
+      "begin_date": "2026-06-10T00:00:00",
+      "url_external_de": "https://grosserrat.bs.ch/?gnr=26.5244",
+      "updated_at": "2026-06-14T13:50:56",
+      "created_at": "2026-06-14T08:30:35",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "eten Standorte oder der öffentlichen Hand und \nsomit den Steuerzahlenden getragen werden. \n\nWie die Eidgenössische Finanzkontrolle EFK in einem Bericht zum Umgang der Schweiz mit problematischen \nStoffen feststellt, wird dies dem in der Verfassung verankerten Verursacherprinzip nicht gerecht. Die EF",
+            "source_id": 894126,
+            "source_name": "Text Antrag",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/333988/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/333988/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/333988/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/333988/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/333988/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/333988/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/333988/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/333988/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/333988/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/333988/external_links"
+      },
+      "body_name_fr": "Bâle-Ville",
+      "body_name_original": "Basel-Stadt",
+      "body_name": "Bâle-Ville",
+      "efk_excerpts_de": [
+        {
+          "text": "eten Standorte oder der öffentlichen Hand und somit den Steuerzahlenden getragen werden. Wie die Eidgenössische Finanzkontrolle EFK in einem Bericht zum Umgang der Schweiz mit problematischen Stoffen feststellt, wird dies dem in der Verfassung verankerten Verursacherprinzip nicht gerecht. Die EF",
+          "source": "Text Antrag"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 894126,
+          "name": "Text Antrag",
+          "title": "",
+          "url": "https://grosserrat.bs.ch/?dnr=26.5244.01",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 894126,
+          "name": "Text Antrag",
+          "title": "",
+          "url": "https://grosserrat.bs.ch/?dnr=26.5244.01",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Béla Bartha",
+          "firstname": "Béla",
+          "lastname": "Bartha",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Béla Bartha",
+      "author_display_de": "Béla Bartha",
+      "author_display": "Béla Bartha",
+      "url_external_fr": "https://grosserrat.bs.ch/?gnr=26.5244",
+      "url_external_it": "https://grosserrat.bs.ch/?gnr=26.5244"
+    },
+    {
+      "id": 333747,
+      "url_api": "https://api.openparldata.ch/v1/affairs/333747",
+      "body_key": "198",
+      "external_id": "2898490",
+      "number": "504/2026",
+      "body_id": 309,
+      "title_de": "«Uster als Auffangnetz: Folgen der ASAL-2.0-Auszahlungskrise für Sozialdienst und Betroffene»",
+      "title_long_de": "Anfrage 504/2026 der Grüne-Fraktion: «Uster als Auffangnetz: Folgen der ASAL-2.0-Auszahlungskrise für Sozialdienst und Betroffene»",
+      "type_name_de": "Anfrage",
+      "type_harmonized_de": "Anfrage",
+      "type_harmonized_fr": "Question",
+      "type_harmonized_it": "Interrogazione",
+      "type_harmonized_rm": "Dumonda",
+      "type_harmonized_en": "Question",
+      "type_harmonized_id": 12,
+      "type_harmonized_wikidata_id": "Q2052854",
+      "state_name_de": "Pendent Exekutive",
+      "begin_date": "2026-06-09T00:00:00",
+      "url_external_de": "https://www.uster.ch/politbusiness/2898490",
+      "updated_at": "2026-06-14T13:50:56",
+      "created_at": "2026-06-11T11:10:50",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "ngssoftware der Arbeitslosenversicherung durch ein neues System namens A-\n\nSAL 2.0 zu ersetzen. Die Eidgenössische Finanzkontrolle (EFK) prüfte dieses Projekt mehrfach und \n\nwarnte in ihrer Prüfung vom August 2025 ausdrücklich davor, dass die Inbetriebnahme der Leis-\n\ntungsart Arbeitslosenentschädig",
+            "source_id": 893260,
+            "source_name": "504_Anfrage",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/333747/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/333747/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/333747/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/333747/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/333747/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/333747/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/333747/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/333747/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/333747/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/333747/external_links"
+      },
+      "body_name_fr": "Uster",
+      "body_name_original": "Uster",
+      "body_name": "Uster",
+      "efk_excerpts_de": [
+        {
+          "text": "ngssoftware der Arbeitslosenversicherung durch ein neues System namens A- SAL 2.0 zu ersetzen. Die Eidgenössische Finanzkontrolle (EFK) prüfte dieses Projekt mehrfach und warnte in ihrer Prüfung vom August 2025 ausdrücklich davor, dass die Inbetriebnahme der Leis- tungsart Arbeitslosenentschädig",
+          "source": "504_Anfrage"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 893260,
+          "name": "504_Anfrage",
+          "title": "",
+          "url": "https://www.uster.ch/_doc/7046503",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 893260,
+          "name": "504_Anfrage",
+          "title": "",
+          "url": "https://www.uster.ch/_doc/7046503",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Thomas Wälchli",
+          "firstname": "Thomas",
+          "lastname": "Wälchli",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Patricio Frei",
+          "firstname": "Patricio",
+          "lastname": "Frei",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Anita Ajder",
+          "firstname": "Anita",
+          "lastname": "Ajder",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Lukas Adam",
+          "firstname": "Lukas",
+          "lastname": "Adam",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Thomas Wälchli, Patricio Frei, Anita Ajder, Lukas Adam",
+      "author_display_de": "Thomas Wälchli, Patricio Frei, Anita Ajder, Lukas Adam",
+      "author_display": "Thomas Wälchli, Patricio Frei, Anita Ajder, Lukas Adam",
+      "url_external_fr": "https://www.uster.ch/politbusiness/2898490",
+      "url_external_it": "https://www.uster.ch/politbusiness/2898490"
+    },
     {
       "id": 329604,
       "url_api": "https://api.openparldata.ch/v1/affairs/329604",
