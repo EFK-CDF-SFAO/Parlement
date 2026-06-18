@@ -1,13 +1,30 @@
 {
   "meta": {
-    "updated": "2026-06-17T22:51:51",
-    "total_count": 341,
+    "updated": "2026-06-18T15:39:22",
+    "total_count": 342,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.3736"
   },
   "session_summary": {},
   "items": [
+    {
+      "shortId": "26.3736",
+      "title": "Réintroduction de l’obligation de visas pour les Géorgiens ",
+      "title_de": "Titel folgt",
+      "title_it": "Titolo segue",
+      "author": "de Quattro Jacqueline",
+      "party": "PLR",
+      "type": "Mo.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-06-18",
+      "date_maj": "2026-06-18",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736",
+      "mention": "Élu",
+      "text": "<p>Le Conseil fédéral est chargé d’intervenir auprès de l’Union européenne afin de demander la réintroduction de l’obligation de visas pour les ressortissants géorgiens. Cette mesure vise à enrayer le tourisme médical qui n’a pas tari.<\/p>"
+    },
     {
       "shortId": "26.3254",
       "title": "Évaluation de l'impact et de l'efficacité des projets liés à la reconstruction de Ukraine financés par la coopération internationale suisse (SECO)",
@@ -138,7 +155,7 @@
     },
     {
       "shortId": "26.3550",
-      "title": "Titre suit",
+      "title": "S’attaquer aux origines des points faibles dans les grands projets informatiques",
       "title_de": "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen",
       "title_it": "Titolo segue",
       "author": "Salzmann Werner",
@@ -151,6 +168,7 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
       "mention": "Élu",
+      "text": "<p>Les audits du Contrôle fédéral des finances relèvent régulièrement les points faibles dans les grands projets informatiques de l’administration fédérale. Une partie importante de ces constats indique que des conditions fondamentales n’ont pas suffisamment été clarifiées ou préparées lors de la phase d’initialisation.&nbsp;<\/p><p>&nbsp;<\/p><p>Les points qui indiquent un manque de préparation de la phase d’initialisation sont notamment les suivants&nbsp;:<\/p><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Des objectifs flous ou imprécis<br>La vision ou les objectifs du projet sont souvent formulés de manière trop générale et ne sont pas mesurables. Il manque ainsi dès le début du projet une base solide pour le pilotage et le suivi des résultats.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Une utilité mal définie<br>L’utilité annoncée reste souvent vague et n’est pas définie au moyen d’indicateurs clairs ou de méthodes pour mesurer l’impact. Le pilotage du projet est ainsi limité dès le départ.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Une architecture floue ou inexistante<br>Certains éléments architecturaux importants (comme l’architecture visée ou l’architecture de transition) font défaut, de sorte qu’on ne sait pas vraiment comment se fera le passage entre l’architecture actuelle et l’architecture visée, et que les problèmes d’intégration sont favorisés par la suite.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Une gestion insuffisante des parties prenantes<br>Il manque souvent une analyse de l’influence, des intérêts et des risques liés aux principales parties prenantes&nbsp;; leur ordre d’importance et leur rôle ne sont pas non plus clairement définis. Les exigences et les dépendances ne sont donc souvent identifiées que tardivement.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Intégration insuffisante dans un portefeuille global<br>Les liens avec d’autres projets, ainsi que les priorités et les ressources, ne sont pas suffisamment coordonnés. Les projets peuvent prendre un retard et les ressources ne pas être utilisées efficacement.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Des conditions générales définies trop tardivement<br>Les conditions stratégiques, organisationnelles et juridiques ne sont parfois prises en compte qu’à partir de la phase de mise en œuvre, ce qui cause des retards et des dépenses supplémentaires.<\/li><\/ul><p>&nbsp;<\/p><p>Il est préoccupant de constater que ces problèmes sont signalés régulièrement depuis des années. On est en droit de se demander si l’administration manque d’outils adaptés ou si les outils disponibles sont mal utilisés par manque de cohérence et d’efficacité.<\/p><p>&nbsp;<\/p><p>Le Conseil fédéral est dès lors prié de répondre aux questions qui suivent.<\/p><p>&nbsp;<\/p><p>1. La Chancellerie fédérale met à la disposition de l’administration fédérale un groupe de chefs de projets informatiques pour accompagner les projets clés. Comment le Conseil fédéral explique-t-il que, malgré ce groupe de spécialistes, les lacunes relevées persistent lors de la phase d’initialisation&nbsp;?<\/p><p>&nbsp;<\/p><p>2. Les directives relatives aux projets et au portefeuille de l’administration fédérale dans le domaine de la numérisation et de l’informatique prévoient que les grands projets dont les coûts totaux dépassent 5&nbsp;millions de francs (10&nbsp;millions pour les projets d’armement) sont soumis à une évaluation de la Chancellerie fédérale lors de la phase d’initialisation avant d’être libérés et que l’évaluation est assortie de recommandations adressées à l’autorité compétente.<\/p><ul style=\"list-style-type:disc;\"><li>Quels projets ont été soumis à une telle évaluation de la Chancellerie fédérale ces deux dernières années&nbsp;?<\/li><li>Quels ont été les résultats et quelles recommandations ont été émises&nbsp;?<\/li><li>Comment les autorités compétentes ont-elles réagi à ces recommandations&nbsp;?<\/li><\/ul><p>&nbsp;<\/p><p>3. Que pense le Conseil fédéral du fait d’imposer aux équipes de projet de se faire accompagner ou conseiller par des spécialistes indépendants pendant la phase d’initialisation&nbsp;? De tels modèles ont-ils été examinés ou mis en œuvre à titre de projet pilote&nbsp;?<\/p>",
       "text_de": "<p>Prüfungen der Eidg. Finanzkontrolle weisen regelmässig auf Schwachstellen in grossen IKT-Vorhaben der Bundesverwaltung hin. Ein wesentlicher Teil dieser Feststellungen deutet darauf hin, dass grundlegende Voraussetzungen bereits in der Projektinitialisierung unzureichend geklärt oder vorbereitet wurden.&nbsp;<\/p><p>&nbsp;<\/p><p>Insbesondere folgende Punkte legen Ursachen in einer ungenügenden Initialisierungsphase nahe:<\/p><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Unklare oder wenig konkretisierte Ziele<br>Zielbilder und Projektziele sind häufig zu allgemein formuliert und nicht messbar. Damit fehlt bereits zu Projektbeginn eine belastbare Grundlage für Steuerung und Erfolgskontrolle.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Unzureichend definierter Nutzen<br>Nutzenversprechen bleiben häufig vage und sind nicht mit konkreten Kennzahlen oder Methoden zur Wirkungsmessung hinterlegt. Dadurch wird die Steuerbarkeit des Vorhabens von Beginn an eingeschränkt.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Fehlende oder unklare Architektur<br>Wichtige Architekturartefakte (z. B. Soll- oder Transitionsarchitektur) fehlen teilweise. Der Weg von der Ist- zur Zielarchitektur bleibt dadurch unklar und spätere Integrationsprobleme werden begünstigt.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Unzureichendes Stakeholdermanagement<br>Eine Analyse von Einfluss, Interessen und Risiken der relevanten Stakeholder fehlt häufig; ebenso deren klare Priorisierung und Einbindung. Anforderungen und Abhängigkeiten werden dadurch oft erst spät erkannt.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Unzureichende Einbettung in ein übergeordnetes Portfolio<br>Abhängigkeiten zu anderen Vorhaben sowie Prioritäten und Ressourcen werden nicht ausreichend abgestimmt. Dies kann zu Verzögerungen und ineffizientem Ressourceneinsatz führen.<\/li><\/ul><p>&nbsp;<\/p><ul style=\"list-style-type:disc;\"><li>Rahmenbedingungen werden zu spät geklärt<br>Strategische, organisatorische oder rechtliche Voraussetzungen werden teilweise erst während der Umsetzung adressiert, was Verzögerungen und Zusatzaufwände verursacht.<\/li><\/ul><p>&nbsp;<\/p><p>Besorgniserregend ist, dass diese Problemfelder seit Jahren wiederholt festgestellt werden. Es stellt sich daher die Frage, ob der Verwaltung geeignete Instrumente fehlen oder ob die bestehenden Instrumente nicht konsequent und wirksam eingesetzt werden.<\/p><p>&nbsp;<\/p><p>Vor diesem Hintergrund wird der Bundesrat um die Beantwortung folgender Fragen gebeten:<\/p><p>&nbsp;<\/p><p>1. Die Bundesverwaltung verfügt bei der Bundeskanzlei über einen zentralen Pool an Projektleitern für Schlüsselprojekte. Wie beurteilt der Bundesrat, dass es trotz dieses Expertenpools weiterhin zu den aufgezeigten Versäumnissen in der Initialisierungsphase kommt?<\/p><p>&nbsp;<\/p><p>2. Die Weisungen zu den Vorhaben und zum Portfolio der Bundesverwaltung im Bereich Digitalisierung und IKT sehen vor, dass die Bundeskanzlei bei Grossprojekten mit Gesamtkosten von mehr als 5 Millionen Franken (bzw. 10 Millionen Franken im Rüstungsbereich) in der Initialisierungsphase vor Projektfreigabe ein Projekt-Assessment durchführt und Empfehlungen zuhanden der freigebenden Instanz abgibt.<\/p><ul style=\"list-style-type:disc;\"><li>Bei welchen Projekten hat die Bundeskanzlei in den letzten zwei Jahren diese Assessments durchgeführt?<\/li><li>Zu welchen Ergebnissen bzw. Empfehlungen kamen diese Assessments?<\/li><li>Wie gingen die freigebenden Stellen jeweils mit diesen Empfehlungen um?<\/li><\/ul><p>&nbsp;<\/p><p>3. Wie beurteilt der Bundesrat die Einführung einer obligatorischen Begleitung oder Beratung der Projektteams während der Initialisierungsphase durch unabhängige Experten? Wurden entsprechende Modelle geprüft oder pilotiert?<\/p>",
       "tags": "Politique d'Etat|Finances|Médias et communication",
       "tags_de": "Staatspolitik|Finanzwesen|Medien und Kommunikation",
@@ -208,11 +226,12 @@
       "author": "Regazzi Fabio",
       "party": "Le Centre",
       "type": "Po.",
-      "status": "In Ständerat geplant / Planifié au Conseil des Etats",
+      "status": "Überwiesen an den Bundesrat / Transmis au Conseil fédéral",
       "council": "SR",
       "department": "EFD",
       "date": "2026-03-19",
-      "date_maj": "2026-05-26",
+      "date_maj": "2026-06-18",
+      "statut_change_date": "2026-06-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263257",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263257",
       "mention": "Conseil fédéral",
