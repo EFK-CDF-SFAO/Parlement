@@ -1,13 +1,28 @@
 {
   "meta": {
-    "updated": "2026-06-18T15:39:22",
-    "total_count": 342,
+    "updated": "2026-06-19T00:00:30",
+    "total_count": 343,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "26.3736"
+    "new_ids": "26.3859"
   },
   "session_summary": {},
   "items": [
+    {
+      "shortId": "26.3859",
+      "title_de": "AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen",
+      "author": "Thalmann-Bieri Vroni",
+      "party": "UDC",
+      "type": "Mo.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-06-18",
+      "date_maj": "2026-06-19",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859",
+      "mention": "Élu",
+      "text_de": "<p>Der Bundesrat wird beauftragt, eine Änderung des Bundesgesetzes über die Alters- und Hinterlassenenversicherung (AHVG, SR 831.10) vorzulegen. Mit dieser Änderung soll in der AHV die Erhebung der Beiträge zur Finanzierung der Verwaltungskosten zur Entlastung der Arbeitgeber – insbesondere von KMU – von der Lohnsumme entkoppelt und durch eine Fallpauschale für die Geschäftsfallbearbeitung ersetzt werden; zudem soll die Transparenz <strong>in Sachen<\/strong> Verwaltungskostenbeiträgen im Gesetz klar geregelt und verankert werden, um zwischen den Ausgleichskassen die in Art. 67 AHVG geforderte Transparenz sicherzustellen.&nbsp;<\/p>"
+    },
     {
       "shortId": "26.3736",
       "title": "Réintroduction de l’obligation de visas pour les Géorgiens ",
@@ -24,6 +39,28 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736",
       "mention": "Élu",
       "text": "<p>Le Conseil fédéral est chargé d’intervenir auprès de l’Union européenne afin de demander la réintroduction de l’obligation de visas pour les ressortissants géorgiens. Cette mesure vise à enrayer le tourisme médical qui n’a pas tari.<\/p>"
+    },
+    {
+      "shortId": "26.3257",
+      "title": "Évaluation de l'efficacité des subventions fédérales",
+      "title_de": "Evaluation der Wirksamkeit der Bundessubventionen",
+      "title_it": "Valutazione dell'efficacia dei sussidi federali",
+      "author": "Regazzi Fabio",
+      "party": "Le Centre",
+      "type": "Po.",
+      "status": "Überwiesen an den Bundesrat / Transmis au Conseil fédéral",
+      "council": "SR",
+      "department": "EFD",
+      "date": "2026-03-19",
+      "date_maj": "2026-06-18",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263257",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263257",
+      "mention": "Conseil fédéral",
+      "text": "<p>Le Conseil fédéral est chargé de présenter un rapport dans lequel il examinera systématiquement l’efficacité, la pertinence et les conséquences économiques des subventions fédérales.<\/p><p>&nbsp;<\/p><p>Ce rapport devra notamment&nbsp;:<\/p><ul><li>donner une vue d’ensemble des principaux domaines subventionnés et de leurs objectifs&nbsp;;<\/li><li>vérifier dans quelle mesure ces subventions mettent à disposition des biens publics, internalisent des externalités ou fournissent des services de base&nbsp;;<\/li><li>identifier les distorsions de la concurrence, les effets d’aubaine ou les incitations négatives que ces subventions seraient susceptibles de créer et évaluer les autres effets négatifs pour l’économie&nbsp;;<\/li><li>proposer des solutions pour améliorer la pertinence ou réduire les subventions inefficaces.<\/li><\/ul>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, einen Bericht vorzulegen, der die Wirksamkeit, Zielgenauigkeit und volkswirtschaftlichen Auswirkungen der Bundessubventionen systematisch untersucht.<\/p><p>&nbsp;<\/p><p>Der Bericht soll insbesondere:<\/p><ul><li>eine Übersicht über die wichtigsten Subventionsbereiche und deren Zielsetzungen enthalten<\/li><li>prüfen, inwieweit diese Subventionen öffentliche Güter bereitstellen, Externalitäten internalisieren oder der Grundversorgung dienen<\/li><li>mögliche Wettbewerbsverzerrungen, Mitnahmeeffekte oder ineffiziente Anreize identifizieren oder sonstige volkswirtschaftlich schädliche Wirkungen evaluieren<\/li><li>Optionen für eine bessere Zielgenauigkeit oder eine Reduktion ineffizienter Subventionen aufzeigen<\/li><\/ul>",
+      "tags": "Économie|Finances",
+      "tags_de": "Wirtschaft|Finanzwesen",
+      "tags_it": "Economia|Finanze"
     },
     {
       "shortId": "26.3254",
@@ -217,29 +254,6 @@
       "tags": "Politique d'Etat|Politique internationale|Politique de sécurité|Médias et communication",
       "tags_de": "Staatspolitik|Internationale Politik|Sicherheitspolitik|Medien und Kommunikation",
       "tags_it": "Politica nazionale|Politica internazionale|Politica di sicurezza|Media e comunicazione"
-    },
-    {
-      "shortId": "26.3257",
-      "title": "Évaluation de l'efficacité des subventions fédérales",
-      "title_de": "Evaluation der Wirksamkeit der Bundessubventionen",
-      "title_it": "Valutazione dell'efficacia dei sussidi federali",
-      "author": "Regazzi Fabio",
-      "party": "Le Centre",
-      "type": "Po.",
-      "status": "Überwiesen an den Bundesrat / Transmis au Conseil fédéral",
-      "council": "SR",
-      "department": "EFD",
-      "date": "2026-03-19",
-      "date_maj": "2026-06-18",
-      "statut_change_date": "2026-06-18",
-      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263257",
-      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263257",
-      "mention": "Conseil fédéral",
-      "text": "<p>Le Conseil fédéral est chargé de présenter un rapport dans lequel il examinera systématiquement l’efficacité, la pertinence et les conséquences économiques des subventions fédérales.<\/p><p>&nbsp;<\/p><p>Ce rapport devra notamment&nbsp;:<\/p><ul><li>donner une vue d’ensemble des principaux domaines subventionnés et de leurs objectifs&nbsp;;<\/li><li>vérifier dans quelle mesure ces subventions mettent à disposition des biens publics, internalisent des externalités ou fournissent des services de base&nbsp;;<\/li><li>identifier les distorsions de la concurrence, les effets d’aubaine ou les incitations négatives que ces subventions seraient susceptibles de créer et évaluer les autres effets négatifs pour l’économie&nbsp;;<\/li><li>proposer des solutions pour améliorer la pertinence ou réduire les subventions inefficaces.<\/li><\/ul>",
-      "text_de": "<p>Der Bundesrat wird beauftragt, einen Bericht vorzulegen, der die Wirksamkeit, Zielgenauigkeit und volkswirtschaftlichen Auswirkungen der Bundessubventionen systematisch untersucht.<\/p><p>&nbsp;<\/p><p>Der Bericht soll insbesondere:<\/p><ul><li>eine Übersicht über die wichtigsten Subventionsbereiche und deren Zielsetzungen enthalten<\/li><li>prüfen, inwieweit diese Subventionen öffentliche Güter bereitstellen, Externalitäten internalisieren oder der Grundversorgung dienen<\/li><li>mögliche Wettbewerbsverzerrungen, Mitnahmeeffekte oder ineffiziente Anreize identifizieren oder sonstige volkswirtschaftlich schädliche Wirkungen evaluieren<\/li><li>Optionen für eine bessere Zielgenauigkeit oder eine Reduktion ineffizienter Subventionen aufzeigen<\/li><\/ul>",
-      "tags": "Économie|Finances",
-      "tags_de": "Wirtschaft|Finanzwesen",
-      "tags_it": "Economia|Finanze"
     },
     {
       "shortId": "26.3398",
