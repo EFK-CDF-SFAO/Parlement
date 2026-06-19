@@ -1,16 +1,18 @@
 {
   "meta": {
-    "updated": "2026-06-19T00:00:30",
+    "updated": "2026-06-19T15:01:41",
     "total_count": 343,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "26.3859"
+    "new_ids": []
   },
   "session_summary": {},
   "items": [
     {
       "shortId": "26.3859",
+      "title": "Titre suit",
       "title_de": "AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen",
+      "title_it": "Titolo segue",
       "author": "Thalmann-Bieri Vroni",
       "party": "UDC",
       "type": "Mo.",
@@ -192,7 +194,7 @@
     },
     {
       "shortId": "26.3550",
-      "title": "S’attaquer aux origines des points faibles dans les grands projets informatiques",
+      "title": "S'attaquer aux origines des points faibles dans les grands projets informatiques",
       "title_de": "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen",
       "title_it": "Titolo segue",
       "author": "Salzmann Werner",
@@ -280,7 +282,7 @@
     {
       "shortId": "26.3485",
       "title": "Un audit externe de l'OFDF pour restaurer la confiance du personnel et de l'économie",
-      "title_de": "Externes Audit des Bundesamts für Zoll und Grenzsicherheit zur Wiederherstellung des Vertrauens des Personals und der Wirtschaft",
+      "title_de": "Externes Audit des Bundesamtes für Zoll und Grenzsicherheit zur Wiederherstellung des Vertrauens des Personals und der Wirtschaft",
       "title_it": "Una verifica esterna dell'UDSC per ristabilire la fiducia tra il personale e il mondo economico",
       "author": "Addor Jean-Luc",
       "party": "UDC",
@@ -302,7 +304,7 @@
     {
       "shortId": "26.3487",
       "title": "Le comité en faveur de l'initiative de l'UDC pour la durabilité tente-t-il de contourner les règles de transparence ?",
-      "title_de": "Versucht das Pro-Komitee der SVP-Nachhaltigkeitsinitiative die Transparenzvorschriften zu umgehen?",
+      "title_de": "Versucht das Pro-Komitee der SVP-Nachhaltigkeits-Initiative die Transparenzvorschriften zu umgehen?",
       "title_it": "Iniziativa per la sostenibilità dell'UDC: Il comitato promotore tenta di eludere le disposizioni in materia di trasparenza?",
       "author": "Wermuth Cédric",
       "party": "PS",
