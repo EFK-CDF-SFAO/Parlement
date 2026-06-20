@@ -1,12 +1,44 @@
 {
   "meta": {
-    "updated": "2026-06-19T22:05:29",
+    "updated": "2026-06-20T13:59:32",
     "total_count": 343,
     "source": "Swiss Parliament API",
     "legislature": 52,
     "new_ids": []
   },
-  "session_summary": {},
+  "session_summary": {
+    "session_id": "2026-ete",
+    "title_fr": "Résumé de la session d'été 2026",
+    "title_de": "Zusammenfassung der Sommersession 2026",
+    "text_fr": "Durant la Session d'été 2026 (01.06 - 19.06.2026), 7 interventions mentionnant le CDF ont été déposées ou ont fait l'objet d'une réponse du Conseil fédéral qui cite le CDF : 4 questions, 2 motions, 1 interpellation. 6 au Conseil national et 1 au Conseil des États. Les partis les plus actifs : PLR, UDC, MCG.",
+    "text_de": "Während der Sommersession 2026 (01.06 - 19.06.2026) wurden 7 Vorstösse mit Bezug zur EFK eingereicht oder mit einer Antwort des Bundesrates versehen, die die EFK erwähnt: 4 Anfragen, 2 Motionen, 1 Interpellation. 6 im Nationalrat und 1 im Ständerat. Die aktivsten Parteien: FDP, SVP, MCG.",
+    "themes_fr": "Titre suit (Thalmann-Bieri, UDC) ; Réintroduction de l’obligation de visas pour les Géorgiens  (de, PLR) ; Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ? (Clivaz, VERT-E-S) ; Bug informatique au SECO – Point de situation et audit (Sormanni, MCG) ; Géorgiens : des coûts médicaux supérieurs à la moyenne  (de, PLR) ; Dysfonctionnement au Secrétariat d’Etat aux migrations  (de, PLR) ; S'attaquer aux origines des points faibles dans les grands projets informatiques (Salzmann, UDC)",
+    "themes_de": "AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen (Thalmann-Bieri, SVP) ; Titel folgt (de, FDP) ; Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück? (Clivaz, GRÜNE) ; IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit (Sormanni, MCG) ; Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten  (de, FDP) ; Schwachstellen im Staatssekretariat für Migration  (de, FDP) ; Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen (Salzmann, SVP)",
+    "session_start": "2026-06-01",
+    "session_end": "2026-06-19",
+    "display_until": "2026-09-14",
+    "count": 7,
+    "by_type": {
+      "Fra.": 4,
+      "Mo.": 2,
+      "Ip.": 1
+    },
+    "by_council": {
+      "CN": 6,
+      "CE": 1
+    },
+    "interventions": {
+      "shortId": ["26.3859", "26.3736", "26.7423", "26.7336", "26.7321", "26.7324", "26.3550"],
+      "title": ["Titre suit", "Réintroduction de l’obligation de visas pour les Géorgiens ", "Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ?", "Bug informatique au SECO – Point de situation et audit", "Géorgiens : des coûts médicaux supérieurs à la moyenne ", "Dysfonctionnement au Secrétariat d’Etat aux migrations ", "S'attaquer aux origines des points faibles dans les grands projets informatiques"],
+      "title_de": ["AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen", "Titel folgt", "Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück?", "IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit", "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ", "Schwachstellen im Staatssekretariat für Migration ", "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen"],
+      "title_it": ["Titolo segue", "Titolo segue", null, null, null, null, "Titolo segue"],
+      "author": ["Thalmann-Bieri Vroni", "de Quattro Jacqueline", "Clivaz Christophe", "Sormanni Daniel", "de Quattro Jacqueline", "de Quattro Jacqueline", "Salzmann Werner"],
+      "party": ["UDC", "PLR", "VERT-E-S", "MCG", "PLR", "PLR", "UDC"],
+      "type": ["Mo.", "Mo.", "Fra.", "Fra.", "Fra.", "Fra.", "Ip."],
+      "url_fr": ["https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267423", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267336", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267324", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550"],
+      "url_de": ["https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267423", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267336", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267324", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550"]
+    }
+  },
   "items": [
     {
       "shortId": "26.3859",
