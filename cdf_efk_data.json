@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-06-22T22:48:44",
+    "updated": "2026-06-23T14:44:09",
     "total_count": 343,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -55,7 +55,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859",
       "mention": "Élu",
-      "text_de": "<p>Der Bundesrat wird beauftragt, eine Änderung des Bundesgesetzes über die Alters- und Hinterlassenenversicherung (AHVG, SR 831.10) vorzulegen. Mit dieser Änderung soll in der AHV die Erhebung der Beiträge zur Finanzierung der Verwaltungskosten zur Entlastung der Arbeitgeber – insbesondere von KMU – von der Lohnsumme entkoppelt und durch eine Fallpauschale für die Geschäftsfallbearbeitung ersetzt werden; zudem soll die Transparenz <strong>in Sachen<\/strong> Verwaltungskostenbeiträgen im Gesetz klar geregelt und verankert werden, um zwischen den Ausgleichskassen die in Art. 67 AHVG geforderte Transparenz sicherzustellen.&nbsp;<\/p>"
+      "text_de": "<p>Der Bundesrat wird beauftragt, eine Änderung des Bundesgesetzes über die Alters- und Hinterlassenenversicherung (AHVG, SR 831.10) vorzulegen. Mit dieser Änderung soll in der AHV die Erhebung der Beiträge zur Finanzierung der Verwaltungskosten zur Entlastung der Arbeitgeber – insbesondere von KMU – von der Lohnsumme entkoppelt und durch eine Fallpauschale für die Geschäftsfallbearbeitung ersetzt werden; zudem soll die Transparenz <strong>in Sachen<\/strong> Verwaltungskostenbeiträgen im Gesetz klar geregelt und verankert werden, um zwischen den Ausgleichskassen die in Art. 67 AHVG geforderte Transparenz sicherzustellen.&nbsp;<\/p>",
+      "tags": "Emploi et travail|Protection sociale",
+      "tags_de": "Beschäftigung und Arbeit|Sozialer Schutz",
+      "tags_it": "Occupazione e lavoro|Protezione sociale"
     },
     {
       "shortId": "26.3736",
@@ -72,7 +75,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736",
       "mention": "Élu",
-      "text": "<p>Le Conseil fédéral est chargé d’intervenir auprès de l’Union européenne afin de demander la réintroduction de l’obligation de visas pour les ressortissants géorgiens. Cette mesure vise à enrayer le tourisme médical qui n’a pas tari.<\/p>"
+      "text": "<p>Le Conseil fédéral est chargé d’intervenir auprès de l’Union européenne afin de demander la réintroduction de l’obligation de visas pour les ressortissants géorgiens. Cette mesure vise à enrayer le tourisme médical qui n’a pas tari.<\/p>",
+      "tags": "Finances|Politique migratoire|Santé",
+      "tags_de": "Finanzwesen|Migration|Gesundheit",
+      "tags_it": "Finanze|Migrazione|Salute"
     },
     {
       "shortId": "26.3257",
