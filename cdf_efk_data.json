@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-06-24T22:23:35",
+    "updated": "2026-06-25T14:28:03",
     "total_count": 343,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -50,6 +50,7 @@
       "type": "Mo.",
       "status": "Eingereicht / Déposé",
       "council": "NR",
+      "department": "EDI",
       "date": "2026-06-18",
       "date_maj": "2026-06-19",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859",
@@ -70,6 +71,7 @@
       "type": "Mo.",
       "status": "Eingereicht / Déposé",
       "council": "NR",
+      "department": "EJPD",
       "date": "2026-06-18",
       "date_maj": "2026-06-18",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736",
@@ -240,6 +242,7 @@
       "type": "Ip.",
       "status": "Eingereicht / Déposé",
       "council": "SR",
+      "department": "BK",
       "date": "2026-06-02",
       "date_maj": "2026-06-02",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
