@@ -97,7 +97,8 @@ const partyColors = {
     'PSS': '#E41019',
     'VERT-E-S': '#84B414',
     'Vert\'libéraux': '#A6CF42',
-    'pvl': '#A6CF42'
+    'pvl': '#A6CF42',
+    'Commissions': '#9E9E9E'
 };
 
 // Emojis pour les mentions CDF

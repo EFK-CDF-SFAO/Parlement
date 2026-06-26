@@ -187,7 +187,8 @@ function translateParty(party) {
         'PLR': 'PLR',
         'UDC': 'UDC',
         'pvl': 'PVL',
-        'AI': 'Verdi'
+        'AI': 'Verdi',
+        'Commissions': 'Commissioni'
     };
     return translations[party] || party;
 }
@@ -195,11 +196,25 @@ function translateParty(party) {
 function translateAuthor(author) {
     if (!author) return '';
     const translations = {
-        'Sicherheitspolitische Kommission Nationalrat-Nationalrat': 'Commissione della politica di sicurezza del Consiglio nazionale',
-        'Sicherheitspolitische Kommission Nationalrat': 'Commissione della politica di sicurezza del Consiglio nazionale',
-        'Sicherheitspolitische Kommission Ständerat': 'Commissione della politica di sicurezza del Consiglio degli Stati',
-        'Commission de la politique de sécurité du Conseil national': 'Commissione della politica di sicurezza del Consiglio nazionale',
-        'Commission de la politique de sécurité du Conseil des États': 'Commissione della politica di sicurezza del Consiglio degli Stati',
+        // Abréviations commissions FR → IT
+        'Bu-N': 'Uf-N', 'Bu-E': 'Uf-S',
+        'CdF-N': 'CdF-N', 'CdF-E': 'CdF-S',
+        'CdG-N': 'CdG-N', 'CdG-E': 'CdG-S',
+        'CSSS-N': 'CSSS-N', 'CSSS-E': 'CSSS-S',
+        'CEATE-N': 'CAPTE-N', 'CEATE-E': 'CAPTE-S',
+        'CIP-N': 'CIP-N', 'CIP-E': 'CIP-S',
+        'CAJ-N': 'CAG-N', 'CAJ-E': 'CAG-S',
+        'CPS-N': 'CPS-N', 'CPS-E': 'CPS-S',
+        'CTT-N': 'CTT-N', 'CTT-E': 'CTT-S',
+        'CER-N': 'CET-N', 'CER-E': 'CET-S',
+        'CSEC-N': 'CSEC-N', 'CSEC-E': 'CSEC-S',
+        'DélFin': 'DelFin', 'DélCdG': 'DelCdG',
+        // Anciens noms complets (rétrocompatibilité)
+        'Sicherheitspolitische Kommission Nationalrat-Nationalrat': 'CPS-N',
+        'Sicherheitspolitische Kommission Nationalrat': 'CPS-N',
+        'Sicherheitspolitische Kommission Ständerat': 'CPS-S',
+        'Commission de la politique de sécurité du Conseil national': 'CPS-N',
+        'Commission de la politique de sécurité du Conseil des États': 'CPS-S',
         'FDP-Liberale Fraktion': 'Gruppo liberale radicale',
         'Groupe libéral-radical': 'Gruppo liberale radicale',
         'Grüne Fraktion': 'Gruppo dei Verdi',
@@ -822,12 +837,15 @@ function createCard(item, searchTerm) {
     const authorWithParty = partyIT ? `${authorName} (${partyIT})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     
-    // Bande verte si mise à jour < 4 jours
+    // Barra verde se aggiornamento < 4 giorni
     const now = new Date();
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     const itemDateStr = item.date_maj || item.date || '';
     const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
-    const isNew = itemDate ? itemDate >= fourDaysAgo : false;
+    const isRecent = itemDate ? itemDate >= fourDaysAgo : false;
+    // Se date_maj_langs è definito, mostrare la barra verde solo se 'it' è incluso
+    const langRestriction = item.date_maj_langs;
+    const isNew = isRecent && (!langRestriction || langRestriction.split(',').includes('it'));
     const shortId = highlightText(item.shortId, searchTerm);
     
     const date = item.date ? new Date(item.date).toLocaleDateString('it-CH') : '';

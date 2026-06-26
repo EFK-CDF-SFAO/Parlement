@@ -38,7 +38,8 @@ const partyColors = {
     'Al': '#8BC34A',
     'Vert\'libéraux': '#CDDC39',
     'pvl': '#CDDC39',
-    'PVL': '#CDDC39'
+    'PVL': '#CDDC39',
+    'Commissions': '#9E9E9E'
 };
 
 const partyLabels = {
@@ -58,7 +59,8 @@ const partyLabels = {
     'Les Vert-e-s': 'VERT-E-S',
     'Al': 'VERT-E-S',
     'pvl': 'Vert\'libéraux',
-    'PVL': 'Vert\'libéraux'
+    'PVL': 'Vert\'libéraux',
+    'Commissions': 'Commissions'
 };
 
 const typeLabels = {
@@ -107,7 +109,8 @@ const partyToFilter = {
     'PLR': 'PLR',
     'Le Centre': 'Le Centre',
     'Verts': 'VERT-E-S',
-    'Vert\'libéraux': 'pvl'
+    'Vert\'libéraux': 'pvl',
+    'Commissions': 'Commissions'
 };
 
 async function init() {
@@ -885,7 +888,8 @@ function normalizeParty(party) {
         'PBD': 'Le Centre',
         'CSPO': 'Le Centre',
         'CVP': 'Le Centre',
-        'BDP': 'Le Centre'
+        'BDP': 'Le Centre',
+        'Commissions': 'Commissions'
     };
     return normalized[party] || party;
 }

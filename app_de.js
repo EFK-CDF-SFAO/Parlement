@@ -204,7 +204,8 @@ function translateParty(party) {
         'PDC': 'Die Mitte',
         'PBD': 'Die Mitte',
         'CSPO': 'Die Mitte',
-        'AI': 'GRÜNE'
+        'AI': 'GRÜNE',
+        'Commissions': 'Kommissionen'
     };
     return translations[party] || party;
 }
@@ -221,23 +222,38 @@ function getPartyFromAuthor(author) {
 }
 
 function translateAuthor(author) {
+    if (!author) return '';
     const translations = {
-        'Commission des finances Conseil national': 'Finanzkommission Nationalrat',
-        'Commission des finances Conseil des États': 'Finanzkommission Ständerat',
-        'Commission de l\'économie et des redevances Conseil national': 'Kommission für Wirtschaft und Abgaben Nationalrat',
-        'Commission de l\'économie et des redevances Conseil des États': 'Kommission für Wirtschaft und Abgaben Ständerat',
-        'Commission de la sécurité sociale et de la santé publique Conseil national': 'Kommission für soziale Sicherheit und Gesundheit Nationalrat',
-        'Commission de la sécurité sociale et de la santé publique Conseil des États': 'Kommission für soziale Sicherheit und Gesundheit Ständerat',
-        'Commission des transports et des télécommunications Conseil national': 'Kommission für Verkehr und Fernmeldewesen Nationalrat',
-        'Commission des transports et des télécommunications Conseil des États': 'Kommission für Verkehr und Fernmeldewesen Ständerat',
-        'Commission de la politique de sécurité Conseil national': 'Sicherheitspolitische Kommission Nationalrat',
-        'Commission de la politique de sécurité Conseil des États': 'Sicherheitspolitische Kommission Ständerat',
-        'Commission des institutions politiques Conseil national': 'Staatspolitische Kommission Nationalrat',
-        'Commission des institutions politiques Conseil des États': 'Staatspolitische Kommission Ständerat',
-        'Commission de gestion Conseil national': 'Geschäftsprüfungskommission Nationalrat',
-        'Commission de gestion Conseil des États': 'Geschäftsprüfungskommission Ständerat',
-        'Commission de l\'environnement, de l\'aménagement du territoire et de l\'énergie Conseil national': 'Kommission für Umwelt, Raumplanung und Energie Nationalrat',
-        'Commission de l\'environnement, de l\'aménagement du territoire et de l\'énergie Conseil des États': 'Kommission für Umwelt, Raumplanung und Energie Ständerat'
+        // Abréviations commissions FR → DE
+        'Bu-N': 'Bü-N', 'Bu-E': 'Bü-S',
+        'CdF-N': 'FK-N', 'CdF-E': 'FK-S',
+        'CdG-N': 'GPK-N', 'CdG-E': 'GPK-S',
+        'CSSS-N': 'SGK-N', 'CSSS-E': 'SGK-S',
+        'CEATE-N': 'UREK-N', 'CEATE-E': 'UREK-S',
+        'CIP-N': 'SPK-N', 'CIP-E': 'SPK-S',
+        'CAJ-N': 'RK-N', 'CAJ-E': 'RK-S',
+        'CPS-N': 'SiK-N', 'CPS-E': 'SiK-S',
+        'CTT-N': 'KVF-N', 'CTT-E': 'KVF-S',
+        'CER-N': 'WAK-N', 'CER-E': 'WAK-S',
+        'CSEC-N': 'WBK-N', 'CSEC-E': 'WBK-S',
+        'DélFin': 'FinDel', 'DélCdG': 'GPDel',
+        // Anciens noms complets (rétrocompatibilité)
+        'Commission des finances Conseil national': 'FK-N',
+        'Commission des finances Conseil des États': 'FK-S',
+        'Commission de la sécurité sociale et de la santé publique Conseil national': 'SGK-N',
+        'Commission de la sécurité sociale et de la santé publique Conseil des États': 'SGK-S',
+        'Commission de la politique de sécurité Conseil national': 'SiK-N',
+        'Commission de la politique de sécurité Conseil des États': 'SiK-S',
+        'Commission de gestion Conseil national': 'GPK-N',
+        'Commission de gestion Conseil des États': 'GPK-S',
+        'Commission des institutions politiques Conseil national': 'SPK-N',
+        'Commission des institutions politiques Conseil des États': 'SPK-S',
+        'Commission de l\'économie et des redevances Conseil national': 'WAK-N',
+        'Commission de l\'économie et des redevances Conseil des États': 'WAK-S',
+        'Commission des transports et des télécommunications Conseil national': 'KVF-N',
+        'Commission des transports et des télécommunications Conseil des États': 'KVF-S',
+        'Commission de l\'environnement, de l\'aménagement du territoire et de l\'énergie Conseil national': 'UREK-N',
+        'Commission de l\'environnement, de l\'aménagement du territoire et de l\'énergie Conseil des États': 'UREK-S'
     };
     return translations[author] || author;
 }
@@ -819,12 +835,15 @@ function createCard(item, searchTerm) {
     const authorWithParty = partyDE ? `${authorName} (${partyDE})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     
-    // Bande verte si mise à jour < 4 jours
+    // Grüner Balken wenn Aktualisierung < 4 Tage
     const now = new Date();
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     const itemDateStr = item.date_maj || item.date || '';
     const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
-    const isNew = itemDate ? itemDate >= fourDaysAgo : false;
+    const isRecent = itemDate ? itemDate >= fourDaysAgo : false;
+    // Wenn date_maj_langs gesetzt ist, grünen Balken nur anzeigen wenn 'de' enthalten
+    const langRestriction = item.date_maj_langs;
+    const isNew = isRecent && (!langRestriction || langRestriction.split(',').includes('de'));
     const shortId = highlightText(item.shortId, searchTerm);
     
     const date = item.date ? new Date(item.date).toLocaleDateString('de-CH') : '';

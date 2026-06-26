@@ -30,6 +30,7 @@ let displayedCount = 0;
 let newIds = []; // IDs des vrais nouveaux objets
 let sessionsData = []; // Données des sessions parlementaires
 let sortDescending = true; // true = récent en premier, false = ancien en premier
+let businessRapportsMap = {}; // Index rapports CDF par business_number
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -44,9 +45,50 @@ const showNewUpdatesBtn = document.getElementById('showNewUpdates');
 // Initialize
 document.addEventListener('DOMContentLoaded', init);
 
+async function loadRapportsForObjects() {
+    try {
+        const [manuelsResp, sessionResp] = await Promise.all([
+            fetch('rapports_manuels.json').catch(() => null),
+            fetch('session_rapports_export.json').catch(() => null)
+        ]);
+        if (manuelsResp) {
+            const manuels = await manuelsResp.json();
+            if (manuels?.mappings?.by_object) {
+                for (const [id, r] of Object.entries(manuels.mappings.by_object)) {
+                    businessRapportsMap[id] = { pa: r.pa, title: r.title, url: r.url, match_type: 'manual' };
+                }
+            }
+        }
+        if (sessionResp) {
+            const session = await sessionResp.json();
+            if (session?.mappings?.by_object) {
+                for (const [id, r] of Object.entries(session.mappings.by_object)) {
+                    if (!businessRapportsMap[id]) {
+                        businessRapportsMap[id] = { pa: r.pa, title: r.title, url: r.url, match_type: 'session_matcher' };
+                    }
+                }
+            }
+        }
+    } catch (e) {
+        console.warn('Rapports non chargés:', e);
+    }
+}
+
+function getRapportBadgeHtml(shortId) {
+    if (!shortId) return '';
+    const rapport = businessRapportsMap[shortId];
+    if (!rapport) return '';
+    const pa = rapport.pa ? `PA ${rapport.pa}` : 'Rapport CDF';
+    const tooltip = rapport.title || 'Rapport du CDF lié';
+    return `<a href="${rapport.url}" target="_blank" class="card-rapport" title="${tooltip}" onclick="event.stopPropagation();">📄 ${pa}</a>`;
+}
+
 async function init() {
     showLoading();
     try {
+        // Charger les rapports CDF
+        await loadRapportsForObjects();
+        
         // Charger les données des sessions
         const sessionsResponse = await fetch('sessions.json');
         const sessionsJson = await sessionsResponse.json();
@@ -224,9 +266,9 @@ function translateParty(party) {
 function translateAuthor(author) {
     if (!author) return '';
     const translations = {
-        'Sicherheitspolitische Kommission Nationalrat-Nationalrat': 'Commission de la politique de sécurité du Conseil national',
-        'Sicherheitspolitische Kommission Nationalrat': 'Commission de la politique de sécurité du Conseil national',
-        'Sicherheitspolitische Kommission Ständerat': 'Commission de la politique de sécurité du Conseil des États',
+        'Sicherheitspolitische Kommission Nationalrat-Nationalrat': 'CPS-N',
+        'Sicherheitspolitische Kommission Nationalrat': 'CPS-N',
+        'Sicherheitspolitische Kommission Ständerat': 'CPS-E',
         'FDP-Liberale Fraktion': 'Groupe libéral-radical',
         'Grüne Fraktion': 'Groupe des VERT-E-S',
         'Sozialdemokratische Fraktion': 'Groupe socialiste',
@@ -875,7 +917,10 @@ function createCard(item, searchTerm) {
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     const itemDateStr = item.date_maj || item.date || '';
     const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
-    const isNew = itemDate ? itemDate >= fourDaysAgo : false;
+    const isRecent = itemDate ? itemDate >= fourDaysAgo : false;
+    // Si date_maj_langs est défini, n'afficher la barre verte que si 'fr' est inclus
+    const langRestriction = item.date_maj_langs;
+    const isNew = isRecent && (!langRestriction || langRestriction.split(',').includes('fr'));
     const shortId = highlightText(item.shortId, searchTerm);
     
     const date = item.date ? new Date(item.date).toLocaleDateString('fr-CH') : '';
@@ -900,6 +945,7 @@ function createCard(item, searchTerm) {
                     <span class="badge badge-council">${item.council === 'NR' ? 'CN' : 'CE'}</span>
                     <span class="badge badge-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
                     ${getTPFBadge(item)}
+                    ${getRapportBadgeHtml(shortId)}
                 </div>
             </div>
             <h3 class="card-title">

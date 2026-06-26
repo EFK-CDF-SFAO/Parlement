@@ -36,7 +36,8 @@ function translateParty(party) {
         'PSS': 'PS',
         'Le Centre': 'Alleanza del Centro',
         'pvl': 'Verdi liberali',
-        'PVL': 'Verdi liberali'
+        'PVL': 'Verdi liberali',
+        'Commissions': 'Commissioni'
     };
     return translations[party] || party;
 }
@@ -74,7 +75,9 @@ const partyColors = {
     'Alleanza del Centro': '#FF9900',
     'PS': '#E41019',
     'Verdi': '#84B414',
-    'Verdi liberali': '#A6CF42'
+    'Verdi liberali': '#A6CF42',
+    'Commissioni': '#9E9E9E',
+    'Commissions': '#9E9E9E'
 };
 
 // Emojis per le citazioni CDF

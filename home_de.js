@@ -42,7 +42,8 @@ function translateParty(party) {
         'PLR': 'FDP',
         'UDC': 'SVP',
         'Le Centre': 'Die Mitte',
-        'Centre': 'Die Mitte'
+        'Centre': 'Die Mitte',
+        'Commissions': 'Kommissionen'
     };
     return translations[party] || party;
 }
@@ -71,7 +72,9 @@ const partyColors = {
     'Die Mitte': '#FF9900',
     'SP': '#E41019',
     'GRÜNE': '#84B414',
-    'GLP': '#A6CF42'
+    'GLP': '#A6CF42',
+    'Kommissionen': '#9E9E9E',
+    'Commissions': '#9E9E9E'
 };
 
 // Emojis pour les mentions EFK
