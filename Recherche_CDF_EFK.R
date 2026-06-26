@@ -170,11 +170,13 @@ if (file.exists(FICHIER_EXCEL)) {
   Donnees_Existantes <- read.xlsx(FICHIER_EXCEL, detectDates = TRUE)
   
   if ("Date_dépôt" %in% names(Donnees_Existantes)) {
-    Donnees_Existantes <- Donnees_Existantes |>
-      mutate(Date_dépôt = case_when(
-        is.numeric(Date_dépôt) ~ format(as.Date(Date_dépôt, origin = "1899-12-30"), "%Y-%m-%d"),
-        TRUE ~ as.character(Date_dépôt)
-      ))
+    if (is.numeric(Donnees_Existantes$Date_dépôt)) {
+      Donnees_Existantes <- Donnees_Existantes |>
+        mutate(Date_dépôt = format(as.Date(Date_dépôt, origin = "1899-12-30"), "%Y-%m-%d"))
+    } else {
+      Donnees_Existantes <- Donnees_Existantes |>
+        mutate(Date_dépôt = as.character(Date_dépôt))
+    }
   }
   
   if ("Statut_DE" %in% names(Donnees_Existantes) && !"Statut" %in% names(Donnees_Existantes)) {
@@ -717,6 +719,9 @@ if (length(IDs_A_Traiter) > 0) {
     if (!"Date_MAJ_Langs" %in% names(Donnees_Existantes)) {
       Donnees_Existantes <- Donnees_Existantes |>
         mutate(Date_MAJ_Langs = NA_character_)
+    } else {
+      Donnees_Existantes <- Donnees_Existantes |>
+        mutate(Date_MAJ_Langs = as.character(Date_MAJ_Langs))
     }
     
     # Préserver les Date_MAJ et Date_MAJ_Langs existantes pour les objets mis à jour (pas nouveaux)
