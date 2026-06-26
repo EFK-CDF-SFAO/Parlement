@@ -71,7 +71,7 @@ faux_positifs <- c("24.3077", "25.479", "25.4670", "18.032", "16.025", "16.026",
 # Pattern EFK: nom complet (insensible à la casse) OU sigle EFK en MAJUSCULES strictes
 # Exclut: EfK, Efk (f minuscule)
 pattern_efk_de <- regex(
-  "\\b(Eidg(en(ö|oe)ssische)?|Eidg\\.)\\s*Finanzkontrolle\\b|\\(\\s*EFK\\s*\\)|(?<![a-zA-Z])EFK(?![a-zA-Z])",
+  "\\b(Eidg(en(ö|oe)ssische[rnms]?)?|Eidg\\.)\\s*Finanzkontrolle\\b|\\(\\s*EFK\\s*\\)|(?<![a-zA-Z])EFK(?![a-zA-Z])",
   ignore_case = FALSE
 )
 
