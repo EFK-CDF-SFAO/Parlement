@@ -95,6 +95,11 @@ pattern_faux_positif_cdf <- regex("\\bC[dD]F-[NCSE]+\\b", ignore_case = TRUE)
 
 na0 <- function(x) if_else(is.na(x), "", x)
 
+est_titre_manquant <- function(titre) {
+  if (is.na(titre) || titre == "") return(TRUE)
+  return(tolower(trimws(titre)) %in% c("titre suit", "titel folgt", "titolo segue"))
+}
+
 concatener_textes <- function(df) {
   df |>
     mutate(
@@ -340,12 +345,101 @@ cat("Total objets trouvés en français:", nrow(Geschaefte_FR), "\n\n")
 # ============================================================================
 
 # ============================================================================
+# RECHERCHE SUPPLÉMENTAIRE: OBJETS DE COMMISSIONS (SANS SESSION)
+# Les objets déposés par des commissions ont SubmissionSession = null,
+# ils ne sont donc jamais trouvés par la recherche par session.
+# On les cherche par SubmissionLegislativePeriod.
+# ============================================================================
+
+cat("Recherche supplémentaire: objets de commissions (sans session)...\n")
+
+Geschaefte_Commission_DE <- list()
+Geschaefte_Commission_FR <- list()
+
+# En mode incrémental, ne chercher que la législature en cours
+# En mode complet, chercher toutes les législatures
+Legislaturen_Commission <- if (!is.null(Donnees_Existantes)) max(Legislaturen) else Legislaturen
+
+# IDs déjà trouvés par la recherche par session (pour éviter les doublons)
+IDs_Session_DE <- if (nrow(Geschaefte_DE) > 0) unique(Geschaefte_DE$ID) else c()
+IDs_Session_FR <- if (nrow(Geschaefte_FR) > 0) unique(Geschaefte_FR$ID) else c()
+
+for (lp in Legislaturen_Commission) {
+  cat("  Législature", lp, "(DE)...")
+  
+  tmp_de <- tryCatch({
+    get_data(
+      table = "Business",
+      SubmissionLegislativePeriod = lp,
+      Language = "DE"
+    ) |>
+      filter(is.na(SubmissionSession)) |>
+      filter(BusinessType %in% Geschaeftstyp) |>
+      filter(!ID %in% IDs_Session_DE) |>
+      concatener_textes() |>
+      filter(str_detect(Text, pattern_efk_de)) |>
+      mutate(
+        SessionID = NA_integer_,
+        Langue_Detection = "DE"
+      ) |>
+      select(SessionID, ID, BusinessShortNumber, Title, BusinessTypeAbbreviation,
+             SubmissionDate, BusinessStatusText, Langue_Detection)
+  }, error = function(e) {
+    cat(" erreur:", e$message, "\n")
+    return(NULL)
+  })
+  
+  if (!is.null(tmp_de) && nrow(tmp_de) > 0) {
+    Geschaefte_Commission_DE[[as.character(lp)]] <- tmp_de
+    cat(" ", nrow(tmp_de), "objets trouvés\n")
+  } else {
+    cat(" 0 objets\n")
+  }
+  
+  cat("  Législature", lp, "(FR)...")
+  
+  tmp_fr <- tryCatch({
+    get_data(
+      table = "Business",
+      SubmissionLegislativePeriod = lp,
+      Language = "FR"
+    ) |>
+      filter(is.na(SubmissionSession)) |>
+      filter(BusinessType %in% Geschaeftstyp) |>
+      filter(!ID %in% IDs_Session_FR) |>
+      concatener_textes() |>
+      filter(str_detect(Text, pattern_cdf_fr)) |>
+      mutate(
+        SessionID = NA_integer_,
+        Langue_Detection = "FR"
+      ) |>
+      select(SessionID, ID, BusinessShortNumber, Title, BusinessTypeAbbreviation,
+             SubmissionDate, BusinessStatusText, Langue_Detection)
+  }, error = function(e) {
+    cat(" erreur:", e$message, "\n")
+    return(NULL)
+  })
+  
+  if (!is.null(tmp_fr) && nrow(tmp_fr) > 0) {
+    Geschaefte_Commission_FR[[as.character(lp)]] <- tmp_fr
+    cat(" ", nrow(tmp_fr), "objets trouvés\n")
+  } else {
+    cat(" 0 objets\n")
+  }
+}
+
+Geschaefte_Commission_DE <- bind_rows(Geschaefte_Commission_DE)
+Geschaefte_Commission_FR <- bind_rows(Geschaefte_Commission_FR)
+cat("Total objets de commissions trouvés (DE):", nrow(Geschaefte_Commission_DE), "\n")
+cat("Total objets de commissions trouvés (FR):", nrow(Geschaefte_Commission_FR), "\n\n")
+
+# ============================================================================
 # FUSION DES RÉSULTATS DE LA RECHERCHE (INTERVENTIONS)
 # ============================================================================
 
 cat("Fusion et dédoublonnage des interventions...\n")
 
-Tous_Geschaefte <- bind_rows(Geschaefte_DE, Geschaefte_FR)
+Tous_Geschaefte <- bind_rows(Geschaefte_DE, Geschaefte_FR, Geschaefte_Commission_DE, Geschaefte_Commission_FR)
 
 # Vérifier si des nouveaux objets ont été trouvés
 if (nrow(Tous_Geschaefte) == 0 || !"BusinessShortNumber" %in% names(Tous_Geschaefte)) {
@@ -583,6 +677,7 @@ if (length(IDs_A_Traiter) > 0) {
     mutate(
       Date_dépôt = as.character(Date_dépôt),
       Date_MAJ = if_else(ID %in% Nouveaux_IDs, as.character(Sys.Date()), NA_character_),
+      Date_MAJ_Langs = NA_character_,
       Type = ifelse(Type == "A", "Fra.", Type)
     )
   
@@ -614,16 +709,24 @@ if (length(IDs_A_Traiter) > 0) {
         mutate(Domaines_FR = NA_character_, Domaines_DE = NA_character_, Domaines_IT = NA_character_)
     }
     
-    # Préserver les Date_MAJ existantes pour les objets mis à jour (pas nouveaux)
+    if (!"Date_MAJ_Langs" %in% names(Donnees_Existantes)) {
+      Donnees_Existantes <- Donnees_Existantes |>
+        mutate(Date_MAJ_Langs = NA_character_)
+    }
+    
+    # Préserver les Date_MAJ et Date_MAJ_Langs existantes pour les objets mis à jour (pas nouveaux)
     Date_MAJ_Existantes <- Donnees_Existantes |>
-      select(ID, Date_MAJ_Existante = Date_MAJ) |>
+      select(ID, Date_MAJ_Existante = Date_MAJ, Date_MAJ_Langs_Existante = Date_MAJ_Langs) |>
       filter(ID %in% IDs_A_Mettre_A_Jour)
     
     # Fusionner les Date_MAJ existantes avec les nouveaux résultats
     Nouveaux_Resultats <- Nouveaux_Resultats |>
       left_join(Date_MAJ_Existantes, by = "ID") |>
-      mutate(Date_MAJ = if_else(!is.na(Date_MAJ_Existante), Date_MAJ_Existante, Date_MAJ)) |>
-      select(-Date_MAJ_Existante)
+      mutate(
+        Date_MAJ = if_else(!is.na(Date_MAJ_Existante), Date_MAJ_Existante, Date_MAJ),
+        Date_MAJ_Langs = if_else(!is.na(Date_MAJ_Langs_Existante), Date_MAJ_Langs_Existante, Date_MAJ_Langs)
+      ) |>
+      select(-Date_MAJ_Existante, -Date_MAJ_Langs_Existante)
     
     Donnees_Existantes_Filtrees <- Donnees_Existantes |>
       filter(!ID %in% IDs_A_Mettre_A_Jour)
@@ -663,6 +766,8 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
   
   IDs_MAJ_Reels <- setdiff(IDs_A_Mettre_A_Jour, IDs_Recalcul_Interne)
   IDs_Statut_Change <- c()
+  IDs_Reponse_CF <- c()
+  date_maj_langs_map <- list()
   
   if (length(IDs_MAJ_Reels) > 0 && !is.null(Donnees_Existantes)) {
     nb_reponse_cf <- 0
@@ -687,6 +792,49 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
             mutate(Type_Changement = "Réponse CF ajoutée")
           Changements_Pertinents <- bind_rows(Changements_Pertinents, MAJ)
           nb_reponse_cf <- nb_reponse_cf + 1
+          IDs_Reponse_CF <- c(IDs_Reponse_CF, id)
+        } else if (id %in% IDs_Statut_Change) {
+          # Pas de nouvelle réponse CF → détecter quelles langues ont changé
+          langs_updated <- c()
+          
+          # Comparer les parties DE / FR du statut
+          old_parts <- strsplit(as.character(ancien$Statut[1]), " / ", fixed = TRUE)[[1]]
+          new_parts <- strsplit(as.character(nouveau$Statut[1]), " / ", fixed = TRUE)[[1]]
+          de_changed <- !identical(trimws(old_parts[1]), trimws(new_parts[1]))
+          fr_changed <- !identical(
+            if (length(old_parts) > 1) trimws(old_parts[2]) else "",
+            if (length(new_parts) > 1) trimws(new_parts[2]) else ""
+          )
+          
+          # Comparer les titres (placeholder → titre réel)
+          if ("Titre_FR" %in% names(ancien)) {
+            if (est_titre_manquant(ancien$Titre_FR[1]) && !est_titre_manquant(nouveau$Titre_FR[1])) {
+              fr_changed <- TRUE
+            }
+          }
+          if ("Titre_DE" %in% names(ancien)) {
+            if (est_titre_manquant(ancien$Titre_DE[1]) && !est_titre_manquant(nouveau$Titre_DE[1])) {
+              de_changed <- TRUE
+            }
+          }
+          it_changed <- FALSE
+          if ("Titre_IT" %in% names(ancien) && "Titre_IT" %in% names(nouveau)) {
+            if (est_titre_manquant(ancien$Titre_IT[1]) && !est_titre_manquant(nouveau$Titre_IT[1])) {
+              it_changed <- TRUE
+            }
+          }
+          
+          if (de_changed) langs_updated <- c(langs_updated, "de")
+          if (fr_changed) langs_updated <- c(langs_updated, "fr")
+          # L'italien suit l'allemand pour le statut (pas de statut IT séparé)
+          if (it_changed || de_changed) langs_updated <- unique(c(langs_updated, "it"))
+          
+          # Si seulement un sous-ensemble de langues a changé → restreindre la barre verte
+          if (length(langs_updated) > 0 && length(langs_updated) < 3) {
+            date_maj_langs_map[[as.character(id)]] <- paste(langs_updated, collapse = ",")
+            cat("    ID", id, "-> MAJ langues:", paste(langs_updated, collapse = ", "), "\n")
+          }
+          # Si les 3 langues ou aucune détectée → NULL (afficher sur toutes)
         }
       }
     }
@@ -694,10 +842,16 @@ if (length(Nouveaux_IDs) > 0 || length(IDs_A_Mettre_A_Jour) > 0) {
     cat("  - Statuts modifiés (pour page web):", length(IDs_Statut_Change), "\n")
     
     if (length(IDs_Statut_Change) > 0) {
+      # Construire le vecteur Date_MAJ_Langs pour chaque ID
+      date_maj_langs_vec <- sapply(as.character(Resultats$ID), function(rid) {
+        if (rid %in% names(date_maj_langs_map)) date_maj_langs_map[[rid]] else NA_character_
+      })
+      
       Resultats <- Resultats |>
         mutate(
           Statut_Change_Date = if_else(ID %in% IDs_Statut_Change, as.character(Sys.Date()), NA_character_),
-          Date_MAJ = if_else(ID %in% IDs_Statut_Change, as.character(Sys.Date()), Date_MAJ)
+          Date_MAJ = if_else(ID %in% IDs_Statut_Change, as.character(Sys.Date()), Date_MAJ),
+          Date_MAJ_Langs = if_else(ID %in% IDs_Statut_Change, date_maj_langs_vec[as.character(ID)], Date_MAJ_Langs)
         )
     }
   }
@@ -1016,10 +1170,11 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
       text_de = if ("Texte_DE" %in% names(Resultats)) Texte_DE else NA_character_,
       tags = if ("Domaines_FR" %in% names(Resultats)) Domaines_FR else NA_character_,
       tags_de = if ("Domaines_DE" %in% names(Resultats)) Domaines_DE else NA_character_,
-      tags_it = if ("Domaines_IT" %in% names(Resultats)) Domaines_IT else NA_character_
+      tags_it = if ("Domaines_IT" %in% names(Resultats)) Domaines_IT else NA_character_,
+      date_maj_langs = if ("Date_MAJ_Langs" %in% names(Resultats)) Date_MAJ_Langs else NA_character_
     ) |>
     select(shortId, title, title_de, title_it, author, party, type, status, 
-           council, department, date, date_maj, statut_change_date, url_fr, url_de, mention, text, text_de, tags, tags_de, tags_it)
+           council, department, date, date_maj, date_maj_langs, statut_change_date, url_fr, url_de, mention, text, text_de, tags, tags_de, tags_it)
   
   # Charger le suivi existant des new_ids
   new_ids_tracking <- if (file.exists(FICHIER_NEW_IDS)) {
