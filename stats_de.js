@@ -44,7 +44,9 @@ const partyColors = {
     'GLP': '#CDDC39',
     'Grünliberale': '#CDDC39',
     'pvl': '#CDDC39',
-    'PVL': '#CDDC39'
+    'PVL': '#CDDC39',
+    'Kommissionen': '#9E9E9E',
+    'Commissions': '#9E9E9E'
 };
 
 const partyLabels = {
@@ -64,7 +66,8 @@ const partyLabels = {
     'Les Vert-e-s': 'GRÜNE',
     'Al': 'GRÜNE',
     'pvl': 'GLP',
-    'PVL': 'GLP'
+    'PVL': 'GLP',
+    'Commissions': 'Kommissionen'
 };
 
 const typeLabels = {
@@ -95,7 +98,8 @@ const partyToFilter = {
     'FDP': 'FDP',
     'Die Mitte': 'Die Mitte',
     'GRÜNE': 'GRÜNE',
-    'GLP': 'GLP'
+    'GLP': 'GLP',
+    'Kommissionen': 'Kommissionen'
 };
 
 async function init() {
@@ -840,7 +844,8 @@ function normalizeParty(party) {
         'BDP': 'Die Mitte',
         'PDC': 'Die Mitte',
         'PBD': 'Die Mitte',
-        'CSPO': 'Die Mitte'
+        'CSPO': 'Die Mitte',
+        'Commissions': 'Kommissionen'
     };
     return normalized[party] || party;
 }

@@ -601,19 +601,24 @@ if (length(IDs_A_Traiter) > 0) {
     if (!is.null(Roles_Commission) && nrow(Roles_Commission) > 0) {
       Commissions <- tryCatch({
         get_data(table = "Committee", CommitteeNumber = unique(Roles_Commission$CommitteeNumber), Language = "FR") |>
-          select(CommitteeNumber, CommitteeName) |>
+          select(CommitteeNumber, Abbreviation1) |>
+          filter(!is.na(Abbreviation1)) |>
           distinct()
       }, error = function(e) NULL)
       
       if (!is.null(Commissions)) {
         Roles_Commission <- Roles_Commission |>
           left_join(Commissions, by = "CommitteeNumber") |>
-          rename(ID = BusinessNumber, Auteur_Commission = CommitteeName)
+          rename(ID = BusinessNumber, Auteur_Commission = Abbreviation1)
         
         Daten_DE <- Daten_DE |>
           left_join(Roles_Commission |> select(ID, Auteur_Commission), by = "ID") |>
-          mutate(SubmittedBy = if_else(is.na(SubmittedBy) & !is.na(Auteur_Commission), 
-                                        Auteur_Commission, SubmittedBy)) |>
+          mutate(
+            SubmittedBy = if_else(is.na(SubmittedBy) & !is.na(Auteur_Commission), 
+                                  Auteur_Commission, SubmittedBy),
+            Parti = if_else(is.na(SubmittedBy) | (!is.na(Auteur_Commission)), 
+                           "Commissions", Parti)
+          ) |>
           select(-Auteur_Commission)
       }
     }

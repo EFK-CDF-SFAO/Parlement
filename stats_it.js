@@ -39,7 +39,9 @@ const partyColors = {
     'Al': '#8BC34A',
     'Verdi liberali': '#CDDC39',
     'PVL': '#CDDC39',
-    'pvl': '#CDDC39'
+    'pvl': '#CDDC39',
+    'Commissioni': '#9E9E9E',
+    'Commissions': '#9E9E9E'
 };
 
 const partyLabels = {
@@ -59,7 +61,8 @@ const partyLabels = {
     'Les Vert-e-s': 'Verdi',
     'Al': 'Verdi',
     'pvl': 'Verdi liberali',
-    'PVL': 'Verdi liberali'
+    'PVL': 'Verdi liberali',
+    'Commissions': 'Commissioni'
 };
 
 const typeLabels = {
@@ -108,7 +111,8 @@ const partyToFilter = {
     'PLR': 'PLR',
     'Alleanza del Centro': 'Le Centre',
     'Verdi': 'VERT-E-S',
-    'Verdi liberali': 'pvl'
+    'Verdi liberali': 'pvl',
+    'Commissioni': 'Commissions'
 };
 
 async function init() {
@@ -851,7 +855,8 @@ function normalizeParty(party) {
         'PBD': 'Alleanza del Centro',
         'CSPO': 'Alleanza del Centro',
         'CVP': 'Alleanza del Centro',
-        'BDP': 'Alleanza del Centro'
+        'BDP': 'Alleanza del Centro',
+        'Commissions': 'Commissioni'
     };
     return normalized[party] || party;
 }
