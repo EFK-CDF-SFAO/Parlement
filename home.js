@@ -167,7 +167,7 @@ async function init() {
             
             if (summaryMatchesSession && summary && summary.interventions) {
                 displaySessionSummary(summary, currentSession);
-                displayObjectsList(summary, newIds, objectsJson.items);
+                displayObjectsList(summary, newIds, objectsJson.items, currentSession);
             } else {
                 // Pas de résumé valide: afficher les derniers objets mis à jour
                 displayLatestUpdatedTitle();
@@ -723,7 +723,7 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
     container.innerHTML = html;
 }
 
-function displayObjectsList(summary, newIds = [], allItems = []) {
+function displayObjectsList(summary, newIds = [], allItems = [], currentSession = null) {
     const container = document.getElementById('objectsList');
     if (!container || !summary || !summary.interventions) return;
     
@@ -748,6 +748,52 @@ function displayObjectsList(summary, newIds = [], allItems = []) {
     const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000);
     
     let html = '';
+    
+    // Objets plus récents que la session (ex: objets de commission sans session),
+    // affichés en tête, en plus des interventions du résumé de session.
+    const summaryIds = new Set(interventions.shortId);
+    let extraItems = [];
+    if (currentSession && currentSession.end) {
+        const sessionEnd = new Date(currentSession.end + 'T23:59:59');
+        extraItems = allItems.filter(item => {
+            if (summaryIds.has(item.shortId)) return false;
+            const dStr = item.date || '';
+            const d = dStr ? new Date(dStr + 'T12:00:00') : null;
+            return d && d > sessionEnd;
+        });
+        extraItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    }
+    
+    for (const item of extraItems) {
+        const party = translateParty(item.party);
+        const type = item.type;
+        const typeColor = typeColors[type] || '#6B7280';
+        const partyColor = partyColors[party] || partyColors[item.party] || '#6B7280';
+        const mentionData = getMentionEmojis(item.mention);
+        const frMissing = isTitleMissing(item.title);
+        const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de || '');
+        const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🌐 Uniquement en allemand</span>' : '';
+        const itemDateStr = item.date_maj || item.date || '';
+        const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+        const isNew = itemDate ? itemDate >= fourDaysAgo : false;
+        
+        html += `
+            <a href="${item.url_fr}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
+                <div class="card-header">
+                    <span class="card-type">${typeLabels[type] || type}</span>
+                    ${getTPFBadgeHome(item)}
+                    <span class="card-id">${item.shortId}</span>
+                </div>
+                <div class="card-title">${displayTitle}</div>
+                ${langWarning}
+                <div class="card-footer">
+                    <span class="card-author">${item.author}</span>
+                    <span class="card-party" style="background: ${partyColor};">${party}</span>
+                    <span class="card-mention" title="${mentionData.tooltip}">${mentionData.emojis}</span>
+                </div>
+            </a>
+        `;
+    }
     
     for (const i of indices) {
         const shortId = interventions.shortId[i];
