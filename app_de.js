@@ -148,7 +148,8 @@ function displaySessionSummary(summary) {
             const party = translateParty(summary.interventions.party[i] || '');
             const type = summary.interventions.type[i] || '';
             const url = summary.interventions.url_de[i] || '#';
-            const authorWithParty = party ? `${author} (${party})` : author;
+            const isCommission = ['Commissions', 'Kommissionen', 'Commissioni'].includes(party);
+            const authorWithParty = (party && !isCommission) ? `${author} (${party})` : author;
             return `<li><a href="${url}" target="_blank">${id}</a> – ${type} – ${escapeHtml(title.substring(0, 60))}${title.length > 60 ? '...' : ''} – <em>${escapeHtml(authorWithParty)}</em></li>`;
         });
         listEl.innerHTML = items.join('');
@@ -832,7 +833,8 @@ function createCard(item, searchTerm) {
     
     const authorName = translateAuthor(item.author || '');
     const partyDE = translateParty(item.party || '');
-    const authorWithParty = partyDE ? `${authorName} (${partyDE})` : authorName;
+    const isCommissionParty = ['Commissions', 'Kommissionen', 'Commissioni'].includes(partyDE);
+    const authorWithParty = (partyDE && !isCommissionParty) ? `${authorName} (${partyDE})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     
     // Grüner Balken wenn Aktualisierung < 4 Tage

@@ -135,7 +135,8 @@ function displaySessionSummary(summary) {
             const party = summary.interventions.party[i] || '';
             const type = summary.interventions.type[i] || '';
             const url = (summary.interventions.url_fr[i] || '#').replace('/fr/', '/it/');
-            const authorWithParty = party ? `${author} (${party})` : author;
+            const isCommission = ['Commissions', 'Kommissionen', 'Commissioni'].includes(party);
+            const authorWithParty = (party && !isCommission) ? `${author} (${party})` : author;
             return `<li><a href="${url}" target="_blank">${id}</a> – ${type} – ${escapeHtml(title.substring(0, 60))}${title.length > 60 ? '...' : ''} – <em>${escapeHtml(authorWithParty)}</em></li>`;
         });
         listEl.innerHTML = items.join('');
@@ -834,7 +835,8 @@ function createCard(item, searchTerm) {
     
     const authorName = translateAuthor(item.author || '');
     const partyIT = translateParty(item.party || '');
-    const authorWithParty = partyIT ? `${authorName} (${partyIT})` : authorName;
+    const isCommissionParty = ['Commissions', 'Kommissionen', 'Commissioni'].includes(partyIT);
+    const authorWithParty = (partyIT && !isCommissionParty) ? `${authorName} (${partyIT})` : authorName;
     const author = highlightText(authorWithParty, searchTerm);
     
     // Barra verde se aggiornamento < 4 giorni
