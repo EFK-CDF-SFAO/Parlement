@@ -350,88 +350,80 @@ cat("Total objets trouvés en français:", nrow(Geschaefte_FR), "\n\n")
 # RECHERCHE SUPPLÉMENTAIRE: OBJETS DE COMMISSIONS (SANS SESSION)
 # Les objets déposés par des commissions ont SubmissionSession = null,
 # ils ne sont donc jamais trouvés par la recherche par session.
-# On les cherche par SubmissionLegislativePeriod.
+# On passe par Committee + BusinessRole (par CommitteeNumber) pour les identifier.
 # ============================================================================
 
 cat("Recherche supplémentaire: objets de commissions (sans session)...\n")
 
-Geschaefte_Commission_DE <- list()
-Geschaefte_Commission_FR <- list()
+Geschaefte_Commission_DE <- tibble()
+Geschaefte_Commission_FR <- tibble()
 
-# En mode incrémental, ne chercher que la législature en cours
-# En mode complet, chercher toutes les législatures
-Legislaturen_Commission <- if (!is.null(Donnees_Existantes)) max(Legislaturen) else Legislaturen
-
-# IDs déjà trouvés par la recherche par session (pour éviter les doublons)
 IDs_Session_DE <- if (nrow(Geschaefte_DE) > 0) unique(Geschaefte_DE$ID) else c()
 IDs_Session_FR <- if (nrow(Geschaefte_FR) > 0) unique(Geschaefte_FR$ID) else c()
+IDs_Session_All <- unique(c(IDs_Session_DE, IDs_Session_FR))
 
-for (lp in Legislaturen_Commission) {
-  cat("  Législature", lp, "(DE)...")
+tryCatch({
+  cat("  Récupération des commissions...")
+  Commissions_Table <- get_data(table = "Committee", Language = "FR", silent = TRUE)
+  Comm_Nums <- unique(Commissions_Table$CommitteeNumber)
+  cat(" ", length(Comm_Nums), "commissions\n")
   
-  tmp_de <- tryCatch({
-    get_data(
-      table = "Business",
-      SubmissionLegislativePeriod = lp,
-      Language = "DE"
-    ) |>
-      filter(is.na(SubmissionSession)) |>
-      filter(BusinessType %in% Geschaeftstyp) |>
-      filter(!ID %in% IDs_Session_DE) |>
-      concatener_textes() |>
-      filter(str_detect(Text, pattern_efk_de)) |>
-      mutate(
-        SessionID = NA_integer_,
-        Langue_Detection = "DE"
-      ) |>
-      select(SessionID, ID, BusinessShortNumber, Title, BusinessTypeAbbreviation,
-             SubmissionDate, BusinessStatusText, Langue_Detection)
-  }, error = function(e) {
-    cat(" erreur:", e$message, "\n")
-    return(NULL)
-  })
+  cat("  Récupération des BusinessRole par CommitteeNumber...")
+  Roles_Commissions <- get_data(table = "BusinessRole", CommitteeNumber = Comm_Nums, 
+                                 Role = 7, Language = "FR", silent = TRUE)
+  cat(" ", nrow(Roles_Commissions), "entrées\n")
   
-  if (!is.null(tmp_de) && nrow(tmp_de) > 0) {
-    Geschaefte_Commission_DE[[as.character(lp)]] <- tmp_de
-    cat(" ", nrow(tmp_de), "objets trouvés\n")
-  } else {
-    cat(" 0 objets\n")
+  if (nrow(Roles_Commissions) > 0) {
+    Commission_IDs <- unique(Roles_Commissions$BusinessNumber)
+    
+    if (!is.null(Donnees_Existantes)) {
+      min_id <- as.integer(paste0(format(Sys.Date() - months(MOIS_MISE_A_JOUR), "%Y"), "0000"))
+      Commission_IDs <- Commission_IDs[Commission_IDs >= min_id]
+      cat("  Mode incrémental: objets depuis ID >=", min_id, "->", length(Commission_IDs), "candidats\n")
+    } else {
+      cat("  Mode complet:", length(Commission_IDs), "candidats\n")
+    }
+    
+    Commission_IDs <- setdiff(Commission_IDs, IDs_Session_All)
+    if (!is.null(Donnees_Existantes)) {
+      Commission_IDs <- setdiff(Commission_IDs, IDs_Existants)
+    }
+    cat("  Après exclusion doublons:", length(Commission_IDs), "objets à vérifier\n")
+    
+    if (length(Commission_IDs) > 0) {
+      cat("  Récupération Business DE...")
+      Business_Commission_DE <- get_data(table = "Business", ID = Commission_IDs, Language = "DE", silent = TRUE)
+      cat(" ", nrow(Business_Commission_DE), "objets\n")
+      
+      cat("  Récupération Business FR...")
+      Business_Commission_FR <- get_data(table = "Business", ID = Commission_IDs, Language = "FR", silent = TRUE)
+      cat(" ", nrow(Business_Commission_FR), "objets\n")
+      
+      if (nrow(Business_Commission_DE) > 0) {
+        Geschaefte_Commission_DE <- Business_Commission_DE |>
+          filter(BusinessType %in% Geschaeftstyp) |>
+          concatener_textes() |>
+          filter(str_detect(Text, pattern_efk_de)) |>
+          mutate(SessionID = NA_integer_, Langue_Detection = "DE") |>
+          select(SessionID, ID, BusinessShortNumber, Title, BusinessTypeAbbreviation,
+                 SubmissionDate, BusinessStatusText, Langue_Detection)
+      }
+      
+      if (nrow(Business_Commission_FR) > 0) {
+        Geschaefte_Commission_FR <- Business_Commission_FR |>
+          filter(BusinessType %in% Geschaeftstyp) |>
+          concatener_textes() |>
+          filter(str_detect(Text, pattern_cdf_fr)) |>
+          mutate(SessionID = NA_integer_, Langue_Detection = "FR") |>
+          select(SessionID, ID, BusinessShortNumber, Title, BusinessTypeAbbreviation,
+                 SubmissionDate, BusinessStatusText, Langue_Detection)
+      }
+    }
   }
-  
-  cat("  Législature", lp, "(FR)...")
-  
-  tmp_fr <- tryCatch({
-    get_data(
-      table = "Business",
-      SubmissionLegislativePeriod = lp,
-      Language = "FR"
-    ) |>
-      filter(is.na(SubmissionSession)) |>
-      filter(BusinessType %in% Geschaeftstyp) |>
-      filter(!ID %in% IDs_Session_FR) |>
-      concatener_textes() |>
-      filter(str_detect(Text, pattern_cdf_fr)) |>
-      mutate(
-        SessionID = NA_integer_,
-        Langue_Detection = "FR"
-      ) |>
-      select(SessionID, ID, BusinessShortNumber, Title, BusinessTypeAbbreviation,
-             SubmissionDate, BusinessStatusText, Langue_Detection)
-  }, error = function(e) {
-    cat(" erreur:", e$message, "\n")
-    return(NULL)
-  })
-  
-  if (!is.null(tmp_fr) && nrow(tmp_fr) > 0) {
-    Geschaefte_Commission_FR[[as.character(lp)]] <- tmp_fr
-    cat(" ", nrow(tmp_fr), "objets trouvés\n")
-  } else {
-    cat(" 0 objets\n")
-  }
-}
+}, error = function(e) {
+  cat(" ERREUR recherche commissions:", e$message, "\n")
+})
 
-Geschaefte_Commission_DE <- bind_rows(Geschaefte_Commission_DE)
-Geschaefte_Commission_FR <- bind_rows(Geschaefte_Commission_FR)
 cat("Total objets de commissions trouvés (DE):", nrow(Geschaefte_Commission_DE), "\n")
 cat("Total objets de commissions trouvés (FR):", nrow(Geschaefte_Commission_FR), "\n\n")
 
