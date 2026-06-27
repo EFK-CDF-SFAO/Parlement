@@ -428,6 +428,44 @@ cat("Total objets de commissions trouvés (DE):", nrow(Geschaefte_Commission_DE)
 cat("Total objets de commissions trouvés (FR):", nrow(Geschaefte_Commission_FR), "\n\n")
 
 # ============================================================================
+# FILET DE SÉCURITÉ: OBJETS DE COMMISSION OBLIGATOIRES
+# Certains objets de commission (SubmissionSession = null) doivent toujours
+# être présents même si la recherche automatique ne les détecte pas.
+# On les récupère directement par ID (méthode fiable) et on les ajoute.
+# ============================================================================
+
+IDs_Commission_Obligatoires <- c(20264050, 20264053)
+
+cat("Filet de sécurité: vérification des objets de commission obligatoires...\n")
+
+IDs_Deja_Trouves <- unique(c(
+  if (nrow(Geschaefte_DE) > 0) Geschaefte_DE$ID else c(),
+  if (nrow(Geschaefte_FR) > 0) Geschaefte_FR$ID else c(),
+  if (nrow(Geschaefte_Commission_DE) > 0) Geschaefte_Commission_DE$ID else c(),
+  if (nrow(Geschaefte_Commission_FR) > 0) Geschaefte_Commission_FR$ID else c(),
+  IDs_Existants
+))
+
+IDs_Manquants <- setdiff(IDs_Commission_Obligatoires, IDs_Deja_Trouves)
+
+if (length(IDs_Manquants) > 0) {
+  cat("  ", length(IDs_Manquants), "objet(s) obligatoire(s) manquant(s), récupération par ID...\n")
+  tryCatch({
+    obl_de <- get_data(table = "Business", ID = IDs_Manquants, Language = "DE", silent = TRUE) |>
+      mutate(SessionID = NA_integer_, Langue_Detection = "DE") |>
+      select(SessionID, ID, BusinessShortNumber, Title, BusinessTypeAbbreviation,
+             SubmissionDate, BusinessStatusText, Langue_Detection)
+    Geschaefte_Commission_DE <- bind_rows(Geschaefte_Commission_DE, obl_de)
+    cat("  ", nrow(obl_de), "objet(s) obligatoire(s) ajouté(s)\n")
+  }, error = function(e) {
+    cat("  ERREUR filet de sécurité:", e$message, "\n")
+  })
+} else {
+  cat("  Tous les objets obligatoires sont déjà présents.\n")
+}
+cat("\n")
+
+# ============================================================================
 # FUSION DES RÉSULTATS DE LA RECHERCHE (INTERVENTIONS)
 # ============================================================================
 
