@@ -8,7 +8,7 @@
   <a href="https://efk-cdf-sfao.github.io/Parlement/">
     <img src="https://img.shields.io/badge/🌐_Website-Open-EA5A4F?style=for-the-badge" alt="Website">
   </a>
-  <img src="https://img.shields.io/badge/Objects-327+-003399?style=for-the-badge" alt="Objects">
+  <img src="https://img.shields.io/badge/Objects-348+-003399?style=for-the-badge" alt="Objects">
   <img src="https://img.shields.io/badge/Debates-729+-003399?style=for-the-badge" alt="Debates">
   <img src="https://img.shields.io/badge/Languages-FR_DE_IT-gray?style=for-the-badge" alt="Languages">
 </p>
@@ -28,6 +28,18 @@
 | Motions, postulates, interpellations, questions | Plenary session transcripts | Analysis by year, party, council |
 | Full-text search | Speaker and party filters | Interactive charts |
 | Advanced filters (themes, department, session) | Full intervention text | Export options |
+
+### 🔎 SFAO Mention Detection
+The core of the tool: it identifies every parliamentary object that mentions the Swiss Federal Audit Office (SFAO / CDF / EFK).
+- **Strict regex matching** on the full name and the official acronym (FR `CDF`, DE `EFK`, IT `CDF`) across title, submitted text, reason and Federal Council response
+- **False-positive filtering**: excludes lookalikes such as the Finance Committee (`CdF`) or the Committee on Enforced Disappearances
+- **Mention source** shown via emoji on each card: author (🧑), Federal Council (🏛️), or both
+
+### 🏛️ Commission Objects
+Objects submitted by parliamentary committees have no session (`SubmissionSession = null`) and are therefore invisible to the standard session-based search.
+- Retrieved via `Committee` + `BusinessRole` (Role = 7) by committee number
+- Author displayed as the committee acronym only (e.g. `CSSS-E`)
+- A **safety net** guarantees the persistence of specific mandatory commission objects on every run
 
 ### 🏷️ Thematic Labels
 - **TPF** (Transparency of Political Financing): automatic detection of items related to campaign financing, party funding, and political transparency
