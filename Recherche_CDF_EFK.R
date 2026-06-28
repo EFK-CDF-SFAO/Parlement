@@ -434,7 +434,7 @@ cat("Total objets de commissions trouvés (FR):", nrow(Geschaefte_Commission_FR)
 # On les récupère directement par ID (méthode fiable) et on les ajoute.
 # ============================================================================
 
-IDs_Commission_Obligatoires <- c(20264050, 20264053)
+IDs_Commission_Obligatoires <- c(20264050, 20264053, 20153494, 20153828)
 
 cat("Filet de sécurité: vérification des objets de commission obligatoires...\n")
 
