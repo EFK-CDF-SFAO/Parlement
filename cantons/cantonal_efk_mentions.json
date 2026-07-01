@@ -1,11 +1,98 @@
 {
   "metadata": {
-    "generated_at": "2026-06-15T12:11:35.828317",
-    "total_records": 8,
+    "generated_at": "2026-07-01T09:44:17.483343",
+    "total_records": 9,
     "source": "OpenParlData.ch API",
     "description": "Cantonal parliament mentions of the Swiss Federal Audit Office (EFK/CDF)"
   },
   "data": [
+    {
+      "id": 335651,
+      "url_api": "https://api.openparldata.ch/v1/affairs/335651",
+      "body_key": "ZG",
+      "external_id": "50c05a80-2022-4b6c-ae27-624077b083ed",
+      "number": "V 2026-06-29",
+      "body_id": 274,
+      "title_de": "Gesetz über die Transparenz in der Politik (Transparenzgesetz, TPG)",
+      "type_name_de": "Vernehmlassung",
+      "type_harmonized_de": "Vernehmlassung",
+      "type_harmonized_fr": "Consultation",
+      "type_harmonized_it": "Consultazione",
+      "type_harmonized_rm": "Consultaziun",
+      "type_harmonized_en": "Consultation",
+      "type_harmonized_id": 5,
+      "type_harmonized_wikidata_id": "Q1591788",
+      "state_name_de": "laufend",
+      "begin_date": "2026-06-29T00:00:00",
+      "url_external_de": "https://zg.ch/de/vernehmlassungen/vernehmlassung~_2026_Einladungen-zu-Vernehmlassungen_6_gesetz-ueber-die-transparenz-in-der-politik-transparenzgesetz-tpg-~",
+      "updated_at": "2026-06-30T06:53:58",
+      "created_at": "2026-06-30T01:55:38",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "ika-\n\ntion?  \n\n Öffentliches Register, welches im Internet publiziert wird  \n\nZuständige Behörde?   Eidgenössische Finanzkontrolle  \n\nWie ist der Umgang mit \n\nden Daten der betroffenen \n\nPersonen geregelt?  \n\n Ausdrückliche Bestimmung im Gesetz zum Bearbeiten von Per-\n\nsonendaten und Austausch von I",
+            "source_id": 900743,
+            "source_name": "2) Bericht und Antrag gemäss 1. Lesung",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/335651/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/335651/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/335651/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/335651/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/335651/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/335651/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/335651/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/335651/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/335651/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/335651/external_links"
+      },
+      "body_name_fr": "Zoug",
+      "body_name_original": "Zug",
+      "body_name": "Zoug",
+      "efk_excerpts_de": [
+        {
+          "text": "ika- tion? Öffentliches Register, welches im Internet publiziert wird Zuständige Behörde? Eidgenössische Finanzkontrolle Wie ist der Umgang mit den Daten der betroffenen Personen geregelt? Ausdrückliche Bestimmung im Gesetz zum Bearbeiten von Per- sonendaten und Austausch von I",
+          "source": "2) Bericht und Antrag gemäss 1. Lesung"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 900743,
+          "name": "2) Bericht und Antrag gemäss 1. Lesung",
+          "title": "",
+          "url": "https://zg.ch/dam/jcr:fb9b29b2-34ff-456c-b853-0ded6aa7c2ad/2)%20Bericht%20und%20Antrag%20gemaess%201.%20Lesung%20vom%2023.%20Juni%202026.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 900743,
+          "name": "2) Bericht und Antrag gemäss 1. Lesung",
+          "title": "",
+          "url": "https://zg.ch/dam/jcr:fb9b29b2-34ff-456c-b853-0ded6aa7c2ad/2)%20Bericht%20und%20Antrag%20gemaess%201.%20Lesung%20vom%2023.%20Juni%202026.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Direktion des Innern",
+          "firstname": null,
+          "lastname": "Direktion des Innern",
+          "party_fr": "",
+          "party_de": "",
+          "role": "leading_department"
+        }
+      ],
+      "author_display_fr": "Direktion des Innern",
+      "author_display_de": "Direktion des Innern",
+      "author_display": "Direktion des Innern",
+      "url_external_fr": "https://zg.ch/fr/vernehmlassungen/vernehmlassung~_2026_Einladungen-zu-Vernehmlassungen_6_gesetz-ueber-die-transparenz-in-der-politik-transparenzgesetz-tpg-~",
+      "url_external_it": "https://zg.ch/it/vernehmlassungen/vernehmlassung~_2026_Einladungen-zu-Vernehmlassungen_6_gesetz-ueber-die-transparenz-in-der-politik-transparenzgesetz-tpg-~"
+    },
     {
       "id": 333988,
       "url_api": "https://api.openparldata.ch/v1/affairs/333988",
