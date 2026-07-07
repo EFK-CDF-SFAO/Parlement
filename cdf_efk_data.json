@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-07-07T10:14:36",
+    "updated": "2026-07-07T14:26:59",
     "total_count": 349,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "26.3750"
+    "new_ids": []
   },
   "session_summary": {
     "session_id": "2026-ete",
@@ -78,7 +78,10 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264050",
       "mention": "Élu",
       "text": "<p>Le Conseil fédéral est chargé de créer un registre national pour les implants remboursés par l’assurance obligatoire des soins (AOS). Il peut prévoir des exceptions. L’accès à cette base de données doit être réservé aux autorités, aux hôpitaux et aux assurances-maladie. La création et la gestion de ce registre peuvent être confiées à des tiers.<\/p><p>&nbsp;<\/p><p>Une minorité de la commission (Müller Damian, Dittli, Germann) propose de rejeter la motion.&nbsp;<\/p>",
-      "text_de": "<p>Der Bundesrat wird beauftragt, ein nationales Register für Implantate einzuführen, die von der obligatorischen Krankenpflegeversicherung (OKP) vergütet werden. Er kann Ausnahmen vorsehen. Der Zugang zu dieser Datenbank soll den Behörden, den Spitälern und den Krankenversicherungen vorbehalten sein. Die Errichtung und Verwaltung kann an Dritte übertragen werden.<\/p><p>&nbsp;<\/p><p>Eine Minderheit&nbsp;der Kommission&nbsp;(Müller Damian, Dittli, Germann) beantragt, die Motion abzulehnen.<\/p>"
+      "text_de": "<p>Der Bundesrat wird beauftragt, ein nationales Register für Implantate einzuführen, die von der obligatorischen Krankenpflegeversicherung (OKP) vergütet werden. Er kann Ausnahmen vorsehen. Der Zugang zu dieser Datenbank soll den Behörden, den Spitälern und den Krankenversicherungen vorbehalten sein. Die Errichtung und Verwaltung kann an Dritte übertragen werden.<\/p><p>&nbsp;<\/p><p>Eine Minderheit&nbsp;der Kommission&nbsp;(Müller Damian, Dittli, Germann) beantragt, die Motion abzulehnen.<\/p>",
+      "tags": "Économie|Santé",
+      "tags_de": "Wirtschaft|Gesundheit",
+      "tags_it": "Economia|Salute"
     },
     {
       "shortId": "26.4053",
@@ -97,7 +100,10 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264053",
       "mention": "Élu",
       "text": "<p>Le Conseil fédéral est chargé d’établir un rapport sur l’imagerie médicale qui portera sur les points et questions suivants :<\/p><ul><li>Comparaison du nombre d’appareils d’imagerie médicale disponibles (en chiffres absolus et par habitant) dans le contexte international.<\/li><li>Évolution des coûts de l’imagerie, ventilés par région, par spécialité et par habitant.<\/li><li>Quels coûts sont pris en charge par l’assurance obligatoire des soins (AOS) et quels coûts le sont par les assurances complémentaires ? Quels coûts sont assumés par la patientèle ?<\/li><li>Comment le tarif se décompose-t-il ? Comment a-t-il évolué ? Dispose-t-on déjà, dans le domaine considéré, de premières expériences avec le nouveau tarif TARDOC ?<\/li><li>Quelles sont les applications possibles des critères d’efficacité, d’adéquation et d’économicité (critères EAE) aux techniques d’imagerie&nbsp;?<\/li><li>Différents prestataires encouragent le recours aux examens d’imagerie préventifs. Qu’en pense le Conseil fédéral ? Qui paie les examens en question ?<\/li><li>Les contrôles par imagerie permettent de détecter des maladies à un stade précoce. Quels sont les autres avantages par rapport aux autres technologies ? Selon le Conseil fédéral, quel montant peut ainsi être économisé dans d’autres domaines du système de santé ?<\/li><li>Que pense le Conseil fédéral des lacunes relatives aux contrôles effectués par les assureurs ?<\/li><li>Comment améliorer les contrôles effectués par les assureurs ? Faut-il compléter la loi à cette fin ?<\/li><\/ul>",
-      "text_de": "<p>Der Bundesrat wird beauftragt, in einem Bericht zu den bildgebenden Verfahren in der Medizin folgende Punkte und Fragen zu klären:<\/p><ul><li>Vergleich der Anzahl vorhandenen Geräte (absolut und pro Kopf) der bildgebenden Verfahren im internationalen Kontext;<\/li><li>Entwicklung der Kosten für bildgebende Verfahren - aufgeschlüsselt nach Regionen, Fachbereichen und pro Kopf;<\/li><li>Welche Kosten werden durch die obligatorische Krankenpflegeversicherung (OKP) übernommen, welche durch Zusatzversicherungen? Welche durch die Patientinnen und Patienten?<\/li><li>Wie setzt sich der Tarif zusammen und wie hat er sich entwickelt? Gibt es bereits erste Erfahrungen mit dem neuen TARDOC in diesem Bereich?<\/li><li>Was sind mögliche Anwendungen der Kriterien der Wirksamkeit, Zweckmässigkeit und Wirtschaftlichkeit (WZW-Kriterien) auf die bildgebenden Verfahren?<\/li><li>Verschiedene Anbieter bewerben präventive bildgebende Untersuchungen. Wie beurteilt der Bundesrat dieses Angebot? Wer bezahlt diese Untersuchungen?<\/li><li>Mit einer bildgebenden Kontrolle können Krankheiten frühzeitig erkannt werden. Welche weiteren Vorteile gibt es im Vergleich zu anderen Technologien? Wie gross schätzt der Bundesrat die Kosten ein, die dadurch in anderen Bereichen des Gesundheitswesens gespart werden können?<\/li><li>Wie beurteilt der Bundesrat die Lücken bei den Prüfungen durch die Versicherer?<\/li><li>Wie können die Überprüfungen durch die Versicherer verbessert werden? Braucht es dazu gesetzliche Ergänzungen?<\/li><\/ul>"
+      "text_de": "<p>Der Bundesrat wird beauftragt, in einem Bericht zu den bildgebenden Verfahren in der Medizin folgende Punkte und Fragen zu klären:<\/p><ul><li>Vergleich der Anzahl vorhandenen Geräte (absolut und pro Kopf) der bildgebenden Verfahren im internationalen Kontext;<\/li><li>Entwicklung der Kosten für bildgebende Verfahren - aufgeschlüsselt nach Regionen, Fachbereichen und pro Kopf;<\/li><li>Welche Kosten werden durch die obligatorische Krankenpflegeversicherung (OKP) übernommen, welche durch Zusatzversicherungen? Welche durch die Patientinnen und Patienten?<\/li><li>Wie setzt sich der Tarif zusammen und wie hat er sich entwickelt? Gibt es bereits erste Erfahrungen mit dem neuen TARDOC in diesem Bereich?<\/li><li>Was sind mögliche Anwendungen der Kriterien der Wirksamkeit, Zweckmässigkeit und Wirtschaftlichkeit (WZW-Kriterien) auf die bildgebenden Verfahren?<\/li><li>Verschiedene Anbieter bewerben präventive bildgebende Untersuchungen. Wie beurteilt der Bundesrat dieses Angebot? Wer bezahlt diese Untersuchungen?<\/li><li>Mit einer bildgebenden Kontrolle können Krankheiten frühzeitig erkannt werden. Welche weiteren Vorteile gibt es im Vergleich zu anderen Technologien? Wie gross schätzt der Bundesrat die Kosten ein, die dadurch in anderen Bereichen des Gesundheitswesens gespart werden können?<\/li><li>Wie beurteilt der Bundesrat die Lücken bei den Prüfungen durch die Versicherer?<\/li><li>Wie können die Überprüfungen durch die Versicherer verbessert werden? Braucht es dazu gesetzliche Ergänzungen?<\/li><\/ul>",
+      "tags": "Finances|Santé",
+      "tags_de": "Finanzwesen|Gesundheit",
+      "tags_it": "Finanze|Salute"
     },
     {
       "shortId": "26.3979",
