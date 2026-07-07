@@ -1,45 +1,66 @@
 {
   "meta": {
-    "updated": "2026-07-06T22:15:18",
-    "total_count": 348,
+    "updated": "2026-07-07T10:14:36",
+    "total_count": 349,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.3750"
   },
   "session_summary": {
     "session_id": "2026-ete",
     "title_fr": "Résumé de la session d'été 2026",
     "title_de": "Zusammenfassung der Sommersession 2026",
-    "text_fr": "Durant la Session d'été 2026 (01.06 - 19.06.2026), 8 interventions mentionnant le CDF ont été déposées ou ont fait l'objet d'une réponse du Conseil fédéral qui cite le CDF : 4 questions, 3 motions, 1 interpellation. 7 au Conseil national et 1 au Conseil des États. Les partis les plus actifs : PLR, UDC, Le Centre.",
-    "text_de": "Während der Sommersession 2026 (01.06 - 19.06.2026) wurden 8 Vorstösse mit Bezug zur EFK eingereicht oder mit einer Antwort des Bundesrates versehen, die die EFK erwähnt: 4 Anfragen, 3 Motionen, 1 Interpellation. 7 im Nationalrat und 1 im Ständerat. Die aktivsten Parteien: FDP, SVP, Die Mitte.",
-    "themes_fr": "Titre suit (Müller-Altermatt, Le Centre) ; Titre suit (Thalmann-Bieri, UDC) ; Réintroduction de l'obligation de visas pour les Géorgiens  (de, PLR) ; Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ? (Clivaz, VERT-E-S) ; Bug informatique au SECO – Point de situation et audit (Sormanni, MCG) ; Géorgiens : des coûts médicaux supérieurs à la moyenne  (de, PLR) ; Dysfonctionnement au Secrétariat d’Etat aux migrations  (de, PLR) ; S'attaquer aux origines des points faibles dans les grands projets informatiques (Salzmann, UDC)",
-    "themes_de": "Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken (Müller-Altermatt, Die Mitte) ; AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen (Thalmann-Bieri, SVP) ; Titel folgt (de, FDP) ; Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück? (Clivaz, GRÜNE) ; IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit (Sormanni, MCG) ; Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten  (de, FDP) ; Schwachstellen im Staatssekretariat für Migration  (de, FDP) ; Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen (Salzmann, SVP)",
+    "text_fr": "Durant la Session d'été 2026 (01.06 - 19.06.2026), 9 interventions mentionnant le CDF ont été déposées ou ont fait l'objet d'une réponse du Conseil fédéral qui cite le CDF : 4 questions, 3 motions, 2 interpellations. 7 au Conseil national et 2 au Conseil des États. Les partis les plus actifs : PLR, Le Centre, UDC.",
+    "text_de": "Während der Sommersession 2026 (01.06 - 19.06.2026) wurden 9 Vorstösse mit Bezug zur EFK eingereicht oder mit einer Antwort des Bundesrates versehen, die die EFK erwähnt: 4 Anfragen, 3 Motionen, 2 Interpellationen. 7 im Nationalrat und 2 im Ständerat. Die aktivsten Parteien: FDP, Die Mitte, SVP.",
+    "themes_fr": "Axe ferroviaire du Saint-Gothard. Le Conseil fédéral a-t-il l'intention de remédier aux lacunes constatées lors de la préparation du message 2027 ? (Regazzi, Le Centre) ; Titre suit (Müller-Altermatt, Le Centre) ; Titre suit (Thalmann-Bieri, UDC) ; Réintroduction de l'obligation de visas pour les Géorgiens  (de, PLR) ; Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ? (Clivaz, VERT-E-S) ; Bug informatique au SECO – Point de situation et audit (Sormanni, MCG) ; Géorgiens : des coûts médicaux supérieurs à la moyenne  (de, PLR) ; Dysfonctionnement au Secrétariat d’Etat aux migrations  (de, PLR) ; S'attaquer aux origines des points faibles dans les grands projets informatiques (Salzmann, UDC)",
+    "themes_de": "Titel folgt (Regazzi, Die Mitte) ; Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken (Müller-Altermatt, Die Mitte) ; AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen (Thalmann-Bieri, SVP) ; Titel folgt (de, FDP) ; Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück? (Clivaz, GRÜNE) ; IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit (Sormanni, MCG) ; Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten  (de, FDP) ; Schwachstellen im Staatssekretariat für Migration  (de, FDP) ; Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen (Salzmann, SVP)",
     "session_start": "2026-06-01",
     "session_end": "2026-06-19",
     "display_until": "2026-09-14",
-    "count": 8,
+    "count": 9,
     "by_type": {
       "Fra.": 4,
       "Mo.": 3,
-      "Ip.": 1
+      "Ip.": 2
     },
     "by_council": {
       "CN": 7,
-      "CE": 1
+      "CE": 2
     },
     "interventions": {
-      "shortId": ["26.3979", "26.3859", "26.3736", "26.7423", "26.7336", "26.7321", "26.7324", "26.3550"],
-      "title": ["Titre suit", "Titre suit", "Réintroduction de l'obligation de visas pour les Géorgiens ", "Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ?", "Bug informatique au SECO – Point de situation et audit", "Géorgiens : des coûts médicaux supérieurs à la moyenne ", "Dysfonctionnement au Secrétariat d’Etat aux migrations ", "S'attaquer aux origines des points faibles dans les grands projets informatiques"],
-      "title_de": ["Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken", "AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen", "Titel folgt", "Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück?", "IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit", "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ", "Schwachstellen im Staatssekretariat für Migration ", "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen"],
-      "title_it": ["Titolo segue", "AVS. I contributi alle spese di amministrazione vanno finalmente resi trasparenti e conformi al mercato", "Reintrodurre l'obbligo del visto per i Georgiani", null, null, null, null, "Titolo segue"],
-      "author": ["Müller-Altermatt Stefan", "Thalmann-Bieri Vroni", "de Quattro Jacqueline", "Clivaz Christophe", "Sormanni Daniel", "de Quattro Jacqueline", "de Quattro Jacqueline", "Salzmann Werner"],
-      "party": ["Le Centre", "UDC", "PLR", "VERT-E-S", "MCG", "PLR", "PLR", "UDC"],
-      "type": ["Mo.", "Mo.", "Mo.", "Fra.", "Fra.", "Fra.", "Fra.", "Ip."],
-      "url_fr": ["https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263979", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267423", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267336", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267324", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550"],
-      "url_de": ["https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263979", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267423", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267336", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267324", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550"]
+      "shortId": ["26.3750", "26.3979", "26.3859", "26.3736", "26.7423", "26.7336", "26.7321", "26.7324", "26.3550"],
+      "title": ["Axe ferroviaire du Saint-Gothard. Le Conseil fédéral a-t-il l'intention de remédier aux lacunes constatées lors de la préparation du message 2027 ?", "Titre suit", "Titre suit", "Réintroduction de l'obligation de visas pour les Géorgiens ", "Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ?", "Bug informatique au SECO – Point de situation et audit", "Géorgiens : des coûts médicaux supérieurs à la moyenne ", "Dysfonctionnement au Secrétariat d’Etat aux migrations ", "S'attaquer aux origines des points faibles dans les grands projets informatiques"],
+      "title_de": ["Titel folgt", "Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken", "AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen", "Titel folgt", "Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück?", "IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit", "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ", "Schwachstellen im Staatssekretariat für Migration ", "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen"],
+      "title_it": ["Asse ferroviario del San Gottardo: il Consiglio federale intende correggere le lacune emerse nella preparazione del Messaggio 2027?", "Titolo segue", "AVS. I contributi alle spese di amministrazione vanno finalmente resi trasparenti e conformi al mercato", "Reintrodurre l'obbligo del visto per i Georgiani", null, null, null, null, "Titolo segue"],
+      "author": ["Regazzi Fabio", "Müller-Altermatt Stefan", "Thalmann-Bieri Vroni", "de Quattro Jacqueline", "Clivaz Christophe", "Sormanni Daniel", "de Quattro Jacqueline", "de Quattro Jacqueline", "Salzmann Werner"],
+      "party": ["Le Centre", "Le Centre", "UDC", "PLR", "VERT-E-S", "MCG", "PLR", "PLR", "UDC"],
+      "type": ["Ip.", "Mo.", "Mo.", "Mo.", "Fra.", "Fra.", "Fra.", "Fra.", "Ip."],
+      "url_fr": ["https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263750", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263979", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267423", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267336", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267324", "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550"],
+      "url_de": ["https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263750", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263979", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263859", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267423", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267336", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267321", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267324", "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550"]
     }
   },
   "items": [
+    {
+      "shortId": "26.3750",
+      "title": "Axe ferroviaire du Saint-Gothard. Le Conseil fédéral a-t-il l'intention de remédier aux lacunes constatées lors de la préparation du message 2027 ?",
+      "title_de": "Titel folgt",
+      "title_it": "Asse ferroviario del San Gottardo: il Consiglio federale intende correggere le lacune emerse nella preparazione del Messaggio 2027?",
+      "author": "Regazzi Fabio",
+      "party": "Le Centre",
+      "type": "Ip.",
+      "status": "Eingereicht / Déposé",
+      "council": "SR",
+      "department": "UVEK",
+      "date": "2026-06-18",
+      "date_maj": "2026-07-07",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263750",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263750",
+      "mention": "Élu",
+      "text": "<p>Compte tenu de l'importance stratégique de l'axe du Saint-Gothard pour le trafic voyageurs national et international ainsi que pour le transfert du trafic marchandises de la route au rail, le Conseil fédéral est prié de répondre aux questions suivantes&nbsp;:<\/p><ol style=\"list-style-type:decimal;\"><li>Pour quelles raisons les propositions d'infrastructures présentées par le canton du Tessin – notamment le doublement de la ligne Cadenazzo-Locarno sur les ponts de la Verzasca et du Ticino, la modernisation du nœud ferroviaire de Mendrisio et le renforcement des nœuds ferroviaires de Bellinzone et de Lugano – n’ont-elles pas été incluses dans le mandat d’évaluation confié à l’EPFZ dans le cadre de l’expertise «&nbsp;Transports ’45&nbsp;»&nbsp;?<\/li><li>Le Conseil fédéral estime-t-il juste que les mesures qui n'ont pas fait l'objet d'une évaluation par les experts de l'EPFZ soient de fait a priori exclues de la possibilité d'être prises en compte dans le message 2027&nbsp;?<\/li><li>Partage-t-il l'avis selon lequel l'infrastructure actuellement prévue au sud du Saint-Gothard pourrait s'avérer insuffisante pour faire face à l'évolution attendue de la demande dans le trafic régional, national, international et de marchandises&nbsp;?<\/li><li>Quelles vérifications l'OFT et les CFF ont-ils effectuées concernant la faisabilité du projet d'offre 2035 pour le Tessin, et quelles critiques ont été émises&nbsp;?<\/li><li>Pourquoi les nouvelles exigences récemment formulées par les CFF concernant le trafic grandes lignes entre Zurich/Lucerne et Lugano n'ont-elles pas été accompagnées d'une réévaluation complète des infrastructures nécessaires&nbsp;?<\/li><li>Le Conseil fédéral est-il disposé à réexaminer, dans le cadre de la préparation du message 2027, les mesures proposées par le canton du Tessin si elles devaient s’avérer nécessaires pour atteindre les objectifs d'offre fixés par la Confédération elle-même&nbsp;?<\/li><li>A-t-il l'intention de promouvoir une étude globale sur l'axe ferroviaire nord-sud, à l'instar de celle réalisée pour l'axe ouest-est dans le cadre du programme «&nbsp;Transports ’45&nbsp;», comme base pour les futures étapes d’aménagement de l'infrastructure ferroviaire nationale&nbsp;?<\/li><li>Comment compte-t-il garantir que le rôle stratégique du corridor du Saint-Gothard, en tant qu’axe principal de transit international de la Suisse, soit dûment pris en compte dans la planification ferroviaire jusqu'en 2050&nbsp;?<\/li><li>Le Contrôle fédéral des finances a récemment constaté que le processus de planification financière du fonds d'infrastructure ferroviaire restait fragile, que les rapports ne mettaient pas suffisamment en évidence les principales incertitudes et que la qualité des projections à long terme restait insuffisante. Au vu de ces constatations, le Conseil fédéral estime-t-il que les bases financières et méthodologiques utilisées pour définir les priorités dans le cadre de «&nbsp;Transports '45&nbsp;» et du message 2027 sont suffisamment solides pour justifier l'exclusion de certains projets d'infrastructure&nbsp;?<\/li><\/ol>",
+      "tags": "Finances|Transports",
+      "tags_de": "Finanzwesen|Verkehr",
+      "tags_it": "Finanze|Trasporti"
+    },
     {
       "shortId": "26.4050",
       "title": " Registre national pour les implants",
