@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-07-07T14:26:59",
+    "updated": "2026-07-07T22:11:49",
     "total_count": 349,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -31,7 +31,7 @@
       "shortId": ["26.3750", "26.3979", "26.3859", "26.3736", "26.7423", "26.7336", "26.7321", "26.7324", "26.3550"],
       "title": ["Axe ferroviaire du Saint-Gothard. Le Conseil fédéral a-t-il l'intention de remédier aux lacunes constatées lors de la préparation du message 2027 ?", "Titre suit", "Titre suit", "Réintroduction de l'obligation de visas pour les Géorgiens ", "Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ?", "Bug informatique au SECO – Point de situation et audit", "Géorgiens : des coûts médicaux supérieurs à la moyenne ", "Dysfonctionnement au Secrétariat d’Etat aux migrations ", "S'attaquer aux origines des points faibles dans les grands projets informatiques"],
       "title_de": ["Titel folgt", "Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken", "AHV – endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen", "Titel folgt", "Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück?", "IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit", "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ", "Schwachstellen im Staatssekretariat für Migration ", "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen"],
-      "title_it": ["Asse ferroviario del San Gottardo: il Consiglio federale intende correggere le lacune emerse nella preparazione del Messaggio 2027?", "Titolo segue", "AVS. I contributi alle spese di amministrazione vanno finalmente resi trasparenti e conformi al mercato", "Reintrodurre l'obbligo del visto per i Georgiani", null, null, null, null, "Titolo segue"],
+      "title_it": ["Asse ferroviario del San Gottardo. Il Consiglio federale intende correggere le lacune emerse nella preparazione del Messaggio 2027?", "Titolo segue", "AVS. I contributi alle spese di amministrazione vanno finalmente resi trasparenti e conformi al mercato", "Reintrodurre l'obbligo del visto per i Georgiani", null, null, null, null, "Titolo segue"],
       "author": ["Regazzi Fabio", "Müller-Altermatt Stefan", "Thalmann-Bieri Vroni", "de Quattro Jacqueline", "Clivaz Christophe", "Sormanni Daniel", "de Quattro Jacqueline", "de Quattro Jacqueline", "Salzmann Werner"],
       "party": ["Le Centre", "Le Centre", "UDC", "PLR", "VERT-E-S", "MCG", "PLR", "PLR", "UDC"],
       "type": ["Ip.", "Mo.", "Mo.", "Mo.", "Fra.", "Fra.", "Fra.", "Fra.", "Ip."],
@@ -44,7 +44,7 @@
       "shortId": "26.3750",
       "title": "Axe ferroviaire du Saint-Gothard. Le Conseil fédéral a-t-il l'intention de remédier aux lacunes constatées lors de la préparation du message 2027 ?",
       "title_de": "Titel folgt",
-      "title_it": "Asse ferroviario del San Gottardo: il Consiglio federale intende correggere le lacune emerse nella preparazione del Messaggio 2027?",
+      "title_it": "Asse ferroviario del San Gottardo. Il Consiglio federale intende correggere le lacune emerse nella preparazione del Messaggio 2027?",
       "author": "Regazzi Fabio",
       "party": "Le Centre",
       "type": "Ip.",
