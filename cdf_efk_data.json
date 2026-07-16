@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-07-15T22:06:04",
+    "updated": "2026-07-16T13:45:41",
     "total_count": 349,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -13,7 +13,7 @@
     "text_fr": "Durant la Session d'été 2026 (01.06 - 19.06.2026), 9 interventions mentionnant le CDF ont été déposées ou ont fait l'objet d'une réponse du Conseil fédéral qui cite le CDF : 4 questions, 3 motions, 2 interpellations. 7 au Conseil national et 2 au Conseil des États. Les partis les plus actifs : PLR, Le Centre, UDC.",
     "text_de": "Während der Sommersession 2026 (01.06 - 19.06.2026) wurden 9 Vorstösse mit Bezug zur EFK eingereicht oder mit einer Antwort des Bundesrates versehen, die die EFK erwähnt: 4 Anfragen, 3 Motionen, 2 Interpellationen. 7 im Nationalrat und 2 im Ständerat. Die aktivsten Parteien: FDP, Die Mitte, SVP.",
     "themes_fr": "Axe ferroviaire du Saint-Gothard. Le Conseil fédéral a-t-il l'intention de remédier aux lacunes constatées lors de la préparation du message 2027 ? (Regazzi, Le Centre) ; Pour la mise en œuvre cohérente de l’Agenda 2030 dans les politiques sectorielles (Müller-Altermatt, Le Centre) ; AVS. Garantir enfin la transparence et la justesse des contributions aux frais d'administration (Thalmann-Bieri, UDC) ; Réintroduction de l'obligation de visas pour les Géorgiens  (de, PLR) ; Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ? (Clivaz, VERT-E-S) ; Bug informatique au SECO – Point de situation et audit (Sormanni, MCG) ; Géorgiens : des coûts médicaux supérieurs à la moyenne  (de, PLR) ; Dysfonctionnement au Secrétariat d’Etat aux migrations  (de, PLR) ; S'attaquer aux origines des points faibles dans les grands projets informatiques (Salzmann, UDC)",
-    "themes_de": "Gotthard-Eisenbahnachse. Plant der Bundesrat, die bei der Ausarbeitung der Botschaft 2027 aufgetretenen Mängel zu beheben? (Regazzi, Die Mitte) ; Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken (Müller-Altermatt, Die Mitte) ; AHV. Endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen (Thalmann-Bieri, SVP) ; Titel folgt (de, FDP) ; Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück? (Clivaz, GRÜNE) ; IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit (Sormanni, MCG) ; Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten  (de, FDP) ; Schwachstellen im Staatssekretariat für Migration  (de, FDP) ; Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen (Salzmann, SVP)",
+    "themes_de": "Gotthard-Eisenbahnachse. Plant der Bundesrat, die bei der Ausarbeitung der Botschaft 2027 aufgetretenen Mängel zu beheben? (Regazzi, Die Mitte) ; Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken (Müller-Altermatt, Die Mitte) ; AHV. Endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen (Thalmann-Bieri, SVP) ; Wiedereinführung der Visumpflicht für Georgierinnen und Georgier  (de, FDP) ; Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück? (Clivaz, GRÜNE) ; IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit (Sormanni, MCG) ; Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten  (de, FDP) ; Schwachstellen im Staatssekretariat für Migration  (de, FDP) ; Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen (Salzmann, SVP)",
     "session_start": "2026-06-01",
     "session_end": "2026-06-19",
     "display_until": "2026-09-14",
@@ -30,7 +30,7 @@
     "interventions": {
       "shortId": ["26.3750", "26.3979", "26.3859", "26.3736", "26.7423", "26.7336", "26.7321", "26.7324", "26.3550"],
       "title": ["Axe ferroviaire du Saint-Gothard. Le Conseil fédéral a-t-il l'intention de remédier aux lacunes constatées lors de la préparation du message 2027 ?", "Pour la mise en œuvre cohérente de l’Agenda 2030 dans les politiques sectorielles", "AVS. Garantir enfin la transparence et la justesse des contributions aux frais d'administration", "Réintroduction de l'obligation de visas pour les Géorgiens ", "Le Conseil fédéral se désengage-t-il de l’Agenda 2030 pour le développement durable ?", "Bug informatique au SECO – Point de situation et audit", "Géorgiens : des coûts médicaux supérieurs à la moyenne ", "Dysfonctionnement au Secrétariat d’Etat aux migrations ", "S'attaquer aux origines des points faibles dans les grands projets informatiques"],
-      "title_de": ["Gotthard-Eisenbahnachse. Plant der Bundesrat, die bei der Ausarbeitung der Botschaft 2027 aufgetretenen Mängel zu beheben?", "Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken", "AHV. Endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen", "Titel folgt", "Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück?", "IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit", "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ", "Schwachstellen im Staatssekretariat für Migration ", "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen"],
+      "title_de": ["Gotthard-Eisenbahnachse. Plant der Bundesrat, die bei der Ausarbeitung der Botschaft 2027 aufgetretenen Mängel zu beheben?", "Kohärente Umsetzung der Agenda 2030 über die Sektoralpolitiken", "AHV. Endlich marktgerechte und transparente Verwaltungskosten Beiträge schaffen", "Wiedereinführung der Visumpflicht für Georgierinnen und Georgier ", "Zieht sich der Bundesrat von der Agenda 2030 für nachhaltige Entwicklung zurück?", "IT-Panne beim Staatssekretariat für Wirtschaft – aktueller Stand und Audit", "Georgische Staatsangehörige: überdurchschnittlich hohe Gesundheitskosten ", "Schwachstellen im Staatssekretariat für Migration ", "Schwachstellen bei grossen IKT-Vorhaben an der Wurzel packen"],
       "title_it": ["Asse ferroviario del San Gottardo. Il Consiglio federale intende correggere le lacune emerse nella preparazione del Messaggio 2027?", "Attuazione coerente dell'Agenda 2030 nelle politiche settoriali", "AVS. I contributi alle spese di amministrazione vanno finalmente resi trasparenti e conformi al mercato", "Reintrodurre l'obbligo del visto per i Georgiani", null, null, null, null, "Affrontare sul nascere i punti deboli dei grandi progetti TIC"],
       "author": ["Regazzi Fabio", "Müller-Altermatt Stefan", "Thalmann-Bieri Vroni", "de Quattro Jacqueline", "Clivaz Christophe", "Sormanni Daniel", "de Quattro Jacqueline", "de Quattro Jacqueline", "Salzmann Werner"],
       "party": ["Le Centre", "Le Centre", "UDC", "PLR", "VERT-E-S", "MCG", "PLR", "PLR", "UDC"],
@@ -153,7 +153,7 @@
     {
       "shortId": "26.3736",
       "title": "Réintroduction de l'obligation de visas pour les Géorgiens ",
-      "title_de": "Titel folgt",
+      "title_de": "Wiedereinführung der Visumpflicht für Georgierinnen und Georgier ",
       "title_it": "Reintrodurre l'obbligo del visto per i Georgiani",
       "author": "de Quattro Jacqueline",
       "party": "PLR",
@@ -167,6 +167,7 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263736",
       "mention": "Élu",
       "text": "<p>Le Conseil fédéral est chargé d’intervenir auprès de l’Union européenne afin de demander la réintroduction de l’obligation de visas pour les ressortissants géorgiens. Cette mesure vise à enrayer le tourisme médical qui n’a pas tari.<\/p>",
+      "text_de": "<p>Der Bundesrat wird beauftragt, bei der Europäischen Union vorstellig zu werden, um die Wiedereinführung der Visumpflicht für georgische Staatsangehörige zu fordern. Diese Massnahme zielt darauf ab, dem ungebrochenen Medizintourismus Einhalt zu gebieten.<\/p>",
       "tags": "Finances|Politique migratoire|Santé",
       "tags_de": "Finanzwesen|Migration|Gesundheit",
       "tags_it": "Finanze|Migrazione|Salute"
