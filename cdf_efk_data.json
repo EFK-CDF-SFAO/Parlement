@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-13T13:03:50",
+    "updated": "2026-08-13T21:49:38",
     "total_count": 349,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -53,7 +53,6 @@
       "department": "UVEK",
       "date": "2026-06-18",
       "date_maj": "2026-08-13",
-      "statut_change_date": "2026-08-13",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263750",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263750",
       "mention": "Élu",
