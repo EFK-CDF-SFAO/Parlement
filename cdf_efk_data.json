@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-12T21:49:34",
+    "updated": "2026-08-13T13:03:50",
     "total_count": 349,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -48,11 +48,12 @@
       "author": "Regazzi Fabio",
       "party": "Le Centre",
       "type": "Ip.",
-      "status": "Eingereicht / Déposé",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "SR",
       "department": "UVEK",
       "date": "2026-06-18",
-      "date_maj": "2026-07-07",
+      "date_maj": "2026-08-13",
+      "statut_change_date": "2026-08-13",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263750",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263750",
       "mention": "Élu",
