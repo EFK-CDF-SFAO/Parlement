@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-26T12:46:59",
+    "updated": "2026-08-27T00:33:51",
     "total_count": 350,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -352,11 +352,12 @@
       "author": "Salzmann Werner",
       "party": "UDC",
       "type": "Ip.",
-      "status": "Eingereicht / Déposé",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "SR",
       "department": "BK",
       "date": "2026-06-02",
-      "date_maj": "2026-06-02",
+      "date_maj": "2026-08-27",
+      "statut_change_date": "2026-08-27",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
       "mention": "Élu",
