@@ -1,11 +1,95 @@
 {
   "metadata": {
-    "generated_at": "2026-08-15T06:34:23.859106",
-    "total_records": 9,
+    "generated_at": "2026-09-01T11:06:45.323250",
+    "total_records": 10,
     "source": "OpenParlData.ch API",
     "description": "Cantonal parliament mentions of the Swiss Federal Audit Office (EFK/CDF)"
   },
   "data": [
+    {
+      "id": 337497,
+      "url_api": "https://api.openparldata.ch/v1/affairs/337497",
+      "body_key": "JU",
+      "external_id": "I0025514",
+      "number": "QE 3889",
+      "body_id": 260,
+      "title_fr": "Bévue monumentale pour le versement des indemnités de chômage : le SECO intouchable ?",
+      "type_name_fr": "Question écrite",
+      "type_harmonized_de": "Anfrage",
+      "type_harmonized_fr": "Question",
+      "type_harmonized_it": "Interrogazione",
+      "type_harmonized_rm": "Dumonda",
+      "type_harmonized_en": "Question",
+      "type_harmonized_id": 12,
+      "type_harmonized_wikidata_id": "Q2052854",
+      "begin_date": "2026-08-27T00:00:00",
+      "url_external_fr": "https://www.jura.ch/PLT/InterventionParlementaire.ashx?id=3889&fid=I0025514",
+      "updated_at": "2026-08-29T06:11:41",
+      "created_at": "2026-08-29T02:30:30",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "urité, dont 27 jugées hautement critiques avaient été signalées par \nles experts. Parallèlement, le Contrôle fédéral des finances avait indiqué qu’un report du lancement \nde SIPAC 2.0 était souhaitable et possible, mais le SECO n’a pas voulu l’entendre.\nCette bévue monumentale nous amène à poser les",
+            "source_id": 920036,
+            "source_name": "Bévue monumentale pour le versement des indemnités de chômage : le SECO intouchable ?",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/337497/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/337497/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/337497/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/337497/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/337497/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/337497/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/337497/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/337497/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/337497/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/337497/external_links"
+      },
+      "body_name_fr": "Jura",
+      "body_name_original": "Jura",
+      "body_name": "Jura",
+      "efk_excerpts_fr": [
+        {
+          "text": "urité, dont 27 jugées hautement critiques avaient été signalées par les experts. Parallèlement, le Contrôle fédéral des finances avait indiqué qu’un report du lancement de SIPAC 2.0 était souhaitable et possible, mais le SECO n’a pas voulu l’entendre. Cette bévue monumentale nous amène à poser les",
+          "source": "Bévue monumentale pour le versement des indemnités de chômage : le SECO intouchable ?"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 920036,
+          "name": "Bévue monumentale pour le versement des indemnités de chômage : le SECO intouchable ?",
+          "title": "",
+          "url": "https://www.jura.ch/PLT/InterventionParlementaire.ashx?id=3889&fid=I0025514",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 920036,
+          "name": "Bévue monumentale pour le versement des indemnités de chômage : le SECO intouchable ?",
+          "title": "",
+          "url": "https://www.jura.ch/PLT/InterventionParlementaire.ashx?id=3889&fid=I0025514",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Rémy Meury",
+          "firstname": "Rémy",
+          "lastname": "Meury",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Rémy Meury",
+      "author_display_de": "Rémy Meury",
+      "author_display": "Rémy Meury"
+    },
     {
       "id": 335651,
       "url_api": "https://api.openparldata.ch/v1/affairs/335651",
