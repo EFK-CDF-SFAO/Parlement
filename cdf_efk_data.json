@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-09-14T13:53:18",
+    "updated": "2026-09-14T17:34:45",
     "total_count": 353,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "26.7647"
+    "new_ids": []
   },
   "session_summary": {
     "session_id": "2026-ete",
@@ -43,6 +43,7 @@
     {
       "shortId": "26.7647",
       "title": "Rétrocession sur les rabais des médicaments AOS",
+      "title_de": "Titel folgt",
       "author": "Michaud Gigon Sophie",
       "party": "VERT-E-S",
       "type": "Fra.",
@@ -53,7 +54,7 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267647",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267647",
       "mention": "Élu",
-      "text": "<p>Selon le dernier rapport du Contrôle fédéral des finances sur les prix des médicaments, seuls 88 des 743 millions de francs de rabais sont rétrocédés aux assurés. Que compte faire concrètement le Conseil fédéral afin que la loi soit respectée et que cet argent revienne aux assurés&nbsp;? Et dans quel délai prévoit-il de prendre des mesures&nbsp;?<\/p>"
+      "text": "<p>Selon le dernier rapport du Contrôle fédéral des finances sur les prix des médicaments, seuls 88 des 743 millions de francs de rabais sont rétrocédés aux assurés.&nbsp;<br>- Que compte faire concrètement le Conseil fédéral afin que la loi soit respectée et que cet argent revienne aux assurés&nbsp;?&nbsp;<br>- Et dans quel délai prévoit-il de prendre des mesures&nbsp;?<\/p>"
     },
     {
       "shortId": "26.4050",
