@@ -1,11 +1,127 @@
 {
   "metadata": {
-    "generated_at": "2026-09-01T11:06:45.323250",
-    "total_records": 10,
+    "generated_at": "2026-09-15T11:05:29.776794",
+    "total_records": 11,
     "source": "OpenParlData.ch API",
     "description": "Cantonal parliament mentions of the Swiss Federal Audit Office (EFK/CDF)"
   },
   "data": [
+    {
+      "id": 338094,
+      "url_api": "https://api.openparldata.ch/v1/affairs/338094",
+      "body_key": "VS",
+      "external_id": "279342",
+      "number": "2026.09.274",
+      "body_id": 273,
+      "title_de": "3. Rhonekorrektion: Finanzielle Risiken für den Kanton Wallis",
+      "title_fr": "[3. Rhonekorrektion: Finanzielle Risiken für den Kanton Wallis]",
+      "title_long_de": "Dringliche Interpellation PS, durch Rahel Zimmermann und Pascal Clivaz: 3. Rhonekorrektion: Finanzielle Risiken für den Kanton Wallis 2026.09.274",
+      "title_long_fr": "INT_2026.09.274_DEP_Final",
+      "type_name_de": "Dringliche Interpellation",
+      "type_harmonized_de": "Interpellation",
+      "type_harmonized_fr": "Interpellation",
+      "type_harmonized_it": "interpellanza",
+      "type_harmonized_rm": "interpellaziun",
+      "type_harmonized_en": "Interpellation",
+      "type_harmonized_id": 8,
+      "type_harmonized_wikidata_id": "Q1505023",
+      "state_name_de": "Behandlung",
+      "state_name_fr": "Traitement",
+      "state_external_id": "treatment",
+      "begin_date": "2026-09-07T00:00:00",
+      "url_external_de": "https://parlement.vs.ch/app/de/link/279342",
+      "updated_at": "2026-09-11T03:53:02",
+      "created_at": "2026-09-09T13:55:00",
+      "_search_meta": {
+        "snippets": [
+          {
+            "text": "mmer 2026.09.274\n\n \n\nAktualität des Ereignisses\n\nDer am 17. August 2026 veröffentlichte Bericht der Eidgenössischen Finanzkontrolle (EFK) zeigt neue \n\nfinanzielle und verfahrensrechtliche Risiken im Zusammenhang mit der R3 auf. Der Bund evaluiert diese \n\nRisiken aktiv und ergreift Massnahmen zu dere",
+            "source_id": 922007,
+            "source_name": "INT_2026.09.274_EIN_Final 3. Rhonekorrektion: Finanzielle Risiken für den Kanton Wallis",
+            "source_type": "docs"
+          }
+        ],
+        "total_matches": 0
+      },
+      "links": {
+        "contributors": "https://api.openparldata.ch/v1/affairs/338094/contributors",
+        "docs": "https://api.openparldata.ch/v1/affairs/338094/docs",
+        "events": "https://api.openparldata.ch/v1/affairs/338094/events",
+        "texts": "https://api.openparldata.ch/v1/affairs/338094/texts",
+        "speeches": "https://api.openparldata.ch/v1/affairs/338094/speeches",
+        "votings": "https://api.openparldata.ch/v1/affairs/338094/votings",
+        "agendas": "https://api.openparldata.ch/v1/affairs/338094/agendas",
+        "meetings": "https://api.openparldata.ch/v1/affairs/338094/meetings",
+        "bodies": "https://api.openparldata.ch/v1/affairs/338094/bodies",
+        "external_links": "https://api.openparldata.ch/v1/affairs/338094/external_links"
+      },
+      "body_name_fr": "Valais",
+      "body_name_original": "Wallis",
+      "body_name": "Valais",
+      "efk_excerpts_de": [
+        {
+          "text": "mmer 2026.09.274 Aktualität des Ereignisses Der am 17. August 2026 veröffentlichte Bericht der Eidgenössischen Finanzkontrolle (EFK) zeigt neue finanzielle und verfahrensrechtliche Risiken im Zusammenhang mit der R3 auf. Der Bund evaluiert diese Risiken aktiv und ergreift Massnahmen zu dere",
+          "source": "INT_2026.09.274_EIN_Final 3. Rhonekorrektion: Finanzielle Risiken für den Kanton Wallis"
+        }
+      ],
+      "efk_documents": [
+        {
+          "id": 922007,
+          "name": "INT_2026.09.274_EIN_Final 3. Rhonekorrektion: Finanzielle Risiken für den Kanton Wallis",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeVdKQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--5893c1e53306679dfeac4e7885028d7cbe94f48b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEF6RkRCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--34d47e71a9a0cb62a847fecb12f69a8992af7c25/INT_2026.09.274_EIN_Final_DE.pdf",
+          "mime_type": null
+        }
+      ],
+      "efk_documents_de": [
+        {
+          "id": 922007,
+          "name": "INT_2026.09.274_EIN_Final 3. Rhonekorrektion: Finanzielle Risiken für den Kanton Wallis",
+          "title": "",
+          "url": "https://parlement.vs.ch/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeVdKQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--5893c1e53306679dfeac4e7885028d7cbe94f48b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBPZ2h3WkdZNkRIRnlYMnhwYm10cEF6RkRCQT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--34d47e71a9a0cb62a847fecb12f69a8992af7c25/INT_2026.09.274_EIN_Final_DE.pdf",
+          "mime_type": null
+        }
+      ],
+      "authors": [
+        {
+          "fullname": "Rahel Zimmermann",
+          "firstname": "Rahel",
+          "lastname": "Zimmermann",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Pascal Clivaz",
+          "firstname": "Pascal",
+          "lastname": "Clivaz",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Rahel Zimmermann",
+          "firstname": "Rahel",
+          "lastname": "Zimmermann",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        },
+        {
+          "fullname": "Pascal Clivaz",
+          "firstname": "Pascal",
+          "lastname": "Clivaz",
+          "party_fr": "",
+          "party_de": "",
+          "role": "author"
+        }
+      ],
+      "author_display_fr": "Rahel Zimmermann, Pascal Clivaz",
+      "author_display_de": "Rahel Zimmermann, Pascal Clivaz",
+      "author_display": "Rahel Zimmermann, Pascal Clivaz",
+      "url_external_fr": "https://parlement.vs.ch/app/fr/link/279342",
+      "url_external_it": "https://parlement.vs.ch/app/it/link/279342"
+    },
     {
       "id": 337497,
       "url_api": "https://api.openparldata.ch/v1/affairs/337497",
