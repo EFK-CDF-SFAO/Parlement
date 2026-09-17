@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-09-16T23:38:06",
+    "updated": "2026-09-17T16:10:15",
     "total_count": 356,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -82,7 +82,7 @@
     },
     {
       "shortId": "26.7715",
-      "title": "Titre suit",
+      "title": "Art. 74 de la loi fédérale sur l’assurance-invalidité (LAI). Mise en œuvre des recommandations du Contrôle fédéral des finances (CDF)",
       "title_de": "Art. 74 IVG - EFK Empfehlungen umsetzen",
       "author": "Weichelt Manuela",
       "party": "VERT-E-S",
@@ -94,6 +94,7 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267715",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267715",
       "mention": "Élu",
+      "text": "<p>L’OFAS souhaite raccourcir la durée du contrat de prestations à deux ans conformément à l’art.&nbsp;74&nbsp;LAI en raison du retard pris dans la définition des priorités (2028 à 2029 au lieu de 2029 à 2031). 45&nbsp;contrats et 449&nbsp;sous-contrats devraient être négociés à deux reprises<i>&nbsp;<\/i>et les concepts techniques devraient être révisés.<br>Pourquoi la période actuelle n’est-elle pas prolongée afin de mettre en œuvre les <a href=\"https://www.efk.admin.ch/wp-content/uploads/publikationen/berichte/bildung_und_soziales/sozialeversicherung_und_altersvorsorge/22624/22624be-wik-f.pdf\">recommandations du CDF<\/a><a href=\"#_ftn1\">[1]<\/a> en collaboration avec les organisations de personnes handicapées et les cantons&nbsp;?<\/p><p>&nbsp;<\/p>",
       "text_de": "<p>Das BSV will die Vertragsperiode nach Art. 74 IVG wegen der verzögerten Prioritätenordnung auf 2 Jahre verkürzen (2028-2029 statt 2029-2031). 45 Verträge und 449 Unterverträge müssten zweimal<i>&nbsp;<\/i>verhandelt und Fachkonzepte überarbeitet werden.<br>Warum wird die laufende Periode nicht verlängert, um die <a href=\"https://www.efk.admin.ch/wp-content/uploads/publikationen/berichte/bildung_und_soziales/sozialeversicherung_und_altersvorsorge/22624/22624be-wik-f.pdf\">EFK-Empfehlungen<\/a><a href=\"#_ftn1\">[1]<\/a> mit Behindertenorganisationen und Kantonen umzusetzen?<\/p><p>&nbsp;<\/p>",
       "tags": "Protection sociale",
       "tags_de": "Sozialer Schutz",
