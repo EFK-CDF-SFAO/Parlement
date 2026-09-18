@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-09-17T23:29:27",
+    "updated": "2026-09-18T15:46:36",
     "total_count": 356,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -89,6 +89,7 @@
       "type": "Fra.",
       "status": "Eingereicht / Déposé",
       "council": "NR",
+      "department": "EDI",
       "date": "2026-09-15",
       "date_maj": "2026-09-15",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267715",
@@ -103,18 +104,20 @@
     {
       "shortId": "26.7647",
       "title": "Rétrocession sur les rabais des médicaments AOS",
-      "title_de": "Titel folgt",
+      "title_de": "Weitergabe von Vergünstigungen bei kassenpflichtigen Medikamenten",
       "author": "Michaud Gigon Sophie",
       "party": "VERT-E-S",
       "type": "Fra.",
       "status": "Eingereicht / Déposé",
       "council": "NR",
+      "department": "EDI",
       "date": "2026-09-14",
       "date_maj": "2026-09-14",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267647",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267647",
       "mention": "Élu",
       "text": "<p>Selon le dernier rapport du Contrôle fédéral des finances sur les prix des médicaments, seuls 88 des 743 millions de francs de rabais sont rétrocédés aux assurés.&nbsp;<br>- Que compte faire concrètement le Conseil fédéral afin que la loi soit respectée et que cet argent revienne aux assurés&nbsp;?&nbsp;<br>- Et dans quel délai prévoit-il de prendre des mesures&nbsp;?<\/p>",
+      "text_de": "<p>Gemäss dem jüngsten Bericht der Eidgenössischen Finanzkontrolle über die Medikamentenpreise werden von den 743&nbsp;Millionen&nbsp;Franken an Rabatten lediglich 88&nbsp;Millionen&nbsp;Franken an die Versicherten weitergegeben.&nbsp;<br>- Was gedenkt der Bundesrat konkret zu unternehmen, damit das Gesetz eingehalten wird und das Geld an die Versicherten zurückfliesst?&nbsp;<br>- Innert welcher Frist will er Massnahmen ergreifen?<\/p>",
       "tags": "Santé",
       "tags_de": "Gesundheit",
       "tags_it": "Salute"
