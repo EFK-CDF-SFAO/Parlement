@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-09-21T23:53:22",
+    "updated": "2026-09-22T16:12:45",
     "total_count": 358,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": "26.7892"
+    "new_ids": []
   },
   "session_summary": {
     "session_id": "2026-ete",
@@ -54,7 +54,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267892",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267892",
       "mention": "Élu",
-      "text": "<p>Suite au rapport du CDF sur Rhône 3, le conseiller d’Etat F. Ruppen a déclaré au Nouvelliste&nbsp;: «&nbsp;l’OFEV a validé les lignes directrices de la révision en rappelant les exigences à respecter.&nbsp;»&nbsp;<\/p><ul><li>L’OFEV a-t-il effectivement validé les lignes directrices de la révision&nbsp;?&nbsp;<\/li><li>Si oui sont-elles compatibles avec le projet approuvé par le parlement&nbsp;?<\/li><li>Le CDF a souligné le manque de concertation du canton&nbsp;: ce problème a-t-il été réglé&nbsp;? L’OFEV peut-il de manière satisfaisante suivre le dossier&nbsp;?<\/li><\/ul>"
+      "text": "<p>Suite au rapport du CDF sur Rhône 3, le conseiller d’Etat F. Ruppen a déclaré au Nouvelliste&nbsp;: «&nbsp;l’OFEV a validé les lignes directrices de la révision en rappelant les exigences à respecter.&nbsp;»&nbsp;<\/p><ul><li>L’OFEV a-t-il effectivement validé les lignes directrices de la révision&nbsp;?&nbsp;<\/li><li>Si oui sont-elles compatibles avec le projet approuvé par le parlement&nbsp;?<\/li><li>Le CDF a souligné le manque de concertation du canton&nbsp;: ce problème a-t-il été réglé&nbsp;? L’OFEV peut-il de manière satisfaisante suivre le dossier&nbsp;?<\/li><\/ul>",
+      "tags": "Environnement|Aménagement du territoire et logement",
+      "tags_de": "Umwelt|Raumplanung und Wohnungswesen",
+      "tags_it": "Ambiente|Pianificazione territoriale e alloggi"
     },
     {
       "shortId": "26.7716",
@@ -72,7 +75,10 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267716",
       "mention": "Conseil fédéral",
       "text": "<p>L’OFAS souhaite ramener à deux ans la durée des conventions de prestations selon l’art.&nbsp;74&nbsp;LAI en raison du retard pris dans la définition des priorités (2028 à 2029 au lieu de 2029 à 2031). Cette décision contraindrait à négocier à deux reprises 45&nbsp;conventions et 449&nbsp;conventions de sous-traitance <i>&nbsp;<\/i>et à en revoir les modalités techniques.<br>Comment le Conseil fédéral justifie-t-il que les fonds de l'AI soient consacrés à l'administration plutôt qu'aux prestations destinées aux personnes en situation de handicap ?<\/p>",
-      "text_de": "<p>Das BSV will die Vertragsperiode nach Art. 74 IVG wegen der verzögerten Prioritätenordnung auf 2 Jahre verkürzen (2028-2029 statt 2029-2031). 45 Verträge und 449 Unterverträge müssten zweimal<i>&nbsp;<\/i>verhandelt und Fachkonzepte überarbeitet werden.<br>Wie rechtfertigt der Bundesrat, dass IV-Mittel in Administration statt in Leistungen für Menschen mit Behinderung fliessen?<\/p>"
+      "text_de": "<p>Das BSV will die Vertragsperiode nach Art. 74 IVG wegen der verzögerten Prioritätenordnung auf 2 Jahre verkürzen (2028-2029 statt 2029-2031). 45 Verträge und 449 Unterverträge müssten zweimal<i>&nbsp;<\/i>verhandelt und Fachkonzepte überarbeitet werden.<br>Wie rechtfertigt der Bundesrat, dass IV-Mittel in Administration statt in Leistungen für Menschen mit Behinderung fliessen?<\/p>",
+      "tags": "Protection sociale",
+      "tags_de": "Sozialer Schutz",
+      "tags_it": "Protezione sociale"
     },
     {
       "shortId": "26.7715",
@@ -230,11 +236,12 @@
       "author": "Salzmann Werner",
       "party": "UDC",
       "type": "Ip.",
-      "status": "In Ständerat geplant / Planifié au Conseil des Etats",
+      "status": "Erledigt / Liquidé",
       "council": "SR",
       "department": "BK",
       "date": "2026-06-02",
-      "date_maj": "2026-09-10",
+      "date_maj": "2026-09-22",
+      "statut_change_date": "2026-09-22",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263550",
       "mention": "Élu",
