@@ -2,7 +2,8 @@ name: Update Parliament Data
 
 on:
   schedule:
-    # 2x par jour: 13h et 22h Suisse (12h et 21h UTC)
+    # 3x par jour: 08h, 13h et 22h Suisse (07h, 12h et 21h UTC)
+    - cron: '0 7 * * *'    # 08h CH
     - cron: '0 12 * * *'   # 13h CH
     - cron: '0 21 * * *'   # 22h CH
   workflow_dispatch: # Permet l'exécution manuelle
