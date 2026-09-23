@@ -3,7 +3,8 @@ name: Update Debates Data
 on:
   workflow_dispatch:
   schedule:
-    # 2x par jour pendant les sessions: 13h et 22h Suisse (12h et 21h UTC)
+    # 3x par jour pendant les sessions: 08h, 13h et 22h Suisse (07h, 12h et 21h UTC)
+    - cron: '0 7 * * *'    # 08h CH
     - cron: '0 12 * * *'   # 13h CH
     - cron: '0 21 * * *'   # 22h CH
 
