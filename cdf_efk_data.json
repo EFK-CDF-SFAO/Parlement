@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-09-23T07:27:46",
-    "total_count": 363,
+    "updated": "2026-09-23T16:02:22",
+    "total_count": 365,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": ["26.4213", "26.4216", "26.7937", "26.7938", "26.7939"]
+    "new_ids": ["26.7988", "26.8019"]
   },
   "session_summary": {
     "session_id": "2026-ete",
@@ -92,7 +92,7 @@
     },
     {
       "shortId": "26.7938",
-      "title": "Titre suit",
+      "title": "Dans quelle mesure le CDF peut-il évaluer la politique sur des bases scientifiques ?",
       "title_de": "Wie wissenschaftlich kann die EFK Politik beurteilen?",
       "author": "Schnyder Markus",
       "party": "UDC",
@@ -104,7 +104,8 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267938",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267938",
       "mention": "Élu",
-      "text_de": "<p>Die EFK legt einen Bericht zu Verkehr ’45 vor und schreibt, dass das ETHZ-Gutachten keine «ausreichend verlässliche Grundlage» sei, «als dass sich die Verkehrspolitik der Schweiz in diesem Masse darauf stützen sollte». Die EFK äussert ihre Kritik an der Studie, ohne eine wissenschaftliche Auseinandersetzung mit der kritisierten Studie wiederzugeben.&nbsp;<br>- Muss mithin eine solche Aussage nicht als politische Äusserung verstanden werden?<\/p>"
+      "text": "<p>Dans son rapport intitulé «&nbsp;Transports ’45&nbsp;», le CDF affirme que l’expertise de l’EPFZ ne constitue pas un document «&nbsp;… suffisamment fiable pour que la politique de transports du pays s’y repose largement&nbsp;». Or, sa critique n’est étayée par aucune analyse scientifique.&nbsp;<br>Une telle affirmation ne doit-elle pas être considérée comme une prise de position politique&nbsp;?<\/p>",
+      "text_de": "<p>Die EFK legt einen Bericht zu Verkehr ’45 vor und schreibt, dass das ETHZ-Gutachten keine «ausreichend verlässliche Grundlage» sei, «als dass sich die Verkehrspolitik der Schweiz in diesem Masse darauf stützen sollte». Die EFK äussert ihre Kritik an der Studie, ohne eine wissenschaftliche Auseinandersetzung mit der kritisierten Studie wiederzugeben.&nbsp;<br>Muss mithin eine solche Aussage nicht als politische Äusserung verstanden werden?<\/p>"
     },
     {
       "shortId": "26.7939",
@@ -121,6 +122,38 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267939",
       "mention": "Élu",
       "text_de": "<p>Als \"zentrale Erkenntnis\" kritisiert der Bericht der EFK zu Verkehr 45, dass keine systematische Prüfung von Alternativen zum Autobahnausbau erfolgt sei (S. 4), und nimmt zudem Bezug auf das Mobility Pricing (S. 15). Damit mischt sich die EFK in politische Debatten ein.&nbsp;<br>Wie beurteilt das UVEK dies?<\/p>"
+    },
+    {
+      "shortId": "26.7988",
+      "title": "Titre suit",
+      "title_de": "Bericht der Finanzkontrolle zu «Verkehr 45»: Prioritätenfrage",
+      "author": "Giezendanner Benjamin",
+      "party": "UDC",
+      "type": "Fra.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-23",
+      "date_maj": "2026-09-23",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267988",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267988",
+      "mention": "Élu",
+      "text_de": "<p>Das Gesetz gibt Betrieb und Substanzerhalt gegenüber dem Ausbau Vorrang (<a href=\"https://www.fedlex.admin.ch/eli/cc/2015/107/de#art_4\">Art. 4 Abs. 2 BIFG<\/a>).&nbsp;<br>Weshalb plant der Bundesrat neue Ausbauprojekte in einer Doppelvariante mit kleinerem und grösserem Investitionsvorhaben, obwohl der tatsächliche Mittelbedarf für den Substanzerhalt nach&nbsp;<a href=\"https://www.efk.admin.ch/wp-content/uploads/publikationen/berichte/sicherheit_und_umwelt/verkehr_und_umwelt/26718/26718be-uvek-projekt-verkehr_45.pdf\">Feststellung der EFK<\/a> für beide Varianten noch gar nicht geklärt ist?<\/p>"
+    },
+    {
+      "shortId": "26.8019",
+      "title": "Rhône 3 : le dossier est-il sur la bonne voie?",
+      "title_de": "Titel folgt",
+      "author": "Clivaz Christophe",
+      "party": "VERT-E-S",
+      "type": "Fra.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-23",
+      "date_maj": "2026-09-23",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268019",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268019",
+      "mention": "Élu",
+      "text": "<p>Suite au rapport du CDF sur Rhône 3, le conseiller d’Etat F. Ruppen a déclaré au Nouvelliste&nbsp;: «&nbsp;l’OFEV a validé les lignes directrices de la révision en rappelant les exigences à respecter.&nbsp;»<\/p><p>- L’OFEV a-t-il effectivement validé les lignes directrices de la révision&nbsp;?<br>- Si oui sont-elles compatibles avec le projet approuvé par le parlement&nbsp;?<br>- Le CDF a souligné le manque de concertation du canton&nbsp;: ce problème a-t-il été réglé&nbsp;?&nbsp;<br>- L’OFEV peut-il de manière satisfaisante suivre le dossier&nbsp;?<\/p>"
     },
     {
       "shortId": "26.3550",
@@ -296,11 +329,12 @@
       "author": "CSSS-E",
       "party": "Commissions",
       "type": "Po.",
-      "status": "In Ständerat geplant / Planifié au Conseil des Etats",
+      "status": "Überwiesen an den Bundesrat / Transmis au Conseil fédéral",
       "council": "SR",
       "department": "EDI",
       "date": "2026-06-26",
-      "date_maj": "2026-09-13",
+      "date_maj": "2026-09-23",
+      "statut_change_date": "2026-09-23",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264053",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264053",
       "mention": "Élu & Conseil fédéral",
