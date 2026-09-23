@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-09-22T23:31:48",
-    "total_count": 358,
+    "updated": "2026-09-23T07:27:46",
+    "total_count": 363,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": ["26.4213", "26.4216", "26.7937", "26.7938", "26.7939"]
   },
   "session_summary": {
     "session_id": "2026-ete",
@@ -40,6 +40,88 @@
     }
   },
   "items": [
+    {
+      "shortId": "26.4213",
+      "title": "Titre suit",
+      "title_de": "Entschädigungszusagen für Massnahmen nach Art. 83a GSchG und Art. 10 BGF",
+      "title_it": "Titolo segue",
+      "author": "Vincenz-Stauffacher Susanne",
+      "party": "PLR",
+      "type": "Ip.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-23",
+      "date_maj": "2026-09-23",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264213",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264213",
+      "mention": "Élu",
+      "text_de": "<p>Mit dem indir. Gegenvorschlag zur Volksinitiative «Lebendiges Wasser» hat das Parlament die Entschädigung der Betreiber von Wasserkraftwerken für Sanierungsmassnahmen in den Bereichen Schwall und Sunk, Geschiebehaushalt sowie Fischgängigkeit beschlossen. Dafür sind 0.1 Rp./kWh aus dem Netzzuschlag vorgesehen; die Massnahmen müssen innert 20 Jahren nach Inkrafttreten der Bestimmung, bis 2030, getroffen werden.&nbsp;<\/p><p>Damit wurde ein Kompromiss zwischen den berechtigten Anliegen des Biodiversitätsschutzes und den wohlerworbenen Rechten der Konzessionsinhaber formuliert und ein Anreiz geschaffen, die Sanierung der Wasserkraftwerke gemäss heutigem Umweltrecht nicht bis zur Konzessionserneuerung aufzuschieben. Allerdings zeichnet sich schon länger ab, dass angesichts von Anzahl und Umfang der Sanierungsmassnahmen die Umsetzungsfrist nicht ausreicht, um alle Gesuche zu bewilligen. Darauf hat die EFK bereits im Juni 2024 hingewiesen.<\/p><p>Die Problematik hat sich nun akzentuiert. Im Januar hat das BAFU Kraftwerksbetreibern und Kantonen mitgeteilt, dass die Entschädigungsgesuche die eingehenden Mittel bald übersteigen, Entschädigungen nur noch dem Grundsatz nach zugesichert und Auszahlungen aufgeschoben werden. Massnahmen würden nur entschädigt, wenn mit deren Umsetzung bis 2030 begonnen wurde. Für Konzessionäre und Konzedenten ist damit eine erhebliche Rechts- und Planungsunsicherheit für die Umsetzung der ökologische Sanierung der Wasserkraftwerke entstanden. &nbsp;<\/p><p>Der Bundesrat wird um Antwort zu folgende Fragen gebeten:&nbsp;<\/p><ol><li>Wie beurteilt er das Vorgehen des BAFU, Entschädigungen für Massnahmen nach Art. 83a GSchG und Art. 10 BGF nur noch dem Grundsatz nach zuzusichern?<\/li><li>Wie beurteilt er die Rechtssicherheit von Zusicherungen dem Grundsatz nach?<\/li><li>Teilt er die Auslegung des BAFU, dass es sich bei der im GSchG verankerten Frist um eine Verwirkungsfrist für den Entschädigungsanspruch gemäss Art. 34 EnG handelt?<\/li><li>Wie beurteilt er Entschädigungszusicherungen dem Grundsatz nach im Kontext des Rechtsanspruchs der Kraftwerksbetreiber auf vollständige Kostenerstattung gemäss Art. 34 EnG für Massnahmen nach Art. 83a GSchG bzw. Art. 10 BGF?<\/li><li>Ist er bereit, eine Anpassung des Finanzierungsmechanismus und eine Verlängerung der Frist vorzusehen, damit die laufenden Arbeiten in einem rechtssicheren Rahmen weitergeführt und die ökologische Sanierung der Wasserkraftwerke erfolgreich umgesetzt werden können?<\/li><\/ol>"
+    },
+    {
+      "shortId": "26.4216",
+      "title": "Titre suit",
+      "title_de": "Beschleunigte Fähigkeitsentwicklung und Technologieeinführung in der Verteidigung",
+      "title_it": "Titolo segue",
+      "author": "Götte Michael",
+      "party": "UDC",
+      "type": "Mo.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-23",
+      "date_maj": "2026-09-23",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264216",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264216",
+      "mention": "Élu",
+      "text_de": "<p>Der Bundesrat wird beauftragt, die beschleunigte Technologieeinführung und Fähigkeitsentwicklung gemäss seinen Leitlinien für die Verteidigung konsequent voranzutreiben.<\/p><p>&nbsp;<\/p><p>Er sorgt insbesondere dafür, dass<\/p><p>&nbsp;<\/p><ol><li>die bereits aufgebauten Instrumente und Fähigkeiten zur Validierung und beschleunigten Technologieeinführung konsequent und breiter genutzt werden, um strategische Fähigkeitslücken rasch in testbare Vorhaben zu überführen, marktverfügbare Lösungen gemeinsam mit den Bedarfsträgern unter realistischen Bedingungen zu erproben und geeignete Lösungen zügig in Beschaffung, Betrieb und Ausbildung zu überführen;<\/li><li>Innovations-, Erprobungs- und Beschaffungsprozesse konsequent vereinfacht und beschleunigt werden, damit mit den vorhandenen Mitteln neue Fähigkeiten schneller und wirtschaftlicher bei der Truppe eingeführt werden können.<\/li><\/ol>"
+    },
+    {
+      "shortId": "26.7937",
+      "title": "Titre suit",
+      "title_de": "Macht die EFK Kontrollen oder Politik?",
+      "author": "Schnyder Markus",
+      "party": "UDC",
+      "type": "Fra.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-23",
+      "date_maj": "2026-09-23",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267937",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267937",
+      "mention": "Élu",
+      "text_de": "<p>Im Zusammenhang mit dem Bericht der EFK zu Verkehr ’45 stellt sich die folgende Frage:&nbsp;<br>- Ist sich die EFK bewusst, dass ihr das Gesetz und unsere Staatsordnung die Funktion einer Kontrollbehörde mit engem Fokus auf finanzielle Fragen und nicht die einer zusätzlichen Staatsgewalt zuweisen?&nbsp;<br>- Wie sind aus staatspolitischer Sicht die weitgehenden politischen Stellungnahmen der EFK im Kontext ihrer begrenzten demokratischen Legitimation zu beurteilen?<\/p>"
+    },
+    {
+      "shortId": "26.7938",
+      "title": "Titre suit",
+      "title_de": "Wie wissenschaftlich kann die EFK Politik beurteilen?",
+      "author": "Schnyder Markus",
+      "party": "UDC",
+      "type": "Fra.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-23",
+      "date_maj": "2026-09-23",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267938",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267938",
+      "mention": "Élu",
+      "text_de": "<p>Die EFK legt einen Bericht zu Verkehr ’45 vor und schreibt, dass das ETHZ-Gutachten keine «ausreichend verlässliche Grundlage» sei, «als dass sich die Verkehrspolitik der Schweiz in diesem Masse darauf stützen sollte». Die EFK äussert ihre Kritik an der Studie, ohne eine wissenschaftliche Auseinandersetzung mit der kritisierten Studie wiederzugeben.&nbsp;<br>- Muss mithin eine solche Aussage nicht als politische Äusserung verstanden werden?<\/p>"
+    },
+    {
+      "shortId": "26.7939",
+      "title": "Titre suit",
+      "title_de": "Ist der Bericht der EFK zu Verkehr 45 eine politische Einmischung?",
+      "author": "Hurter Thomas",
+      "party": "UDC",
+      "type": "Fra.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-23",
+      "date_maj": "2026-09-23",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267939",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267939",
+      "mention": "Élu",
+      "text_de": "<p>Als \"zentrale Erkenntnis\" kritisiert der Bericht der EFK zu Verkehr 45, dass keine systematische Prüfung von Alternativen zum Autobahnausbau erfolgt sei (S. 4), und nimmt zudem Bezug auf das Mobility Pricing (S. 15). Damit mischt sich die EFK in politische Debatten ein.&nbsp;<br>Wie beurteilt das UVEK dies?<\/p>"
+    },
     {
       "shortId": "26.3550",
       "title": "S'attaquer aux origines des points faibles dans les grands projets informatiques",
