@@ -165,8 +165,8 @@ Data is automatically updated via **GitHub Actions**:
 
 | Frequency | Action |
 |:---------:|:------:|
-| Three time daily at 08:00, 13:00 and 22:00 (Swiss time) | Update parliamentary objects |
-| Three daily at 08:00, 13:00 and 22:00 (Swiss time) | Update debates (during sessions only) |
+| Three times daily at 08:00, 13:00 and 22:00 (Swiss time) | Update parliamentary objects |
+| Three times daily at 08:00, 13:00 and 22:00 (Swiss time) | Update debates (during sessions only) |
 
 > **Manual trigger**: *Actions* tab → Select workflow → *Run workflow*
 
