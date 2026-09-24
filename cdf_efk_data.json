@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-09-23T23:27:21",
-    "total_count": 365,
+    "updated": "2026-09-24T12:25:49",
+    "total_count": 366,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": "26.4248"
   },
   "session_summary": {
     "session_id": "2026-ete",
@@ -41,6 +41,23 @@
   },
   "items": [
     {
+      "shortId": "26.4248",
+      "title": "Titre suit",
+      "title_de": "Abstimmungsbeschwerden: Internetpublikation darf Beschwerdefrist nicht allein auslösen",
+      "title_it": "Titolo segue",
+      "author": "Vontobel Erich",
+      "party": "UDF",
+      "type": "Mo.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-24",
+      "date_maj": "2026-09-24",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264248",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264248",
+      "mention": "Élu",
+      "text_de": "<p>Der Bundesrat wird beauftragt, das Bundesgesetz über die politischen Rechte (BPR) dahingehend anzupassen, dass bei Abstimmungsbeschwerden der Beginn der Beschwerdefrist nicht allein an die Veröffentlichung eines Sachverhalts auf einer staatlichen Internetplattform geknüpft werden kann. Dabei ist klarzustellen, unter welchen Voraussetzungen eine Information als «Entdeckung des Beschwerdegrundes» im Sinne von Artikel 77 Absatz 2 BPR gilt.<\/p><p>&nbsp;<\/p><p>Insbesondere ist gesetzlich sicherzustellen, dass:&nbsp;<\/p><ol><li>die blosse Veröffentlichung oder Abrufbarkeit einer Information auf einer spezialisierten staatlichen Fachplattform die dreitägige Beschwerdefrist nicht auslöst;<\/li><li>die Frist bei einer allgemein wahrnehmbaren amtlichen Bekanntmachung mit dieser Bekanntmachung beginnt;<\/li><li>bei Fehlen einer solchen Bekanntmachung ein objektiv bestimmbarer subsidiärer Fristenlauf gilt, der keine laufende Überwachung spezialisierter Internetplattformen durch die Stimmberechtigten voraussetzt.<\/li><\/ol>"
+    },
+    {
       "shortId": "26.4213",
       "title": "Titre suit",
       "title_de": "Entschädigungszusagen für Massnahmen nach Art. 83a GSchG und Art. 10 BGF",
@@ -55,7 +72,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264213",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264213",
       "mention": "Élu",
-      "text_de": "<p>Mit dem indir. Gegenvorschlag zur Volksinitiative «Lebendiges Wasser» hat das Parlament die Entschädigung der Betreiber von Wasserkraftwerken für Sanierungsmassnahmen in den Bereichen Schwall und Sunk, Geschiebehaushalt sowie Fischgängigkeit beschlossen. Dafür sind 0.1 Rp./kWh aus dem Netzzuschlag vorgesehen; die Massnahmen müssen innert 20 Jahren nach Inkrafttreten der Bestimmung, bis 2030, getroffen werden.&nbsp;<\/p><p>Damit wurde ein Kompromiss zwischen den berechtigten Anliegen des Biodiversitätsschutzes und den wohlerworbenen Rechten der Konzessionsinhaber formuliert und ein Anreiz geschaffen, die Sanierung der Wasserkraftwerke gemäss heutigem Umweltrecht nicht bis zur Konzessionserneuerung aufzuschieben. Allerdings zeichnet sich schon länger ab, dass angesichts von Anzahl und Umfang der Sanierungsmassnahmen die Umsetzungsfrist nicht ausreicht, um alle Gesuche zu bewilligen. Darauf hat die EFK bereits im Juni 2024 hingewiesen.<\/p><p>Die Problematik hat sich nun akzentuiert. Im Januar hat das BAFU Kraftwerksbetreibern und Kantonen mitgeteilt, dass die Entschädigungsgesuche die eingehenden Mittel bald übersteigen, Entschädigungen nur noch dem Grundsatz nach zugesichert und Auszahlungen aufgeschoben werden. Massnahmen würden nur entschädigt, wenn mit deren Umsetzung bis 2030 begonnen wurde. Für Konzessionäre und Konzedenten ist damit eine erhebliche Rechts- und Planungsunsicherheit für die Umsetzung der ökologische Sanierung der Wasserkraftwerke entstanden. &nbsp;<\/p><p>Der Bundesrat wird um Antwort zu folgende Fragen gebeten:&nbsp;<\/p><ol><li>Wie beurteilt er das Vorgehen des BAFU, Entschädigungen für Massnahmen nach Art. 83a GSchG und Art. 10 BGF nur noch dem Grundsatz nach zuzusichern?<\/li><li>Wie beurteilt er die Rechtssicherheit von Zusicherungen dem Grundsatz nach?<\/li><li>Teilt er die Auslegung des BAFU, dass es sich bei der im GSchG verankerten Frist um eine Verwirkungsfrist für den Entschädigungsanspruch gemäss Art. 34 EnG handelt?<\/li><li>Wie beurteilt er Entschädigungszusicherungen dem Grundsatz nach im Kontext des Rechtsanspruchs der Kraftwerksbetreiber auf vollständige Kostenerstattung gemäss Art. 34 EnG für Massnahmen nach Art. 83a GSchG bzw. Art. 10 BGF?<\/li><li>Ist er bereit, eine Anpassung des Finanzierungsmechanismus und eine Verlängerung der Frist vorzusehen, damit die laufenden Arbeiten in einem rechtssicheren Rahmen weitergeführt und die ökologische Sanierung der Wasserkraftwerke erfolgreich umgesetzt werden können?<\/li><\/ol>"
+      "text_de": "<p>Mit dem indir. Gegenvorschlag zur Volksinitiative «Lebendiges Wasser» hat das Parlament die Entschädigung der Betreiber von Wasserkraftwerken für Sanierungsmassnahmen in den Bereichen Schwall und Sunk, Geschiebehaushalt sowie Fischgängigkeit beschlossen. Dafür sind 0.1 Rp./kWh aus dem Netzzuschlag vorgesehen; die Massnahmen müssen innert 20 Jahren nach Inkrafttreten der Bestimmung, bis 2030, getroffen werden.&nbsp;<\/p><p>Damit wurde ein Kompromiss zwischen den berechtigten Anliegen des Biodiversitätsschutzes und den wohlerworbenen Rechten der Konzessionsinhaber formuliert und ein Anreiz geschaffen, die Sanierung der Wasserkraftwerke gemäss heutigem Umweltrecht nicht bis zur Konzessionserneuerung aufzuschieben. Allerdings zeichnet sich schon länger ab, dass angesichts von Anzahl und Umfang der Sanierungsmassnahmen die Umsetzungsfrist nicht ausreicht, um alle Gesuche zu bewilligen. Darauf hat die EFK bereits im Juni 2024 hingewiesen.<\/p><p>Die Problematik hat sich nun akzentuiert. Im Januar hat das BAFU Kraftwerksbetreibern und Kantonen mitgeteilt, dass die Entschädigungsgesuche die eingehenden Mittel bald übersteigen, Entschädigungen nur noch dem Grundsatz nach zugesichert und Auszahlungen aufgeschoben werden. Massnahmen würden nur entschädigt, wenn mit deren Umsetzung bis 2030 begonnen wurde. Für Konzessionäre und Konzedenten ist damit eine erhebliche Rechts- und Planungsunsicherheit für die Umsetzung der ökologische Sanierung der Wasserkraftwerke entstanden. &nbsp;<\/p><p>Der Bundesrat wird um Antwort zu folgende Fragen gebeten:&nbsp;<\/p><ol><li>Wie beurteilt er das Vorgehen des BAFU, Entschädigungen für Massnahmen nach Art. 83a GSchG und Art. 10 BGF nur noch dem Grundsatz nach zuzusichern?<\/li><li>Wie beurteilt er die Rechtssicherheit von Zusicherungen dem Grundsatz nach?<\/li><li>Teilt er die Auslegung des BAFU, dass es sich bei der im GSchG verankerten Frist um eine Verwirkungsfrist für den Entschädigungsanspruch gemäss Art. 34 EnG handelt?<\/li><li>Wie beurteilt er Entschädigungszusicherungen dem Grundsatz nach im Kontext des Rechtsanspruchs der Kraftwerksbetreiber auf vollständige Kostenerstattung gemäss Art. 34 EnG für Massnahmen nach Art. 83a GSchG bzw. Art. 10 BGF?<\/li><li>Ist er bereit, eine Anpassung des Finanzierungsmechanismus und eine Verlängerung der Frist vorzusehen, damit die laufenden Arbeiten in einem rechtssicheren Rahmen weitergeführt und die ökologische Sanierung der Wasserkraftwerke erfolgreich umgesetzt werden können?<\/li><\/ol>",
+      "tags": "Économie|Environnement|Énergie",
+      "tags_de": "Wirtschaft|Umwelt|Energie",
+      "tags_it": "Economia|Ambiente|Energia"
     },
     {
       "shortId": "26.4216",
@@ -72,11 +92,14 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264216",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264216",
       "mention": "Élu",
-      "text_de": "<p>Der Bundesrat wird beauftragt, die beschleunigte Technologieeinführung und Fähigkeitsentwicklung gemäss seinen Leitlinien für die Verteidigung konsequent voranzutreiben.<\/p><p>&nbsp;<\/p><p>Er sorgt insbesondere dafür, dass<\/p><p>&nbsp;<\/p><ol><li>die bereits aufgebauten Instrumente und Fähigkeiten zur Validierung und beschleunigten Technologieeinführung konsequent und breiter genutzt werden, um strategische Fähigkeitslücken rasch in testbare Vorhaben zu überführen, marktverfügbare Lösungen gemeinsam mit den Bedarfsträgern unter realistischen Bedingungen zu erproben und geeignete Lösungen zügig in Beschaffung, Betrieb und Ausbildung zu überführen;<\/li><li>Innovations-, Erprobungs- und Beschaffungsprozesse konsequent vereinfacht und beschleunigt werden, damit mit den vorhandenen Mitteln neue Fähigkeiten schneller und wirtschaftlicher bei der Truppe eingeführt werden können.<\/li><\/ol>"
+      "text_de": "<p>Der Bundesrat wird beauftragt, die beschleunigte Technologieeinführung und Fähigkeitsentwicklung gemäss seinen Leitlinien für die Verteidigung konsequent voranzutreiben.<\/p><p>&nbsp;<\/p><p>Er sorgt insbesondere dafür, dass<\/p><p>&nbsp;<\/p><ol><li>die bereits aufgebauten Instrumente und Fähigkeiten zur Validierung und beschleunigten Technologieeinführung konsequent und breiter genutzt werden, um strategische Fähigkeitslücken rasch in testbare Vorhaben zu überführen, marktverfügbare Lösungen gemeinsam mit den Bedarfsträgern unter realistischen Bedingungen zu erproben und geeignete Lösungen zügig in Beschaffung, Betrieb und Ausbildung zu überführen;<\/li><li>Innovations-, Erprobungs- und Beschaffungsprozesse konsequent vereinfacht und beschleunigt werden, damit mit den vorhandenen Mitteln neue Fähigkeiten schneller und wirtschaftlicher bei der Truppe eingeführt werden können.<\/li><\/ol>",
+      "tags": "Politique de sécurité|Science et recherche",
+      "tags_de": "Sicherheitspolitik|Wissenschaft und Forschung",
+      "tags_it": "Politica di sicurezza|Scienza e ricerca"
     },
     {
       "shortId": "26.7937",
-      "title": "Titre suit",
+      "title": "Le Contrôle fédéral des finances assure-t-il des contrôles ou fait-il de la politique ?",
       "title_de": "Macht die EFK Kontrollen oder Politik?",
       "author": "Schnyder Markus",
       "party": "UDC",
@@ -88,7 +111,11 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267937",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267937",
       "mention": "Élu",
-      "text_de": "<p>Im Zusammenhang mit dem Bericht der EFK zu Verkehr ’45 stellt sich die folgende Frage:&nbsp;<br>- Ist sich die EFK bewusst, dass ihr das Gesetz und unsere Staatsordnung die Funktion einer Kontrollbehörde mit engem Fokus auf finanzielle Fragen und nicht die einer zusätzlichen Staatsgewalt zuweisen?&nbsp;<br>- Wie sind aus staatspolitischer Sicht die weitgehenden politischen Stellungnahmen der EFK im Kontext ihrer begrenzten demokratischen Legitimation zu beurteilen?<\/p>"
+      "text": "<p>Le rapport du CDF intitulé « Transports ’45 » soulève les questions suivantes :&nbsp;<br>- Le CDF a-t-il conscience que la loi et notre ordre constitutionnel lui attribuent la fonction d’une autorité de contrôle pour les questions financières au sens strict, et non celle d’un pouvoir étatique supplémentaire ?&nbsp;<br>- Que penser des prises de position du CDF, politiquement très engagées, au regard de sa légitimité démocratique limitée ?<\/p>",
+      "text_de": "<p>Im Zusammenhang mit dem Bericht der EFK zu Verkehr ’45 stellt sich die folgende Frage:&nbsp;<br>- Ist sich die EFK bewusst, dass ihr das Gesetz und unsere Staatsordnung die Funktion einer Kontrollbehörde mit engem Fokus auf finanzielle Fragen und nicht die einer zusätzlichen Staatsgewalt zuweisen?&nbsp;<br>- Wie sind aus staatspolitischer Sicht die weitgehenden politischen Stellungnahmen der EFK im Kontext ihrer begrenzten demokratischen Legitimation zu beurteilen?<\/p>",
+      "tags": "Politique d'Etat|Finances|Transports",
+      "tags_de": "Staatspolitik|Finanzwesen|Verkehr",
+      "tags_it": "Politica nazionale|Finanze|Trasporti"
     },
     {
       "shortId": "26.7938",
@@ -105,11 +132,14 @@
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267938",
       "mention": "Élu",
       "text": "<p>Dans son rapport intitulé «&nbsp;Transports ’45&nbsp;», le CDF affirme que l’expertise de l’EPFZ ne constitue pas un document «&nbsp;… suffisamment fiable pour que la politique de transports du pays s’y repose largement&nbsp;». Or, sa critique n’est étayée par aucune analyse scientifique.&nbsp;<br>Une telle affirmation ne doit-elle pas être considérée comme une prise de position politique&nbsp;?<\/p>",
-      "text_de": "<p>Die EFK legt einen Bericht zu Verkehr ’45 vor und schreibt, dass das ETHZ-Gutachten keine «ausreichend verlässliche Grundlage» sei, «als dass sich die Verkehrspolitik der Schweiz in diesem Masse darauf stützen sollte». Die EFK äussert ihre Kritik an der Studie, ohne eine wissenschaftliche Auseinandersetzung mit der kritisierten Studie wiederzugeben.&nbsp;<br>Muss mithin eine solche Aussage nicht als politische Äusserung verstanden werden?<\/p>"
+      "text_de": "<p>Die EFK legt einen Bericht zu Verkehr ’45 vor und schreibt, dass das ETHZ-Gutachten keine «ausreichend verlässliche Grundlage» sei, «als dass sich die Verkehrspolitik der Schweiz in diesem Masse darauf stützen sollte». Die EFK äussert ihre Kritik an der Studie, ohne eine wissenschaftliche Auseinandersetzung mit der kritisierten Studie wiederzugeben.&nbsp;<br>Muss mithin eine solche Aussage nicht als politische Äusserung verstanden werden?<\/p>",
+      "tags": "Politique d'Etat|Finances|Transports",
+      "tags_de": "Staatspolitik|Finanzwesen|Verkehr",
+      "tags_it": "Politica nazionale|Finanze|Trasporti"
     },
     {
       "shortId": "26.7939",
-      "title": "Titre suit",
+      "title": "Le rapport du CDF sur Transports ‘45 constitue-t-il une ingérence politique ?",
       "title_de": "Ist der Bericht der EFK zu Verkehr 45 eine politische Einmischung?",
       "author": "Hurter Thomas",
       "party": "UDC",
@@ -121,7 +151,11 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267939",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267939",
       "mention": "Élu",
-      "text_de": "<p>Als \"zentrale Erkenntnis\" kritisiert der Bericht der EFK zu Verkehr 45, dass keine systematische Prüfung von Alternativen zum Autobahnausbau erfolgt sei (S. 4), und nimmt zudem Bezug auf das Mobility Pricing (S. 15). Damit mischt sich die EFK in politische Debatten ein.&nbsp;<br>Wie beurteilt das UVEK dies?<\/p>"
+      "text": "<p>Le rapport du CDF sur Transports ‘45 pointe du doigt en premier lieu le fait que les alternatives à l’élargissement des autoroutes n’ont pas été examinées systématiquement (p. 4). Il est aussi fait allusion à la tarification de la mobilité (p. 15). Le CDF ne s’immisce-t-il pas ainsi dans le débat politique&nbsp;?&nbsp;<br>Qu’en pense le DETEC&nbsp;?<\/p>",
+      "text_de": "<p>Als \"zentrale Erkenntnis\" kritisiert der Bericht der EFK zu Verkehr 45, dass keine systematische Prüfung von Alternativen zum Autobahnausbau erfolgt sei (S. 4), und nimmt zudem Bezug auf das Mobility Pricing (S. 15). Damit mischt sich die EFK in politische Debatten ein.&nbsp;<br>Wie beurteilt das UVEK dies?<\/p>",
+      "tags": "Politique d'Etat|Finances|Transports",
+      "tags_de": "Staatspolitik|Finanzwesen|Verkehr",
+      "tags_it": "Politica nazionale|Finanze|Trasporti"
     },
     {
       "shortId": "26.7988",
@@ -137,7 +171,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267988",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267988",
       "mention": "Élu",
-      "text_de": "<p>Das Gesetz gibt Betrieb und Substanzerhalt gegenüber dem Ausbau Vorrang (<a href=\"https://www.fedlex.admin.ch/eli/cc/2015/107/de#art_4\">Art. 4 Abs. 2 BIFG<\/a>).&nbsp;<br>Weshalb plant der Bundesrat neue Ausbauprojekte in einer Doppelvariante mit kleinerem und grösserem Investitionsvorhaben, obwohl der tatsächliche Mittelbedarf für den Substanzerhalt nach&nbsp;<a href=\"https://www.efk.admin.ch/wp-content/uploads/publikationen/berichte/sicherheit_und_umwelt/verkehr_und_umwelt/26718/26718be-uvek-projekt-verkehr_45.pdf\">Feststellung der EFK<\/a> für beide Varianten noch gar nicht geklärt ist?<\/p>"
+      "text_de": "<p>Das Gesetz gibt Betrieb und Substanzerhalt gegenüber dem Ausbau Vorrang (<a href=\"https://www.fedlex.admin.ch/eli/cc/2015/107/de#art_4\">Art. 4 Abs. 2 BIFG<\/a>).&nbsp;<br>Weshalb plant der Bundesrat neue Ausbauprojekte in einer Doppelvariante mit kleinerem und grösserem Investitionsvorhaben, obwohl der tatsächliche Mittelbedarf für den Substanzerhalt nach&nbsp;<a href=\"https://www.efk.admin.ch/wp-content/uploads/publikationen/berichte/sicherheit_und_umwelt/verkehr_und_umwelt/26718/26718be-uvek-projekt-verkehr_45.pdf\">Feststellung der EFK<\/a> für beide Varianten noch gar nicht geklärt ist?<\/p>",
+      "tags": "Finances|Transports",
+      "tags_de": "Finanzwesen|Verkehr",
+      "tags_it": "Finanze|Trasporti"
     },
     {
       "shortId": "26.8019",
@@ -153,7 +190,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268019",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268019",
       "mention": "Élu",
-      "text": "<p>Suite au rapport du CDF sur Rhône 3, le conseiller d’Etat F. Ruppen a déclaré au Nouvelliste&nbsp;: «&nbsp;l’OFEV a validé les lignes directrices de la révision en rappelant les exigences à respecter.&nbsp;»<\/p><p>- L’OFEV a-t-il effectivement validé les lignes directrices de la révision&nbsp;?<br>- Si oui sont-elles compatibles avec le projet approuvé par le parlement&nbsp;?<br>- Le CDF a souligné le manque de concertation du canton&nbsp;: ce problème a-t-il été réglé&nbsp;?&nbsp;<br>- L’OFEV peut-il de manière satisfaisante suivre le dossier&nbsp;?<\/p>"
+      "text": "<p>Suite au rapport du CDF sur Rhône 3, le conseiller d’Etat F. Ruppen a déclaré au Nouvelliste&nbsp;: «&nbsp;l’OFEV a validé les lignes directrices de la révision en rappelant les exigences à respecter.&nbsp;»<\/p><p>- L’OFEV a-t-il effectivement validé les lignes directrices de la révision&nbsp;?<br>- Si oui sont-elles compatibles avec le projet approuvé par le parlement&nbsp;?<br>- Le CDF a souligné le manque de concertation du canton&nbsp;: ce problème a-t-il été réglé&nbsp;?&nbsp;<br>- L’OFEV peut-il de manière satisfaisante suivre le dossier&nbsp;?<\/p>",
+      "tags": "Environnement",
+      "tags_de": "Umwelt",
+      "tags_it": "Ambiente"
     },
     {
       "shortId": "26.4053",
