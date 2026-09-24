@@ -9,6 +9,7 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
 </head>
 <body>
     <header>
@@ -176,6 +177,16 @@
                     <h3>🗣️ Parlementaires qui citent le plus le CDF</h3>
                     <div id="topAuthors" class="top-authors-list">
                         <p>Chargement...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-row">
+                <div class="stat-card wordcloud-card">
+                    <h3>☁️ Nuage de mots des titres <button class="chart-screenshot-btn" onclick="downloadWordCloud()" title="Télécharger l'image">📷</button></h3>
+                    <p class="wordcloud-subtitle">Les 20 mots les plus fréquents dans les titres des interventions</p>
+                    <div class="wordcloud-container">
+                        <canvas id="wordCloudCanvas"></canvas>
                     </div>
                 </div>
             </div>

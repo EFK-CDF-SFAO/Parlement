@@ -429,6 +429,7 @@ function renderAllObjectCharts() {
     renderTypeChart();
     renderYearChart();
     renderTopAuthors();
+    renderWordCloud();
     updateGlobalSummary();
 }
 
@@ -1527,6 +1528,165 @@ function renderDebateSummary() {
             </div>
         </div>
     `;
+}
+
+// ========== WORD CLOUD ==========
+
+// Stop words français - mots à exclure du nuage
+const stopWordsFR = new Set([
+    // Articles
+    'le', 'la', 'les', 'l', 'un', 'une', 'des', 'du', 'de', 'au', 'aux',
+    // Prépositions
+    'à', 'a', 'en', 'dans', 'sur', 'pour', 'par', 'avec', 'sans', 'sous', 'entre', 'vers', 'chez', 'contre', 'depuis', 'pendant', 'avant', 'après', 'selon',
+    // Conjonctions
+    'et', 'ou', 'mais', 'donc', 'or', 'ni', 'car', 'que', 'qui', 'quoi', 'dont', 'où',
+    // Pronoms
+    'je', 'tu', 'il', 'elle', 'on', 'nous', 'vous', 'ils', 'elles', 'ce', 'cet', 'cette', 'ces', 'celui', 'celle', 'ceux', 'celles', 'se', 'son', 'sa', 'ses', 'leur', 'leurs', 'mon', 'ma', 'mes', 'ton', 'ta', 'tes', 'notre', 'nos', 'votre', 'vos',
+    // Verbes courants
+    'est', 'sont', 'a', 'ont', 'être', 'avoir', 'fait', 'faire', 'peut', 'peuvent', 'doit', 'doivent', 'faut', 'va', 'vont', 'sera', 'seront', 'été',
+    // Adverbes et autres mots courants
+    'ne', 'pas', 'plus', 'moins', 'très', 'tout', 'tous', 'toute', 'toutes', 'aussi', 'encore', 'bien', 'mal', 'peu', 'beaucoup', 'trop', 'assez', 'même', 'autre', 'autres',
+    // Mots spécifiques au contexte parlementaire à exclure
+    'conseil', 'fédéral', 'suisse', 'confédération', 'titre', 'suit', 'object', 'objet', 'il', 'elle', 'd', 'qu', 'n', 's', 'c', 'j', 'm', 't', 'y',
+    // CDF / Contrôle fédéral des finances - à exclure
+    'cdf', 'efk', 'contrôle', 'finances', 'finanzkontrolle', 'eidgenössische',
+    // Fragments XML mal formatés
+    'xml', 'space', 'preserve',
+    // Ponctuation et chiffres isolés
+    '?', '!', '.', ',', ':', ';', '-', '–', '—', '«', '»', '"', "'", '(', ')', '[', ']', '/', '&', '+', '=', '%', '°', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+    // Mots vides supplémentaires
+    'quels', 'quelles', 'quel', 'quelle', 'comment', 'pourquoi', 'quand', 'combien', 'cas', 'mesures', 'situation', 'question', 'questions'
+]);
+
+function extractWordsFromTitles(data, titleField = 'title') {
+    const wordCounts = {};
+    
+    data.forEach(item => {
+        let title = item[titleField];
+        if (!title || title === 'Titre suit' || title === 'Titolo segue') return;
+        
+        // Nettoyer les fragments XML mal formatés (xml:space="preserve">)
+        title = title.replace(/xml:space="preserve">/gi, '');
+        title = title.replace(/xml:space/gi, '');
+        title = title.replace(/"preserve">/gi, '');
+        
+        // Nettoyer et tokenizer le titre
+        const words = title
+            .toLowerCase()
+            .replace(/['']/g, ' ') // Apostrophes
+            .replace(/[.,;:!?«»""()\[\]\/\-–—&+=%°<>]/g, ' ') // Ponctuation
+            .split(/\s+/)
+            .filter(word => {
+                // Filtrer les mots courts, les stop words et les chiffres
+                return word.length > 2 && 
+                       !stopWordsFR.has(word) && 
+                       !/^\d+$/.test(word);
+            });
+        
+        words.forEach(word => {
+            wordCounts[word] = (wordCounts[word] || 0) + 1;
+        });
+    });
+    
+    return wordCounts;
+}
+
+function renderWordCloud() {
+    const canvas = document.getElementById('wordCloudCanvas');
+    if (!canvas || typeof WordCloud === 'undefined') return;
+    
+    // Extraire et compter les mots
+    const wordCounts = extractWordsFromTitles(filteredData, 'title');
+    
+    // Trier et prendre les 20 premiers
+    const sortedWords = Object.entries(wordCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 20);
+    
+    if (sortedWords.length === 0) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = '14px sans-serif';
+        ctx.fillStyle = '#666';
+        ctx.textAlign = 'center';
+        ctx.fillText('Aucune donnée disponible', canvas.width / 2, canvas.height / 2);
+        return;
+    }
+    
+    // Calculer les poids (taille des mots)
+    const maxCount = sortedWords[0][1];
+    const minCount = sortedWords[sortedWords.length - 1][1];
+    const minSize = 12;
+    const maxSize = 45;
+    
+    const wordList = sortedWords.map(([word, count]) => {
+        // Taille proportionnelle au nombre d'occurrences (échelle linéaire)
+        const size = minCount === maxCount 
+            ? (minSize + maxSize) / 2
+            : minSize + (maxSize - minSize) * (count - minCount) / (maxCount - minCount);
+        return [word, size];
+    });
+    
+    // Couleurs inspirées du thème de l'application
+    const colors = ['#EA5A4F', '#003399', '#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#00BCD4', '#795548'];
+    
+    // Fonction pour obtenir une couleur déterministe basée sur le mot
+    function getColorForWord(word) {
+        let hash = 0;
+        for (let i = 0; i < word.length; i++) {
+            hash = word.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        return colors[Math.abs(hash) % colors.length];
+    }
+    
+    // Redimensionner le canvas
+    const container = canvas.parentElement;
+    canvas.width = container.offsetWidth * 2; // Haute résolution
+    canvas.height = container.offsetHeight * 2;
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    
+    // Effacer le canvas
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Générer le word cloud
+    WordCloud(canvas, {
+        list: wordList,
+        gridSize: Math.round(8 * canvas.width / 1024),
+        weightFactor: function(size) {
+            return size * canvas.width / 800;
+        },
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        color: function(word) {
+            return getColorForWord(word);
+        },
+        rotateRatio: 0,
+        rotationSteps: 0,
+        backgroundColor: 'transparent',
+        drawOutOfBound: false,
+        shrinkToFit: true,
+        ellipticity: 0.6,
+        click: function(item) {
+            // Rediriger vers la page objets avec le mot comme recherche (uniquement dans les titres)
+            const word = item[0];
+            window.location.href = `objects.html?search=${encodeURIComponent(word)}&search_in=title`;
+        },
+        hover: function(item) {
+            // Changer le curseur au survol
+            canvas.style.cursor = item ? 'pointer' : 'default';
+        }
+    });
+}
+
+function downloadWordCloud() {
+    const canvas = document.getElementById('wordCloudCanvas');
+    if (!canvas) return;
+    
+    const link = document.createElement('a');
+    link.download = 'nuage-de-mots-cdf.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
 }
 
 document.addEventListener('DOMContentLoaded', init);

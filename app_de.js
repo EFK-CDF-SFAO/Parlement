@@ -557,19 +557,33 @@ function applyFilters() {
     const legislatureValues = getCheckedValues('legislatureDropdown');
     const mentionValues = getCheckedValues('mentionDropdown');
     
+    // Prüfen ob nur in Titeln gesucht werden soll
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchInTitle = urlParams.get('search_in') === 'title';
+    
     filteredData = allData.filter(item => {
         // Text search avec word boundaries
         if (searchTerm) {
-            const searchFields = [
-                item.shortId,
-                item.title,
-                item.title_de,
-                item.author,
-                item.type,
-                item.status,
-                item.text,
-                item.text_de
-            ].filter(Boolean).join(' ');
+            let searchFields;
+            if (searchInTitle) {
+                // Nur in Titeln suchen
+                searchFields = [
+                    item.title,
+                    item.title_de
+                ].filter(Boolean).join(' ');
+            } else {
+                // In allen Feldern suchen
+                searchFields = [
+                    item.shortId,
+                    item.title,
+                    item.title_de,
+                    item.author,
+                    item.type,
+                    item.status,
+                    item.text,
+                    item.text_de
+                ].filter(Boolean).join(' ');
+            }
             
             if (!searchWholeWord(searchFields, searchTerm)) {
                 return false;
@@ -932,12 +946,17 @@ function escapeRegex(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-// Recherche par mot entier (word boundary)
+// Recherche par mot entier (compatible avec les accents/umlauts)
 function searchWholeWord(text, term) {
     if (!text || !term) return false;
-    const escapedTerm = escapeRegex(term);
-    const regex = new RegExp(`\\b${escapedTerm}\\b`, 'i');
-    return regex.test(text);
+    const lowerText = text.toLowerCase();
+    const lowerTerm = term.toLowerCase();
+    
+    // Word boundary compatible Unicode : début/fin de chaîne ou caractère non-alphanumérique
+    const escapedTerm = escapeRegex(lowerTerm);
+    const regex = new RegExp(`(?:^|[^a-zA-ZÀ-ÿäöüÄÖÜß])${escapedTerm}(?:[^a-zA-ZÀ-ÿäöüÄÖÜß]|$)`, 'i');
+    
+    return regex.test(' ' + lowerText + ' ');
 }
 
 function showLoading() {

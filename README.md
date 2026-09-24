@@ -54,6 +54,14 @@ Objects submitted by parliamentary committees have no session (`SubmissionSessio
 - **Highlighting** of search terms
 - **Responsive interface** (desktop + mobile)
 
+### ☁️ Word Cloud (Statistics)
+Interactive word cloud showing the 20 most frequent words from parliamentary object titles:
+- **Multilingual**: uses French titles on the FR page, German on DE, Italian on IT
+- **Smart filtering**: excludes stop words, generic terms (SFAO/CDF/EFK mentions), and XML artifacts
+- **Proportional sizing**: word size reflects occurrence count
+- **Clickable words**: redirects to the objects page filtered by title search
+- **Filter-aware**: updates dynamically based on active statistics filters (legislature, year, party, etc.)
+
 ### 🤖 AI Summary (Debates)
 Generate AI-powered summaries of parliamentary debates with one click:
 - **Model**: Anthropic Claude (via Cloudflare Worker proxy)
