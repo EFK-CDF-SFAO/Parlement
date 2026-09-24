@@ -611,19 +611,33 @@ function applyFilters() {
     const legislatureValues = getCheckedValues('legislatureDropdown');
     const mentionValues = getCheckedValues('mentionDropdown');
     
+    // Vérifier si on recherche uniquement dans les titres
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchInTitle = urlParams.get('search_in') === 'title';
+    
     filteredData = allData.filter(item => {
         // Text search avec word boundaries
         if (searchTerm) {
-            const searchFields = [
-                item.shortId,
-                item.title,
-                item.title_de,
-                item.author,
-                item.type,
-                item.status,
-                item.text,      // Texte de l'objet
-                item.text_de    // Texte allemand
-            ].filter(Boolean).join(' ');
+            let searchFields;
+            if (searchInTitle) {
+                // Recherche uniquement dans les titres
+                searchFields = [
+                    item.title,
+                    item.title_de
+                ].filter(Boolean).join(' ');
+            } else {
+                // Recherche dans tous les champs
+                searchFields = [
+                    item.shortId,
+                    item.title,
+                    item.title_de,
+                    item.author,
+                    item.type,
+                    item.status,
+                    item.text,      // Texte de l'objet
+                    item.text_de    // Texte allemand
+                ].filter(Boolean).join(' ');
+            }
             
             if (!searchWholeWord(searchFields, searchTerm)) {
                 return false;
@@ -1012,13 +1026,20 @@ function escapeRegex(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-// Recherche par mot entier (word boundary)
+// Recherche par mot entier (compatible avec les accents)
 function searchWholeWord(text, term) {
     if (!text || !term) return false;
-    // Créer une regex avec word boundaries pour éviter les correspondances partielles
-    const escapedTerm = escapeRegex(term);
-    const regex = new RegExp(`\\b${escapedTerm}\\b`, 'i');
-    return regex.test(text);
+    const lowerText = text.toLowerCase();
+    const lowerTerm = term.toLowerCase();
+    
+    // Pour les mots avec accents, utiliser une recherche simple
+    // qui vérifie que le mot est entouré de non-lettres ou en début/fin
+    const escapedTerm = escapeRegex(lowerTerm);
+    // Word boundary compatible Unicode : début/fin de chaîne ou caractère non-alphanumérique
+    const regex = new RegExp(`(?:^|[^a-zA-ZÀ-ÿ])${escapedTerm}(?:[^a-zA-ZÀ-ÿ]|$)`, 'i');
+    
+    // Ajouter des espaces pour gérer les cas en début/fin de chaîne
+    return regex.test(' ' + lowerText + ' ');
 }
 
 function showLoading() {

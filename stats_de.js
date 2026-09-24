@@ -405,6 +405,7 @@ function renderAllObjectCharts() {
     renderTypeChart();
     renderYearChart();
     renderTopAuthors();
+    renderWordCloud();
     updateGlobalSummary();
 }
 
@@ -1468,6 +1469,177 @@ function renderDebateSummary() {
             </div>
         </div>
     `;
+}
+
+// ========== WORD CLOUD ==========
+
+// Deutsche Stoppwörter - Wörter, die aus der Wortwolke ausgeschlossen werden
+const stopWordsDE = new Set([
+    // Artikel
+    'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'einer', 'eines', 'einem', 'einen',
+    // Präpositionen
+    'in', 'im', 'an', 'am', 'auf', 'aus', 'bei', 'mit', 'nach', 'über', 'unter', 'von', 'vom', 'vor', 'zu', 'zum', 'zur', 'durch', 'für', 'gegen', 'ohne', 'um', 'zwischen', 'neben', 'hinter', 'seit', 'bis', 'während', 'wegen', 'trotz', 'ab',
+    // Konjunktionen
+    'und', 'oder', 'aber', 'denn', 'weil', 'wenn', 'als', 'dass', 'ob', 'obwohl', 'sowie', 'sondern', 'doch', 'jedoch',
+    // Pronomen
+    'ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'sie', 'sich', 'mich', 'dich', 'ihn', 'ihm', 'uns', 'euch', 'ihnen', 'mir', 'dir', 'mein', 'dein', 'sein', 'ihr', 'unser', 'euer', 'dieser', 'diese', 'dieses', 'jener', 'jene', 'jenes', 'welcher', 'welche', 'welches', 'wer', 'was', 'man',
+    // Häufige Verben
+    'ist', 'sind', 'war', 'waren', 'hat', 'haben', 'hatte', 'hatten', 'wird', 'werden', 'wurde', 'wurden', 'kann', 'können', 'konnte', 'konnten', 'muss', 'müssen', 'musste', 'mussten', 'soll', 'sollen', 'sollte', 'sollten', 'will', 'wollen', 'wollte', 'wollten', 'darf', 'dürfen', 'durfte', 'durften', 'sein', 'gewesen', 'worden', 'geht', 'gibt', 'macht',
+    // Adverbien und andere häufige Wörter
+    'nicht', 'noch', 'auch', 'schon', 'nur', 'mehr', 'sehr', 'so', 'wie', 'wo', 'wann', 'warum', 'alle', 'aller', 'alles', 'andere', 'anderen', 'anderer', 'anderes', 'viel', 'viele', 'vielen', 'wenig', 'wenige', 'jetzt', 'hier', 'dort', 'dann', 'immer', 'nie', 'nichts', 'etwas',
+    // Kontextspezifische Wörter (Parlament)
+    'bundesrat', 'schweiz', 'schweizer', 'schweizerischen', 'eidgenossenschaft', 'titel', 'folgt', 'objekt', 'd', 'n', 's', 'z', 'b',
+    // EFK / Eidgenössische Finanzkontrolle - ausschliessen
+    'efk', 'cdf', 'eidgenössische', 'finanzkontrolle', 'contrôle', 'fédéral', 'finances',
+    // Fehlerhafte XML-Fragmente
+    'xml', 'space', 'preserve',
+    // Weitere häufige Wörter
+    'keine', 'beim', 'weiter',
+    // Interpunktion und einzelne Ziffern
+    '?', '!', '.', ',', ':', ';', '-', '–', '—', '«', '»', '"', "'", '(', ')', '[', ']', '/', '&', '+', '=', '%', '°', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+    // Weitere Stoppwörter
+    'welche', 'welchen', 'welchem', 'welches', 'wie', 'warum', 'wann', 'wieviel', 'fall', 'massnahmen', 'situation', 'frage', 'fragen'
+]);
+
+function extractWordsFromTitles(data, titleField = 'title_de') {
+    const wordCounts = {};
+    
+    // Wörter, die zusammengeführt werden sollen (Variante -> Hauptform)
+    const wordMerge = {
+        'bundes': 'bund'
+    };
+    
+    data.forEach(item => {
+        let title = item[titleField];
+        if (!title || title === 'Titel folgt' || title === 'Titre suit') return;
+        
+        // XML-Fragmente bereinigen (xml:space="preserve">)
+        title = title.replace(/xml:space="preserve">/gi, '');
+        title = title.replace(/xml:space/gi, '');
+        title = title.replace(/"preserve">/gi, '');
+        
+        // "Eidgenössische Finanzkontrolle" entfernen (EFK-Bezug)
+        title = title.replace(/eidgenössische[n]?\s+finanzkontrolle/gi, '');
+        
+        // Titel bereinigen und tokenisieren
+        const words = title
+            .toLowerCase()
+            .replace(/['']/g, ' ') // Apostrophe
+            .replace(/[.,;:!?«»""()\[\]\/\-–—&+=%°<>]/g, ' ') // Interpunktion
+            .split(/\s+/)
+            .filter(word => {
+                // Kurze Wörter, Stoppwörter und Zahlen filtern
+                return word.length > 2 && 
+                       !stopWordsDE.has(word) && 
+                       !/^\d+$/.test(word);
+            });
+        
+        words.forEach(word => {
+            // Wörter zusammenführen falls nötig
+            const normalizedWord = wordMerge[word] || word;
+            wordCounts[normalizedWord] = (wordCounts[normalizedWord] || 0) + 1;
+        });
+    });
+    
+    return wordCounts;
+}
+
+function renderWordCloud() {
+    const canvas = document.getElementById('wordCloudCanvas');
+    if (!canvas || typeof WordCloud === 'undefined') return;
+    
+    // Wörter extrahieren und zählen
+    const wordCounts = extractWordsFromTitles(filteredData, 'title_de');
+    
+    // Sortieren und die Top 20 nehmen
+    const sortedWords = Object.entries(wordCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 20);
+    
+    if (sortedWords.length === 0) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = '14px sans-serif';
+        ctx.fillStyle = '#666';
+        ctx.textAlign = 'center';
+        ctx.fillText('Keine Daten verfügbar', canvas.width / 2, canvas.height / 2);
+        return;
+    }
+    
+    // Gewichte berechnen (Wortgrösse)
+    const maxCount = sortedWords[0][1];
+    const minCount = sortedWords[sortedWords.length - 1][1];
+    const minSize = 12;
+    const maxSize = 45;
+    
+    const wordList = sortedWords.map(([word, count]) => {
+        // Grösse proportional zur Anzahl Vorkommen (lineare Skala)
+        const size = minCount === maxCount 
+            ? (minSize + maxSize) / 2
+            : minSize + (maxSize - minSize) * (count - minCount) / (maxCount - minCount);
+        return [word, size];
+    });
+    
+    // Farben inspiriert vom App-Thema
+    const colors = ['#EA5A4F', '#003399', '#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#00BCD4', '#795548'];
+    
+    // Funktion für deterministische Farbe basierend auf dem Wort
+    function getColorForWord(word) {
+        let hash = 0;
+        for (let i = 0; i < word.length; i++) {
+            hash = word.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        return colors[Math.abs(hash) % colors.length];
+    }
+    
+    // Canvas anpassen
+    const container = canvas.parentElement;
+    canvas.width = container.offsetWidth * 2; // Hohe Auflösung
+    canvas.height = container.offsetHeight * 2;
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    
+    // Canvas leeren
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Wortwolke generieren
+    WordCloud(canvas, {
+        list: wordList,
+        gridSize: Math.round(8 * canvas.width / 1024),
+        weightFactor: function(size) {
+            return size * canvas.width / 800;
+        },
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        color: function(word) {
+            return getColorForWord(word);
+        },
+        rotateRatio: 0,
+        rotationSteps: 0,
+        backgroundColor: 'transparent',
+        drawOutOfBound: false,
+        shrinkToFit: true,
+        ellipticity: 0.6,
+        click: function(item) {
+            // Zur Vorstösse-Seite mit dem Wort als Suche weiterleiten (nur in Titeln)
+            const word = item[0];
+            window.location.href = `objects_de.html?search=${encodeURIComponent(word)}&search_in=title`;
+        },
+        hover: function(item) {
+            // Cursor bei Hover ändern
+            canvas.style.cursor = item ? 'pointer' : 'default';
+        }
+    });
+}
+
+function downloadWordCloud() {
+    const canvas = document.getElementById('wordCloudCanvas');
+    if (!canvas) return;
+    
+    const link = document.createElement('a');
+    link.download = 'wortwolke-efk.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
 }
 
 document.addEventListener('DOMContentLoaded', init);
