@@ -732,8 +732,12 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         return;
     }
     
-    // Trier par shortId décroissant (plus récents en premier)
-    sessionObjects.sort((a, b) => b.shortId.localeCompare(a.shortId, undefined, { numeric: true }));
+    // Trier par date décroissante, puis par shortId décroissant pour les mêmes dates
+    sessionObjects.sort((a, b) => {
+        const dateCompare = (b.date || '').localeCompare(a.date || '');
+        if (dateCompare !== 0) return dateCompare;
+        return b.shortId.localeCompare(a.shortId, undefined, { numeric: true });
+    });
     
     // Maximal 3 Objekte
     const objectsToShow = sessionObjects.slice(0, 3);
