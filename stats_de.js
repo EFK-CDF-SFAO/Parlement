@@ -1603,12 +1603,15 @@ function renderWordCloud() {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
+    // Mobile erkennen für Grössenanpassung
+    const isMobile = window.innerWidth <= 768;
+    
     // Wortwolke generieren
     WordCloud(canvas, {
         list: wordList,
-        gridSize: Math.round(8 * canvas.width / 1024),
+        gridSize: Math.round((isMobile ? 6 : 8) * canvas.width / 1024),
         weightFactor: function(size) {
-            return size * canvas.width / 800;
+            return size * canvas.width / (isMobile ? 500 : 800);
         },
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         color: function(word) {
