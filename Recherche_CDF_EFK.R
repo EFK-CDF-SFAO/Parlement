@@ -100,6 +100,16 @@ est_titre_manquant <- function(titre) {
   return(tolower(trimws(titre)) %in% c("titre suit", "titel folgt", "titolo segue"))
 }
 
+# Nettoyer les artefacts XML des titres (xml:space="preserve">)
+nettoyer_titre <- function(titre) {
+  if (is.na(titre) || titre == "") return(titre)
+  titre <- str_replace_all(titre, 'xml:space="preserve">\\s*', '')
+  titre <- str_replace_all(titre, 'xml:space="preserve"\\s*', '')
+  titre <- str_replace_all(titre, 'xml:space\\s*', '')
+  titre <- str_replace_all(titre, '"preserve">\\s*', '')
+  return(trimws(titre))
+}
+
 concatener_textes <- function(df) {
   df |>
     mutate(
@@ -1161,9 +1171,10 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
         interventions = interventions_session |>
           mutate(
             shortId = Numéro,
-            title = Titre_FR,
-            title_de = Titre_DE,
-            title_it = if ("Titre_IT" %in% names(interventions_session)) Titre_IT else NA_character_,
+            # Nettoyer les artefacts XML des titres
+            title = nettoyer_titre(Titre_FR),
+            title_de = nettoyer_titre(Titre_DE),
+            title_it = if ("Titre_IT" %in% names(interventions_session)) nettoyer_titre(Titre_IT) else NA_character_,
             author = Auteur,
             party = if ("Parti" %in% names(interventions_session)) Parti else NA_character_,
             type = Type,
@@ -1191,9 +1202,10 @@ if (!is.null(Resultats) && nrow(Resultats) > 0) {
   Donnees_JSON <- Resultats |>
     mutate(
       shortId = Numéro,
-      title = Titre_FR,
-      title_de = Titre_DE,
-      title_it = if ("Titre_IT" %in% names(Resultats)) Titre_IT else NA_character_,
+      # Nettoyer les artefacts XML des titres
+      title = nettoyer_titre(Titre_FR),
+      title_de = nettoyer_titre(Titre_DE),
+      title_it = if ("Titre_IT" %in% names(Resultats)) nettoyer_titre(Titre_IT) else NA_character_,
       author = Auteur,
       party = if ("Parti" %in% names(Resultats)) Parti else NA_character_,
       type = ifelse(Type == "A", "Fra.", Type),
