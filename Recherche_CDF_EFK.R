@@ -101,13 +101,13 @@ est_titre_manquant <- function(titre) {
 }
 
 # Nettoyer les artefacts XML des titres (xml:space="preserve">)
+# Fonction vectorisée pour fonctionner avec mutate()
 nettoyer_titre <- function(titre) {
-  if (is.na(titre) || titre == "") return(titre)
   titre <- str_replace_all(titre, 'xml:space="preserve">\\s*', '')
   titre <- str_replace_all(titre, 'xml:space="preserve"\\s*', '')
   titre <- str_replace_all(titre, 'xml:space\\s*', '')
   titre <- str_replace_all(titre, '"preserve">\\s*', '')
-  return(trimws(titre))
+  return(str_trim(titre))
 }
 
 concatener_textes <- function(df) {
