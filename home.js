@@ -711,9 +711,10 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         const displayTitle = frMissing && item.title_de ? item.title_de : (item.title || item.title_de || '');
         const langWarning = frMissing && item.title_de ? '<span class="lang-warning">🌐 Uniquement en allemand</span>' : '';
         
-        // Bande verte si déposé il y a moins de 4 jours
-        const itemDate = new Date(item.date + 'T12:00:00');
-        const isNew = itemDate >= fourDaysAgo;
+        // Bande verte si mis à jour il y a moins de 4 jours
+        const itemDateStr = item.date_maj || item.date || '';
+        const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+        const isNew = itemDate ? itemDate >= fourDaysAgo : false;
         
         html += `
             <a href="${item.url_fr}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
