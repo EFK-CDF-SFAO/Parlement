@@ -675,10 +675,19 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         return;
     }
     
-    // Trier par date décroissante, puis par shortId décroissant pour les mêmes dates
+    // Trier par date_maj décroissante (priorité), puis date, puis shortId
     sessionObjects.sort((a, b) => {
+        // Date de mise à jour en priorité
+        const majA = a.date_maj || '';
+        const majB = b.date_maj || '';
+        if (majA || majB) {
+            const majCompare = majB.localeCompare(majA);
+            if (majCompare !== 0) return majCompare;
+        }
+        // Puis date de dépôt
         const dateCompare = (b.date || '').localeCompare(a.date || '');
         if (dateCompare !== 0) return dateCompare;
+        // Puis shortId
         return b.shortId.localeCompare(a.shortId, undefined, { numeric: true });
     });
     

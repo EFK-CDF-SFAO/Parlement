@@ -796,10 +796,19 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         return;
     }
     
-    // Trier par date décroissante, puis par shortId décroissant pour les mêmes dates
+    // Ordinare per date_maj (priorità), poi date, poi shortId
     sessionObjects.sort((a, b) => {
+        // Data di aggiornamento ha priorità
+        const majA = a.date_maj || '';
+        const majB = b.date_maj || '';
+        if (majA || majB) {
+            const majCompare = majB.localeCompare(majA);
+            if (majCompare !== 0) return majCompare;
+        }
+        // Poi data di deposito
         const dateCompare = (b.date || '').localeCompare(a.date || '');
         if (dateCompare !== 0) return dateCompare;
+        // Poi shortId
         return b.shortId.localeCompare(a.shortId, undefined, { numeric: true });
     });
     
