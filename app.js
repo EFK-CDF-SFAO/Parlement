@@ -1085,7 +1085,7 @@ function downloadFilteredData() {
         return;
     }
     
-    const councilMap = { 'N': 'CN', 'S': 'CE', 'V': 'AF' };
+    const councilMap = { 'N': 'CN', 'S': 'CE', 'V': 'AF', 'NR': 'CN', 'SR': 'CE' };
     const headers = ['ID', 'Type', 'Titre', 'Auteur', 'Parti', 'Conseil', 'Date', 'Statut', 'Lien'];
     const rows = filteredData.map(item => {
         // Gestion titre manquant pour export
