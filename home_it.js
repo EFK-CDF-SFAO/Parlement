@@ -842,9 +842,10 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
             langWarning = '<span class="lang-warning">🌐 Solo in tedesco</span>';
         }
         
-        // Bande verte si déposé il y a moins de 4 jours
-        const itemDate = new Date(item.date + 'T12:00:00');
-        const isNew = itemDate >= fourDaysAgo;
+        // Barra verde se aggiornato negli ultimi 4 giorni
+        const itemDateStr = item.date_maj || item.date || '';
+        const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+        const isNew = itemDate ? itemDate >= fourDaysAgo : false;
         
         html += `
             <a href="${url}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">

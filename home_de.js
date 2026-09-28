@@ -767,9 +767,10 @@ function displayNewObjectsDuringSession(allItems, newIds, activeSession) {
         const displayTitle = deMissing && item.title ? item.title : (item.title_de || item.title || '');
         const langWarning = deMissing && item.title ? '<span class="lang-warning">🌐 Derzeit nur auf Französisch</span>' : '';
         
-        // Bande verte si déposé il y a moins de 4 jours
-        const itemDate = new Date(item.date + 'T12:00:00');
-        const isNew = itemDate >= fourDaysAgo;
+        // Grüner Balken wenn in den letzten 4 Tagen aktualisiert
+        const itemDateStr = item.date_maj || item.date || '';
+        const itemDate = itemDateStr ? new Date(itemDateStr + 'T12:00:00') : null;
+        const isNew = itemDate ? itemDate >= fourDaysAgo : false;
         
         html += `
             <a href="${item.url_de}" target="_blank" class="intervention-card${isNew ? ' card-new' : ''}">
