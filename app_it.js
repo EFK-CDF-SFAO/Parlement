@@ -1042,7 +1042,7 @@ function downloadFilteredData() {
         return;
     }
     
-    const councilMap = { 'N': 'CN', 'S': 'CS', 'V': 'AF' };
+    const councilMap = { 'N': 'CN', 'S': 'CS', 'V': 'AF', 'NR': 'CN', 'SR': 'CS' };
     const headers = ['ID', 'Tipo', 'Titolo', 'Autore', 'Partito', 'Consiglio', 'Data', 'Stato', 'Link'];
     const rows = filteredData.map(item => {
         // Gestion titre manquant pour export - priorité: IT > FR > DE
