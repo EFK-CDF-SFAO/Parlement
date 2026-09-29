@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updated": "2026-09-29T00:51:57",
-    "total_count": 375,
+    "updated": "2026-09-29T13:33:26",
+    "total_count": 378,
     "source": "Swiss Parliament API",
     "legislature": 52,
-    "new_ids": []
+    "new_ids": ["26.4294", "26.4317", "26.4324"]
   },
   "session_summary": {
     "session_id": "2026-ete",
@@ -40,6 +40,57 @@
     }
   },
   "items": [
+    {
+      "shortId": "26.4294",
+      "title": "Titre suit",
+      "title_de": "Medikamentenrabatte konsequent weitergeben",
+      "title_it": "Titolo segue",
+      "author": "Bally Maya",
+      "party": "Le Centre",
+      "type": "Ip.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-29",
+      "date_maj": "2026-09-29",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264294",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264294",
+      "mention": "Élu",
+      "text_de": "<p>Die Eidgenössische Finanzkontrolle hat erhebliche Transparenz- und Vollzugsdefizite bei Vergünstigungen im Medikamentenbereich festgestellt. Gleichzeitig bestätigt der Bundesrat, dass Rabatte der Kostensenkung in der obligatorischen Krankenpflegeversicherung dienen und weitergegeben werden müssen.<\/p><p>&nbsp;<\/p><p>Während BAG und Versicherer die Kontrollen verstärken wollen, plant der Bundesrat mit den Kostenfolgemodellen ein zusätzliches Instrument. Es stellt sich deshalb die Frage, ob zuerst das Sparpotenzial des geltenden Rechts konsequent ausgeschöpft werden sollte.<\/p><p>&nbsp;<\/p><p>Der Bundesrat wird um die Beantwortung folgender Fragen gebeten:<\/p><p>&nbsp;<\/p><ol style=\"list-style-type:decimal;\"><li>Wie hoch ist der Betrag der weitergabepflichtigen Vergünstigungen, und welcher Anteil davon kommt heute tatsächlich den Prämienzahlenden zugute?<\/li><li>Können in der Vergangenheit zu Unrecht nicht weitergegebene Rabatte rückwirkend zurückgefordert werden? Welche rechtlichen Grundlagen, Zuständigkeiten und Verjährungsfristen gelten dabei? Ist dabei auch eine Rückforderung nach den Grundsätzen der ungerechtfertigten Bereicherung zu prüfen?<\/li><li>Wäre es rechtlich und praktisch möglich, zurückgeforderte Beträge in einen zweckgebundenen Arzneimittelfonds einzuzahlen und damit die OKP beziehungsweise die Prämienzahlenden zu entlasten?<\/li><li>Welche konkreten Ziele und Fristen gelten für die im Rahmen der Table ronde Kostendämpfung 2025 eingesetzte Arbeitsgruppe von BAG und Versicherern?<\/li><li>Ist der Bundesrat bereit, vor Verabschiedung der definitiven Verordnungsänderung zu den Kostenfolgemodellen, aufzuzeigen, welches zusätzliche Einsparpotenzial ein konsequenter Vollzug der bestehenden Weitergabepflicht ermöglichen würde?<\/li><\/ol>"
+    },
+    {
+      "shortId": "26.4317",
+      "title": "Titre suit",
+      "title_de": "Berücksichtigung der Durchdiener im Effektivbestand der Armee",
+      "title_it": "Titolo segue",
+      "author": "Seiler Graf Priska",
+      "party": "PS",
+      "type": "Ip.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-29",
+      "date_maj": "2026-09-29",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264317",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264317",
+      "mention": "Élu",
+      "text_de": "<p>Zu den Durchdienern, die ihre Ausbildungsdienstpflicht vollendet haben, aber in keinen Formationen mehr eingeteilt sind und deshalb nicht zum Effektivbestand gezählt werden (vgl. Art.&nbsp;1 Abs.&nbsp;2 Bst.&nbsp;d&nbsp;<a href=\"https://www.fedlex.admin.ch/eli/cc/2017/217/de\"><u>Armeeorganisation<\/u><\/a>, AO), hat die eidgenössische Finanzkontrolle EFK in der&nbsp;<a href=\"https://www.efk.admin.ch/prufung/durchdienermodell-in-der-schweizer-armee-gruppe-verteidigung/\"><u>Evaluation des Durchdienermodells<\/u><\/a> im Jahr 2021 folgende Empfehlung formuliert (Empfehlung&nbsp;2, Seite&nbsp;26): «Die EFK empfiehlt der Gruppe Verteidigung, eine Änderung der Verordnung der Bundesversammlung über die Organisation der Armee zu initiieren, mit dem Ziel einer angemessenen Berücksichtigung der Durchdiener im Effektivbestand der Armee.»<\/p><p>Die Gruppe Verteidigung hat diese Empfehlung angenommen und deren Umsetzung im Rahmen der nächsten Revision in Aussicht gestellt. Dieses Versprechen hat der Bundesrat dann allerdings nicht eingelöst. Hingegen hat das Parlament eine neue Formulierung von Artikel&nbsp;1 Absatz&nbsp;1 AO beschlossen, die am 1.&nbsp;Juni 2026 in Kraft getreten ist: Neu verfügt die Armee über «einen Effektivbestand, der geeignet ist, den Sollbestand jederzeit sicherzustellen».<\/p><p>Aus dieser Formulierung folgt, dass die Durchdiener mit erfüllter Ausbildungsdienstpflicht – und weitere Kategorien, die nicht zum Effektivbestand gezählt werden, aber zu Assistenz- und Aktivdienst aufgeboten werden können und folglich zum Sollbestand beitragen – bei der Bestimmung des «geeigneten Effektivbestands» angemessen zu berücksichtigen sind.<\/p><p>Daraus ergeben sich Fragen:<\/p><ol><li>Warum hat der Bundesrat die Zusage, die Empfehlung der EFK umzusetzen, nicht eingelöst?<\/li><li>Ist der Bundesrat bereit, gestützt auf die neue Formulierung von Artikel&nbsp;1 Absatz&nbsp;1 AO dafür zu sorgen, dass die folgenden Angehörigen der Armee bei der Bestimmung des Effektivbestands berücksichtigt und transparent ausgewiesen werden?<ol style=\"list-style-type:lower-alpha;\"><li>Durchdiener mit erfüllter Ausbildungsdienstpflicht;<\/li><li>Angehörige der Armee im letzten Jahr der Militärdienstpflicht;<\/li><li>Alle übrigen Angehörigen der Armee die ebenfalls nicht zum Effektivbestand gezählt werden, aber zu Assistenz- und Aktivdienst aufgeboten werden können und somit zum Sollbestand beitragen.<\/li><\/ol><\/li><li>Wenn nein: Warum nicht?<\/li><\/ol>"
+    },
+    {
+      "shortId": "26.4324",
+      "title": "Titre suit",
+      "title_de": "Interpellation: Verkehr ’45 – Grimseltunnel – Kosten, Synergien und Bewertungsgrundlagen",
+      "title_it": "Titolo segue",
+      "author": "de Meuron Andrea",
+      "party": "VERT-E-S",
+      "type": "Ip.",
+      "status": "Eingereicht / Déposé",
+      "council": "NR",
+      "date": "2026-09-29",
+      "date_maj": "2026-09-29",
+      "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264324",
+      "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264324",
+      "mention": "Élu",
+      "text_de": "<ol><li>Wie wird sichergestellt, dass bei Gross- und Regionalprojekten vergleichbare Bewertungsmassstäbe gelten und bei der Angebotsplanung neben der NIBA-Bewertung auch weitere raumplanerische und regionale Wirkungen berücksichtigt werden? Der Grimseltunnel weist gemäss NIBA-Bewertung einen Wert von 0 auf und wird aufgrund von Bündelungssynergien, touristischem Potenzial und regionalen Entwicklungschancen weiterverfolgt.&nbsp;Welche einheitlichen Kriterien gelten neben der NIBA-Bewertung für die Beurteilung solcher Projekte?<\/li><li>Wie setzen sich die in den Vernehmlassungsunterlagen ausgewiesenen Projektkosten zusammen? Welcher Anteil entfällt auf Bahn- und Strominfrastruktur, welche Kosten bzw. Verpflichtungen ergeben sich daraus für den Kanton Bern und wie verändert der Swissgrid-Beitrag die Kosten zulasten der Bahninfrastruktur?<\/li><li>Welche Einsparungen entstehen durch die gemeinsame Realisierung von Bahn- und Strominfrastruktur gegenüber einer getrennten Realisierung? Wie werden diese Synergien technisch und finanziell ausgewiesen?<\/li><li>Haben sich seit den Grundlagen der Vernehmlassung technische Anforderungen an die Strominfrastruktur, insbesondere bezüglich Wärmeabfuhr, Sicherheit, Betrieb und Instandhaltung, verändert? Falls ja, mit welchen Auswirkungen auf Kosten und Synergien?<\/li><\/ol>"
+    },
     {
       "shortId": "26.7937",
       "title": "Le Contrôle fédéral des finances assure-t-il des contrôles ou fait-il de la politique ?",
