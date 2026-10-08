@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-10-08T00:48:50",
+    "updated": "2026-10-08T14:14:10",
     "total_count": 386,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -805,7 +805,7 @@
       "shortId": "26.3750",
       "title": "Axe ferroviaire du Saint-Gothard. Le Conseil fédéral a-t-il l'intention de remédier aux lacunes constatées lors de la préparation du message 2027 ?",
       "title_de": "Gotthard-Eisenbahnachse. Plant der Bundesrat, die bei der Ausarbeitung der Botschaft 2027 aufgetretenen Mängel zu beheben?",
-      "title_it": "Asse ferroviario del San Gottardo. Il Consiglio federale intende correggere le lacune emerse nella preparazione del Messaggio 2027?",
+      "title_it": "Asse ferroviario del San Gottardo. Il Consiglio federale intende correggere le lacune emerse nella preparazione del messaggio 2027?",
       "author": "Regazzi Fabio",
       "party": "Le Centre",
       "type": "Ip.",
