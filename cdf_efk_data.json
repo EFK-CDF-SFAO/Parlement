@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-10-09T01:05:29",
+    "updated": "2026-10-09T14:02:05",
     "total_count": 386,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -95,7 +95,10 @@
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264580",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264580",
       "mention": "Élu",
-      "text": "<p>Le Conseil fédéral est chargé d’identifier et de faire récupérer tous les avantages directs ou indirects qui, en violation de l’art. 56 al. 3 LAMal, n’ont pas été répercutés sur les assureurs ou les assurés. Lorsque la Confédération est compétente, elle les récupère ou en ordonne le recouvrement. Dans les autres cas, elle le coordonne et s’assure que les titulaires des prétentions agissent.<\/p><p>&nbsp;<\/p><p>Cette opération couvre les dix années précédant le dépôt de la présente motion et la période écoulée depuis. Elle vise tous les acteurs et toutes les prestations remboursées par l’AOS, notamment les rabais, ristournes, « cashbacks » et « fees for service », ainsi que les avantages indirects ou en nature.<\/p><p>&nbsp;<\/p><p>Au besoin, le Conseil fédéral propose les bases légales permettant d’obtenir de toute personne ayant accordé ou reçu ces avantages l’identité des bénéficiaires, les montants et les justificatifs; d’ordonner ou de coordonner leur recouvrement; et de prévoir un délai de restitution de dix ans ainsi que les dispositions transitoires nécessaires.<\/p><p>&nbsp;<\/p><p>En cas de déclaration spontanée, la non-répercussion est réputée avoir été commise par négligence et n’entraîne pas de sanction au titre de l’art. 92 LAMal.<\/p><p>&nbsp;<\/p><p>Les sommes récupérées doivent revenir intégralement et de manière vérifiable aux assurés, notamment par une restitution, une compensation ou une diminution des primes.<\/p>"
+      "text": "<p>Le Conseil fédéral est chargé d’identifier et de faire récupérer tous les avantages directs ou indirects qui, en violation de l’art. 56 al. 3 LAMal, n’ont pas été répercutés sur les assureurs ou les assurés. Lorsque la Confédération est compétente, elle les récupère ou en ordonne le recouvrement. Dans les autres cas, elle le coordonne et s’assure que les titulaires des prétentions agissent.<\/p><p>&nbsp;<\/p><p>Cette opération couvre les dix années précédant le dépôt de la présente motion et la période écoulée depuis. Elle vise tous les acteurs et toutes les prestations remboursées par l’AOS, notamment les rabais, ristournes, « cashbacks » et « fees for service », ainsi que les avantages indirects ou en nature.<\/p><p>&nbsp;<\/p><p>Au besoin, le Conseil fédéral propose les bases légales permettant d’obtenir de toute personne ayant accordé ou reçu ces avantages l’identité des bénéficiaires, les montants et les justificatifs; d’ordonner ou de coordonner leur recouvrement; et de prévoir un délai de restitution de dix ans ainsi que les dispositions transitoires nécessaires.<\/p><p>&nbsp;<\/p><p>En cas de déclaration spontanée, la non-répercussion est réputée avoir été commise par négligence et n’entraîne pas de sanction au titre de l’art. 92 LAMal.<\/p><p>&nbsp;<\/p><p>Les sommes récupérées doivent revenir intégralement et de manière vérifiable aux assurés, notamment par une restitution, une compensation ou une diminution des primes.<\/p>",
+      "tags": "Santé",
+      "tags_de": "Gesundheit",
+      "tags_it": "Salute"
     },
     {
       "shortId": "26.4615",
