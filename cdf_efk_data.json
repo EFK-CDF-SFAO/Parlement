@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-10-13T02:27:27",
+    "updated": "2026-10-13T14:44:48",
     "total_count": 386,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -894,7 +894,7 @@
     },
     {
       "shortId": "26.3736",
-      "title": "Réintroduction de l'obligation de visas pour les Géorgiens",
+      "title": "Réintroduction de l'obligation de visa pour les Géorgiens",
       "title_de": "Wiedereinführung der Visumpflicht für Georgierinnen und Georgier",
       "title_it": "Reintrodurre l'obbligo del visto per i Georgiani",
       "author": "de Quattro Jacqueline",
