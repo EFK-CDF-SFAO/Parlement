@@ -64,7 +64,7 @@ Interactive word cloud showing the 20 most frequent words from parliamentary obj
 
 ### 🤖 AI Summary (Debates)
 Generate AI-powered summaries of parliamentary debates with one click:
-- **Model**: Anthropic Claude (via Cloudflare Worker proxy)
+- **Model**: Google Gemini Flash (via Cloudflare Worker proxy)
 - **Languages**: FR, DE, IT
 - **Content**: Context, speaker positions, consensus points, divergences
 
