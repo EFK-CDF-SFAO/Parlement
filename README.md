@@ -62,12 +62,6 @@ Interactive word cloud showing the 20 most frequent words from parliamentary obj
 - **Clickable words**: redirects to the objects page filtered by title search
 - **Filter-aware**: updates dynamically based on active statistics filters (legislature, year, party, etc.)
 
-### 🤖 AI Summary (Debates)
-Generate AI-powered summaries of parliamentary debates with one click:
-- **Model**: Google Gemini Flash (via Cloudflare Worker proxy)
-- **Languages**: FR, DE, IT
-- **Content**: Context, speaker positions, consensus points, divergences
-
 ### 🏛️ Live Session Animation
 During parliamentary sessions, the homepage displays an animated pixel art Federal Palace:
 - **Dynamic sky**: changes based on time of day (morning 7:45-8:00, day 8:00-19:00, evening 19:00-21:00, night 21:00-7:45)
@@ -130,8 +124,7 @@ Once installed, the app:
 ├── 🌐 Website (GitHub Pages)
 │   ├── index.html / index_de.html / index_it.html
 │   ├── objects.html / debates.html / stats.html
-│   ├── app.js / stats.js
-│   └── llm_summary.js         → AI summary module
+│   └── app.js / stats.js
 ├── 📊 R Scripts
 │   ├── Recherche_CDF_EFK.R    → Parliamentary objects
 │   └── Recherche_Debats.R     → Debates
