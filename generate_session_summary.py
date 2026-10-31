@@ -29,7 +29,6 @@ except ImportError:
 # Configuration Gemini
 GEMINI_MODEL = "gemini-2.0-flash"
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-GEMINI_WORKER_URL = "https://gemini-proxy.cloudflare-resent579.workers.dev"
 
 # Mapping des partis par langue
 PARTY_NAMES = {
@@ -240,11 +239,12 @@ Objets parlementaires mentionnant le CDF:
 {THEMES_INSTRUCTIONS[lang]}"""
 
 
-def call_gemini(prompt: str, api_key: str = None) -> str:
-    """Appelle l'API Gemini pour générer le résumé (via Worker ou API directe)."""
+def call_gemini(prompt: str, api_key: str) -> str:
+    """Appelle l'API Gemini pour générer le résumé."""
     
     headers = {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-goog-api-key': api_key
     }
     
     body = {
@@ -260,11 +260,7 @@ def call_gemini(prompt: str, api_key: str = None) -> str:
         }
     }
     
-    # Utiliser le Worker Cloudflare si pas de clé API
-    if api_key:
-        url = f"{GEMINI_URL.format(model=GEMINI_MODEL)}?key={api_key}"
-    else:
-        url = GEMINI_WORKER_URL
+    url = GEMINI_URL.format(model=GEMINI_MODEL)
     
     response = requests.post(url, headers=headers, json=body)
     
@@ -280,7 +276,7 @@ def call_gemini(prompt: str, api_key: str = None) -> str:
     return parts[-1]['text'].strip()
 
 
-def generate_summaries(session_id: str, api_key: str = None) -> dict:
+def generate_summaries(session_id: str, api_key: str) -> dict:
     """Génère les résumés dans les 3 langues."""
     script_dir = Path(__file__).parent
     
@@ -328,12 +324,9 @@ def generate_summaries(session_id: str, api_key: str = None) -> dict:
 
 
 def main():
-    # Clé API optionnelle (utilise le Worker Cloudflare si non définie)
     api_key = os.environ.get('GEMINI_API_KEY')
-    if api_key:
-        print("🔑 Utilisation de la clé API Gemini")
-    else:
-        print("☁️  Utilisation du Worker Cloudflare (pas de clé API)")
+    if not api_key:
+        sys.exit("❌ Variable d'environnement GEMINI_API_KEY requise")
     
     # Session ID optionnel
     session_id = sys.argv[1] if len(sys.argv) > 1 else None
