@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-11-17T20:25:42",
+    "updated": "2026-11-18T03:01:20",
     "total_count": 390,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -81,9 +81,9 @@
       "mention": "Conseil fédéral",
       "text": "<p>Le Conseil fédéral est chargé d’établir un rapport examinant si la rémunération des prestations pharmaceutiques est indispensable et si les objectifs ont été atteints.<\/p>",
       "text_de": "<p>Der Bundesrat wird beauftragt, in einem Bericht zu analysieren, ob die leistungsorientierte Abgeltung (LOA) unerlässlich ist und ob die Ziele erreicht wurden.<\/p>",
-      "tags": "Politique d'Etat|Économie|Santé",
-      "tags_de": "Staatspolitik|Wirtschaft|Gesundheit",
-      "tags_it": "Politica nazionale|Economia|Salute"
+      "tags": "Économie|Santé",
+      "tags_de": "Wirtschaft|Gesundheit",
+      "tags_it": "Economia|Salute"
     },
     {
       "shortId": "26.4286",
