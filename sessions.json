@@ -510,7 +510,8 @@
       "name_de": "Wintersession 2026",
       "start": "2026-11-30",
       "end": "2026-12-18",
-      "type": "ordinaire"
+      "type": "ordinaire",
+      "code": "5216"
     },
     {
       "id": "2027-printemps",
