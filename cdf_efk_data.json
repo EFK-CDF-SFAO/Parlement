@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-11-25T03:59:08",
+    "updated": "2026-11-25T17:48:20",
     "total_count": 391,
     "source": "Swiss Parliament API",
     "legislature": 52,
@@ -401,11 +401,12 @@
       "author": "Ryser Franziska",
       "party": "VERT-E-S",
       "type": "Ip.",
-      "status": "Eingereicht / Déposé",
+      "status": "Stellungnahme zum Vorstoss liegt vor / L’avis relatif à l’intervention est disponible",
       "council": "NR",
       "department": "UVEK",
       "date": "2026-10-02",
-      "date_maj": "2026-10-02",
+      "date_maj": "2026-11-25",
+      "statut_change_date": "2026-11-25",
       "url_fr": "https://www.parlament.ch/fr/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264681",
       "url_de": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264681",
       "mention": "Élu",
